@@ -362,6 +362,7 @@
     "trade-notification-panel": {
       "disable": "Disable Trade Companion",
       "drag-handle": "Drag this handle to move the Trade Companion",
+      "hideout": "Go to your Hideout",
       "locked": "Locked - Click to unlock",
       "settings": "Open Settings",
       "unlocked": "Unlocked - Click to lock",

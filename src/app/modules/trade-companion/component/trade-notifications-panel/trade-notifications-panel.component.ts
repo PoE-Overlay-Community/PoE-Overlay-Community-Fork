@@ -23,6 +23,7 @@ import { Subject, Subscription } from 'rxjs'
 import { debounceTime, map } from 'rxjs/operators'
 import { WindowService } from '../../../../core/service'
 import { UserSettingsService } from '../../../../layout/service'
+import { CommandService } from '../../../command/service/command.service'
 
 @Component({
   selector: 'app-trade-notifications-panel',
@@ -58,7 +59,8 @@ export class TradeNotificationPanelComponent implements OnInit, OnDestroy, OnCha
     private readonly ref: ChangeDetectorRef,
     private readonly tradeNotificationsService: TradeNotificationsService,
     private readonly userSettingsService: UserSettingsService,
-    private readonly windowService: WindowService
+    private readonly windowService: WindowService,
+    private readonly commandService: CommandService,
   ) {
   }
 
@@ -144,6 +146,10 @@ export class TradeNotificationPanelComponent implements OnInit, OnDestroy, OnCha
     if (this.intersects(bounds, windowBounds)) {
       this.boundsUpdate$.next(bounds)
     }
+  }
+
+  public goToHideout(): void {
+    this.commandService.command('/hideout')
   }
 
   public close(): void {
