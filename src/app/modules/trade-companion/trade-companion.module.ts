@@ -82,6 +82,7 @@ export class TradeCompanionModule implements FeatureModule {
       },
       showStashGridOnInvite: true,
       hideStashGridOnTrade: true,
+      reversedNotificationHorizontalAlignment: false,
       reversedNotificationDirection: false,
       buttonClickAudio: {
         enabled: false,

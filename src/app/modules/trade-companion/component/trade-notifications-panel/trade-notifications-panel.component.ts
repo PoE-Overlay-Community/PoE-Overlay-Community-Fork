@@ -55,6 +55,8 @@ export class TradeNotificationPanelComponent implements OnInit, OnDestroy, OnCha
 
   private notificationAudioClip: HTMLAudioElement
 
+  private offsetX?: number
+
   constructor(
     private readonly ref: ChangeDetectorRef,
     private readonly tradeNotificationsService: TradeNotificationsService,
@@ -126,6 +128,16 @@ export class TradeNotificationPanelComponent implements OnInit, OnDestroy, OnCha
         this.notificationAudioClip = null
       }
     }
+  }
+
+  public calcOffsetX(): number {
+    if (!this.headerRef || !this.settings.reversedNotificationHorizontalAlignment) {
+      return 0
+    }
+    if (!this.offsetX) {
+      this.offsetX = this.headerRef.nativeElement.offsetWidth
+    }
+    return this.offsetX
   }
 
   public calcOffsetY(): number {

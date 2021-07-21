@@ -2,7 +2,9 @@
      *ngIf="settings.tradeCompanionEnabled"
      appResizeDrag
      [ardBounds]="settings.tradeCompanionBounds || gameBounds"
+     [ardReversePosition.x]="settings.reversedNotificationHorizontalAlignment"
      [ardReversePosition.y]="settings.reversedNotificationDirection"
+     [ardOffset.x]="calcOffsetX()"
      [ardOffset.y]="calcOffsetY()"
      [ardAppliedBounds.width]="false"
      [ardAppliedBounds.height]="false"
@@ -10,7 +12,7 @@
      [ardInteractionsDisabled]="locked"
      (ardResizeDragEnd)="onResizeDragEnd($event)"
      [class.movable]="!locked"
-     [class.reversed]="settings.reversedNotificationDirection"
+     [class.reversed-y]="settings.reversedNotificationDirection"
      >
   <div class="header" [appAlphaColor]="['background-color', 'border-color']" [appAlphaColor.alpha]="settings.tradeCompanionOpacity" #header>
     <mat-icon class="clickable" (click)="locked = !locked" matTooltip="{{ 'trade-companion.trade-notification-panel.' + (locked ? 'locked' : 'unlocked') | translate }}">{{ locked ? 'lock' : 'lock_open' }}</mat-icon>

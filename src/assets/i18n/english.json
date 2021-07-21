@@ -324,6 +324,8 @@
     "reset": "Reset",
     "reversed-notification-direction": "Reversed Direction",
     "reversed-notification-direction-description": "Reverse the notification direction to be upwards.",
+    "reversed-notification-h-alignment": "Reversed Horizontal Alignment",
+    "reversed-notification-h-alignment-description": "Reverse the horizontal alignment to be right-to-left.",
     "show-and-highlight-item": "Show & Highlight on Invite",
     "show-and-highlight-item-description": "Show the stash grid and highlight the item when clicking the invite button on an incoming trade notification",
     "stash-grid": {

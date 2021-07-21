@@ -137,6 +137,9 @@
       </mat-form-field>
     </div>
     <div class="col-4">
+      <mat-slide-toggle [checked]="settings.reversedNotificationHorizontalAlignment" (change)="settings.reversedNotificationHorizontalAlignment = $event.checked" matTooltip="{{ 'trade-companion.reversed-notification-h-alignment-description' | translate }}">
+        {{ 'trade-companion.reversed-notification-h-alignment' | translate }}
+      </mat-slide-toggle>
       <mat-slide-toggle [checked]="settings.reversedNotificationDirection" (change)="settings.reversedNotificationDirection = $event.checked" matTooltip="{{ 'trade-companion.reversed-notification-direction-description' | translate }}">
         {{ 'trade-companion.reversed-notification-direction' | translate }}
       </mat-slide-toggle>

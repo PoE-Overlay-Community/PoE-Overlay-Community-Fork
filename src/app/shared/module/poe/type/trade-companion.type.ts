@@ -19,6 +19,7 @@ export interface TradeCompanionUserSettings extends UserSettings {
   stashGridColors: TradeCompanionStashGridColors
   showStashGridOnInvite: boolean
   hideStashGridOnTrade: boolean
+  reversedNotificationHorizontalAlignment: boolean
   reversedNotificationDirection: boolean
   buttonClickAudio: AudioClipSettings
   incomingTradeMessageAudio: AudioClipSettings
