@@ -23,6 +23,15 @@ export interface TradeCompanionUserSettings extends UserSettings {
   reversedNotificationDirection: boolean
   buttonClickAudio: AudioClipSettings
   incomingTradeMessageAudio: AudioClipSettings
+  autoCollapseIncomingTradeNotifications: TradeNotificationAutoCollapseType
+  autoCollapseOutgoingTradeNotifications: TradeNotificationAutoCollapseType
+}
+
+export enum TradeNotificationAutoCollapseType {
+  None = 0,
+  Oldest = 1,
+  Newest = 2,
+  All = 3,
 }
 
 export interface AudioClipSettings {
@@ -93,6 +102,8 @@ export interface TradeNotification {
   offer?: string
   playerInHideout?: boolean
   playerLeftHideout?: boolean
+  defaultCollapsed?: boolean
+  userCollapsed?: boolean
 }
 
 export interface CurrencyAmount {

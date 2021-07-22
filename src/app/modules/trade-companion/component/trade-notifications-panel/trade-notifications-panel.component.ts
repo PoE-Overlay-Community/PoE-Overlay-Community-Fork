@@ -16,6 +16,7 @@ import { TradeNotificationsService } from '@shared/module/poe/service/trade-comp
 import {
   TradeCompanionUserSettings,
   TradeNotification,
+  TradeNotificationAutoCollapseType,
   TradeNotificationType,
 } from '@shared/module/poe/type/trade-companion.type'
 import { Rectangle } from 'electron'
@@ -71,6 +72,7 @@ export class TradeNotificationPanelComponent implements OnInit, OnDestroy, OnCha
       (notification: TradeNotification) => {
         if (this.notifications.indexOf(notification) === -1) {
           this.notifications.push(notification)
+          notification.defaultCollapsed = this.getCollapsed(notification)
           if (notification.type === TradeNotificationType.Incoming) {
             this.notificationAudioClip?.play()
           }
@@ -166,6 +168,35 @@ export class TradeNotificationPanelComponent implements OnInit, OnDestroy, OnCha
 
   public close(): void {
     this.closeClick$.next()
+  }
+
+  public getCollapsed(notification: TradeNotification): boolean {
+    const notifications = this.notifications.filter(x => x.type === notification.type)
+    switch (notification.type) {
+      case TradeNotificationType.Incoming:
+        return getCollapsedInternal(notifications, notification, this.settings.autoCollapseIncomingTradeNotifications)
+      case TradeNotificationType.Outgoing:
+        return getCollapsedInternal(notifications, notification, this.settings.autoCollapseOutgoingTradeNotifications)
+    }
+
+    function getCollapsedInternal(notifications: TradeNotification[], notification: TradeNotification, autoCollapseSetting: TradeNotificationAutoCollapseType): boolean {
+      const index = notifications.indexOf(notification);
+      switch (autoCollapseSetting) {
+        case TradeNotificationAutoCollapseType.All:
+          return true
+        case TradeNotificationAutoCollapseType.Newest:
+          return index > 0
+        case TradeNotificationAutoCollapseType.Oldest:
+          if (index > 0) {
+            const prevNotification = notifications[index - 1]
+            if (prevNotification) {
+              prevNotification.defaultCollapsed = true
+            }
+          }
+          break
+      }
+      return false
+    }
   }
 
   public onDismissNotification(notification: TradeNotification): void {

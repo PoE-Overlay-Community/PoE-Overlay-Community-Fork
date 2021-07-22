@@ -298,6 +298,16 @@
       "volume": "Volume"
     },
     "audio-options": "Audio Options",
+    "auto-collapse": {
+      "all": "Always collapse",
+      "all-description": "",
+      "newest": "Collapse newest",
+      "newest-description": "Collapse new trade messages; i.e. keeps the first/oldest trade message expanded.",
+      "none": "No collapsing",
+      "none-description": "",
+      "oldest": "Collapse oldest",
+      "oldest-description": "Collapse old trade messages; i.e. keeps the newest trade message expanded."
+    },
     "edit-stash-grid": {
       "normal": "Edit Normal stash grid",
       "quad": "Edit Quad stash grid"
@@ -316,6 +326,7 @@
     "incoming-trade-options": "Incoming Trade Options",
     "max-visible-notifications": "Max. visible Notifications",
     "name": "Trade Companion",
+    "notification-collapsing": "Notification Collapsing",
     "outgoing-trade-options": "Outgoing Trade Options",
     "preview-stash-grid": {
       "normal": "Preview Normal stash grid",

@@ -153,28 +153,54 @@
     </div>
   </div>
 </app-card>
-<ng-container *ngTemplateOutlet="
+<app-card [title]="'trade-companion.incoming-trade-options' | translate">
+  <div class="row">
+    <div class="col-2">
+      <mat-form-field>
+        <mat-label>{{ 'trade-companion.notification-collapsing' | translate }}</mat-label>
+        <mat-select [(value)]="settings.autoCollapseIncomingTradeNotifications">
+          <mat-option *ngFor="let collapseType of autoCollapseTypes.keys" [value]="collapseType" matTooltip="{{ ('trade-companion.auto-collapse.' + (autoCollapseTypes.values[collapseType] | lowercase) + '-description') | translate }}">
+            {{ 'trade-companion.auto-collapse.' + (autoCollapseTypes.values[collapseType] | lowercase) | translate }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+  <ng-container *ngTemplateOutlet="
   tradeOptionsTemplate;
   context: {
-    title: 'incoming-trade-options',
     kickOrLeaveKey: 'kick',
     tradeOptions: settings.incomingTradeOptions,
     addClick: onAddIncomingTradeOptionClick.bind(this),
     removeClick: onRemoveIncomingTradeOptionClick.bind(this)
   }
   ">
-</ng-container>
-<ng-container *ngTemplateOutlet="
+  </ng-container>
+</app-card>
+<app-card [title]="'trade-companion.outgoing-trade-options' | translate">
+  <div class="row">
+    <div class="col-2">
+      <mat-form-field>
+        <mat-label>{{ 'trade-companion.notification-collapsing' | translate }}</mat-label>
+        <mat-select [(value)]="settings.autoCollapseOutgoingTradeNotifications">
+          <mat-option *ngFor="let collapseType of autoCollapseTypes.keys" [value]="collapseType" matTooltip="{{ ('trade-companion.auto-collapse.' + (autoCollapseTypes.values[collapseType] | lowercase) + '-description') | translate }}">
+            {{ 'trade-companion.auto-collapse.' + (autoCollapseTypes.values[collapseType] | lowercase) | translate }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+  <ng-container *ngTemplateOutlet="
   tradeOptionsTemplate;
   context: {
-    title: 'outgoing-trade-options',
     kickOrLeaveKey: 'leave',
     tradeOptions: settings.outgoingTradeOptions,
     addClick: onAddOutgoingTradeOptionClick.bind(this),
     removeClick: onRemoveOutgoingTradeOptionClick.bind(this)
   }
   ">
-</ng-container>
+  </ng-container>
+</app-card>
 <app-card [title]="'trade-companion.audio-options' | translate">
   <div class="row">
     <ng-container *ngTemplateOutlet="
@@ -199,51 +225,49 @@
 </app-card>
 
 <!-- Templates -->
-<ng-template #tradeOptionsTemplate let-title="title" let-kickOrLeaveKey="kickOrLeaveKey" let-tradeOptions="tradeOptions" let-addClick="addClick" let-removeClick="removeClick">
-  <app-card [title]="('trade-companion.' + title) | translate">
-    <div class="row">
-      <div class="col-md-6 col-lg-4" *ngFor="let tradeOption of tradeOptions; let index = index">
-        <mat-card class="card">
-          <button class="remove" mat-icon-button (click)="removeClick(index)">
-            <mat-icon>close</mat-icon>
-          </button>
-          <div class="row">
-            <div class="col">
-              <mat-form-field>
-                <mat-label>{{ 'trade-companion.trade-option.button' | translate }}</mat-label>
-                <input matInput [(ngModel)]="tradeOption.buttonLabel" />
-              </mat-form-field>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col">
-              <mat-form-field>
-                <mat-label>{{ 'trade-companion.trade-option.whisper' | translate }}</mat-label>
-                <input matInput [(ngModel)]="tradeOption.whisperMessage" />
-              </mat-form-field>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-4">
-              <mat-slide-toggle [checked]="tradeOption.kickAfterWhisper" (change)="tradeOption.kickAfterWhisper = $event.checked">
-                {{ 'trade-companion.trade-option.' + kickOrLeaveKey | translate }}
-              </mat-slide-toggle>
-            </div>
-            <div class="col-8 text-right">
-              <mat-slide-toggle [checked]="tradeOption.dismissNotification" (change)="tradeOption.dismissNotification = $event.checked">
-                {{ 'trade-companion.trade-option.dismiss' | translate }}
-              </mat-slide-toggle>
-            </div>
-          </div>
-        </mat-card>
-      </div>
-      <div class="col-md-6 col-lg-4">
-        <button mat-raised-button (click)="addClick()" class="card-button">
-          {{ 'trade-companion.trade-option.add' | translate }}
+<ng-template #tradeOptionsTemplate let-kickOrLeaveKey="kickOrLeaveKey" let-tradeOptions="tradeOptions" let-addClick="addClick" let-removeClick="removeClick">
+  <div class="row">
+    <div class="col-md-6 col-lg-4" *ngFor="let tradeOption of tradeOptions; let index = index">
+      <mat-card class="card">
+        <button class="remove" mat-icon-button (click)="removeClick(index)">
+          <mat-icon>close</mat-icon>
         </button>
-      </div>
+        <div class="row">
+          <div class="col">
+            <mat-form-field>
+              <mat-label>{{ 'trade-companion.trade-option.button' | translate }}</mat-label>
+              <input matInput [(ngModel)]="tradeOption.buttonLabel" />
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <mat-form-field>
+              <mat-label>{{ 'trade-companion.trade-option.whisper' | translate }}</mat-label>
+              <input matInput [(ngModel)]="tradeOption.whisperMessage" />
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-4">
+            <mat-slide-toggle [checked]="tradeOption.kickAfterWhisper" (change)="tradeOption.kickAfterWhisper = $event.checked">
+              {{ 'trade-companion.trade-option.' + kickOrLeaveKey | translate }}
+            </mat-slide-toggle>
+          </div>
+          <div class="col-8 text-right">
+            <mat-slide-toggle [checked]="tradeOption.dismissNotification" (change)="tradeOption.dismissNotification = $event.checked">
+              {{ 'trade-companion.trade-option.dismiss' | translate }}
+            </mat-slide-toggle>
+          </div>
+        </div>
+      </mat-card>
     </div>
-  </app-card>
+    <div class="col-md-6 col-lg-4">
+      <button mat-raised-button (click)="addClick()" class="card-button">
+        {{ 'trade-companion.trade-option.add' | translate }}
+      </button>
+    </div>
+  </div>
 </ng-template>
 <ng-template #colorPickerTemplate let-label="label" let-color="color" let-side="side">
   <mat-form-field>

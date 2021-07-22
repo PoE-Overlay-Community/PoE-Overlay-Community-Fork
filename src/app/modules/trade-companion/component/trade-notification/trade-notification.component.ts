@@ -53,7 +53,12 @@ export class TradeNotificationComponent implements OnInit, OnDestroy, OnChanges 
   // Make the enum available in the html
   public TradeNotificationType = TradeNotificationType
 
-  public collapsed = false
+  public get collapsed(): boolean {
+    if (this.notification.userCollapsed === undefined) {
+      return this.notification.defaultCollapsed
+    }
+    return this.notification.userCollapsed
+  }
 
   public elapsedTime = '0s'
 
@@ -145,7 +150,11 @@ export class TradeNotificationComponent implements OnInit, OnDestroy, OnChanges 
 
   public toggleCollapsedClick(): void {
     this.buttonClickAudioClip?.play()
-    this.collapsed = !this.collapsed
+    if (this.notification.userCollapsed === undefined) {
+      this.notification.userCollapsed = !this.notification.defaultCollapsed
+    } else {
+      this.notification.userCollapsed = !this.notification.userCollapsed
+    }
   }
 
   public visitPlayerHideoutClick(): void {
