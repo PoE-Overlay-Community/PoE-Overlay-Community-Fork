@@ -3,6 +3,8 @@ import { Rectangle } from '@app/type'
 import { UserSettings } from 'src/app/layout/type'
 import { Currency } from './currency.type'
 
+export const TradeNotificationPanelShortcutRef = 'trade-notifications-panel'
+
 export type EnumDictionary<T extends string | symbol | number, U> = {
   [K in T]: U
 }
@@ -12,8 +14,8 @@ export interface TradeCompanionUserSettings extends UserSettings {
   tradeCompanionOpacity: number
   tradeCompanionBounds?: Rectangle
   maxVisibileTradeNotifications: number
-  incomingTradeOptions: TradeCompanionOption[]
-  outgoingTradeOptions: TradeCompanionOption[]
+  incomingTradeOptions: TradeCompanionButtonOption[]
+  outgoingTradeOptions: TradeCompanionButtonOption[]
   stashGridBounds: Rectangle[]
   stashGrids: Map<string, StashGridType>
   stashGridColors: TradeCompanionStashGridColors
@@ -25,6 +27,27 @@ export interface TradeCompanionUserSettings extends UserSettings {
   incomingTradeMessageAudio: AudioClipSettings
   autoCollapseIncomingTradeNotifications: TradeNotificationAutoCollapseType
   autoCollapseOutgoingTradeNotifications: TradeNotificationAutoCollapseType
+  tradeNotificationKeybindings: TradeNotificationKeybindings
+  activeTradeNotificationBorderColor: Color
+}
+
+export interface TradeNotificationKeybindings {
+  // General
+  activateNextTradeNotification?: string
+  activatePreviousTradeNotification?: string
+  dismiss?: string
+  collapse?: string
+  whisper?: string
+  // Incoming
+  inviteToParty?: string
+  offerTrade?: string
+  kickFromParty?: string
+  askStillInterested?: string
+  // Outgoing
+  joinHideout?: string
+  leaveParty?: string
+  whois?: string
+  repeatWhisper?: string
 }
 
 export enum TradeNotificationAutoCollapseType {
@@ -48,7 +71,7 @@ export interface TradeCompanionStashGridColors {
   highlightBackground: Color
 }
 
-export interface TradeCompanionOption {
+export interface TradeCompanionButtonOption {
   buttonLabel: string
   whisperMessage: string
   kickAfterWhisper: boolean

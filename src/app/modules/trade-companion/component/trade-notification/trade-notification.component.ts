@@ -11,6 +11,7 @@ import {
     SimpleChanges
 } from '@angular/core'
 import { MatTooltipDefaultOptions, MAT_TOOLTIP_DEFAULT_OPTIONS } from '@angular/material/tooltip'
+import { ColorUtils } from '@app/class'
 import { AppTranslateService } from '@app/service'
 import { CommandService } from '@modules/command/service/command.service'
 import { SnackBarService } from '@shared/module/material/service'
@@ -19,7 +20,7 @@ import { TradeCompanionStashGridService } from '@shared/module/poe/service/trade
 import {
     CurrencyAmount,
     StashGridMode,
-    TradeCompanionOption,
+    TradeCompanionButtonOption,
     TradeCompanionUserSettings,
     TradeNotification,
     TradeNotificationType
@@ -47,11 +48,22 @@ export class TradeNotificationComponent implements OnInit, OnDestroy, OnChanges 
   @Input()
   public notification: TradeNotification
 
+  @Input()
+  public isActiveTradeNotification: boolean
+
   @Output()
   public dismissNotification = new EventEmitter<TradeNotification>()
 
+  @Output()
+  public collapseClick = new EventEmitter<TradeNotification>()
+
+  @Output()
+  public playerNameClick = new EventEmitter<TradeNotification>()
+
   // Make the enum available in the html
-  public TradeNotificationType = TradeNotificationType
+  public readonly TradeNotificationType = TradeNotificationType
+
+  public readonly ColorUtils = ColorUtils
 
   public get collapsed(): boolean {
     if (this.notification.userCollapsed === undefined) {
@@ -155,6 +167,7 @@ export class TradeNotificationComponent implements OnInit, OnDestroy, OnChanges 
     } else {
       this.notification.userCollapsed = !this.notification.userCollapsed
     }
+    this.collapseClick.emit(this.notification)
   }
 
   public visitPlayerHideoutClick(): void {
@@ -231,7 +244,7 @@ export class TradeNotificationComponent implements OnInit, OnDestroy, OnChanges 
     this.toggleItemHighlight()
   }
 
-  public tradeOptionClick(tradeOption: TradeCompanionOption): void {
+  public tradeOptionClick(tradeOption: TradeCompanionButtonOption): void {
     this.buttonClickAudioClip?.play()
     this.commandService.command(`@${this.notification.playerName} ${tradeOption.whisperMessage}`)
     if (tradeOption.kickAfterWhisper) {

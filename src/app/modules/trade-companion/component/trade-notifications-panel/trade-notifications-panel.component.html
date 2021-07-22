@@ -23,7 +23,13 @@
   </div>
   <div class="notifications">
     <ng-container *ngFor="let notification of notifications; let index=index">
-      <app-trade-notification *ngIf="index < settings.maxVisibileTradeNotifications" [notification]="notification" [settings]="settings" (dismissNotification)="onDismissNotification($event)">
+      <app-trade-notification *ngIf="index < settings.maxVisibileTradeNotifications"
+                              [notification]="notification"
+                              [settings]="settings"
+                              [isActiveTradeNotification]="index == activeTradeNotificationIndex"
+                              (dismissNotification)="onDismissNotification($event)"
+                              (playerNameClick)="onPlayerNameClick($event)"
+                              (collapseClick)="onCollapseClick($event)">
       </app-trade-notification>
     </ng-container>
   </div>

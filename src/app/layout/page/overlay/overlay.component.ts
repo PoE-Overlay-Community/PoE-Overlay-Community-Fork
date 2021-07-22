@@ -19,10 +19,11 @@ import { BehaviorSubject, EMPTY, forkJoin, Observable, timer } from 'rxjs'
 import { debounce, distinctUntilChanged, flatMap, map, tap } from 'rxjs/operators'
 import { PoEAccountService } from '../../../shared/module/poe/service/account/account.service'
 import { TradeNotificationsService } from '../../../shared/module/poe/service/trade-companion/trade-notifications.service'
+import { TradeNotificationPanelShortcutRef } from '../../../shared/module/poe/type/trade-companion.type'
 import { UserSettingsService } from '../../service'
 import { UserSettings } from '../../type'
 
-const overlayCompRef = 'overlay-component'
+const OverlayCompRef = 'overlay-component'
 
 @Component({
   selector: 'app-overlay',
@@ -174,7 +175,8 @@ export class OverlayComponent implements OnInit, OnDestroy {
     this.dialogRef.reset()
     this.accountService.unregister()
     this.stashService.unregister()
-    this.shortcut.removeAllByRef(overlayCompRef)
+    this.shortcut.removeAllByRef(OverlayCompRef)
+    this.shortcut.removeAllByRef(TradeNotificationPanelShortcutRef)
   }
 
   private register(settings: UserSettings): void {
@@ -194,7 +196,7 @@ export class OverlayComponent implements OnInit, OnDestroy {
           this.shortcut
             .add(
               feature.accelerator,
-              overlayCompRef,
+              OverlayCompRef,
               !!feature.passive,
               VisibleFlag.Game,
               VisibleFlag.Overlay
@@ -212,7 +214,7 @@ export class OverlayComponent implements OnInit, OnDestroy {
       this.shortcut
         .add(
           settings.openUserSettingsKeybinding,
-          overlayCompRef,
+          OverlayCompRef,
           false,
           VisibleFlag.Game,
           VisibleFlag.Overlay
@@ -223,7 +225,7 @@ export class OverlayComponent implements OnInit, OnDestroy {
       this.shortcut
         .add(
           settings.exitAppKeybinding,
-          overlayCompRef,
+          OverlayCompRef,
           false,
           VisibleFlag.Game,
           VisibleFlag.Overlay

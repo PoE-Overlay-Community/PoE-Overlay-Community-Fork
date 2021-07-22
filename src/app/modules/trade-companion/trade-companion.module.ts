@@ -94,6 +94,8 @@ export class TradeCompanionModule implements FeatureModule {
       },
       autoCollapseIncomingTradeNotifications: TradeNotificationAutoCollapseType.None,
       autoCollapseOutgoingTradeNotifications: TradeNotificationAutoCollapseType.None,
+      tradeNotificationKeybindings: {},
+      activeTradeNotificationBorderColor: Colors.yellow,
     }
     return {
       name: 'trade-companion.name',

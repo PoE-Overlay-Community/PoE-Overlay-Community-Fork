@@ -1,10 +1,16 @@
-<div class="notifciation" [appAlphaColor]="['border-color']" [appAlphaColor.alpha]="settings.tradeCompanionOpacity">
+<div class="notifciation" [appAlphaColor]="['border-color']" [appAlphaColor.alpha]="settings.tradeCompanionOpacity" [ngStyle]="{'border-color': isActiveTradeNotification ? ColorUtils.toRGBA(settings.activeTradeNotificationBorderColor) : '#000'}">
   <div class="header" [appAlphaColor]="['background-color']" [appAlphaColor.alpha]="settings.tradeCompanionOpacity">
     <mat-icon *ngIf="collapsed; else notCollapsed" class="collapse clickable" (click)="toggleCollapsedClick()" matTooltip="{{ 'trade-companion.trade-notification.expand' | translate }}">keyboard_arrow_right</mat-icon>
     <ng-template #notCollapsed>
       <mat-icon class="collapse clickable" (click)="toggleCollapsedClick()" matTooltip="{{ 'trade-companion.trade-notification.collapse' | translate }}">keyboard_arrow_down</mat-icon>
     </ng-template>
-    <div class="playerName" [class.joinedHideout]="notification.playerInHideout" [class.leftHideout]="notification.playerLeftHideout" matTooltip="{{ notification.playerName }}">{{ notification.playerName }}</div>
+    <div class="playerName clickable"
+         [class.joinedHideout]="notification.playerInHideout"
+         [class.leftHideout]="notification.playerLeftHideout"
+         matTooltip="{{ notification.playerName }}"
+         (click)="playerNameClick.emit(notification)">
+      {{ notification.playerName }}
+    </div>
     <ng-container [ngSwitch]="notification.type">
       <ng-container *ngSwitchCase="TradeNotificationType.Incoming">
         <mat-icon class="incomingArrow" matTooltip="{{ 'trade-companion.trade-notification.incoming-trade' | translate }}">forward</mat-icon>
