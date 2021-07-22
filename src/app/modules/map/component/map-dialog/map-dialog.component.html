@@ -7,11 +7,11 @@
     [opacity]="data.settings.dialogOpacity"
   >
     <ng-container ngProjectAs="properties">
-      <div [matTooltip]="'map.layout-rating-info' | translate">
+      <div matTooltip="{{ 'map.layout-rating-info' | translate }}">
         {{ 'map.layout-rating' | translate }}:
         <span class="white">{{ (map || {}).layoutRating || '-' }}</span>
       </div>
-      <div [matTooltip]="'map.boss-rating-info' | translate">
+      <div matTooltip="{{ 'map.boss-rating-info' | translate }}">
         {{ 'map.boss-rating' | translate }}:
         <span class="white">{{ (map || {}).bossRating || '-' }}/5</span>
       </div>
@@ -29,18 +29,18 @@
             <span [innerHtml]="nl2br(map.layout)"></span>
           </mat-expansion-panel>
           <app-item-frame-separator [item]="data.item"
-                                    *ngIf="map.bossCount > 0 || (map.bosses && map.bosses.length > 0) || map.encounter || (map.items && map.items.length > 0) || map.url">
+                                    *ngIf="map.bossCount || map.bosses?.length || map.encounter || map.items?.length || map.url">
           </app-item-frame-separator>
         </ng-container>
-        <ng-container *ngIf="map.bossCount > 0 || (map.bosses && map.bosses.length > 0)">
+        <ng-container *ngIf="map.bossCount || map.bosses?.length">
           <div class="description">
             <div class="light-grey" *ngIf="(map.bossCount || map.bosses.length) <= 1">{{ 'map.map-boss' | translate }}</div>
             <div class="light-grey" *ngIf="(map.bossCount || map.bosses.length) > 1">{{ 'map.map-bosses' | translate }} ({{ map.bossCount }})</div>
-            <ul class="bosses" *ngIf="map.bosses && map.bosses.length > 0">
+            <ul class="bosses" *ngIf="map.bosses?.length">
               <li *ngFor="let boss of map.bosses">{{ boss }}</li>
             </ul>
             <app-item-frame-separator [item]="data.item"
-                                      *ngIf="map.encounter || (map.items && map.items.length > 0) || map.url">
+                                      *ngIf="map.encounter || map.items?.length || map.url">
             </app-item-frame-separator>
           </div>
         </ng-container>
@@ -51,10 +51,10 @@
             </mat-expansion-panel-header>
             <span [innerHtml]="nl2br(map.encounter)"></span>
           </mat-expansion-panel>
-          <app-item-frame-separator [item]="data.item" *ngIf="(map.items && map.items.length > 0) || map.url">
+          <app-item-frame-separator [item]="data.item" *ngIf="map.items?.length || map.url">
           </app-item-frame-separator>
         </ng-container>
-        <ng-container *ngIf="map.items && map.items.length > 0">
+        <ng-container *ngIf="map.items?.length">
           <div>
             <span *ngFor="let item of map.items; let last = last">
               <span [class.light-grey]="(data.item.properties.areaLevel.value.value) > item.dropLevel">{{ item.item }} (Lv {{ item.dropLevel }})</span><span *ngIf="!last">, </span>
