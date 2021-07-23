@@ -37,10 +37,10 @@ export interface TradeNotificationKeybindings {
   activatePreviousTradeNotification?: string
   dismiss?: string
   collapse?: string
+  offerTrade?: string
   whisper?: string
   // Incoming
   inviteToParty?: string
-  offerTrade?: string
   kickFromParty?: string
   askStillInterested?: string
   // Outgoing
@@ -76,6 +76,7 @@ export interface TradeCompanionButtonOption {
   whisperMessage: string
   kickAfterWhisper: boolean
   dismissNotification: boolean
+  keybinding?: string
 }
 
 export enum StashGridType {

@@ -171,18 +171,24 @@
                        matTooltip="{{ 'trade-companion.trade-notification.keybindings.activate-previous-description' | translate }}">
       </app-accelerator>
     </div>
-  </div>
-  <div class="row">
     <div class="col-4">
       <app-accelerator [label]="'trade-companion.trade-notification.keybindings.dismiss' | translate"
                        [(value)]="settings.tradeNotificationKeybindings.dismiss"
                        matTooltip="{{ 'trade-companion.trade-notification.keybindings.dismiss-description' | translate }}">
       </app-accelerator>
     </div>
+  </div>
+  <div class="row">
     <div class="col-4">
       <app-accelerator [label]="'trade-companion.trade-notification.keybindings.collapse' | translate"
                        [(value)]="settings.tradeNotificationKeybindings.collapse"
                        matTooltip="{{ 'trade-companion.trade-notification.keybindings.collapse-description' | translate }}">
+      </app-accelerator>
+    </div>
+    <div class="col-4">
+      <app-accelerator [label]="'trade-companion.trade-notification.keybindings.offer-trade' | translate"
+                       [(value)]="settings.tradeNotificationKeybindings.offerTrade"
+                       matTooltip="{{ 'trade-companion.trade-notification.keybindings.offer-trade-description' | translate }}">
       </app-accelerator>
     </div>
     <div class="col-4">
@@ -209,25 +215,19 @@
       </app-accelerator>
     </div>
     <div class="col-4">
-      <app-accelerator [label]="'trade-companion.trade-notification.keybindings.offer-trade' | translate"
-                       [(value)]="settings.tradeNotificationKeybindings.offerTrade"
-                       matTooltip="{{ 'trade-companion.trade-notification.keybindings.offer-trade-description' | translate }}">
-      </app-accelerator>
-    </div>
-    <div class="col-4">
       <app-accelerator [label]="'trade-companion.trade-notification.keybindings.kick-from-party' | translate"
                        [(value)]="settings.tradeNotificationKeybindings.kickFromParty"
                        matTooltip="{{ 'trade-companion.trade-notification.keybindings.kick-from-party-description' | translate }}">
       </app-accelerator>
     </div>
-  </div>
-  <div class="row">
     <div class="col-4">
       <app-accelerator [label]="'trade-companion.trade-notification.keybindings.ask-still-interested' | translate"
                        [(value)]="settings.tradeNotificationKeybindings.askStillInterested"
                        matTooltip="{{ 'trade-companion.trade-notification.keybindings.ask-still-interested-description' | translate }}">
       </app-accelerator>
     </div>
+  </div>
+  <div class="row">
     <div class="col-2">
       <mat-form-field>
         <mat-label>{{ 'trade-companion.notification-collapsing' | translate }}</mat-label>
@@ -345,6 +345,14 @@
               <mat-label>{{ 'trade-companion.trade-option.whisper' | translate }}</mat-label>
               <input matInput [(ngModel)]="tradeOption.whisperMessage" />
             </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <app-accelerator [label]="'trade-companion.trade-option.shortcut' | translate"
+                             [(value)]="tradeOption.keybinding"
+                             matTooltip="{{ 'trade-companion.trade-option.shortcut-description' | translate }}">
+            </app-accelerator>
           </div>
         </div>
         <div class="row">

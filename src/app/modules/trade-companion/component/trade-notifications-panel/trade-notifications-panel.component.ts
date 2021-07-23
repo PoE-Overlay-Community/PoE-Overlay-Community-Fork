@@ -319,12 +319,18 @@ export class TradeNotificationPanelComponent implements OnInit, AfterViewInit, O
     this.tryEnableShortcut(keybindings.offerTrade, () => { if (this.activeNotification.type === TradeNotificationType.Incoming) this.activeNotificationComp?.requestTradeClick() })
     this.tryEnableShortcut(keybindings.kickFromParty, () => { if (this.activeNotification.type === TradeNotificationType.Incoming) this.activeNotificationComp?.kickFromPartyClick() })
     this.tryEnableShortcut(keybindings.askStillInterested, () => { if (this.activeNotification.type === TradeNotificationType.Incoming) this.activeNotificationComp?.askStillInterestedClick() })
+    this.settings.incomingTradeOptions.forEach(x => this.tryEnableShortcut(x.keybinding, () => {
+      if (this.activeNotification.type === TradeNotificationType.Incoming) this.activeNotificationComp?.tradeOptionClick(x)
+    }))
 
     // Outgoing Trade Notifications
     this.tryEnableShortcut(keybindings.joinHideout, () => { if (this.activeNotification.type === TradeNotificationType.Outgoing) this.activeNotificationComp?.visitPlayerHideoutClick() })
     this.tryEnableShortcut(keybindings.leaveParty, () => { if (this.activeNotification.type === TradeNotificationType.Outgoing) this.activeNotificationComp?.leavePartyClick() })
     this.tryEnableShortcut(keybindings.whois, () => { if (this.activeNotification.type === TradeNotificationType.Outgoing) this.activeNotificationComp?.whoisClick() })
     this.tryEnableShortcut(keybindings.repeatWhisper, () => { if (this.activeNotification.type === TradeNotificationType.Outgoing) this.activeNotificationComp?.repeatTradeWhisperClick() })
+    this.settings.outgoingTradeOptions.forEach(x => this.tryEnableShortcut(x.keybinding, () => {
+      if (this.activeNotification.type === TradeNotificationType.Outgoing) this.activeNotificationComp?.tradeOptionClick(x)
+    }))
   }
 
   private tryEnableShortcut(keybind?: string, onShortcutPressed?: () => void): void {

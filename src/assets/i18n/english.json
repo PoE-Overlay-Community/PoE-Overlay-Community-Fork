@@ -415,6 +415,8 @@
       "add": "Add Trade Option",
       "button": "Button Label",
       "dismiss": "Dismiss Notification",
+      "shortcut": "Shortcut",
+      "shortcut-description": "Keybinding to send this whisper message to the player (of the active Trade Notification)",
       "kick": "Kick",
       "leave": "Leave",
       "whisper": "Whisper Message"
