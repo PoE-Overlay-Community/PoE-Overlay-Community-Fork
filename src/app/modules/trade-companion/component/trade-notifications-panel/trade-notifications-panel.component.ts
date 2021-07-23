@@ -215,7 +215,7 @@ export class TradeNotificationPanelComponent implements OnInit, AfterViewInit, O
   }
 
   public goToHideout(): void {
-    this.commandService.command('/hideout')
+    this.commandService.command('/hideout', this.settings)
   }
 
   public close(): void {

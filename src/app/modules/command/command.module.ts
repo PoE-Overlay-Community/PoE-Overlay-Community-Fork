@@ -2,7 +2,7 @@ import { NgModule, Injectable } from '@angular/core'
 import { FEATURE_MODULES } from '@app/token'
 import { Feature, FeatureModule } from '@app/type'
 import { SharedModule } from '@shared/shared.module'
-import { UserSettingsFeature } from 'src/app/layout/type'
+import { UserSettings, UserSettingsFeature } from 'src/app/layout/type'
 import { CommandSettingsComponent, CommandUserSettings } from './component'
 import { CommandService } from './service/command.service'
 
@@ -47,7 +47,7 @@ export class CommandModule implements FeatureModule {
       })
   }
 
-  public run(feature: string): void {
-    this.commandService.command(feature)
+  public run(feature: string, settings: UserSettings): void {
+    this.commandService.command(feature, settings, true)
   }
 }
