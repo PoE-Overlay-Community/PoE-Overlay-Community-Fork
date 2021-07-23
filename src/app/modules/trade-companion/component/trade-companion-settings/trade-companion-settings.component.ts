@@ -6,6 +6,7 @@ import { TradeCompanionStashGridService } from '@shared/module/poe/service/trade
 import { TradeNotificationsService } from '@shared/module/poe/service/trade-companion/trade-notifications.service'
 import {
     AudioClipSettings,
+    DefaultAskIfStillInterestedMessage,
     ExampleNotificationType,
     StashGridMode,
     StashGridType,
@@ -86,6 +87,10 @@ export class TradeCompanionSettingsComponent implements UserSettingsComponent, O
     const bounds = this.window.getOffsettedGameBounds()
     bounds.width = bounds.height = 0
     this.settings.tradeCompanionBounds = bounds
+  }
+
+  public onResetAreYouStillInterestedMessageClick(): void {
+    this.settings.askIfStillInterestedMessage = DefaultAskIfStillInterestedMessage
   }
 
   public onEditStashGridClick(gridType: StashGridType): void {

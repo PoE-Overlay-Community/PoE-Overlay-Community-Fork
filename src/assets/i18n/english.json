@@ -23,7 +23,8 @@
   "command": {
     "add": "Add Command",
     "name": "Commands",
-    "text": "Command"
+    "text": "Command",
+    "text-description": "The message to send when pressing the shortcut.\n\nPlaceholders (use without quotes):\n'@me' = Your active character name (Note: only work when logged in)\n'@last' = The character name of the last player that whispered you"
   },
   "evaluate": {
     "age": "Age",
@@ -287,6 +288,9 @@
     "zoom": "Zoom"
   },
   "trade-companion": {
+    "ask-if-still-interested-message": "Ask if still interested Message",
+    "ask-if-still-interested-message-description": "The message that'll be sent to the trader when using the 'Ask if still interested' button (or shortcut)\n\nPlaceholders (use without the quotes):\n'@item' = The item requested by the trader (e.g. 'Header Hunter' or '3 Exalted Orb')\n'@price' = The price offered by the trader (e.g. '25 Chaos Orb')",
+    "ask-if-still-interested-message-reset-description": "Reset the 'Ask if still interested Message' to the default message",
     "active-notification-border-color": "Active Border Color",
     "active-notification-border-color-description": "The Border Color for the currently active Trade Notifications (which'll accept shortcut inputs)",
     "audio": {

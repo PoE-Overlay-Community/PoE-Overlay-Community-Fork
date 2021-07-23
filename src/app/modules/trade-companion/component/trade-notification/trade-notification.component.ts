@@ -233,9 +233,10 @@ export class TradeNotificationComponent implements OnInit, OnDestroy, OnChanges 
       const currencyAmount = this.notification.item as CurrencyAmount
       item = `${currencyAmount.amount} ${currencyAmount.currency.nameType}`
     }
-    // TODO: Translate?
+    const command = `@${this.notification.playerName} ${this.settings.askIfStillInterestedMessage}`
     this.commandService.command(
-      `@${this.notification.playerName} Hi, are you still interested in ${item} for ${this.notification.price.amount} ${this.notification.price.currency.nameType}?`, this.settings
+      command.replace('@item', item).replace('@price', `${this.notification.price.amount} ${this.notification.price.currency.nameType}`),
+      this.settings
     )
   }
 

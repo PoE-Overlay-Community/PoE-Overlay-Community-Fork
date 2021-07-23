@@ -106,4 +106,17 @@ mat-card {
 .mat-tooltip {
   background-color: rgb(35, 35, 35);
   font-size: 14px;
+  white-space: pre-line;
+
+  &.width-400 {
+    max-width: 400px;
+  }
+
+  &.width-500 {
+    max-width: 500px;
+  }
+
+  &.width-600 {
+    max-width: 600px;
+  }
 }

@@ -238,6 +238,19 @@
         </mat-select>
       </mat-form-field>
     </div>
+    <div class="col-6">
+      <mat-form-field matTooltip="{{ 'trade-companion.ask-if-still-interested-message-description' | translate }}"
+                      matTooltipClass="mat-tooltip width-600">
+        <mat-label>{{ 'trade-companion.ask-if-still-interested-message' | translate }}</mat-label>
+        <input matInput [(ngModel)]="settings.askIfStillInterestedMessage" />
+      </mat-form-field>
+    </div>
+    <div class="col-1">
+      <button mat-raised-button (click)="onResetAreYouStillInterestedMessageClick()"
+              matTooltip="{{ 'trade-companion.ask-if-still-interested-message-reset-description' | translate }}">
+        {{ 'trade-companion.reset' | translate }}
+      </button>
+    </div>
   </div>
   <ng-container *ngTemplateOutlet="
     tradeOptionsTemplate;

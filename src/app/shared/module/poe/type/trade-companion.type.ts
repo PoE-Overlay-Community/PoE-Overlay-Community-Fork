@@ -5,6 +5,8 @@ import { Currency } from './currency.type'
 
 export const TradeNotificationPanelShortcutRef = 'trade-notifications-panel'
 
+export const DefaultAskIfStillInterestedMessage = 'Hi, are you still interested in @item for @price?'
+
 export type EnumDictionary<T extends string | symbol | number, U> = {
   [K in T]: U
 }
@@ -29,6 +31,7 @@ export interface TradeCompanionUserSettings extends UserSettings {
   autoCollapseOutgoingTradeNotifications: TradeNotificationAutoCollapseType
   tradeNotificationKeybindings: TradeNotificationKeybindings
   activeTradeNotificationBorderColor: Color
+  askIfStillInterestedMessage: string
 }
 
 export interface TradeNotificationKeybindings {
