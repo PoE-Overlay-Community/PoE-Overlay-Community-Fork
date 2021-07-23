@@ -109,6 +109,7 @@ export enum ItemCategory {
   HeistMission = 'heistmission',
   HeistContract = 'heistmission.contract',
   HeistBlueprint = 'heistmission.blueprint',
+  ExpeditionLogbook = 'logbook',
   Currency = 'currency',
   CurrencyPiece = 'currency.piece',
   CurrencyResonator = 'currency.resonator',
@@ -152,6 +153,7 @@ export interface ItemProperties {
   armourArmour?: ItemValueProperty
   armourEvasionRating?: ItemValueProperty
   armourEnergyShield?: ItemValueProperty
+  armourWard?: ItemValueProperty
   stackSize?: ItemValueProperty
   gemLevel?: ItemValueProperty
   gemQualityType?: ItemGemQualityType

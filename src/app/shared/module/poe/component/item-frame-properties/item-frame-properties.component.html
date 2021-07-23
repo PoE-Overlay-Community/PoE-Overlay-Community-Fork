@@ -99,6 +99,19 @@
         ">
       </ng-container>
     </ng-container>
+    <ng-container *ngSwitchCase="'armourWard'">
+      <ng-container *ngTemplateOutlet="
+          value;
+          context: {
+            prop: prop,
+            name: property,
+            key: 'ItemDisplayArmourWard',
+            range: true,
+            disabled: !isArmour
+          }
+        ">
+      </ng-container>
+    </ng-container>
     <ng-container *ngSwitchCase="'stackSize'">
       <ng-container *ngTemplateOutlet="
           staticRange;

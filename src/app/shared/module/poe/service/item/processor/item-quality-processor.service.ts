@@ -35,6 +35,23 @@ export class ItemQualityProcessorService {
       )
     }
 
+    const { armourEvasionRating } = properties
+    if (armourEvasionRating) {
+      const increasedEvasionRating = this.calculateModifier(
+        stats,
+        'local_evasion_rating_+%',
+        'local_armour_and_evasion_+%',
+        'local_armour_and_evasion_and_energy_shield_+%'
+      )
+      this.calculateQualityTier(
+        armourEvasionRating,
+        quality,
+        increasedQuality,
+        increasedEvasionRating,
+        normalizeQuality
+      )
+    }
+
     const { armourEnergyShield } = properties
     if (armourEnergyShield) {
       const increasedEnergyShield = this.calculateModifier(
@@ -52,19 +69,16 @@ export class ItemQualityProcessorService {
       )
     }
 
-    const { armourEvasionRating } = properties
-    if (armourEvasionRating) {
-      const increasedEvasionRating = this.calculateModifier(
+    const { armourWard } = properties
+    if (armourWard) {
+      const increasedWard = this.calculateModifier(
         stats,
-        'local_evasion_rating_+%',
-        'local_armour_and_evasion_+%',
-        'local_armour_and_evasion_and_energy_shield_+%'
       )
       this.calculateQualityTier(
-        armourEvasionRating,
+        armourWard,
         quality,
         increasedQuality,
-        increasedEvasionRating,
+        increasedWard,
         normalizeQuality
       )
     }

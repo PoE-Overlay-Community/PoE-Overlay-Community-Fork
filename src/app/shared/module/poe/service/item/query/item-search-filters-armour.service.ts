@@ -39,6 +39,14 @@ export class ItemSearchFiltersArmourService implements ItemSearchFiltersService 
         max: value.max,
       }
     }
+    const { armourWard } = item.properties
+    if (armourWard) {
+      const { value } = armourWard
+      query.filters.armour_filters.filters.ward = {
+        min: value.min,
+        max: value.max,
+      }
+    }
     const { shieldBlockChance } = item.properties
     if (shieldBlockChance) {
       const { value } = shieldBlockChance

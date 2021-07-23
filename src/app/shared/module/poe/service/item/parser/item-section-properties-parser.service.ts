@@ -46,6 +46,7 @@ export class ItemSectionPropertiesParserService implements ItemSectionParserServ
 
     const lines = propertiesSection.lines
     for (const line of lines) {
+      let phraseIdx = 0
       switch (target.rarity) {
         case ItemRarity.Normal:
         case ItemRarity.Magic:
@@ -55,54 +56,76 @@ export class ItemSectionPropertiesParserService implements ItemSectionParserServ
         case ItemRarity.NonUnique:
           props.weaponPhysicalDamage = this.parseValueProperty(
             line,
-            phrases[0],
+            phrases[phraseIdx],
             props.weaponPhysicalDamage
           )
+          phraseIdx++//1
           // Elemental damage can contain multiple damage values (fire/cold/lightning/etc...)
           props.weaponElementalDamage = this.parseValueProperties(
             line,
-            phrases[1],
+            phrases[phraseIdx],
             props.weaponElementalDamage
           )
+          phraseIdx++//2
           props.weaponChaosDamage = this.parseValueProperty(
             line,
-            phrases[2],
+            phrases[phraseIdx],
             props.weaponChaosDamage
           )
+          phraseIdx++//3
           props.weaponCriticalStrikeChance = this.parseValueProperty(
             line,
-            phrases[3],
+            phrases[phraseIdx],
             props.weaponCriticalStrikeChance,
             2
           )
+          phraseIdx++//4
           props.weaponAttacksPerSecond = this.parseValueProperty(
             line,
-            phrases[4],
+            phrases[phraseIdx],
             props.weaponAttacksPerSecond,
             2
           )
-          props.weaponRange = this.parseProperty(line, phrases[5], props.weaponRange)
+          phraseIdx++//5
+          props.weaponRange = this.parseProperty(line, phrases[phraseIdx], props.weaponRange)
+          phraseIdx++//6
           props.shieldBlockChance = this.parseValueProperty(
             line,
-            phrases[6],
+            phrases[phraseIdx],
             props.shieldBlockChance
           )
-          props.armourArmour = this.parseValueProperty(line, phrases[7], props.armourArmour)
+          phraseIdx++//7
+          props.armourArmour = this.parseValueProperty(line, phrases[phraseIdx], props.armourArmour)
+          phraseIdx++//8
           props.armourEvasionRating = this.parseValueProperty(
             line,
-            phrases[8],
+            phrases[phraseIdx],
             props.armourEvasionRating
           )
+          phraseIdx++//9
           props.armourEnergyShield = this.parseValueProperty(
             line,
-            phrases[9],
+            phrases[phraseIdx],
             props.armourEnergyShield
           )
+          phraseIdx++//10
+          props.armourWard = this.parseValueProperty(
+            line,
+            phrases[phraseIdx],
+            props.armourWard
+          )
+          phraseIdx++//11
+          break
+
+        default:
+          phraseIdx = 11
           break
       }
-      props.stackSize = this.parseValueProperty(line, phrases[10], props.stackSize)
-      props.gemLevel = this.parseValueProperty(line, phrases[11], props.gemLevel)
-      props.mapTier = this.parseValueProperty(line, phrases[12], props.mapTier)
+      props.stackSize = this.parseValueProperty(line, phrases[phraseIdx], props.stackSize)
+      phraseIdx++//12
+      props.gemLevel = this.parseValueProperty(line, phrases[phraseIdx], props.gemLevel)
+      phraseIdx++//13
+      props.mapTier = this.parseValueProperty(line, phrases[phraseIdx], props.mapTier)
       if (props.mapTier) {
         const areaLevel: number = 67 + props.mapTier.value.value
         props.areaLevel = {
@@ -113,18 +136,23 @@ export class ItemSectionPropertiesParserService implements ItemSectionParserServ
           }
         }
       }
-      props.mapQuantity = this.parseValueProperty(line, phrases[13], props.mapQuantity)
-      props.mapRarity = this.parseValueProperty(line, phrases[14], props.mapRarity)
-      props.mapPacksize = this.parseValueProperty(line, phrases[15], props.mapPacksize)
-      for (let quality = 0; quality < 8; quality++) {
+      phraseIdx++//14
+      props.mapQuantity = this.parseValueProperty(line, phrases[phraseIdx], props.mapQuantity)
+      phraseIdx++//15
+      props.mapRarity = this.parseValueProperty(line, phrases[phraseIdx], props.mapRarity)
+      phraseIdx++//16
+      props.mapPacksize = this.parseValueProperty(line, phrases[phraseIdx], props.mapPacksize)
+      phraseIdx++//17
+      for (let quality = 0; quality < 8; quality++, phraseIdx++) {
         const old = props.quality
-        props.quality = this.parseValueProperty(line, phrases[16 + quality], old)
+        props.quality = this.parseValueProperty(line, phrases[phraseIdx], old)
         if (props.quality !== old) {
           props.qualityType = quality
         }
       }
-      props.durability = this.parseValueProperty(line, phrases[24], props.durability)
-      props.storedExperience = this.parseValueProperty(line, phrases[25], props.storedExperience)
+      props.durability = this.parseValueProperty(line, phrases[phraseIdx], props.durability)
+      phraseIdx++//26
+      props.storedExperience = this.parseValueProperty(line, phrases[phraseIdx], props.storedExperience)
     }
 
     return propertiesSection
@@ -197,32 +225,33 @@ export class ItemSectionPropertiesParserService implements ItemSectionParserServ
 
   private getPhrases(): string[] {
     return [
-      `${this.clientString.translate('ItemDisplayWeaponPhysicalDamage')}: `,
-      `${this.clientString.translate('ItemDisplayWeaponElementalDamage')}: `,
-      `${this.clientString.translate('ItemDisplayWeaponChaosDamage')}: `,
-      `${this.clientString.translate('ItemDisplayWeaponCriticalStrikeChance')}: `,
-      `${this.clientString.translate('ItemDisplayWeaponAttacksPerSecond')}: `,
-      `${this.clientString.translate('ItemDisplayWeaponRange')}: `,
-      `${this.clientString.translate('ItemDisplayShieldBlockChance')}: `,
-      `${this.clientString.translate('ItemDisplayArmourArmour')}: `,
-      `${this.clientString.translate('ItemDisplayArmourEvasionRating')}: `,
-      `${this.clientString.translate('ItemDisplayArmourEnergyShield')}: `,
-      `${this.clientString.translate('ItemDisplayStackSize')}: `,
-      `${this.clientString.translate('Level')}: `,
-      `${this.clientString.translate('ItemDisplayMapTier')}: `,
-      `${this.clientString.translate('ItemDisplayMapQuantityIncrease')}: `,
-      `${this.clientString.translate('ItemDisplayMapRarityIncrease')}: `,
-      `${this.clientString.translate('ItemDisplayMapPackSizeIncrease')}: `,
-      `${this.clientString.translate('Quality')}: `,
-      `${this.clientString.translate('Quality1')}: `,
-      `${this.clientString.translate('Quality2')}: `,
-      `${this.clientString.translate('Quality3')}: `,
-      `${this.clientString.translate('Quality4')}: `,
-      `${this.clientString.translate('Quality5')}: `,
-      `${this.clientString.translate('Quality6')}: `,
-      `${this.clientString.translate('Quality7')}: `,
-      `${this.clientString.translate('ItemDisplayHarvestBoosterUses')}: `,
-      `${this.clientString.translate('ItemDisplayStoredExperience')}: `,
+      `${this.clientString.translate('ItemDisplayWeaponPhysicalDamage')}: `,//0
+      `${this.clientString.translate('ItemDisplayWeaponElementalDamage')}: `,//1
+      `${this.clientString.translate('ItemDisplayWeaponChaosDamage')}: `,//2
+      `${this.clientString.translate('ItemDisplayWeaponCriticalStrikeChance')}: `,//3
+      `${this.clientString.translate('ItemDisplayWeaponAttacksPerSecond')}: `,//4
+      `${this.clientString.translate('ItemDisplayWeaponRange')}: `,//5
+      `${this.clientString.translate('ItemDisplayShieldBlockChance')}: `,//6
+      `${this.clientString.translate('ItemDisplayArmourArmour')}: `,//7
+      `${this.clientString.translate('ItemDisplayArmourEvasionRating')}: `,//8
+      `${this.clientString.translate('ItemDisplayArmourEnergyShield')}: `,//9
+      `${this.clientString.translate('ItemDisplayArmourWard')}: `,//10
+      `${this.clientString.translate('ItemDisplayStackSize')}: `,//11
+      `${this.clientString.translate('Level')}: `,//12
+      `${this.clientString.translate('ItemDisplayMapTier')}: `,//13
+      `${this.clientString.translate('ItemDisplayMapQuantityIncrease')}: `,//14
+      `${this.clientString.translate('ItemDisplayMapRarityIncrease')}: `,//15
+      `${this.clientString.translate('ItemDisplayMapPackSizeIncrease')}: `,//16
+      `${this.clientString.translate('Quality')}: `,//17
+      `${this.clientString.translate('Quality1')}: `,//18
+      `${this.clientString.translate('Quality2')}: `,//19
+      `${this.clientString.translate('Quality3')}: `,//20
+      `${this.clientString.translate('Quality4')}: `,//21
+      `${this.clientString.translate('Quality5')}: `,//22
+      `${this.clientString.translate('Quality6')}: `,//23
+      `${this.clientString.translate('Quality7')}: `,//24
+      `${this.clientString.translate('ItemDisplayHarvestBoosterUses')}: `,//25
+      `${this.clientString.translate('ItemDisplayStoredExperience')}: `,//26
     ]
   }
 }
