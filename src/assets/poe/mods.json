@@ -85,6 +85,12 @@
 					"max": 35
 				}
 			],
+			"ImplicitBeltRoyale1": [
+				{
+					"min": 25,
+					"max": 35
+				}
+			],
 			"UniqueHelmetDexInt1": [
 				{
 					"min": 20,
@@ -125,6 +131,12 @@
 				{
 					"min": 40,
 					"max": 60
+				}
+			],
+			"UniqueBootsStrDex1Royale": [
+				{
+					"min": 20,
+					"max": 30
 				}
 			],
 			"UniqueGlovesDex1": [
@@ -331,6 +343,12 @@
 					"max": 40
 				}
 			],
+			"Unique__11Royale__": [
+				{
+					"min": 15,
+					"max": 25
+				}
+			],
 			"Unique__12": [
 				{
 					"min": 200,
@@ -371,6 +389,12 @@
 				{
 					"min": 30,
 					"max": 50
+				}
+			],
+			"Unique__18Royale__": [
+				{
+					"min": 15,
+					"max": 30
 				}
 			],
 			"Unique__19_": [
@@ -759,6 +783,12 @@
 				{
 					"min": 40,
 					"max": 60
+				}
+			],
+			"UniqueBootsStrDex1Royale": [
+				{
+					"min": 20,
+					"max": 30
 				}
 			],
 			"UniqueBootsInt2": [
@@ -1533,6 +1563,12 @@
 					"max": 50
 				}
 			],
+			"UniqueHelmetWard1": [
+				{
+					"min": 20,
+					"max": 30
+				}
+			],
 			"UniqueRing13": [
 				{
 					"min": 60,
@@ -2077,6 +2113,12 @@
 					"max": 16
 				}
 			],
+			"ImplicitAmuletRoyale1": [
+				{
+					"min": 10,
+					"max": 16
+				}
+			],
 			"UniqueAmulet8": [
 				{
 					"min": 80,
@@ -2529,10 +2571,22 @@
 					"max": 40
 				}
 			],
+			"ImplicitBeltRoyale1": [
+				{
+					"min": 20,
+					"max": 30
+				}
+			],
 			"UniqueBodyStr1": [
 				{
 					"min": 500,
 					"max": 500
+				}
+			],
+			"UniqueBodyStr1Royale": [
+				{
+					"min": 100,
+					"max": 100
 				}
 			],
 			"UniqueAmulet4": [
@@ -2643,6 +2697,12 @@
 					"max": 90
 				}
 			],
+			"UniqueBodyStrDex3Royale_": [
+				{
+					"min": 25,
+					"max": 40
+				}
+			],
 			"UniqueShieldStrInt6": [
 				{
 					"min": 40,
@@ -2659,6 +2719,12 @@
 				{
 					"min": 35,
 					"max": 45
+				}
+			],
+			"UniqueBootsDex6Royale": [
+				{
+					"min": 10,
+					"max": 20
 				}
 			],
 			"UniqueRing19": [
@@ -2781,6 +2847,12 @@
 					"max": 80
 				}
 			],
+			"UniqueShieldDexInt1Royale": [
+				{
+					"min": 10,
+					"max": 20
+				}
+			],
 			"UniqueShieldDex5": [
 				{
 					"min": 70,
@@ -2821,6 +2893,12 @@
 				{
 					"min": 30,
 					"max": 40
+				}
+			],
+			"UniqueBelt13Royale": [
+				{
+					"min": 10,
+					"max": 20
 				}
 			],
 			"UniqueBodyStrDex5": [
@@ -2961,6 +3039,12 @@
 					"max": 70
 				}
 			],
+			"Unique___7Royale_": [
+				{
+					"min": 20,
+					"max": 30
+				}
+			],
 			"Unique__8": [
 				{
 					"min": 30,
@@ -3081,6 +3165,12 @@
 					"max": 60
 				}
 			],
+			"Unique__27Royale": [
+				{
+					"min": 15,
+					"max": 30
+				}
+			],
 			"Unique__28": [
 				{
 					"min": 50,
@@ -3195,6 +3285,12 @@
 					"max": 80
 				}
 			],
+			"Unique__46Royale": [
+				{
+					"min": 10,
+					"max": 20
+				}
+			],
 			"Unique__47": [
 				{
 					"min": 40,
@@ -3271,6 +3367,12 @@
 				{
 					"min": 60,
 					"max": 80
+				}
+			],
+			"Unique__59Royale": [
+				{
+					"min": 20,
+					"max": 40
 				}
 			],
 			"Unique__60": [
@@ -3489,6 +3591,12 @@
 					"max": 70
 				}
 			],
+			"Unique__95Royale_": [
+				{
+					"min": 20,
+					"max": 30
+				}
+			],
 			"Unique__96__": [
 				{
 					"min": 50,
@@ -3565,6 +3673,12 @@
 				{
 					"min": 80,
 					"max": 100
+				}
+			],
+			"Unique__108Royale": [
+				{
+					"min": 25,
+					"max": 35
 				}
 			],
 			"Unique__109_": [
@@ -4225,6 +4339,12 @@
 					"max": 150
 				}
 			],
+			"UniqueBodyDexInt2Royale": [
+				{
+					"min": 30,
+					"max": 50
+				}
+			],
 			"UniqueSceptre6": [
 				{
 					"min": 20,
@@ -4829,8 +4949,8 @@
 			],
 			"MaximumManaUniqueStaff6": [
 				{
-					"min": 100,
-					"max": 100
+					"min": 50,
+					"max": 50
 				}
 			],
 			"MaximumManaUniqueJewel54": [
@@ -5469,6 +5589,12 @@
 					"max": 45
 				}
 			],
+			"LocalIncreasedEnergyShieldUnique__11Royale__": [
+				{
+					"min": 5,
+					"max": 10
+				}
+			],
 			"LocalIncreasedEnergyShieldUnique__12": [
 				{
 					"min": 40,
@@ -6077,6 +6203,12 @@
 					"max": 130
 				}
 			],
+			"LocalIncreasedEnergyShieldPercent___3Royale": [
+				{
+					"min": 50,
+					"max": 70
+				}
+			],
 			"LocalIncreasedEnergyShieldPercentUnique___4_": [
 				{
 					"min": 80,
@@ -6547,6 +6679,16 @@
 					"max": 60
 				}
 			],
+			"AddedUniqueHelmetStr3Royale": [
+				{
+					"min": 5,
+					"max": 5
+				},
+				{
+					"min": 15,
+					"max": 15
+				}
+			],
 			"AddedUniqueRing8": [
 				{
 					"min": 5,
@@ -6675,6 +6817,16 @@
 				{
 					"min": 10,
 					"max": 12
+				}
+			],
+			"AddedUnique__5Royale": [
+				{
+					"min": 1,
+					"max": 2
+				},
+				{
+					"min": 3,
+					"max": 4
 				}
 			],
 			"AddedUnique__6_": [
@@ -7109,6 +7261,16 @@
 					"max": 23
 				}
 			],
+			"LocalAddedUniqueOneHandMace5Royale": [
+				{
+					"min": 1,
+					"max": 3
+				},
+				{
+					"min": 5,
+					"max": 8
+				}
+			],
 			"LocalAddedUniqueSceptre10": [
 				{
 					"min": 35,
@@ -7239,6 +7401,16 @@
 					"max": 260
 				}
 			],
+			"LocalAddedUnique__15Royale": [
+				{
+					"min": 6,
+					"max": 10
+				},
+				{
+					"min": 12,
+					"max": 16
+				}
+			],
 			"LocalAddedUnique__16_": [
 				{
 					"min": 15,
@@ -7317,6 +7489,16 @@
 				{
 					"min": 100,
 					"max": 125
+				}
+			],
+			"LocalAddedUnique__23Royale": [
+				{
+					"min": 2,
+					"max": 3
+				},
+				{
+					"min": 6,
+					"max": 7
 				}
 			],
 			"LocalAddedUnique__24": [
@@ -7737,6 +7919,16 @@
 				{
 					"min": 12,
 					"max": 12
+				}
+			],
+			"LocalAddedUniqueClaw3Royale": [
+				{
+					"min": 2,
+					"max": 2
+				},
+				{
+					"min": 4,
+					"max": 4
 				}
 			],
 			"LocalAddedOneHandAxe1": [
@@ -8491,6 +8683,16 @@
 					"max": 24
 				}
 			],
+			"AddedUniqueBootsStrDex1Royale___": [
+				{
+					"min": 4,
+					"max": 4
+				},
+				{
+					"min": 8,
+					"max": 8
+				}
+			],
 			"AddedUniqueGlovesInt1": [
 				{
 					"min": 4,
@@ -8529,6 +8731,16 @@
 				{
 					"min": 15,
 					"max": 16
+				}
+			],
+			"AddedUniqueBelt10Royale__": [
+				{
+					"min": 2,
+					"max": 2
+				},
+				{
+					"min": 3,
+					"max": 3
 				}
 			],
 			"AddedUniqueRing28": [
@@ -9057,6 +9269,16 @@
 					"max": 14
 				}
 			],
+			"AddedUniqueBelt10Royale": [
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 3,
+					"max": 3
+				}
+			],
 			"AddedUniqueGlovesStrInt3_": [
 				{
 					"min": 30,
@@ -9441,6 +9663,16 @@
 					"max": 15
 				}
 			],
+			"Unique__2Royale": [
+				{
+					"min": 1,
+					"max": 3
+				},
+				{
+					"min": 4,
+					"max": 5
+				}
+			],
 			"Uber1__": [
 				{
 					"min": 17,
@@ -9471,6 +9703,16 @@
 				{
 					"min": 72,
 					"max": 90
+				}
+			],
+			"AddedUniqueBow9Royale": [
+				{
+					"min": 6,
+					"max": 8
+				},
+				{
+					"min": 12,
+					"max": 16
 				}
 			],
 			"LocalAdded1": [
@@ -10475,6 +10717,16 @@
 					"max": 34
 				}
 			],
+			"AddedUniqueBelt10Royale": [
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 5,
+					"max": 5
+				}
+			],
 			"AddedUniqueBelt12": [
 				{
 					"min": 1,
@@ -10483,6 +10735,16 @@
 				{
 					"min": 30,
 					"max": 50
+				}
+			],
+			"AddedUniqueBelt12Royale": [
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 15,
+					"max": 20
 				}
 			],
 			"AddedUnique__3": [
@@ -10709,6 +10971,16 @@
 					"max": 30
 				}
 			],
+			"AddedUniqueDagger3Royale_": [
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 10,
+					"max": 10
+				}
+			],
 			"AddedLocalUniqueClaw1": [
 				{
 					"min": 1,
@@ -10737,6 +11009,16 @@
 				{
 					"min": 120,
 					"max": 150
+				}
+			],
+			"AddedUniqueBow9Royale": [
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 25,
+					"max": 35
 				}
 			],
 			"LocalAddedUniqueOneHandSword6": [
@@ -11159,6 +11441,16 @@
 					"max": 60
 				}
 			],
+			"LocalAddedUnique__4Royale": [
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 5,
+					"max": 6
+				}
+			],
 			"LocalAddedUnique__5": [
 				{
 					"min": 1,
@@ -11481,6 +11773,16 @@
 					"max": 80
 				}
 			],
+			"AddedUniqueBootsStrInt2Royale": [
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 7,
+					"max": 7
+				}
+			],
 			"AddedUniqueQuiver7": [
 				{
 					"min": 13,
@@ -11681,6 +11983,16 @@
 				{
 					"min": 90,
 					"max": 102
+				}
+			],
+			"UniqueTwoHandSword7Royale__": [
+				{
+					"min": 7,
+					"max": 11
+				},
+				{
+					"min": 13,
+					"max": 23
 				}
 			],
 			"LocalAddedChaosDamageUnique___1": [
@@ -13317,6 +13629,12 @@
 					"max": 25
 				}
 			],
+			"ImplicitRingRoyale": [
+				{
+					"min": 12,
+					"max": 16
+				}
+			],
 			"1": [
 				{
 					"min": 4,
@@ -13939,6 +14257,12 @@
 					"max": 260
 				}
 			],
+			"LocalIncreasedPhysicalDamagePercentUniqueBow6Royale_": [
+				{
+					"min": 70,
+					"max": 100
+				}
+			],
 			"LocalIncreasedPhysicalDamagePercentUniqueBow7": [
 				{
 					"min": 110,
@@ -13973,6 +14297,12 @@
 				{
 					"min": 150,
 					"max": 170
+				}
+			],
+			"LocalIncreasedPhysicalDamagePercentUniqueClaw3Royale": [
+				{
+					"min": 20,
+					"max": 50
 				}
 			],
 			"LocalIncreasedPhysicalDamagePercentUniqueTwoHandMace5": [
@@ -14041,6 +14371,12 @@
 					"max": 80
 				}
 			],
+			"LocalIncreasedPhysicalDamagePercentUniqueTwoHandAxe6Royale": [
+				{
+					"min": 20,
+					"max": 30
+				}
+			],
 			"LocalIncreasedPhysicalDamagePercentUniqueBow10": [
 				{
 					"min": 50,
@@ -14095,6 +14431,12 @@
 					"max": 60
 				}
 			],
+			"LocalIncreasedPhysicalDamagePercentUniqueTwoHandSword7Royale_": [
+				{
+					"min": 10,
+					"max": 20
+				}
+			],
 			"LocalIncreasedPhysicalDamagePercentUniqueTwoHandAxe8": [
 				{
 					"min": 120,
@@ -14129,6 +14471,12 @@
 				{
 					"min": 150,
 					"max": 200
+				}
+			],
+			"LocalIncreasedPhysicalDamageUniqueOneHandMace5Royale": [
+				{
+					"min": 10,
+					"max": 20
 				}
 			],
 			"LocalIncreasedPhysicalDamageUniqueOneHandSceptre10": [
@@ -14413,10 +14761,22 @@
 					"max": 215
 				}
 			],
+			"LocalIncreasedPhysicalDamagePercentUnique__30Royale": [
+				{
+					"min": 45,
+					"max": 75
+				}
+			],
 			"LocalIncreasedPhysicalDamagePercentUnique__31": [
 				{
 					"min": 180,
 					"max": 220
+				}
+			],
+			"LocalIncreasedPhysicalDamagePercentUnique__31Royale_": [
+				{
+					"min": 50,
+					"max": 90
 				}
 			],
 			"LocalIncreasedPhysicalDamagePercentUnique__32": [
@@ -14471,6 +14831,12 @@
 				{
 					"min": 200,
 					"max": 250
+				}
+			],
+			"LocalIncreasedPhysicalDamagePercentUnique__40Royale_": [
+				{
+					"min": 25,
+					"max": 50
 				}
 			],
 			"LocalIncreasedPhysicalDamagePercentUnique__41___": [
@@ -14707,6 +15073,12 @@
 					"max": 25
 				}
 			],
+			"IncreasedUniqueBelt13Royale": [
+				{
+					"min": 5,
+					"max": 5
+				}
+			],
 			"IncreasedUniqueJewel9": [
 				{
 					"min": 10,
@@ -14810,6 +15182,12 @@
 				}
 			],
 			"LargeDamageUniqueMap": [
+				{
+					"min": 50,
+					"max": 50
+				}
+			],
+			"MonsterTotemAuraDamage1_": [
 				{
 					"min": 50,
 					"max": 50
@@ -15341,6 +15719,7 @@
 			"Shaper3_": [],
 			"Shaper4": [],
 			"Volatile": [],
+			"VolatileRoyale": [],
 			"ChestBarrelSummonWorm": [],
 			"ChestBarrelSummonParasite": [],
 			"ChestBarrelSummonParasiteIncursion": [],
@@ -15397,7 +15776,8 @@
 			"MavenBuffedMapBoss": [],
 			"": [],
 			"UltimatumDaemonGraveyard_": [],
-			"UltimatumDaemonGraveyardRuin": []
+			"UltimatumDaemonGraveyardRuin": [],
+			"Expedition": []
 		},
 		"maximum_energy_shield_+%": {
 			"IncreasedUniqueOneHandSword2": [
@@ -16058,6 +16438,12 @@
 					"max": 220
 				}
 			],
+			"LocalIncreasedPhysicalDamageReductionRatingUniqueBootsStrInt2Royale": [
+				{
+					"min": 15,
+					"max": 30
+				}
+			],
 			"LocalIncreasedPhysicalDamageReductionRatingUniqueBodyStrInt5": [
 				{
 					"min": 0,
@@ -16384,6 +16770,12 @@
 					"max": 250
 				}
 			],
+			"LocalIncreasedEvasionRatingPercentUniqueBodyDex5Royale": [
+				{
+					"min": 50,
+					"max": 100
+				}
+			],
 			"LocalIncreasedEvasionRatingPercentUniqueHelmetDex6": [
 				{
 					"min": 150,
@@ -16400,6 +16792,12 @@
 				{
 					"min": 160,
 					"max": 200
+				}
+			],
+			"LocalIncreasedEvasionRatingPercentUniqueBootsDex6Royale": [
+				{
+					"min": 50,
+					"max": 100
 				}
 			],
 			"LocalIncreasedEvasionRatingPercentUniqueShieldDex4": [
@@ -16898,6 +17296,12 @@
 					"max": 200
 				}
 			],
+			"LocalIncreasedArmourAndEvasionRatingUniqueBodyStrDex3Royale": [
+				{
+					"min": 50,
+					"max": 80
+				}
+			],
 			"LocalIncreasedArmourAndEvasion1": [
 				{
 					"min": 15,
@@ -17138,6 +17542,12 @@
 					"max": 200
 				}
 			],
+			"LocalIncreasedArmourAndEvasionUnique__17Royale__": [
+				{
+					"min": 30,
+					"max": 80
+				}
+			],
 			"LocalIncreasedArmourAndEvasionUnique__18": [
 				{
 					"min": 200,
@@ -17294,6 +17704,12 @@
 				{
 					"min": 120,
 					"max": 140
+				}
+			],
+			"LocalIncreasedArmourAndEnergyShieldUniqueBodyStrInt4Royale": [
+				{
+					"min": 60,
+					"max": 120
 				}
 			],
 			"LocalIncreasedArmourAndEnergyShieldUniqueShieldStrInt6": [
@@ -17608,6 +18024,12 @@
 				{
 					"min": 300,
 					"max": 400
+				}
+			],
+			"LocalIncreasedEvasionAndEnergyShieldUniqueBodyDexInt2Royale": [
+				{
+					"min": 40,
+					"max": 80
 				}
 			],
 			"LocalIncreasedEvasionAndEnergyShieldUniqueBodyStrDexInt1d": [
@@ -18818,6 +19240,16 @@
 					"max": 50
 				}
 			],
+			"LocalAddedUniqueBow6Royale": [
+				{
+					"min": 4,
+					"max": 4
+				},
+				{
+					"min": 8,
+					"max": 8
+				}
+			],
 			"LocalAddedUniqueOneHandSword3": [
 				{
 					"min": 49,
@@ -18896,6 +19328,16 @@
 				{
 					"min": 450,
 					"max": 540
+				}
+			],
+			"LocalAddedUnique__3Royale__": [
+				{
+					"min": 12,
+					"max": 18
+				},
+				{
+					"min": 22,
+					"max": 26
 				}
 			],
 			"LocalAddedUnique__4": [
@@ -20288,6 +20730,12 @@
 					"max": 700
 				}
 			],
+			"MonsterTotemAuraEvasion1": [
+				{
+					"min": 1344,
+					"max": 1344
+				}
+			],
 			"Evasion1": [
 				{
 					"min": 1344,
@@ -21042,6 +21490,12 @@
 					"max": 15
 				}
 			],
+			"2Royale": [
+				{
+					"min": 15,
+					"max": 25
+				}
+			],
 			"3": [
 				{
 					"min": 20,
@@ -21330,10 +21784,28 @@
 					"max": 20
 				}
 			],
+			"UniqueBootsStrInt2Royale": [
+				{
+					"min": 10,
+					"max": 10
+				}
+			],
 			"UniqueBootsDex7": [
 				{
 					"min": 30,
 					"max": 30
+				}
+			],
+			"UniqueBootsA1": [
+				{
+					"min": 30,
+					"max": 30
+				}
+			],
+			"UniqueBootsW1": [
+				{
+					"min": 25,
+					"max": 25
 				}
 			],
 			"UniqueOneHandSword9": [
@@ -21516,6 +21988,12 @@
 					"max": 15
 				}
 			],
+			"Unique__18Royale": [
+				{
+					"min": 10,
+					"max": 10
+				}
+			],
 			"Unique__19": [
 				{
 					"min": 15,
@@ -21612,6 +22090,12 @@
 					"max": 25
 				}
 			],
+			"Unique__34Royale": [
+				{
+					"min": 15,
+					"max": 15
+				}
+			],
 			"Unique__35": [
 				{
 					"min": 30,
@@ -21676,6 +22160,12 @@
 				{
 					"min": 8,
 					"max": 12
+				}
+			],
+			"Unique__47_": [
+				{
+					"min": 20,
+					"max": 20
 				}
 			],
 			"ReducedUnique__1": [
@@ -21820,6 +22310,12 @@
 				{
 					"min": -60,
 					"max": -60
+				}
+			],
+			"MonsterTotemAuraSlow1_": [
+				{
+					"min": -25,
+					"max": -25
 				}
 			],
 			"Corrupted": [
@@ -22268,6 +22764,12 @@
 					"max": 40
 				}
 			],
+			"Unique__3Royale_": [
+				{
+					"min": 20,
+					"max": 20
+				}
+			],
 			"Unique__4": [
 				{
 					"min": 20,
@@ -22464,6 +22966,12 @@
 				{
 					"min": 50,
 					"max": 70
+				}
+			],
+			"OnWeaponUniqueDagger1Royale": [
+				{
+					"min": 20,
+					"max": 30
 				}
 			],
 			"OnWeaponUniqueStaff1": [
@@ -23140,6 +23648,12 @@
 					"max": 40
 				}
 			],
+			"FireDamagePercentUniqueRing38Royale": [
+				{
+					"min": 10,
+					"max": 20
+				}
+			],
 			"FireDamagePercentUnique__1": [
 				{
 					"min": 10,
@@ -23246,6 +23760,12 @@
 				{
 					"min": 100,
 					"max": 100
+				}
+			],
+			"IncreasedFireDamgeIfHitRecentlyUnique__1Royale_": [
+				{
+					"min": 30,
+					"max": 30
 				}
 			],
 			"DelveJewelryFireDamage1": [
@@ -25874,6 +26394,12 @@
 					"max": 40
 				}
 			],
+			"WeaponLightningDamageUniqueOneHandMace3": [
+				{
+					"min": 80,
+					"max": 100
+				}
+			],
 			"LightningDamageCrafted": [
 				{
 					"min": 20,
@@ -25908,6 +26434,12 @@
 				{
 					"min": 50,
 					"max": 50
+				}
+			],
+			"Unique__1Royale_": [
+				{
+					"min": 20,
+					"max": 20
 				}
 			],
 			"DelveJewelryLightningDamage1": [
@@ -27024,6 +27556,12 @@
 					"max": 50
 				}
 			],
+			"UniqueGlovesStrDex2Royale": [
+				{
+					"min": 70,
+					"max": 100
+				}
+			],
 			"UniqueTwoHandAxe2": [
 				{
 					"min": 30,
@@ -27442,6 +27980,12 @@
 				{
 					"min": 8,
 					"max": 10
+				}
+			],
+			"2Royale": [
+				{
+					"min": 8,
+					"max": 15
 				}
 			],
 			"3": [
@@ -28156,6 +28700,12 @@
 				{
 					"min": 8,
 					"max": 10
+				}
+			],
+			"Local2Royale____": [
+				{
+					"min": 8,
+					"max": 15
 				}
 			],
 			"Local3": [
@@ -28962,6 +29512,12 @@
 					"max": 10
 				}
 			],
+			"2Royale": [
+				{
+					"min": 8,
+					"max": 15
+				}
+			],
 			"3": [
 				{
 					"min": 11,
@@ -29568,6 +30124,12 @@
 				{
 					"min": 300,
 					"max": 350
+				}
+			],
+			"UniqueHelmetInt7Royale": [
+				{
+					"min": 30,
+					"max": 35
 				}
 			],
 			"ReducedAccuracyUniqueTwoHandSword5": [
@@ -30308,10 +30870,22 @@
 					"max": 120
 				}
 			],
+			"ExpeditionNPCLifeRegen_": [
+				{
+					"min": 120,
+					"max": 120
+				}
+			],
 			"LifeRegen1": [
 				{
 					"min": 60,
 					"max": 60
+				}
+			],
+			"MonsterTotemAuraLifeRegen1": [
+				{
+					"min": 150,
+					"max": 150
 				}
 			],
 			"MonsterImplicitAuraLifeRegen1": [
@@ -31388,6 +31962,12 @@
 				{
 					"min": 20,
 					"max": 30
+				}
+			],
+			"CriticalStrikeChanceImplicitRingRoyale1_": [
+				{
+					"min": 30,
+					"max": 40
 				}
 			],
 			"CriticalStrikeChanceUniqueRing11_": [
@@ -32784,6 +33364,12 @@
 					"max": 30
 				}
 			],
+			"ColdResistUniqueGlovesDex1Royale____": [
+				{
+					"min": 10,
+					"max": 20
+				}
+			],
 			"ColdResistUniqueBelt1": [
 				{
 					"min": 10,
@@ -32940,6 +33526,12 @@
 					"max": 40
 				}
 			],
+			"ColdResistUniqueShieldDex7Royale_": [
+				{
+					"min": 10,
+					"max": 20
+				}
+			],
 			"ColdResistUniqueBootsStrDex5": [
 				{
 					"min": 20,
@@ -32950,6 +33542,12 @@
 				{
 					"min": 20,
 					"max": 30
+				}
+			],
+			"ColdResistUnique__3Royale": [
+				{
+					"min": 5,
+					"max": 15
 				}
 			],
 			"ColdResistUnique__4": [
@@ -32974,6 +33572,12 @@
 				{
 					"min": 75,
 					"max": 75
+				}
+			],
+			"ColdResistUnique__5Royale__": [
+				{
+					"min": 25,
+					"max": 25
 				}
 			],
 			"ColdResistUnique__6": [
@@ -33046,6 +33650,12 @@
 				{
 					"min": 30,
 					"max": 40
+				}
+			],
+			"ColdResistUnique__17Royale": [
+				{
+					"min": 10,
+					"max": 15
 				}
 			],
 			"ColdResistUnique__18": [
@@ -34040,14 +34650,14 @@
 			],
 			"ChaosResistImplicitRing1": [
 				{
-					"min": 9,
-					"max": 13
+					"min": 17,
+					"max": 23
 				}
 			],
 			"ChaosResistImplicitBoots1": [
 				{
-					"min": 7,
-					"max": 13
+					"min": 13,
+					"max": 17
 				}
 			],
 			"ChaosResistUniqueAmulet15_": [
@@ -34252,6 +34862,12 @@
 				{
 					"min": 19,
 					"max": 29
+				}
+			],
+			"ChaosResistUnique__22": [
+				{
+					"min": 17,
+					"max": 23
 				}
 			],
 			"ChaosResistCorruption": [
@@ -34632,6 +35248,12 @@
 					"max": 10
 				}
 			],
+			"ImplicitRoyaleRing1": [
+				{
+					"min": 8,
+					"max": 10
+				}
+			],
 			"ImplicitVictorAmulet": [
 				{
 					"min": 8,
@@ -34678,6 +35300,12 @@
 				{
 					"min": 15,
 					"max": 15
+				}
+			],
+			"UniqueGlovesStrDex2Royale": [
+				{
+					"min": 5,
+					"max": 5
 				}
 			],
 			"UniqueShieldStrInt1": [
@@ -35004,6 +35632,12 @@
 					"max": -10
 				}
 			],
+			"Unique__23__": [
+				{
+					"min": 15,
+					"max": 25
+				}
+			],
 			"DemigodsImplicit": [
 				{
 					"min": 15,
@@ -35017,6 +35651,12 @@
 				}
 			],
 			"Resists1": [
+				{
+					"min": 35,
+					"max": 35
+				}
+			],
+			"MonsterTotemAuraResists1": [
 				{
 					"min": 35,
 					"max": 35
@@ -35688,6 +36328,12 @@
 				{
 					"min": 15,
 					"max": 25
+				}
+			],
+			"ImplicitBeltRoyale1": [
+				{
+					"min": 30,
+					"max": 40
 				}
 			],
 			"UniqueBootsStrDex1": [
@@ -36716,6 +37362,12 @@
 					"max": 30
 				}
 			],
+			"UniqueDagger1Royale": [
+				{
+					"min": 10,
+					"max": 10
+				}
+			],
 			"UniqueBootsStrInt1": [
 				{
 					"min": 10,
@@ -36820,6 +37472,12 @@
 					"max": 10
 				}
 			],
+			"UniqueDagger1Royale": [
+				{
+					"min": 3,
+					"max": 3
+				}
+			],
 			"UniqueRing4": [
 				{
 					"min": 5,
@@ -36889,6 +37547,12 @@
 				}
 			],
 			"MonsterImplicitFire1": [
+				{
+					"min": 25,
+					"max": 25
+				}
+			],
+			"MonsterTotemAuraAddedFireDamage": [
 				{
 					"min": 25,
 					"max": 25
@@ -37154,6 +37818,12 @@
 					"max": 20
 				}
 			],
+			"MonsterTotemAuraAddedColdDamage": [
+				{
+					"min": 25,
+					"max": 25
+				}
+			],
 			"AddedColdDamage": [
 				{
 					"min": 25,
@@ -37391,6 +38061,12 @@
 				}
 			],
 			"MonsterImplicitLightning1": [
+				{
+					"min": 25,
+					"max": 25
+				}
+			],
+			"MonsterTotemAuraAddedLightningDamage": [
 				{
 					"min": 25,
 					"max": 25
@@ -37996,12 +38672,6 @@
 					"max": 10
 				}
 			],
-			"": [
-				{
-					"min": 30,
-					"max": 30
-				}
-			],
 			"JunMaster21": [
 				{
 					"min": 9,
@@ -38168,6 +38838,12 @@
 				{
 					"min": 45,
 					"max": 50
+				}
+			],
+			"": [
+				{
+					"min": 15,
+					"max": 15
 				}
 			]
 		},
@@ -38454,6 +39130,20 @@
 					"max": 75
 				}
 			],
+			"MonsterTotemAuraSpeed1___": [
+				{
+					"min": 35,
+					"max": 35
+				},
+				{
+					"min": 35,
+					"max": 35
+				},
+				{
+					"min": 75,
+					"max": 75
+				}
+			],
 			"MonsterImplicitAuraSpeed1": [
 				{
 					"min": 35,
@@ -38522,6 +39212,20 @@
 				{
 					"min": 50,
 					"max": 50
+				}
+			],
+			"": [
+				{
+					"min": 15,
+					"max": 15
+				},
+				{
+					"min": 15,
+					"max": 15
+				},
+				{
+					"min": 15,
+					"max": 15
 				}
 			]
 		},
@@ -38642,10 +39346,22 @@
 			]
 		},
 		"base_chaos_damage_%_of_maximum_life_taken_per_minute": {
+			"MonsterTotemAuraEnemyLifeDegen1": [
+				{
+					"min": 240,
+					"max": 240
+				}
+			],
 			"EnemyLifeDegen1": [
 				{
 					"min": 240,
 					"max": 240
+				}
+			],
+			"EnemyLifeDegen2_": [
+				{
+					"min": 360,
+					"max": 360
 				}
 			],
 			"EssenceEnemyLifeDegen1": [
@@ -38763,6 +39479,30 @@
 					"min": 300,
 					"max": 300
 				}
+			],
+			"_1___": [
+				{
+					"min": 40,
+					"max": 40
+				}
+			],
+			"_2": [
+				{
+					"min": 60,
+					"max": 60
+				}
+			],
+			"_3_": [
+				{
+					"min": 80,
+					"max": 80
+				}
+			],
+			"_4": [
+				{
+					"min": 100,
+					"max": 100
+				}
 			]
 		},
 		"monster_life_+%_final_from_rarity gain_x_vaal_souls_at_2%_life_thresholds": {
@@ -38868,6 +39608,18 @@
 				{
 					"min": 1000,
 					"max": 1000
+				}
+			],
+			"MonsterActBossAct9BonusRarity": [
+				{
+					"min": 5000,
+					"max": 5000
+				}
+			],
+			"MonsterActBossAct10BonusRarity_": [
+				{
+					"min": 20000,
+					"max": 20000
 				}
 			],
 			"MonsterExile1": [
@@ -39174,60 +39926,284 @@
 			]
 		},
 		"monster_slain_experience_+% monster_dropped_item_quantity_+% monster_dropped_item_rarity_+%": {
-			"MonsterQuestBoss": [
+			"MonsterQuestBossAct1_": [
 				{
 					"min": 250,
 					"max": 250
 				},
 				{
-					"min": 1400,
-					"max": 1400
+					"min": 0,
+					"max": 0
 				},
 				{
-					"min": 1500,
-					"max": 1500
+					"min": 4500,
+					"max": 4500
 				}
 			],
-			"": [
+			"MonsterQuestBossAct2": [
 				{
 					"min": 250,
 					"max": 250
 				},
 				{
-					"min": 3500,
-					"max": 3500
+					"min": 0,
+					"max": 0
 				},
 				{
-					"min": 2500,
-					"max": 2500
+					"min": 4500,
+					"max": 4500
 				}
 			],
-			"UnholyTrio_": [
+			"MonsterQuestBossAct3": [
+				{
+					"min": 250,
+					"max": 250
+				},
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 5000,
+					"max": 5000
+				}
+			],
+			"MonsterQuestBossAct4__": [
+				{
+					"min": 250,
+					"max": 250
+				},
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 5500,
+					"max": 5500
+				}
+			],
+			"MonsterQuestBossAct5": [
+				{
+					"min": 250,
+					"max": 250
+				},
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 6000,
+					"max": 6000
+				}
+			],
+			"MonsterQuestBossAct6": [
+				{
+					"min": 250,
+					"max": 250
+				},
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 6000,
+					"max": 6000
+				}
+			],
+			"MonsterQuestBossAct7": [
+				{
+					"min": 250,
+					"max": 250
+				},
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 6000,
+					"max": 6000
+				}
+			],
+			"MonsterQuestBossAct8": [
+				{
+					"min": 250,
+					"max": 250
+				},
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 6000,
+					"max": 6000
+				}
+			],
+			"MonsterQuestBossAct9____": [
+				{
+					"min": 250,
+					"max": 250
+				},
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 6000,
+					"max": 6000
+				}
+			],
+			"MonsterQuestBossAct10____": [
+				{
+					"min": 250,
+					"max": 250
+				},
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 6000,
+					"max": 6000
+				}
+			],
+			"Act1": [
+				{
+					"min": 250,
+					"max": 250
+				},
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 10000,
+					"max": 10000
+				}
+			],
+			"Act2": [
+				{
+					"min": 250,
+					"max": 250
+				},
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 11000,
+					"max": 11000
+				}
+			],
+			"Act3": [
+				{
+					"min": 250,
+					"max": 250
+				},
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 12000,
+					"max": 12000
+				}
+			],
+			"Act4": [
+				{
+					"min": 250,
+					"max": 250
+				},
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 13000,
+					"max": 13000
+				}
+			],
+			"Act5": [
+				{
+					"min": 250,
+					"max": 250
+				},
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 15000,
+					"max": 15000
+				}
+			],
+			"Act6": [
+				{
+					"min": 250,
+					"max": 250
+				},
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 13000,
+					"max": 13000
+				}
+			],
+			"Act7": [
+				{
+					"min": 250,
+					"max": 250
+				},
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 13000,
+					"max": 13000
+				}
+			],
+			"Act8": [
+				{
+					"min": 250,
+					"max": 250
+				},
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 10000,
+					"max": 10000
+				}
+			],
+			"Act9": [
 				{
 					"min": 325,
 					"max": 325
 				},
 				{
-					"min": 6000,
-					"max": 6000
+					"min": 0,
+					"max": 0
 				},
 				{
-					"min": 4000,
-					"max": 4000
+					"min": 20000,
+					"max": 20000
 				}
 			],
-			"KitavaFinal": [
+			"Act10": [
 				{
 					"min": 400,
 					"max": 400
 				},
 				{
-					"min": 8000,
-					"max": 8000
+					"min": 0,
+					"max": 0
 				},
 				{
-					"min": 6000,
-					"max": 6000
+					"min": 20000,
+					"max": 20000
 				}
 			],
 			"": [
@@ -40049,6 +41025,12 @@
 					"min": 13,
 					"max": 15
 				}
+			],
+			"__": [
+				{
+					"min": 15,
+					"max": 15
+				}
 			]
 		},
 		"monster_slain_experience_+% monster_dropped_item_quantity_+% monster_dropped_item_rarity_+% monster_no_map_drops": {
@@ -40170,8 +41152,8 @@
 					"max": 35
 				},
 				{
-					"min": 2500,
-					"max": 2500
+					"min": 1250,
+					"max": 1250
 				},
 				{
 					"min": 1,
@@ -40188,8 +41170,8 @@
 					"max": 0
 				},
 				{
-					"min": 2500,
-					"max": 2500
+					"min": 1250,
+					"max": 1250
 				},
 				{
 					"min": 1,
@@ -40206,8 +41188,8 @@
 					"max": 0
 				},
 				{
-					"min": 2500,
-					"max": 2500
+					"min": 1250,
+					"max": 1250
 				},
 				{
 					"min": 0,
@@ -40557,6 +41539,12 @@
 					"min": 1,
 					"max": 1
 				}
+			],
+			"": [
+				{
+					"min": 1,
+					"max": 1
+				}
 			]
 		},
 		"curse_on_hit_level_vulnerability": {
@@ -40808,12 +41796,12 @@
 		"local_flask_life_to_recover_+%": {
 			"FlaskExtraLifeUnique__1": [
 				{
-					"min": 100,
-					"max": 100
+					"min": 50,
+					"max": 50
 				}
 			]
 		},
-		"local_flask_chill_and_freeze_immunity_while_healing": {
+		"local_flask_chill_or_freeze_immunity_if_chilled_or_frozen": {
 			"FlaskDispellsChill1": [
 				{
 					"min": 1,
@@ -40827,7 +41815,7 @@
 				}
 			]
 		},
-		"local_flask_ignite_immunity_while_healing": {
+		"local_flask_ignite_immunity_if_ignited_and_remove_burning": {
 			"FlaskDispellsBurning1": [
 				{
 					"min": 1,
@@ -40841,7 +41829,7 @@
 				}
 			]
 		},
-		"local_flask_bleeding_immunity_while_healing": {
+		"local_flask_bleeding_immunity_if_bleeding_and_remove_corrupted_blood": {
 			"1": [
 				{
 					"min": 1,
@@ -40849,7 +41837,7 @@
 				}
 			]
 		},
-		"local_flask_shock_immunity_while_healing": {
+		"local_flask_shock_immunity_if_shocked": {
 			"1": [
 				{
 					"min": 1,
@@ -40860,8 +41848,8 @@
 		"local_extra_max_charges": {
 			"FlaskExtraCharges1": [
 				{
-					"min": 10,
-					"max": 20
+					"min": 15,
+					"max": 25
 				}
 			],
 			"FlaskExtraChargesUnique__1": [
@@ -40873,6 +41861,12 @@
 			"FlaskExtraChargesUnique__2_": [
 				{
 					"min": -40,
+					"max": 90
+				}
+			],
+			"FlaskExtraChargesUnique__3": [
+				{
+					"min": 90,
 					"max": 90
 				}
 			],
@@ -40898,38 +41892,44 @@
 			],
 			"FlaskChargesAddedIncreasePercentUnique_1": [
 				{
-					"min": 100,
-					"max": 100
+					"min": 40,
+					"max": 60
+				}
+			],
+			"FlaskChargesAddedIncreasePercentUnique__2": [
+				{
+					"min": 20,
+					"max": 30
 				}
 			]
 		},
 		"local_flask_armour_+%_while_healing": {
 			"FlaskBuffArmourWhileHealing1": [
 				{
-					"min": 60,
-					"max": 100
+					"min": 40,
+					"max": 60
 				}
 			]
 		},
 		"local_flask_evasion_+%_while_healing": {
 			"FlaskBuffEvasionWhileHealing": [
 				{
-					"min": 60,
-					"max": 100
+					"min": 40,
+					"max": 60
 				}
 			]
 		},
 		"local_flask_movement_speed_+%_while_healing": {
 			"FlaskBuffMovementSpeedWhileHealing": [
 				{
-					"min": 20,
-					"max": 30
+					"min": 6,
+					"max": 8
 				}
 			],
 			"FlaskBuffMovementSpeedWhileHealingUnique__1": [
 				{
-					"min": 10,
-					"max": 30
+					"min": 0,
+					"max": 0
 				}
 			]
 		},
@@ -40995,6 +41995,20 @@
 				}
 			]
 		},
+		"local_flask_ward_+%_during_effect": {
+			"FlaskBuffWardWhileHealing1": [
+				{
+					"min": 20,
+					"max": 30
+				}
+			],
+			"FlaskBuffWardWhileHealingUnique__1": [
+				{
+					"min": -50,
+					"max": -50
+				}
+			]
+		},
 		"local_flask_minion_heal_%": {
 			"FlaskHealsMinions1": [
 				{
@@ -41033,7 +42047,7 @@
 				}
 			]
 		},
-		"local_flask_poison_immunity_during_flask_effect": {
+		"local_flask_poison_immunity_if_poisoned": {
 			"FlaskDispellsPoison1": [
 				{
 					"min": 1,
@@ -41064,7 +42078,7 @@
 			],
 			"FlaskEffectDurationUnique__2": [
 				{
-					"min": -60,
+					"min": -80,
 					"max": -60
 				},
 				{
@@ -41074,7 +42088,7 @@
 			],
 			"FlaskEffectDurationUnique__3": [
 				{
-					"min": 50,
+					"min": 30,
 					"max": 50
 				},
 				{
@@ -41101,13 +42115,33 @@
 					"min": 0,
 					"max": 0
 				}
+			],
+			"FlaskEffectDurationUnique__6": [
+				{
+					"min": -60,
+					"max": -40
+				},
+				{
+					"min": 0,
+					"max": 0
+				}
+			],
+			"FlaskEffectDurationUnique__7": [
+				{
+					"min": 20,
+					"max": 40
+				},
+				{
+					"min": 0,
+					"max": 0
+				}
 			]
 		},
 		"local_charges_used_+%": {
 			"1": [
 				{
-					"min": -25,
-					"max": -20
+					"min": -20,
+					"max": -15
 				}
 			],
 			"Unique___1": [
@@ -41118,8 +42152,8 @@
 			],
 			"Unique___2": [
 				{
-					"min": 80,
-					"max": 100
+					"min": 125,
+					"max": 150
 				}
 			],
 			"Unique__3": [
@@ -41130,14 +42164,14 @@
 			],
 			"Unique__4": [
 				{
-					"min": 50,
-					"max": 50
+					"min": -10,
+					"max": 10
 				}
 			],
 			"Unique__5": [
 				{
-					"min": -10,
-					"max": 10
+					"min": 125,
+					"max": 150
 				}
 			],
 			"Unique__6_": [
@@ -41152,10 +42186,28 @@
 					"max": 100
 				}
 			],
+			"Unique__8": [
+				{
+					"min": 175,
+					"max": 200
+				}
+			],
+			"Unique__9_": [
+				{
+					"min": 40,
+					"max": 50
+				}
+			],
+			"Unique__10": [
+				{
+					"min": -10,
+					"max": 10
+				}
+			],
 			"UniqueFlask2": [
 				{
-					"min": 120,
-					"max": 150
+					"min": 250,
+					"max": 300
 				}
 			],
 			"UniqueFlask6": [
@@ -41172,8 +42224,8 @@
 			],
 			"Unique__1": [
 				{
-					"min": 50,
-					"max": 100
+					"min": 0,
+					"max": 0
 				}
 			],
 			"Unique__2": [
@@ -41186,14 +42238,14 @@
 		"local_flask_duration_+%": {
 			"FlaskIncreasedDuration2": [
 				{
-					"min": 30,
-					"max": 40
+					"min": 25,
+					"max": 30
 				}
 			],
 			"": [
 				{
-					"min": 10,
-					"max": 20
+					"min": 0,
+					"max": 0
 				}
 			],
 			"FlaskIncreasedDurationUnique__2": [
@@ -41204,13 +42256,13 @@
 			],
 			"Unique__1": [
 				{
-					"min": 30,
-					"max": 50
+					"min": 20,
+					"max": 40
 				}
 			]
 		},
 		"local_flask_gain_X_charges_when_hit": {
-			"1": [
+			"FlaskFullRechargeOnHit1": [
 				{
 					"min": 1,
 					"max": 1
@@ -41248,12 +42300,12 @@
 					"max": 1
 				},
 				{
-					"min": -30,
-					"max": -30
+					"min": 0,
+					"max": 0
 				},
 				{
-					"min": -30,
-					"max": -30
+					"min": -66,
+					"max": -66
 				}
 			]
 		},
@@ -41289,10 +42341,26 @@
 				}
 			]
 		},
+		"local_flask_accuracy_rating_+%_during_effect": {
+			"FlaskBuffAccuracyWhileHealing1__": [
+				{
+					"min": 15,
+					"max": 25
+				}
+			]
+		},
 		"local_flask_chance_to_freeze_shock_ignite_%_while_healing": {
 			"FlaskBuffFreezeShockIgniteChanceWhileHealing1_": [
 				{
 					"min": 20,
+					"max": 25
+				}
+			]
+		},
+		"local_flask_avoid_stun_chance_%_during_flask_effect": {
+			"FlaskBuffAvoidStunWhileHealing1_": [
+				{
+					"min": 15,
 					"max": 25
 				}
 			]
@@ -41326,6 +42394,14 @@
 				{
 					"min": -25,
 					"max": -20
+				}
+			]
+		},
+		"local_flask_ward_does_not_break_during_effect": {
+			"Unique__1": [
+				{
+					"min": 1,
+					"max": 1
 				}
 			]
 		},
@@ -42663,6 +43739,12 @@
 					"min": 1,
 					"max": 1
 				}
+			],
+			"": [
+				{
+					"min": 1,
+					"max": 1
+				}
 			]
 		},
 		"global_hit_causes_monster_flee_%": {
@@ -43564,6 +44646,12 @@
 				{
 					"min": 4,
 					"max": 4
+				}
+			],
+			"SpectralShieldThrowThresholdJewel3": [
+				{
+					"min": -75,
+					"max": -75
 				}
 			],
 			"BlindAuraUnique__1": [
@@ -46135,6 +47223,12 @@
 					"min": 1,
 					"max": 1
 				}
+			],
+			"__": [
+				{
+					"min": 1,
+					"max": 1
+				}
 			]
 		},
 		"cast_speed_+%_per_power_charge": {
@@ -46198,6 +47292,12 @@
 				{
 					"min": -67,
 					"max": -67
+				}
+			],
+			"__": [
+				{
+					"min": -30,
+					"max": -30
 				}
 			]
 		},
@@ -46684,6 +47784,12 @@
 					"max": 10
 				}
 			],
+			"GlovesDex1Royale": [
+				{
+					"min": 5,
+					"max": 5
+				}
+			],
 			"MeleeUniqueShieldDex1": [
 				{
 					"min": 25,
@@ -46750,6 +47856,12 @@
 				{
 					"min": -18,
 					"max": -14
+				}
+			],
+			"PhysicalAttackDamageReducedUniqueShieldDexInt1Royale": [
+				{
+					"min": -3,
+					"max": -2
 				}
 			],
 			"DamageTakenFlatReductionCorrupted1": [
@@ -53926,6 +55038,24 @@
 					"max": 2
 				}
 			],
+			"MapWorldsExpedition": [
+				{
+					"min": 16,
+					"max": 16
+				},
+				{
+					"min": 9,
+					"max": 9
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 2,
+					"max": 2
+				}
+			],
 			"Delve": [
 				{
 					"min": 5,
@@ -54146,6 +55276,24 @@
 					"max": 1
 				}
 			],
+			"MapWorldsExpedition": [
+				{
+					"min": 16,
+					"max": 16
+				},
+				{
+					"min": 9,
+					"max": 9
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
 			"Delve": [
 				{
 					"min": 5,
@@ -54331,6 +55479,24 @@
 					"min": 1,
 					"max": 1
 				}
+			],
+			"MapWorldsExpedition__": [
+				{
+					"min": 10,
+					"max": 10
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 4,
+					"max": 4
+				},
+				{
+					"min": 1,
+					"max": 1
+				}
 			]
 		},
 		"map_item_drop_quantity_+% map_item_drop_rarity_+% map_pack_size_+% map_spawn_two_bosses": {
@@ -54504,7 +55670,73 @@
 					"max": 19
 				}
 			],
+			"MapWorldsExpedition": [
+				{
+					"min": 13,
+					"max": 13
+				},
+				{
+					"min": 8,
+					"max": 8
+				},
+				{
+					"min": 5,
+					"max": 5
+				},
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 10,
+					"max": 14
+				}
+			],
+			"1MapWorldsExpedition_": [
+				{
+					"min": 13,
+					"max": 13
+				},
+				{
+					"min": 8,
+					"max": 8
+				},
+				{
+					"min": 5,
+					"max": 5
+				},
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 15,
+					"max": 19
+				}
+			],
 			"2MapWorlds": [
+				{
+					"min": 13,
+					"max": 13
+				},
+				{
+					"min": 8,
+					"max": 8
+				},
+				{
+					"min": 5,
+					"max": 5
+				},
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 20,
+					"max": 24
+				}
+			],
+			"2MapWorldsExpedition": [
 				{
 					"min": 13,
 					"max": 13
@@ -54560,6 +55792,28 @@
 				{
 					"min": 0,
 					"max": 0
+				},
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 25,
+					"max": 30
+				}
+			],
+			"3MapWorldsExpedition__": [
+				{
+					"min": 13,
+					"max": 13
+				},
+				{
+					"min": 8,
+					"max": 8
+				},
+				{
+					"min": 5,
+					"max": 5
 				},
 				{
 					"min": 1,
@@ -54646,6 +55900,24 @@
 				{
 					"min": 0,
 					"max": 0
+				},
+				{
+					"min": 2,
+					"max": 2
+				}
+			],
+			"WorldsExpedition_": [
+				{
+					"min": 19,
+					"max": 19
+				},
+				{
+					"min": 11,
+					"max": 11
+				},
+				{
+					"min": 7,
+					"max": 7
 				},
 				{
 					"min": 2,
@@ -54794,7 +56066,61 @@
 					"max": 45
 				}
 			],
+			"MapWorldsExpedition": [
+				{
+					"min": 13,
+					"max": 13
+				},
+				{
+					"min": 8,
+					"max": 8
+				},
+				{
+					"min": 5,
+					"max": 5
+				},
+				{
+					"min": 25,
+					"max": 25
+				}
+			],
+			"1MapWorldsExpedition_": [
+				{
+					"min": 13,
+					"max": 13
+				},
+				{
+					"min": 8,
+					"max": 8
+				},
+				{
+					"min": 5,
+					"max": 5
+				},
+				{
+					"min": 45,
+					"max": 45
+				}
+			],
 			"2MapWorlds": [
+				{
+					"min": 13,
+					"max": 13
+				},
+				{
+					"min": 8,
+					"max": 8
+				},
+				{
+					"min": 5,
+					"max": 5
+				},
+				{
+					"min": 70,
+					"max": 70
+				}
+			],
+			"2MapWorldsExpedition": [
 				{
 					"min": 13,
 					"max": 13
@@ -54842,6 +56168,24 @@
 				{
 					"min": 0,
 					"max": 0
+				},
+				{
+					"min": 100,
+					"max": 100
+				}
+			],
+			"3MapWorldsExpedition__": [
+				{
+					"min": 13,
+					"max": 13
+				},
+				{
+					"min": 8,
+					"max": 8
+				},
+				{
+					"min": 5,
+					"max": 5
 				},
 				{
 					"min": 100,
@@ -55180,7 +56524,73 @@
 					"max": 35
 				}
 			],
+			"MapWorldsExpedition": [
+				{
+					"min": 16,
+					"max": 16
+				},
+				{
+					"min": 9,
+					"max": 9
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 60,
+					"max": 100
+				},
+				{
+					"min": 25,
+					"max": 29
+				}
+			],
+			"1MapWorldsExpedition_": [
+				{
+					"min": 16,
+					"max": 16
+				},
+				{
+					"min": 9,
+					"max": 9
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 160,
+					"max": 200
+				},
+				{
+					"min": 30,
+					"max": 35
+				}
+			],
 			"2MapWorlds": [
+				{
+					"min": 16,
+					"max": 16
+				},
+				{
+					"min": 9,
+					"max": 9
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 260,
+					"max": 300
+				},
+				{
+					"min": 36,
+					"max": 40
+				}
+			],
+			"2MapWorldsExpedition": [
 				{
 					"min": 16,
 					"max": 16
@@ -55236,6 +56646,28 @@
 				{
 					"min": 0,
 					"max": 0
+				},
+				{
+					"min": 360,
+					"max": 400
+				},
+				{
+					"min": 41,
+					"max": 45
+				}
+			],
+			"3MapWorldsExpedition": [
+				{
+					"min": 16,
+					"max": 16
+				},
+				{
+					"min": 9,
+					"max": 9
+				},
+				{
+					"min": 6,
+					"max": 6
 				},
 				{
 					"min": 360,
@@ -55594,7 +57026,61 @@
 					"max": 20
 				}
 			],
+			"MapWorldsExpedition": [
+				{
+					"min": 13,
+					"max": 13
+				},
+				{
+					"min": 8,
+					"max": 8
+				},
+				{
+					"min": 5,
+					"max": 5
+				},
+				{
+					"min": 10,
+					"max": 10
+				}
+			],
+			"1MapWorldsExpedition": [
+				{
+					"min": 13,
+					"max": 13
+				},
+				{
+					"min": 8,
+					"max": 8
+				},
+				{
+					"min": 5,
+					"max": 5
+				},
+				{
+					"min": 20,
+					"max": 20
+				}
+			],
 			"2MapWorlds": [
+				{
+					"min": 13,
+					"max": 13
+				},
+				{
+					"min": 8,
+					"max": 8
+				},
+				{
+					"min": 5,
+					"max": 5
+				},
+				{
+					"min": 30,
+					"max": 30
+				}
+			],
+			"2MapWorldsExpedition_": [
 				{
 					"min": 13,
 					"max": 13
@@ -55642,6 +57128,24 @@
 				{
 					"min": 0,
 					"max": 0
+				},
+				{
+					"min": 40,
+					"max": 40
+				}
+			],
+			"3MapWorldsExpedition": [
+				{
+					"min": 13,
+					"max": 13
+				},
+				{
+					"min": 8,
+					"max": 8
+				},
+				{
+					"min": 5,
+					"max": 5
 				},
 				{
 					"min": 40,
@@ -55776,7 +57280,61 @@
 					"max": 29
 				}
 			],
+			"MapWorldsExpedition": [
+				{
+					"min": 13,
+					"max": 13
+				},
+				{
+					"min": 8,
+					"max": 8
+				},
+				{
+					"min": 5,
+					"max": 5
+				},
+				{
+					"min": 10,
+					"max": 19
+				}
+			],
+			"1MapWorldsExpedition": [
+				{
+					"min": 13,
+					"max": 13
+				},
+				{
+					"min": 8,
+					"max": 8
+				},
+				{
+					"min": 5,
+					"max": 5
+				},
+				{
+					"min": 20,
+					"max": 29
+				}
+			],
 			"2MapWorlds": [
+				{
+					"min": 13,
+					"max": 13
+				},
+				{
+					"min": 8,
+					"max": 8
+				},
+				{
+					"min": 5,
+					"max": 5
+				},
+				{
+					"min": 30,
+					"max": 39
+				}
+			],
+			"2MapWorldsExpedition": [
 				{
 					"min": 13,
 					"max": 13
@@ -55824,6 +57382,24 @@
 				{
 					"min": 0,
 					"max": 0
+				},
+				{
+					"min": 40,
+					"max": 49
+				}
+			],
+			"3MapWorldsExpedition": [
+				{
+					"min": 13,
+					"max": 13
+				},
+				{
+					"min": 8,
+					"max": 8
+				},
+				{
+					"min": 5,
+					"max": 5
 				},
 				{
 					"min": 40,
@@ -56256,7 +57832,61 @@
 					"max": 17
 				}
 			],
+			"MapWorldsExpedition": [
+				{
+					"min": 19,
+					"max": 19
+				},
+				{
+					"min": 11,
+					"max": 11
+				},
+				{
+					"min": 7,
+					"max": 7
+				},
+				{
+					"min": 10,
+					"max": 13
+				}
+			],
+			"1MapWorldsExpedition": [
+				{
+					"min": 19,
+					"max": 19
+				},
+				{
+					"min": 11,
+					"max": 11
+				},
+				{
+					"min": 7,
+					"max": 7
+				},
+				{
+					"min": 14,
+					"max": 17
+				}
+			],
 			"2MapWorlds": [
+				{
+					"min": 19,
+					"max": 19
+				},
+				{
+					"min": 11,
+					"max": 11
+				},
+				{
+					"min": 7,
+					"max": 7
+				},
+				{
+					"min": 18,
+					"max": 21
+				}
+			],
+			"2MapWorldsExpedition": [
 				{
 					"min": 19,
 					"max": 19
@@ -56304,6 +57934,24 @@
 				{
 					"min": 0,
 					"max": 0
+				},
+				{
+					"min": 22,
+					"max": 25
+				}
+			],
+			"3MapWorldsExpedition": [
+				{
+					"min": 19,
+					"max": 19
+				},
+				{
+					"min": 11,
+					"max": 11
+				},
+				{
+					"min": 7,
+					"max": 7
 				},
 				{
 					"min": 22,
@@ -56528,7 +58176,61 @@
 					"max": 69
 				}
 			],
+			"MapMonsterFireDamageMapWorldsExpedition": [
+				{
+					"min": 16,
+					"max": 16
+				},
+				{
+					"min": 9,
+					"max": 9
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 30,
+					"max": 49
+				}
+			],
+			"MapMonsterFireDamage1MapWorldsExpedition": [
+				{
+					"min": 16,
+					"max": 16
+				},
+				{
+					"min": 9,
+					"max": 9
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 50,
+					"max": 69
+				}
+			],
 			"2MapWorlds": [
+				{
+					"min": 16,
+					"max": 16
+				},
+				{
+					"min": 9,
+					"max": 9
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 70,
+					"max": 89
+				}
+			],
+			"2MapWorldsExpedition": [
 				{
 					"min": 16,
 					"max": 16
@@ -56576,6 +58278,24 @@
 				{
 					"min": 0,
 					"max": 0
+				},
+				{
+					"min": 90,
+					"max": 110
+				}
+			],
+			"3MapWorldsExpedition": [
+				{
+					"min": 16,
+					"max": 16
+				},
+				{
+					"min": 9,
+					"max": 9
+				},
+				{
+					"min": 6,
+					"max": 6
 				},
 				{
 					"min": 90,
@@ -56782,7 +58502,61 @@
 					"max": 69
 				}
 			],
+			"MapMonsterColdDamageMapWorldsExpedition": [
+				{
+					"min": 16,
+					"max": 16
+				},
+				{
+					"min": 9,
+					"max": 9
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 30,
+					"max": 49
+				}
+			],
+			"MapMonsterColdDamage1MapWorldsExpedition": [
+				{
+					"min": 16,
+					"max": 16
+				},
+				{
+					"min": 9,
+					"max": 9
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 50,
+					"max": 69
+				}
+			],
 			"2MapWorlds": [
+				{
+					"min": 16,
+					"max": 16
+				},
+				{
+					"min": 9,
+					"max": 9
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 70,
+					"max": 89
+				}
+			],
+			"2MapWorldsExpedition": [
 				{
 					"min": 16,
 					"max": 16
@@ -56830,6 +58604,24 @@
 				{
 					"min": 0,
 					"max": 0
+				},
+				{
+					"min": 90,
+					"max": 110
+				}
+			],
+			"3MapWorldsExpedition": [
+				{
+					"min": 16,
+					"max": 16
+				},
+				{
+					"min": 9,
+					"max": 9
+				},
+				{
+					"min": 6,
+					"max": 6
 				},
 				{
 					"min": 90,
@@ -57036,7 +58828,61 @@
 					"max": 69
 				}
 			],
+			"MapMonsterLightningDamageMapWorldsExpedition": [
+				{
+					"min": 16,
+					"max": 16
+				},
+				{
+					"min": 9,
+					"max": 9
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 30,
+					"max": 49
+				}
+			],
+			"MapMonsterLightningDamage1MapWorldsExpedition": [
+				{
+					"min": 16,
+					"max": 16
+				},
+				{
+					"min": 9,
+					"max": 9
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 50,
+					"max": 69
+				}
+			],
 			"2MapWorlds__": [
+				{
+					"min": 16,
+					"max": 16
+				},
+				{
+					"min": 9,
+					"max": 9
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 70,
+					"max": 89
+				}
+			],
+			"2MapWorldsExpedition_": [
 				{
 					"min": 16,
 					"max": 16
@@ -57084,6 +58930,24 @@
 				{
 					"min": 0,
 					"max": 0
+				},
+				{
+					"min": 90,
+					"max": 110
+				}
+			],
+			"3MapWorldsExpedition_": [
+				{
+					"min": 16,
+					"max": 16
+				},
+				{
+					"min": 9,
+					"max": 9
+				},
+				{
+					"min": 6,
+					"max": 6
 				},
 				{
 					"min": 90,
@@ -57298,7 +59162,85 @@
 					"max": 25
 				}
 			],
+			"MapWorldsExpedition": [
+				{
+					"min": 19,
+					"max": 19
+				},
+				{
+					"min": 11,
+					"max": 11
+				},
+				{
+					"min": 7,
+					"max": 7
+				},
+				{
+					"min": 10,
+					"max": 15
+				},
+				{
+					"min": 15,
+					"max": 20
+				},
+				{
+					"min": 15,
+					"max": 20
+				}
+			],
+			"1MapWorldsExpedition": [
+				{
+					"min": 19,
+					"max": 19
+				},
+				{
+					"min": 11,
+					"max": 11
+				},
+				{
+					"min": 7,
+					"max": 7
+				},
+				{
+					"min": 15,
+					"max": 20
+				},
+				{
+					"min": 20,
+					"max": 25
+				},
+				{
+					"min": 20,
+					"max": 25
+				}
+			],
 			"2MapWorlds": [
+				{
+					"min": 19,
+					"max": 19
+				},
+				{
+					"min": 11,
+					"max": 11
+				},
+				{
+					"min": 7,
+					"max": 7
+				},
+				{
+					"min": 20,
+					"max": 25
+				},
+				{
+					"min": 25,
+					"max": 35
+				},
+				{
+					"min": 25,
+					"max": 35
+				}
+			],
+			"2MapWorldsExpedition": [
 				{
 					"min": 19,
 					"max": 19
@@ -57362,6 +59304,32 @@
 				{
 					"min": 0,
 					"max": 0
+				},
+				{
+					"min": 25,
+					"max": 30
+				},
+				{
+					"min": 35,
+					"max": 45
+				},
+				{
+					"min": 35,
+					"max": 45
+				}
+			],
+			"3MapWorldsExpedition__": [
+				{
+					"min": 19,
+					"max": 19
+				},
+				{
+					"min": 11,
+					"max": 11
+				},
+				{
+					"min": 7,
+					"max": 7
 				},
 				{
 					"min": 25,
@@ -57726,7 +59694,43 @@
 					"max": 13
 				}
 			],
+			"1MapWorldsExpedition": [
+				{
+					"min": 10,
+					"max": 10
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 4,
+					"max": 4
+				},
+				{
+					"min": 13,
+					"max": 13
+				}
+			],
 			"2MapWorlds": [
+				{
+					"min": 10,
+					"max": 10
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 4,
+					"max": 4
+				},
+				{
+					"min": 15,
+					"max": 15
+				}
+			],
+			"2MapWorldsExpedition": [
 				{
 					"min": 10,
 					"max": 10
@@ -57774,6 +59778,24 @@
 				{
 					"min": 0,
 					"max": 0
+				},
+				{
+					"min": 18,
+					"max": 18
+				}
+			],
+			"3MapWorldsExpedition___": [
+				{
+					"min": 10,
+					"max": 10
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 4,
+					"max": 4
 				},
 				{
 					"min": 18,
@@ -57844,7 +59866,43 @@
 					"max": 13
 				}
 			],
+			"1MapWorldsExpedition": [
+				{
+					"min": 10,
+					"max": 10
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 4,
+					"max": 4
+				},
+				{
+					"min": 13,
+					"max": 13
+				}
+			],
 			"2MapWorlds": [
+				{
+					"min": 10,
+					"max": 10
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 4,
+					"max": 4
+				},
+				{
+					"min": 15,
+					"max": 15
+				}
+			],
+			"2MapWorldsExpedition": [
 				{
 					"min": 10,
 					"max": 10
@@ -57892,6 +59950,24 @@
 				{
 					"min": 0,
 					"max": 0
+				},
+				{
+					"min": 18,
+					"max": 18
+				}
+			],
+			"3MapWorldsExpedition": [
+				{
+					"min": 10,
+					"max": 10
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 4,
+					"max": 4
 				},
 				{
 					"min": 18,
@@ -58010,6 +60086,24 @@
 			]
 		},
 		"map_item_drop_quantity_+% map_item_drop_rarity_+% map_pack_size_+% map_player_life_and_es_recovery_speed_+%_final": {
+			"MapWorldsExpedition": [
+				{
+					"min": 16,
+					"max": 16
+				},
+				{
+					"min": 9,
+					"max": 9
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": -10,
+					"max": -10
+				}
+			],
 			"1MapWorlds": [
 				{
 					"min": 16,
@@ -58028,7 +60122,43 @@
 					"max": -20
 				}
 			],
+			"1MapWorldsExpedition_": [
+				{
+					"min": 16,
+					"max": 16
+				},
+				{
+					"min": 9,
+					"max": 9
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": -20,
+					"max": -20
+				}
+			],
 			"2MapWorlds_": [
+				{
+					"min": 16,
+					"max": 16
+				},
+				{
+					"min": 9,
+					"max": 9
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": -40,
+					"max": -40
+				}
+			],
+			"2MapWorldsExpedition_": [
 				{
 					"min": 16,
 					"max": 16
@@ -58081,6 +60211,24 @@
 					"min": -60,
 					"max": -60
 				}
+			],
+			"3MapWorldsExpedition": [
+				{
+					"min": 16,
+					"max": 16
+				},
+				{
+					"min": 9,
+					"max": 9
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": -60,
+					"max": -60
+				}
 			]
 		},
 		"map_item_drop_quantity_+% map_item_drop_rarity_+% map_pack_size_+% map_base_ground_fire_damage_to_deal_per_10_seconds map_ground_effect_patches_per_100_tiles map_ground_effect_radius": {
@@ -58110,7 +60258,85 @@
 					"max": 14
 				}
 			],
+			"MapBurningGroundMapWorldsExpedition": [
+				{
+					"min": 10,
+					"max": 10
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 4,
+					"max": 4
+				},
+				{
+					"min": 4000,
+					"max": 4000
+				},
+				{
+					"min": 16,
+					"max": 16
+				},
+				{
+					"min": 12,
+					"max": 12
+				}
+			],
+			"MapBurningGround1MapWorldsExpedition_": [
+				{
+					"min": 10,
+					"max": 10
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 4,
+					"max": 4
+				},
+				{
+					"min": 8000,
+					"max": 8000
+				},
+				{
+					"min": 20,
+					"max": 20
+				},
+				{
+					"min": 14,
+					"max": 14
+				}
+			],
 			"MapBurningGround2MapWorlds": [
+				{
+					"min": 10,
+					"max": 10
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 4,
+					"max": 4
+				},
+				{
+					"min": 12000,
+					"max": 12000
+				},
+				{
+					"min": 24,
+					"max": 24
+				},
+				{
+					"min": 16,
+					"max": 16
+				}
+			],
+			"MapBurningGround2MapWorldsExpedition": [
 				{
 					"min": 10,
 					"max": 10
@@ -58174,6 +60400,32 @@
 				{
 					"min": 0,
 					"max": 0
+				},
+				{
+					"min": 16000,
+					"max": 16000
+				},
+				{
+					"min": 28,
+					"max": 28
+				},
+				{
+					"min": 18,
+					"max": 18
+				}
+			],
+			"MapBurningGround3MapWorldsExpedition_": [
+				{
+					"min": 10,
+					"max": 10
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 4,
+					"max": 4
 				},
 				{
 					"min": 16000,
@@ -58372,6 +60624,32 @@
 			]
 		},
 		"map_item_drop_quantity_+% map_item_drop_rarity_+% map_pack_size_+% map_ground_ice_base_magnitude map_ground_effect_patches_per_100_tiles map_ground_effect_radius": {
+			"MapChilledGroundSuffixMapWorldsExpedition": [
+				{
+					"min": 10,
+					"max": 10
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 4,
+					"max": 4
+				},
+				{
+					"min": 5,
+					"max": 5
+				},
+				{
+					"min": 16,
+					"max": 16
+				},
+				{
+					"min": 12,
+					"max": 12
+				}
+			],
 			"MapChilledGroundSuffix1MapWorlds": [
 				{
 					"min": 10,
@@ -58398,7 +60676,59 @@
 					"max": 14
 				}
 			],
+			"MapChilledGroundSuffix1MapWorldsExpedition": [
+				{
+					"min": 10,
+					"max": 10
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 4,
+					"max": 4
+				},
+				{
+					"min": 10,
+					"max": 10
+				},
+				{
+					"min": 20,
+					"max": 20
+				},
+				{
+					"min": 14,
+					"max": 14
+				}
+			],
 			"MapChilledGroundSuffix2MapWorlds": [
+				{
+					"min": 10,
+					"max": 10
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 4,
+					"max": 4
+				},
+				{
+					"min": 20,
+					"max": 20
+				},
+				{
+					"min": 24,
+					"max": 24
+				},
+				{
+					"min": 16,
+					"max": 16
+				}
+			],
+			"MapChilledGroundSuffix2MapWorldsExpedition": [
 				{
 					"min": 10,
 					"max": 10
@@ -58462,6 +60792,32 @@
 				{
 					"min": 0,
 					"max": 0
+				},
+				{
+					"min": 30,
+					"max": 30
+				},
+				{
+					"min": 28,
+					"max": 28
+				},
+				{
+					"min": 18,
+					"max": 18
+				}
+			],
+			"MapChilledGroundSuffix3MapWorldsExpedition": [
+				{
+					"min": 10,
+					"max": 10
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 4,
+					"max": 4
 				},
 				{
 					"min": 30,
@@ -58634,6 +60990,32 @@
 			]
 		},
 		"map_item_drop_quantity_+% map_item_drop_rarity_+% map_pack_size_+% map_ground_lightning_base_magnitude map_ground_effect_patches_per_100_tiles map_ground_effect_radius": {
+			"MapShockedGroundMapWorldsExpedition": [
+				{
+					"min": 10,
+					"max": 10
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 4,
+					"max": 4
+				},
+				{
+					"min": 10,
+					"max": 10
+				},
+				{
+					"min": 16,
+					"max": 16
+				},
+				{
+					"min": 12,
+					"max": 12
+				}
+			],
 			"MapShockedGround1MapWorlds": [
 				{
 					"min": 10,
@@ -58660,7 +61042,59 @@
 					"max": 14
 				}
 			],
+			"MapShockedGround1MapWorldsExpedition_": [
+				{
+					"min": 10,
+					"max": 10
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 4,
+					"max": 4
+				},
+				{
+					"min": 20,
+					"max": 20
+				},
+				{
+					"min": 20,
+					"max": 20
+				},
+				{
+					"min": 14,
+					"max": 14
+				}
+			],
 			"MapShockedGround2MapWorlds": [
+				{
+					"min": 10,
+					"max": 10
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 4,
+					"max": 4
+				},
+				{
+					"min": 35,
+					"max": 35
+				},
+				{
+					"min": 24,
+					"max": 24
+				},
+				{
+					"min": 16,
+					"max": 16
+				}
+			],
+			"MapShockedGround2MapWorldsExpedition": [
 				{
 					"min": 10,
 					"max": 10
@@ -58724,6 +61158,32 @@
 				{
 					"min": 0,
 					"max": 0
+				},
+				{
+					"min": 50,
+					"max": 50
+				},
+				{
+					"min": 28,
+					"max": 28
+				},
+				{
+					"min": 18,
+					"max": 18
+				}
+			],
+			"MapShockedGround3MapWorldsExpedition": [
+				{
+					"min": 10,
+					"max": 10
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 4,
+					"max": 4
 				},
 				{
 					"min": 50,
@@ -58896,6 +61356,32 @@
 			]
 		},
 		"map_item_drop_quantity_+% map_item_drop_rarity_+% map_pack_size_+% map_base_ground_desecration_damage_to_deal_per_minute map_ground_effect_patches_per_100_tiles map_ground_effect_radius": {
+			"MapDesecratedGroundMapWorldsExpedition": [
+				{
+					"min": 10,
+					"max": 10
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 4,
+					"max": 4
+				},
+				{
+					"min": 8000,
+					"max": 8000
+				},
+				{
+					"min": 16,
+					"max": 16
+				},
+				{
+					"min": 12,
+					"max": 12
+				}
+			],
 			"MapDesecratedGround1MapWorlds": [
 				{
 					"min": 10,
@@ -58922,7 +61408,59 @@
 					"max": 14
 				}
 			],
+			"MapDesecratedGround1MapWorldsExpedition": [
+				{
+					"min": 10,
+					"max": 10
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 4,
+					"max": 4
+				},
+				{
+					"min": 10000,
+					"max": 10000
+				},
+				{
+					"min": 20,
+					"max": 20
+				},
+				{
+					"min": 14,
+					"max": 14
+				}
+			],
 			"MapDesecratedGround2MapWorlds__": [
+				{
+					"min": 10,
+					"max": 10
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 4,
+					"max": 4
+				},
+				{
+					"min": 12000,
+					"max": 12000
+				},
+				{
+					"min": 24,
+					"max": 24
+				},
+				{
+					"min": 16,
+					"max": 16
+				}
+			],
+			"MapDesecratedGround2MapWorldsExpedition": [
 				{
 					"min": 10,
 					"max": 10
@@ -58986,6 +61524,32 @@
 				{
 					"min": 0,
 					"max": 0
+				},
+				{
+					"min": 14000,
+					"max": 14000
+				},
+				{
+					"min": 28,
+					"max": 28
+				},
+				{
+					"min": 18,
+					"max": 18
+				}
+			],
+			"MapDesecratedGround3MapWorldsExpedition": [
+				{
+					"min": 10,
+					"max": 10
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 4,
+					"max": 4
 				},
 				{
 					"min": 14000,
@@ -59158,7 +61722,43 @@
 			]
 		},
 		"map_item_drop_quantity_+% map_item_drop_rarity_+% map_pack_size_+% map_player_has_level_X_elemental_weakness": {
+			"ElementalWeaknessMapWorldsExpedition__": [
+				{
+					"min": 13,
+					"max": 13
+				},
+				{
+					"min": 8,
+					"max": 8
+				},
+				{
+					"min": 5,
+					"max": 5
+				},
+				{
+					"min": 5,
+					"max": 5
+				}
+			],
 			"ElementalWeakness1MapWorlds": [
+				{
+					"min": 13,
+					"max": 13
+				},
+				{
+					"min": 8,
+					"max": 8
+				},
+				{
+					"min": 5,
+					"max": 5
+				},
+				{
+					"min": 10,
+					"max": 10
+				}
+			],
+			"ElementalWeakness1MapWorldsExpedition_": [
 				{
 					"min": 13,
 					"max": 13
@@ -59211,10 +61811,64 @@
 					"min": 15,
 					"max": 15
 				}
+			],
+			"MapPlayerCurseElementalWeakness2MapWorldsExpedition_": [
+				{
+					"min": 13,
+					"max": 13
+				},
+				{
+					"min": 8,
+					"max": 8
+				},
+				{
+					"min": 5,
+					"max": 5
+				},
+				{
+					"min": 15,
+					"max": 15
+				}
 			]
 		},
 		"map_item_drop_quantity_+% map_item_drop_rarity_+% map_pack_size_+% map_player_has_level_X_vulnerability": {
+			"VulnerabilityMapWorldsExpedition__": [
+				{
+					"min": 13,
+					"max": 13
+				},
+				{
+					"min": 8,
+					"max": 8
+				},
+				{
+					"min": 5,
+					"max": 5
+				},
+				{
+					"min": 5,
+					"max": 5
+				}
+			],
 			"Vulnerability1MapWorlds": [
+				{
+					"min": 13,
+					"max": 13
+				},
+				{
+					"min": 8,
+					"max": 8
+				},
+				{
+					"min": 5,
+					"max": 5
+				},
+				{
+					"min": 10,
+					"max": 10
+				}
+			],
+			"Vulnerability1MapWorldsExpedition_": [
 				{
 					"min": 13,
 					"max": 13
@@ -59262,6 +61916,24 @@
 				{
 					"min": 0,
 					"max": 0
+				},
+				{
+					"min": 15,
+					"max": 15
+				}
+			],
+			"MapPlayerCurseVulnerability2MapWorldsExpedition_": [
+				{
+					"min": 13,
+					"max": 13
+				},
+				{
+					"min": 8,
+					"max": 8
+				},
+				{
+					"min": 5,
+					"max": 5
 				},
 				{
 					"min": 15,
@@ -59362,7 +62034,43 @@
 			]
 		},
 		"map_item_drop_quantity_+% map_item_drop_rarity_+% map_pack_size_+% map_player_has_level_X_enfeeble": {
+			"EnfeeblementMapWorldsExpedition_": [
+				{
+					"min": 13,
+					"max": 13
+				},
+				{
+					"min": 8,
+					"max": 8
+				},
+				{
+					"min": 5,
+					"max": 5
+				},
+				{
+					"min": 5,
+					"max": 5
+				}
+			],
 			"Enfeeblement1MapWorlds": [
+				{
+					"min": 13,
+					"max": 13
+				},
+				{
+					"min": 8,
+					"max": 8
+				},
+				{
+					"min": 5,
+					"max": 5
+				},
+				{
+					"min": 10,
+					"max": 10
+				}
+			],
+			"Enfeeblement1MapWorldsExpedition_": [
 				{
 					"min": 13,
 					"max": 13
@@ -59415,6 +62123,24 @@
 					"min": 15,
 					"max": 15
 				}
+			],
+			"MapPlayerCurseEnfeeblement2MapWorldsExpedition_": [
+				{
+					"min": 13,
+					"max": 13
+				},
+				{
+					"min": 8,
+					"max": 8
+				},
+				{
+					"min": 5,
+					"max": 5
+				},
+				{
+					"min": 15,
+					"max": 15
+				}
 			]
 		},
 		"map_item_drop_quantity_+% map_item_drop_rarity_+% map_player_has_level_X_temporal_chains map_pack_size_+%": {
@@ -59456,7 +62182,43 @@
 			]
 		},
 		"map_item_drop_quantity_+% map_item_drop_rarity_+% map_pack_size_+% map_player_has_level_X_temporal_chains": {
+			"TemporalChainsMapWorldsExpedition_": [
+				{
+					"min": 13,
+					"max": 13
+				},
+				{
+					"min": 8,
+					"max": 8
+				},
+				{
+					"min": 5,
+					"max": 5
+				},
+				{
+					"min": 5,
+					"max": 5
+				}
+			],
 			"TemporalChains1MapWorlds": [
+				{
+					"min": 13,
+					"max": 13
+				},
+				{
+					"min": 8,
+					"max": 8
+				},
+				{
+					"min": 5,
+					"max": 5
+				},
+				{
+					"min": 10,
+					"max": 10
+				}
+			],
+			"TemporalChains1MapWorldsExpedition_": [
 				{
 					"min": 13,
 					"max": 13
@@ -59504,6 +62266,24 @@
 				{
 					"min": 0,
 					"max": 0
+				},
+				{
+					"min": 15,
+					"max": 15
+				}
+			],
+			"MapPlayerCurseTemporalChains2MapWorldsExpedition": [
+				{
+					"min": 13,
+					"max": 13
+				},
+				{
+					"min": 8,
+					"max": 8
+				},
+				{
+					"min": 5,
+					"max": 5
 				},
 				{
 					"min": 15,
@@ -59609,6 +62389,24 @@
 		},
 		"map_item_drop_quantity_+% map_item_drop_rarity_+% map_pack_size_+% map_players_no_regeneration_including_es": {
 			"MapPlayerNoLifeESRegenMapWorlds": [
+				{
+					"min": 16,
+					"max": 16
+				},
+				{
+					"min": 9,
+					"max": 9
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"MapPlayerNoLifeESRegenMapWorldsExpedition": [
 				{
 					"min": 16,
 					"max": 16
@@ -59794,6 +62592,24 @@
 					"max": -5
 				}
 			],
+			"1MapWorldsExpedition": [
+				{
+					"min": 19,
+					"max": 19
+				},
+				{
+					"min": 11,
+					"max": 11
+				},
+				{
+					"min": 7,
+					"max": 7
+				},
+				{
+					"min": -8,
+					"max": -5
+				}
+			],
 			"2MapWorlds": [
 				{
 					"min": 19,
@@ -59824,6 +62640,24 @@
 				{
 					"min": 0,
 					"max": 0
+				},
+				{
+					"min": -12,
+					"max": -9
+				}
+			],
+			"2MapWorldsExpedition": [
+				{
+					"min": 19,
+					"max": 19
+				},
+				{
+					"min": 11,
+					"max": 11
+				},
+				{
+					"min": 7,
+					"max": 7
 				},
 				{
 					"min": -12,
@@ -60596,7 +63430,61 @@
 					"max": 30
 				}
 			],
+			"MapWorldsExpedition": [
+				{
+					"min": 10,
+					"max": 10
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 4,
+					"max": 4
+				},
+				{
+					"min": 20,
+					"max": 24
+				}
+			],
+			"1MapWorldsExpedition": [
+				{
+					"min": 10,
+					"max": 10
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 4,
+					"max": 4
+				},
+				{
+					"min": 25,
+					"max": 30
+				}
+			],
 			"2MapWorlds": [
+				{
+					"min": 10,
+					"max": 10
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 4,
+					"max": 4
+				},
+				{
+					"min": 31,
+					"max": 35
+				}
+			],
+			"2MapWorldsExpedition_": [
 				{
 					"min": 10,
 					"max": 10
@@ -60644,6 +63532,24 @@
 				{
 					"min": 0,
 					"max": 0
+				},
+				{
+					"min": 36,
+					"max": 40
+				}
+			],
+			"3MapWorldsExpedition___": [
+				{
+					"min": 10,
+					"max": 10
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 4,
+					"max": 4
 				},
 				{
 					"min": 36,
@@ -60916,7 +63822,61 @@
 					"max": -30
 				}
 			],
+			"MapWorldsExpedition_": [
+				{
+					"min": 13,
+					"max": 13
+				},
+				{
+					"min": 8,
+					"max": 8
+				},
+				{
+					"min": 5,
+					"max": 5
+				},
+				{
+					"min": -20,
+					"max": -20
+				}
+			],
+			"1MapWorldsExpedition": [
+				{
+					"min": 13,
+					"max": 13
+				},
+				{
+					"min": 8,
+					"max": 8
+				},
+				{
+					"min": 5,
+					"max": 5
+				},
+				{
+					"min": -30,
+					"max": -30
+				}
+			],
 			"2MapWorlds_": [
+				{
+					"min": 13,
+					"max": 13
+				},
+				{
+					"min": 8,
+					"max": 8
+				},
+				{
+					"min": 5,
+					"max": 5
+				},
+				{
+					"min": -40,
+					"max": -40
+				}
+			],
+			"2MapWorldsExpedition___": [
 				{
 					"min": 13,
 					"max": 13
@@ -60964,6 +63924,24 @@
 				{
 					"min": 0,
 					"max": 0
+				},
+				{
+					"min": -50,
+					"max": -50
+				}
+			],
+			"3MapWorldsExpedition_": [
+				{
+					"min": 13,
+					"max": 13
+				},
+				{
+					"min": 8,
+					"max": 8
+				},
+				{
+					"min": 5,
+					"max": 5
 				},
 				{
 					"min": -50,
@@ -61062,7 +64040,61 @@
 					"max": -25
 				}
 			],
+			"MapMonstersCurseEffectOnSelfFinalMapWorldsExpedition": [
+				{
+					"min": 13,
+					"max": 13
+				},
+				{
+					"min": 8,
+					"max": 8
+				},
+				{
+					"min": 5,
+					"max": 5
+				},
+				{
+					"min": -10,
+					"max": -10
+				}
+			],
+			"MapMonstersCurseEffectOnSelfFinal1MapWorldsExpedition": [
+				{
+					"min": 13,
+					"max": 13
+				},
+				{
+					"min": 8,
+					"max": 8
+				},
+				{
+					"min": 5,
+					"max": 5
+				},
+				{
+					"min": -25,
+					"max": -25
+				}
+			],
 			"MapMonstersCurseEffectOnSelfFinal2MapWorlds": [
+				{
+					"min": 13,
+					"max": 13
+				},
+				{
+					"min": 8,
+					"max": 8
+				},
+				{
+					"min": 5,
+					"max": 5
+				},
+				{
+					"min": -40,
+					"max": -40
+				}
+			],
+			"MapMonstersCurseEffectOnSelfFinal2MapWorldsExpedition": [
 				{
 					"min": 13,
 					"max": 13
@@ -61110,6 +64142,24 @@
 				{
 					"min": 0,
 					"max": 0
+				},
+				{
+					"min": -60,
+					"max": -60
+				}
+			],
+			"MapMonstersCurseEffectOnSelfFinal3MapWorldsExpedition_": [
+				{
+					"min": 13,
+					"max": 13
+				},
+				{
+					"min": 8,
+					"max": 8
+				},
+				{
+					"min": 5,
+					"max": 5
 				},
 				{
 					"min": -60,
@@ -61274,6 +64324,42 @@
 					"max": 15
 				}
 			],
+			"MapWorldsExpedition": [
+				{
+					"min": 13,
+					"max": 13
+				},
+				{
+					"min": 8,
+					"max": 8
+				},
+				{
+					"min": 5,
+					"max": 5
+				},
+				{
+					"min": 10,
+					"max": 10
+				}
+			],
+			"1MapWorldsExpedition__": [
+				{
+					"min": 13,
+					"max": 13
+				},
+				{
+					"min": 8,
+					"max": 8
+				},
+				{
+					"min": 5,
+					"max": 5
+				},
+				{
+					"min": 15,
+					"max": 15
+				}
+			],
 			"2MapWorlds": [
 				{
 					"min": 13,
@@ -61304,6 +64390,24 @@
 				{
 					"min": 0,
 					"max": 0
+				},
+				{
+					"min": 20,
+					"max": 20
+				}
+			],
+			"2MapWorldsExpedition": [
+				{
+					"min": 13,
+					"max": 13
+				},
+				{
+					"min": 8,
+					"max": 8
+				},
+				{
+					"min": 5,
+					"max": 5
 				},
 				{
 					"min": 20,
@@ -61546,6 +64650,28 @@
 				{
 					"min": 0,
 					"max": 0
+				},
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"MapWorldsExpedition_": [
+				{
+					"min": 10,
+					"max": 10
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 4,
+					"max": 4
 				},
 				{
 					"min": 1,
@@ -61802,7 +64928,73 @@
 					"max": 20
 				}
 			],
+			"MapWorldsExpedition": [
+				{
+					"min": 13,
+					"max": 13
+				},
+				{
+					"min": 8,
+					"max": 8
+				},
+				{
+					"min": 5,
+					"max": 5
+				},
+				{
+					"min": 10,
+					"max": 10
+				},
+				{
+					"min": 10,
+					"max": 10
+				}
+			],
+			"1MapWorldsExpedition": [
+				{
+					"min": 13,
+					"max": 13
+				},
+				{
+					"min": 8,
+					"max": 8
+				},
+				{
+					"min": 5,
+					"max": 5
+				},
+				{
+					"min": 15,
+					"max": 15
+				},
+				{
+					"min": 20,
+					"max": 20
+				}
+			],
 			"2MapWorlds": [
+				{
+					"min": 13,
+					"max": 13
+				},
+				{
+					"min": 8,
+					"max": 8
+				},
+				{
+					"min": 5,
+					"max": 5
+				},
+				{
+					"min": 20,
+					"max": 20
+				},
+				{
+					"min": 30,
+					"max": 30
+				}
+			],
+			"2MapWorldsExpedition": [
 				{
 					"min": 13,
 					"max": 13
@@ -61858,6 +65050,28 @@
 				{
 					"min": 0,
 					"max": 0
+				},
+				{
+					"min": 25,
+					"max": 25
+				},
+				{
+					"min": 40,
+					"max": 40
+				}
+			],
+			"3MapWorldsExpedition__": [
+				{
+					"min": 13,
+					"max": 13
+				},
+				{
+					"min": 8,
+					"max": 8
+				},
+				{
+					"min": 5,
+					"max": 5
 				},
 				{
 					"min": 25,
@@ -62064,7 +65278,61 @@
 					"max": 20
 				}
 			],
+			"MapWorldsExpedition__": [
+				{
+					"min": 10,
+					"max": 10
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 4,
+					"max": 4
+				},
+				{
+					"min": 10,
+					"max": 10
+				}
+			],
+			"1MapWorldsExpedition": [
+				{
+					"min": 10,
+					"max": 10
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 4,
+					"max": 4
+				},
+				{
+					"min": 20,
+					"max": 20
+				}
+			],
 			"2MapWorlds": [
+				{
+					"min": 10,
+					"max": 10
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 4,
+					"max": 4
+				},
+				{
+					"min": 35,
+					"max": 35
+				}
+			],
+			"2MapWorldsExpedition_": [
 				{
 					"min": 10,
 					"max": 10
@@ -62112,6 +65380,24 @@
 				{
 					"min": 0,
 					"max": 0
+				},
+				{
+					"min": 50,
+					"max": 50
+				}
+			],
+			"3MapWorldsExpedition": [
+				{
+					"min": 10,
+					"max": 10
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 4,
+					"max": 4
 				},
 				{
 					"min": 50,
@@ -62319,6 +65605,24 @@
 					"min": 1,
 					"max": 1
 				}
+			],
+			"MapWorldsExpedition": [
+				{
+					"min": 10,
+					"max": 10
+				},
+				{
+					"min": 6,
+					"max": 6
+				},
+				{
+					"min": 4,
+					"max": 4
+				},
+				{
+					"min": 1,
+					"max": 1
+				}
 			]
 		},
 		"map_item_drop_quantity_+% map_item_drop_rarity_+% map_pack_size_+% map_players_block_chance_+% map_players_armour_+%_final": {
@@ -62410,7 +65714,73 @@
 					"max": -20
 				}
 			],
+			"MapWorldsExpedition": [
+				{
+					"min": 13,
+					"max": 13
+				},
+				{
+					"min": 8,
+					"max": 8
+				},
+				{
+					"min": 5,
+					"max": 5
+				},
+				{
+					"min": -10,
+					"max": -10
+				},
+				{
+					"min": -15,
+					"max": -15
+				}
+			],
+			"1MapWorldsExpedition": [
+				{
+					"min": 13,
+					"max": 13
+				},
+				{
+					"min": 8,
+					"max": 8
+				},
+				{
+					"min": 5,
+					"max": 5
+				},
+				{
+					"min": -20,
+					"max": -20
+				},
+				{
+					"min": -20,
+					"max": -20
+				}
+			],
 			"2MapWorlds": [
+				{
+					"min": 13,
+					"max": 13
+				},
+				{
+					"min": 8,
+					"max": 8
+				},
+				{
+					"min": 5,
+					"max": 5
+				},
+				{
+					"min": -30,
+					"max": -30
+				},
+				{
+					"min": -25,
+					"max": -25
+				}
+			],
+			"2MapWorldsExpedition": [
 				{
 					"min": 13,
 					"max": 13
@@ -62466,6 +65836,28 @@
 				{
 					"min": 0,
 					"max": 0
+				},
+				{
+					"min": -40,
+					"max": -40
+				},
+				{
+					"min": -30,
+					"max": -30
+				}
+			],
+			"3MapWorldsExpedition": [
+				{
+					"min": 13,
+					"max": 13
+				},
+				{
+					"min": 8,
+					"max": 8
+				},
+				{
+					"min": 5,
+					"max": 5
 				},
 				{
 					"min": -40,
@@ -62566,6 +65958,28 @@
 					"max": 50
 				}
 			],
+			"MapPlayersEvasionAndUnluckyDodgeMapWorldsExpedition": [
+				{
+					"min": 13,
+					"max": 13
+				},
+				{
+					"min": 8,
+					"max": 8
+				},
+				{
+					"min": 5,
+					"max": 5
+				},
+				{
+					"min": -1,
+					"max": -1
+				},
+				{
+					"min": 20,
+					"max": 20
+				}
+			],
 			"MapPlayersEvasionAndUnluckyDodge1MapWorlds": [
 				{
 					"min": 13,
@@ -62588,7 +66002,51 @@
 					"max": 30
 				}
 			],
+			"MapPlayersEvasionAndUnluckyDodge1MapWorldsExpedition": [
+				{
+					"min": 13,
+					"max": 13
+				},
+				{
+					"min": 8,
+					"max": 8
+				},
+				{
+					"min": 5,
+					"max": 5
+				},
+				{
+					"min": -1,
+					"max": -1
+				},
+				{
+					"min": 30,
+					"max": 30
+				}
+			],
 			"MapPlayersEvasionAndUnluckyDodge2MapWorlds": [
+				{
+					"min": 13,
+					"max": 13
+				},
+				{
+					"min": 8,
+					"max": 8
+				},
+				{
+					"min": 5,
+					"max": 5
+				},
+				{
+					"min": -1,
+					"max": -1
+				},
+				{
+					"min": 40,
+					"max": 40
+				}
+			],
+			"MapPlayersEvasionAndUnluckyDodge2MapWorldsExpedition": [
 				{
 					"min": 13,
 					"max": 13
@@ -62644,6 +66102,28 @@
 				{
 					"min": 0,
 					"max": 0
+				},
+				{
+					"min": -1,
+					"max": -1
+				},
+				{
+					"min": 50,
+					"max": 50
+				}
+			],
+			"MapPlayersEvasionAndUnluckyDodge3MapWorldsExpedition": [
+				{
+					"min": 13,
+					"max": 13
+				},
+				{
+					"min": 8,
+					"max": 8
+				},
+				{
+					"min": 5,
+					"max": 5
 				},
 				{
 					"min": -1,
@@ -62926,7 +66406,61 @@
 					"max": -15
 				}
 			],
+			"MapPlayersLessAoERadiusMapWorldsExpedition": [
+				{
+					"min": 13,
+					"max": 13
+				},
+				{
+					"min": 8,
+					"max": 8
+				},
+				{
+					"min": 5,
+					"max": 5
+				},
+				{
+					"min": -10,
+					"max": -10
+				}
+			],
+			"MapPlayersLessAoERadius1MapWorldsExpedition": [
+				{
+					"min": 13,
+					"max": 13
+				},
+				{
+					"min": 8,
+					"max": 8
+				},
+				{
+					"min": 5,
+					"max": 5
+				},
+				{
+					"min": -15,
+					"max": -15
+				}
+			],
 			"MapPlayersLessAoERadius2MapWorlds": [
+				{
+					"min": 13,
+					"max": 13
+				},
+				{
+					"min": 8,
+					"max": 8
+				},
+				{
+					"min": 5,
+					"max": 5
+				},
+				{
+					"min": -20,
+					"max": -20
+				}
+			],
+			"MapPlayersLessAoERadius2MapWorldsExpedition": [
 				{
 					"min": 13,
 					"max": 13
@@ -62979,6 +66513,24 @@
 					"min": -25,
 					"max": -25
 				}
+			],
+			"MapPlayersLessAoERadius3MapWorldsExpedition": [
+				{
+					"min": 13,
+					"max": 13
+				},
+				{
+					"min": 8,
+					"max": 8
+				},
+				{
+					"min": 5,
+					"max": 5
+				},
+				{
+					"min": -25,
+					"max": -25
+				}
 			]
 		},
 		"map_item_drop_quantity_+% map_item_drop_rarity_+% map_pack_size_+% map_monsters_add_frenzy_charge_on_hit_%": {
@@ -63012,6 +66564,24 @@
 				{
 					"min": 0,
 					"max": 0
+				},
+				{
+					"min": 100,
+					"max": 100
+				}
+			],
+			"MapWorldsExpedition_": [
+				{
+					"min": 13,
+					"max": 13
+				},
+				{
+					"min": 8,
+					"max": 8
+				},
+				{
+					"min": 5,
+					"max": 5
 				},
 				{
 					"min": 100,
@@ -63122,6 +66692,24 @@
 				{
 					"min": 0,
 					"max": 0
+				},
+				{
+					"min": 100,
+					"max": 100
+				}
+			],
+			"MapWorldsExpedition": [
+				{
+					"min": 13,
+					"max": 13
+				},
+				{
+					"min": 8,
+					"max": 8
+				},
+				{
+					"min": 5,
+					"max": 5
 				},
 				{
 					"min": 100,
@@ -63250,6 +66838,24 @@
 				{
 					"min": 0,
 					"max": 0
+				},
+				{
+					"min": 100,
+					"max": 100
+				}
+			],
+			"MapWorldsExpedition": [
+				{
+					"min": 13,
+					"max": 13
+				},
+				{
+					"min": 8,
+					"max": 8
+				},
+				{
+					"min": 5,
+					"max": 5
 				},
 				{
 					"min": 100,
@@ -63848,6 +67454,18 @@
 					"max": 100
 				}
 			],
+			"ScavengerWalkFemale_": [
+				{
+					"min": -52,
+					"max": -52
+				}
+			],
+			"ScavengerWalkMale___": [
+				{
+					"min": -58,
+					"max": -58
+				}
+			],
 			"NovasoulMinionRun": [
 				{
 					"min": 200,
@@ -63862,8 +67480,8 @@
 			],
 			"BanditRun": [
 				{
-					"min": 100,
-					"max": 100
+					"min": 112,
+					"max": 112
 				}
 			],
 			"KiwethRun": [
@@ -64104,6 +67722,36 @@
 				{
 					"min": 317,
 					"max": 317
+				}
+			],
+			"StaceScytheHand_": [
+				{
+					"min": 318,
+					"max": 318
+				}
+			],
+			"ExpeditionDannigWalk": [
+				{
+					"min": -74,
+					"max": -74
+				}
+			],
+			"ExpeditionGwennenWalk": [
+				{
+					"min": -71,
+					"max": -71
+				}
+			],
+			"ExpeditionRogWalk_": [
+				{
+					"min": 0,
+					"max": 0
+				}
+			],
+			"ExpeditionTujenWalk_": [
+				{
+					"min": -64,
+					"max": -64
 				}
 			],
 			"ShakariImmobile": [
@@ -64686,8 +68334,8 @@
 		"monster_ground_fire_on_death_%_max_damage_to_deal_per_minute monster_ground_fire_on_death_base_area_of_effect_radius monster_ground_effect_on_death_base_duration_ms": {
 			"MonsterGroundFireOnDeath1": [
 				{
-					"min": 3000,
-					"max": 3000
+					"min": 3750,
+					"max": 3750
 				},
 				{
 					"min": 16,
@@ -65727,6 +69375,12 @@
 					"min": 1,
 					"max": 1
 				}
+			],
+			"": [
+				{
+					"min": 1,
+					"max": 1
+				}
 			]
 		},
 		"necromancer_additional_rarity_levels_can_be_raised": {
@@ -65817,7 +69471,7 @@
 				}
 			]
 		},
-		"unique_facebreaker_unarmed_physical_damage_+%_final": {
+		"unique_facebreaker_unarmed_melee_physical_damage_+%_final": {
 			"FacebreakerUnarmedMoreDamage": [
 				{
 					"min": 600,
@@ -67501,6 +71155,12 @@
 					"min": 500,
 					"max": 700
 				}
+			],
+			"Unique__3Royale_": [
+				{
+					"min": 75,
+					"max": 100
+				}
 			]
 		},
 		"local_dexterity_requirement_+": {
@@ -67555,7 +71215,7 @@
 				}
 			]
 		},
-		"local_flask_curse_immunity_while_healing": {
+		"local_flask_remove_curses_on_use": {
 			"1": [
 				{
 					"min": 1,
@@ -68338,6 +71998,12 @@
 				{
 					"min": -50,
 					"max": -50
+				}
+			],
+			"Unique__7_": [
+				{
+					"min": 15,
+					"max": 25
 				}
 			],
 			"SynthesisImplicit1": [
@@ -69308,6 +72974,12 @@
 					"max": 500
 				}
 			],
+			"IncreasedUnique__1": [
+				{
+					"min": 800,
+					"max": 800
+				}
+			],
 			"WeaponEnchantmentHeistAttributeRequirement1": [
 				{
 					"min": -40,
@@ -69434,6 +73106,12 @@
 					"max": 125
 				}
 			],
+			"UniqueHelmetStr3Royale": [
+				{
+					"min": 25,
+					"max": 30
+				}
+			],
 			"MeleeCritMultiplier": [
 				{
 					"min": 12,
@@ -69532,14 +73210,14 @@
 			],
 			"Uber1_": [
 				{
-					"min": -20,
-					"max": -15
+					"min": -29,
+					"max": -25
 				}
 			],
 			"Uber2": [
 				{
-					"min": -25,
-					"max": -21
+					"min": -35,
+					"max": -30
 				}
 			],
 			"Influence1": [
@@ -70025,6 +73703,12 @@
 					"min": 30,
 					"max": 30
 				}
+			],
+			"UniqueBodyStrInt4Royale_": [
+				{
+					"min": 5,
+					"max": 5
+				}
 			]
 		},
 		"max_power_charges": {
@@ -70221,6 +73905,24 @@
 					"min": 8000,
 					"max": 8000
 				}
+			],
+			"UniqueBodyStrInt4Royale_": [
+				{
+					"min": 100,
+					"max": 100
+				},
+				{
+					"min": 600,
+					"max": 600
+				},
+				{
+					"min": 16,
+					"max": 16
+				},
+				{
+					"min": 8000,
+					"max": 8000
+				}
 			]
 		},
 		"disable_chest_slot": {
@@ -70334,6 +74036,12 @@
 					"max": 100
 				}
 			],
+			"IncreasedUniqueStaff10Royale": [
+				{
+					"min": 15,
+					"max": 30
+				}
+			],
 			"IncreasedUniqueBootsDexInt4": [
 				{
 					"min": 20,
@@ -70398,6 +74106,12 @@
 				{
 					"min": 30,
 					"max": 50
+				}
+			],
+			"IncreasedUnique___10Royale_": [
+				{
+					"min": 10,
+					"max": 30
 				}
 			],
 			"ProjectileDamageJewel": [
@@ -70502,8 +74216,8 @@
 			],
 			"Royale": [
 				{
-					"min": 100,
-					"max": 100
+					"min": 40,
+					"max": 40
 				}
 			],
 			"BetrayalSafehouseExperience1__": [
@@ -71910,16 +75624,16 @@
 		"local_unique_flask_item_rarity_+%_while_healing": {
 			"UniqueFlask1": [
 				{
-					"min": 40,
-					"max": 60
+					"min": 20,
+					"max": 30
 				}
 			]
 		},
 		"local_unique_flask_item_quantity_+%_while_healing": {
 			"UniqueFlask1": [
 				{
-					"min": 12,
-					"max": 18
+					"min": 8,
+					"max": 12
 				}
 			]
 		},
@@ -72089,6 +75803,18 @@
 					"min": 3000,
 					"max": 3000
 				}
+			],
+			"erationAuraNonPlayersUnique__1Royale__": [
+				{
+					"min": 1200,
+					"max": 1200
+				}
+			],
+			"erationAuraPlayersUnique__1Royale": [
+				{
+					"min": 1200,
+					"max": 1200
+				}
 			]
 		},
 		"local_unique_counts_as_dual_wielding": {
@@ -72154,6 +75880,12 @@
 				{
 					"min": 3000,
 					"max": 3000
+				}
+			],
+			"Unique__1Royale__": [
+				{
+					"min": 1200,
+					"max": 1200
 				}
 			]
 		},
@@ -72520,6 +76252,16 @@
 					"max": 200
 				}
 			],
+			"UniqueTwoHandAxe6Royale": [
+				{
+					"min": 3,
+					"max": 5
+				},
+				{
+					"min": 9,
+					"max": 12
+				}
+			],
 			"UniqueOneHandAxe2": [
 				{
 					"min": 255,
@@ -72540,6 +76282,16 @@
 				{
 					"min": 165,
 					"max": 200
+				}
+			],
+			"UniqueTwoHandAxe6Royale_": [
+				{
+					"min": 3,
+					"max": 5
+				},
+				{
+					"min": 9,
+					"max": 12
 				}
 			]
 		},
@@ -72670,16 +76422,16 @@
 		"local_flask_removes_%_maximum_energy_shield_on_use": {
 			"UniqueFlask2": [
 				{
-					"min": 20,
-					"max": 20
+					"min": 80,
+					"max": 80
 				}
 			]
 		},
 		"local_flask_deals_%_maximum_life_as_chaos_damage_on_use": {
 			"UniqueFlask2": [
 				{
-					"min": 10,
-					"max": 10
+					"min": 50,
+					"max": 50
 				}
 			]
 		},
@@ -72687,7 +76439,7 @@
 			"FlaskGainFrenzyChargeUniqueFlask2": [
 				{
 					"min": 1,
-					"max": 1
+					"max": 3
 				}
 			]
 		},
@@ -72695,7 +76447,7 @@
 			"FlaskGainPowerChargeUniqueFlask2": [
 				{
 					"min": 1,
-					"max": 1
+					"max": 3
 				}
 			]
 		},
@@ -72703,7 +76455,7 @@
 			"FlaskGainEnduranceChargeUniqueFlask2": [
 				{
 					"min": 1,
-					"max": 1
+					"max": 3
 				}
 			],
 			"FlaskGainEnduranceChargeUnique__1_": [
@@ -72911,6 +76663,12 @@
 			"TwoHandInfluence3": [
 				{
 					"min": 14,
+					"max": 15
+				}
+			],
+			"_": [
+				{
+					"min": 15,
 					"max": 15
 				}
 			]
@@ -73717,6 +77475,12 @@
 					"min": 30,
 					"max": 30
 				}
+			],
+			"": [
+				{
+					"min": 50,
+					"max": 50
+				}
 			]
 		},
 		"fire_damage_%_to_add_as_chaos": {
@@ -74172,6 +77936,12 @@
 				{
 					"min": 11,
 					"max": 11
+				}
+			],
+			"UniqueBootsDex6Royale_": [
+				{
+					"min": 1,
+					"max": 1
 				}
 			],
 			"UniqueStaff4": [
@@ -74666,10 +78436,22 @@
 					"max": 75
 				}
 			],
+			"UniqueHelmetDexInt3Royale_": [
+				{
+					"min": 25,
+					"max": 25
+				}
+			],
 			"Unique__1": [
 				{
 					"min": 50,
 					"max": 75
+				}
+			],
+			"Unique__1Royale": [
+				{
+					"min": 25,
+					"max": 50
 				}
 			]
 		},
@@ -74678,6 +78460,12 @@
 				{
 					"min": 50,
 					"max": 50
+				}
+			],
+			"UniqueHelmetDexInt3Royale": [
+				{
+					"min": -50,
+					"max": -50
 				}
 			]
 		},
@@ -75027,6 +78815,12 @@
 				}
 			],
 			"MonsterImplicitNemesisProximityShield": [
+				{
+					"min": 0,
+					"max": 0
+				}
+			],
+			"MonsterImplicitBeastInvasionProximityShield_": [
 				{
 					"min": 0,
 					"max": 0
@@ -77173,6 +80967,12 @@
 					"min": 80,
 					"max": 100
 				}
+			],
+			"_": [
+				{
+					"min": 40,
+					"max": 40
+				}
 			]
 		},
 		"chest_item_rarity_+%_final_from_mod": {
@@ -77180,6 +80980,12 @@
 				{
 					"min": 100,
 					"max": 250
+				}
+			],
+			"": [
+				{
+					"min": 300,
+					"max": 300
 				}
 			]
 		},
@@ -77338,6 +81144,12 @@
 				{
 					"min": 2000,
 					"max": 2000
+				}
+			],
+			"ExpeditionChestImplicitRarity__": [
+				{
+					"min": 1500,
+					"max": 1500
 				}
 			],
 			"ChestBarrelItemRarity": [
@@ -78323,6 +82135,12 @@
 					"min": 1,
 					"max": 1
 				}
+			],
+			"__": [
+				{
+					"min": 1,
+					"max": 1
+				}
 			]
 		},
 		"chest_dropped_item_level_+": {
@@ -78394,8 +82212,8 @@
 			],
 			"ChestRoyaleItemLevel2_": [
 				{
-					"min": 4,
-					"max": 4
+					"min": 3,
+					"max": 3
 				}
 			],
 			"ChestRoyaleItemLevel3_": [
@@ -78426,6 +82244,14 @@
 				{
 					"min": 2,
 					"max": 2
+				}
+			]
+		},
+		"royale_chest_modify_level_based_on_opener": {
+			"ChestRoyaleItemLevelVariable": [
+				{
+					"min": 1,
+					"max": 1
 				}
 			]
 		},
@@ -78690,6 +82516,24 @@
 				{
 					"min": 0,
 					"max": 0
+				}
+			],
+			"_": [
+				{
+					"min": 100,
+					"max": 100
+				},
+				{
+					"min": 100,
+					"max": 100
+				},
+				{
+					"min": 100,
+					"max": 100
+				},
+				{
+					"min": 100,
+					"max": 100
 				}
 			]
 		},
@@ -79252,16 +83096,16 @@
 		"local_unique_flask_physical_damage_%_to_add_as_chaos_while_healing": {
 			"UniqueFlask5": [
 				{
-					"min": 15,
-					"max": 20
+					"min": 5,
+					"max": 8
 				}
 			]
 		},
 		"local_unique_flask_elemental_damage_%_to_add_as_chaos_while_healing": {
 			"UniqueFlask5": [
 				{
-					"min": 10,
-					"max": 15
+					"min": 5,
+					"max": 8
 				}
 			]
 		},
@@ -82285,6 +86129,12 @@
 					"min": 14,
 					"max": 15
 				}
+			],
+			"": [
+				{
+					"min": 15,
+					"max": 15
+				}
 			]
 		},
 		"base_reduce_enemy_lightning_resistance_%": {
@@ -82437,6 +86287,12 @@
 					"min": 14,
 					"max": 15
 				}
+			],
+			"": [
+				{
+					"min": 15,
+					"max": 15
+				}
 			]
 		},
 		"enemy_phys_reduction_%_penalty_vs_hit": {
@@ -82486,6 +86342,12 @@
 				{
 					"min": 17,
 					"max": 20
+				}
+			],
+			"_": [
+				{
+					"min": 100,
+					"max": 100
 				}
 			]
 		},
@@ -83369,26 +87231,6 @@
 				}
 			]
 		},
-		"lightning_damage_with_attack_skills_+%": {
-			"WeaponLightningDamageUniqueOneHandMace3": [
-				{
-					"min": 30,
-					"max": 40
-				}
-			],
-			"SynthesisImplicitLightningDamageAttacksJewel1_": [
-				{
-					"min": 3,
-					"max": 4
-				}
-			],
-			"SynthesisImplicitLightningDamageAttacksJewel2": [
-				{
-					"min": 5,
-					"max": 6
-				}
-			]
-		},
 		"weapon_physical_damage_%_to_add_as_random_element": {
 			"UniqueBow11": [
 				{
@@ -83520,8 +87362,8 @@
 		"local_unique_flask_chaos_damage_%_of_maximum_life_to_deal_per_minute_while_healing": {
 			"LocalFlaskChaosDamageOfLifeTakenPerMinuteWhileHealingUniqueFlask6": [
 				{
-					"min": 480,
-					"max": 480
+					"min": 1500,
+					"max": 1500
 				}
 			]
 		},
@@ -83538,6 +87380,12 @@
 				{
 					"min": 25,
 					"max": 25
+				}
+			],
+			"GrantsBearTrapUniqueShieldDexInt1Royale": [
+				{
+					"min": 5,
+					"max": 5
 				}
 			]
 		},
@@ -83678,8 +87526,8 @@
 		"local_unique_flask_block_%_while_healing": {
 			"BlockIncreasedDuringFlaskEffectUniqueFlask7": [
 				{
-					"min": 14,
-					"max": 20
+					"min": 8,
+					"max": 12
 				}
 			],
 			"BlockIncreasedDuringFlaskEffectUnique__1": [
@@ -83692,8 +87540,8 @@
 		"local_unique_flask_spell_block_%_while_healing": {
 			"SpellBlockIncreasedDuringFlaskEffectUniqueFlask7": [
 				{
-					"min": 6,
-					"max": 10
+					"min": 4,
+					"max": 6
 				}
 			],
 			"SpellBlockIncreasedDuringFlaskEffectUnique__1_": [
@@ -86336,6 +90184,16 @@
 					"max": 70
 				}
 			],
+			"SpellAddedLightningDamageUnique__2Royale__": [
+				{
+					"min": 3,
+					"max": 5
+				},
+				{
+					"min": 7,
+					"max": 10
+				}
+			],
 			"SpellAddedLightningDamageUnique__3": [
 				{
 					"min": 1,
@@ -87450,8 +91308,8 @@
 			],
 			"MapExtraShrinesCrafted_": [
 				{
-					"min": 4,
-					"max": 4
+					"min": 3,
+					"max": 3
 				},
 				{
 					"min": 5,
@@ -88143,7 +92001,7 @@
 				}
 			]
 		},
-		"base_damage_taken_+% is_shocked": {
+		"base_damage_taken_+% dummy_stat_display_nothing": {
 			"SpiritExperimenter": [
 				{
 					"min": 50,
@@ -88197,6 +92055,12 @@
 		},
 		"apply_X_random_curses_on_hit": {
 			"TouchedMonsterBlasphemer": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"": [
 				{
 					"min": 1,
 					"max": 1
@@ -88465,6 +92329,16 @@
 		},
 		"cannot_have_life_leeched_from cannot_have_mana_leeched_from": {
 			"SpiritThief": [
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"__": [
 				{
 					"min": 1,
 					"max": 1
@@ -88859,6 +92733,12 @@
 					"min": 60,
 					"max": 60
 				}
+			],
+			"DamageIncreaseWhileShockedUniqueBelt12Royale": [
+				{
+					"min": 30,
+					"max": 30
+				}
 			]
 		},
 		"local_display_socketed_gems_get_cast_on_death_level": {
@@ -88915,11 +92795,21 @@
 				}
 			]
 		},
-		"action_speed_-% is_chilled": {
+		"action_speed_-%_from_chill dummy_stat_display_nothing": {
 			"MonsterChillingAura": [
 				{
 					"min": 30,
 					"max": 30
+				},
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"": [
+				{
+					"min": -25,
+					"max": -25
 				},
 				{
 					"min": 1,
@@ -89120,6 +93010,12 @@
 				{
 					"min": 30,
 					"max": 30
+				}
+			],
+			"IncreasedWeaponElementalDamageDuringFlaskUniqueBelt10Royale_": [
+				{
+					"min": 15,
+					"max": 15
 				}
 			]
 		},
@@ -89346,16 +93242,16 @@
 		"local_unique_flask_physical_damage_taken_%_as_cold_while_healing": {
 			"PhysicalTakenAsColdUniqueFlask8": [
 				{
-					"min": 20,
-					"max": 20
+					"min": 10,
+					"max": 15
 				}
 			]
 		},
 		"local_unique_flask_physical_damage_%_to_add_as_cold_while_healing": {
 			"PhysicalAddedAsColdUniqueFlask8": [
 				{
-					"min": 15,
-					"max": 20
+					"min": 10,
+					"max": 15
 				}
 			]
 		},
@@ -90081,7 +93977,7 @@
 				}
 			]
 		},
-		"attack_minimum_added_lightning_damage_while_unarmed attack_maximum_added_lightning_damage_while_unarmed": {
+		"attack_minimum_added_melee_lightning_damage_while_unarmed attack_maximum_added_melee_lightning_damage_while_unarmed": {
 			"AddedWhileUnarmedUniqueGlovesStr4_": [
 				{
 					"min": 150,
@@ -90510,8 +94406,8 @@
 		"local_unique_lions_roar_melee_physical_damage_+%_final_during_flask_effect": {
 			"UniqueFlask9": [
 				{
-					"min": 20,
-					"max": 25
+					"min": 7,
+					"max": 10
 				}
 			]
 		},
@@ -90672,32 +94568,32 @@
 			],
 			"ChanceToAvoidElementalAilmentsUber1_": [
 				{
-					"min": 15,
-					"max": 22
+					"min": 14,
+					"max": 17
 				}
 			],
 			"ChanceToAvoidElementalAilmentsUber2": [
 				{
-					"min": 23,
-					"max": 30
+					"min": 18,
+					"max": 21
 				}
 			],
 			"ChanceToAvoidElementalAilmentsUber3": [
 				{
-					"min": 31,
-					"max": 35
+					"min": 22,
+					"max": 25
 				}
 			],
 			"EinharMasterAvoidElementalAilments1": [
 				{
-					"min": 15,
-					"max": 20
+					"min": 13,
+					"max": 15
 				}
 			],
 			"EinharMasterAvoidElementalAilments2_": [
 				{
-					"min": 21,
-					"max": 25
+					"min": 16,
+					"max": 18
 				}
 			],
 			"SynthesisImplicitAvoidStatusAilments1": [
@@ -90732,8 +94628,8 @@
 			],
 			"ChanceToAvoidElementalAilmentsUberMaven": [
 				{
-					"min": 36,
-					"max": 50
+					"min": 31,
+					"max": 35
 				}
 			]
 		},
@@ -92234,6 +96130,50 @@
 				{
 					"min": 12,
 					"max": 16
+				}
+			]
+		},
+		"attacks_impale_on_hit_%_chance": {
+			"ImpaleChanceForJewel_": [
+				{
+					"min": 5,
+					"max": 7
+				}
+			],
+			"BetrayalUpgradeMonster": [
+				{
+					"min": 50,
+					"max": 50
+				}
+			],
+			"SynthesisImplicitAttackChanceToImpale1": [
+				{
+					"min": 6,
+					"max": 10
+				}
+			],
+			"ChanceToImpaleInfluence1": [
+				{
+					"min": 13,
+					"max": 16
+				}
+			],
+			"ChanceToImpaleInfluence2": [
+				{
+					"min": 17,
+					"max": 20
+				}
+			],
+			"ChanceToImpaleUnique__1": [
+				{
+					"min": 10,
+					"max": 10
+				}
+			],
+			"AttackImpaleChanceUnique__1": [
+				{
+					"min": 10,
+					"max": 20
 				}
 			]
 		},
@@ -93959,6 +97899,12 @@
 					"min": 1,
 					"max": 1
 				}
+			],
+			"BattlemageKeystoneUnique__3": [
+				{
+					"min": 1,
+					"max": 1
+				}
 			]
 		},
 		"spawn_monster_on_death_variation": {
@@ -94939,6 +98885,12 @@
 					"min": 35,
 					"max": 50
 				}
+			],
+			"UniqueBodyDex5Royale": [
+				{
+					"min": 15,
+					"max": 25
+				}
 			]
 		},
 		"attack_speed_+%_with_movement_skills": {
@@ -95007,7 +98959,7 @@
 				}
 			]
 		},
-		"curse_count physical_damage_taken_+% base_physical_damage_over_time_taken_+% receive_bleeding_chance_%_when_hit_by_attack chance_to_be_maimed_when_hit_%": {
+		"curse_count physical_damage_taken_+% base_physical_damage_over_time_taken_+% receive_bleeding_chance_%_when_hit_by_attack chance_to_be_maimed_when_hit_% enemy_damaging_ailments_deal_damage_+%_faster_against_self": {
 			"DoedreCurseZoneAuraVulnerability_": [
 				{
 					"min": 1,
@@ -95028,6 +98980,10 @@
 				{
 					"min": 20,
 					"max": 20
+				},
+				{
+					"min": 0,
+					"max": 0
 				}
 			],
 			"DoedreCurseZoneAuraVulnerability2": [
@@ -95042,6 +98998,10 @@
 				{
 					"min": 20,
 					"max": 20
+				},
+				{
+					"min": 0,
+					"max": 0
 				},
 				{
 					"min": 0,
@@ -95852,6 +99812,12 @@
 				{
 					"min": 100,
 					"max": 100
+				}
+			],
+			"Unique__1Royale_": [
+				{
+					"min": 50,
+					"max": 50
 				}
 			]
 		},
@@ -97918,20 +101884,20 @@
 		"enchantment_boots_mana_regeneration_rate_+%_if_cast_spell_recently": {
 			"EnchantmentManaRegenerationOnSpellCast1_": [
 				{
-					"min": 30,
-					"max": 30
+					"min": 15,
+					"max": 15
 				}
 			],
 			"EnchantmentManaRegenerationOnSpellCast2": [
 				{
-					"min": 50,
-					"max": 50
+					"min": 25,
+					"max": 25
 				}
 			],
 			"EnchantmentManaRegenerationOnSpellCast3": [
 				{
-					"min": 70,
-					"max": 70
+					"min": 35,
+					"max": 35
 				}
 			]
 		},
@@ -98303,6 +102269,20 @@
 				}
 			],
 			"EnchantmentBearTrapDamage2": [
+				{
+					"min": 40,
+					"max": 40
+				}
+			]
+		},
+		"blade_trap_damage_+%": {
+			"EnchantmentBladeTrapDamage1": [
+				{
+					"min": 25,
+					"max": 25
+				}
+			],
+			"EnchantmentBladeTrapDamage2__": [
 				{
 					"min": 40,
 					"max": 40
@@ -98729,6 +102709,20 @@
 				}
 			]
 		},
+		"explosive_concoction_damage_+%": {
+			"EnchantmentExplosiveConcoctionDamage1": [
+				{
+					"min": 25,
+					"max": 25
+				}
+			],
+			"EnchantmentExplosiveConcoctionDamage2_": [
+				{
+					"min": 40,
+					"max": 40
+				}
+			]
+		},
 		"exsanguinate_damage_+%": {
 			"EnchantmentExsanguinateDamage1_": [
 				{
@@ -98737,6 +102731,20 @@
 				}
 			],
 			"EnchantmentExsanguinateDamage2": [
+				{
+					"min": 40,
+					"max": 40
+				}
+			]
+		},
+		"eye_of_winter_damage_+%": {
+			"EnchantmentEyeOfWinterDamage1": [
+				{
+					"min": 25,
+					"max": 25
+				}
+			],
+			"EnchantmentEyeOfWinterDamage2____": [
 				{
 					"min": 40,
 					"max": 40
@@ -98929,6 +102937,20 @@
 				}
 			],
 			"EnchantmentFlickerStrikeDamage2": [
+				{
+					"min": 40,
+					"max": 40
+				}
+			]
+		},
+		"forbidden_rite_damage_+%": {
+			"EnchantmentForbiddenRiteDamage1": [
+				{
+					"min": 25,
+					"max": 25
+				}
+			],
+			"EnchantmentForbiddenRiteDamage2": [
 				{
 					"min": 40,
 					"max": 40
@@ -99403,6 +103425,20 @@
 				}
 			],
 			"EnchantmentMagmaOrbDamage2": [
+				{
+					"min": 40,
+					"max": 40
+				}
+			]
+		},
+		"manabond_damage_+%": {
+			"EnchantmentManabondDamage1_": [
+				{
+					"min": 25,
+					"max": 25
+				}
+			],
+			"EnchantmentManabondDamage2_": [
 				{
 					"min": 40,
 					"max": 40
@@ -99921,6 +103957,20 @@
 				}
 			]
 		},
+		"spectral_helix_damage_+%": {
+			"EnchantmentSpectralHelixDamage1": [
+				{
+					"min": 25,
+					"max": 25
+				}
+			],
+			"EnchantmentSpectralHelixDamage2": [
+				{
+					"min": 40,
+					"max": 40
+				}
+			]
+		},
 		"spectral_shield_throw_damage_+%": {
 			"EnchantmentSpectralShieldThrowDamage1": [
 				{
@@ -100113,6 +104163,12 @@
 					"min": 60,
 					"max": 80
 				}
+			],
+			"Unique__2Royale": [
+				{
+					"min": 15,
+					"max": 30
+				}
 			]
 		},
 		"skeletons_damage_+%": {
@@ -100261,6 +104317,20 @@
 				}
 			]
 		},
+		"voltaxic_burst_damage_+%": {
+			"EnchantmentVoltaxicBurstDamage1__": [
+				{
+					"min": 25,
+					"max": 25
+				}
+			],
+			"EnchantmentVoltaxicBurstDamage2": [
+				{
+					"min": 40,
+					"max": 40
+				}
+			]
+		},
 		"frost_bolt_nova_damage_+%": {
 			"EnchantmentVortexDamage1": [
 				{
@@ -100342,6 +104412,48 @@
 				{
 					"min": 40,
 					"max": 40
+				}
+			]
+		},
+		"absolution_duration_+%": {
+			"EnchantmentAbsolutionDuration1_": [
+				{
+					"min": 20,
+					"max": 20
+				}
+			],
+			"EnchantmentAbsolutionDuration2_": [
+				{
+					"min": 30,
+					"max": 30
+				}
+			]
+		},
+		"absolution_cast_speed_+%": {
+			"EnchantmentAbsolutionCastSpeed1": [
+				{
+					"min": 8,
+					"max": 8
+				}
+			],
+			"EnchantmentAbsolutionCastSpeed2_": [
+				{
+					"min": 12,
+					"max": 12
+				}
+			]
+		},
+		"absolution_minion_area_of_effect_+%": {
+			"EnchantmentAbsolutionMinionAreaOfEffect1_": [
+				{
+					"min": 16,
+					"max": 16
+				}
+			],
+			"EnchantmentAbsolutionMinionAreaOfEffect2": [
+				{
+					"min": 24,
+					"max": 24
 				}
 			]
 		},
@@ -100791,6 +104903,28 @@
 				}
 			]
 		},
+		"battlemages_cry_buff_effect_+%": {
+			"EnchantmentBattlemagesCryBuffEffect1__": [
+				{
+					"min": 10,
+					"max": 10
+				}
+			],
+			"EnchantmentBattlemagesCryBuffEffect2": [
+				{
+					"min": 15,
+					"max": 15
+				}
+			]
+		},
+		"battlemages_cry_exerts_x_additional_attacks": {
+			"EnchantmentBattlemagesCryAdditionalExert": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
 		"bear_trap_cooldown_speed_+%": {
 			"EnchantmentBearTrapCooldownSpeed1": [
 				{
@@ -100852,6 +104986,28 @@
 				{
 					"min": 1,
 					"max": 1
+				}
+			]
+		},
+		"blade_trap_skill_area_of_effect_+%": {
+			"EnchantmentBladeTrapRadius1__": [
+				{
+					"min": 16,
+					"max": 16
+				}
+			],
+			"EnchantmentBladeTrapRadius2_": [
+				{
+					"min": 24,
+					"max": 24
+				}
+			]
+		},
+		"base_weapon_trap_total_rotation_%": {
+			"EnchantmentBladeTrapAdditionalRotation_": [
+				{
+					"min": 100,
+					"max": 100
 				}
 			]
 		},
@@ -102169,6 +106325,34 @@
 				}
 			]
 		},
+		"explosive_concoction_skill_area_of_effect_+%": {
+			"EnchantmentExplosiveConcoctionRadius1": [
+				{
+					"min": 16,
+					"max": 16
+				}
+			],
+			"EnchantmentExplosiveConcoctionRadius2": [
+				{
+					"min": 24,
+					"max": 24
+				}
+			]
+		},
+		"explosive_concoction_flask_charges_consumed_+%": {
+			"EnchantmentExplosiveConcoctionCharges1_": [
+				{
+					"min": -8,
+					"max": -8
+				}
+			],
+			"EnchantmentExplosiveConcoctionCharges2": [
+				{
+					"min": -12,
+					"max": -12
+				}
+			]
+		},
 		"exsanguinate_duration_+%": {
 			"EnchantmentExsanguinateDuration1_": [
 				{
@@ -102188,6 +106372,34 @@
 				{
 					"min": 25,
 					"max": 25
+				}
+			]
+		},
+		"eye_of_winter_projectile_speed_+%": {
+			"EnchantmentEyeOfWinterProjectileSpeed1": [
+				{
+					"min": 20,
+					"max": 20
+				}
+			],
+			"EnchantmentEyeOfWinterProjectileSpeed2": [
+				{
+					"min": 30,
+					"max": 30
+				}
+			]
+		},
+		"eye_of_winter_spiral_fire_frequency_+%": {
+			"EnchantmentEyeOfWinterShardFrequency1__": [
+				{
+					"min": 8,
+					"max": 8
+				}
+			],
+			"EnchantmentEyeOfWinterShardFrequency2___": [
+				{
+					"min": 12,
+					"max": 12
 				}
 			]
 		},
@@ -102724,6 +106936,28 @@
 				{
 					"min": 9,
 					"max": 9
+				}
+			]
+		},
+		"forbidden_rite_projectile_speed_+%": {
+			"EnchantmentForbiddenRiteProjectileSpeed1": [
+				{
+					"min": 20,
+					"max": 20
+				}
+			],
+			"EnchantmentForbiddenRiteProjectileSpeed2": [
+				{
+					"min": 30,
+					"max": 30
+				}
+			]
+		},
+		"forbidden_rite_number_of_additional_projectiles": {
+			"EnchantmentForbiddenRiteAdditionalProjectile_": [
+				{
+					"min": 1,
+					"max": 1
 				}
 			]
 		},
@@ -104131,6 +108365,34 @@
 				}
 			]
 		},
+		"manabond_skill_area_of_effect_+%": {
+			"EnchantmentManabondRadius1": [
+				{
+					"min": 16,
+					"max": 16
+				}
+			],
+			"EnchantmentManabondRadius2": [
+				{
+					"min": 24,
+					"max": 24
+				}
+			]
+		},
+		"manabond_lightning_penetration_%_while_on_low_mana": {
+			"EnchantmentManabondPenetrationLowMana1": [
+				{
+					"min": 8,
+					"max": 8
+				}
+			],
+			"EnchantmentManabondPenetrationLowMana2": [
+				{
+					"min": 12,
+					"max": 12
+				}
+			]
+		},
 		"mirror_arrow_and_mirror_arrow_clone_attack_speed_+%": {
 			"EnchantmentMirrorArrowAttackSpeed1": [
 				{
@@ -104948,6 +109210,28 @@
 				{
 					"min": 30,
 					"max": 30
+				}
+			]
+		},
+		"spectral_helix_projectile_speed_+%": {
+			"EnchantmentSpectralHelixProjectileSpeed1": [
+				{
+					"min": 20,
+					"max": 20
+				}
+			],
+			"EnchantmentSpectralHelixProjectileSpeed2": [
+				{
+					"min": 30,
+					"max": 30
+				}
+			]
+		},
+		"spectral_helix_rotations_%": {
+			"EnchantmentSpectralHelixExtraRotation": [
+				{
+					"min": 100,
+					"max": 100
 				}
 			]
 		},
@@ -105902,6 +110186,34 @@
 				{
 					"min": 18,
 					"max": 18
+				}
+			]
+		},
+		"voltaxic_burst_skill_area_of_effect_+%": {
+			"EnchantmentVoltaxicBurstRadius1_": [
+				{
+					"min": 16,
+					"max": 16
+				}
+			],
+			"EnchantmentVoltaxicBurstRadius2_": [
+				{
+					"min": 24,
+					"max": 24
+				}
+			]
+		},
+		"voltaxic_burst_damage_+%_per_100ms_duration": {
+			"EnchantmentVoltaxicBurstDamagePerDuration1_": [
+				{
+					"min": 2,
+					"max": 2
+				}
+			],
+			"EnchantmentVoltaxicBurstDamagePerDuration2": [
+				{
+					"min": 3,
+					"max": 3
 				}
 			]
 		},
@@ -107381,6 +111693,252 @@
 				}
 			]
 		},
+		"defiance_banner_aura_effect_+%": {
+			"EnchantmentDefianceBannerAuraEffect1": [
+				{
+					"min": 25,
+					"max": 25
+				}
+			],
+			"EnchantmentDefianceBannerAuraEffect2": [
+				{
+					"min": 40,
+					"max": 40
+				}
+			]
+		},
+		"storm_rain_damage_+%": {
+			"EnchantmentStormRainDamage1": [
+				{
+					"min": 25,
+					"max": 25
+				}
+			],
+			"EnchantmentStormRainDamage2": [
+				{
+					"min": 40,
+					"max": 40
+				}
+			]
+		},
+		"prismatic_rain_beam_frequency_+%": {
+			"EnchantmentStormRainFrequency1_": [
+				{
+					"min": 25,
+					"max": 25
+				}
+			],
+			"EnchantmentStormRainFrequency2_": [
+				{
+					"min": 40,
+					"max": 40
+				}
+			]
+		},
+		"storm_rain_num_additional_arrows": {
+			"EnchantmentStormRainAdditionalArrow1_": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"rage_vortex_damage_+%": {
+			"EnchantmentRageVortexDamage1": [
+				{
+					"min": 25,
+					"max": 25
+				}
+			],
+			"EnchantmentRageVortexDamage2__": [
+				{
+					"min": 40,
+					"max": 40
+				}
+			]
+		},
+		"rage_vortex_area_of_effect_+%": {
+			"EnchantmentRageVortexAreaOfEffect1": [
+				{
+					"min": 16,
+					"max": 16
+				}
+			],
+			"EnchantmentRageVortexAreaOfEffect2": [
+				{
+					"min": 24,
+					"max": 24
+				}
+			]
+		},
+		"rage_slash_sacrifice_rage_%": {
+			"EnchantmentRageVortexSacrificeMoreRage1": [
+				{
+					"min": 3,
+					"max": 3
+				}
+			],
+			"EnchantmentRageVortexSacrificeMoreRage2": [
+				{
+					"min": 5,
+					"max": 5
+				}
+			]
+		},
+		"shield_crush_damage_+%": {
+			"EnchantmentShieldCrushDamage1_": [
+				{
+					"min": 25,
+					"max": 25
+				}
+			],
+			"EnchantmentShieldCrushDamage2": [
+				{
+					"min": 40,
+					"max": 40
+				}
+			]
+		},
+		"shield_crush_attack_speed_+%": {
+			"EnchantmentShieldCrushAttackSpeed1": [
+				{
+					"min": 10,
+					"max": 10
+				}
+			],
+			"EnchantmentShieldCrushAttackSpeed2": [
+				{
+					"min": 15,
+					"max": 15
+				}
+			]
+		},
+		"shield_crush_helmet_enchantment_aoe_+%_final": {
+			"EnchantmentShieldCrushCentralConeArea1": [
+				{
+					"min": 16,
+					"max": 16
+				}
+			],
+			"EnchantmentShieldCrushCentralConeArea2": [
+				{
+					"min": 24,
+					"max": 24
+				}
+			]
+		},
+		"summoned_reaper_damage_+%": {
+			"EnchantmentSummonedReaperDamage1": [
+				{
+					"min": 25,
+					"max": 25
+				}
+			],
+			"EnchantmentSummonedReaperDamage2": [
+				{
+					"min": 40,
+					"max": 40
+				}
+			]
+		},
+		"summoned_reaper_physical_dot_multiplier_+": {
+			"EnchantmentSummonedReaperPhysicalDamageOverTimeMultiplier1_": [
+				{
+					"min": 12,
+					"max": 12
+				}
+			],
+			"EnchantmentSummonedReaperPhysicalDamageOverTimeMultiplier2": [
+				{
+					"min": 20,
+					"max": 20
+				}
+			]
+		},
+		"summon_reaper_cooldown_speed_+%": {
+			"EnchantmentSummonReaperCooldownRecovery1_": [
+				{
+					"min": 20,
+					"max": 20
+				}
+			],
+			"EnchantmentSummonReaperCooldownRecovery2": [
+				{
+					"min": 30,
+					"max": 30
+				}
+			]
+		},
+		"boneshatter_damage_+%": {
+			"EnchantmentBoneshatterDamage1": [
+				{
+					"min": 25,
+					"max": 25
+				}
+			],
+			"EnchantmentBoneshatterDamage2": [
+				{
+					"min": 40,
+					"max": 40
+				}
+			]
+		},
+		"boneshatter_stun_duration_+%": {
+			"EnchantmentBoneshatterStunDuration1": [
+				{
+					"min": 25,
+					"max": 25
+				}
+			],
+			"EnchantmentBoneshatterStunDuration2_": [
+				{
+					"min": 40,
+					"max": 40
+				}
+			]
+		},
+		"boneshatter_chance_to_gain_+1_trauma": {
+			"EnchantmentBoneshatterAdditionalTrauma1": [
+				{
+					"min": 16,
+					"max": 16
+				}
+			],
+			"EnchantmentBoneshatterAdditionalTrauma2": [
+				{
+					"min": 24,
+					"max": 24
+				}
+			]
+		},
+		"ambush_cooldown_speed_+%": {
+			"EnchantmentAmbushCooldownRecovery1": [
+				{
+					"min": 20,
+					"max": 20
+				}
+			],
+			"EnchantmentAmbushCooldownRecovery2__": [
+				{
+					"min": 30,
+					"max": 30
+				}
+			]
+		},
+		"ambush_buff_critical_strike_multiplier_+": {
+			"EnchantmentAmbushCriticalStrikeMultiplier1": [
+				{
+					"min": 25,
+					"max": 25
+				}
+			],
+			"EnchantmentAmbushCriticalStrikeMultiplier2__": [
+				{
+					"min": 40,
+					"max": 40
+				}
+			]
+		},
 		"map_spawn_talismans": {
 			"": [
 				{
@@ -108041,11 +112599,11 @@
 				}
 			]
 		},
-		"local_unique_jewel_spectral_shield_throw_additional_chains_with_total_40_str_+_dex_in_radius local_jewel_effect_base_radius": {
+		"off_hand_critical_strike_chance_+_per_10_es_on_shield dummy_stat_display_nothing": {
 			"SpectralShieldThrowThresholdJewel1_": [
 				{
-					"min": 4,
-					"max": 4
+					"min": 20,
+					"max": 20
 				},
 				{
 					"min": 1200,
@@ -108053,19 +112611,11 @@
 				}
 			]
 		},
-		"local_unique_jewel_spectral_shield_throw_fire_shards_on_chain_with_total_40_str_+_dex_in_radius": {
+		"off_hand_critical_strike_multiplier_+_per_10_es_on_shield": {
 			"SpectralShieldThrowThresholdJewel2": [
 				{
-					"min": 1,
-					"max": 1
-				}
-			]
-		},
-		"local_unique_jewel_spectral_shield_throw_less_shard_projectiles_with_total_40_str_+_dex_in_radius": {
-			"SpectralShieldThrowThresholdJewel3": [
-				{
-					"min": -75,
-					"max": -75
+					"min": 4,
+					"max": 4
 				}
 			]
 		},
@@ -108118,8 +112668,8 @@
 		"local_flask_gain_x_seconds_of_onslaught_per_frenzy_charge": {
 			"Unique__1": [
 				{
-					"min": 2,
-					"max": 2
+					"min": 3,
+					"max": 3
 				}
 			]
 		},
@@ -108282,24 +112832,24 @@
 		"local_unique_flask_minimum_added_lightning_damage_to_attacks_during_flask_effect local_unique_flask_maximum_added_lightning_damage_to_attacks_during_flask_effect": {
 			"__1": [
 				{
-					"min": 25,
-					"max": 35
+					"min": 10,
+					"max": 15
 				},
 				{
-					"min": 110,
-					"max": 130
+					"min": 55,
+					"max": 65
 				}
 			]
 		},
 		"local_unique_flask_minimum_added_lightning_damage_to_spells_during_flask_effect local_unique_flask_maximum_added_lightning_damage_to_spells_during_flask_effect": {
 			"__1": [
 				{
-					"min": 25,
-					"max": 35
+					"min": 10,
+					"max": 15
 				},
 				{
-					"min": 110,
-					"max": 130
+					"min": 55,
+					"max": 65
 				}
 			]
 		},
@@ -108314,8 +112864,8 @@
 		"local_unique_flask_lightning_resistance_penetration_%_during_flask_effect": {
 			"__1": [
 				{
-					"min": 10,
-					"max": 10
+					"min": 6,
+					"max": 6
 				}
 			]
 		},
@@ -108933,6 +113483,12 @@
 					"min": 10,
 					"max": 10
 				}
+			],
+			"DisplayByAddedColdDamageUnique__1Royale": [
+				{
+					"min": 1,
+					"max": 1
+				}
 			]
 		},
 		"local_display_socketed_gems_supported_by_x_reduced_mana_cost": {
@@ -108990,6 +113546,12 @@
 				{
 					"min": 60,
 					"max": 80
+				}
+			],
+			"Unique__1Royale__": [
+				{
+					"min": 20,
+					"max": 35
 				}
 			]
 		},
@@ -109387,7 +113949,7 @@
 				}
 			]
 		},
-		"modifiers_to_claw_damage_also_affect_unarmed_damage": {
+		"modifiers_to_claw_damage_also_affect_unarmed_melee_damage": {
 			"Unique__1": [
 				{
 					"min": 1,
@@ -109395,7 +113957,7 @@
 				}
 			]
 		},
-		"base_critical_strike_chance_while_unarmed_%": {
+		"base_melee_critical_strike_chance_while_unarmed_%": {
 			"Unique__1": [
 				{
 					"min": 700,
@@ -109561,7 +114123,7 @@
 				}
 			]
 		},
-		"modifiers_to_claw_attack_speed_also_affect_unarmed_attack_speed": {
+		"modifiers_to_claw_attack_speed_also_affect_unarmed_melee_attack_speed": {
 			"__1": [
 				{
 					"min": 1,
@@ -109569,7 +114131,7 @@
 				}
 			]
 		},
-		"modifiers_to_claw_critical_strike_chance_also_affect_unarmed_critical_strike_chance": {
+		"modifiers_to_claw_critical_strike_chance_also_affect_unarmed_melee_critical_strike_chance": {
 			"__1": [
 				{
 					"min": 1,
@@ -109718,8 +114280,24 @@
 		"local_flask_chilled_ground_on_flask_use_radius": {
 			"": [
 				{
-					"min": 16,
-					"max": 16
+					"min": 28,
+					"max": 28
+				}
+			]
+		},
+		"local_flask_taunt_enemies_on_use_radius": {
+			"_": [
+				{
+					"min": 30,
+					"max": 30
+				}
+			]
+		},
+		"local_flask_restore_ward": {
+			"": [
+				{
+					"min": 1,
+					"max": 1
 				}
 			]
 		},
@@ -109828,8 +114406,8 @@
 		"life_regeneration_per_minute_%_while_frozen": {
 			"Unique__1": [
 				{
-					"min": 1200,
-					"max": 1200
+					"min": 600,
+					"max": 600
 				}
 			]
 		},
@@ -109985,6 +114563,12 @@
 		},
 		"critical_strike_chance_against_enemies_on_full_life_+%": {
 			"CriticalChanceAgainstEnemiesOnFullLifeUnique__1": [
+				{
+					"min": 100,
+					"max": 100
+				}
+			],
+			"": [
 				{
 					"min": 100,
 					"max": 100
@@ -111425,6 +116009,12 @@
 					"min": 20,
 					"max": 20
 				}
+			],
+			"Unique__2Royale": [
+				{
+					"min": 1,
+					"max": 1
+				}
 			]
 		},
 		"minion_life_leech_permyriad_vs_poisoned_enemies": {
@@ -111774,7 +116364,7 @@
 		"local_unique_flask_charges_gained_+%_during_flask_effect": {
 			"Unique_1": [
 				{
-					"min": 100,
+					"min": 50,
 					"max": 100
 				}
 			]
@@ -112608,6 +117198,12 @@
 				{
 					"min": 100,
 					"max": 100
+				}
+			],
+			"Unique__1Royale": [
+				{
+					"min": 20,
+					"max": 20
 				}
 			]
 		},
@@ -114047,6 +118643,14 @@
 			"Influence2": [
 				{
 					"min": 21,
+					"max": 25
+				}
+			]
+		},
+		"chance_to_crush_on_hit_%": {
+			"Essence1": [
+				{
+					"min": 15,
 					"max": 25
 				}
 			]
@@ -116999,6 +121603,12 @@
 					"min": 70,
 					"max": 70
 				}
+			],
+			"Unique__1Royale____": [
+				{
+					"min": 15,
+					"max": 15
+				}
 			]
 		},
 		"additive_minion_damage_modifiers_apply_to_you_at_150%_value": {
@@ -117568,8 +122178,8 @@
 		"local_unique_flask_damage_over_time_+%_during_flask_effect": {
 			"Unique__1": [
 				{
-					"min": 25,
-					"max": 40
+					"min": 0,
+					"max": 0
 				}
 			]
 		},
@@ -117616,8 +122226,8 @@
 		"local_flask_area_of_effect_+%_during_flask_effect": {
 			"Unique__1_": [
 				{
-					"min": 15,
-					"max": 25
+					"min": 10,
+					"max": 20
 				}
 			]
 		},
@@ -117660,6 +122270,18 @@
 				{
 					"min": 0,
 					"max": 0
+				},
+				{
+					"min": 0,
+					"max": 0
+				}
+			]
+		},
+		"damage_+% treasure_pile_damage_+%_final": {
+			"": [
+				{
+					"min": 30,
+					"max": 30
 				},
 				{
 					"min": 0,
@@ -118808,16 +123430,16 @@
 		"local_unique_flask_elemental_penetration_%_of_highest_uncapped_resistance_type": {
 			"Unique__1": [
 				{
-					"min": 10,
-					"max": 15
+					"min": 5,
+					"max": 8
 				}
 			]
 		},
 		"local_unique_flask_elemental_damage_taken_+%_of_lowest_uncapped_resistance_type": {
 			"Unique__1": [
 				{
-					"min": -10,
-					"max": -10
+					"min": -6,
+					"max": -6
 				}
 			]
 		},
@@ -119537,6 +124159,12 @@
 					"min": 15,
 					"max": 15
 				}
+			],
+			"Unique__1Royale___": [
+				{
+					"min": 1,
+					"max": 1
+				}
 			]
 		},
 		"base_cannot_leech_life": {
@@ -119778,6 +124406,12 @@
 				{
 					"min": 50,
 					"max": 50
+				}
+			],
+			"Unique__1Royale_": [
+				{
+					"min": 25,
+					"max": 25
 				}
 			]
 		},
@@ -123443,6 +128077,20 @@
 					"min": 100,
 					"max": 100
 				}
+			],
+			"Unique__1Royale": [
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 100,
+					"max": 100
+				}
 			]
 		},
 		"trigger_cascade_target_variation": {
@@ -123663,6 +128311,12 @@
 					"min": 22,
 					"max": 22
 				}
+			],
+			"BlightSkillUnique__1Royale__": [
+				{
+					"min": 2,
+					"max": 2
+				}
 			]
 		},
 		"local_display_summon_harbinger_x_on_equip": {
@@ -123880,6 +128534,16 @@
 				{
 					"min": 3,
 					"max": 4
+				}
+			],
+			"__": [
+				{
+					"min": 30,
+					"max": 30
+				},
+				{
+					"min": 30,
+					"max": 30
 				}
 			]
 		},
@@ -127137,6 +131801,54 @@
 				}
 			]
 		},
+		"local_unique_hungry_loop_number_of_gems_to_consume local_unique_hungry_loop_has_consumed_gem local_display_socketed_gems_supported_by_level_x_focussed_ballista": {
+			"SupportedByFocussedBallista_": [
+				{
+					"min": -1,
+					"max": -1
+				},
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 20,
+					"max": 20
+				}
+			]
+		},
+		"local_unique_hungry_loop_number_of_gems_to_consume local_unique_hungry_loop_has_consumed_gem local_display_socketed_gems_supported_by_level_x_earthbreaker": {
+			"SupportedByEarthbreaker": [
+				{
+					"min": -1,
+					"max": -1
+				},
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 20,
+					"max": 20
+				}
+			]
+		},
+		"local_unique_hungry_loop_number_of_gems_to_consume local_unique_hungry_loop_has_consumed_gem local_display_socketed_gems_supported_by_level_x_behead": {
+			"SupportedByBehead": [
+				{
+					"min": -1,
+					"max": -1
+				},
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 20,
+					"max": 20
+				}
+			]
+		},
 		"local_socketed_skill_gem_level_+1_per_x_player_levels": {
 			"Unique__1": [
 				{
@@ -127202,6 +131914,20 @@
 				{
 					"min": 1800,
 					"max": 1800
+				}
+			],
+			"Unique__2": [
+				{
+					"min": 15000,
+					"max": 15000
+				}
+			]
+		},
+		"local_unique_flask_critical_poison_dot_multiplier_+_during_flask_effect": {
+			"Unique__1": [
+				{
+					"min": 20,
+					"max": 30
 				}
 			]
 		},
@@ -131011,79 +135737,79 @@
 			"Abyss2_": [
 				{
 					"min": 5,
-					"max": 5
+					"max": 6
 				}
 			],
 			"WeaponInfluence1__": [
 				{
-					"min": 7,
-					"max": 9
+					"min": 12,
+					"max": 16
 				}
 			],
 			"WeaponInfluence2_": [
 				{
-					"min": 10,
-					"max": 12
+					"min": 17,
+					"max": 21
 				}
 			],
 			"WeaponInfluence3": [
 				{
-					"min": 13,
-					"max": 15
+					"min": 22,
+					"max": 25
 				}
 			],
 			"TwoHandWeaponInfluence1": [
 				{
-					"min": 14,
-					"max": 16
+					"min": 25,
+					"max": 29
 				}
 			],
 			"TwoHandWeaponInfluence2": [
 				{
-					"min": 17,
-					"max": 19
+					"min": 30,
+					"max": 34
 				}
 			],
 			"TwoHandWeaponInfluence3": [
 				{
-					"min": 20,
-					"max": 22
+					"min": 35,
+					"max": 38
 				}
 			],
 			"Essence1": [
 				{
-					"min": 7,
-					"max": 9
+					"min": 12,
+					"max": 16
 				}
 			],
 			"Essence2__": [
 				{
-					"min": 10,
-					"max": 12
+					"min": 17,
+					"max": 21
 				}
 			],
 			"Essence3": [
 				{
-					"min": 13,
-					"max": 15
+					"min": 22,
+					"max": 25
 				}
 			],
 			"TwoHandEssence1": [
 				{
-					"min": 14,
-					"max": 16
+					"min": 25,
+					"max": 29
 				}
 			],
 			"TwoHandEssence2_": [
 				{
-					"min": 17,
-					"max": 19
+					"min": 30,
+					"max": 34
 				}
 			],
 			"TwoHandEssence3_": [
 				{
-					"min": 20,
-					"max": 22
+					"min": 35,
+					"max": 38
 				}
 			],
 			"Unique__1": [
@@ -131804,6 +136530,12 @@
 				{
 					"min": 20,
 					"max": 20
+				}
+			],
+			"TriggeredElementalAegisSkillUnique__1Royale": [
+				{
+					"min": 1,
+					"max": 1
 				}
 			]
 		},
@@ -132641,7 +137373,7 @@
 				}
 			]
 		},
-		"base_poison_damage_+% local_display_socketed_gems_supported_by_level_x_poison": {
+		"base_poison_damage_+% local_display_socketed_gems_supported_by_X_lesser_poison": {
 			"SupportedUber1_": [
 				{
 					"min": 20,
@@ -132672,6 +137404,26 @@
 					"max": 20
 				}
 			],
+			"WeaponSupportedUber1": [
+				{
+					"min": 19,
+					"max": 23
+				},
+				{
+					"min": 18,
+					"max": 18
+				}
+			],
+			"WeaponSupportedUber2": [
+				{
+					"min": 24,
+					"max": 26
+				},
+				{
+					"min": 20,
+					"max": 20
+				}
+			],
 			"SupportedUberMaven": [
 				{
 					"min": 31,
@@ -132683,7 +137435,7 @@
 				}
 			]
 		},
-		"base_poison_duration_+% local_display_socketed_gems_supported_by_level_x_poison": {
+		"base_poison_duration_+% local_display_socketed_gems_supported_by_X_lesser_poison": {
 			"PoisonDurationSupportedUber1": [
 				{
 					"min": 8,
@@ -132708,26 +137460,6 @@
 				{
 					"min": 17,
 					"max": 20
-				},
-				{
-					"min": 20,
-					"max": 20
-				}
-			],
-			"WeaponSupportedUber1_": [
-				{
-					"min": 6,
-					"max": 9
-				},
-				{
-					"min": 18,
-					"max": 18
-				}
-			],
-			"WeaponSupportedUber2": [
-				{
-					"min": 10,
-					"max": 14
 				},
 				{
 					"min": 20,
@@ -135661,7 +140393,7 @@
 				}
 			]
 		},
-		"local_poison_on_hit_% local_display_socketed_gems_supported_by_level_x_poison": {
+		"local_poison_on_hit_% local_display_socketed_gems_supported_by_X_lesser_poison": {
 			"ChanceToPoisonUber1": [
 				{
 					"min": 15,
@@ -136401,11 +141133,11 @@
 				}
 			]
 		},
-		"base_poison_damage_+% local_display_socketed_gems_supported_by_X_lesser_poison": {
-			"WeaponSupportedUber1": [
+		"base_poison_duration_+% local_display_socketed_gems_supported_by_level_x_poison": {
+			"WeaponSupportedUber1_": [
 				{
-					"min": 19,
-					"max": 23
+					"min": 6,
+					"max": 9
 				},
 				{
 					"min": 18,
@@ -136414,8 +141146,8 @@
 			],
 			"WeaponSupportedUber2": [
 				{
-					"min": 24,
-					"max": 26
+					"min": 10,
+					"max": 14
 				},
 				{
 					"min": 20,
@@ -137774,6 +142506,12 @@
 					"max": 100
 				}
 			],
+			"LocalFlatIncreasedEvasionAndEnergyShieldUnique__1Royale": [
+				{
+					"min": 40,
+					"max": 50
+				}
+			],
 			"LocalFlatIncreasedEvasionAndEnergyShieldUnique__2_": [
 				{
 					"min": 120,
@@ -137832,6 +142570,12 @@
 				{
 					"min": 80,
 					"max": 80
+				}
+			],
+			"Unique__1Royale": [
+				{
+					"min": 30,
+					"max": 30
 				}
 			]
 		},
@@ -140678,8 +145422,8 @@
 		"local_unique_flask_vaal_skill_damage_+%_during_flask_effect": {
 			"Unique__1": [
 				{
-					"min": 80,
-					"max": 120
+					"min": 60,
+					"max": 80
 				}
 			]
 		},
@@ -140694,8 +145438,8 @@
 		"local_unique_flask_vaal_skill_critical_strike_chance_+%_during_flask_effect": {
 			"Unique__1": [
 				{
-					"min": 80,
-					"max": 120
+					"min": 60,
+					"max": 80
 				}
 			]
 		},
@@ -140710,8 +145454,8 @@
 		"local_unique_flask_vaal_skill_soul_gain_preventation_duration_+%_during_flask_effect": {
 			"Unique__1_": [
 				{
-					"min": -40,
-					"max": -20
+					"min": -10,
+					"max": -10
 				}
 			]
 		},
@@ -141389,6 +146133,12 @@
 					"min": 8,
 					"max": 8
 				}
+			],
+			"": [
+				{
+					"min": 25,
+					"max": 25
+				}
 			]
 		},
 		"map_monsters_damage_+%": {
@@ -141802,6 +146552,12 @@
 				{
 					"min": 12,
 					"max": 15
+				}
+			],
+			"": [
+				{
+					"min": 50,
+					"max": 50
 				}
 			]
 		},
@@ -144545,6 +149301,12 @@
 					"min": 60,
 					"max": 100
 				}
+			],
+			"Unique__1Royale_": [
+				{
+					"min": 20,
+					"max": 50
+				}
 			]
 		},
 		"physical_damage_+%_while_you_have_resolute_technique": {
@@ -144671,19 +149433,27 @@
 				}
 			]
 		},
-		"local_display_trigger_level_X_feast_of_flesh_every_5_seconds": {
+		"local_display_trigger_level_X_feast_of_flesh_every_5_seconds buff_impl_stat": {
 			"TriggerFeastOfFleshSkillUnique__1_": [
 				{
 					"min": 15,
 					"max": 15
+				},
+				{
+					"min": 0,
+					"max": 0
 				}
 			]
 		},
-		"local_display_trigger_level_X_offering_every_5_seconds": {
+		"local_display_trigger_level_X_offering_every_5_seconds buff_impl_stat": {
 			"TriggerRandomOfferingSkillUnique__1": [
 				{
 					"min": 20,
 					"max": 20
+				},
+				{
+					"min": 0,
+					"max": 0
 				}
 			]
 		},
@@ -146876,6 +151646,42 @@
 					"max": 20
 				}
 			],
+			"JunMaster2ChaosTwoHand1": [
+				{
+					"min": 25,
+					"max": 27
+				}
+			],
+			"JunMaster2ChaosTwoHand2_": [
+				{
+					"min": 28,
+					"max": 30
+				}
+			],
+			"JunMaster2ChaosTwoHand3": [
+				{
+					"min": 31,
+					"max": 35
+				}
+			],
+			"JunMaster2Chaos1_": [
+				{
+					"min": 14,
+					"max": 15
+				}
+			],
+			"JunMaster2Chaos2": [
+				{
+					"min": 16,
+					"max": 17
+				}
+			],
+			"JunMaster2Chaos3": [
+				{
+					"min": 18,
+					"max": 20
+				}
+			],
 			"JunMasterChaosNonAilment2h1": [
 				{
 					"min": 8,
@@ -146931,6 +151737,18 @@
 				}
 			],
 			"JunMasterVeiledChaosNonAilment1h": [
+				{
+					"min": 24,
+					"max": 28
+				}
+			],
+			"JunMasterVeiledChaosTwoHand": [
+				{
+					"min": 44,
+					"max": 48
+				}
+			],
+			"JunMasterVeiledChaos__": [
 				{
 					"min": 24,
 					"max": 28
@@ -147018,6 +151836,66 @@
 				{
 					"min": 40,
 					"max": 55
+				}
+			],
+			"ChaosTwoHand1_": [
+				{
+					"min": 26,
+					"max": 35
+				}
+			],
+			"ChaosTwoHand2__": [
+				{
+					"min": 36,
+					"max": 45
+				}
+			],
+			"ChaosTwoHand3_": [
+				{
+					"min": 46,
+					"max": 55
+				}
+			],
+			"ChaosTwoHand4__": [
+				{
+					"min": 56,
+					"max": 65
+				}
+			],
+			"ChaosTwoHand5___": [
+				{
+					"min": 66,
+					"max": 75
+				}
+			],
+			"Chaos1_": [
+				{
+					"min": 14,
+					"max": 18
+				}
+			],
+			"Chaos2": [
+				{
+					"min": 19,
+					"max": 23
+				}
+			],
+			"Chaos3": [
+				{
+					"min": 24,
+					"max": 28
+				}
+			],
+			"Chaos4": [
+				{
+					"min": 29,
+					"max": 33
+				}
+			],
+			"Chaos5": [
+				{
+					"min": 34,
+					"max": 38
 				}
 			],
 			"SynthesisImplicitChaos1_": [
@@ -147118,6 +151996,42 @@
 					"max": 20
 				}
 			],
+			"JunMaster2PhysicalTwoHand1": [
+				{
+					"min": 25,
+					"max": 27
+				}
+			],
+			"JunMaster2PhysicalTwoHand2": [
+				{
+					"min": 28,
+					"max": 30
+				}
+			],
+			"JunMaster2PhysicalTwoHand3": [
+				{
+					"min": 31,
+					"max": 35
+				}
+			],
+			"JunMaster2Physical1_": [
+				{
+					"min": 14,
+					"max": 15
+				}
+			],
+			"JunMaster2Physical2": [
+				{
+					"min": 16,
+					"max": 17
+				}
+			],
+			"JunMaster2Physical3": [
+				{
+					"min": 18,
+					"max": 20
+				}
+			],
 			"JunMasterVeiledPhysical2h_": [
 				{
 					"min": 44,
@@ -147125,6 +152039,18 @@
 				}
 			],
 			"JunMasterVeiledPhysical1h": [
+				{
+					"min": 24,
+					"max": 28
+				}
+			],
+			"JunMasterVeiledPhysicalTwoHand_": [
+				{
+					"min": 44,
+					"max": 48
+				}
+			],
+			"JunMasterVeiledPhysical": [
 				{
 					"min": 24,
 					"max": 28
@@ -147208,6 +152134,66 @@
 					"max": 4
 				}
 			],
+			"PhysicalTwoHand1": [
+				{
+					"min": 26,
+					"max": 35
+				}
+			],
+			"PhysicalTwoHand2": [
+				{
+					"min": 36,
+					"max": 45
+				}
+			],
+			"PhysicalTwoHand3": [
+				{
+					"min": 46,
+					"max": 55
+				}
+			],
+			"PhysicalTwoHand4": [
+				{
+					"min": 56,
+					"max": 65
+				}
+			],
+			"PhysicalTwoHand5": [
+				{
+					"min": 66,
+					"max": 75
+				}
+			],
+			"Physical1__": [
+				{
+					"min": 14,
+					"max": 18
+				}
+			],
+			"Physical2": [
+				{
+					"min": 19,
+					"max": 23
+				}
+			],
+			"Physical3__": [
+				{
+					"min": 24,
+					"max": 28
+				}
+			],
+			"Physical4": [
+				{
+					"min": 29,
+					"max": 33
+				}
+			],
+			"Physical5": [
+				{
+					"min": 34,
+					"max": 38
+				}
+			],
 			"PhysicalInfluence1": [
 				{
 					"min": 8,
@@ -147270,6 +152256,42 @@
 					"max": 20
 				}
 			],
+			"JunMaster2ColdTwoHand1": [
+				{
+					"min": 25,
+					"max": 27
+				}
+			],
+			"JunMaster2ColdTwoHand2": [
+				{
+					"min": 28,
+					"max": 30
+				}
+			],
+			"JunMaster2ColdTwoHand3": [
+				{
+					"min": 31,
+					"max": 35
+				}
+			],
+			"JunMaster2Cold1__": [
+				{
+					"min": 14,
+					"max": 15
+				}
+			],
+			"JunMaster2Cold2": [
+				{
+					"min": 16,
+					"max": 17
+				}
+			],
+			"JunMaster2Cold3_": [
+				{
+					"min": 18,
+					"max": 20
+				}
+			],
 			"JunMasterCold2h1": [
 				{
 					"min": 8,
@@ -147325,6 +152347,18 @@
 				}
 			],
 			"JunMasterVeiledCold1h": [
+				{
+					"min": 24,
+					"max": 28
+				}
+			],
+			"JunMasterVeiledColdTwoHand": [
+				{
+					"min": 44,
+					"max": 48
+				}
+			],
+			"JunMasterVeiledCold___": [
 				{
 					"min": 24,
 					"max": 28
@@ -147418,6 +152452,66 @@
 				{
 					"min": 16,
 					"max": 22
+				}
+			],
+			"ColdTwoHand1_": [
+				{
+					"min": 26,
+					"max": 35
+				}
+			],
+			"ColdTwoHand2": [
+				{
+					"min": 36,
+					"max": 45
+				}
+			],
+			"ColdTwoHand3": [
+				{
+					"min": 46,
+					"max": 55
+				}
+			],
+			"ColdTwoHand4": [
+				{
+					"min": 56,
+					"max": 65
+				}
+			],
+			"ColdTwoHand5": [
+				{
+					"min": 66,
+					"max": 75
+				}
+			],
+			"Cold1": [
+				{
+					"min": 14,
+					"max": 18
+				}
+			],
+			"Cold2": [
+				{
+					"min": 19,
+					"max": 23
+				}
+			],
+			"Cold3": [
+				{
+					"min": 24,
+					"max": 28
+				}
+			],
+			"Cold4": [
+				{
+					"min": 29,
+					"max": 33
+				}
+			],
+			"Cold5": [
+				{
+					"min": 34,
+					"max": 38
 				}
 			],
 			"SynthesisImplicitCold1": [
@@ -147518,6 +152612,42 @@
 					"max": 20
 				}
 			],
+			"JunMaster2FireTwoHand1_": [
+				{
+					"min": 25,
+					"max": 27
+				}
+			],
+			"JunMaster2FireTwoHand2": [
+				{
+					"min": 28,
+					"max": 30
+				}
+			],
+			"JunMaster2FireTwoHand3": [
+				{
+					"min": 31,
+					"max": 35
+				}
+			],
+			"JunMaster2Fire1_": [
+				{
+					"min": 14,
+					"max": 15
+				}
+			],
+			"JunMaster2Fire2": [
+				{
+					"min": 16,
+					"max": 17
+				}
+			],
+			"JunMaster2Fire3_": [
+				{
+					"min": 18,
+					"max": 20
+				}
+			],
 			"JunMasterVeiledFire2h_": [
 				{
 					"min": 44,
@@ -147525,6 +152655,18 @@
 				}
 			],
 			"JunMasterVeiledFire1h": [
+				{
+					"min": 24,
+					"max": 28
+				}
+			],
+			"JunMasterVeiledFireTwoHand": [
+				{
+					"min": 44,
+					"max": 48
+				}
+			],
+			"JunMasterVeiledFire": [
 				{
 					"min": 24,
 					"max": 28
@@ -147624,6 +152766,66 @@
 				{
 					"min": 8,
 					"max": 12
+				}
+			],
+			"FireTwoHand1_": [
+				{
+					"min": 26,
+					"max": 35
+				}
+			],
+			"FireTwoHand2_": [
+				{
+					"min": 36,
+					"max": 45
+				}
+			],
+			"FireTwoHand3": [
+				{
+					"min": 46,
+					"max": 55
+				}
+			],
+			"FireTwoHand4": [
+				{
+					"min": 56,
+					"max": 65
+				}
+			],
+			"FireTwoHand5_": [
+				{
+					"min": 66,
+					"max": 75
+				}
+			],
+			"Fire1": [
+				{
+					"min": 14,
+					"max": 18
+				}
+			],
+			"Fire2": [
+				{
+					"min": 19,
+					"max": 23
+				}
+			],
+			"Fire3": [
+				{
+					"min": 24,
+					"max": 28
+				}
+			],
+			"Fire4__": [
+				{
+					"min": 29,
+					"max": 33
+				}
+			],
+			"Fire5": [
+				{
+					"min": 34,
+					"max": 38
 				}
 			],
 			"FireInfluence1_": [
@@ -151538,8 +156740,8 @@
 		"fortify_effect_+%_while_focused grant_focus_skill": {
 			"JunMaster21_": [
 				{
-					"min": 60,
-					"max": 60
+					"min": 25,
+					"max": 25
 				},
 				{
 					"min": 1,
@@ -151548,8 +156750,8 @@
 			],
 			"JunMaster22": [
 				{
-					"min": 75,
-					"max": 75
+					"min": 30,
+					"max": 30
 				},
 				{
 					"min": 1,
@@ -151558,8 +156760,8 @@
 			],
 			"JunMaster23": [
 				{
-					"min": 90,
-					"max": 90
+					"min": 35,
+					"max": 35
 				},
 				{
 					"min": 1,
@@ -151568,8 +156770,8 @@
 			],
 			"JunMaster1": [
 				{
-					"min": 60,
-					"max": 60
+					"min": 25,
+					"max": 25
 				},
 				{
 					"min": 1,
@@ -151578,8 +156780,8 @@
 			],
 			"JunMaster2": [
 				{
-					"min": 75,
-					"max": 75
+					"min": 30,
+					"max": 30
 				},
 				{
 					"min": 1,
@@ -151588,8 +156790,8 @@
 			],
 			"JunMaster3": [
 				{
-					"min": 90,
-					"max": 90
+					"min": 35,
+					"max": 35
 				},
 				{
 					"min": 1,
@@ -151598,8 +156800,8 @@
 			],
 			"JunMasterVeiled_": [
 				{
-					"min": 120,
-					"max": 120
+					"min": 50,
+					"max": 50
 				},
 				{
 					"min": 1,
@@ -152438,8 +157640,8 @@
 					"max": 50
 				},
 				{
-					"min": 8,
-					"max": 12
+					"min": 0,
+					"max": 0
 				}
 			]
 		},
@@ -152478,8 +157680,8 @@
 			],
 			"JunMasterVeiled_": [
 				{
-					"min": 60,
-					"max": 80
+					"min": 40,
+					"max": 60
 				}
 			]
 		},
@@ -153318,32 +158520,32 @@
 		"avoid_all_elemental_status_% base_avoid_stun_%": {
 			"JunMaster21__": [
 				{
-					"min": 20,
-					"max": 30
+					"min": 15,
+					"max": 20
 				},
 				{
-					"min": 20,
-					"max": 30
+					"min": 15,
+					"max": 20
 				}
 			],
 			"JunMaster1": [
 				{
-					"min": 25,
-					"max": 35
+					"min": 15,
+					"max": 20
 				},
 				{
-					"min": 25,
-					"max": 35
+					"min": 15,
+					"max": 20
 				}
 			],
 			"JunMasterVeiled": [
 				{
-					"min": 35,
-					"max": 45
+					"min": 25,
+					"max": 30
 				},
 				{
-					"min": 35,
-					"max": 45
+					"min": 25,
+					"max": 30
 				}
 			]
 		},
@@ -153812,7 +159014,7 @@
 		"local_flask_enemies_ignited_during_flask_effect_damage_taken_+%": {
 			"Unique__1": [
 				{
-					"min": 10,
+					"min": 7,
 					"max": 10
 				}
 			]
@@ -153822,6 +159024,12 @@
 				{
 					"min": 1,
 					"max": 1
+				}
+			],
+			"Unique__2": [
+				{
+					"min": 5,
+					"max": 5
 				}
 			]
 		},
@@ -154002,44 +159210,6 @@
 				{
 					"min": 15,
 					"max": 15
-				}
-			]
-		},
-		"attacks_impale_on_hit_%_chance": {
-			"BetrayalUpgradeMonster": [
-				{
-					"min": 50,
-					"max": 50
-				}
-			],
-			"SynthesisImplicitAttackChanceToImpale1": [
-				{
-					"min": 6,
-					"max": 10
-				}
-			],
-			"ChanceToImpaleInfluence1": [
-				{
-					"min": 8,
-					"max": 11
-				}
-			],
-			"ChanceToImpaleInfluence2": [
-				{
-					"min": 12,
-					"max": 15
-				}
-			],
-			"ChanceToImpaleUnique__1": [
-				{
-					"min": 10,
-					"max": 10
-				}
-			],
-			"AttackImpaleChanceUnique__1": [
-				{
-					"min": 10,
-					"max": 20
 				}
 			]
 		},
@@ -155627,6 +160797,20 @@
 				}
 			]
 		},
+		"lightning_damage_with_attack_skills_+%": {
+			"SynthesisImplicitLightningDamageAttacksJewel1_": [
+				{
+					"min": 3,
+					"max": 4
+				}
+			],
+			"SynthesisImplicitLightningDamageAttacksJewel2": [
+				{
+					"min": 5,
+					"max": 6
+				}
+			]
+		},
 		"lightning_damage_with_spell_skills_+%": {
 			"SynthesisImplicitLightningDamageSpellsJewel1": [
 				{
@@ -156714,6 +161898,14 @@
 				{
 					"min": 100,
 					"max": 200
+				}
+			]
+		},
+		"local_unique_flask_critical_strike_chance_+%_vs_enemies_on_consecrated_ground_during_flask_effect": {
+			"CriticalStrikeUnique__1": [
+				{
+					"min": 100,
+					"max": 150
 				}
 			]
 		},
@@ -158439,6 +163631,12 @@
 					"min": 40,
 					"max": 60
 				}
+			],
+			"SpellIfNotKilledRecentlyUnique__1Royale": [
+				{
+					"min": 10,
+					"max": 30
+				}
 			]
 		},
 		"minion_raging_spirit_maximum_life_+%": {
@@ -158446,6 +163644,12 @@
 				{
 					"min": 80,
 					"max": 100
+				}
+			],
+			"RagingSpiritLifeUnique__1Royale": [
+				{
+					"min": 20,
+					"max": 30
 				}
 			]
 		},
@@ -158574,6 +163778,12 @@
 				{
 					"min": 5,
 					"max": 5
+				}
+			],
+			"TriggerRainOfArrowsOnBowAttackUnique__1Royale": [
+				{
+					"min": 1,
+					"max": 1
 				}
 			]
 		},
@@ -159322,6 +164532,12 @@
 				{
 					"min": 5,
 					"max": 5
+				}
+			],
+			"": [
+				{
+					"min": 50,
+					"max": 50
 				}
 			]
 		},
@@ -162449,6 +167665,12 @@
 					"min": 1500,
 					"max": 1500
 				}
+			],
+			"": [
+				{
+					"min": 1800,
+					"max": 1800
+				}
 			]
 		},
 		"offering_spells_effect_+%": {
@@ -164455,6 +169677,14 @@
 				}
 			]
 		},
+		"banner_taunt_duration_+%": {
+			"Unique__1_": [
+				{
+					"min": 100,
+					"max": 200
+				}
+			]
+		},
 		"add_1_stage_to_banners_on_melee_hit_up_to_5_per_second": {
 			"Unique__1": [
 				{
@@ -164482,8 +169712,8 @@
 		"local_display_assailum_socketed_gems_damage_+%_final": {
 			"BowSkillsDealMoreDamageUnique__1": [
 				{
-					"min": -33,
-					"max": -33
+					"min": -40,
+					"max": -40
 				}
 			]
 		},
@@ -169596,8 +174826,8 @@
 		"gain_frenzy_charge_on_critical_strike_at_close_range_%": {
 			"FrenzyChargeOnCritCloseRangeUnique__1": [
 				{
-					"min": 10,
-					"max": 20
+					"min": 20,
+					"max": 30
 				}
 			]
 		},
@@ -169889,7 +175119,7 @@
 			"Unique__1": [
 				{
 					"min": 1,
-					"max": 137
+					"max": 140
 				},
 				{
 					"min": 15,
@@ -169899,7 +175129,7 @@
 			"Unique__3": [
 				{
 					"min": 1,
-					"max": 137
+					"max": 140
 				},
 				{
 					"min": 1,
@@ -169911,7 +175141,7 @@
 			"Unique__2": [
 				{
 					"min": 1,
-					"max": 137
+					"max": 140
 				},
 				{
 					"min": 15,
@@ -169921,7 +175151,7 @@
 			"Unique__4_": [
 				{
 					"min": 1,
-					"max": 137
+					"max": 140
 				},
 				{
 					"min": 25,
@@ -184371,7 +189601,7 @@
 				}
 			]
 		},
-		"skill_empowers_next_x_melee_attacks": {
+		"warcry_empowers_next_x_melee_attacks": {
 			"ImplicitE1_": [
 				{
 					"min": 1,
@@ -184400,6 +189630,12 @@
 				{
 					"min": 20,
 					"max": 20
+				}
+			],
+			"StrUniqueShieldTriggerShieldShatterOnBlockRoyale": [
+				{
+					"min": 1,
+					"max": 1
 				}
 			]
 		},
@@ -186101,6 +191337,18 @@
 		},
 		"minion_larger_aggro_radius": {
 			"Unique__1": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"map_area_contains_rituals map_extra_content_weighting": {
+			"__": [
+				{
+					"min": 1,
+					"max": 1
+				},
 				{
 					"min": 1,
 					"max": 1
@@ -188483,6 +193731,12 @@
 					"min": 12,
 					"max": 15
 				}
+			],
+			"": [
+				{
+					"min": 50,
+					"max": 50
+				}
 			]
 		},
 		"map_additional_rogue_exile_chance_%": {
@@ -188895,7 +194149,7 @@
 				}
 			]
 		},
-		"map_ritual_encounter_count_override": {
+		"map_ritual_encounter_count_is_four": {
 			"_": [
 				{
 					"min": 4,
@@ -190442,8 +195696,8 @@
 		"fortify_effect_on_self_+% local_display_self_crushed base_additional_physical_damage_reduction_%": {
 			"1": [
 				{
-					"min": 20,
-					"max": 25
+					"min": 10,
+					"max": 15
 				},
 				{
 					"min": 1,
@@ -190456,8 +195710,8 @@
 			],
 			"2_": [
 				{
-					"min": 20,
-					"max": 25
+					"min": 10,
+					"max": 15
 				},
 				{
 					"min": 1,
@@ -190470,8 +195724,8 @@
 			],
 			"3_": [
 				{
-					"min": 20,
-					"max": 25
+					"min": 10,
+					"max": 15
 				},
 				{
 					"min": 1,
@@ -191418,8 +196672,8 @@
 		"attacks_impale_on_hit_%_chance minimum_added_physical_damage_per_impaled_on_enemy maximum_added_physical_damage_per_impaled_on_enemy": {
 			"ChanceToImpaleInfluenceMaven_": [
 				{
-					"min": 12,
-					"max": 15
+					"min": 21,
+					"max": 25
 				},
 				{
 					"min": 1,
@@ -192079,6 +197333,14 @@
 				}
 			]
 		},
+		"intensity_loss_frequency_while_moving_+%": {
+			"MonsterIncreasedIntensityLoss": [
+				{
+					"min": 1000,
+					"max": 1000
+				}
+			]
+		},
 		"local_display_grants_skill_call_of_steel": {
 			"GrantsCallOfSteelSkillUnique__1_": [
 				{
@@ -192356,6 +197618,1970 @@
 				{
 					"min": 50,
 					"max": 50
+				}
+			]
+		},
+		"local_level_requirement_override": {
+			"Unique__1": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"Unique__2": [
+				{
+					"min": 2,
+					"max": 2
+				}
+			],
+			"Unique__3": [
+				{
+					"min": 3,
+					"max": 3
+				}
+			],
+			"Unique__4": [
+				{
+					"min": 4,
+					"max": 4
+				}
+			],
+			"Unique__5": [
+				{
+					"min": 5,
+					"max": 5
+				}
+			],
+			"Unique__6__": [
+				{
+					"min": 6,
+					"max": 6
+				}
+			],
+			"Unique__7": [
+				{
+					"min": 7,
+					"max": 7
+				}
+			]
+		},
+		"map_equipment_drops_identified": {
+			"Map": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"royale_monster_flask_drop_chance_permyriad royale_monster_weapon_drop_chance_permyriad royale_monster_armour_drop_chance_permyriad royale_monster_skill_gem_drop_chance_permyriad royale_monster_support_gem_drop_chance_permyriad royale_monster_unique_drop_chance_permyriad": {
+			"": [
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 80,
+					"max": 80
+				},
+				{
+					"min": 80,
+					"max": 80
+				},
+				{
+					"min": 200,
+					"max": 200
+				},
+				{
+					"min": 50,
+					"max": 50
+				},
+				{
+					"min": 8,
+					"max": 8
+				}
+			]
+		},
+		"map_expedition_league": {
+			"Map_": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"local_flask_cannot_gain_charges_during_flask_effect local_flask_effect_+%": {
+			"SealIncreasedEffect_": [
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 40,
+					"max": 50
+				}
+			]
+		},
+		"local_flask_cannot_gain_charges_during_flask_effect local_flask_duration_+%": {
+			"SealIncreasedDuration": [
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 70,
+					"max": 90
+				}
+			]
+		},
+		"local_flask_cannot_gain_charges_during_flask_effect local_charges_added_+%": {
+			"SealIncreasedChargesGained": [
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 50,
+					"max": 60
+				}
+			]
+		},
+		"local_flask_cannot_gain_charges_during_flask_effect local_charges_used_+%": {
+			"SealReducedChargesUsed": [
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": -30,
+					"max": -20
+				}
+			]
+		},
+		"local_flask_cannot_gain_charges_during_flask_effect local_extra_max_charges": {
+			"SealMaximumCharges____": [
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 30,
+					"max": 40
+				}
+			]
+		},
+		"local_flask_use_on_adjacent_flask_use": {
+			"InjectorAdjacentFlasks___": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"local_flask_use_on_flask_effect_ended": {
+			"InjectorFlaskEffectEnd": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"local_flask_use_on_full_charges": {
+			"InjectorOnFullCharges__": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"local_flask_use_on_guard_skill_used": {
+			"InjectorOnGuardSkillUsed": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"local_flask_use_on_travel_skill_used": {
+			"InjectorOnTravelSkillUsed": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"local_flask_use_on_guard_skill_expired": {
+			"InjectorOnGuardSkillExpired": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"local_flask_use_on_hitting_rare_unique_enemy_while_inactive": {
+			"InjectorOnHittingRareOrUnique_": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"local_flask_use_on_affected_by_freeze": {
+			"InjectorOnAffectedByFreeze__": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"local_flask_use_on_affected_by_chill": {
+			"InjectorOnAffectedByChill": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"local_flask_use_on_affected_by_shock": {
+			"InjectorOnAffectedByShock_": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"local_flask_use_on_affected_by_ignite": {
+			"InjectorOnAffectedByIgnite": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"local_flask_use_on_affected_by_bleed": {
+			"InjectorOnAffectedByBleed": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"local_flask_use_on_affected_by_poison": {
+			"InjectorOnAffectedByPoison_": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"local_flask_use_on_damage_blocked": {
+			"InjectorOnDamageBlocked": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"local_flask_use_on_taking_savage_hit": {
+			"InjectorOnTakingSavageHit_": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"local_flask_use_on_using_a_life_flask": {
+			"InjectorOnUsingLifeFlask": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"expedition_elite_%_to_drop_deliriumsplinters": {
+			"": [
+				{
+					"min": 20,
+					"max": 20
+				}
+			],
+			"": [
+				{
+					"min": 50,
+					"max": 50
+				}
+			]
+		},
+		"expedition_chest_%_to_drop_deliriumsplinters": {
+			"___": [
+				{
+					"min": 20,
+					"max": 20
+				}
+			],
+			"": [
+				{
+					"min": 50,
+					"max": 50
+				}
+			]
+		},
+		"expedition_elite_%_to_drop_metamorphcatalysts": {
+			"": [
+				{
+					"min": 20,
+					"max": 20
+				}
+			],
+			"": [
+				{
+					"min": 50,
+					"max": 50
+				}
+			]
+		},
+		"expedition_chest_%_to_drop_metamorphcatalysts": {
+			"_": [
+				{
+					"min": 20,
+					"max": 20
+				}
+			],
+			"": [
+				{
+					"min": 50,
+					"max": 50
+				}
+			]
+		},
+		"expedition_elite_%_to_drop_blightoils": {
+			"": [
+				{
+					"min": 20,
+					"max": 20
+				}
+			],
+			"": [
+				{
+					"min": 50,
+					"max": 50
+				}
+			]
+		},
+		"expedition_chest_%_to_drop_blightoils": {
+			"": [
+				{
+					"min": 20,
+					"max": 20
+				}
+			],
+			"": [
+				{
+					"min": 50,
+					"max": 50
+				}
+			]
+		},
+		"expedition_elite_%_to_drop_gems": {
+			"__": [
+				{
+					"min": 20,
+					"max": 20
+				}
+			]
+		},
+		"expedition_chest_%_to_drop_gems": {
+			"__": [
+				{
+					"min": 20,
+					"max": 20
+				}
+			]
+		},
+		"expedition_elite_%_to_drop_harbingercurrency": {
+			"": [
+				{
+					"min": 20,
+					"max": 20
+				}
+			],
+			"": [
+				{
+					"min": 50,
+					"max": 50
+				}
+			]
+		},
+		"expedition_chest_%_to_drop_harbingercurrency": {
+			"": [
+				{
+					"min": 20,
+					"max": 20
+				}
+			],
+			"_": [
+				{
+					"min": 50,
+					"max": 50
+				}
+			]
+		},
+		"expedition_elite_%_to_drop_fossils": {
+			"": [
+				{
+					"min": 20,
+					"max": 20
+				}
+			],
+			"": [
+				{
+					"min": 50,
+					"max": 50
+				}
+			]
+		},
+		"expedition_chest_%_to_drop_fossils": {
+			"_": [
+				{
+					"min": 20,
+					"max": 20
+				}
+			],
+			"": [
+				{
+					"min": 50,
+					"max": 50
+				}
+			]
+		},
+		"expedition_elite_%_to_drop_enchant": {
+			"": [
+				{
+					"min": 20,
+					"max": 20
+				}
+			]
+		},
+		"expedition_chest_%_to_drop_enchant": {
+			"": [
+				{
+					"min": 20,
+					"max": 20
+				}
+			]
+		},
+		"expedition_elite_%_to_drop_legionsplinters": {
+			"": [
+				{
+					"min": 20,
+					"max": 20
+				}
+			],
+			"": [
+				{
+					"min": 50,
+					"max": 50
+				}
+			]
+		},
+		"expedition_chest_%_to_drop_legionsplinters": {
+			"": [
+				{
+					"min": 20,
+					"max": 20
+				}
+			],
+			"": [
+				{
+					"min": 50,
+					"max": 50
+				}
+			]
+		},
+		"expedition_elite_%_to_drop_divination": {
+			"": [
+				{
+					"min": 20,
+					"max": 20
+				}
+			]
+		},
+		"expedition_chest_%_to_drop_divination": {
+			"": [
+				{
+					"min": 20,
+					"max": 20
+				}
+			]
+		},
+		"expedition_elite_%_to_drop_incubators": {
+			"_": [
+				{
+					"min": 20,
+					"max": 20
+				}
+			]
+		},
+		"expedition_chest_%_to_drop_incubators": {
+			"_": [
+				{
+					"min": 20,
+					"max": 20
+				}
+			]
+		},
+		"expedition_elite_%_to_drop_breachsplinters": {
+			"": [
+				{
+					"min": 20,
+					"max": 20
+				}
+			],
+			"___": [
+				{
+					"min": 50,
+					"max": 50
+				}
+			]
+		},
+		"expedition_chest_%_to_drop_breachsplinters": {
+			"_": [
+				{
+					"min": 20,
+					"max": 20
+				}
+			],
+			"_": [
+				{
+					"min": 50,
+					"max": 50
+				}
+			]
+		},
+		"expedition_elite_%_to_drop_scarabs": {
+			"": [
+				{
+					"min": 20,
+					"max": 20
+				}
+			]
+		},
+		"expedition_chest_%_to_drop_scarabs": {
+			"": [
+				{
+					"min": 20,
+					"max": 20
+				}
+			]
+		},
+		"expedition_elite_%_to_drop_abyss": {
+			"": [
+				{
+					"min": 20,
+					"max": 20
+				}
+			]
+		},
+		"expedition_chest_%_to_drop_abyss": {
+			"_": [
+				{
+					"min": 20,
+					"max": 20
+				}
+			]
+		},
+		"expedition_elite_%_to_drop_atzirifragments": {
+			"": [
+				{
+					"min": 20,
+					"max": 20
+				}
+			],
+			"_": [
+				{
+					"min": 50,
+					"max": 50
+				}
+			]
+		},
+		"expedition_chest_%_to_drop_atzirifragments": {
+			"___": [
+				{
+					"min": 20,
+					"max": 20
+				}
+			],
+			"": [
+				{
+					"min": 50,
+					"max": 50
+				}
+			]
+		},
+		"expedition_elite_%_to_drop_essences": {
+			"__": [
+				{
+					"min": 20,
+					"max": 20
+				}
+			],
+			"": [
+				{
+					"min": 35,
+					"max": 35
+				}
+			]
+		},
+		"expedition_chest_%_to_drop_essences": {
+			"": [
+				{
+					"min": 20,
+					"max": 20
+				}
+			],
+			"": [
+				{
+					"min": 35,
+					"max": 35
+				}
+			]
+		},
+		"expedition_elite_%_to_drop_uniques": {
+			"": [
+				{
+					"min": 20,
+					"max": 20
+				}
+			],
+			"": [
+				{
+					"min": 35,
+					"max": 35
+				}
+			]
+		},
+		"expedition_chest_%_to_drop_uniques": {
+			"": [
+				{
+					"min": 20,
+					"max": 20
+				}
+			],
+			"_": [
+				{
+					"min": 35,
+					"max": 35
+				}
+			]
+		},
+		"never_take_critical_strike": {
+			"": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"physical_immunity": {
+			"": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"base_cold_immunity": {
+			"": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"base_fire_immunity": {
+			"_": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"base_lightning_immunity": {
+			"": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"chaos_immunity": {
+			"": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"apply_deathgeas_on_hit": {
+			"": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"apply_petrification_for_X_seconds_on_hit": {
+			"": [
+				{
+					"min": 2,
+					"max": 2
+				}
+			]
+		},
+		"expedition_twinned_elites": {
+			"": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"attack_speed_+%_when_on_low_life cast_speed_+%_when_on_low_life movement_velocity_+%_when_on_low_life damage_+%_when_on_low_life": {
+			"___": [
+				{
+					"min": 30,
+					"max": 30
+				},
+				{
+					"min": 30,
+					"max": 30
+				},
+				{
+					"min": 30,
+					"max": 30
+				},
+				{
+					"min": 30,
+					"max": 30
+				}
+			]
+		},
+		"monster_gain_base_ward_equal_to_total_maximum_life_%": {
+			"": [
+				{
+					"min": 20,
+					"max": 20
+				}
+			]
+		},
+		"resist_all_% additional_maximum_all_resistances_%": {
+			"": [
+				{
+					"min": 30,
+					"max": 30
+				},
+				{
+					"min": 5,
+					"max": 5
+				}
+			]
+		},
+		"attacks_impale_on_hit_%_chance impale_debuff_effect_+%": {
+			"_": [
+				{
+					"min": 100,
+					"max": 100
+				},
+				{
+					"min": 100,
+					"max": 100
+				}
+			]
+		},
+		"global_bleed_on_hit base_bleed_duration_+%": {
+			"": [
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 100,
+					"max": 100
+				}
+			]
+		},
+		"global_poison_on_hit all_damage_can_poison base_poison_duration_+%": {
+			"": [
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 100,
+					"max": 100
+				}
+			]
+		},
+		"base_chance_to_ignite_% all_damage_can_ignite ignite_duration_+%": {
+			"": [
+				{
+					"min": 20,
+					"max": 20
+				},
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 100,
+					"max": 100
+				}
+			]
+		},
+		"base_chance_to_freeze_% all_damage_can_freeze freeze_duration_+%": {
+			"": [
+				{
+					"min": 10,
+					"max": 10
+				},
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 0,
+					"max": 0
+				}
+			]
+		},
+		"base_chance_to_shock_% all_damage_can_shock shock_effect_+%": {
+			"": [
+				{
+					"min": 20,
+					"max": 20
+				},
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 100,
+					"max": 100
+				}
+			]
+		},
+		"monster_base_block_% base_spell_block_% maximum_block_% base_maximum_spell_block_%": {
+			"": [
+				{
+					"min": 50,
+					"max": 50
+				},
+				{
+					"min": 50,
+					"max": 50
+				},
+				{
+					"min": 5,
+					"max": 5
+				},
+				{
+					"min": 5,
+					"max": 5
+				}
+			]
+		},
+		"reduce_enemy_chaos_resistance_%": {
+			"_": [
+				{
+					"min": 15,
+					"max": 15
+				}
+			]
+		},
+		"remove_%_of_current_mana_on_hit remove_%_of_current_energy_shield_on_hit": {
+			"": [
+				{
+					"min": 10,
+					"max": 10
+				},
+				{
+					"min": 10,
+					"max": 10
+				}
+			]
+		},
+		"kill_enemy_on_hit_if_under_20%_life": {
+			"": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"metamorphosis_boss_item_quantity_+%_final_permyriad": {
+			"": [
+				{
+					"min": 40,
+					"max": 40
+				}
+			]
+		},
+		"metamorphosis_boss_item_rarity_+%_final_permyriad": {
+			"____": [
+				{
+					"min": 300,
+					"max": 300
+				}
+			]
+		},
+		"expedition_monsters_currency_drop_quantity_+%": {
+			"__": [
+				{
+					"min": 50,
+					"max": 50
+				}
+			]
+		},
+		"expedition_chest_currency_drop_quantity_+%": {
+			"": [
+				{
+					"min": 50,
+					"max": 50
+				}
+			]
+		},
+		"expedition_monsters_logbook_chance_+%": {
+			"": [
+				{
+					"min": 50,
+					"max": 50
+				}
+			]
+		},
+		"expedition_chest_logbook_chance_%": {
+			"": [
+				{
+					"min": 50,
+					"max": 50
+				}
+			]
+		},
+		"expedition_elite_%_to_drop_vendorcurrencyfaction1": {
+			"ExpeditionRelicModifierExpeditionVendorCurrencyFactionElite1": [
+				{
+					"min": 15,
+					"max": 15
+				}
+			]
+		},
+		"expedition_elite_%_to_drop_vendorcurrencyfaction2": {
+			"ExpeditionRelicModifierExpeditionVendorCurrencyFactionElite2": [
+				{
+					"min": 15,
+					"max": 15
+				}
+			]
+		},
+		"expedition_elite_%_to_drop_vendorcurrencyfaction3": {
+			"ExpeditionRelicModifierExpeditionVendorCurrencyFactionElite3": [
+				{
+					"min": 15,
+					"max": 15
+				}
+			]
+		},
+		"expedition_elite_%_to_drop_vendorcurrencyfaction4": {
+			"ExpeditionRelicModifierExpeditionVendorCurrencyFactionElite4": [
+				{
+					"min": 15,
+					"max": 15
+				}
+			]
+		},
+		"expedition_chest_%_to_drop_vendorcurrencyfaction1": {
+			"ExpeditionRelicModifierExpeditionVendorCurrencyFactionChest1": [
+				{
+					"min": 15,
+					"max": 15
+				}
+			]
+		},
+		"expedition_chest_%_to_drop_vendorcurrencyfaction2": {
+			"ExpeditionRelicModifierExpeditionVendorCurrencyFactionChest2": [
+				{
+					"min": 15,
+					"max": 15
+				}
+			]
+		},
+		"expedition_chest_%_to_drop_vendorcurrencyfaction3": {
+			"ExpeditionRelicModifierExpeditionVendorCurrencyFactionChest3": [
+				{
+					"min": 15,
+					"max": 15
+				}
+			]
+		},
+		"expedition_chest_%_to_drop_vendorcurrencyfaction4": {
+			"ExpeditionRelicModifierExpeditionVendorCurrencyFactionChest4": [
+				{
+					"min": 15,
+					"max": 15
+				}
+			]
+		},
+		"expedition_chest_%_to_drop_rare_armour": {
+			"_": [
+				{
+					"min": 50,
+					"max": 50
+				}
+			]
+		},
+		"expedition_chest_%_to_drop_rare_jewellery": {
+			"": [
+				{
+					"min": 50,
+					"max": 50
+				}
+			]
+		},
+		"expedition_chest_%_to_drop_rare_weapon": {
+			"__": [
+				{
+					"min": 50,
+					"max": 50
+				}
+			]
+		},
+		"expedition_elite_%_to_drop_rare_armour": {
+			"_": [
+				{
+					"min": 50,
+					"max": 50
+				}
+			]
+		},
+		"expedition_elite_%_to_drop_rare_jewellery": {
+			"": [
+				{
+					"min": 50,
+					"max": 50
+				}
+			]
+		},
+		"expedition_elite_%_to_drop_rare_weapon": {
+			"": [
+				{
+					"min": 50,
+					"max": 50
+				}
+			]
+		},
+		"expedition_elite_%_to_drop_currency": {
+			"___": [
+				{
+					"min": 50,
+					"max": 50
+				}
+			]
+		},
+		"expedition_chest_%_to_drop_currency": {
+			"": [
+				{
+					"min": 50,
+					"max": 50
+				}
+			]
+		},
+		"expedition_elite_%_to_drop_gems2": {
+			"": [
+				{
+					"min": 35,
+					"max": 35
+				}
+			]
+		},
+		"expedition_chest_%_to_drop_gems2": {
+			"": [
+				{
+					"min": 35,
+					"max": 35
+				}
+			]
+		},
+		"expedition_elite_%_to_drop_talisman": {
+			"___": [
+				{
+					"min": 35,
+					"max": 35
+				}
+			]
+		},
+		"expedition_chest_%_to_drop_talisman": {
+			"": [
+				{
+					"min": 35,
+					"max": 35
+				}
+			]
+		},
+		"expedition_elite_%_to_drop_maps": {
+			"_": [
+				{
+					"min": 35,
+					"max": 35
+				}
+			]
+		},
+		"expedition_chest_%_to_drop_maps": {
+			"_": [
+				{
+					"min": 35,
+					"max": 35
+				}
+			]
+		},
+		"expedition_elite_%_to_drop_fractured_item": {
+			"": [
+				{
+					"min": 35,
+					"max": 35
+				}
+			]
+		},
+		"expedition_chest_%_to_drop_fractured_item": {
+			"": [
+				{
+					"min": 35,
+					"max": 35
+				}
+			]
+		},
+		"expedition_elite_%_to_drop_influenced_item": {
+			"___": [
+				{
+					"min": 35,
+					"max": 35
+				}
+			]
+		},
+		"expedition_chest_%_to_drop_influenced_item": {
+			"__": [
+				{
+					"min": 35,
+					"max": 35
+				}
+			]
+		},
+		"expedition_elite_%_to_drop_stackeddecks": {
+			"__": [
+				{
+					"min": 35,
+					"max": 35
+				}
+			]
+		},
+		"expedition_elite_%_to_drop_heistcontracts": {
+			"": [
+				{
+					"min": 50,
+					"max": 50
+				}
+			]
+		},
+		"expedition_chest_%_to_drop_stackeddecks": {
+			"_": [
+				{
+					"min": 35,
+					"max": 35
+				}
+			]
+		},
+		"expedition_chest_%_to_drop_heistcontracts": {
+			"": [
+				{
+					"min": 50,
+					"max": 50
+				}
+			]
+		},
+		"map_expedition_relics_+%": {
+			"ExpeditionLogbook": [
+				{
+					"min": 10,
+					"max": 40
+				}
+			]
+		},
+		"map_expedition_explosion_radius_+%": {
+			"ExpeditionLogbook": [
+				{
+					"min": 10,
+					"max": 40
+				}
+			]
+		},
+		"map_expedition_explosives_+%": {
+			"ExpeditionLogbook": [
+				{
+					"min": 10,
+					"max": 40
+				}
+			]
+		},
+		"map_expedition_saga_contains_boss": {
+			"ExpeditionLogbook_": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"ExpeditionLogbook2_": [
+				{
+					"min": 2,
+					"max": 2
+				}
+			],
+			"ExpeditionLogbook3": [
+				{
+					"min": 3,
+					"max": 3
+				}
+			],
+			"ExpeditionLogbook4": [
+				{
+					"min": 4,
+					"max": 4
+				}
+			]
+		},
+		"map_expedition_chest_double_drops_chance_%": {
+			"ExpeditionLogbook_": [
+				{
+					"min": 5,
+					"max": 20
+				}
+			]
+		},
+		"map_expedition_extra_relic_suffix_chance_%": {
+			"ExpeditionLogbook__": [
+				{
+					"min": 10,
+					"max": 40
+				}
+			]
+		},
+		"map_expedition_maximum_placement_distance_+%": {
+			"ExpeditionLogbook": [
+				{
+					"min": 20,
+					"max": 50
+				}
+			]
+		},
+		"map_expedition_number_of_monster_markers_+%": {
+			"ExpeditionLogbook_": [
+				{
+					"min": 10,
+					"max": 40
+				}
+			]
+		},
+		"map_expedition_saga_additional_terrain_features": {
+			"ExpeditionLogbook__": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"local_ward": {
+			"LocalIncreasedWard1": [
+				{
+					"min": 5,
+					"max": 9
+				}
+			],
+			"LocalIncreasedWard2": [
+				{
+					"min": 10,
+					"max": 15
+				}
+			],
+			"LocalIncreasedWard3_": [
+				{
+					"min": 16,
+					"max": 23
+				}
+			],
+			"LocalIncreasedWard4": [
+				{
+					"min": 24,
+					"max": 35
+				}
+			],
+			"LocalIncreasedWard5___": [
+				{
+					"min": 36,
+					"max": 52
+				}
+			],
+			"LocalIncreasedWard6_": [
+				{
+					"min": 52,
+					"max": 69
+				}
+			],
+			"LocalIncreasedWard7": [
+				{
+					"min": 70,
+					"max": 84
+				}
+			],
+			"LocalIncreasedWard8__": [
+				{
+					"min": 85,
+					"max": 99
+				}
+			],
+			"LocalIncreasedWard9": [
+				{
+					"min": 100,
+					"max": 119
+				}
+			],
+			"LocalIncreasedWard10____": [
+				{
+					"min": 120,
+					"max": 139
+				}
+			],
+			"LocalIncreasedWard11": [
+				{
+					"min": 140,
+					"max": 159
+				}
+			]
+		},
+		"local_ward_+%": {
+			"LocalIncreasedWardPercent1": [
+				{
+					"min": 11,
+					"max": 28
+				}
+			],
+			"LocalIncreasedWardPercent2": [
+				{
+					"min": 27,
+					"max": 42
+				}
+			],
+			"LocalIncreasedWardPercent3": [
+				{
+					"min": 43,
+					"max": 55
+				}
+			],
+			"LocalIncreasedWardPercent4": [
+				{
+					"min": 56,
+					"max": 67
+				}
+			],
+			"LocalIncreasedWardPercent5": [
+				{
+					"min": 68,
+					"max": 79
+				}
+			],
+			"LocalIncreasedWardPercent6": [
+				{
+					"min": 80,
+					"max": 91
+				}
+			],
+			"LocalIncreasedWardPercent7": [
+				{
+					"min": 92,
+					"max": 100
+				}
+			],
+			"LocalIncreasedWardPercent8": [
+				{
+					"min": 101,
+					"max": 110
+				}
+			],
+			"LocalIncreasedWardPercentUnique__1_": [
+				{
+					"min": 33,
+					"max": 48
+				}
+			],
+			"LocalIncreasedWardPercentUnique__2": [
+				{
+					"min": 25,
+					"max": 35
+				}
+			],
+			"LocalIncreasedWardPercentUnique__3": [
+				{
+					"min": 30,
+					"max": 50
+				}
+			],
+			"LocalIncreasedWardPercentUnique__4_": [
+				{
+					"min": 50,
+					"max": 80
+				}
+			]
+		},
+		"local_ward_+% base_stun_recovery_+%": {
+			"LocalIncreasedWardPercentAndStunRecovery1______": [
+				{
+					"min": 6,
+					"max": 13
+				},
+				{
+					"min": 6,
+					"max": 7
+				}
+			],
+			"LocalIncreasedWardPercentAndStunRecovery2_": [
+				{
+					"min": 14,
+					"max": 20
+				},
+				{
+					"min": 8,
+					"max": 9
+				}
+			],
+			"LocalIncreasedWardPercentAndStunRecovery3": [
+				{
+					"min": 21,
+					"max": 26
+				},
+				{
+					"min": 10,
+					"max": 11
+				}
+			],
+			"LocalIncreasedWardPercentAndStunRecovery4": [
+				{
+					"min": 27,
+					"max": 32
+				},
+				{
+					"min": 12,
+					"max": 13
+				}
+			],
+			"LocalIncreasedWardPercentAndStunRecovery5": [
+				{
+					"min": 33,
+					"max": 38
+				},
+				{
+					"min": 14,
+					"max": 15
+				}
+			],
+			"LocalIncreasedWardPercentAndStunRecovery6_": [
+				{
+					"min": 39,
+					"max": 42
+				},
+				{
+					"min": 16,
+					"max": 17
+				}
+			]
+		},
+		"local_ward base_maximum_life": {
+			"LocalBaseWardAndLife1__": [
+				{
+					"min": 15,
+					"max": 20
+				},
+				{
+					"min": 18,
+					"max": 23
+				}
+			],
+			"LocalBaseWardAndLife2": [
+				{
+					"min": 21,
+					"max": 30
+				},
+				{
+					"min": 24,
+					"max": 28
+				}
+			],
+			"LocalBaseWardAndLife3_": [
+				{
+					"min": 31,
+					"max": 40
+				},
+				{
+					"min": 29,
+					"max": 33
+				}
+			],
+			"LocalBaseWardAndLife4_": [
+				{
+					"min": 41,
+					"max": 50
+				},
+				{
+					"min": 34,
+					"max": 38
+				}
+			]
+		},
+		"energy_shield_additive_modifiers_instead_apply_to_ward": {
+			"Unique__": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"global_added_chaos_damage_%_of_ward": {
+			"Unique__": [
+				{
+					"min": 25,
+					"max": 25
+				}
+			]
+		},
+		"base_damage_bypass_ward_%": {
+			"Unique__1": [
+				{
+					"min": 75,
+					"max": 75
+				}
+			]
+		},
+		"ward_delay_recovery_+%": {
+			"Unique__1": [
+				{
+					"min": 20,
+					"max": 30
+				}
+			],
+			"Unique__2": [
+				{
+					"min": -50,
+					"max": -30
+				}
+			]
+		},
+		"local_display_cast_summon_arbalists_on_gain_skill": {
+			"GrantsSummonArbalistsSkillUnique__1_": [
+				{
+					"min": 20,
+					"max": 20
+				}
+			]
+		},
+		"gain_adrenaline_when_ward_breaks_ms": {
+			"Unique__1": [
+				{
+					"min": 3000,
+					"max": 3000
+				}
+			]
+		},
+		"flask_charges_gained_from_kills_+%_final_from_unique": {
+			"Unique__1_": [
+				{
+					"min": -80,
+					"max": -80
+				}
+			]
+		},
+		"gain_flask_charges_every_second_if_hit_unique_enemy_recently": {
+			"Unique__1___": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"local_flask_effect_ends_when_hit_by_player": {
+			"Royale": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"monster_gain_base_ward_equal_to_total_maximum_life_% no_energy_shield": {
+			"Basic": [
+				{
+					"min": 10,
+					"max": 10
+				},
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"Elite": [
+				{
+					"min": 20,
+					"max": 20
+				},
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"EliteExtra": [
+				{
+					"min": 30,
+					"max": 30
+				},
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"Boss": [
+				{
+					"min": 5,
+					"max": 5
+				},
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"base_number_of_arbalists": {
+			"SummonArbalistNumberOfArbalistsAllowed": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"summon_arbalist_number_of_additional_projectiles": {
+			"SummonArbalistNumberOfAdditionalProjectiles_": [
+				{
+					"min": 2,
+					"max": 4
+				}
+			]
+		},
+		"summon_arbalist_attack_speed_+%": {
+			"SummonArbalistAttackSpeed_": [
+				{
+					"min": 10,
+					"max": 20
+				}
+			]
+		},
+		"summon_arbalist_targets_to_pierce": {
+			"SummonArbalistTargetsToPierce": [
+				{
+					"min": 2,
+					"max": 2
+				}
+			]
+		},
+		"summon_arbalist_projectiles_fork": {
+			"SummonArbalistProjectilesFork": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"summon_arbalist_chains_+": {
+			"SummonArbalistChains_": [
+				{
+					"min": 2,
+					"max": 2
+				}
+			]
+		},
+		"summon_arbalist_number_of_splits": {
+			"SummonArbalistNumberOfSplits__": [
+				{
+					"min": 3,
+					"max": 3
+				}
+			]
+		},
+		"summon_arbalist_chance_to_deal_double_damage_%": {
+			"SummonArbalistChanceToDealDoubleDamage___": [
+				{
+					"min": 10,
+					"max": 20
+				}
+			]
+		},
+		"summon_arbalist_chance_to_maim_for_4_seconds_on_hit_%": {
+			"SummonArbalistChanceToMaimfor4secondsOnHit_": [
+				{
+					"min": 10,
+					"max": 20
+				}
+			]
+		},
+		"summon_arbalist_chance_to_intimidate_for_4_seconds_on_hit_%": {
+			"SummonArbalistChanceToIntimidateFor4SecondsOnHit": [
+				{
+					"min": 10,
+					"max": 20
+				}
+			]
+		},
+		"summon_arbalist_chance_to_unnerve_for_4_seconds_on_hit_%": {
+			"SummonArbalistChanceToUnnerveFor4SecondsOnHit_": [
+				{
+					"min": 10,
+					"max": 20
+				}
+			]
+		},
+		"summon_arbalist_chance_to_inflict_fire_exposure_on_hit_%": {
+			"SummonArbalistChanceToInflictFireExposureOnHit_": [
+				{
+					"min": 10,
+					"max": 20
+				}
+			]
+		},
+		"summon_arbalist_chance_to_inflict_cold_exposure_on_hit_%": {
+			"SummonArbalistChanceToInflictColdExposureonHit": [
+				{
+					"min": 10,
+					"max": 20
+				}
+			]
+		},
+		"summon_arbalist_chance_to_inflict_lightning_exposure_on_hit_%": {
+			"SummonArbalistChanceToInflictLightningExposureOnHit_": [
+				{
+					"min": 10,
+					"max": 20
+				}
+			]
+		},
+		"summon_arbalist_chance_to_crush_on_hit_%": {
+			"SummonArbalistChanceToCrushOnHit": [
+				{
+					"min": 10,
+					"max": 20
+				}
+			]
+		},
+		"summon_arbalist_physical_damage_%_to_convert_to_fire": {
+			"SummonArbalistPhysicalDamagePercentToConvertToFire": [
+				{
+					"min": 30,
+					"max": 50
+				}
+			]
+		},
+		"summon_arbalist_physical_damage_%_to_convert_to_cold": {
+			"SummonArbalistPhysicalDamagePercentToConvertToCold_": [
+				{
+					"min": 30,
+					"max": 50
+				}
+			]
+		},
+		"summon_arbalist_physical_damage_%_to_convert_to_lightning": {
+			"SummonArbalistPhysicalDamagePercentToConvertToLightning": [
+				{
+					"min": 30,
+					"max": 50
+				}
+			]
+		},
+		"summon_arbalist_physical_damage_%_to_add_as_fire": {
+			"SummonArbalistPhysicalDamagePercentToAddAsFire": [
+				{
+					"min": 30,
+					"max": 40
+				}
+			]
+		},
+		"summon_arbalist_physical_damage_%_to_add_as_cold": {
+			"SummonArbalistPhysicalDamagePercentToAddAsCold_": [
+				{
+					"min": 30,
+					"max": 40
+				}
+			]
+		},
+		"summon_arbalist_physical_damage_%_to_add_as_lightning": {
+			"SummonArbalistPhysicalDamagePercentToAddAsLightning": [
+				{
+					"min": 30,
+					"max": 40
+				}
+			]
+		},
+		"summon_arbalist_chance_to_bleed_%": {
+			"SummonArbalistChanceToBleedPercent_": [
+				{
+					"min": 30,
+					"max": 50
+				}
+			]
+		},
+		"summon_arbalist_chance_to_poison_%": {
+			"SummonArbalistChanceToPoisonPercent": [
+				{
+					"min": 30,
+					"max": 50
+				}
+			]
+		},
+		"summon_arbalist_chance_to_ignite_freeze_shock_%": {
+			"SummonArbalistChanceToIgniteFreezeShockPercent": [
+				{
+					"min": 15,
+					"max": 25
+				}
+			]
+		},
+		"local_unique_expedition_flask_ward_+%_final_during_flask_effect": {
+			"": [
+				{
+					"min": -70,
+					"max": -70
+				}
+			]
+		},
+		"local_flask_inflict_fire_cold_lightning_exposure_on_nearby_enemies_on_use": {
+			"Unique1": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"local_flask_non_damaging_ailment_effect_+%_during_flask_effect": {
+			"Unique__1": [
+				{
+					"min": 20,
+					"max": 30
+				}
+			]
+		},
+		"local_flask_gain_endurance_charge_per_second_during_flask_effect": {
+			"Unique1": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"local_flask_lose_all_endurance_charges_and_recover_%_life_for_each_on_use": {
+			"Unique1": [
+				{
+					"min": 4,
+					"max": 4
+				}
+			]
+		},
+		"local_flask_culling_strike_during_flask_effect": {
+			"Unique1": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"local_flask_remove_effect_when_ward_breaks": {
+			"Unique1": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"local_flask_debilitate_nearby_enemies_for_X_seconds_when_flask_effect_ends": {
+			"Unique_1": [
+				{
+					"min": 2,
+					"max": 2
+				}
+			]
+		},
+		"stealth_+%": {
+			"ExpeditionNPCStealth_": [
+				{
+					"min": 500,
+					"max": 500
+				}
+			]
+		},
+		"map_expedition_elite_marker_count_+%": {
+			"": [
+				{
+					"min": 10,
+					"max": 40
+				}
+			]
+		},
+		"map_expedition_chest_marker_count_+": {
+			"____": [
+				{
+					"min": 8,
+					"max": 16
+				}
+			]
+		},
+		"map_expedition_epic_chest_marker_count_+": {
+			"": [
+				{
+					"min": 4,
+					"max": 12
+				}
+			]
+		},
+		"map_expedition_uncommon_chest_marker_count_+": {
+			"_": [
+				{
+					"min": 8,
+					"max": 24
+				}
+			]
+		},
+		"map_expedition_common_chest_marker_count_+": {
+			"": [
+				{
+					"min": 12,
+					"max": 36
+				}
+			]
+		},
+		"map_expedition_artifact_quantity_+%": {
+			"": [
+				{
+					"min": 10,
+					"max": 40
+				}
+			]
+		},
+		"map_expedition_vendor_reroll_currency_quantity_+%": {
+			"_": [
+				{
+					"min": 10,
+					"max": 30
 				}
 			]
 		}
