@@ -12,4 +12,8 @@
 .card-button {
   padding: 16px;
   width: 100%;
+
+  + .card-button {
+    margin-top: 8px;
+  }
 }

@@ -58,9 +58,14 @@ export interface AtlasMap {
   bossRating?: string
   bosses?: string[]
   bossCount?: number
-  items?: string[]
+  items?: AtlasMapItem[]
   encounter?: string
   layout?: string
+}
+
+export interface AtlasMapItem {
+  item?: string
+  dropLevel?: number
 }
 
 export interface AtlasMapsMap {

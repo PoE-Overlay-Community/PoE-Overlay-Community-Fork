@@ -21,6 +21,7 @@ import { ItemFrameValueComponent } from './component/item-frame-value/item-frame
 import { ItemFrameComponent } from './component/item-frame/item-frame.component'
 import { BaseItemTypePipe } from './pipe/base-item-type.pipe'
 import { ClientStringPipe } from './pipe/client-string.pipe'
+import { Nl2BrPipe } from './pipe/nl2br.pipe'
 import { StatGroupPipe } from './pipe/stat-group.pipe'
 import { StatTransformPipe } from './pipe/stat-transform.pipe'
 import { WordPipe } from './pipe/word.pipe'
@@ -35,6 +36,7 @@ import { WordPipe } from './pipe/word.pipe'
     StatTransformPipe,
     WordPipe,
     BaseItemTypePipe,
+    Nl2BrPipe,
     ItemFrameQueryComponent,
     ItemFrameValueComponent,
     ItemFrameValueGroupComponent,
@@ -54,12 +56,13 @@ import { WordPipe } from './pipe/word.pipe'
   ],
   imports: [BrowserModule],
   exports: [
-    ItemFrameComponent,
-    CurrencyFrameComponent,
-    CurrencyRatioFrameComponent,
     ClientStringPipe,
     WordPipe,
     BaseItemTypePipe,
+    Nl2BrPipe,
+    ItemFrameComponent,
+    CurrencyFrameComponent,
+    CurrencyRatioFrameComponent,
     ItemFrameSeparatorComponent,
   ],
 })

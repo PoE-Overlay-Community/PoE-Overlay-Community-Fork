@@ -103,6 +103,16 @@ export class ItemSectionPropertiesParserService implements ItemSectionParserServ
       props.stackSize = this.parseValueProperty(line, phrases[10], props.stackSize)
       props.gemLevel = this.parseValueProperty(line, phrases[11], props.gemLevel)
       props.mapTier = this.parseValueProperty(line, phrases[12], props.mapTier)
+      if (props.mapTier) {
+        const areaLevel: number = 67 + props.mapTier.value.value
+        props.areaLevel = {
+          augmented: false,
+          value: {
+            text: `${areaLevel}`,
+            value: areaLevel
+          }
+        }
+      }
       props.mapQuantity = this.parseValueProperty(line, phrases[13], props.mapQuantity)
       props.mapRarity = this.parseValueProperty(line, phrases[14], props.mapRarity)
       props.mapPacksize = this.parseValueProperty(line, phrases[15], props.mapPacksize)
