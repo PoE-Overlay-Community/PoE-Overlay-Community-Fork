@@ -39,19 +39,19 @@ export class PoEHttpService {
 
   public getItems(language: Language): Observable<TradeResponse<TradeItemsResult>> {
     const url = this.getTradeApiUrl('data/items', language)
-    return this.getAndParse(url)
+    return this.getAndParse('trade-items', url)
   }
 
   // For some odd reason this doesn't include Private Leagues when the player is authenticated.
   public getLeagues(language: Language): Observable<TradeResponse<TradeLeaguesResult>> {
     const url = this.getTradeApiUrl('data/leagues', language)
-    return this.getAndParse(url)
+    return this.getAndParse('leagues', url)
   }
 
   // To obtain a list of private leagues, simply load the normal trade search page and find them using a regex.
   public getTradePageLeagues(language: Language): Observable<TradeResponse<TradeLeaguesResult>> {
     const url = this.getPoEUrl('trade/search', language)
-    return this.getAndTransform(url).pipe(
+    return this.getAndTransform('trade-page-leagues', url).pipe(
       map((result) => {
         if (LEAGUES_REGEX.test(result)) {
           const exec = LEAGUES_REGEX.exec(result)
@@ -73,12 +73,12 @@ export class PoEHttpService {
 
   public getStatic(language: Language): Observable<TradeResponse<TradeStaticResult>> {
     const url = this.getTradeApiUrl('data/static', language)
-    return this.getAndParse(url)
+    return this.getAndParse('data-static', url)
   }
 
   public getStats(language: Language): Observable<TradeResponse<TradeStatsResult>> {
     const url = this.getTradeApiUrl('data/stats', language)
-    return this.getAndParse(url)
+    return this.getAndParse('data-stats', url)
   }
 
   public getLoginUrl(language: Language): string {
@@ -91,17 +91,17 @@ export class PoEHttpService {
 
   public getAccountInfo(language: Language): Observable<ApiProfileResponse | ApiErrorResponse> {
     const url = this.getApiUrl('profile', language)
-    return this.getAndParse(url)
+    return this.getAndParse('account-profile', url)
   }
 
   public getCharacters(accountName: string, language: Language): Observable<ApiCharacterResponse[] | ApiErrorResponse> {
     const url = this.getPoEUrl(`character-window/get-characters?accountName=${encodeURIComponent(accountName)}`, language)
-    return this.getAndParse(url)
+    return this.getAndParse('character-names', url)
   }
 
   public getStashTabInfo(accountName: string, leagueId: string, language: Language): Observable<ApiStashItems> {
     const url = this.getPoEUrl(`character-window/get-stash-items?tabs=1&realm=pc&league=${encodeURIComponent(leagueId)}&accountName=${encodeURIComponent(accountName)}`, language)
-    return this.getAndParse(url)
+    return this.getAndParse('stash-tab-names', url)
   }
 
   public search(
@@ -171,33 +171,35 @@ export class PoEHttpService {
       )
   }
 
-  private get(url: string): Observable<string> {
+  private get(resource: string, url: string): Observable<string> {
     if (!environment.production) {
       console.log(`[PoEHttp] Contacting ${url}`)
     }
     return new Observable(observer => {
-      this.http.get(url, {
-        observe: 'response',
-        responseType: 'text',
-        withCredentials: true,
-      }).pipe(
+      this.limit.throttle(resource, () =>
+        this.http.get(url, {
+          observe: 'response',
+          responseType: 'text',
+          withCredentials: true,
+        })
+      ).pipe(
         retryWhen((errors) =>
           errors.pipe(flatMap((response, count) => this.handleError(url, response, count, observer)))
         )
       ).subscribe(
-        response => observer.next(response.body),
+        response => observer.next(response),
         error => observer.error(error),
         () => observer.complete()
       )
     })
   }
 
-  private getAndTransform(url: string): Observable<string> {
-    return this.get(url).pipe(map((response) => this.transformResponse(response)))
+  private getAndTransform(resource: string, url: string): Observable<string> {
+    return this.get(resource, url).pipe(map((response) => this.transformResponse(response)))
   }
 
-  private getAndParse<TResponse>(url: string): Observable<TResponse> {
-    return this.getAndTransform(url).pipe(map((result) => this.parseResponse(result)))
+  private getAndParse<TResponse>(resource: string, url: string): Observable<TResponse> {
+    return this.getAndTransform(resource, url).pipe(map((result) => this.parseResponse(result)))
   }
 
   private parseResponse<TResponse>(result: string): TResponse {
