@@ -50,7 +50,7 @@ export class PoEAccountService {
   }
 
   public getActiveCharacter(): PoECharacter {
-    return this.get().characters.find(x => x.lastActive)
+    return this.get()?.characters?.find(x => x.lastActive)
   }
 
   public getAsync(language?: Language): Observable<PoEAccount> {

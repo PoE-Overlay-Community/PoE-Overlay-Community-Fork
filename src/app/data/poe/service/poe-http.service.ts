@@ -25,7 +25,7 @@ const RETRY_COUNT = 3
 const RETRY_DELAY = 300
 const RETRY_LIMIT_COUNT = 1
 
-const LEAGUES_REGEX = new RegExp(/"leagues":(?<leagues>\[[a-z0-9":{}, \(\)]*\]),/i)
+const LEAGUES_REGEX = new RegExp(/"leagues":(?<leagues>\[.*?\]),/i)
 
 @Injectable({
   providedIn: 'root',
@@ -60,7 +60,14 @@ export class PoEHttpService {
         console.log('[TradeHTTP] Cannot find Leagues list on the trade page.')
         return ''
       }),
-      map((result) => this.parseResponse(result))
+      map((result) => {
+        if (!result) {
+          return {
+            result: []
+          }
+        }
+        return this.parseResponse(result)
+      })
     )
   }
 

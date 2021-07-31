@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core'
 import { Color, Colors, ColorUtils } from '@app/class'
 import { FEATURE_MODULES } from '@app/token'
 import { Feature, FeatureModule } from '@app/type'
-import { TradeCompanionUserSettings } from '@shared/module/poe/type/trade-companion.type'
+import { DefaultAskIfStillInterestedMessage, TradeCompanionUserSettings, TradeNotificationAutoCollapseType } from '@shared/module/poe/type/trade-companion.type'
 import { SharedModule } from '@shared/shared.module'
 import { UserSettingsFeature } from 'src/app/layout/type'
 import { TradeCompanionStashGridComponent } from './component/stash-grid/trade-companion-stash-grid.component'
@@ -82,6 +82,7 @@ export class TradeCompanionModule implements FeatureModule {
       },
       showStashGridOnInvite: true,
       hideStashGridOnTrade: true,
+      reversedNotificationHorizontalAlignment: false,
       reversedNotificationDirection: false,
       buttonClickAudio: {
         enabled: false,
@@ -90,7 +91,12 @@ export class TradeCompanionModule implements FeatureModule {
       incomingTradeMessageAudio: {
         enabled: false,
         volume: 1,
-      }
+      },
+      autoCollapseIncomingTradeNotifications: TradeNotificationAutoCollapseType.None,
+      autoCollapseOutgoingTradeNotifications: TradeNotificationAutoCollapseType.None,
+      tradeNotificationKeybindings: {},
+      activeTradeNotificationBorderColor: Colors.yellow,
+      askIfStillInterestedMessage: DefaultAskIfStillInterestedMessage
     }
     return {
       name: 'trade-companion.name',

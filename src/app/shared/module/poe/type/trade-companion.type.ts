@@ -3,6 +3,10 @@ import { Rectangle } from '@app/type'
 import { UserSettings } from 'src/app/layout/type'
 import { Currency } from './currency.type'
 
+export const TradeNotificationPanelShortcutRef = 'trade-notifications-panel'
+
+export const DefaultAskIfStillInterestedMessage = 'Hi, are you still interested in @item for @price?'
+
 export type EnumDictionary<T extends string | symbol | number, U> = {
   [K in T]: U
 }
@@ -12,16 +16,48 @@ export interface TradeCompanionUserSettings extends UserSettings {
   tradeCompanionOpacity: number
   tradeCompanionBounds?: Rectangle
   maxVisibileTradeNotifications: number
-  incomingTradeOptions: TradeCompanionOption[]
-  outgoingTradeOptions: TradeCompanionOption[]
+  incomingTradeOptions: TradeCompanionButtonOption[]
+  outgoingTradeOptions: TradeCompanionButtonOption[]
   stashGridBounds: Rectangle[]
   stashGrids: Map<string, StashGridType>
   stashGridColors: TradeCompanionStashGridColors
   showStashGridOnInvite: boolean
   hideStashGridOnTrade: boolean
+  reversedNotificationHorizontalAlignment: boolean
   reversedNotificationDirection: boolean
   buttonClickAudio: AudioClipSettings
   incomingTradeMessageAudio: AudioClipSettings
+  autoCollapseIncomingTradeNotifications: TradeNotificationAutoCollapseType
+  autoCollapseOutgoingTradeNotifications: TradeNotificationAutoCollapseType
+  tradeNotificationKeybindings: TradeNotificationKeybindings
+  activeTradeNotificationBorderColor: Color
+  askIfStillInterestedMessage: string
+}
+
+export interface TradeNotificationKeybindings {
+  // General
+  activateNextTradeNotification?: string
+  activatePreviousTradeNotification?: string
+  dismiss?: string
+  collapse?: string
+  offerTrade?: string
+  whisper?: string
+  // Incoming
+  inviteToParty?: string
+  kickFromParty?: string
+  askStillInterested?: string
+  // Outgoing
+  joinHideout?: string
+  leaveParty?: string
+  whois?: string
+  repeatWhisper?: string
+}
+
+export enum TradeNotificationAutoCollapseType {
+  None = 0,
+  Oldest = 1,
+  Newest = 2,
+  All = 3,
 }
 
 export interface AudioClipSettings {
@@ -38,11 +74,12 @@ export interface TradeCompanionStashGridColors {
   highlightBackground: Color
 }
 
-export interface TradeCompanionOption {
+export interface TradeCompanionButtonOption {
   buttonLabel: string
   whisperMessage: string
   kickAfterWhisper: boolean
   dismissNotification: boolean
+  keybinding?: string
 }
 
 export enum StashGridType {
@@ -92,6 +129,8 @@ export interface TradeNotification {
   offer?: string
   playerInHideout?: boolean
   playerLeftHideout?: boolean
+  defaultCollapsed?: boolean
+  userCollapsed?: boolean
 }
 
 export interface CurrencyAmount {

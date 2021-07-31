@@ -166,9 +166,9 @@ export class ItemSearchService {
     }
 
     const { indexed } = options
-    if (indexed) {
+    if (indexed && indexed !== ItemSearchIndexed.AnyTime) {
       request.query.filters.trade_filters.filters.indexed = {
-        option: indexed === ItemSearchIndexed.AnyTime ? null : indexed,
+        option: indexed,
       }
     }
 

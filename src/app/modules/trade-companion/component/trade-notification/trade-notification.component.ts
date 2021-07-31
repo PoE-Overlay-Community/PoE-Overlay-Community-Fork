@@ -11,6 +11,7 @@ import {
     SimpleChanges
 } from '@angular/core'
 import { MatTooltipDefaultOptions, MAT_TOOLTIP_DEFAULT_OPTIONS } from '@angular/material/tooltip'
+import { ColorUtils } from '@app/class'
 import { AppTranslateService } from '@app/service'
 import { CommandService } from '@modules/command/service/command.service'
 import { SnackBarService } from '@shared/module/material/service'
@@ -19,7 +20,7 @@ import { TradeCompanionStashGridService } from '@shared/module/poe/service/trade
 import {
     CurrencyAmount,
     StashGridMode,
-    TradeCompanionOption,
+    TradeCompanionButtonOption,
     TradeCompanionUserSettings,
     TradeNotification,
     TradeNotificationType
@@ -47,13 +48,29 @@ export class TradeNotificationComponent implements OnInit, OnDestroy, OnChanges 
   @Input()
   public notification: TradeNotification
 
+  @Input()
+  public isActiveTradeNotification: boolean
+
   @Output()
   public dismissNotification = new EventEmitter<TradeNotification>()
 
-  // Make the enum available in the html
-  public TradeNotificationType = TradeNotificationType
+  @Output()
+  public collapseClick = new EventEmitter<TradeNotification>()
 
-  public collapsed = false
+  @Output()
+  public playerNameClick = new EventEmitter<TradeNotification>()
+
+  // Make the enum available in the html
+  public readonly TradeNotificationType = TradeNotificationType
+
+  public readonly ColorUtils = ColorUtils
+
+  public get collapsed(): boolean {
+    if (this.notification.userCollapsed === undefined) {
+      return this.notification.defaultCollapsed
+    }
+    return this.notification.userCollapsed
+  }
 
   public elapsedTime = '0s'
 
@@ -145,12 +162,17 @@ export class TradeNotificationComponent implements OnInit, OnDestroy, OnChanges 
 
   public toggleCollapsedClick(): void {
     this.buttonClickAudioClip?.play()
-    this.collapsed = !this.collapsed
+    if (this.notification.userCollapsed === undefined) {
+      this.notification.userCollapsed = !this.notification.defaultCollapsed
+    } else {
+      this.notification.userCollapsed = !this.notification.userCollapsed
+    }
+    this.collapseClick.emit(this.notification)
   }
 
   public visitPlayerHideoutClick(): void {
     this.buttonClickAudioClip?.play()
-    this.commandService.command(`/hideout ${this.notification.playerName}`)
+    this.commandService.command(`/hideout ${this.notification.playerName}`, this.settings)
   }
 
   public leavePartyClick(): void {
@@ -160,7 +182,7 @@ export class TradeNotificationComponent implements OnInit, OnDestroy, OnChanges 
 
   public inviteToPartyClick(): void {
     this.buttonClickAudioClip?.play()
-    this.commandService.command(`/invite ${this.notification.playerName}`)
+    this.commandService.command(`/invite ${this.notification.playerName}`, this.settings)
     if (
       this.settings.showStashGridOnInvite &&
       !this.stashGridSubscription &&
@@ -177,7 +199,7 @@ export class TradeNotificationComponent implements OnInit, OnDestroy, OnChanges 
 
   public requestTradeClick(): void {
     this.buttonClickAudioClip?.play()
-    this.commandService.command(`/tradewith ${this.notification.playerName}`)
+    this.commandService.command(`/tradewith ${this.notification.playerName}`, this.settings)
     if (
       this.settings.hideStashGridOnTrade &&
       this.stashGridSubscription &&
@@ -189,17 +211,17 @@ export class TradeNotificationComponent implements OnInit, OnDestroy, OnChanges 
 
   public whoisClick(): void {
     this.buttonClickAudioClip?.play()
-    this.commandService.command(`/whois ${this.notification.playerName}`)
+    this.commandService.command(`/whois ${this.notification.playerName}`, this.settings)
   }
 
   public whisperPlayerClick(): void {
     this.buttonClickAudioClip?.play()
-    this.commandService.command(`@${this.notification.playerName} `, false)
+    this.commandService.command(`@${this.notification.playerName} `, this.settings, false, false)
   }
 
   public repeatTradeWhisperClick(): void {
     this.buttonClickAudioClip?.play()
-    this.commandService.command(this.notification.text)
+    this.commandService.command(this.notification.text, this.settings)
   }
 
   public askStillInterestedClick(): void {
@@ -211,9 +233,10 @@ export class TradeNotificationComponent implements OnInit, OnDestroy, OnChanges 
       const currencyAmount = this.notification.item as CurrencyAmount
       item = `${currencyAmount.amount} ${currencyAmount.currency.nameType}`
     }
-    // TODO: Translate?
+    const command = `@${this.notification.playerName} ${this.settings.askIfStillInterestedMessage}`
     this.commandService.command(
-      `@${this.notification.playerName} Hi, are you still interested in ${item} for ${this.notification.price.amount} ${this.notification.price.currency.nameType}?`
+      command.replace('@item', item).replace('@price', `${this.notification.price.amount} ${this.notification.price.currency.nameType}`),
+      this.settings
     )
   }
 
@@ -222,9 +245,9 @@ export class TradeNotificationComponent implements OnInit, OnDestroy, OnChanges 
     this.toggleItemHighlight()
   }
 
-  public tradeOptionClick(tradeOption: TradeCompanionOption): void {
+  public tradeOptionClick(tradeOption: TradeCompanionButtonOption): void {
     this.buttonClickAudioClip?.play()
-    this.commandService.command(`@${this.notification.playerName} ${tradeOption.whisperMessage}`)
+    this.commandService.command(`@${this.notification.playerName} ${tradeOption.whisperMessage}`, this.settings)
     if (tradeOption.kickAfterWhisper) {
       timer(550).subscribe(() => {
         switch (this.notification.type) {
@@ -262,14 +285,14 @@ export class TradeNotificationComponent implements OnInit, OnDestroy, OnChanges 
     }
     if (activeCharacterName) {
       // Leaving a party is done by kicking yourself from said party
-      this.commandService.command(`/kick ${activeCharacterName}`)
+      this.commandService.command(`/kick ${activeCharacterName}`, this.settings)
     } else {
       this.snackbar.warning('settings.trade-companion.error-select-active-character')
     }
   }
 
   private kickFromParty(): void {
-    this.commandService.command(`/kick ${this.notification.playerName}`)
+    this.commandService.command(`/kick ${this.notification.playerName}`, this.settings)
     this.dismiss()
   }
 

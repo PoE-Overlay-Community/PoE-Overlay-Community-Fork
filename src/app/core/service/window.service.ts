@@ -56,14 +56,26 @@ export class WindowService {
     this.window.removeAllListeners()
   }
 
+  public getMainWindowBounds(): [Rectangle, Rectangle] {
+    return this.ipcRenderer.sendSync('main-window-bounds')
+  }
+
   public getWindowBounds(): Rectangle {
     const bounds = this.window.getBounds()
     return bounds
   }
 
-  public getOffsettedGameBounds(): Rectangle {
-    const bounds = this.window.getBounds()
-    const poeBounds = this.gameBounds.value
+  public getOffsettedGameBounds(useLocalBounds = true): Rectangle {
+    let bounds: Rectangle
+    let poeBounds: Rectangle
+    if (useLocalBounds) {
+      bounds = this.window.getBounds()
+      poeBounds = this.gameBounds.value
+    } else {
+      const remoteBounds = this.getMainWindowBounds()
+      bounds = remoteBounds[0]
+      poeBounds = remoteBounds[1]
+    }
     return {
       x: poeBounds.x - bounds.x,
       y: poeBounds.y - bounds.y,

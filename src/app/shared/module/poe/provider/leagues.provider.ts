@@ -25,8 +25,9 @@ export class LeaguesProvider {
       this.poeHttpService.getTradePageLeagues(language)
     ]).pipe(map((responses) => {
       const leagues = responses[0].result
-      const tradePageLeagues = responses[1].result
-      return tradePageLeagues.map((league) => {
+      const tradePageLeagues = responses[1]?.result || []
+      const allLeagues = leagues.concat(tradePageLeagues.filter((x) => leagues.findIndex((y) => x.id === y.id) === -1))
+      return allLeagues.map((league) => {
         const result: League = {
           id: league.id,
           text: league.text,

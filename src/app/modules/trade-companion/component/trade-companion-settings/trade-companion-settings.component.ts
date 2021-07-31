@@ -6,11 +6,13 @@ import { TradeCompanionStashGridService } from '@shared/module/poe/service/trade
 import { TradeNotificationsService } from '@shared/module/poe/service/trade-companion/trade-notifications.service'
 import {
     AudioClipSettings,
+    DefaultAskIfStillInterestedMessage,
     ExampleNotificationType,
     StashGridMode,
     StashGridType,
     TradeCompanionStashGridOptions,
-    TradeCompanionUserSettings
+    TradeCompanionUserSettings,
+    TradeNotificationAutoCollapseType
 } from '@shared/module/poe/type/trade-companion.type'
 import { SnackBarService } from '../../../../shared/module/material/service'
 
@@ -25,6 +27,7 @@ export class TradeCompanionSettingsComponent implements UserSettingsComponent, O
   public settings: TradeCompanionUserSettings
 
   public stashGridTypes = new EnumValues(StashGridType)
+  public autoCollapseTypes = new EnumValues(TradeNotificationAutoCollapseType)
 
   public exampleNotificationTypes = new EnumValues(ExampleNotificationType)
 
@@ -81,9 +84,13 @@ export class TradeCompanionSettingsComponent implements UserSettingsComponent, O
   }
 
   public onResetTradeCompanionBoundsClick(): void {
-    const bounds = this.window.getOffsettedGameBounds()
+    const bounds = this.window.getOffsettedGameBounds(false)
     bounds.width = bounds.height = 0
     this.settings.tradeCompanionBounds = bounds
+  }
+
+  public onResetAreYouStillInterestedMessageClick(): void {
+    this.settings.askIfStillInterestedMessage = DefaultAskIfStillInterestedMessage
   }
 
   public onEditStashGridClick(gridType: StashGridType): void {

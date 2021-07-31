@@ -221,6 +221,7 @@ export class ItemCategoryValuesProvider {
       case ItemCategory.HeistMission:
       case ItemCategory.HeistContract:
       case ItemCategory.HeistBlueprint:
+      case ItemCategory.ExpeditionLogbook:
         return of({ values: [] })
     }
   }

@@ -1,0 +1,25 @@
+#!/bin/bash
+set -euo pipefail
+
+VERSION="" #"${1}"
+FOLDER="release" #"${2}"
+
+FILENAME=$(find ${FOLDER} -name "*Setup*.exe" -type f)
+FILENAME=$(basename -- ${FILENAME}) #"poe-overlay-Setup-${VERSION}.exe"
+FILEPATH="${FOLDER}/${FILENAME}"
+VERSION=$(echo "${FILENAME}" | grep -Po '(?<=Setup-)[0-9]+([.][0-9]+)+')
+
+SHA512=$(openssl dgst -sha512 -binary $FILEPATH | openssl enc -base64 | tr -d '\r' | tr -d '\n')
+FILESIZE=$(stat -c%s $FILEPATH)
+RELEASEDATE=$(date -u +"%Y-%m-%dT%H:%M:%S.%3NZ")
+
+cat > "${FOLDER}/latest.yml" <<EOF
+version: ${VERSION}
+files:
+  - url: ${FILENAME}
+    sha512: ${SHA512}
+    size: ${FILESIZE}
+path: ${FILENAME}
+sha512: ${SHA512}
+releaseDate: '${RELEASEDATE}'
+EOF

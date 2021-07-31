@@ -17,7 +17,7 @@ export interface MapDialogData {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MapDialogComponent implements OnInit {
-  public properties = ['mapTier']
+  public properties = ['mapTier', 'areaLevel']
   public map: AtlasMap
 
   constructor(
@@ -32,6 +32,10 @@ export class MapDialogComponent implements OnInit {
       (stat) => stat.id && this.data.settings.mapInfoWarningStats[stat.id]
     )
     this.map = this.mapsService.get(this.data.item.typeId)
+  }
+
+  public nl2br(input: string): string {
+    return input.replace(/(?:\r\n|\r|\n)/g, '<br />')
   }
 
   public onMapClick(event: MouseEvent): void {

@@ -108,6 +108,7 @@ export class EvaluateQueryItemProvider {
           queryItem.properties.armourArmour = prop.armourArmour
           queryItem.properties.armourEvasionRating = prop.armourEvasionRating
           queryItem.properties.armourEnergyShield = prop.armourEnergyShield
+          queryItem.properties.armourWard = prop.armourWard
           queryItem.properties.shieldBlockChance = prop.shieldBlockChance
         }
       }

@@ -227,6 +227,7 @@ export interface ArmourFilters {
   ar?: FilterValueOption
   ev?: FilterValueOption
   es?: FilterValueOption
+  ward?: FilterValueOption
   block?: FilterValueOption
 }
 

@@ -8,7 +8,9 @@ environment:
   NODE_ENV: development
 branches:
   only:
-  - master
+    - master
+only_commits:
+  message: /Bumped version to v/
 cache:
   - node_modules
   - '%USERPROFILE%\.electron'
@@ -36,3 +38,5 @@ deploy:
   url: https://app.signpath.io/API/v1/d55b7cc8-7e88-44a5-b2ba-5714c7454670/Integrations/AppVeyor?ProjectSlug=PoE-Overlay-Community-Fork&SigningPolicySlug=release-signing
   authorization:
     secure: RK6v3+1p1/SHMUeoEUevbNeO9NZ9pdwrZeH2kCvz35AmUxqp278eKGkcqYknAMYLog8Nd/2OzdFobuRo3d/GnA==
+  on:
+    branch: master

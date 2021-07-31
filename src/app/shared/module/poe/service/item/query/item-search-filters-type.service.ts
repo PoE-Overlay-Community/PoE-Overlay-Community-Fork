@@ -163,6 +163,8 @@ export class ItemSearchFiltersTypeService implements ItemSearchFiltersService {
       case ItemCategory.HeistMission:
       case ItemCategory.HeistContract:
       case ItemCategory.HeistBlueprint:
+      // expedition
+      case ItemCategory.ExpeditionLogbook:
         query.filters.type_filters.filters.category = {
           option: item.category,
         }

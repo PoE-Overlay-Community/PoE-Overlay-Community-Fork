@@ -72,4 +72,7 @@ export abstract class Colors {
   public static get yellow(): Color {
     return ColorUtils.create(255, 255, 0)
   }
+  public static get black(): Color {
+    return ColorUtils.create(0, 0, 0)
+  }
 }

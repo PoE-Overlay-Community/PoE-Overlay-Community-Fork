@@ -62,6 +62,7 @@ let win: BrowserWindow = null
 let tray: Tray = null
 let menu: Menu = null
 let downloadItem: MenuItem = null
+let poeBounds: Rectangle = null
 
 const childs: {
   [key: string]: BrowserWindow
@@ -162,6 +163,7 @@ game.register(ipcMain, (poe) => {
       }
 
       if (poe.bounds) {
+        poeBounds = poe.bounds
         send('game-bounds-change', poe.bounds)
       }
     } else {
@@ -187,6 +189,11 @@ hook.register(
 
 ipcMain.on('app-version', (event) => {
   event.returnValue = app.getVersion()
+})
+
+ipcMain.on('main-window-bounds', (event) => {
+  const windowBounds = win.getBounds()
+  event.returnValue = [windowBounds, poeBounds || windowBounds]
 })
 
 /* changelog */
