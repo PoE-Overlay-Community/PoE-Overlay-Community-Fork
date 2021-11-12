@@ -2007,7 +2007,7 @@
 				"Pagan Bishop of Agony"
 			],
 			"url": "https://pathofexile.fandom.com/wiki/Cursed_Crypt_Map",
-			"encounter": "Pagan Bishop of Agony, based on Archbishop Geofri the Abashed.\n*Powerful slam\n*Uses Blasphemy with random two of these curses: Elemental Weakness Enfeeble Temporal Chains Vulnerability\n*At 75% health spawns a pack of Ink Spinners on the platform\n*At 50% health spawns a pack of magic Ink Spinners on the platform\n*At 25% health spawns 3 rare Ink Spinners on the platform\n*Casts a powerful black nova when a curse on him expires\n\nIf the boss is killed too quickly or lured out of the platform he will not spawn the spiders. Since they drop items and are relatively harmless, it's recommended to kite him around the platform. \n\nCursing him will result in him doing an AoE nova attack with extremely high elemental damage, consuming the curse. This includes curses delivered by auras, so it is important to remember to disable such auras and removed any curse on hit gems or items.",
+			"encounter": "Pagan Bishop of Agony, based on Archbishop Geofri the Abashed.\n*Powerful slam\n*Uses Blasphemy with random two of these curses: Elemental Weakness Enfeeble Temporal Chains Vulnerability\n*At 75% health spawns a pack of Ink Spinners on the platform\n*At 50% health spawns a pack of magic Ink Spinners on the platform\n*At 25% health spawns 3 rare Ink Spinners on the platform\n*Casts a powerful black nova when a curse on him expires\n\nIf the boss is killed too quickly or lured out of the platform he will not spawn the spiders. Since they drop items and are relatively harmless, it's recommended to kite him around the platform. \n\nCursing him will result in him doing an AoE nova attack with extremely high elemental damage, consuming the curse. This includes curses delivered by auras, so it is important to remember to disable such auras and remove any curse on hit gems or items.",
 			"layout": "Cursed Crypt is an indoor map that uses the Crypt tileset. Like The Crypt Level 1 in Act 2, this area's layout is a random maze with rooms of varying size. Has areas where Ink Spinners spawn when approached.\n\nBoss doesn't have an arena. Bridge to his platform is very similar to that in The Crypt Level 2."
 		},
 		"Dark Forest Map": {
@@ -5918,6 +5918,8 @@
 					"dropLevel": 23
 				}
 			],
+			"layoutRating": "B",
+			"bossRating": "3",
 			"bossCount": 1,
 			"bosses": [
 				"Armala, the Widow"

@@ -43,7 +43,7 @@ export class MiscStashService {
       .pipe(
         throttleTime(500),
         flatMap(() =>
-          this.itemClipboard.copy({
+          this.itemClipboard.copy(false, {
             [ItemSection.Rartiy]: true,
           })
         ),

@@ -15,6 +15,7 @@ export interface Item {
   unidentified?: boolean
   veiled?: boolean
   blighted?: boolean
+  blightRavaged?: boolean
   relic?: boolean
   damage?: ItemWeaponDamage
   sockets?: ItemSocket[]
@@ -123,6 +124,14 @@ export enum ItemCategory {
   CurrencySeedBooster = 'currency.seedbooster',
 }
 
+// aka 'Mod Generation Type'
+export enum StatGenType {
+  Unknown = 0,
+  Prefix = 1,
+  Suffix = 2,
+  // Others are omitted due to irrelevance.
+}
+
 export interface ItemWeaponDamage {
   dps?: ItemValue
   edps?: ItemValue
@@ -208,10 +217,11 @@ export interface ItemStat {
   tradeId: string
   mod: string
   negated: boolean
+  genType?: StatGenType
   type: StatType
   values: ItemValue[]
   option: boolean
-  indistinguishable: string
+  indistinguishables: string[]
 }
 
 export interface ItemRequirements {

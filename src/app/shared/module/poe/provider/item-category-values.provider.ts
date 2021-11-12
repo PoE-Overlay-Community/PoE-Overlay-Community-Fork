@@ -82,14 +82,11 @@ export class ItemCategoryValuesProvider {
           this.fetch(`${key}_essence`, () => this.fetchItem(leagueId, ItemOverviewType.Essence)),
           this.fetch(`${key}_oil`, () => this.fetchItem(leagueId, ItemOverviewType.Oil)),
           this.fetch(`${key}_vial`, () => this.fetchItem(leagueId, ItemOverviewType.Vial)),
-          this.fetch(`${key}_deliriumOrb`, () =>
-            this.fetchItem(leagueId, ItemOverviewType.DeliriumOrb)
-          ),
-          this.fetch(`${leagueId}_${ItemCategory.MapFragment}`, () =>
-            this.fetchCurrency(leagueId, CurrencyOverviewType.Fragment)
-          ),
+          this.fetch(`${key}_deliriumOrb`, () => this.fetchItem(leagueId, ItemOverviewType.DeliriumOrb)),
+          this.fetch(`${key}_artifact`, () => this.fetchItem(leagueId, ItemOverviewType.Artifact)),
+          this.fetch(`${leagueId}_${ItemCategory.MapFragment}`, () => this.fetchCurrency(leagueId, CurrencyOverviewType.Fragment)),
         ]).pipe(
-          map(([currencies, essences, oil, vial, deliriumOrb, fragments]) => {
+          map(([currencies, essences, oil, vial, deliriumOrb, artifacts, fragments]) => {
             return {
               values: [
                 ...currencies.values,
@@ -97,6 +94,7 @@ export class ItemCategoryValuesProvider {
                 ...oil.values,
                 ...vial.values,
                 ...deliriumOrb.values,
+                ...artifacts.values,
                 ...fragments.values,
               ],
             }

@@ -9,6 +9,7 @@ import { ItemOverviewResponse } from '../schema/item-overview'
 export enum ItemOverviewType {
   // General
   DivinationCard = 'DivinationCard',
+  Artifact = 'Artifact',
   Prophecy = 'Prophecy',
   Oil = 'Oil',
   Incubator = 'Incubator',
@@ -40,6 +41,7 @@ export enum ItemOverviewType {
 const PATH_TYPE_MAP = {
   // General
   [ItemOverviewType.DivinationCard]: 'divinationcards',
+  [ItemOverviewType.Artifact]: 'artifacts',
   [ItemOverviewType.Prophecy]: 'prophecies',
   [ItemOverviewType.Oil]: 'oils',
   [ItemOverviewType.Incubator]: 'incubators',

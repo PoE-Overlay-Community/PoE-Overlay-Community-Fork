@@ -20,7 +20,7 @@
     "Spanish": ": (?<player>.*?) abandonó el área",
     "Korean": ": (?<player>.*?) 님이 지역에서 나갔습니다"
   },
-  "whisper": "@((?<from>from|de|von|от кого|จาก)|(?<to>to|à|an|para|кому|ถึง)) (<.*?> )*(?<player>.*?): (?<message>.*)",
+  "whisper": "@((?<from>from|de|von|от кого|จาก|수신)|(?<to>to|à|an|para|кому|ถึง|발신)) (<.*?> )*(?<player>.*?): (?<message>.*)",
   "tradeItemPrice": {
     "English": "^(((Hi, )?I would like to buy your)|wtb) (?<name>.*) listed for (?<price>\\d*([.|,]\\d*)?) (?<currency>.*) in (?<league>.*) \\(stash( tab)? \"(?<stash>.*)\";( position:)? left (?<left>\\d*), top (?<top>\\d*)\\)(?<message>.*)?",
     "Portuguese": "^Olá, eu gostaria de comprar o seu item (?<name>.*) listado por (?<price>\\d*([.|,]\\d*)?) (?<currency>.*) na (?<league>.*) \\(aba do baú: \"(?<stash>.*)\"; posição: esquerda (?<left>\\d*), topo (?<top>\\d*)\\)(?<message>.*)?",

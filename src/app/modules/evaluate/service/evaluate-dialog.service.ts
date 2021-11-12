@@ -160,6 +160,9 @@ export class EvaluateDialogService {
       if (unique[StatType.Enchant]) {
         height += DIALOG_DIVIDER_HEIGHT
       }
+      if (unique[StatType.Scourge]) {
+        height += DIALOG_DIVIDER_HEIGHT
+      }
       if (unique[StatType.Implicit]) {
         height += DIALOG_DIVIDER_HEIGHT
       }

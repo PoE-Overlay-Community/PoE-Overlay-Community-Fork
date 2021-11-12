@@ -1,5 +1,3 @@
-import { Language } from './language.type'
-
 export type Currency = {
   id: string
   nameType: string

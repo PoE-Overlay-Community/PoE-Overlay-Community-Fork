@@ -187,6 +187,9 @@ export class ItemExchangeRateService {
           if (item.blighted) {
             name = this.clientString.translate('InfectedMap').replace('{0}', name)
           }
+          if (item.blightRavaged) {
+            name = this.clientString.translate('UberInfectedMap').replace('{0}', name)
+          }
           break
         case ItemCategory.Gem:
         case ItemCategory.GemActivegem:

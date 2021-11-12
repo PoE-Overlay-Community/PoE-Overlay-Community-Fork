@@ -170,7 +170,6 @@ export const PSEUDO_MODIFIERS: {
       { id: 'pseudo_total_elemental_resistance', type: ModifierType.Addition },
       { id: 'pseudo_total_chaos_resistance', type: ModifierType.Addition },
     ],
-    count: 2,
   },
   pseudo_total_attack_speed: {
     mods: [

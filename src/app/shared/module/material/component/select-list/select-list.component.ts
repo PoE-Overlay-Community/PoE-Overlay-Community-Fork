@@ -36,6 +36,9 @@ export class SelectListComponent implements OnInit {
     this.filterItems()
   }
 
+  @Input()
+  public itemFilter: (item: SelectListItem, filterValue: string) => boolean
+
   @Output()
   public itemsChange = new EventEmitter<SelectListItem[]>()
 
@@ -86,12 +89,19 @@ export class SelectListComponent implements OnInit {
 
   private filterItems(): void {
     const filterValue = (this.filter.value || '').toLowerCase()
-    this.items$.next(
-      this._items.filter((item) => {
-        const itemValue = item.text.toLowerCase()
-        return itemValue.indexOf(filterValue) !== -1
-      })
-    )
+
+    if (this.itemFilter) {
+      this.items$.next(
+        this._items.filter((item) => this.itemFilter(item, filterValue))
+      )
+    } else {
+      this.items$.next(
+        this._items.filter((item) => {
+          const itemValue = item.text.toLowerCase()
+          return itemValue.indexOf(filterValue) !== -1
+        })
+      )
+    }
   }
 
   private updateItems(): void {

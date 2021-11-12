@@ -1,14 +1,13 @@
 import { Injectable } from '@angular/core'
 import {
-  ExportedItem,
-  Item,
-  ItemProperties,
-  ItemSection,
-  ItemSectionParserService,
-  Section,
-  ItemCategory,
+    ExportedItem,
+    Item, ItemCategory, ItemSection,
+    ItemSectionParserService,
+    Section
 } from '@shared/module/poe/type'
 import { ClientStringService } from '../../client-string/client-string.service'
+
+const PROPHECY_REGEX = /^Prophecy(?!(Tab|Popup))/
 
 @Injectable({
   providedIn: 'root',
@@ -24,7 +23,7 @@ export class ItemSectionProphecyParserService implements ItemSectionParserServic
       return null
     }
 
-    const phrases = this.clientString.translateMultiple(new RegExp('^Prophecy(?!(Tab|Popup))'))
+    const phrases = this.clientString.translateMultiple(PROPHECY_REGEX)
 
     const prophecySection = item.sections.find(
       (section) =>

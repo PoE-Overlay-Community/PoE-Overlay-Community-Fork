@@ -23,7 +23,7 @@ export class MiscWikiService {
 
   public open(external: boolean): Observable<void> {
     return this.itemClipboard
-      .copy({
+      .copy(false, {
         [ItemSection.Rartiy]: true,
       })
       .pipe(

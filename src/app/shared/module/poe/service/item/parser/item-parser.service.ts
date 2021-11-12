@@ -14,6 +14,7 @@ import { ItemSectionRarityParserService } from './item-section-rarity-parser.ser
 import { ItemSectionRelicParserService } from './item-section-relic-parser.service'
 import { ItemSectionRequirementsParserService } from './item-section-requirements-parser.service'
 import { ItemSectionSocketsParserService } from './item-section-sockets-parser.service'
+import { ItemSectionSpecialStatsParserService } from './item-section-special-stats-parser.service'
 import { ItemSectionStatsParserService } from './item-section-stats-parser.service'
 import { ItemSectionUltimatumParserService } from './item-section-ultimatum-parser.service'
 import { ItemSectionUnidentifiedParserService } from './item-section-unidentified-parser.service'
@@ -43,7 +44,8 @@ export class ItemParserService {
     itemSectionUltimatumParserService: ItemSectionUltimatumParserService,
     itemSectionRelicParserService: ItemSectionRelicParserService,
     itemSectionIncursionParserService: ItemSectionIncursionParserService,
-    itemSectionHeistParserService: ItemSectionHeistParserService
+    itemSectionHeistParserService: ItemSectionHeistParserService,
+    itemSectionSpecialStatsParserService: ItemSectionSpecialStatsParserService,
   ) {
     this.parsers = [
       itemSectionRarityParser,
@@ -65,6 +67,7 @@ export class ItemParserService {
       itemSectionInfluencesParserService,
       itemSectionUnidentifiedParserService,
       itemSectionStatsParserService,
+      itemSectionSpecialStatsParserService, // Parse after Stats
     ]
   }
 

@@ -19,7 +19,7 @@ export class MapService {
 
   public info(settings: MapUserSettings): Observable<void> {
     return this.itemClipboard
-      .copy({
+      .copy(false, {
         [ItemSection.Rartiy]: true,
         [ItemSection.ItemLevel]: true,
         [ItemSection.Properties]: true,

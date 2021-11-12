@@ -12,7 +12,7 @@ export class ItemSearchFiltersStatsService implements ItemSearchFiltersService {
       return
     }
 
-    const mainStats = stats.filter((stat) => !stat.indistinguishable)
+    const mainStats = stats.filter((stat) => !stat.indistinguishables)
     if (mainStats.length > 0) {
       query.stats.push({
         type: 'and',
@@ -20,16 +20,15 @@ export class ItemSearchFiltersStatsService implements ItemSearchFiltersService {
       })
     }
 
-    const indistinguishableStats = stats.filter((stat) => stat.indistinguishable)
+    const indistinguishableStats = stats.filter((stat) => stat.indistinguishables)
     for (const indistinguishableStat of indistinguishableStats) {
       query.stats.push({
         type: 'count',
         min: 1,
         max: 1,
-        filters: [
+        filters: indistinguishableStat.indistinguishables.map(s => this.mapStat(indistinguishableStat, s)).concat(
           this.mapStat(indistinguishableStat, indistinguishableStat.tradeId),
-          this.mapStat(indistinguishableStat, indistinguishableStat.indistinguishable),
-        ],
+        ),
       })
     }
   }

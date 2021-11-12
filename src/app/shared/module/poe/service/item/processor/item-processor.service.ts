@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core'
 import { Item } from '@shared/module/poe/type'
+import { ItemClusterJewelProcessorService } from './item-cluster-jewel-processor.service'
 import { ItemDamageProcessorService } from './item-damage-processor.service'
 import { ItemPseudoProcessorService } from './item-pseudo-processor.service'
 import { ItemQualityProcessorService } from './item-quality-processor.service'
 
 export interface ItemProcessorOptions {
   normalizeQuality: boolean
+  processClusterJewels: boolean
 }
 
 @Injectable({
@@ -15,12 +17,16 @@ export class ItemProcessorService {
   constructor(
     private readonly itemQualityProcessorService: ItemQualityProcessorService,
     private readonly itemDamageProcessorService: ItemDamageProcessorService,
+    private readonly itemClusterJewelProcessorService: ItemClusterJewelProcessorService,
     private readonly itemPseudoProcessorService: ItemPseudoProcessorService
   ) {}
 
   public process(item: Item, options: ItemProcessorOptions): void {
     this.itemQualityProcessorService.process(item, options.normalizeQuality)
     this.itemDamageProcessorService.process(item)
+    if (options.processClusterJewels) {
+      this.itemClusterJewelProcessorService.process(item)
+    }
     this.itemPseudoProcessorService.process(item)
   }
 }

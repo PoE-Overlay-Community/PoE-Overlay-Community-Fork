@@ -14,7 +14,9 @@ import { StatsSearchOptions, StatsService } from '../../stats/stats.service'
   providedIn: 'root',
 })
 export class ItemSectionStatsParserService implements ItemSectionParserService {
-  constructor(private readonly statsService: StatsService) {}
+  constructor(
+    private readonly statsService: StatsService,
+  ) { }
 
   public optional = true
   public section = ItemSection.Stats
@@ -72,6 +74,10 @@ export class ItemSectionStatsParserService implements ItemSectionParserService {
 
     if (item.properties.weaponAttacksPerSecond) {
       options.local_attack_speed___ = true
+    }
+
+    if (item.properties.weaponCriticalStrikeChance) {
+      options.local_critical_strike_chance___ = true
     }
 
     if (item.properties.armourEvasionRating) {

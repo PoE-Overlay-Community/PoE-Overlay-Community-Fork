@@ -41,7 +41,8 @@ export class ItemQualityProcessorService {
         stats,
         'local_evasion_rating_+%',
         'local_armour_and_evasion_+%',
-        'local_armour_and_evasion_and_energy_shield_+%'
+        'local_armour_and_evasion_and_energy_shield_+%',
+        'local_evasion_and_energy_shield_+%',
       )
       this.calculateQualityTier(
         armourEvasionRating,
@@ -58,7 +59,8 @@ export class ItemQualityProcessorService {
         stats,
         'local_energy_shield_+%',
         'local_armour_and_energy_shield_+%',
-        'local_armour_and_evasion_and_energy_shield_+%'
+        'local_armour_and_evasion_and_energy_shield_+%',
+        'local_evasion_and_energy_shield_+%',
       )
       this.calculateQualityTier(
         armourEnergyShield,
@@ -116,11 +118,11 @@ export class ItemQualityProcessorService {
   ): void {
     const value = this.parseValue(property.value.text)
     const base = value / (1 + (quality + modifier) / 100)
-    const min = base * (1 + modifier / 100)
-    const max = base * (1 + (Math.max(quality, QUALITY_MAX + increasedQuality) + modifier) / 100)
+    const min = this.round(base * (1 + modifier / 100), 1)
+    const max = this.round(base * (1 + (Math.max(quality, QUALITY_MAX + increasedQuality) + modifier) / 100), 1)
 
     if (normalizeQuality) {
-      const normalized = base * (1 + (QUALITY_MAX + modifier) / 100)
+      const normalized = this.round(base * (1 + (QUALITY_MAX + modifier) / 100), 1)
       property.value.value = normalized
     }
 
@@ -132,5 +134,10 @@ export class ItemQualityProcessorService {
       .split('-')
       .map((x) => +x.replace('%', ''))
       .reduce((a, b) => a + b, 0)
+  }
+
+  private round(value: number, decimalPlaces: number): number {
+    const decimalPlacesPow = Math.pow(10, decimalPlaces)
+    return Math.floor(value * decimalPlacesPow) / decimalPlacesPow
   }
 }

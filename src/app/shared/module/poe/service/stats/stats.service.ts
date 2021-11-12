@@ -2,8 +2,9 @@ import { Injectable } from '@angular/core'
 import { StatsLocalProvider } from '../../provider/stats-local.provider'
 import { StatsIndistinguishableProvider } from '../../provider/stats-indistinguishable.provider'
 import { StatsProvider } from '../../provider/stats.provider'
-import { ItemStat, Language, Stat, StatType } from '../../type'
+import { ItemStat, Language, Stat, StatGenType, StatType } from '../../type'
 import { ContextService } from '../context.service'
+import { ClientStringService } from '../client-string/client-string.service'
 
 export interface StatsSearchResult {
   stat: ItemStat
@@ -30,6 +31,7 @@ export interface StatsSearchOptions {
   local_accuracy_rating?: boolean
   local_mana_leech_from_physical_damage_permyriad?: boolean
   local_life_leech_from_physical_damage_permyriad?: boolean
+  local_critical_strike_chance___?: boolean
 }
 
 interface StatsSectionText {
@@ -44,7 +46,8 @@ interface StatsSectionsSearch {
 
 const REVERSE_REGEX = /\\[.*+?^${}()|[\]\\]/g
 const VALUE_PLACEHOLDER = '(\\S+)'
-const TYPE_PLACEHOLDER_REGEX = / \(implicit\)| \(fractured\)| \(crafted\)| \(enchant\)/
+const TYPE_PLACEHOLDER_REGEX = / \(implicit\)| \(fractured\)| \(crafted\)| \(enchant\)| \(scourge\)/
+const SCOURGE_PLACEHOLDER_REGEX = / \(scourge\)$/
 
 @Injectable({
   providedIn: 'root',
@@ -58,7 +61,8 @@ export class StatsService {
     private readonly context: ContextService,
     private readonly statsProvider: StatsProvider,
     private readonly statsLocalProvider: StatsLocalProvider,
-    private readonly statsIndistinguishableProvider: StatsIndistinguishableProvider
+    private readonly statsIndistinguishableProvider: StatsIndistinguishableProvider,
+    private readonly clientStringService: ClientStringService,
   ) {}
 
   public translate(stat: Stat, statDescIndex: number, language?: Language): string {
@@ -140,9 +144,13 @@ export class StatsService {
     language = language || this.context.get().language
     options = options || {}
 
-    const { implicitsSearch, explicitsSearch } = this.buildSearch(texts, options)
+    const { scourgedSearch, implicitsSearch, explicitsSearch } = this.buildSearch(texts, options)
 
     const results: StatsSearchResult[] = []
+    if (scourgedSearch.sections.length > 0) {
+      this.executeSearch(scourgedSearch, options, language, results)
+    }
+
     if (implicitsSearch.sections.length > 0) {
       this.executeSearch(implicitsSearch, options, language, results)
     }
@@ -200,7 +208,7 @@ export class StatsService {
             type,
             tradeId,
             values: test.slice(1).map((x) => ({ text: x })),
-            indistinguishable: undefined,
+            indistinguishables: undefined,
           }
         })
       }
@@ -215,10 +223,24 @@ export class StatsService {
     language: Language,
     results: StatsSearchResult[]
   ): void {
+    // Sanitize sections (i.e. remove some advanced mod stuff we currently don't use at all)
+    for (let index = search.sections.length - 1; index >= 0; --index) {
+      const section = search.sections[index]
+      // Ignore anything after the special hyphen (e.g. ' — Unscalable Value')
+      section.text = section.text.split('\n').map(x => x.split(' — ')[0]).join('\n')
+    }
+
+    // Compose Stat Gen Type Regexes
+    const prefixRegex = `^\{ ${this.clientStringService.translate('ModDescriptionLinePrefix', language).replace('{0}', '.*')}`
+    const craftedPrefixRegex = `^\{ ${this.clientStringService.translate('ModDescriptionLineCraftedPrefix', language).replace('{0}', '.*')}`
+    const suffixRegex = `^\{ ${this.clientStringService.translate('ModDescriptionLineSuffix', language).replace('{0}', '.*')}`
+    const craftedSuffixRegex = `^\{ ${this.clientStringService.translate('ModDescriptionLineCraftedSuffix', language).replace('{0}', '.*')}`
+
+    // Perform the search
     for (const type of search.types) {
       const stats = this.statsProvider.provide(type)
       const locals = this.statsLocalProvider.provide(type)
-      const indistinguishables = this.statsIndistinguishableProvider.provide(type)
+      const indistinguishableStats = this.statsIndistinguishableProvider.provide(type) || {}
       for (const tradeId in stats) {
         if (!stats.hasOwnProperty(tradeId)) {
           continue
@@ -254,10 +276,10 @@ export class StatsService {
               return id.split(' ').join('_').split('%').join('_').split('+').join('_')
             }
 
-            const indistinguishable = indistinguishables[tradeId]
+            const indistinguishables = indistinguishableStats[tradeId]
 
             const localKey = getKey(stat.id || '')
-            if (locals[localKey] && !indistinguishable) {
+            if (locals[localKey] && !indistinguishables) {
               let optId = locals[localKey]
               if (stat.mod === 'local') {
                 // global to local optId
@@ -277,7 +299,9 @@ export class StatsService {
             let matchedText = sectionText
             let matchedIndex = statDescIndex
             let matchedPredicate = predicate
-            let matchedValues = test.slice(1).map((x) => ({ text: x }))
+
+            // Strip advanced mod values (located within brackets after the actual value) by splitting on the opening-bracket and taking the first element only
+            let matchedValues = test.slice(1).map((x) => ({ text: x.split('(')[0] }))
 
             // Check if your predicate uses a single number
             // (e.g. '1 Added Passive Skill is a Jewel Socket' or 'Bow Attacks fire an additional Arrow')
@@ -296,17 +320,33 @@ export class StatsService {
               }
             }
 
+            // Determine the Stat Gen Type based on the previous line (which contains advanced mod info)
+            let genType = StatGenType.Unknown
+            const lines = section.text.split('\n')
+            const lineIdx = lines.indexOf(matchedText.split('\n')[0])
+            const prevLine = lineIdx > 0 ? lines[lineIdx - 1] : undefined
+            if (prevLine) {
+              if (prevLine.match(prefixRegex) || prevLine.match(craftedPrefixRegex)) {
+                section.text = section.text.replace(prevLine, '')
+                genType = StatGenType.Prefix
+              } else if (prevLine.match(suffixRegex) || prevLine.match(craftedSuffixRegex)) {
+                section.text = section.text.replace(prevLine, '')
+                genType = StatGenType.Suffix
+              }
+            }
+
             const itemStat: ItemStat = {
               id: stat.id,
               mod: stat.mod,
               option: stat.option,
               negated: stat.negated,
+              genType: genType,
               predicateIndex: matchedIndex,
               predicate: matchedPredicate,
               type,
               tradeId,
               values: matchedValues,
-              indistinguishable,
+              indistinguishables,
             }
             results.push({
               stat: itemStat,
@@ -322,6 +362,9 @@ export class StatsService {
             }
             if (section.text.trim().length === 0) {
               search.sections.splice(index, 1)
+            } else {
+              // A stat was succesfully found & added, but the same stat might occur more than once in the same section -> increased index to search this section again.
+              index++
             }
           }
         })
@@ -337,12 +380,18 @@ export class StatsService {
     texts: string[],
     options?: StatsSearchOptions
   ): {
+    scourgedSearch: StatsSectionsSearch
     implicitsSearch: StatsSectionsSearch
     explicitsSearch: StatsSectionsSearch
   } {
     const implicitPhrase = ` (${StatType.Implicit})`
     const implicitsSearch: StatsSectionsSearch = {
       types: [StatType.Implicit],
+      sections: [],
+    }
+    const scourgePhrase = ` (${StatType.Scourge})`
+    const scourgedSearch: StatsSectionsSearch = {
+      types: [StatType.Scourge],
       sections: [],
     }
     const enchantPhrase = ` (${StatType.Enchant})`
@@ -359,37 +408,46 @@ export class StatsService {
       explicitsSearch.types.push(StatType.Ultimatum)
     }
     texts.forEach((text, index) => {
-      const section: StatsSectionText = {
-        index,
-        text,
-      }
-      if (text.indexOf(implicitPhrase) !== -1) {
-        // implicits have there own section
-        implicitsSearch.sections.push(section)
+      if (text.indexOf(scourgePhrase) !== -1) {
+        // scourge stats have there own section
+        scourgedSearch.sections.push({
+          index: index,
+          text: text.split('\n').map(x => x.replace(SCOURGE_PLACEHOLDER_REGEX, '')).join('\n')
+        })
       } else {
-        const hasEnchants = text.indexOf(enchantPhrase) !== -1
-        if (hasEnchants) {
-          if (explicitsSearch.types.indexOf(StatType.Enchant) === -1) {
-            explicitsSearch.types.push(StatType.Enchant)
-          }
+        const section: StatsSectionText = {
+          index,
+          text,
         }
+        if (text.indexOf(implicitPhrase) !== -1) {
+          // implicits have there own section
+          implicitsSearch.sections.push(section)
+        } else {
+          const hasEnchants = text.indexOf(enchantPhrase) !== -1
+          if (hasEnchants) {
+            if (explicitsSearch.types.indexOf(StatType.Enchant) === -1) {
+              explicitsSearch.types.push(StatType.Enchant)
+            }
+          }
 
-        const hasCrafteds = text.indexOf(craftedPhrase) !== -1
-        if (hasCrafteds) {
-          if (explicitsSearch.types.indexOf(StatType.Crafted) === -1) {
-            explicitsSearch.types.push(StatType.Crafted)
+          const hasCrafted = text.indexOf(craftedPhrase) !== -1
+          if (hasCrafted) {
+            if (explicitsSearch.types.indexOf(StatType.Crafted) === -1) {
+              explicitsSearch.types.push(StatType.Crafted)
+            }
           }
-        }
 
-        const hasFractureds = text.indexOf(fracturedPhrase) !== -1
-        if (hasFractureds) {
-          if (explicitsSearch.types.indexOf(StatType.Fractured) === -1) {
-            explicitsSearch.types.push(StatType.Fractured)
+          const hasFractured = text.indexOf(fracturedPhrase) !== -1
+          if (hasFractured) {
+            if (explicitsSearch.types.indexOf(StatType.Fractured) === -1) {
+              explicitsSearch.types.push(StatType.Fractured)
+            }
           }
+
+          explicitsSearch.sections.push(section)
         }
-        explicitsSearch.sections.push(section)
       }
     })
-    return { implicitsSearch, explicitsSearch }
+    return { scourgedSearch, implicitsSearch, explicitsSearch }
   }
 }

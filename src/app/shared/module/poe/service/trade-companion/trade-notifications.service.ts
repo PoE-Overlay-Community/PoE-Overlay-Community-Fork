@@ -352,16 +352,11 @@ export class TradeNotificationsService {
     if (!baseItemType) {
       return null
     }
+    if (baseItemType.image) {
+      return baseItemType.image
+    }
     switch (baseItemType.category) {
-      case ItemCategory.Card:
-        return '/image/Art/2DItems/Divination/InventoryIcon.png?w=1&h=1&scale=1'
-      case ItemCategory.Prophecy:
-        return '/image/Art/2DItems/Currency/ProphecyOrbRed.png?w=1&h=1&scale=1'
       case ItemCategory.Map:
-        if (!baseItemType.artName) {
-          return null
-        }
-
         // Check for map tier
         const tierRegex = MAP_TIER_REGEXES.find((x) => x.language === language)?.regex
         const tierMatch = tierRegex?.exec(item)
@@ -371,15 +366,23 @@ export class TradeNotificationsService {
         }
 
         // Check for blighted map
-        let blighted = ''
+        let suffix = ''
         const blightedMapItemNameDisplay = this.clientString
           .translate('InfectedMap')
           .replace('{0}', baseItemType.names[language])
         if (item.startsWith(blightedMapItemNameDisplay)) {
-          blighted = '&mb=1'
+          suffix = '&mb=1'
         }
 
-        return `/image/${baseItemType.artName}.png?w=1&h=1&scale=1&mn=${MAP_GENERATION_ID}&mt=${tier}${blighted}`
+        // Check for blight-ravaged map
+        const blightRavagedMapItemNameDisplay = this.clientString
+          .translate('UberInfectedMap')
+          .replace('{0}', baseItemType.names[language])
+        if (item.startsWith(blightRavagedMapItemNameDisplay)) {
+          suffix = '&mb=2'
+        }
+
+        return `/image/${baseItemType.image}.png?w=1&h=1&scale=1&mn=${MAP_GENERATION_ID}&mt=${tier}${suffix}`
     }
     return null
   }

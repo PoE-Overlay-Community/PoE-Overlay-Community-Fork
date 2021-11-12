@@ -72,6 +72,8 @@ export class EvaluateModule implements FeatureModule {
         'implicit.stat_3624393862': true, // Guardian occupied maps
       },
       evaluateQueryDefaultStatsUnique: true,
+      evaluateQueryDefaultStatsEnchants: true,
+      evaluateQueryPostProcessClusterJewels: true,
       evaluateQueryIndexedRange: ItemSearchIndexed.UpTo3DaysAgo,
       evaluateQueryOnline: true,
       evaluateQueryDebounceTime: 10,
@@ -85,6 +87,9 @@ export class EvaluateModule implements FeatureModule {
       evaluateQueryInitialSearch: false,
       evaluateBrowserAlwaysExternal: false,
       evaluateShowAnnointmentOils: true,
+      evaluateCopyAdvancedItemText: true,
+      evaluateShowPricePrediction: true,
+      evaluateShowExchangeRate: true,
     }
     return {
       name: 'evaluate.name',

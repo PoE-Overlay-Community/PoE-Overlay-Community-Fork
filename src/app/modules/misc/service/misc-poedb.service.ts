@@ -20,7 +20,7 @@ export class MiscPoedbService {
 
   public open(external: boolean): Observable<void> {
     return this.itemClipboard
-      .copy({
+      .copy(false, {
         [ItemSection.Rartiy]: true,
       })
       .pipe(

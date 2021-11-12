@@ -18,7 +18,7 @@ export class ItemPricePredictionHttpService {
   constructor(private readonly http: HttpClient, private readonly browser: BrowserService) {}
 
   public get(leagueId: string, stringifiedItem: string): Observable<ItemPricePredictionResponse> {
-    const base64Item = btoa(stringifiedItem)
+    const base64Item = btoa(unescape(encodeURIComponent(stringifiedItem)))
     const encodedLeagueId = encodeURIComponent(leagueId)
     const encodedItem = encodeURIComponent(base64Item)
 

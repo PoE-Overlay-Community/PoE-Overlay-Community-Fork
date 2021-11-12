@@ -1,8 +1,16 @@
 import { ItemValue } from '../../../type'
 
 export abstract class ItemParserUtils {
-  public static parseNumber(text: string, numDecimals: number): number {
-    return +text.split(/[\+%,\. ]+/).join('') / Math.pow(10, numDecimals)
+  public static parseNumberSimple(text: string): number {
+    return +text.replace('%', '')
+  }
+
+  public static parseNumber(text: string): number {
+    return +text.split(/[\+%,\. ]+/).join('')
+  }
+
+  public static parseDecimalNumber(text: string, numDecimals: number): number {
+    return this.parseNumber(text) / Math.pow(10, numDecimals)
   }
 
   public static parseItemValue(text: string, numDecimals: number): ItemValue {
@@ -11,14 +19,14 @@ export abstract class ItemParserUtils {
       const splitted = text.split('/')
       itemValue = {
         text,
-        value: ItemParserUtils.parseNumber(splitted[0], numDecimals),
-        min: ItemParserUtils.parseNumber(splitted[0], numDecimals),
-        max: ItemParserUtils.parseNumber(splitted[1], numDecimals),
+        value: ItemParserUtils.parseDecimalNumber(splitted[0], numDecimals),
+        min: ItemParserUtils.parseDecimalNumber(splitted[0], numDecimals),
+        max: ItemParserUtils.parseDecimalNumber(splitted[1], numDecimals),
       }
     } else {
       itemValue = {
         text,
-        value: ItemParserUtils.parseNumber(text, numDecimals),
+        value: ItemParserUtils.parseDecimalNumber(text, numDecimals),
       }
     }
     return itemValue

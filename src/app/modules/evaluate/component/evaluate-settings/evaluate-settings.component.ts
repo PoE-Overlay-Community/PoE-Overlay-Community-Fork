@@ -43,6 +43,8 @@ export interface EvaluateUserSettings extends UserSettings {
   evaluatePropertyMaxRange: number
   evaluateQueryDefaultStats: any
   evaluateQueryDefaultStatsUnique: boolean
+  evaluateQueryDefaultStatsEnchants: boolean
+  evaluateQueryPostProcessClusterJewels: boolean
   evaluateQueryOnline: boolean
   evaluateQueryIndexedRange: ItemSearchIndexed
   evaluateModifierMinRange: number
@@ -53,6 +55,9 @@ export interface EvaluateUserSettings extends UserSettings {
   evaluatePricing: EvaluatePricing
   evaluateBrowserAlwaysExternal: boolean
   evaluateShowAnnointmentOils: boolean
+  evaluateCopyAdvancedItemText: boolean
+  evaluateShowPricePrediction: boolean
+  evaluateShowExchangeRate: boolean
 }
 
 export const EVALUATE_QUERY_DEBOUNCE_TIME_MAX = 100
@@ -152,6 +157,12 @@ export class EvaluateSettingsComponent implements UserSettingsComponent {
     this.snackbar.success('stats were imported successfully.')
   }
 
+  public itemPredicate(item: SelectListItem, filterValue: string): boolean {
+    const statItem = item as StatSelectListItem
+    const itemValue = `${statItem.type.toLowerCase()} ${statItem.text.toLowerCase()}`
+    return itemValue.indexOf(filterValue) !== -1
+  }
+
   private updateStats(): void {
     const items: StatSelectListItem[] = []
 
@@ -195,6 +206,7 @@ export class EvaluateSettingsComponent implements UserSettingsComponent {
       StatType.Fractured,
       StatType.Monster,
       StatType.Ultimatum,
+      StatType.Scourge,
     ]
     types.forEach((type) => {
       const stats = this.statsProvider.provide(type)

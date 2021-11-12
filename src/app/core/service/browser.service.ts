@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core'
 import { ElectronProvider } from '@app/provider'
+import { BrowserWindow } from 'electron'
 import { Remote } from 'electron'
 import { Observable, Subject } from 'rxjs'
 import { Dialog, DialogRefService, DialogType } from './dialog/dialog-ref.service'
@@ -22,6 +23,7 @@ export class BrowserService {
       parent,
       show: false,
     })
+    this.setupCookieSharing(win)
     win.webContents.once('did-finish-load', () => {
       subject.next()
       subject.complete()
@@ -45,6 +47,8 @@ export class BrowserService {
       backgroundColor: '#0F0F0F',
       show: false,
     })
+
+    this.setupCookieSharing(win)
 
     parent.setEnabled(false)
     win.once('closed', () => {
@@ -75,9 +79,11 @@ export class BrowserService {
         autoHideMenuBar: true,
         width: Math.round(Math.min(height * 1.3, width * 0.7)),
         height: Math.round(height * 0.7),
-        backgroundColor: '#0F0F0F',
+        backgroundColor: url.startsWith('file://') ? '#FCFCFC' : '#0F0F0F',
         show: false,
       })
+
+      this.setupCookieSharing(win)
 
       const dialog: Dialog = {
         close: win.close.bind(win),
@@ -108,5 +114,28 @@ export class BrowserService {
       })
       win.loadURL(url)
     }
+  }
+
+  private setupCookieSharing(browserWindow: BrowserWindow) {
+    browserWindow.webContents.session.webRequest.onHeadersReceived({
+      urls: ['https://*.pathofexile.com/*']
+    }, (details, next) => {
+      const cookies = details.responseHeaders?.['set-cookie']
+      if (cookies) {
+        details.responseHeaders['set-cookie'] = cookies.map(cookie => {
+          cookie = cookie
+            .split(';')
+            .map(x => x.trim())
+            .filter(x =>
+              !x.toLowerCase().startsWith('samesite') &&
+              !x.toLowerCase().startsWith('secure'))
+            .join('; ')
+
+          return `${cookie}; SameSite=None; Secure`
+        })
+      }
+
+      next({ responseHeaders: details.responseHeaders })
+    })
   }
 }

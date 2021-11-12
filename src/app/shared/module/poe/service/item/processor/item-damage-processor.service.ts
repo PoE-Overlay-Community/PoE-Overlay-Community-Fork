@@ -120,7 +120,7 @@ export class ItemDamageProcessorService {
   private sum(prop: ItemValueProperty, sum: number = 0): number {
     return prop.value.text
       .split('-')
-      .map((x) => ItemParserUtils.parseNumber(x, 0))
+      .map((x) => ItemParserUtils.parseNumber(x))
       .reduce((a, b) => a + b, sum)
   }
 }

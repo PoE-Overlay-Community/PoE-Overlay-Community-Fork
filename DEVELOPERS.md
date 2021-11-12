@@ -4,7 +4,7 @@
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-First, join the [Developer Discord](https://discord.gg/jqupUW). There are channels
+First, join the [Developer Discord](https://discord.gg/sb5mUsWpdg). There are channels
 here for both end users and developers. We can help you get set up.
 
 ## Prerequisites

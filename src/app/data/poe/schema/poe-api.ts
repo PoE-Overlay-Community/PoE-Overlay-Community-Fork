@@ -56,6 +56,8 @@ export enum TradeStaticResultId {
   Currency = 'Currency',
   Splinters = 'Splinters',
   Fragments = 'Fragments',
+  TaintedCurrency = 'TaintedCurrency',
+  Expedition = 'Expedition',
   DeliriumOrbs = 'DeliriumOrbs',
   Catalysts = 'Catalysts',
   Oils = 'Oils',
@@ -65,6 +67,7 @@ export enum TradeStaticResultId {
   DelveFossils = 'DelveFossils',
   Essences = 'Essences',
   Cards = 'Cards',
+  Prophecies = 'Prophecies',
   MapsTier1 = 'MapsTier1',
   MapsTier2 = 'MapsTier2',
   MapsTier3 = 'MapsTier3',
@@ -82,6 +85,8 @@ export enum TradeStaticResultId {
   MapsTier15 = 'MapsTier15',
   MapsTier16 = 'MapsTier16',
   MapsBlighted = 'MapsBlighted',
+  MapsUberBlighted = 'MapsUberBlighted',
+  MapsUnique = 'MapsUnique',
   Misc = 'Misc',
 }
 
@@ -101,6 +106,7 @@ export enum TradeStatsResultLabel {
   Monster = 'Monster',
   Delve = 'Delve',
   Ultimatum = 'Ultimatum',
+  Scourge = 'Scourge',
 }
 
 export interface TradeStatsResultResultEntry {
@@ -257,6 +263,7 @@ export interface MapFilters {
   map_iir?: FilterValueOption
   area_level?: FilterValueOption
   map_blighted?: FilterOption
+  map_uberblighted?: FilterOption
   map_region?: FilterOption
   map_series?: FilterOption
 }

@@ -8,6 +8,7 @@ import {
   Output,
 } from '@angular/core'
 import { BehaviorSubject, Subject } from 'rxjs'
+import { ItemParserUtils } from '../../service/item/parser/item-parser.utils'
 import { ItemValue } from '../../type'
 import { ItemFrameQueryComponent } from '../item-frame-query/item-frame-query.component'
 import { ItemFrameComponent } from '../item-frame/item-frame.component'
@@ -207,10 +208,10 @@ export class ItemFrameValueComponent implements OnInit {
     }
 
     // reset to infinite
-    if (this.value.min > this.default.min) {
+    if (Math.abs(this.value.min) > Math.abs(this.default.min)) {
       this.value.min = undefined
     }
-    if (this.value.max < this.default.max) {
+    if (Math.abs(this.value.max) < Math.abs(this.default.max)) {
       this.value.max = undefined
     }
 
@@ -233,12 +234,13 @@ export class ItemFrameValueComponent implements OnInit {
 
   private init(): void {
     this.disabled = this.query.disabled
-    this.parsed = this.value.value ?? this.parseValue(this.value.text)
-    this.value.min = this.parsed
-    this.value.max = this.parsed
+    const predeterminedValues = this.value.value && this.value.min && this.value.max
+    this.parsed = this.value.value ?? ItemParserUtils.parseNumberSimple(this.value.text)
+    this.value.min = this.value.min || this.parsed
+    this.value.max = this.value.max || this.parsed
     this.default = { ...this.value }
 
-    if (this.disabled) {
+    if (this.disabled || predeterminedValues) {
       return
     }
 
@@ -271,9 +273,5 @@ export class ItemFrameValueComponent implements OnInit {
   private emitChange(): void {
     this.valueChange.emit(this.value)
     this.query.checkChange()
-  }
-
-  private parseValue(text: string): number {
-    return +text.replace('%', '')
   }
 }

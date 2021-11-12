@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core'
 import { ItemSocketService } from '@shared/module/poe/service/item/item-socket.service'
-import { Item, ItemCategory, ItemRarity } from '@shared/module/poe/type'
+import { Item, ItemCategory, ItemRarity, StatType } from '@shared/module/poe/type'
 import { EvaluateUserSettings } from '../component/evaluate-settings/evaluate-settings.component'
 
 export interface EvaluateQueryItemResult {
@@ -24,6 +24,7 @@ export class EvaluateQueryItemProvider {
       unidentified: item.unidentified,
       veiled: item.veiled,
       blighted: item.blighted,
+      blightRavaged: item.blightRavaged,
       relic: item.relic,
       influences: item.influences || {},
       damage: {},
@@ -152,6 +153,9 @@ export class EvaluateQueryItemProvider {
         queryItem.stats = item.stats
       } else {
         queryItem.stats = item.stats.map((stat) => {
+          if (stat.type === StatType.Enchant && settings.evaluateQueryDefaultStatsEnchants) {
+            return stat
+          }
           const key = `${stat.type}.${stat.tradeId}`
           return settings.evaluateQueryDefaultStats[key] ? stat : undefined
         })

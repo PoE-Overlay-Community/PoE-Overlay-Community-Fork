@@ -14,6 +14,7 @@ const CATEGORY_CN_MAP = {
   [ItemCategory.AccessoryAmulet]: 'Amulet',
   [ItemCategory.AccessoryBelt]: 'Belt',
   [ItemCategory.AccessoryRing]: 'Ring',
+  [ItemCategory.AccessoryTrinket]: 'Trinket',
   [ItemCategory.WeaponBow]: 'Bow',
   [ItemCategory.WeaponClaw]: 'Claw',
   [ItemCategory.WeaponDagger]: 'Dagger',
@@ -29,7 +30,12 @@ const CATEGORY_CN_MAP = {
   [ItemCategory.WeaponTwoSword]: 'Two Hand Sword',
   [ItemCategory.WeaponWand]: 'Wand',
   [ItemCategory.WeaponRod]: 'FishingRod',
+  [ItemCategory.Map]: 'Map',
+  [ItemCategory.HeistContract]: 'HeistContract',
+  [ItemCategory.HeistBlueprint]: 'HeistBlueprint',
 }
+
+const GENERIC_CN = 'BaseItemTypes'
 
 const LANGUAGE_MAPPING = {
   [Language.English]: 'us',
@@ -58,43 +64,51 @@ export class ItemExternalService {
 
     const { typeId, nameId, rarity, category } = item
 
-    const cn = CATEGORY_CN_MAP[category]
+    let cn = CATEGORY_CN_MAP[category]
     const url = environment.poedb.baseUrl.replace('{country}', LANGUAGE_MAPPING[language])
-    if (rarity === ItemRarity.Rare && !!cn) {
-      let an = ''
+    if (rarity === ItemRarity.Rare) {
+      let tags = undefined
 
-      const base = category.split('.')[0]
-      if (typeId.includes('StrDexInt')) {
-        an = `str_dex_int_${base}`
-      } else if (typeId.includes('StrInt')) {
-        an = `str_int_${base}`
-      } else if (typeId.includes('StrDex')) {
-        an = `str_dex_${base}`
-      } else if (typeId.includes('DexInt')) {
-        an = `dex_int_${base}`
-      } else if (typeId.includes('Dex')) {
-        an = `dex_${base}`
-      } else if (typeId.includes('Str')) {
-        an = `dex_${base}`
-      } else if (typeId.includes('Int')) {
-        an = `int_${base}`
+      if (!!cn) {
+        const base = category.split('.')[0]
+        if (typeId.includes('StrDexInt')) {
+          tags = `str_dex_int_${base}`
+        } else if (typeId.includes('StrInt')) {
+          tags = `str_int_${base}`
+        } else if (typeId.includes('StrDex')) {
+          tags = `str_dex_${base}`
+        } else if (typeId.includes('DexInt')) {
+          tags = `dex_int_${base}`
+        } else if (typeId.includes('Dex')) {
+          tags = `dex_${base}`
+        } else if (typeId.includes('Str')) {
+          tags = `str_${base}`
+        } else if (typeId.includes('Int')) {
+          tags = `int_${base}`
+        }
+      } else {
+        cn = GENERIC_CN
       }
 
-      const itemDetailUrl = `${url}/mod.php?cn=${encodeURIComponent(cn)}&an=${encodeURIComponent(
-        an
-      )}`
+      let itemDetailUrl = `${url}/mod.php?cn=${encodeURIComponent(cn)}`
+      if (tags) {
+        itemDetailUrl += `&tags=${encodeURIComponent(tags)}`
+      } else {
+        const an = this.getIdentifier(nameId, typeId)
+        itemDetailUrl += `&an=${encodeURIComponent(an)}`
+      }
       return itemDetailUrl
     }
 
     const q = this.getIdentifier(nameId, typeId)
-    const itemUrl = `${url}/search.php?q=${encodeURIComponent(q)}`
+    const itemUrl = `${url}/search?q=${encodeURIComponent(q)}`
     return itemUrl
   }
 
   public getWikiUrl(item: Item): string {
     const { nameId, typeId } = item
     const search = this.getIdentifier(nameId, typeId)
-    const url = `${environment.wiki.baseUrl}/index.php?search=${encodeURIComponent(search)}`
+    const url = `${environment.wiki.baseUrl}/w/index.php?search=${encodeURIComponent(search)}`
     return url
   }
 

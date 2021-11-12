@@ -31,7 +31,7 @@ export class ItemClipboardService {
     private readonly itemParser: ItemParserService
   ) {}
 
-  public copy(sections?: { [section: number]: boolean }): Observable<ItemClipboardResult> {
+  public copy(copyAdvancedText: boolean, sections?: { [section: number]: boolean }): Observable<ItemClipboardResult> {
     return of(null).pipe(
       map(() => this.mouse.position()),
       tap(() => {
@@ -43,14 +43,17 @@ export class ItemClipboardService {
       flatMap((point) => {
         return of(null).pipe(
           flatMap(() => {
+            const oldText = this.clipboard.readText()
+
             this.keyboard.setKeyboardDelay(25)
-            this.keyboard.keyTap(KeyCode.VK_KEY_C, ['control'])
+            this.keyboard.keyTap(KeyCode.VK_KEY_C, copyAdvancedText ? ['control', 'alt'] : ['control'])
 
             const text = this.clipboard.readText() || ''
             if (text.length <= 0) {
               return throwError('empty')
             }
-            return of(text)
+
+            return of({ oldText, text })
           }),
           retryWhen((errors) =>
             errors.pipe(
@@ -59,9 +62,10 @@ export class ItemClipboardService {
               )
             )
           ),
-          catchError(() => of('')),
-          tap(() => this.clipboard.writeText('')),
-          map((text) => {
+          catchError((texts) => of({ oldText: texts.oldText, text: ''})),
+          tap((texts) => this.clipboard.writeText(texts.oldText)),
+          map((texts) => {
+            const { text } = texts
             if (text.length <= 0) {
               return { code: ItemClipboardResultCode.Empty }
             }

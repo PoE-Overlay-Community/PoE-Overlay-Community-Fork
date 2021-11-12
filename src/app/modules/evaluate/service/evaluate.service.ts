@@ -25,10 +25,11 @@ export class EvaluateService {
   ) {}
 
   public evaluate(settings: EvaluateUserSettings, language?: Language): Observable<void> {
-    return this.item.copy().pipe(
+    return this.item.copy(settings.evaluateCopyAdvancedItemText).pipe(
       tap(({ item }) =>
         this.processor.process(item, {
           normalizeQuality: settings.evaluateQueryNormalizeQuality,
+          processClusterJewels: settings.evaluateQueryPostProcessClusterJewels,
         })
       ),
       flatMap(({ code, point, item }) => {
@@ -52,7 +53,8 @@ export class EvaluateService {
             return throwError(`code: '${code}' out of range`)
         }
       }),
-      catchError(() => {
+      catchError((err) => {
+        console.error(err)
         return this.snackbar.error('clipboard.error')
       })
     )

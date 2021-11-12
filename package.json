@@ -1,6 +1,6 @@
 {
   "name": "poe-overlay",
-  "version": "0.8.4",
+  "version": "0.8.9",
   "private": true,
   "description": "An Overlay for Path of Exile. Built with Electron and Angular.",
   "main": "main.js",
@@ -23,7 +23,7 @@
     "ng:lint": "ng lint --fix",
     "ng:serve": "ng serve",
     "ng:test": "ng test",
-    "ng:test:ci": "ng test --karma-config=karma-ci.conf.js",
+    "ng:test:ci": "set NODE_OPTIONS=--max-old-space-size=7168 && ng test --karma-config=karma-ci.conf.js",
     "postinstall": "npm run ng:cc && npm run electron:deps",
     "start": "npm-run-all -p ng:serve electron:serve"
   },

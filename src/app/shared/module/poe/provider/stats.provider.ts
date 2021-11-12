@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core'
 import {
   crafted,
-  delve,
   enchant,
   explicit,
   fractured,
@@ -10,6 +9,7 @@ import {
   pseudo,
   veiled,
   ultimatum,
+  scourge,
 } from '../../../../../assets/poe/stats.json'
 import { StatMap, StatType } from '../type'
 
@@ -35,10 +35,10 @@ export class StatsProvider {
         return veiled
       case StatType.Monster:
         return monster
-      case StatType.Delve:
-        return delve
       case StatType.Ultimatum:
         return ultimatum
+      case StatType.Scourge:
+        return scourge
     }
   }
 }

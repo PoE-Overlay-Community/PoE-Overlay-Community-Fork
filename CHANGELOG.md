@@ -1,5 +1,40 @@
 # Changelog
 
+## 0.8.9 (2021-11-07)
+
+- Updated PoE Assets to support 3.16.0d
+- Fixed snackbar warning showing its localization key rather than the translated localization when attempting to leave a party without having a selected character
+- Added rounding to 1 decimal to the quality processor's min, max and normalized values
+- Added 'local evasion & es +%' to the evasion, and energy shield calculations in the quality processor
+- Added support for 'local crit chance' on weapons that have crit chance
+
+## 0.8.8 (2021-10-25)
+
+- Updated PoE Assets to support 3.16.0 (Hotfix 4)
+- Fixed a login issue related to changes in the default cookie same-site behaviour
+
+## 0.8.7 (2021-10-23)
+
+- Fixed wiki search url
+
+## 0.8.6 (2021-10-23)
+
+- Added support for Scourge stats
+- Added support for Logbook faction pseudo-stats
+- Added support for Artifacts exchange rates
+- Added rate-limit checks to more of the poe-api calls
+- Updated PoE Assets to support 3.16.0 (scourge league)
+- Changed image urls for trade companion bulk-exchange item images
+- Changed browser window background when viewing bookmarked local files to improve text readability
+- Updated the wiki url to poewiki.net (instead of fandom)
+- Updated the trade regexes to support Korean whispers
+
+## 0.8.5 (2021-08-05)
+
+- Updated PoE Assets to support 3.15.1
+- Added '% increased Movement Speed if you haven't been Hit Recently' to the indistinguishable stats list
+- Added support for the Kakao (Korean) client logs to be read
+
 ## 0.8.4 (2021-07-28)
 
 - Updated PoE Assets to support 3.15.0d

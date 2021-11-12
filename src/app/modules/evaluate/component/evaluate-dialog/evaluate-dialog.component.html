@@ -23,23 +23,28 @@
       </app-evaluate-options>
       <ng-container *ngIf="!(privateLeague$ | async)">
         <ng-container *ngIf="rate$ | async; else prediction">
-          <app-evaluate-exchange-rate [options]="options"
-                                      [optionsChange]="optionsChange"
-                                      [item]="data.item"
-                                      [settings]="data.settings"
-                                      [currencies]="currencies"
-                                      (evaluateResult)="onEvaluateResult($event)">
-          </app-evaluate-exchange-rate>
+          <ng-container *ngIf="data.settings.evaluateShowExchangeRate">
+            <app-evaluate-exchange-rate [options]="options"
+                                        [optionsChange]="optionsChange"
+                                        [item]="data.item"
+                                        [settings]="data.settings"
+                                        [currencies]="currencies"
+                                        (evaluateResult)="onEvaluateResult($event)">
+            </app-evaluate-exchange-rate>
+            <app-item-frame-separator [item]="data.item"></app-item-frame-separator>
+          </ng-container>
         </ng-container>
         <ng-template #prediction>
-          <app-evaluate-price-prediction [language]="data.settings.language"
-                                         [options]="options"
-                                         [optionsChange]="optionsChange"
-                                         [item]="data.item"
-                                         [currencies]="currencies">
-          </app-evaluate-price-prediction>
+          <ng-container *ngIf="data.settings.evaluateShowPricePrediction">
+            <app-evaluate-price-prediction [language]="data.settings.language"
+                                           [options]="options"
+                                           [optionsChange]="optionsChange"
+                                           [item]="data.item"
+                                           [currencies]="currencies">
+            </app-evaluate-price-prediction>
+            <app-item-frame-separator [item]="data.item"></app-item-frame-separator>
+          </ng-container>
         </ng-template>
-        <app-item-frame-separator [item]="data.item"> </app-item-frame-separator>
       </ng-container>
       <app-evaluate-search
         *ngIf="init$ | async; else loading"

@@ -10,12 +10,6 @@ const POE_NAMES = [
   'pathofexile_x64egs',
   'pathofexileegs',
 
-  // Korean
-  'pathofexile_x64_kg.exe',
-  'pathofexile_kg.exe',
-  'pathofexile_x64_kg',
-  'pathofexile_kg',
-
   // Steam
   'pathofexile_x64steam.exe',
   'pathofexilesteam.exe',
@@ -30,6 +24,14 @@ const POE_NAMES = [
 
   // Linux
   'wine64-preloader',
+]
+
+const POE_KOREAN_NAMES = [
+  // Kakao Client (Korean)
+  'pathofexile_x64_kg.exe',
+  'pathofexile_kg.exe',
+  'pathofexile_x64_kg',
+  'pathofexile_kg',
 ]
 
 const POE_TITLES = ['Path of Exile']
@@ -55,15 +57,9 @@ export class Game {
       const windowPath = (window.path || '').toLowerCase()
       const name = path.basename(windowPath)
       if (POE_NAMES.includes(name)) {
-        const title = window.title()
-        if (POE_TITLES.includes(title) || POE_ALTERNATIVE_TITLES.some((x) => title.startsWith(x))) {
-          this.window = window
-          this.active = true
-          this.bounds = window.bounds()
-          this.gameLogListener.setLogFilePath(path.join(path.parse(windowPath).dir, "logs", "Client.txt"))
-        } else {
-          this.active = false
-        }
+        this.updateWindow(window, "Client.txt")
+      } else if (POE_KOREAN_NAMES.includes(name)) {
+        this.updateWindow(window, "KakaoClient.txt")
       } else {
         this.active = false
       }
@@ -85,6 +81,18 @@ export class Game {
       bounds: this.bounds,
       processId: this.window?.processId,
     })
+  }
+
+  private updateWindow(window: Window, logFileName: string): void {
+    const title = window.title()
+    if (POE_TITLES.includes(title) || POE_ALTERNATIVE_TITLES.some((x) => title.startsWith(x))) {
+      this.window = window
+      this.active = true
+      this.bounds = window.bounds()
+      this.gameLogListener.setLogFilePath(path.join(path.parse(window.path).dir, "logs", logFileName))
+    } else {
+      this.active = false
+    }
   }
 }
 

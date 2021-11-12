@@ -19,7 +19,7 @@ export interface BaseItemTypeMap {
 
 export interface BaseItemType {
   names?: BaseItemTypeNameMap
-  artName?: string
+  image?: string
   category?: ItemCategory
   width?: number
   height?: number
@@ -38,7 +38,7 @@ export interface StatLocalMap {
 }
 
 export interface StatIndistinguishableMap {
-  [id: string]: string
+  [id: string]: string[]
 }
 
 export interface ModValue {

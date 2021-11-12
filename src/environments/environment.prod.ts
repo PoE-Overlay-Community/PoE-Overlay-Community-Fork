@@ -8,7 +8,7 @@ export const environment = {
     traditionalChineseUrl: 'https://web.poe.garena.tw/',
   },
   wiki: {
-    baseUrl: 'https://pathofexile.gamepedia.com',
+    baseUrl: 'https://www.poewiki.net',
   },
   poedb: {
     baseUrl: 'https://poedb.tw/{country}',
