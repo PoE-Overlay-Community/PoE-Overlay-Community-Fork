@@ -22,6 +22,9 @@ export class ItemProcessorService {
   ) {}
 
   public process(item: Item, options: ItemProcessorOptions): void {
+    if (!item) {
+      return
+    }
     this.itemQualityProcessorService.process(item, options.normalizeQuality)
     this.itemDamageProcessorService.process(item)
     if (options.processClusterJewels) {

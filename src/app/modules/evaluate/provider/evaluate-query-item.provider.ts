@@ -41,6 +41,12 @@ export class EvaluateQueryItemProvider {
     })
     const queryItem = this.copy(defaultItem)
 
+    // Deselect fractured & synthesised to avoid narrowing the query item too much
+    if (queryItem.influences) {
+      queryItem.influences.fractured = undefined
+      queryItem.influences.synthesised = undefined
+    }
+
     if (settings.evaluateQueryDefaultItemLevel) {
       queryItem.level = item.level
     }
@@ -150,7 +156,8 @@ export class EvaluateQueryItemProvider {
         (item.rarity === ItemRarity.Unique || item.rarity === ItemRarity.UniqueRelic) &&
         settings.evaluateQueryDefaultStatsUnique
       ) {
-        queryItem.stats = item.stats
+        // Select all stats if it's corrupted, otherwise exclude implicit stats
+        queryItem.stats = item.stats.filter((stat) => item.corrupted || stat.type !== StatType.Implicit)
       } else {
         queryItem.stats = item.stats.map((stat) => {
           if (stat.type === StatType.Enchant && settings.evaluateQueryDefaultStatsEnchants) {

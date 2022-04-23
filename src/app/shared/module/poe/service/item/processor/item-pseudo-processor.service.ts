@@ -24,6 +24,8 @@ export class ItemPseudoProcessorService {
 
     this.groupPseudoMods(item)
 
+    this.groupIdenticalMods(item)
+
     item.stats.push(...emptyAndCraftedPseudoMods)
   }
 
@@ -164,7 +166,7 @@ export class ItemPseudoProcessorService {
           }
 
           stats.forEach((stat) => {
-            ++count
+            count++
             values = this.calculateValue(stat, mod.type, values)
 
             if (
@@ -173,8 +175,8 @@ export class ItemPseudoProcessorService {
               item.rarity !== ItemRarity.UniqueRelic && // Never remove stats from unique relic items
               stat.type !== StatType.Fractured && // Never remove fractured stats
               stat.type !== StatType.Scourge && // Never remove scourged stats
-              // Never remove synthesized implicit stats
-              (!item.influences || !item.influences.synthesized || stat.type !== StatType.Implicit) &&
+              // Never remove synthesised implicit stats
+              (!item.influences || !item.influences.synthesised || stat.type !== StatType.Implicit) &&
               // Never remove stats if the pseudo grouping occured with a scourged stat
               stats.findIndex(x => x.type === StatType.Scourge) === -1
             ) {
@@ -194,6 +196,26 @@ export class ItemPseudoProcessorService {
       if (values.length > 0 && (!minCount || count >= minCount)) {
         item.stats.push(itemStat)
       }
+    })
+  }
+
+  private groupIdenticalMods(item: Item): void {
+    const itemStats = [...item.stats]
+    itemStats.forEach(stat => {
+      const identicalStats = itemStats.filter(x => x.tradeId == stat.tradeId && x.type == stat.type)
+      if (identicalStats.length <= 1) return
+      let values = []
+      let count = 0
+      identicalStats.forEach(identicalStat => {
+        count++
+        values = this.calculateValue(identicalStat, ModifierType.Addition, values)
+        // Remove the duplicate stat
+        if (count > 1) {
+          item.stats = item.stats.filter(y => y !== identicalStat)
+        }
+      })
+      // Update the values of the stat
+      stat.values = values.map(x => ({ text: `${+x.toFixed(2)}` }))
     })
   }
 

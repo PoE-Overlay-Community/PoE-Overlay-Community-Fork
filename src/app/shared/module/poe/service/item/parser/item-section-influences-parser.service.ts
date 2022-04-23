@@ -39,7 +39,7 @@ export class ItemSectionInfluencesParserService implements ItemSectionParserServ
       inf.shaper = this.parseInfluence(line, phrases[4], inf.shaper)
       inf.elder = this.parseInfluence(line, phrases[5], inf.elder)
       inf.fractured = this.parseInfluence(line, phrases[6], inf.fractured)
-      inf.synthesized = this.parseInfluence(line, phrases[7], inf.synthesized)
+      inf.synthesised = this.parseInfluence(line, phrases[7], inf.synthesised)
     }
 
     target.influences = inf

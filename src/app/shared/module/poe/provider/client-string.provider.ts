@@ -10,6 +10,7 @@ import {
   Spanish,
   Thai,
   TraditionalChinese,
+  Japanese,
 } from '../../../../../assets/poe/client-strings.json'
 import { ClientStringMap, Language } from '../type'
 
@@ -39,6 +40,8 @@ export class ClientStringProvider {
       //     return SimplifiedChinese;
       case Language.TraditionalChinese:
         return TraditionalChinese
+      case Language.Japanese:
+        return Japanese
       default:
         throw new Error(`Could not map clientstrings to language: '${Language[language]}'.`)
     }

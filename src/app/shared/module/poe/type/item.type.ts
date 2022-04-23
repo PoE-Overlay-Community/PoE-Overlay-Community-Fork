@@ -239,7 +239,7 @@ export interface ItemInfluences {
   redeemer?: boolean
   warlord?: boolean
   fractured?: boolean
-  synthesized?: boolean
+  synthesised?: boolean
 }
 
 export interface ItemsMap {

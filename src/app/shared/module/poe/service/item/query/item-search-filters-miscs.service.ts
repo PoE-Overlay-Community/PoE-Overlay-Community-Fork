@@ -103,23 +103,36 @@ export class ItemSearchFiltersMiscsService implements ItemSearchFiltersService {
       return
     }
 
-    if (item.influences.shaper) {
+    const influences = item.influences
+
+    if (influences.shaper) {
       this.addPseudoStatToAndGroup(query, 'pseudo_has_shaper_influence')
     }
-    if (item.influences.elder) {
+    if (influences.elder) {
       this.addPseudoStatToAndGroup(query, 'pseudo_has_elder_influence')
     }
-    if (item.influences.crusader) {
+    if (influences.crusader) {
       this.addPseudoStatToAndGroup(query, 'pseudo_has_crusader_influence')
     }
-    if (item.influences.hunter) {
+    if (influences.hunter) {
       this.addPseudoStatToAndGroup(query, 'pseudo_has_hunter_influence')
     }
-    if (item.influences.redeemer) {
+    if (influences.redeemer) {
       this.addPseudoStatToAndGroup(query, 'pseudo_has_redeemer_influence')
     }
-    if (item.influences.warlord) {
+    if (influences.warlord) {
       this.addPseudoStatToAndGroup(query, 'pseudo_has_warlord_influence')
+    }
+
+    if (influences.fractured) {
+      query.filters.misc_filters.filters.fractured_item = {
+        option: `${influences.fractured}`,
+      }
+    }
+    if (influences.synthesised) {
+      query.filters.misc_filters.filters.synthesised_item = {
+        option: `${influences.synthesised}`,
+      }
     }
   }
 

@@ -34,6 +34,7 @@ const MAP_TIER_REGEXES: LangRegExp[] = [
   { language: Language.Spanish, regex: new RegExp('\\(G(?<tier>\\S+)\\)') },
   { language: Language.Korean, regex: new RegExp('\\(T(?<tier>\\S+)\\)') },
   { language: Language.TraditionalChinese, regex: new RegExp('\\(T(?<tier>\\S+)\\)') },
+  { language: Language.Japanese, regex: new RegExp('\\(T(?<tier>\\S+)\\)') },
 ]
 
 const TIERLESS_MAPS = ['MapWorldsChimera', 'MapWorldsHydra', 'MapWorldsMinotaur', 'MapWorldsPhoenix']

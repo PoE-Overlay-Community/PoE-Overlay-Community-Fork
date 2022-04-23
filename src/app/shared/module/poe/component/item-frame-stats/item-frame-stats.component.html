@@ -31,7 +31,7 @@
     </ng-container>
   </ng-container>
   <ng-container *ngIf="groups.implicit">
-    <ng-container *ngFor="let stat of groups.implicit; let last = last">
+    <ng-container *ngFor="let stat of groups.implicit">
       <div class="purpel">
         <ng-container *ngTemplateOutlet="statQuery; context: { stat: stat }"></ng-container>
       </div>
@@ -41,7 +41,7 @@
   </ng-container>
   <ng-container *ngIf="groups.fractured">
     <ng-container *ngFor="let stat of groups.fractured">
-      <div class="blue">
+      <div class="fractured">
         <ng-container *ngTemplateOutlet="statQuery; context: { stat: stat }"></ng-container>
       </div>
     </ng-container>
