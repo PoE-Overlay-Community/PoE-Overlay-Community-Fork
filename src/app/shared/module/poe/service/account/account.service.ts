@@ -65,7 +65,7 @@ export class PoEAccountService {
   }
 
   public forceUpdateCharacters(): void {
-    this.periodicCharacterUpdate(CacheExpirationType.OneMin)
+    this.periodicCharacterUpdate(CacheExpirationType.FiveSeconds)
   }
 
   public login(language?: Language): Observable<PoEAccount> {

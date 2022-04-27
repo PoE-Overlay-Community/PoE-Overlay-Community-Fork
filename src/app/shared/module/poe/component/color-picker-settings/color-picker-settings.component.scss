@@ -1,0 +1,45 @@
+@import './../../../../../../styles/variables';
+
+$input-color: rgba(200, 200, 200, 0.87);
+
+app-card {
+  .cp-input {
+    padding-right: 20px;
+  }
+
+  button {
+    background-color: $settings-grey-two;
+  }
+}
+
+::ng-deep {
+  app-card {
+    color-picker {
+      .color-picker {
+        background-color: $settings-grey-one;
+        color: $label-color;
+
+        .rgba-text .box div {
+          color: $label-color;
+        }
+
+        .type-policy {
+          display: none;
+        }
+
+        .cursor {
+          border-color: $input-color;
+        }
+
+        input {
+          background-color: $settings-grey-one;
+          color: $input-color;
+        }
+
+        button {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}

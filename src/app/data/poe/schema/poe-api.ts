@@ -1,3 +1,5 @@
+import { ItemInfluences, ItemSocketColor } from '@shared/module/poe/type'
+
 export interface TradeResponse<TResult> {
   result: TResult[]
 }
@@ -152,9 +154,130 @@ export interface ApiCharacterResponse {
   lastActive?: boolean
 }
 
-export interface ApiStashItems extends ApiErrorResponse {
+export interface ApiStashTabNames {
   numTabs?: number
   tabs?: ApiTabEntry[]
+}
+
+export interface ApiStashTabItems {
+  numTabs?: number
+  quadLayout?: boolean
+  items?: ApiStashItem[]
+}
+
+export interface ApiStashItem {
+  verified: boolean
+  name: string
+  typeLine: string
+  baseType: string
+  ilvl: number
+  w: number
+  h: number
+  icon: string
+  support?: boolean
+  league?: string
+  id?: string
+  influences?: ItemInfluences
+  sockets?: ApiStashItemSocket[]
+  socketedItems?: ApiStashItem[]
+  identified?: boolean
+  itemLevel?: number
+  note?: string
+  lockedToCharacter?: boolean
+  lockedToAccount?: boolean
+  duplicated?: boolean
+  split?: boolean
+  corrupted?: boolean
+  cisRaceReward?: boolean
+  seaRaceReward?: boolean
+  thRaceReward?: boolean
+  properties?: ApiStashItemProperty[]
+  notableProperties?: ApiStashItemProperty[]
+  requirements?: ApiStashItemProperty[]
+  additionalProperties?: ApiStashItemProperty[]
+  nextLevelRequirements?: ApiStashItemProperty[]
+  talismanTier?: number
+  secDesctrText?: string
+  utilityMods?: string[]
+  logbookMods?: ApiStashItemLogbookMod[]
+  enchantMods: string[]
+  implicitMods: string[]
+  ultimatumMods: ApiStashItemUltimatumMod[]
+  explicitMods?: string[]
+  craftedMods?: string[]
+  fracturedMods?: string[]
+  cosmeticMods?: string[]
+  veiledMods?: string[]
+  veiled?: boolean
+  descrText?: string
+  flavourText?: string[]
+  flavourTextParsed?: string[]
+  prophecyText?: string
+  isRelic?: boolean
+  replica?: boolean
+  incubatedItem?: ApiStashItemIncubatedItem
+  frameType?: number
+  artFilename?: string
+  hybrid?: ApiStashItemHybrid
+  extended?: ApiStashItemExtended
+  x?: number
+  y?: number
+  inventoryId?: string
+  socket?: number
+  colour?: string
+}
+
+export interface ApiStashItemSocket {
+  group?: number
+  attr?: string
+  sColour?: ItemSocketColor
+}
+
+export interface ApiStashItemProperty {
+  name: string
+  values: (string | number)[][]
+  displayMode: number
+  progress?: number
+  type?: number
+  suffix?: string
+}
+
+export interface ApiStashItemLogbookMod {
+  name: string
+  faction: ApiStashItemFaction
+  mods?: string[]
+}
+
+export interface ApiStashItemFaction {
+  id: string
+  name: string
+}
+
+export interface ApiStashItemUltimatumMod {
+  type: string
+  tier?: number
+}
+
+export interface ApiStashItemIncubatedItem {
+  name: string
+  level: number
+  process: number
+  total: number
+}
+
+export interface ApiStashItemHybrid {
+  baseTypeName: string
+  isVallGem?: boolean
+  properties?: ApiStashItemProperty[]
+  explicitMods?: string[]
+  secDescrText?: string
+}
+
+export interface ApiStashItemExtended {
+  category: string
+  subcategories: string[]
+  prefixes?: number
+  suffixes?: number
 }
 
 export enum ApiStashType {

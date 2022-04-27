@@ -1,0 +1,54 @@
+<app-card [title]="'vendor-recipe.item-set-panel.name' | translate">
+  <div class="row">
+    <div class="col-3">
+      <mat-slide-toggle [checked]="settings.vendorRecipeItemSetPanelSettings.enabled" (change)="settings.vendorRecipeItemSetPanelSettings.enabled = $event.checked">
+        {{ 'enabled' | translate }}
+      </mat-slide-toggle>
+    </div>
+    <div class="col-3" style="font-size: 12px;">
+      {{ 'vendor-recipe.item-set-panel.window-bounds' | translate }}:
+      <ng-container *ngIf="settings.vendorRecipeItemSetPanelSettings.bounds; else unsetBoundsTemplate">
+        {{ settings.vendorRecipeItemSetPanelSettings.bounds.x }}, {{ settings.vendorRecipeItemSetPanelSettings.bounds.y }} ({{ settings.vendorRecipeItemSetPanelSettings.bounds.width }}x{{ settings.vendorRecipeItemSetPanelSettings.bounds.height }})
+      </ng-container>
+      <ng-template #unsetBoundsTemplate>
+        <i>{{ 'vendor-recipe.item-set-panel.unset' | translate }}</i>
+      </ng-template>
+      <br />
+      <button mat-raised-button (click)="onResetItemSetPanelBoundsClick()">
+        {{ 'vendor-recipe.item-set-panel.reset' | translate }}
+      </button>
+    </div>
+    <div class="col-6">
+      <div class="value-range">
+        <label class="label">
+          {{ 'vendor-recipe.item-set-panel.background-opacity' | translate }}:
+          {{ getRoundedPercentage(settings.vendorRecipeItemSetPanelSettings.backgroundOpacity) }}
+        </label>
+        <div class="slider">
+          <mat-slider min="0.05"
+                      max="1"
+                      step="0.05"
+                      tickInterval="1"
+                      [displayWith]="getRoundedPercentage"
+                      [(value)]="settings.vendorRecipeItemSetPanelSettings.backgroundOpacity">
+          </mat-slider>
+          <span>100%</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</app-card>
+<app-vendor-recipe-item-set-settings
+                                     [settings]="settings.vendorRecipeChaosRecipeSettings"
+                                     [defaultSettings]="defaultSettings.vendorRecipeChaosRecipeSettings"
+                                     [title]="'vendor-recipe.item-set-settings.chaos-recipe-title' | translate"
+                                     (resetToDefault)="onResetChaosRecipeSettingsToDefaultClick()"
+                                     >
+</app-vendor-recipe-item-set-settings>
+<app-vendor-recipe-item-set-settings
+                                     [settings]="settings.vendorRecipeExaltedShardRecipeSettings"
+                                     [defaultSettings]="defaultSettings.vendorRecipeExaltedShardRecipeSettings"
+                                     [title]="'vendor-recipe.item-set-settings.exalted-shard-recipe-title' | translate"
+                                     (resetToDefault)="onResetExaltedShardRecipeSettingsToDefaultClick()"
+                                     >
+</app-vendor-recipe-item-set-settings>

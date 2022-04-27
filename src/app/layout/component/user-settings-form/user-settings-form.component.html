@@ -70,8 +70,8 @@
               <div class="col-9">
                 <mat-form-field floatLabel="always">
                   <mat-label>{{ 'settings.stash-update-interval' | translate }}</mat-label>
-                  <mat-select [(value)]="settings.stashCacheExpiration" placeholder="{{ getDefaultIntervalLabel(defaultStashUpdateInterval) }}">
-                    <mat-option>{{ getDefaultIntervalLabel(defaultStashUpdateInterval) }}</mat-option>
+                  <mat-select [(value)]="settings.stashTabInfoCacheExpiration" placeholder="{{ getDefaultIntervalLabel(defaultStashTabInfoUpdateInterval) }}">
+                    <mat-option>{{ getDefaultIntervalLabel(defaultStashTabInfoUpdateInterval) }}</mat-option>
                     <mat-option *ngFor="let intervals of updateIntervals" [value]="intervals.value">
                       {{ 'settings.update-intervals.' + intervals.name | translate }}
                     </mat-option>

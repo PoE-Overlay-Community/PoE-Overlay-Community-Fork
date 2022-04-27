@@ -1,6 +1,7 @@
 import { Color } from '@app/class'
 import { Rectangle } from '@app/type'
-import { UserSettings } from 'src/app/layout/type'
+import { UserSettings } from '@layout/type'
+import { AudioClipSettings } from './audioclip.type'
 import { Currency } from './currency.type'
 
 export const TradeNotificationPanelShortcutRef = 'trade-notifications-panel'
@@ -58,12 +59,6 @@ export enum TradeNotificationAutoCollapseType {
   Oldest = 1,
   Newest = 2,
   All = 3,
-}
-
-export interface AudioClipSettings {
-  enabled: boolean
-  src?: string
-  volume: number
 }
 
 export interface TradeCompanionStashGridColors {

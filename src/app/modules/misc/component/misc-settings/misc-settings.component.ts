@@ -30,6 +30,9 @@ export class MiscSettingsComponent implements UserSettingsComponent {
   @Input()
   public settings: MiscUserSettings
 
+  @Input()
+  public defaultSettings: MiscUserSettings
+
   public load(): void {
     // stub
   }

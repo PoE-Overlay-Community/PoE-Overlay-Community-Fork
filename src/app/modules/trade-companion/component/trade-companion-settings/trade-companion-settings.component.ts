@@ -1,11 +1,10 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, NgZone, OnDestroy } from '@angular/core'
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnDestroy } from '@angular/core'
 import { ColorUtils, EnumValues } from '@app/class'
 import { WindowService } from '@app/service'
 import { UserSettingsComponent } from '@layout/type'
 import { TradeCompanionStashGridService } from '@shared/module/poe/service/trade-companion/trade-companion-stash-grid.service'
 import { TradeNotificationsService } from '@shared/module/poe/service/trade-companion/trade-notifications.service'
 import {
-    AudioClipSettings,
     DefaultAskIfStillInterestedMessage,
     ExampleNotificationType,
     StashGridMode,
@@ -14,7 +13,7 @@ import {
     TradeCompanionUserSettings,
     TradeNotificationAutoCollapseType
 } from '@shared/module/poe/type/trade-companion.type'
-import { SnackBarService } from '../../../../shared/module/material/service'
+import { SnackBarService } from '@shared/module/material/service'
 
 @Component({
   selector: 'app-trade-companion-settings',
@@ -22,9 +21,12 @@ import { SnackBarService } from '../../../../shared/module/material/service'
   styleUrls: ['./trade-companion-settings.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TradeCompanionSettingsComponent implements UserSettingsComponent, OnDestroy {
+export class TradeCompanionSettingsComponent implements UserSettingsComponent {
   @Input()
   public settings: TradeCompanionUserSettings
+
+  @Input()
+  public defaultSettings: TradeCompanionUserSettings
 
   public stashGridTypes = new EnumValues(StashGridType)
   public autoCollapseTypes = new EnumValues(TradeNotificationAutoCollapseType)
@@ -32,14 +34,6 @@ export class TradeCompanionSettingsComponent implements UserSettingsComponent, O
   public exampleNotificationTypes = new EnumValues(ExampleNotificationType)
 
   public ColorUtils = ColorUtils
-
-  public audioClips: {
-    [name: string]: {
-      clip: HTMLAudioElement
-      isPlaying: boolean // Explicitly keeping track of this ourselves because the clip doesn't update its variables on time.
-      endedEventHandler: any
-    }
-  } = {}
 
   private isShowingStashGrid = false
 
@@ -57,31 +51,9 @@ export class TradeCompanionSettingsComponent implements UserSettingsComponent, O
     })
   }
 
-  ngOnDestroy(): void {
-    for (const name in this.audioClips) {
-      const audioData = this.audioClips[name]
-      if (audioData) {
-        const audioClip = audioData.clip
-        if (!audioClip.ended || audioData.isPlaying) {
-          audioClip.pause()
-        }
-        audioClip.removeEventListener('ended', audioData.endedEventHandler)
-        audioClip.remove()
-      }
-    }
-  }
-
   public load(): void {}
 
   public getRoundedPercentage = (value: number) => `${Math.round(value * 100)}%`
-
-  public isPlaying(name: string): boolean {
-    const audioData = this.audioClips[name]
-    if (!audioData) {
-      return false
-    }
-    return audioData.isPlaying
-  }
 
   public onResetTradeCompanionBoundsClick(): void {
     const bounds = this.window.getOffsettedGameBounds(false)
@@ -165,42 +137,5 @@ export class TradeCompanionSettingsComponent implements UserSettingsComponent, O
 
   public onRemoveOutgoingTradeOptionClick(index: number): void {
     this.settings.outgoingTradeOptions.splice(index, 1)
-  }
-
-  public onPlayOrStopAudioClick(name: string, audioSettings: AudioClipSettings): void {
-    const audioData = this.audioClips[name]
-    let audioClip: HTMLAudioElement
-    if (!audioData) {
-      if (!audioSettings.src) {
-        this.snackbarService.error('trade-companion.audio.invalid-source')
-        return
-      }
-      audioClip = new Audio()
-      const scopedEndedEvent = () => {
-        this.audioClips[name].isPlaying = false
-        this.ref.detectChanges()
-      }
-      audioClip.addEventListener('ended', scopedEndedEvent)
-      this.audioClips[name] = {
-        clip: audioClip,
-        isPlaying: false,
-        endedEventHandler: scopedEndedEvent
-      }
-    } else {
-      audioClip = audioData.clip
-    }
-    audioClip.volume = audioSettings.volume
-    if (audioClip.currentTime === 0 || audioClip.ended) {
-      audioClip.src = audioSettings.src
-      audioClip.play()
-        .then(() => {
-          this.audioClips[name].isPlaying = true
-          this.ref.detectChanges()
-        })
-        .catch(() => this.snackbarService.error('trade-companion.audio.invalid-source'))
-    } else {
-      audioClip.pause()
-      audioClip.currentTime = 0
-    }
   }
 }

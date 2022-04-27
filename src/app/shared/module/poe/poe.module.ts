@@ -1,5 +1,10 @@
 import { NgModule } from '@angular/core'
+import { FormsModule } from '@angular/forms'
 import { BrowserModule } from '@angular/platform-browser'
+import { TranslateModule } from '@ngx-translate/core'
+import { MaterialModule } from '../material/material.module'
+import { AudioClipSettingsComponent } from './component/audio-clip-settings/audio-clip-settings.component'
+import { ColorPickerSettingsComponent } from './component/color-picker-settings/color-picker-settings.component'
 import { CurrencyFrameComponent } from './component/currency-frame/currency-frame.component'
 import { CurrencyRatioFrameComponent } from './component/currency-ratio-frame/currency-ratio-frame.component'
 import { ItemFrameAnnointmentComponent } from './component/item-frame-annointment/item-frame-annointment.component'
@@ -53,8 +58,15 @@ import { WordPipe } from './pipe/word.pipe'
     ItemFrameStateComponent,
     ItemFrameValueInputComponent,
     ItemFrameAnnointmentComponent,
+    AudioClipSettingsComponent,
+    ColorPickerSettingsComponent,
   ],
-  imports: [BrowserModule],
+  imports: [
+    BrowserModule,
+    MaterialModule,
+    FormsModule,
+    TranslateModule,
+  ],
   exports: [
     ClientStringPipe,
     WordPipe,
@@ -64,6 +76,8 @@ import { WordPipe } from './pipe/word.pipe'
     CurrencyFrameComponent,
     CurrencyRatioFrameComponent,
     ItemFrameSeparatorComponent,
+    AudioClipSettingsComponent,
+    ColorPickerSettingsComponent,
   ],
 })
 export class PoeModule {}

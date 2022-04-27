@@ -20,6 +20,9 @@ export class CommandSettingsComponent implements UserSettingsComponent {
   @Input()
   public settings: CommandUserSettings
 
+  @Input()
+  public defaultSettings: CommandUserSettings
+
   public load(): void {
     // stub
   }

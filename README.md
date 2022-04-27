@@ -147,6 +147,7 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 - [Mercury Trade](https://github.com/Exslims/MercuryTrade) inspiration for the Trade Companion
 - [SignPath.io](https://signpath.io/) for the free code signing  
 <a href="https://signpath.io/" target="_blank"><img src="./img/signpath_logo.png"></a>
+- [Smashicon via Flaticon.com](https://www.flaticon.com/authors/smashicons) for the Chaos Recipe icons
 
 ## Disclosures
 

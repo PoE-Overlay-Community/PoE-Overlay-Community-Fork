@@ -1,0 +1,48 @@
+@import './../../../../../styles/variables';
+
+.item-set-icon-preview {
+  width: 32px;
+  height: 32px;
+  display: inline-flex;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+app-card {
+  .card, button {
+    background-color: $settings-grey-one;
+  }
+
+  .card {
+    position: relative;
+
+    .card, button {
+      background-color: $settings-grey-two;
+    }
+
+    .card {
+      position: relative;
+
+      .card, button {
+        background-color: $settings-grey-three;
+      }
+    }
+  }
+}
+
+::ng-deep {
+  .subcard {
+    .card {
+      background-color: $settings-grey-two;
+    }
+
+    button {
+      background-color: $settings-grey-three !important;
+    }
+  }
+
+  .mat-tooltip-lighter {
+    background-color: $settings-grey-two;
+  }
+}

@@ -3,13 +3,15 @@ import { Injectable } from '@angular/core'
 import { BrowserService } from '@app/service'
 import { environment } from '@env/environment'
 import { Language } from '@shared/module/poe/type'
-import { Observable, of, Subscriber, throwError } from 'rxjs'
-import { delay, flatMap, map, retryWhen } from 'rxjs/operators'
+import { forkJoin, from, merge, Observable, of, Subscriber, throwError } from 'rxjs'
+import { concatMap, delay, flatMap, map, mergeAll, mergeMap, retryWhen, toArray, zipAll } from 'rxjs/operators'
 import {
     ApiCharacterResponse,
     ApiErrorResponse,
     ApiProfileResponse,
-    ApiStashItems,
+    ApiStashItem,
+    ApiStashTabItems,
+    ApiStashTabNames,
     ExchangeSearchRequest,
     TradeFetchResult,
     TradeItemsResult,
@@ -99,9 +101,14 @@ export class PoEHttpService {
     return this.getAndParse('character-names', url)
   }
 
-  public getStashTabInfo(accountName: string, leagueId: string, language: Language): Observable<ApiStashItems> {
+  public getStashTabInfo(accountName: string, leagueId: string, language: Language): Observable<ApiStashTabNames | ApiErrorResponse> {
     const url = this.getPoEUrl(`character-window/get-stash-items?tabs=1&realm=pc&league=${encodeURIComponent(leagueId)}&accountName=${encodeURIComponent(accountName)}`, language)
     return this.getAndParse('stash-tab-names', url)
+  }
+
+  public getStashTabItems(stashTabIndex: number, accountName: string, leagueId: string, language: Language): Observable<ApiStashTabItems | ApiErrorResponse> {
+    const url = this.getPoEUrl(`character-window/get-stash-items?realm=pc&league=${encodeURIComponent(leagueId)}&accountName=${encodeURIComponent(accountName)}&tabIndex=${encodeURIComponent(stashTabIndex)}`, language)
+    return this.getAndParse<ApiStashTabItems>('stash-tab-items', url)
   }
 
   public search(

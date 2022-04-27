@@ -120,3 +120,42 @@ mat-card {
     max-width: 600px;
   }
 }
+
+.item-set-icon {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 65%;
+  border-radius: 50%;
+
+  &.amulets {
+    background-image: url('assets/icons/ItemSetIcons/amulet.png');
+  }
+
+  &.belts {
+    background-image: url('assets/icons/ItemSetIcons/belt.png')
+  }
+
+  &.boots {
+    background-image: url('assets/icons/ItemSetIcons/boots.png')
+  }
+
+  &.chests {
+    background-image: url('assets/icons/ItemSetIcons/chest.png')
+  }
+
+  &.gloves {
+    background-image: url('assets/icons/ItemSetIcons/gloves.png')
+  }
+
+  &.helmets {
+    background-image: url('assets/icons/ItemSetIcons/helmet.png')
+  }
+
+  &.rings {
+    background-image: url('assets/icons/ItemSetIcons/ring.png')
+  }
+
+  &.weapons, &.onehandedweapons, &.twohandedweapons {
+    background-image: url('assets/icons/ItemSetIcons/weapons.png')
+  }
+}

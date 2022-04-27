@@ -25,6 +25,9 @@ export class UserSettingsFeatureContainerComponent implements OnInit, OnDestroy 
   @Input()
   public settings: UserSettings
 
+  @Input()
+  public defaultSettings: UserSettings
+
   public get instance(): UserSettingsComponent {
     return this.componentRef ? this.componentRef.instance : null
   }
@@ -43,6 +46,7 @@ export class UserSettingsFeatureContainerComponent implements OnInit, OnDestroy 
     this.viewContainerRef.clear()
     this.componentRef = this.viewContainerRef.createComponent(factory)
     this.instance.settings = this.settings
+    this.instance.defaultSettings = this.defaultSettings
     this.instance.load()
   }
 

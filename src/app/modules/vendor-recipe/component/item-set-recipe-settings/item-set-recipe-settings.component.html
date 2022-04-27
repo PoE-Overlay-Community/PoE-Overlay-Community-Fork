@@ -1,0 +1,169 @@
+<!--
+  enabled: boolean
+  itemThreshold: number
+  fullSetThreshold: number
+  separateQualityItems: boolean
+  useIdentifiedItems: boolean
+  fillGreedy: boolean
+
+  stashTabSearchMode: StashTabSearchMode
+  stashTabSearchValue?: string
+  showItemAmounts: boolean
+  highlightMode: RecipeHighlightMode
+  highlightOrder: RecipeHighlightOrder
+  itemClassColors: ItemGroupColor[]
+
+  recipeCompleteAudio: AudioClipSettings
+  itemThresholdAudio: AudioClipSettings
+  fullSetThresholdAudio: AudioClipSettings
+-->
+<app-card [title]="title">
+  <div class="row">
+    <div class="col-3">
+      <mat-slide-toggle [checked]="settings.enabled" (change)="settings.enabled = $event.checked">
+        {{ 'settings.enabled' | translate }}
+      </mat-slide-toggle>
+    </div>
+    <div class="col-2">
+      <mat-form-field>
+        <mat-label>{{ 'vendor-recipe.item-set-settings.item-threshold' | translate }}</mat-label>
+        <mat-select [(value)]="settings.itemThreshold">
+          <mat-option *ngFor="
+              let value of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 30, 35, 40, 45, 50]
+            " [value]="value">
+            {{ value }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-2">
+      <mat-form-field>
+        <mat-label>{{ 'vendor-recipe.item-set-settings.full-set-threshold' | translate }}</mat-label>
+        <mat-select [(value)]="settings.fullSetThreshold">
+          <mat-option *ngFor="
+              let value of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 30, 35, 40, 45, 50]
+            " [value]="value">
+            {{ value }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-3">
+      <mat-slide-toggle [checked]="settings.showItemAmounts" (change)="settings.showItemAmounts = $event.checked">
+        {{ 'vendor-recipe.item-set-settings.show-item-amounts' | translate }}
+      </mat-slide-toggle>
+    </div>
+    <div class="col-2 text-right">
+      <button mat-raised-button (click)="onResetSettingsClick()">
+        {{ 'vendor-recipe.item-set-panel.reset' | translate }}
+      </button>
+    </div>
+  </div>
+  <div class="row" *ngIf="isItemLevelBasedItemSetSettings(settings)">
+    <div class="col-3">
+      <mat-slide-toggle [checked]="settings.fillGreedy" (change)="settings.fillGreedy = $event.checked" matTooltip="{{ 'vendor-recipe.item-set-settings.fill-greedy-tooltip' | translate }}">
+        {{ 'vendor-recipe.item-set-settings.fill-greedy' | translate }}
+      </mat-slide-toggle>
+    </div>
+    <div class="col-3">
+      <mat-slide-toggle [checked]="settings.separateQualityItems" (change)="settings.separateQualityItems = $event.checked" matTooltip="{{ 'vendor-recipe.item-set-settings.separate-quality-items-tooltip' | translate }}">
+        {{ 'vendor-recipe.item-set-settings.separate-quality-items' | translate }}
+      </mat-slide-toggle>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-3">
+      <mat-form-field>
+        <mat-label>{{ 'vendor-recipe.item-set-settings.stash-tab-search-mode' | translate }}</mat-label>
+        <mat-select [(value)]="settings.stashTabSearchMode">
+          <mat-option *ngFor="let stashTabSearchMode of stashTabSearchModes.keys" [value]="stashTabSearchMode" matTooltip="{{ 'vendor-recipe.item-set-settings.stash-tab-search-tooltips.' + (stashTabSearchModes.values[stashTabSearchMode] | lowercase) | translate }}" matTooltipClass="mat-tooltip-lighter" matTooltipPosition="left">
+            {{ 'vendor-recipe.item-set-settings.stash-tab-search-modes.' + (stashTabSearchModes.values[stashTabSearchMode] | lowercase) | translate }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-6">
+      <mat-form-field matTooltip="{{ 'vendor-recipe.item-set-settings.stash-tab-search-tooltips.' + (stashTabSearchModes.values[settings.stashTabSearchMode] | lowercase) | translate }}">
+        <mat-label>{{ 'vendor-recipe.item-set-settings.stash-tab-search-value' | translate }}</mat-label>
+        <input matInput [(ngModel)]="settings.stashTabSearchValue" />
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-3">
+      <mat-form-field>
+        <mat-label>{{ 'vendor-recipe.item-set-settings.highlight-mode' | translate }}</mat-label>
+        <mat-select [(value)]="settings.highlightMode">
+          <mat-option *ngFor="let highlightMode of highlightModes.keys" [value]="highlightMode" matTooltip="{{ 'vendor-recipe.item-set-settings.highlight-mode-tooltips.' + (highlightModes.values[highlightMode] | lowercase) | translate }}" matTooltipClass="mat-tooltip-lighter" matTooltipPosition="left">
+            {{ 'vendor-recipe.item-set-settings.highlight-modes.' + (highlightModes.values[highlightMode] | lowercase) | translate }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-3">
+      <mat-form-field>
+        <mat-label>{{ 'vendor-recipe.item-set-settings.highlight-order' | translate }}</mat-label>
+        <mat-select [(value)]="settings.highlightOrder">
+          <mat-option *ngFor="let highlightOrder of highlightOrders.keys" [value]="highlightOrder" matTooltip="{{ 'vendor-recipe.item-set-settings.highlight-order-tooltips.' + (highlightOrders.values[highlightOrder] | lowercase) | translate }}" matTooltipClass="mat-tooltip-lighter" matTooltipPosition="left">
+            {{ 'vendor-recipe.item-set-settings.highlight-orders.' + (highlightOrders.values[highlightOrder] | lowercase) | translate }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+  <mat-card class="card">
+    <mat-label>{{ 'vendor-recipe.item-set-settings.item-set-groups' | translate }}</mat-label>
+    <div class="row">
+      <div class="col-3">
+        <mat-slide-toggle [checked]="settings.groupWeaponsTogether" (change)="settings.groupWeaponsTogether = $event.checked">
+          {{ 'vendor-recipe.item-set-settings.group-weapons-together' | translate }}
+        </mat-slide-toggle>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-4" *ngFor="let itemSetGroup of itemSetGroups.keys; let index = index">
+        <ng-container *ngTemplateOutlet="
+                      itemSetGroupTemplate;
+                      context: {
+                        index: index,
+                        itemClassColor: getItemColorGroup(settings, itemSetGroup),
+                        defaultItemClassColor: getItemColorGroup(defaultSettings, itemSetGroup)
+                      }
+                      ">
+        </ng-container>
+        <ng-template #itemSetGroupTemplate let-index="index" let-itemClassColor="itemClassColor" let-defaultItemClassColor="defaultItemClassColor">
+          <mat-card class="card" [style]="canShowItemColorGroup(itemSetGroup) ? '' : 'display: none;'">
+            <mat-label>
+              {{ 'vendor-recipe.item-set-settings.item-set-group-names.' + getItemColorGroupName(itemClassColor.group) | translate }}
+              <div class="item-set-icon {{ getItemColorGroupName(itemClassColor.group) }} item-set-icon-preview"
+                   [style]="'background-color: ' + ColorUtils.toRGBA(itemClassColor.color) + ';'">
+              </div>
+            </mat-label>
+            <div class="row">
+              <mat-slide-toggle [checked]="itemClassColor.showOnOverlay" (change)="itemClassColor.showOnOverlay = $event.checked" matTooltip="{{ 'vendor-recipe.item-set-settings.show-on-overlay-tooltip' | translate }}">
+                {{ 'vendor-recipe.item-set-settings.show-on-overlay' | translate }}
+              </mat-slide-toggle>
+            </div>
+            <div class="row">
+              <app-color-picker-settings [side]="index % 3 == 0 ? 'right' : 'left'"
+                                         [label]="'vendor-recipe.item-set-settings.item-set-group-bg-color'"
+                                         [color]="itemClassColor.color"
+                                         [defaultColor]="defaultItemClassColor.color"
+                                         [tooltip]="'vendor-recipe.item-set-settings.item-set-group-bg-color-tooltip' | translate"
+                                         class="subcard">
+              </app-color-picker-settings>
+            </div>
+          </mat-card>
+        </ng-template>
+      </div>
+    </div>
+  </mat-card>
+  <mat-card class="card">
+    <mat-label>{{ 'settings.audio-options' | translate }}</mat-label>
+    <div class="row">
+      <app-audio-clip-settings class="col-md-4 subcard" [settings]="settings.recipeCompleteAudio" [title]="'vendor-recipe.item-set-settings.audio.recipe-complete' | translate"></app-audio-clip-settings>
+      <app-audio-clip-settings class="col-md-4 subcard" [settings]="settings.itemThresholdAudio" [title]="'vendor-recipe.item-set-settings.audio.item-threshold' | translate"></app-audio-clip-settings>
+      <app-audio-clip-settings class="col-md-4 subcard" [settings]="settings.fullSetThresholdAudio" [title]="'vendor-recipe.item-set-settings.audio.full-set-threshold' | translate"></app-audio-clip-settings>
+    </div>
+  </mat-card>
+</app-card>

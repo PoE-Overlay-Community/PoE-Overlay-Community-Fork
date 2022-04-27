@@ -24,6 +24,9 @@ export class MapSettingsComponent implements UserSettingsComponent {
   @Input()
   public settings: MapUserSettings
 
+  @Input()
+  public defaultSettings: MapUserSettings
+
   public stats$ = new BehaviorSubject<SelectListItem[]>([])
 
   constructor(

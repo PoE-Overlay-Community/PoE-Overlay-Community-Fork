@@ -20,6 +20,10 @@ export interface BookmarkUserBookmark {
 export class BookmarkSettingsComponent implements UserSettingsComponent {
   @Input()
   public settings: BookmarkUserSettings
+
+  @Input()
+  public defaultSettings: BookmarkUserSettings
+
   @ViewChild('ghostInput')
   public input: ElementRef;
 

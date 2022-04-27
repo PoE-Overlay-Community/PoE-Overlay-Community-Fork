@@ -11,6 +11,7 @@ import { AppTranslationsLoader } from './app-translations.loader'
 import { AppComponent } from './app.component'
 import { LayoutModule } from './layout/layout.module'
 import { OverlayComponent, UserSettingsComponent } from './layout/page'
+import { VendorRecipeModule } from './modules/vendor-recipe/vendor-recipe.module'
 
 const routes: Routes = [
   {
@@ -45,6 +46,7 @@ const routes: Routes = [
     MapModule,
     MiscModule,
     BookmarkModule,
+    VendorRecipeModule,
   ],
   bootstrap: [AppComponent],
 })

@@ -144,6 +144,7 @@ export enum ItemSocketColor {
   Blue = 'B',
   White = 'W',
   Abyss = 'A',
+  Delve = 'DV',
 }
 
 export interface ItemSocket {

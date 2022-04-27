@@ -81,6 +81,9 @@ export class EvaluateSettingsComponent implements UserSettingsComponent {
   @Input()
   public settings: EvaluateUserSettings
 
+  @Input()
+  public defaultSettings: EvaluateUserSettings
+
   public currencies$ = new BehaviorSubject<Currency[]>([])
   public stats$ = new BehaviorSubject<StatSelectListItem[]>([])
 

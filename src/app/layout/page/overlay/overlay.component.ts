@@ -19,6 +19,7 @@ import { BehaviorSubject, EMPTY, forkJoin, Observable, timer } from 'rxjs'
 import { debounce, distinctUntilChanged, flatMap, map, tap } from 'rxjs/operators'
 import { PoEAccountService } from '../../../shared/module/poe/service/account/account.service'
 import { TradeNotificationsService } from '../../../shared/module/poe/service/trade-companion/trade-notifications.service'
+import { VendorRecipeService } from '../../../shared/module/poe/service/vendor-recipe/vendor-recipe.service'
 import { TradeNotificationPanelShortcutRef } from '../../../shared/module/poe/type/trade-companion.type'
 import { UserSettingsService } from '../../service'
 import { UserSettings } from '../../type'
@@ -54,6 +55,7 @@ export class OverlayComponent implements OnInit, OnDestroy {
     private readonly tradeNotificationsService: TradeNotificationsService,
     private readonly accountService: PoEAccountService,
     private readonly stashService: StashService,
+    private readonly vendorRecipeService: VendorRecipeService,
   ) {
     this.gameOverlayBounds = new BehaviorSubject<Rectangle>(this.window.getOffsettedGameBounds())
     this.window.gameBounds.subscribe((_) => {
@@ -175,6 +177,7 @@ export class OverlayComponent implements OnInit, OnDestroy {
     this.dialogRef.reset()
     this.accountService.unregister()
     this.stashService.unregister()
+    this.vendorRecipeService.unregister()
     this.shortcut.removeAllByRef(OverlayCompRef)
     this.shortcut.removeAllByRef(TradeNotificationPanelShortcutRef)
   }
@@ -184,6 +187,7 @@ export class OverlayComponent implements OnInit, OnDestroy {
     this.registerSettings(settings)
     this.dialogRef.register()
     this.stashService.register(settings)
+    this.vendorRecipeService.register(settings)
 
     this.userSettings$.next(settings)
   }

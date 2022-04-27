@@ -1,0 +1,16 @@
+<div class="panel interactable"
+     *ngIf="settings.itemSetPanelSettings.enabled"
+     appResizeDrag
+     [ardBounds]="settings.itemSetPanelSettings.bounds || gameBounds"
+     [ardAppliedBounds.width]="false"
+     [ardAppliedBounds.height]="false"
+     [ardExtendDragArea]="true"
+     [ardInteractionsDisabled]="locked"
+     (ardResizeDragEnd)="onResizeDragEnd($event)"
+     [class.movable]="!locked">
+  <div class="header" [appAlphaColor]="['background-color', 'border-color']" [appAlphaColor.alpha]="settings.itemSetPanelSettings.backgroundOpacity" #header>
+    <mat-icon class="clickable" (click)="locked = !locked" matTooltip="{{ 'trade-companion.trade-notification-panel.' + (locked ? 'locked' : 'unlocked') | translate }}">{{ locked ? 'lock' : 'lock_open' }}</mat-icon>
+    <mat-icon [class.movable]="!locked" matTooltip="{{ 'trade-companion.trade-notification-panel.' + (locked ? 'unlock-to-move' : 'drag-handle') | translate }}">open_with</mat-icon>
+    <mat-icon class="clickable" (click)="close()" matTooltip="{{ 'trade-companion.trade-notification-panel.disable' | translate }}">power_settings_new</mat-icon>
+  </div>
+</div>

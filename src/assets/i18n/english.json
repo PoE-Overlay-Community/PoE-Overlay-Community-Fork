@@ -241,6 +241,15 @@
       "name": "Account Name"
     },
     "active-character": "Active Character",
+    "are-you-sure-reset": "Are you sure you want to reset the '{{featureName}}' settings to their default values?",
+    "audio": {
+      "invalid-source": "Invalid Audio Source",
+      "play": "Play",
+      "stop": "Stop",
+      "source": "Source (URL or Path):",
+      "volume": "Volume"
+    },
+    "audio-options": "Audio Options",
     "auto": "Auto",
     "auto-select": "Auto Select",
     "auto-selected-desc": "The active character is auto-selected based on the last active character according to the PoE API.",
@@ -258,6 +267,7 @@
     },
     "dialog-spawn-position-title": "Dialog Spawn Position",
     "display-version": "Display Version",
+    "enabled": "Enabled",
     "exit-app": "Exit App",
     "focusable": "Focusable (Keyboard Support)",
     "focusable-description": "Allows keyboard navigation of the overlay (TAB / ARROW KEYS [←→↑↓])",
@@ -277,11 +287,13 @@
       "traditionalchinese": "Traditional Chinese"
     },
     "league": "League",
+    "ok": "Ok",
     "open-settings": "Open Settings",
     "poe-account": "PoE Account",
     "private-league-info": "Private leagues become selectable when logged in",
     "refresh": "Refresh",
     "relaunch-app": "Relaunch App",
+    "reset": "Reset",
     "save": "Save",
     "stash-update-interval": "Stash Update Interval",
     "ui-language": "UI Language",
@@ -289,7 +301,7 @@
       "default": "Default",
       "fifteen-min": "15 Min",
       "five-min": "5 Min",
-      "four-min":  "4 Min",
+      "four-min": "4 Min",
       "half-hour": "30 Min",
       "never": "Never",
       "one-day": "1 Day",
@@ -309,15 +321,8 @@
     "active-notification-border-color-description": "The Border Color for the currently active Trade Notifications (which'll accept shortcut inputs)",
     "audio": {
       "button-click": "Button Click",
-      "enabled": "Enabled",
-      "incoming-trade": "Incoming Trade",
-      "invalid-source": "Invalid Audio Source",
-      "play": "Play",
-      "stop": "Stop",
-      "source": "Source (URL or Path):",
-      "volume": "Volume"
+      "incoming-trade": "Incoming Trade"
     },
-    "audio-options": "Audio Options",
     "auto-collapse": {
       "all": "Always collapse",
       "all-description": "",
@@ -441,5 +446,86 @@
     },
     "unset": "unset",
     "window-bounds": "Window Bounds"
+  },
+  "vendor-recipe": {
+    "item-set-panel": {
+      "background-opacity": "Background Opacity",
+      "name": "Item Sets panel",
+      "reset": "Reset",
+      "unset": "unset",
+      "window-bounds": "Window Bounds"
+    },
+    "item-set-settings": {
+      "audio": {
+        "full-set-threshold": "Full Set Threshold reached",
+        "item-threshold": "Item Threshold reached",
+        "recipe-complete": "Recipe Complete"
+      },
+      "chaos-recipe-title": "Chaos Recipe",
+      "exalted-shard-recipe-title": "Exalted Shards Recipe",
+      "fill-greedy": "Fill Greedy",
+      "fill-greedy-tooltip": "Use lower level items to fill up a set",
+      "full-set-threshold": "Full Set Threshold",
+      "group-weapons-together": "Group Weapons Together",
+      "highlight-mode": "Highlight Mode",
+      "highlight-mode-tooltips": {
+        "allitems": "Highlight all items of all sets all atonce",
+        "itembyitem": "Highlight item by item",
+        "setbyset": "Highlight all items of a single set"
+      },
+      "highlight-modes": {
+        "allitems": "All Items",
+        "itembyitem": "Item by Item",
+        "setbyset": "Set by Set"
+      },
+      "highlight-order": "Higlight Order",
+      "highlight-order-tooltips": {
+        "largetosmall": "Highlight Large items first, then Small items",
+        "shortestdistance": "Higlight items based on the shortest distance (i.e. least mouse movements required)",
+        "smalltolarge": "Highlight Small items first, then Large items"
+      },
+      "highlight-orders": {
+        "largetosmall": "Large to Small",
+        "shortestdistance": "Shortest Distance",
+        "smalltolarge": "Small to Large"
+      },
+      "item-threshold": "Item Threshold",
+      "item-set-group-bg-color": "Background Color",
+      "item-set-group-bg-color-tooltip": "The color used as background for this item set group on the (draggable) item set group overlay/bar",
+      "item-set-groups": "Item Set Groups",
+      "item-set-group-names": {
+        "amulets": "Amulets",
+        "belts": "Belts",
+        "boots": "Boots",
+        "chests": "Chests",
+        "gloves": "Gloves",
+        "helmets": "Helmets",
+        "onehandedweapons": "One-Handed Weapons",
+        "rings": "Rings",
+        "twohandedweapons": "Two-Handed Weapons",
+        "weapons": "Weapons"
+      },
+      "separate-quality-items": "Separate Quality Items",
+      "separate-quality-items-tooltip": "Separate Quality Items into their own sets (allows you to gain 1 additional currency)",
+      "show-item-amounts": "Show item amounts",
+      "show-on-overlay": "Show On Overlay",
+      "show-on-overlay-tooltip": "Show this item set group on the overlay/bar",
+      "stash-tab-search-mode": "Stash Tab Search Mode",
+      "stash-tab-search-modes": {
+        "index": "Index",
+        "prefix": "Prefix",
+        "regex": "Regex",
+        "suffix": "Suffix"
+      },
+      "stash-tab-search-value": "Stash Tab Search Value",
+      "stash-tab-search-tooltips": {
+        "index": "A comma-separated list of stash tab indices to be searched",
+        "prefix": "A comma-separated list of stash tab name prefixes to be search",
+        "regex": "A single regular expression used to find the stash tabs to be searched",
+        "suffix": "A comma-separated list of stash tab name suffixes to be search"
+      },
+      "use-identified-items": "Use Identified Items"
+    },
+    "name": "Vendor Recipes"
   }
 }

@@ -1,19 +1,15 @@
 @import './../../../../styles/variables';
 
-$dark-gray: #2a2a2a;
-$gray: #313131;
-$label-color: rgba(200, 200, 200, 0.54);
-
 app-card {
   .card, button {
-    background-color: $dark-gray;
+    background-color: $settings-grey-one;
   }
 
   .card {
     height: 100%;
 
     button {
-      background-color: $gray;
+      background-color: $settings-grey-two;
     }
   }
 }
@@ -43,6 +39,6 @@ label {
 
 ::ng-deep {
   .mat-tooltip-lighter {
-    background-color: $gray;
+    background-color: $settings-grey-two;
   }
 }

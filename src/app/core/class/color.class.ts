@@ -75,4 +75,25 @@ export abstract class Colors {
   public static get black(): Color {
     return ColorUtils.create(0, 0, 0)
   }
+  public static get red(): Color {
+    return ColorUtils.create(255, 0, 0)
+  }
+  public static get green(): Color {
+    return ColorUtils.create(0, 255, 0)
+  }
+  public static get blue(): Color {
+    return ColorUtils.create(0, 0, 255)
+  }
+  public static get cyan(): Color {
+    return ColorUtils.create(0, 255, 255)
+  }
+  public static get magenta(): Color {
+    return ColorUtils.create(255, 0, 255)
+  }
+  public static get lightgreen(): Color {
+    return ColorUtils.create(144, 238, 144)
+  }
+  public static get royalblue(): Color {
+    return ColorUtils.create(65, 105, 225)
+  }
 }

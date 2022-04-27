@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core'
-import { Color, Colors, ColorUtils } from '@app/class'
+import { Colors, ColorUtils } from '@app/class'
 import { FEATURE_MODULES } from '@app/token'
 import { Feature, FeatureModule } from '@app/type'
 import { DefaultAskIfStillInterestedMessage, TradeCompanionUserSettings, TradeNotificationAutoCollapseType } from '@shared/module/poe/type/trade-companion.type'
