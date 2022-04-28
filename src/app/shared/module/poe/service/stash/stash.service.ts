@@ -128,7 +128,7 @@ export class StashService {
           of(stashTab).pipe(
             // Delay each stash tab to ensure we don't hit rate limits
             delay(50 * i),
-            flatMap(stashTab => this.stashProvider.provideTabsContent(stashTab, account.name, context.leagueId, context.language))
+            flatMap(stashTab => this.stashProvider.provideTabsContent(stashTab, account.name, context.leagueId, context.language, this.settings?.stashTabContentCacheExpiration))
           )
         )
       ).pipe(

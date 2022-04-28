@@ -69,7 +69,7 @@
             <div class="row">
               <div class="col-9">
                 <mat-form-field floatLabel="always">
-                  <mat-label>{{ 'settings.stash-update-interval' | translate }}</mat-label>
+                  <mat-label>{{ 'settings.stash-tabs-update-interval' | translate }}</mat-label>
                   <mat-select [(value)]="settings.stashTabInfoCacheExpiration" placeholder="{{ getDefaultIntervalLabel(defaultStashTabInfoUpdateInterval) }}">
                     <mat-option>{{ getDefaultIntervalLabel(defaultStashTabInfoUpdateInterval) }}</mat-option>
                     <mat-option *ngFor="let intervals of updateIntervals" [value]="intervals.value">
@@ -80,6 +80,24 @@
               </div>
               <div class="col-3">
                 <button mat-raised-button (click)="onForceRefreshStashInfoClick()">
+                  {{ 'settings.refresh' | translate }}
+                </button>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-9">
+                <mat-form-field floatLabel="always">
+                  <mat-label>{{ 'settings.stash-contents-update-interval' | translate }}</mat-label>
+                  <mat-select [(value)]="settings.stashTabContentCacheExpiration" placeholder="{{ getDefaultIntervalLabel(defaultStashTabContentUpdateInterval) }}">
+                    <mat-option>{{ getDefaultIntervalLabel(defaultStashTabContentUpdateInterval) }}</mat-option>
+                    <mat-option *ngFor="let intervals of updateIntervals" [value]="intervals.value">
+                      {{ 'settings.update-intervals.' + intervals.name | translate }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+              <div class="col-3">
+                <button mat-raised-button (click)="onForceRefreshStashContentClick()">
                   {{ 'settings.refresh' | translate }}
                 </button>
               </div>

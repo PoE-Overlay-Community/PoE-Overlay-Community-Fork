@@ -1,7 +1,6 @@
 <ng-container *ngIf="(userSettings$ | async) as userSettings">
   <ng-container *ngIf="(gameOverlayBounds | async) as gameOverlayBounds">
     <div class="game-overlay"
-         id="game-overlay"
          [style.left.px]="gameOverlayBounds.x"
          [style.top.px]="gameOverlayBounds.y"
          [style.width.px]="gameOverlayBounds.width"
@@ -13,5 +12,16 @@
                                    [gameBounds]="gameOverlayBounds"
                                    (openSettings)="openUserSettings()">
     </app-trade-notifications-panel>
+    <app-vendor-recipe-panel [settings]="userSettings"
+                             [gameBounds]="gameOverlayBounds"
+                             (openSettings)="openUserSettings()">
+    </app-vendor-recipe-panel>
+    <div class="game-overlay"
+         id="snack-bar-container"
+         [style.left.px]="gameOverlayBounds.x"
+         [style.top.px]="gameOverlayBounds.y"
+         [style.width.px]="gameOverlayBounds.width"
+         [style.height.px]="gameOverlayBounds.height">
+    </div>
   </ng-container>
 </ng-container>

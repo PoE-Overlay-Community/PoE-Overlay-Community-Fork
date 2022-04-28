@@ -1,16 +1,8 @@
-<div class="panel interactable"
-     *ngIf="settings.itemSetPanelSettings.enabled"
-     appResizeDrag
-     [ardBounds]="settings.itemSetPanelSettings.bounds || gameBounds"
-     [ardAppliedBounds.width]="false"
-     [ardAppliedBounds.height]="false"
-     [ardExtendDragArea]="true"
-     [ardInteractionsDisabled]="locked"
-     (ardResizeDragEnd)="onResizeDragEnd($event)"
-     [class.movable]="!locked">
-  <div class="header" [appAlphaColor]="['background-color', 'border-color']" [appAlphaColor.alpha]="settings.itemSetPanelSettings.backgroundOpacity" #header>
-    <mat-icon class="clickable" (click)="locked = !locked" matTooltip="{{ 'trade-companion.trade-notification-panel.' + (locked ? 'locked' : 'unlocked') | translate }}">{{ locked ? 'lock' : 'lock_open' }}</mat-icon>
-    <mat-icon [class.movable]="!locked" matTooltip="{{ 'trade-companion.trade-notification-panel.' + (locked ? 'unlock-to-move' : 'drag-handle') | translate }}">open_with</mat-icon>
-    <mat-icon class="clickable" (click)="close()" matTooltip="{{ 'trade-companion.trade-notification-panel.disable' | translate }}">power_settings_new</mat-icon>
+<div class="item-set-icon recipes-count">{{ itemSetProcessResult?.recipes.length || 0 }}</div>
+<ng-template ngFor let-itemSet [ngForOf]="itemSets">
+  <div class="item-set-icon {{ itemSet.itemGroupColorName }}"
+       [style]="'background-color: ' + ColorUtils.toRGBA(itemSet.itemGroupColor.color) + ';'"
+       matTooltip="{{ itemSet.itemGroupResult?.count || 0 }} {{ 'vendor-recipe.item-set-settings.item-set-group-names.' + itemSet.itemGroupColorName | translate }}">
+    <div>{{ itemSet.itemGroupResult?.count || 0 }}</div>
   </div>
-</div>
+</ng-template>

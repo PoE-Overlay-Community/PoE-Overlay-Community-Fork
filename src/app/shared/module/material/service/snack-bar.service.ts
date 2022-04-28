@@ -40,7 +40,7 @@ export class SnackBarService {
               panelClass: ['snack-bar-service', panelClass],
             })
             const snackBarElements = document.querySelectorAll('.snack-bar-service')
-            const gameOverlayElement = document.getElementById('game-overlay')
+            const gameOverlayElement = document.getElementById('snack-bar-container')
             if (gameOverlayElement) {
               snackBarElements.forEach((snackBarElement) => {
                 gameOverlayElement.append(snackBarElement.parentNode.parentNode)

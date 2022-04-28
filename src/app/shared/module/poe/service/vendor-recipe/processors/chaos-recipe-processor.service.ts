@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { EnumValues } from '@app/class';
 import { BaseItemTypesService } from '@shared/module/poe/service/base-item-types/base-item-types.service';
-import { BaseItemType, ItemCategory, ItemLevelBasedItemSetRecipeUserSettings, ItemRarity, ItemSetGroup, ItemSetProcessResult, ItemSetRecipeProcessor, ItemSetRecipeUserSettings, PoEStashTabItem, VendorRecipeType } from '@shared/module/poe/type';
+import { BaseItemType, ItemCategory, ItemLevelBasedItemSetRecipeUserSettings, ItemRarity, ItemSetGroup, ItemSetGroupCount, ItemSetProcessResult, ItemSetRecipeProcessor, ItemSetRecipeUserSettings, PoEStashTabItem, VendorRecipeType } from '@shared/module/poe/type';
 
 interface ExpandedStashItem extends PoEStashTabItem {
   baseItemTypeId: string
@@ -70,14 +70,28 @@ export class ChaosRecipeProcessorService implements ItemSetRecipeProcessor {
       (!x.source.identified || settings.useIdentifiedItems)
     ).map((x) => this.expandItem(x))
 
+    const getItemCount = (itemSetGroup: ItemSetGroup) => {
+      let countMultiplier = 0
+      DefaultRecipeCategoryOrder.forEach(x => x.forEach(y => {
+        if (y === itemSetGroup) {
+          countMultiplier++
+        }
+      }))
+      return candidates.filter(x => x.itemSetGroup === itemSetGroup).length / countMultiplier
+    }
+
     // Find Item counts for each Item Set Group
     const itemSetGroups = new EnumValues(ItemSetGroup)
     for (const itemSetGroup of itemSetGroups.keys) {
-      result.itemGroups.push({
+      const itemGroup: ItemSetGroupCount = {
         type: VendorRecipeType.Chaos,
         group: itemSetGroup,
-        count: candidates.filter(x => x.itemSetGroup === itemSetGroup).length,
-      })
+        count: getItemCount(itemSetGroup),
+      }
+      if (itemSetGroup == ItemSetGroup.OneHandedWeapons && settings.groupWeaponsTogether) {
+        itemGroup.count += getItemCount(ItemSetGroup.TwoHandedWeapons)
+      }
+      result.itemGroups.push(itemGroup)
     }
 
     // Determine chaos recipe items

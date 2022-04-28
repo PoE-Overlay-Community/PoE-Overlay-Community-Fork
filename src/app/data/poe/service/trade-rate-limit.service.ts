@@ -1,5 +1,6 @@
 import { HttpResponse } from '@angular/common/http'
 import { Injectable } from '@angular/core'
+import { environment } from '@env/environment'
 import { Observable, of, throwError } from 'rxjs'
 import { catchError, delay, finalize, flatMap, map, retryWhen } from 'rxjs/operators'
 
@@ -83,6 +84,9 @@ export class TradeRateLimitService {
     return of(null).pipe(
       flatMap(() => {
         const reason = this.shouldThrottle(resource)
+        if (!environment.production) {
+          console.log(`[RateLimiter] resource '${resource}' throttle state '${TradeRateThrottle[reason]}'`)
+        }
         switch (reason) {
           case TradeRateThrottle.Limited:
             return throwError('limited')

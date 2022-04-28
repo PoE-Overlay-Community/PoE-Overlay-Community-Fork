@@ -1,26 +1,31 @@
-.panel {
+.recipes-count {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  font-size: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.item-set-icon {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  margin-left: 2px;
+  margin-right: 2px;
+}
+
+.item-set-icon > div {
   position: absolute;
-  display: inline-flex;
-  flex-direction: column;
-
-  .header {
-    color: #F0F0F0;
-    background-color: #3C3C3C;
-    padding: 4px;
-    border: 1px solid #000;
-    display: flex;
-
-    .mat-icon {
-      margin-right: 10px;
-    }
-
-    :last-child {
-      margin-left: auto;
-      margin-right: 0px;
-    }
-
-    .movable {
-      cursor: move;
-    }
-  }
+  top: 0px;
+  right: 0px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  font-size: 70%;
+  border-radius: 50%;
+  width: 60%;
+  height: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

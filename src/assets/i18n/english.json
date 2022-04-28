@@ -295,7 +295,8 @@
     "relaunch-app": "Relaunch App",
     "reset": "Reset",
     "save": "Save",
-    "stash-update-interval": "Stash Update Interval",
+    "stash-tabs-update-interval": "Stash Tabs Update Interval",
+    "stash-contents-update-interval": "Stash Contents Update Interval",
     "ui-language": "UI Language",
     "update-intervals": {
       "default": "Default",

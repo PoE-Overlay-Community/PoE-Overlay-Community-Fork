@@ -7,14 +7,19 @@ import { UserSettingsFeature } from 'src/app/layout/type'
 import { Colors } from '@app/class'
 import { VendorRecipeSettingsComponent } from './component/vendor-recipe-settings/vendor-recipe-settings.component'
 import { VendorRecipeItemSetSettingsComponent } from './component/item-set-recipe-settings/item-set-recipe-settings.component'
+import { ItemSetRecipePanelComponent } from './component/item-set-recipe-panel/item-set-recipe-panel.component'
+import { VendorRecipePanelComponent } from './component/vendor-recipe-panel/vendor-recipe-panel.component'
 
 @NgModule({
   providers: [{ provide: FEATURE_MODULES, useClass: VendorRecipeModule, multi: true }],
   declarations: [
     VendorRecipeSettingsComponent,
     VendorRecipeItemSetSettingsComponent,
+    VendorRecipePanelComponent,
+    ItemSetRecipePanelComponent,
   ],
   imports: [SharedModule],
+  exports: [VendorRecipePanelComponent],
 })
 export class VendorRecipeModule implements FeatureModule {
   constructor() { }

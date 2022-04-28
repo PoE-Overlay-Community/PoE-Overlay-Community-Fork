@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core'
 import { TradeCompanionModule } from '@modules/trade-companion/trade-companion.module'
 import { SharedModule } from '@shared/shared.module'
+import { VendorRecipeModule } from '../modules/vendor-recipe/vendor-recipe.module'
 import {
   UserSettingsFeatureContainerComponent,
   UserSettingsFormComponent,
@@ -21,6 +22,6 @@ import { OverlayComponent, UserSettingsComponent } from './page'
     OverlayComponent,
     UserSettingsComponent,
   ],
-  imports: [SharedModule, TradeCompanionModule],
+  imports: [SharedModule, TradeCompanionModule, VendorRecipeModule],
 })
 export class LayoutModule {}

@@ -40,7 +40,7 @@ export class VendorRecipeItemSetSettingsComponent {
   }
 
   public getItemColorGroup(settings: ItemSetRecipeUserSettings, itemSetGroup: ItemSetGroup): ItemGroupColor {
-    return settings.itemClassColors.find(x => x.group == itemSetGroup)
+    return settings.itemClassColors.find(x => x.group === itemSetGroup)
   }
 
   public getItemColorGroupName(itemSetGroup: ItemSetGroup): string {

@@ -93,11 +93,17 @@ export class VendorRecipeService implements StashTabsToSearch {
       })
     }
     return this.getItemSetStashTabsToSearch(resource, settings).pipe(
-      flatMap((stashTabs) =>
-        this.stashService.getStashTabContents(stashTabs).pipe(
+      flatMap((stashTabs) => {
+        const uniqueStashTabs = stashTabs.reduce((accumulator, current) => {
+          if (!accumulator.some((stashTab) => stashTab.id === current.id)) {
+            accumulator.push(current);
+          }
+          return accumulator;
+        }, []);
+        return this.stashService.getStashTabContents(uniqueStashTabs).pipe(
           map((stashItems) => recipeProcessor.process(stashItems, settings))
         )
-      )
+      })
     )
   }
 
@@ -123,8 +129,8 @@ export class VendorRecipeService implements StashTabsToSearch {
       //this.getVendorRecipes(ExaltedShardRecipeResourceName, this.settings.exaltedShardRecipeSettings, this.exaltedShardRecipeProcessor)
     ).subscribe(results => {
       this.vendorRecipes$.next({
-        recipes: [].concat(results.map(x => x.recipes)),
-        itemGroups: [].concat(results.map(x => x.itemGroups)),
+        recipes: results.map(x => x.recipes).reduce((arr, elem) => arr.concat(elem), []),
+        itemGroups: results.map(x => x.itemGroups).reduce((arr, elem) => arr.concat(elem), []),
       })
     })
 

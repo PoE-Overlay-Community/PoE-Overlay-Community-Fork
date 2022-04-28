@@ -55,9 +55,12 @@ export class PoEAccountService {
 
   public getAsync(language?: Language): Observable<PoEAccount> {
     language = language || this.context.get().language
+    const oldAccount = { ...this.get() }
     return this.accountProvider.provide(language).pipe(flatMap((account) => {
       return this.getCharacters(account, language).pipe(map(() => {
-        this.accountSubject.next(account)
+        if (oldAccount !== account) {
+          this.accountSubject.next(account)
+        }
         this.tryStartPeriodicUpdate()
         return account
       }))
@@ -127,8 +130,11 @@ export class PoEAccountService {
   private periodicCharacterUpdate(cacheExpiration?: CacheExpirationType) {
     const account = this.get()
     if (account.loggedIn) {
-      this.getCharacters(this.get(), undefined, cacheExpiration || this.settings?.charactersCacheExpiration).subscribe(() => {
-        this.accountSubject.next(account)
+      const oldAccount = { ...account }
+      this.getCharacters(account, undefined, cacheExpiration || this.settings?.charactersCacheExpiration).subscribe(() => {
+        if (oldAccount !== account) {
+          this.accountSubject.next(account)
+        }
       })
       this.tryStartPeriodicUpdate()
     }
