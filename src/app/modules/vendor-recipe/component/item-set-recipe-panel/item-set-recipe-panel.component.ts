@@ -1,12 +1,12 @@
 import {
-    AfterViewInit,
-    ChangeDetectionStrategy, Component, Input,
-    OnChanges,
-    OnDestroy,
-    OnInit, SimpleChanges
+    ChangeDetectionStrategy, Component, Input, OnDestroy,
+    OnInit
 } from '@angular/core'
 import { ColorUtils, EnumValues } from '@app/class'
-import { ItemGroupColor, ItemSetGroup, ItemSetProcessResult, ItemSetRecipeUserSettings, VendorRecipeType } from '@shared/module/poe/type'
+import { StashService } from '@shared/module/poe/service'
+import { ItemGroupColor, ItemSetGroup, ItemSetProcessResult, ItemSetRecipeUserSettings } from '@shared/module/poe/type'
+import { BehaviorSubject, Subscription } from 'rxjs'
+import { throttleTime } from 'rxjs/operators'
 
 @Component({
   selector: 'app-item-set-recipe-panel',
@@ -14,14 +14,18 @@ import { ItemGroupColor, ItemSetGroup, ItemSetProcessResult, ItemSetRecipeUserSe
   styleUrls: ['./item-set-recipe-panel.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ItemSetRecipePanelComponent implements OnInit, AfterViewInit, OnDestroy, OnChanges {
+export class ItemSetRecipePanelComponent implements OnInit, OnDestroy {
   @Input()
   public settings: ItemSetRecipeUserSettings
 
   @Input()
   public itemSetProcessResult: ItemSetProcessResult
 
+  public readonly stashTabContentPeriodicUpdateActiveChanged$ = new BehaviorSubject<boolean>(false)
+
   public itemSetGroups = new EnumValues(ItemSetGroup)
+
+  private readonly stashSub: Subscription
 
   public get itemSets(): any {
     return this.itemSetGroups.keys.map(itemSetGroup => {
@@ -37,19 +41,20 @@ export class ItemSetRecipePanelComponent implements OnInit, AfterViewInit, OnDes
   public ColorUtils = ColorUtils
 
   constructor(
+    private readonly stashService: StashService,
   ) {
+    this.stashSub = this.stashService.stashTabContentPeriodicUpdateActiveChanged$.pipe(
+      throttleTime(2000, undefined, { leading: true, trailing: true }),
+    ).subscribe(x => {
+      this.stashTabContentPeriodicUpdateActiveChanged$.next(x)
+    })
   }
 
   public ngOnInit(): void {
   }
 
-  public ngAfterViewInit(): void {
-  }
-
   public ngOnDestroy(): void {
-  }
-
-  public ngOnChanges(changes: SimpleChanges): void {
+    this.stashSub.unsubscribe()
   }
 
   public getItemColorGroupName(itemSetGroup: ItemSetGroup): string {

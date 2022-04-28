@@ -93,17 +93,10 @@ export class VendorRecipeService implements StashTabsToSearch {
       })
     }
     return this.getItemSetStashTabsToSearch(resource, settings).pipe(
-      flatMap((stashTabs) => {
-        const uniqueStashTabs = stashTabs.reduce((accumulator, current) => {
-          if (!accumulator.some((stashTab) => stashTab.id === current.id)) {
-            accumulator.push(current);
-          }
-          return accumulator;
-        }, []);
-        return this.stashService.getStashTabContents(uniqueStashTabs).pipe(
+      flatMap((stashTabs) => this.stashService.getStashTabContents(stashTabs).pipe(
           map((stashItems) => recipeProcessor.process(stashItems, settings))
         )
-      })
+      )
     )
   }
 

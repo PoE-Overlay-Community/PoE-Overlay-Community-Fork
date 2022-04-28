@@ -1,3 +1,12 @@
+.item-set-recipe-panel {
+  display: flex;
+  flex-direction: column;
+}
+
+.item-set-icons {
+  display: flex;
+}
+
 .recipes-count {
   background-color: rgba(0, 0, 0, 0.5);
   color: white;
@@ -28,4 +37,37 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.refreshbar {
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 2px;
+  margin-top: 4px;
+  border-radius: 0.25vw;
+  overflow: hidden;
+}
+
+.progress {
+  background-color: lime;
+  width: 10%;
+  height: 100%;
+  border-radius: 0.25vw;
+  display: none;
+  position: relative;
+  left: -10%;
+  animation: running-progress 2s linear infinite;
+}
+
+.active {
+  display: flex;
+}
+
+@keyframes running-progress {
+  0% {
+    left: -10%;
+  }
+
+  100% {
+    left: 150%;
+  }
 }

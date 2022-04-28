@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core'
 import { Observable, of, throwError } from 'rxjs'
 import { catchError, flatMap, map, shareReplay, tap } from 'rxjs/operators'
+import { environment } from '@env/environment'
 import { ofType } from '../function'
 import { LoggerService } from './logger.service'
 import { StorageService } from './storage.service'
@@ -30,13 +31,19 @@ export class CacheService {
   ): Observable<TValue> {
     return this.storage.get<CacheEntry<TValue>>(key).pipe(
       flatMap((entry) => {
-        const now = Date.now()
+        let now = Date.now()
+        /*if (entry && !environment.production) {
+          console.log(`[CacheService] '${key}' Cache check: now=${now}; entry.expiry=${entry.expiry}; expiry=${expiry}; expired=${entry.expired}; creation=${entry.creation}; newExpiry=${(entry.creation + expiry)}`)
+        }*/
         if (
           entry &&
           ofType<TValue>(entry.value) &&
           ((entry.expiry === expiry && entry.expired > now) ||
             (entry.expiry !== expiry && entry.creation + expiry > now))
         ) {
+          /*if (!environment.production) {
+            console.log(`[CacheService] '${key}' Cache Hit`)
+          }*/
           if (slidingExpiry) {
             this.storage.save(key, {
               value: entry.value,
@@ -63,6 +70,8 @@ export class CacheService {
             }),
             tap((value) => {
               this.cache[key] = undefined
+              // Update the 'now' value since the 'valueFn' might be async and take a long time to complete
+              now = Date.now()
               this.storage.save(key, {
                 value,
                 creation: now,

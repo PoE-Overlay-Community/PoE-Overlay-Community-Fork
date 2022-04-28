@@ -232,6 +232,14 @@
     "stash": "Stash",
     "wiki": "Wiki"
   },
+  "panel-tooltips": {
+    "disable": "Disable this overlay panel",
+    "drag-handle": "Drag this handle to move this panel",
+    "locked": "Locked - Click to unlock",
+    "settings": "Open Settings",
+    "unlocked": "Unlocked - Click to lock",
+    "unlock-to-move": "Locked - Unlock to allow moving of this overlay panel"
+  },
   "settings": {
     "abbr-level": "Lv",
     "account": {
@@ -427,13 +435,7 @@
       "whisper-player": "Whisper Player"
     },
     "trade-notification-panel": {
-      "disable": "Disable Trade Companion",
-      "drag-handle": "Drag this handle to move the Trade Companion",
-      "hideout": "Go to your Hideout",
-      "locked": "Locked - Click to unlock",
-      "settings": "Open Settings",
-      "unlocked": "Unlocked - Click to lock",
-      "unlock-to-move": "Locked - Unlock to allow moving of the Trade Companion"
+      "hideout": "Go to your Hideout"
     },
     "trade-option": {
       "add": "Add Trade Option",
@@ -452,6 +454,7 @@
     "item-set-panel": {
       "background-opacity": "Background Opacity",
       "name": "Item Sets panel",
+      "force-refresh-stash-tooltip": "Refresh Stash Tab Contents",
       "reset": "Reset",
       "unset": "unset",
       "window-bounds": "Window Bounds"

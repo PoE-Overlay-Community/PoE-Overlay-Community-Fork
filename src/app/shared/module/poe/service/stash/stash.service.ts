@@ -9,7 +9,7 @@ import {
 } from '@app/service/input'
 import { Point } from '@app/type'
 import { UserSettings } from '@layout/type'
-import { forkJoin, Observable, of, Subject, Subscription } from 'rxjs'
+import { BehaviorSubject, forkJoin, Observable, of, Subject, Subscription } from 'rxjs'
 import { concatAll, delay, flatMap, map, tap } from 'rxjs/operators'
 import { StashProvider } from '../../provider/stash.provider'
 import { CacheExpirationType, Currency, PoEAccount } from '../../type'
@@ -50,6 +50,7 @@ export class StashService {
     return this.stashProvider.defaultTabContentCacheExpiration
   }
 
+  public readonly stashTabContentPeriodicUpdateActiveChanged$ = new BehaviorSubject<boolean>(false)
   public readonly stashTabContentUpdated$ = new Subject<void>()
 
   private accountSub: Subscription
@@ -118,17 +119,23 @@ export class StashService {
     }
   }
 
-  public getStashTabContents(stashTabs: PoEStashTab[]): Observable<PoEStashTabItem[]> {
+  public getStashTabContents(stashTabs: PoEStashTab[], cacheExpiration?: CacheExpirationType): Observable<PoEStashTabItem[]> {
     const account = this.accountService.get()
     if (account.loggedIn) {
       const context = this.context.get()
+      const uniqueStashTabs = stashTabs.reduce((accumulator, current) => {
+        if (!accumulator.some((stashTab) => stashTab.id === current.id)) {
+          accumulator.push(current);
+        }
+        return accumulator;
+      }, []);
 
       return forkJoin(
-        stashTabs.map((stashTab, i) =>
+        uniqueStashTabs.map((stashTab, i) =>
           of(stashTab).pipe(
             // Delay each stash tab to ensure we don't hit rate limits
             delay(50 * i),
-            flatMap(stashTab => this.stashProvider.provideTabsContent(stashTab, account.name, context.leagueId, context.language, this.settings?.stashTabContentCacheExpiration))
+            flatMap(stashTab => this.stashProvider.provideTabsContent(stashTab, account.name, context.leagueId, context.language, cacheExpiration || this.settings?.stashTabContentCacheExpiration))
           )
         )
       ).pipe(
@@ -206,26 +213,17 @@ export class StashService {
   }
 
   private periodicStashContentUpdate(cacheExpiration?: CacheExpirationType) {
+    this.stashTabContentPeriodicUpdateActiveChanged$.next(true)
     const account = this.accountService.get()
     if (account.loggedIn) {
-      const context = this.context.get()
       const providers = this.stashTabProviders.map((provider) => provider.getStashTabsToSearch())
       forkJoin(providers).pipe(
         concatAll(),
-        flatMap((stashTabs) =>
-          forkJoin(
-            stashTabs.map((stashTab, i) =>
-              of(stashTab).pipe(
-                // Delay each stash tab to ensure we don't hit rate limits
-                delay(50 * i),
-                flatMap(stashTab => this.stashProvider.provideTabsContent(stashTab, account.name, context.leagueId, context.language, cacheExpiration || this.settings?.stashTabContentCacheExpiration))
-              )
-            )
-          ).pipe(
-            map(x => [].concat(...x) as PoEStashTabItem[])
-          )
-        )
-      ).subscribe(null, null, () => this.stashTabContentUpdated$.next())
+        flatMap((stashTabs) => this.getStashTabContents(stashTabs, cacheExpiration))
+      ).subscribe(null, null, () => {
+        this.stashTabContentUpdated$.next()
+        this.stashTabContentPeriodicUpdateActiveChanged$.next(false)
+      })
       this.tryStartPeriodicUpdate()
     }
   }

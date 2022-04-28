@@ -16,10 +16,11 @@
     <div (mouseenter)="optionsHovered = true" (mouseleave)="optionsHovered = false" (mousedown)="optionsDowned = true" (mouseup)="optionsDowned = false">
       <mat-icon class="clickable" (click)="optionsClicked = !optionsClicked">{{ optionsExpanded ? 'arrow_left' : 'arrow_right' }}</mat-icon>
       <ng-container *ngIf="optionsExpanded">
-        <mat-icon class="clickable" (click)="locked = !locked" matTooltip="{{ 'trade-companion.trade-notification-panel.' + (locked ? 'locked' : 'unlocked') | translate }}">{{ locked ? 'lock' : 'lock_open' }}</mat-icon>
-        <mat-icon [class.movable]="!locked" matTooltip="{{ 'trade-companion.trade-notification-panel.' + (locked ? 'unlock-to-move' : 'drag-handle') | translate }}">open_with</mat-icon>
-        <mat-icon class="clickable" (click)="openSettings.emit()" matTooltip="{{ 'trade-companion.trade-notification-panel.settings' | translate }}">settings</mat-icon>
-        <mat-icon class="clickable" (click)="close()" matTooltip="{{ 'trade-companion.trade-notification-panel.disable' | translate }}">power_settings_new</mat-icon>
+        <mat-icon class="clickable" (click)="forceRefreshStashTabContents()" matTooltip="{{ 'vendor-recipe.item-set-panel.force-refresh-stash-tooltip' | translate }}">refresh</mat-icon>
+        <mat-icon class="clickable" (click)="locked = !locked" matTooltip="{{ 'panel-tooltips.' + (locked ? 'locked' : 'unlocked') | translate }}">{{ locked ? 'lock' : 'lock_open' }}</mat-icon>
+        <mat-icon [class.movable]="!locked" matTooltip="{{ 'panel-tooltips.' + (locked ? 'unlock-to-move' : 'drag-handle') | translate }}">open_with</mat-icon>
+        <mat-icon class="clickable" (click)="openSettings.emit()" matTooltip="{{ 'panel-tooltips.settings' | translate }}">settings</mat-icon>
+        <mat-icon class="clickable" (click)="close()" matTooltip="{{ 'panel-tooltips.disable' | translate }}">power_settings_new</mat-icon>
       </ng-container>
     </div>
   </div>

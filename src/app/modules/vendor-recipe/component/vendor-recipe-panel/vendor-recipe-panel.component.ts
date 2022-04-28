@@ -14,6 +14,7 @@ import { AudioClipSettings, ItemSetProcessResult, ItemSetRecipeUserSettings, Ven
 import { Rectangle } from 'electron'
 import { BehaviorSubject, Subject, Subscription } from 'rxjs'
 import { debounceTime, map } from 'rxjs/operators'
+import { StashService } from '../../../../shared/module/poe/service'
 
 @Component({
   selector: 'app-vendor-recipe-panel',
@@ -71,6 +72,7 @@ export class VendorRecipePanelComponent implements OnInit, AfterViewInit, OnDest
     private readonly vendorRecipeService: VendorRecipeService,
     private readonly userSettingsService: UserSettingsService,
     private readonly windowService: WindowService,
+    private readonly stashService: StashService,
   ) {
   }
 
@@ -133,6 +135,10 @@ export class VendorRecipePanelComponent implements OnInit, AfterViewInit, OnDest
 
   public close(): void {
     this.closeClick$.next()
+  }
+
+  public forceRefreshStashTabContents(): void {
+    this.stashService.forceUpdateTabContent()
   }
 
   private intersects(a: Rectangle, b: Rectangle): boolean {
