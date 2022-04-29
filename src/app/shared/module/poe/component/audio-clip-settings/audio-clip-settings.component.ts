@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnDestroy } from '@angular/core'
-import { AudioClipSettings } from '@shared/module/poe/type/audioclip.type'
+import { environment } from '@env/environment'
 import { SnackBarService } from '@shared/module/material/service'
+import { AudioClipSettings } from '@shared/module/poe/type/audioclip.type'
 
 interface AudioData {
   clip: HTMLAudioElement
@@ -73,7 +74,12 @@ export class AudioClipSettingsComponent implements OnDestroy {
           this.audioData.isPlaying = true
           this.ref.detectChanges()
         })
-        .catch(() => this.snackbarService.error('settings.audio.invalid-source'))
+        .catch((error) => {
+          if (!environment.production) {
+            console.log(`[AudioClip] Error playing audio: ${error}`)
+          }
+          this.snackbarService.error('settings.audio.invalid-source')
+        })
     } else {
       audioClip.pause()
       audioClip.currentTime = 0

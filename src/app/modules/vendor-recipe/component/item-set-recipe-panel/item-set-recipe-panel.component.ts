@@ -45,9 +45,7 @@ export class ItemSetRecipePanelComponent implements OnInit, OnDestroy {
   ) {
     this.stashSub = this.stashService.stashTabContentPeriodicUpdateActiveChanged$.pipe(
       throttleTime(2000, undefined, { leading: true, trailing: true }),
-    ).subscribe(x => {
-      this.stashTabContentPeriodicUpdateActiveChanged$.next(x)
-    })
+    ).subscribe(x => this.stashTabContentPeriodicUpdateActiveChanged$.next(x))
   }
 
   public ngOnInit(): void {

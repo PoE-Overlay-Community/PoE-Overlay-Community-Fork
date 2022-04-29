@@ -15,8 +15,12 @@ export abstract class ColorUtils {
       r: MathUtils.clamp(r, 0, MAX_RGB),
       g: MathUtils.clamp(g, 0, MAX_RGB),
       b: MathUtils.clamp(b, 0, MAX_RGB),
-      a: MathUtils.clamp(!a && a !== 0 ? 1 : a, 0, 1),
+      a: MathUtils.clamp(!a && a !== 0 ? 1 : (Math.abs(a) < 1e-10 ? 0 : a), 0, 1),
     }
+  }
+
+  public static copy(color: Color): Color {
+    return ColorUtils.create(color.r, color.g, color.b, color.a)
   }
 
   public static update(color: Color, input: string): void {
@@ -36,12 +40,7 @@ export abstract class ColorUtils {
   }
 
   public static fromArray(array: number[]): Color {
-    return {
-      r: array[0],
-      g: array[1],
-      b: array[2],
-      a: array.length === 4 ? array[3] : 1,
-    }
+    return ColorUtils.create(array[0], array[1], array[2], array.length === 4 ? array[3] : undefined)
   }
 
   // A magical function copied from here: https://stackoverflow.com/a/21966100
