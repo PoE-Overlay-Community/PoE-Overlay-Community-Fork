@@ -13,7 +13,7 @@ import { FEATURE_MODULES } from '@app/token'
 import { AppUpdateState, FeatureModule, Rectangle, VisibleFlag } from '@app/type'
 import { SnackBarService } from '@shared/module/material/service'
 import { ContextService, StashService } from '@shared/module/poe/service'
-import { TradeCompanionStashGridService } from '@shared/module/poe/service/trade-companion/trade-companion-stash-grid.service'
+import { StashGridService } from '@shared/module/poe/service/stash-grid/stash-grid.service'
 import { Context } from '@shared/module/poe/type'
 import { BehaviorSubject, EMPTY, forkJoin, Observable, timer } from 'rxjs'
 import { debounce, distinctUntilChanged, flatMap, map, tap } from 'rxjs/operators'
@@ -51,7 +51,7 @@ export class OverlayComponent implements OnInit, OnDestroy {
     private readonly renderer: RendererService,
     private readonly shortcut: ShortcutService,
     private readonly dialogRef: DialogRefService,
-    private readonly stashGridService: TradeCompanionStashGridService,
+    private readonly stashGridService: StashGridService,
     private readonly tradeNotificationsService: TradeNotificationsService,
     private readonly accountService: PoEAccountService,
     private readonly stashService: StashService,

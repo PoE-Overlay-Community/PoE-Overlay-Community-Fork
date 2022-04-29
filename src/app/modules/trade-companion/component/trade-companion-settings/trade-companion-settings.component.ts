@@ -1,19 +1,15 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnDestroy } from '@angular/core'
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input } from '@angular/core'
 import { ColorUtils, EnumValues } from '@app/class'
 import { WindowService } from '@app/service'
 import { UserSettingsComponent } from '@layout/type'
-import { TradeCompanionStashGridService } from '@shared/module/poe/service/trade-companion/trade-companion-stash-grid.service'
+import { SnackBarService } from '@shared/module/material/service'
 import { TradeNotificationsService } from '@shared/module/poe/service/trade-companion/trade-notifications.service'
 import {
     DefaultAskIfStillInterestedMessage,
     ExampleNotificationType,
-    StashGridMode,
-    StashGridType,
-    TradeCompanionStashGridOptions,
     TradeCompanionUserSettings,
     TradeNotificationAutoCollapseType
 } from '@shared/module/poe/type/trade-companion.type'
-import { SnackBarService } from '@shared/module/material/service'
 
 @Component({
   selector: 'app-trade-companion-settings',
@@ -28,27 +24,14 @@ export class TradeCompanionSettingsComponent implements UserSettingsComponent {
   @Input()
   public defaultSettings: TradeCompanionUserSettings
 
-  public stashGridTypes = new EnumValues(StashGridType)
   public autoCollapseTypes = new EnumValues(TradeNotificationAutoCollapseType)
 
   public exampleNotificationTypes = new EnumValues(ExampleNotificationType)
 
-  public ColorUtils = ColorUtils
-
-  private isShowingStashGrid = false
-
   constructor(
-    private readonly ref: ChangeDetectorRef,
     private readonly window: WindowService,
-    private readonly stashGridDialogService: TradeCompanionStashGridService,
     private readonly tradeNotificationsService: TradeNotificationsService,
-    private readonly snackbarService: SnackBarService,
   ) {
-    this.window.on('show').subscribe(() => {
-      if (this.isShowingStashGrid) {
-        this.stashGridDialogService.editStashGrid(null)
-      }
-    })
   }
 
   public load(): void {}
@@ -63,48 +46,6 @@ export class TradeCompanionSettingsComponent implements UserSettingsComponent {
 
   public onResetAreYouStillInterestedMessageClick(): void {
     this.settings.askIfStillInterestedMessage = DefaultAskIfStillInterestedMessage
-  }
-
-  public onEditStashGridClick(gridType: StashGridType): void {
-    const options: TradeCompanionStashGridOptions = {
-      gridMode: StashGridMode.Edit,
-      gridType,
-      gridBounds: this.settings.stashGridBounds[gridType],
-      settings: this.settings,
-    }
-    this.isShowingStashGrid = true
-    this.window.hide()
-    this.stashGridDialogService.editStashGrid(options).subscribe((stashGridBounds) => {
-      this.isShowingStashGrid = false
-      if (stashGridBounds) {
-        this.settings.stashGridBounds[gridType] = stashGridBounds
-      }
-      this.window.show()
-    })
-  }
-
-  public onPreviewStashGridClick(gridType: StashGridType): void {
-    const options: TradeCompanionStashGridOptions = {
-      gridMode: StashGridMode.Preview,
-      gridType,
-      gridBounds: this.settings.stashGridBounds[gridType],
-      highlightLocation: {
-        tabName: '[Tab Name]',
-        bounds: {
-          x: 6,
-          y: 3,
-          width: 2,
-          height: 3,
-        },
-      },
-      settings: this.settings,
-    }
-    this.isShowingStashGrid = true
-    this.window.hide()
-    this.stashGridDialogService.showStashGrid(options).subscribe(() => {
-      this.isShowingStashGrid = false
-      this.window.show()
-    })
   }
 
   public onAddExampleTradeNotificationClick(

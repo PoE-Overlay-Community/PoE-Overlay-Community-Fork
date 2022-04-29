@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core'
 import { ElectronProvider } from '@app/provider/electron.provider'
+import { GameService, WindowService } from '@app/service'
 import { Rectangle } from '@app/type'
-import { IpcMain, IpcRenderer, IpcMainEvent } from 'electron'
-import { BehaviorSubject, Observable, from, of } from 'rxjs'
-import { StashGridType, STASH_TAB_CELL_COUNT_MAP, TradeCompanionStashGridOptions, TradeItemLocation } from '@shared/module/poe/type/trade-companion.type'
-import { WindowService, GameService } from '@app/service'
+import { StashGridOptions, StashGridType, STASH_TAB_CELL_COUNT_MAP, TradeItemLocation } from '@shared/module/poe/type/stash-grid.type'
+import { IpcMain, IpcMainEvent, IpcRenderer } from 'electron'
+import { BehaviorSubject, from, Observable, of } from 'rxjs'
 import { StashService } from '../stash/stash.service'
 
 const STASH_GRID_OPTIONS_KEY = 'stash-grid-options'
@@ -14,10 +14,8 @@ const CLOSED_KEY = 'closed'
 @Injectable({
   providedIn: 'root',
 })
-export class TradeCompanionStashGridService {
-  public stashGridOptions$: BehaviorSubject<TradeCompanionStashGridOptions> = new BehaviorSubject<
-    TradeCompanionStashGridOptions
-  >(undefined)
+export class StashGridService {
+  public readonly stashGridOptions$ = new BehaviorSubject<StashGridOptions>(undefined)
 
   private ipcMain: IpcMain
   private ipcRenderer: IpcRenderer
@@ -53,7 +51,7 @@ export class TradeCompanionStashGridService {
     this.ipcMain.removeListener(STASH_GRID_OPTIONS_KEY, this.scopedStashGridOptionsEvent)
   }
 
-  public showStashGrid(stashGridOptions: TradeCompanionStashGridOptions): Observable<void> {
+  public showStashGrid(stashGridOptions: StashGridOptions): Observable<void> {
     const promise = new Promise<void>((resolve) => {
       this.ipcRenderer.send(STASH_GRID_OPTIONS_KEY, stashGridOptions)
       const scopedReplyEvent = (_, stashGridBounds: Rectangle) => {
@@ -77,7 +75,7 @@ export class TradeCompanionStashGridService {
   /**
    * Call this method only from the settings window
    */
-  public editStashGrid(stashGridOptions: TradeCompanionStashGridOptions): Observable<Rectangle> {
+  public editStashGrid(stashGridOptions: StashGridOptions): Observable<Rectangle> {
     const promise = new Promise<Rectangle>((resolve, reject) => {
       this.ipcRenderer.send(STASH_GRID_OPTIONS_KEY, stashGridOptions)
       const scopedReplyEvent = (_, stashGridBounds: Rectangle) => {
@@ -108,8 +106,8 @@ export class TradeCompanionStashGridService {
   public getStashGridType(itemLocation: TradeItemLocation): Observable<StashGridType> {
     const normalGridCellCount = STASH_TAB_CELL_COUNT_MAP[StashGridType.Normal]
     const bounds = itemLocation.bounds
-    const maxX = bounds.x + bounds.width - 1
-    const maxY = bounds.y + bounds.height - 1
+    const maxX = bounds.reduce((max, bounds) => Math.max(max, bounds.x + bounds.width - 1), 0)
+    const maxY = bounds.reduce((max, bounds) => Math.max(max, bounds.y + bounds.height - 1), 0)
     const gridType = maxX <= normalGridCellCount && maxY <= normalGridCellCount ? StashGridType.Normal : StashGridType.Quad
     if (gridType === StashGridType.Normal) {
       return this.stashService.getStashGridType(itemLocation.tabName)
@@ -120,7 +118,7 @@ export class TradeCompanionStashGridService {
 
   private onStashGridOptions(
     event: IpcMainEvent,
-    stashGridOptions: TradeCompanionStashGridOptions
+    stashGridOptions: StashGridOptions
   ): void {
     this.completeStashGridEdit(null)
     this.ipcMainEvent = event

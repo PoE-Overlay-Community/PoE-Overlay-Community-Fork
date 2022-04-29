@@ -179,7 +179,7 @@ export class VendorRecipeModule implements FeatureModule {
       name: 'vendor-recipe.name',
       component: VendorRecipeSettingsComponent,
       defaultSettings,
-      visualPriority: 30,
+      visualPriority: 80,
     }
   }
 

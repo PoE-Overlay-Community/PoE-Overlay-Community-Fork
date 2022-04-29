@@ -6,7 +6,7 @@ import { Observable } from 'rxjs'
 import { map } from 'rxjs/operators'
 import { isNullOrUndefined } from 'util'
 import { PoEStashTab, PoEStashTabItem } from '../type/stash.type'
-import { StashGridType } from '../type/trade-companion.type'
+import { StashGridType } from '../type/stash-grid.type'
 
 const STASH_TYPE_MAPPING = {
   [ApiStashType.PremiumStash]: StashGridType.Normal,

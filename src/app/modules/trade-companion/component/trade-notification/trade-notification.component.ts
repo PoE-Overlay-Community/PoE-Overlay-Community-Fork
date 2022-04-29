@@ -16,10 +16,10 @@ import { AppTranslateService } from '@app/service'
 import { CommandService } from '@modules/command/service/command.service'
 import { SnackBarService } from '@shared/module/material/service'
 import { PoEAccountService } from '@shared/module/poe/service/account/account.service'
-import { TradeCompanionStashGridService } from '@shared/module/poe/service/trade-companion/trade-companion-stash-grid.service'
+import { StashGridService } from '@shared/module/poe/service/stash-grid/stash-grid.service'
+import { StashGridMode } from '@shared/module/poe/type/stash-grid.type'
 import {
     CurrencyAmount,
-    StashGridMode,
     TradeCompanionButtonOption,
     TradeCompanionUserSettings,
     TradeNotification,
@@ -79,7 +79,7 @@ export class TradeNotificationComponent implements OnInit, OnDestroy, OnChanges 
   private buttonClickAudioClip: HTMLAudioElement
 
   constructor(
-    private readonly stashGridService: TradeCompanionStashGridService,
+    private readonly stashGridService: StashGridService,
     private readonly snackbar: SnackBarService,
     private readonly commandService: CommandService,
     private readonly ref: ChangeDetectorRef,

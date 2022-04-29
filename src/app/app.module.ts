@@ -11,6 +11,7 @@ import { AppTranslationsLoader } from './app-translations.loader'
 import { AppComponent } from './app.component'
 import { LayoutModule } from './layout/layout.module'
 import { OverlayComponent, UserSettingsComponent } from './layout/page'
+import { StashGridModule } from './modules/stash-grid/stash-grid.module'
 import { VendorRecipeModule } from './modules/vendor-recipe/vendor-recipe.module'
 
 const routes: Routes = [
@@ -41,11 +42,12 @@ const routes: Routes = [
     LayoutModule,
     // app
     EvaluateModule,
-    TradeCompanionModule,
     CommandModule,
     MapModule,
     MiscModule,
     BookmarkModule,
+    StashGridModule,
+    TradeCompanionModule,
     VendorRecipeModule,
   ],
   bootstrap: [AppComponent],

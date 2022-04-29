@@ -38,24 +38,7 @@
     </div>
   </div>
 </app-card>
-<app-card [title]="'trade-companion.grid-overlay' | translate">
-  <div class="row">
-    <div class="col-2">
-      <app-color-picker-settings side="right" [label]="'trade-companion.stash-grid.grid-line-color'" [color]="settings.stashGridColors.gridLine"></app-color-picker-settings>
-    </div>
-    <div class="col-2">
-      <app-color-picker-settings side="right" [label]="'trade-companion.stash-grid.grid-outline-color'" [color]="settings.stashGridColors.gridOutline"></app-color-picker-settings>
-    </div>
-    <div class="col-2">
-      <app-color-picker-settings side="right" [label]="'trade-companion.stash-grid.grid-background-color'" [color]="settings.stashGridColors.gridBackground"></app-color-picker-settings>
-    </div>
-    <div class="col-2">
-      <app-color-picker-settings side="right" [label]="'trade-companion.stash-grid.highlight-line-color'" [color]="settings.stashGridColors.highlightLine"></app-color-picker-settings>
-    </div>
-    <div class="col-2">
-      <app-color-picker-settings side="left" [label]="'trade-companion.stash-grid.highlight-background-color'" [color]="settings.stashGridColors.highlightBackground"></app-color-picker-settings>
-    </div>
-  </div>
+<app-card [title]="'stash-grid.grid-overlay' | translate">
   <div class="row">
     <div class="col-3">
       <mat-slide-toggle [checked]="settings.showStashGridOnInvite" (change)="settings.showStashGridOnInvite = $event.checked" matTooltip="{{ 'trade-companion.show-and-highlight-item-description' | translate }}">
@@ -66,19 +49,6 @@
       <mat-slide-toggle [checked]="settings.hideStashGridOnTrade" (change)="settings.hideStashGridOnTrade = $event.checked" matTooltip="{{ 'trade-companion.hide-highlight-on-trade-description' | translate }}">
         {{ 'trade-companion.hide-highlight-on-trade' | translate }}
       </mat-slide-toggle>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-auto" *ngFor="let stashGridBound of settings.stashGridBounds | keyvalue">
-      <button mat-raised-button (click)="onEditStashGridClick(stashGridBound.key)">
-        {{ 'trade-companion.edit-stash-grid.' + (stashGridTypes.values[stashGridBound.key] | lowercase) | translate }}
-      </button>
-    </div>
-    <div class="col-1"></div>
-    <div class="col-auto" *ngFor="let stashGridBound of settings.stashGridBounds | keyvalue">
-      <button mat-raised-button (click)="onPreviewStashGridClick(stashGridBound.key)">
-        {{ 'trade-companion.preview-stash-grid.' + (stashGridTypes.values[stashGridBound.key] | lowercase) | translate }}
-      </button>
     </div>
   </div>
 </app-card>

@@ -1,52 +1,48 @@
 import {
-  ChangeDetectionStrategy,
-  Component,
-  Input,
-  OnChanges,
-  OnDestroy,
-  OnInit,
-  SimpleChanges,
+    ChangeDetectionStrategy,
+    Component,
+    Input,
+    OnChanges,
+    OnDestroy,
+    OnInit,
+    SimpleChanges
 } from '@angular/core'
 import { ColorUtils, EnumValues } from '@app/class'
 import { ShortcutService } from '@app/service/input'
 import { Rectangle, VisibleFlag } from '@app/type'
-import { TradeCompanionStashGridService } from '@shared/module/poe/service/trade-companion/trade-companion-stash-grid.service'
+import { StashGridService } from '@shared/module/poe/service/stash-grid/stash-grid.service'
 import {
-  StashGridMode,
-  StashGridType,
-  STASH_TAB_CELL_COUNT_MAP,
-  TradeCompanionStashGridOptions,
-  TradeCompanionUserSettings,
-} from '@shared/module/poe/type/trade-companion.type'
+    StashGridMode, StashGridOptions, StashGridType, StashGridUserSettings, STASH_TAB_CELL_COUNT_MAP
+} from '@shared/module/poe/type/stash-grid.type'
 import { BehaviorSubject, Subscription } from 'rxjs'
 
 const stashGridCompRef = 'stash-grid'
 
 @Component({
-  selector: 'app-trade-companion-stash-grid',
-  templateUrl: './trade-companion-stash-grid.component.html',
-  styleUrls: ['./trade-companion-stash-grid.component.scss'],
+  selector: 'app-stash-grid',
+  templateUrl: './stash-grid.component.html',
+  styleUrls: ['./stash-grid.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TradeCompanionStashGridComponent implements OnInit, OnDestroy, OnChanges {
+export class StashGridComponent implements OnInit, OnDestroy, OnChanges {
   // tslint:disable-next-line:no-input-rename
   @Input('settings')
-  public globalSettings: TradeCompanionUserSettings
+  public globalSettings: StashGridUserSettings
 
   public readonly ColorUtils = ColorUtils
   public readonly StashGridMode = StashGridMode
 
-  private readonly _stashGridOptions$ = new BehaviorSubject<TradeCompanionStashGridOptions>(
+  private readonly _stashGridOptions$ = new BehaviorSubject<StashGridOptions>(
     undefined
   )
-  public get stashGridOptions$(): BehaviorSubject<TradeCompanionStashGridOptions> {
+  public get stashGridOptions$(): BehaviorSubject<StashGridOptions> {
     return this._stashGridOptions$
   }
   public visible: boolean
   public gridBounds: Rectangle
   public cellArray: number[]
 
-  public get settings(): TradeCompanionUserSettings {
+  public get settings(): StashGridUserSettings {
     return this.stashGridOptions$.value?.settings || this.globalSettings
   }
 
@@ -56,7 +52,7 @@ export class TradeCompanionStashGridComponent implements OnInit, OnDestroy, OnCh
   private stashGridTypes = new EnumValues(StashGridType)
 
   constructor(
-    private readonly stashGridService: TradeCompanionStashGridService,
+    private readonly stashGridService: StashGridService,
     private readonly shortcutService: ShortcutService
   ) {}
 
@@ -123,15 +119,16 @@ export class TradeCompanionStashGridComponent implements OnInit, OnDestroy, OnCh
   public intersectsHighlightBounds(colIndex: number, rowIndex: number): boolean {
     const highlightLocation = this.stashGridOptions$.value.highlightLocation
     if (highlightLocation) {
-      const bounds = highlightLocation.bounds
       colIndex += 1
       rowIndex += 1
-      return (
-        colIndex >= bounds.x &&
-        colIndex < bounds.x + bounds.width &&
-        rowIndex >= bounds.y &&
-        rowIndex < bounds.y + bounds.height
-      )
+      return highlightLocation.bounds.some(bounds => {
+        return (
+          colIndex >= bounds.x &&
+          colIndex < bounds.x + bounds.width &&
+          rowIndex >= bounds.y &&
+          rowIndex < bounds.y + bounds.height
+        )
+      })
     }
     return false
   }

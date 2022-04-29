@@ -1,11 +1,10 @@
 import { NgModule } from '@angular/core'
-import { Colors, ColorUtils } from '@app/class'
+import { Colors } from '@app/class'
 import { FEATURE_MODULES } from '@app/token'
 import { Feature, FeatureModule } from '@app/type'
 import { DefaultAskIfStillInterestedMessage, TradeCompanionUserSettings, TradeNotificationAutoCollapseType } from '@shared/module/poe/type/trade-companion.type'
 import { SharedModule } from '@shared/shared.module'
 import { UserSettingsFeature } from 'src/app/layout/type'
-import { TradeCompanionStashGridComponent } from './component/stash-grid/trade-companion-stash-grid.component'
 import { TradeCompanionSettingsComponent } from './component/trade-companion-settings/trade-companion-settings.component'
 import { TradeNotificationComponent } from './component/trade-notification/trade-notification.component'
 import { TradeNotificationPanelComponent } from './component/trade-notifications-panel/trade-notifications-panel.component'
@@ -14,12 +13,11 @@ import { TradeNotificationPanelComponent } from './component/trade-notifications
   providers: [{ provide: FEATURE_MODULES, useClass: TradeCompanionModule, multi: true }],
   declarations: [
     TradeCompanionSettingsComponent,
-    TradeCompanionStashGridComponent,
     TradeNotificationComponent,
     TradeNotificationPanelComponent,
   ],
   imports: [SharedModule],
-  exports: [TradeCompanionStashGridComponent, TradeNotificationPanelComponent],
+  exports: [TradeNotificationPanelComponent],
 })
 export class TradeCompanionModule implements FeatureModule {
   constructor() {}
@@ -58,28 +56,6 @@ export class TradeCompanionModule implements FeatureModule {
           dismissNotification: true,
         },
       ],
-      stashGridBounds: [
-        {
-          x: 16,
-          y: 134,
-          width: 624, // 12*52px
-          height: 624,
-        },
-        {
-          x: 16,
-          y: 134,
-          width: 624, // 24*26px
-          height: 624,
-        },
-      ],
-      stashGrids: new Map(),
-      stashGridColors: {
-        gridLine: ColorUtils.create(0, 0, 0, 0.65),
-        gridOutline: Colors.yellow,
-        gridBackground: Colors.transparent,
-        highlightLine: Colors.yellow,
-        highlightBackground: Colors.transparent,
-      },
       showStashGridOnInvite: true,
       hideStashGridOnTrade: true,
       reversedNotificationHorizontalAlignment: false,

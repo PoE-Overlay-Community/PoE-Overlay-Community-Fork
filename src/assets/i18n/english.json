@@ -322,6 +322,30 @@
     },
     "zoom": "Zoom"
   },
+  "stash-grid": {
+    "cancel": "Cancel",
+    "close": "Close",
+    "disabled": "Disabled",
+    "edit": {
+      "normal": "Edit Normal stash grid",
+      "quad": "Edit Quad stash grid"
+    },
+    "grid-background-color": "Grid Background Color",
+    "grid-line-color": "Grid Line Color",
+    "grid-outline-color": "Grid Outline Color",
+    "grid-overlay": "Stash Grid Overlay",
+    "highlight-background-color": "Highlight Background Color",
+    "highlight-line-color": "Highlight Line Color",
+    "name": "Stash Grid",
+    "ok": "Ok",
+    "preview": {
+      "normal": "Preview Normal stash grid",
+      "quad": "Preview Quad stash grid"
+    },
+    "save": "Save",
+    "tab": "Tab",
+    "toggle": "Toggle"
+  },
   "trade-companion": {
     "ask-if-still-interested-message": "Ask if still interested Message",
     "ask-if-still-interested-message-description": "The message that'll be sent to the trader when using the 'Ask if still interested' button (or shortcut)\n\nPlaceholders (use without the quotes):\n'@item' = The item requested by the trader (e.g. 'Header Hunter' or '3 Exalted Orb')\n'@price' = The price offered by the trader (e.g. '25 Chaos Orb')",
@@ -342,10 +366,6 @@
       "oldest": "Collapse oldest",
       "oldest-description": "Collapse old trade messages; i.e. keeps the newest trade message expanded."
     },
-    "edit-stash-grid": {
-      "normal": "Edit Normal stash grid",
-      "quad": "Edit Quad stash grid"
-    },
     "enabled": "Use Trade Companion",
     "error-select-active-character": "No active character selected in settings",
     "example-trade-notification": {
@@ -354,7 +374,6 @@
     },
     "general": "General",
     "general-trade-options": "General Trade Options",
-    "grid-overlay": "Stash Grid Overlay",
     "hide-highlight-on-trade": "Hide Highlight on Trade",
     "hide-highlight-on-trade-description": "Hide the stash grid item highlighting when clicking the trade button on an incoming trade notification",
     "incoming-trade-options": "Incoming Trade Options",
@@ -362,10 +381,6 @@
     "name": "Trade Companion",
     "notification-collapsing": "Notification Collapsing",
     "outgoing-trade-options": "Outgoing Trade Options",
-    "preview-stash-grid": {
-      "normal": "Preview Normal stash grid",
-      "quad": "Preview Quad stash grid"
-    },
     "reset": "Reset",
     "reversed-notification-direction": "Reversed Direction",
     "reversed-notification-direction-description": "Reverse the notification direction to be upwards.",
@@ -373,20 +388,6 @@
     "reversed-notification-h-alignment-description": "Reverse the horizontal alignment to be right-to-left.",
     "show-and-highlight-item": "Show & Highlight on Invite",
     "show-and-highlight-item-description": "Show the stash grid and highlight the item when clicking the invite button on an incoming trade notification",
-    "stash-grid": {
-      "cancel": "Cancel",
-      "close": "Close",
-      "disabled": "Disabled",
-      "grid-background-color": "Grid Background Color",
-      "grid-line-color": "Grid Line Color",
-      "grid-outline-color": "Grid Outline Color",
-      "highlight-background-color": "Highlight Background Color",
-      "highlight-line-color": "Highlight Line Color",
-      "ok": "Ok",
-      "save": "Save",
-      "tab": "Tab",
-      "toggle": "Toggle"
-    },
     "trade-notification": {
       "ask-if-still-interested": "Ask if still interested",
       "collapse": "Collapse",
