@@ -1,5 +1,5 @@
-<div class="row">
-  <div class="col-11">
+<div class="row color-picker-settings">
+  <div class="col-9">
     <mat-form-field [matTooltipDisabled]="!tooltip" [matTooltip]="tooltip">
       <mat-label>{{ label | translate }}</mat-label>
       <input matInput readonly
@@ -21,7 +21,7 @@
       <mat-icon matSuffix>palette</mat-icon>
     </mat-form-field>
   </div>
-  <div class="col-1 text-right">
+  <div class="col-3 text-right">
     <button mat-raised-button (click)="onResetClick()" *ngIf="defaultColor">
       {{ 'settings.reset' | translate }}
     </button>

@@ -1,6 +1,6 @@
-import { EventEmitter, Output } from '@angular/core'
+import { EventEmitter, OnInit, Output } from '@angular/core'
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core'
-import { Color, ColorUtils } from '@app/class'
+import { Color, Colors, ColorUtils } from '@app/class'
 
 @Component({
   selector: 'app-color-picker-settings',
@@ -8,7 +8,7 @@ import { Color, ColorUtils } from '@app/class'
   styleUrls: ['./color-picker-settings.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ColorPickerSettingsComponent {
+export class ColorPickerSettingsComponent implements OnInit {
   @Input()
   public color: Color
 
@@ -28,6 +28,12 @@ export class ColorPickerSettingsComponent {
 
   constructor(
   ) {
+  }
+
+  public ngOnInit(): void {
+    if (!this.color) {
+      this.color = this.defaultColor || Colors.white
+    }
   }
 
   public onResetClick(): void {

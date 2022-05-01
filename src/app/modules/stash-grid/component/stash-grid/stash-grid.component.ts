@@ -1,5 +1,6 @@
 import {
     ChangeDetectionStrategy,
+    ChangeDetectorRef,
     Component,
     Input,
     OnChanges,
@@ -8,13 +9,15 @@ import {
     SimpleChanges
 } from '@angular/core'
 import { ColorUtils, EnumValues } from '@app/class'
-import { ShortcutService } from '@app/service/input'
+import { MouseService, ShortcutService } from '@app/service/input'
 import { Rectangle, VisibleFlag } from '@app/type'
+import { environment } from '@env/environment'
 import { StashGridService } from '@shared/module/poe/service/stash-grid/stash-grid.service'
 import {
     StashGridMode, StashGridOptions, StashGridType, StashGridUserSettings, STASH_TAB_CELL_COUNT_MAP
 } from '@shared/module/poe/type/stash-grid.type'
-import { BehaviorSubject, Subscription } from 'rxjs'
+import { BehaviorSubject, of, Subscription } from 'rxjs'
+import { delay, map, tap } from 'rxjs/operators'
 
 const stashGridCompRef = 'stash-grid'
 
@@ -32,53 +35,36 @@ export class StashGridComponent implements OnInit, OnDestroy, OnChanges {
   public readonly ColorUtils = ColorUtils
   public readonly StashGridMode = StashGridMode
 
-  private readonly _stashGridOptions$ = new BehaviorSubject<StashGridOptions>(
-    undefined
-  )
-  public get stashGridOptions$(): BehaviorSubject<StashGridOptions> {
-    return this._stashGridOptions$
-  }
+  public readonly stashGridOptions$ = new BehaviorSubject<StashGridOptions>(undefined)
+
   public visible: boolean
   public gridBounds: Rectangle
   public cellArray: number[]
+  public fontRatio: number
 
   public get settings(): StashGridUserSettings {
     return this.stashGridOptions$.value?.settings || this.globalSettings
   }
 
+  private markedBoundsIndex: number
+
   private stashGridServiceSubscription: Subscription
   private escapeSubscription: Subscription
+  private clickSubscription: Subscription
 
   private stashGridTypes = new EnumValues(StashGridType)
 
   constructor(
+    private readonly ref: ChangeDetectorRef,
     private readonly stashGridService: StashGridService,
-    private readonly shortcutService: ShortcutService
-  ) {}
+    private readonly shortcutService: ShortcutService,
+    private readonly mouse: MouseService,
+  ) {
+  }
 
   public ngOnInit(): void {
     this.stashGridServiceSubscription = this.stashGridService.stashGridOptions$.subscribe(
-      (stashGridOptions) => {
-        if (stashGridOptions) {
-          this.visible = true
-          const cellCount = STASH_TAB_CELL_COUNT_MAP[stashGridOptions.gridType]
-          this.cellArray = this.createArray(cellCount)
-          this.gridBounds = stashGridOptions.gridBounds ??
-            (stashGridOptions.settings || this.globalSettings).stashGridBounds[
-              stashGridOptions.gridType
-            ] ?? {
-              x: 16,
-              y: 134,
-              width: 624,
-              height: 624,
-            }
-          this.enableShortcuts()
-        } else {
-          this.visible = false
-          this.disableShortcuts()
-        }
-        this.stashGridOptions$.next(stashGridOptions)
-      }
+      (stashGridOptions) => this.updateStashGridOptions(stashGridOptions)
     )
   }
 
@@ -91,9 +77,8 @@ export class StashGridComponent implements OnInit, OnDestroy, OnChanges {
   }
 
   public ngOnDestroy(): void {
-    if (this.stashGridServiceSubscription) {
-      this.stashGridServiceSubscription.unsubscribe()
-    }
+    this.stashGridServiceSubscription?.unsubscribe()
+    this.clickSubscription?.unsubscribe()
     if (this.escapeSubscription) {
       this.shortcutService.removeAllByRef(stashGridCompRef)
       this.escapeSubscription.unsubscribe()
@@ -102,6 +87,58 @@ export class StashGridComponent implements OnInit, OnDestroy, OnChanges {
 
   public onResizeDrag(bounds: Rectangle): void {
     // Here as a dummy to enforce bound updates
+  }
+
+  public gridCellClick(event: MouseEvent, colIndex: number, rowIndex: number): void {
+    if (this.clickSubscription || !this.intersectsMarkedBounds(colIndex, rowIndex)) {
+      return
+    }
+    let target = event.target as HTMLElement
+    while (target && !target.classList.contains('gridCell')) {
+      target = target.parentElement
+    }
+    if (!target) {
+      return
+    }
+    // Remove the clickability, move the mouse ever so slightly and then back before triggering a mouse click.
+    // Without the movement, the pass - through click isn't registered properly by the game-client
+    target.classList.remove('clickable')
+    this.clickSubscription = of(null).pipe(
+      map(() => this.mouse.position()),
+      delay(10),
+      tap((point) => this.mouse.move({
+        x: point.x + 1,
+        y: point.y,
+      })),
+      delay(10),
+      tap((point) => this.mouse.move(point)),
+      delay(10),
+      tap(() => this.mouse.click('left')),
+      delay(10),
+      tap(() => {
+        this.markedBoundsIndex++
+        if (this.markedBoundsIndex >= this.stashGridOptions$.value.highlightLocation.bounds.length) {
+          this.stashGridService.nextStashGridInSequence()
+        } else {
+          this.ref.detectChanges()
+        }
+      })
+    ).subscribe(null, null, () => {
+      this.clickSubscription?.unsubscribe()
+      this.clickSubscription = null
+    })
+  }
+
+  public gridCellRightClick(event: MouseEvent, colIndex: number, rowIndex: number): void {
+    if (environment.production || this.clickSubscription || !this.intersectsMarkedBounds(colIndex, rowIndex)) {
+      return
+    }
+    this.markedBoundsIndex++
+    if (this.markedBoundsIndex >= this.stashGridOptions$.value.highlightLocation.bounds.length) {
+      this.stashGridService.nextStashGridInSequence()
+    } else {
+      this.ref.detectChanges()
+    }
   }
 
   public getGridBackgroundColor(highlight: boolean): string {
@@ -114,6 +151,22 @@ export class StashGridComponent implements OnInit, OnDestroy, OnChanges {
     const stashGridColors = this.settings.stashGridColors
     const color = highlight ? stashGridColors.highlightLine : stashGridColors.gridLine
     return ColorUtils.toRGBA(color)
+  }
+
+  public intersectsMarkedBounds(colIndex: number, rowIndex: number): boolean {
+    const highlightLocation = this.stashGridOptions$.value.highlightLocation
+    if (highlightLocation && this.markedBoundsIndex < highlightLocation.bounds.length) {
+      colIndex += 1
+      rowIndex += 1
+      const bounds = highlightLocation.bounds[this.markedBoundsIndex]
+      return (
+        colIndex >= bounds.x &&
+        colIndex < bounds.x + bounds.width &&
+        rowIndex >= bounds.y &&
+        rowIndex < bounds.y + bounds.height
+      )
+    }
+    return false
   }
 
   public intersectsHighlightBounds(colIndex: number, rowIndex: number): boolean {
@@ -138,14 +191,36 @@ export class StashGridComponent implements OnInit, OnDestroy, OnChanges {
   }
 
   public cancelChanges(): void {
-    this.stashGridService.completeStashGridEdit(null)
+    this.stashGridService.cancelStashGridSequence()
   }
 
   public toggleStashGrid(): void {
     const stashGridOptions = this.stashGridOptions$.value
     stashGridOptions.gridType = (stashGridOptions.gridType + 1) % this.stashGridTypes.keys.length
     stashGridOptions.gridBounds = null
-    this.stashGridService.stashGridOptions$.next(stashGridOptions)
+    this.updateStashGridOptions(stashGridOptions)
+  }
+
+  private updateStashGridOptions(stashGridOptions: StashGridOptions): void {
+    if (stashGridOptions) {
+      this.visible = true
+      const cellCount = STASH_TAB_CELL_COUNT_MAP[stashGridOptions.gridType]
+      this.cellArray = this.createArray(cellCount)
+      this.fontRatio = STASH_TAB_CELL_COUNT_MAP[StashGridType.Quad] / cellCount
+      this.gridBounds = stashGridOptions.gridBounds ||
+        (stashGridOptions.settings || this.globalSettings).stashGridBounds[stashGridOptions.gridType] || {
+        x: 16,
+        y: 134,
+        width: 624,
+        height: 624,
+      }
+      this.markedBoundsIndex = 0
+      this.enableShortcuts()
+    } else {
+      this.visible = false
+      this.disableShortcuts()
+    }
+    this.stashGridOptions$.next(stashGridOptions)
   }
 
   private enableShortcuts(): void {

@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core'
 import { EnumValues } from '@app/class'
-import { WindowService } from '@app/service'
+import { AppTranslateService, WindowService } from '@app/service'
 import { UserSettingsComponent } from '@layout/type'
 import { StashGridService } from '@shared/module/poe/service/stash-grid/stash-grid.service'
 import {
@@ -27,15 +27,22 @@ export class StashGridSettingsComponent implements UserSettingsComponent {
   constructor(
     private readonly window: WindowService,
     private readonly stashGridDialogService: StashGridService,
+    private readonly translate: AppTranslateService,
   ) {
     this.window.on('show').subscribe(() => {
       if (this.isShowingStashGrid) {
-        this.stashGridDialogService.editStashGrid(null)
+        this.stashGridDialogService.settingsEditStashGrid(null)
       }
     })
   }
 
   public load(): void { }
+
+  public onResetSettingsClick(): void {
+    if (confirm(this.translate.get("settings.are-you-sure-reset", { featureName: this.translate.get("stash-grid.grid-overlay-colors") }))) {
+      this.settings.stashGridColors = this.defaultSettings.stashGridColors
+    }
+  }
 
   public onEditStashGridClick(gridType: StashGridType): void {
     const options: StashGridOptions = {
@@ -46,7 +53,7 @@ export class StashGridSettingsComponent implements UserSettingsComponent {
     }
     this.isShowingStashGrid = true
     this.window.hide()
-    this.stashGridDialogService.editStashGrid(options).subscribe((stashGridBounds) => {
+    this.stashGridDialogService.settingsEditStashGrid(options).subscribe((stashGridBounds) => {
       this.isShowingStashGrid = false
       if (stashGridBounds) {
         this.settings.stashGridBounds[gridType] = stashGridBounds
@@ -73,7 +80,7 @@ export class StashGridSettingsComponent implements UserSettingsComponent {
     }
     this.isShowingStashGrid = true
     this.window.hide()
-    this.stashGridDialogService.showStashGrid(options).subscribe(() => {
+    this.stashGridDialogService.settingsShowStashGrid(options).subscribe(() => {
       this.isShowingStashGrid = false
       this.window.show()
     })

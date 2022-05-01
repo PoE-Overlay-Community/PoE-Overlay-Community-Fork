@@ -43,6 +43,7 @@ export class StashGridModule implements FeatureModule {
         gridBackground: Colors.transparent,
         highlightLine: Colors.yellow,
         highlightBackground: Colors.transparent,
+        highlightText: Colors.white,
       },
     }
     return {

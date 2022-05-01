@@ -297,14 +297,17 @@ export class TradeNotificationComponent implements OnInit, OnDestroy, OnChanges 
       this.stashGridSubscription = null
       this.stashGridService.hideStashGrid()
     } else {
-      this.stashGridService.getStashGridType(this.notification.itemLocation).subscribe((gridType) => {
+      this.stashGridService.getStashGridTypeByItemLocation(this.notification.itemLocation).subscribe((gridType) => {
         this.stashGridSubscription = this.stashGridService
           .showStashGrid({
             gridMode: StashGridMode.Normal,
             gridType,
-            highlightLocation: this.notification.itemLocation,
+            highlightLocation: {
+              tabName: this.notification.itemLocation.tabName,
+              bounds: [this.notification.itemLocation.bounds]
+            },
           })
-          .subscribe(() => {
+          .subscribe(null, null, () => {
             this.stashGridSubscription.unsubscribe()
             this.stashGridSubscription = null
           })

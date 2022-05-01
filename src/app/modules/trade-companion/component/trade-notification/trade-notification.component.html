@@ -73,7 +73,7 @@
 <ng-template #itemNameTemplate>
   <ng-container [ngSwitch]="notification.type">
     <ng-container *ngSwitchCase="TradeNotificationType.Incoming">
-      <div class="itemName clickable" (click)="toggleItemHighlightClick()" matTooltip="{{ notification.item }} ({{ notification.itemLocation.tabName }} @ {{ notification.itemLocation.bounds[0].x }}, {{ notification.itemLocation.bounds[0].y }})">{{ notification.item }}</div>
+      <div class="itemName clickable" (click)="toggleItemHighlightClick()" matTooltip="{{ notification.item }} ({{ notification.itemLocation.tabName }} @ {{ notification.itemLocation.bounds.x }}, {{ notification.itemLocation.bounds.y }})">{{ notification.item }}</div>
     </ng-container>
     <ng-container *ngSwitchCase="TradeNotificationType.Outgoing">
       <div class="itemName" matTooltip="{{ notification.item }}">{{ notification.item }}</div>

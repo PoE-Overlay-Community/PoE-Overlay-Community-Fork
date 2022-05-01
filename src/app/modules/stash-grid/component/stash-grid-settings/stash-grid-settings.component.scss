@@ -13,3 +13,11 @@ app-card {
     }
   }
 }
+
+::ng-deep {
+  .color-picker-settings {
+    button {
+      background-color: $settings-grey-one;
+    }
+  }
+}

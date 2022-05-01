@@ -103,13 +103,15 @@ export class StashProvider {
             baseItemTypeName: apiStashItem.baseType,
             rarity: ITEM_FRAME_TO_RARITY_MAPPING[apiStashItem.frameType],
             itemLevel: apiStashItem.ilvl,
-            stashTabId: stashTab.name,
-            stashLocation: {
-              x: apiStashItem.x,
-              y: apiStashItem.y,
-              width: apiStashItem.w,
-              height: apiStashItem.h,
-            }
+            itemLocation: {
+              tabName: stashTab.name,
+              bounds: {
+                x: apiStashItem.x + 1,  // +1 to accommodate for the 1-based stash grid indexation
+                y: apiStashItem.y + 1,  // +1 to accommodate for the 1-based stash grid indexation
+                width: apiStashItem.w,
+                height: apiStashItem.h,
+              },
+            },
           }
           return result
         })

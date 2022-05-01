@@ -32,6 +32,10 @@ export abstract class ColorUtils {
   }
 
   public static toRGBA(color: Color): string {
+    if (!color) {
+      console.log(`[Color] toRGBA input color is invalid! (using backup color)\n${(new Error()).stack}`)
+      color = Colors.magenta
+    }
     if (color.a === 1) {
       return `rgb(${color.r},${color.g},${color.b})`
     } else {
@@ -70,6 +74,9 @@ export abstract class Colors {
   }
   public static get yellow(): Color {
     return ColorUtils.create(255, 255, 0)
+  }
+  public static get white(): Color {
+    return ColorUtils.create(255, 255, 255)
   }
   public static get black(): Color {
     return ColorUtils.create(0, 0, 0)

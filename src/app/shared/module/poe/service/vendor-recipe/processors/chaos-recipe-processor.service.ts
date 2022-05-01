@@ -185,12 +185,13 @@ export class ChaosRecipeProcessorService implements ItemSetRecipeProcessor {
 
   private expandItem(stashItem: PoEStashTabItem): ExpandedStashItem {
     const baseItemType = this.baseItemTypeService.search(stashItem.baseItemTypeName)
+    const bounds = stashItem.itemLocation.bounds
     return {
       ...stashItem,
       baseItemTypeId: baseItemType.id,
       baseItemType: baseItemType.baseItemType,
-      calcX: stashItem.stashLocation.x + stashItem.stashLocation.width / 2,
-      calcY: stashItem.stashLocation.y + stashItem.stashLocation.height / 2,
+      calcX: bounds.x + bounds.width / 2,
+      calcY: bounds.y + bounds.height / 2,
       itemSetGroup: CategoryMapping[baseItemType.baseItemType.category]
     }
   }
@@ -209,7 +210,7 @@ export class ChaosRecipeProcessorService implements ItemSetRecipeProcessor {
   private getPos(item: ExpandedStashItem): { tab: string, x: number, y: number } {
     if (item) {
       return {
-        tab: item.stashTabId,
+        tab: item.itemLocation.tabName,
         x: item.calcX,
         y: item.calcY,
       }

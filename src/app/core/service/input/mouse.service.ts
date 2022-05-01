@@ -17,6 +17,10 @@ export class MouseService {
     this.ipcRenderer.sendSync('click-at', button, position)
   }
 
+  public move(position: Point): void {
+    this.ipcRenderer.sendSync('move-to', position)
+  }
+
   public position(): Point {
     return this.ipcRenderer.sendSync('mouse-pos')
   }

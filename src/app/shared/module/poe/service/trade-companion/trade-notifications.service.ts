@@ -334,12 +334,12 @@ export class TradeNotificationsService {
         },
         itemLocation: {
           tabName: tradeGroups.stash,
-          bounds: [{
+          bounds: {
             x: MathUtils.clamp(+tradeGroups.left, 1, MAX_STASH_SIZE),
             y: MathUtils.clamp(+tradeGroups.top, 1, MAX_STASH_SIZE),
             width: baseItemType?.width ?? 1,
             height: baseItemType?.height ?? 1,
-          }],
+          },
         },
         offer: tradeGroups.message,
       }

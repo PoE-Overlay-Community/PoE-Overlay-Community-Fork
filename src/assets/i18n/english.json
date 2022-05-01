@@ -334,8 +334,10 @@
     "grid-line-color": "Grid Line Color",
     "grid-outline-color": "Grid Outline Color",
     "grid-overlay": "Stash Grid Overlay",
+    "grid-overlay-colors": "Stash Grid Overlay Colors",
     "highlight-background-color": "Highlight Background Color",
     "highlight-line-color": "Highlight Line Color",
+    "highlight-text-color": "Highlight Text Color",
     "name": "Stash Grid",
     "ok": "Ok",
     "preview": {

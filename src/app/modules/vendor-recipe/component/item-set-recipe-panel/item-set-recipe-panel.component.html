@@ -1,6 +1,6 @@
 <div class="item-set-recipe-panel">
   <div class="item-set-icons">
-    <div class="item-set-icon recipes-count">{{ itemSetProcessResult?.recipes.length || 0 }}</div>
+    <div class="item-set-icon recipes-count clickable" (click)="onRecipesCountClick()">{{ itemSetProcessResult?.recipes.length || 0 }}</div>
     <ng-template ngFor let-itemSet [ngForOf]="itemSets">
       <div class="item-set-icon {{ itemSet.itemGroupColorName }}"
            [style]="'background-color: ' + ColorUtils.toRGBA(itemSet.itemGroupColor.color) + ';'"
