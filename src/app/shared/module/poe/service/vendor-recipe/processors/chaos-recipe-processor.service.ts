@@ -119,12 +119,19 @@ export class ChaosRecipeProcessorService implements ItemSetRecipeProcessor {
           break
         }
         // Attempt to find an item, prioritizing chaos items first
-        let item = this.takeItem(hasChaosItem ? chaosRecipeFillerCandidates : chaosRecipeCandidates, group, lastItem)
-        if (!item && hasChaosItem && settings.fillGreedy) {
-          // Attempt to find an chaos-item to greedily fill this group
-          item = this.takeItem(chaosRecipeCandidates, group, lastItem)
+        const candidates = [...(hasChaosItem ? chaosRecipeFillerCandidates : chaosRecipeCandidates)]
+        if (hasChaosItem && settings.fillGreedy) {
+        // Attempt to find a chaos-item to greedily fill this group
+          candidates.push(...chaosRecipeCandidates)
         }
+        const item = this.takeItem(candidates, group, lastItem)
         if (item) {
+          const itemIndex = chaosRecipeCandidates.indexOf(item)
+          if (itemIndex === -1) {
+            chaosRecipeFillerCandidates.splice(chaosRecipeFillerCandidates.indexOf(item), 1)
+          } else {
+            chaosRecipeCandidates.splice(itemIndex, 1)
+          }
           hasChaosItem = hasChaosItem || item.itemLevel < 75
           items.push(item)
           lastItem = item
@@ -173,11 +180,7 @@ export class ChaosRecipeProcessorService implements ItemSetRecipeProcessor {
       .filter((x) => group.findIndex((y) => y === x.itemSetGroup) !== -1)
       .map((x) => ({ distance: this.calcDistance(lastItem, x), item: x }))
       .sort((a, b) => a.distance - b.distance)
-    const item = candidates[0]?.item
-    if (item) {
-      items.splice(items.indexOf(item), 1)
-    }
-    return item
+    return candidates[0]?.item
   }
 
   private expandItem(stashItem: PoEStashTabItem): ExpandedStashItem {
