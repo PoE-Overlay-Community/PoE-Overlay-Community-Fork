@@ -206,7 +206,7 @@ export class ItemSetRecipePanelComponent implements OnInit, OnDestroy, OnChanges
                     }
                   }
                   return false
-                }).item as StashGridOptions
+                })?.item as StashGridOptions
                 if (!stashGridOption) {
                   const stashGridType = stashGridTypes[uniqueStashTabs.findIndex(x => x.tabName === stashTabName)]
                   items.push({

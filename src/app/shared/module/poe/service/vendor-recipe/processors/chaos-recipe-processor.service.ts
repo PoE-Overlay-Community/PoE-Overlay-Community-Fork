@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { EnumValues } from '@app/class';
 import { BaseItemTypesService } from '@shared/module/poe/service/base-item-types/base-item-types.service';
-import { BaseItemType, ItemCategory, ItemLevelBasedItemSetRecipeUserSettings, ItemRarity, ItemSetGroup, ItemSetGroupCount, ItemSetProcessResult, ItemSetRecipeProcessor, ItemSetRecipeUserSettings, PoEStashTabItem, VendorRecipeType } from '@shared/module/poe/type';
+import { BaseItemType, ItemCategory, ItemLevelBasedItemSetRecipeUserSettings, ItemRarity, ItemSetGroup, ItemSetGroupCount, ItemSetProcessResult, ItemSetRecipeProcessor, ItemSetRecipeUserSettings, PoEStashTabItem, RecipeHighlightOrder, VendorRecipeType } from '@shared/module/poe/type';
 
 interface ExpandedStashItem extends PoEStashTabItem {
   baseItemTypeId: string
@@ -12,8 +12,8 @@ interface ExpandedStashItem extends PoEStashTabItem {
 }
 
 const DefaultRecipeCategoryOrder = [
-  [ItemSetGroup.Chests],
   [ItemSetGroup.TwoHandedWeapons],
+  [ItemSetGroup.Chests],
   [ItemSetGroup.OneHandedWeapons, ItemSetGroup.OneHandedWeapons],
   [ItemSetGroup.Helmets, ItemSetGroup.Gloves, ItemSetGroup.Boots],
   [ItemSetGroup.Belts],
@@ -105,9 +105,26 @@ export class ChaosRecipeProcessorService implements ItemSetRecipeProcessor {
       x.itemLevel >= 75
     )
 
+    // Determine the empty slots ordering (based on settings)
+    let defaultEmptySlots: ItemSetGroup[][]
+    switch (settings.highlightOrder) {
+      case RecipeHighlightOrder.LargeToSmall:
+        defaultEmptySlots = DefaultRecipeCategoryOrder
+        break
+
+      case RecipeHighlightOrder.SmallToLarge:
+        defaultEmptySlots = [...DefaultRecipeCategoryOrder].reverse()
+        break
+
+      case RecipeHighlightOrder.ShortestDistance:
+        defaultEmptySlots = [[]]
+        DefaultRecipeCategoryOrder.forEach(x => x.forEach(y => defaultEmptySlots[0].push(y)))
+        break
+    }
+
     // Find all chaos recipes
     while (result.recipes.length < settings.fullSetThreshold) {
-      const emptySlots = DefaultRecipeCategoryOrder.map(x => [...x])
+      const emptySlots = defaultEmptySlots.map(x => [...x])
 
       const items: ExpandedStashItem[] = []
       let hasChaosItem = false
@@ -121,7 +138,7 @@ export class ChaosRecipeProcessorService implements ItemSetRecipeProcessor {
         // Attempt to find an item, prioritizing chaos items first
         const candidates = [...(hasChaosItem ? chaosRecipeFillerCandidates : chaosRecipeCandidates)]
         if (hasChaosItem && settings.fillGreedy) {
-        // Attempt to find a chaos-item to greedily fill this group
+          // Attempt to find a chaos-item to greedily fill this group
           candidates.push(...chaosRecipeCandidates)
         }
         const item = this.takeItem(candidates, group, lastItem)
