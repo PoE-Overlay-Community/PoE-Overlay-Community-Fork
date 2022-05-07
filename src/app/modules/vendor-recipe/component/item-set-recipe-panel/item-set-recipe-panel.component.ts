@@ -1,17 +1,16 @@
-import { OnChanges, SimpleChanges } from '@angular/core'
+import { EventEmitter, Output } from '@angular/core'
 import {
-  ChangeDetectionStrategy, Component, Input, OnDestroy,
-  OnInit
+    ChangeDetectionStrategy, Component, Input, OnChanges, OnDestroy,
+    OnInit, SimpleChanges
 } from '@angular/core'
 import { ColorUtils, EnumValues } from '@app/class'
+import { CurrenciesProvider } from '@shared/module/poe/provider/currency/currencies.provider'
 import { StashService } from '@shared/module/poe/service'
 import { StashGridService } from '@shared/module/poe/service/stash-grid/stash-grid.service'
-import { AudioClipSettings, ItemGroupColor, ItemSetGroup, ItemSetProcessResult, ItemSetRecipeUserSettings, RecipeHighlightMode } from '@shared/module/poe/type'
-import { StashGridMode, StashGridOptions, StashGridUserSettings, TradeItemLocations } from '@shared/module/poe/type/stash-grid.type'
-import { forkJoin, of } from 'rxjs'
-import { BehaviorSubject, Subscription } from 'rxjs'
-import { concatAll, delay, tap, throttleTime } from 'rxjs/operators'
-import { ofType } from '../../../../core/function'
+import { AudioClipSettings, Currency, ItemGroupColor, ItemSetGroup, ItemSetProcessResult, ItemSetRecipeUserSettings, RecipeHighlightMode, VendorRecipeUserSettings } from '@shared/module/poe/type'
+import { StashGridMode, StashGridOptions, TradeItemLocations } from '@shared/module/poe/type/stash-grid.type'
+import { BehaviorSubject, forkJoin, Subscription } from 'rxjs'
+import { delay, throttleTime } from 'rxjs/operators'
 
 interface RecipeQueueItem {
   type: RecipeQueueItemType
@@ -31,12 +30,38 @@ enum RecipeQueueItemType {
 })
 export class ItemSetRecipePanelComponent implements OnInit, OnDestroy, OnChanges {
   @Input()
+  public globalSettings: VendorRecipeUserSettings
+
+  @Input()
   public settings: ItemSetRecipeUserSettings
 
   @Input()
   public itemSetProcessResult: ItemSetProcessResult
 
+  @Output()
+  public recipeTypeScroll = new EventEmitter<WheelEvent>();
+
+  public showRecipeCountScrollArrows = false
+
   public readonly stashTabContentPeriodicUpdateActiveChanged$ = new BehaviorSubject<boolean>(false)
+
+  public readonly currencies$ = new BehaviorSubject<Currency[]>([])
+
+  public get recipeCountLargeBGImage(): string {
+    const icon = this.currencies$.value?.find(x => x.id === this.settings.largeIconId)
+    if (icon) {
+      return 'url(https://web.poecdn.com' + icon.image + ')'
+    }
+    return ''
+  }
+
+  public get recipeCountSmallBGImage(): string {
+    const icon = this.currencies$.value?.find(x => x.id === this.settings.smallIconId)
+    if (icon) {
+      return 'url(https://web.poecdn.com' + icon.image + ')'
+    }
+    return ''
+  }
 
   public itemSetGroups = new EnumValues(ItemSetGroup)
 
@@ -61,6 +86,7 @@ export class ItemSetRecipePanelComponent implements OnInit, OnDestroy, OnChanges
   constructor(
     private readonly stashService: StashService,
     private readonly stashGridService: StashGridService,
+    private readonly currenciesProvider: CurrenciesProvider
   ) {
     this.stashSub = this.stashService.stashTabContentPeriodicUpdateActiveChanged$.pipe(
       throttleTime(2000, undefined, { leading: true, trailing: true }),
@@ -68,6 +94,7 @@ export class ItemSetRecipePanelComponent implements OnInit, OnDestroy, OnChanges
   }
 
   public ngOnInit(): void {
+    this.updateCurrencies()
   }
 
   public ngOnDestroy(): void {
@@ -89,6 +116,8 @@ export class ItemSetRecipePanelComponent implements OnInit, OnDestroy, OnChanges
         this.recipeCompleteAudioClip.remove()
         this.recipeCompleteAudioClip = null
       }
+
+      this.updateCurrencies()
     }
   }
 
@@ -142,16 +171,18 @@ export class ItemSetRecipePanelComponent implements OnInit, OnDestroy, OnChanges
               recipe.items.forEach(item => {
                 const stashTabName = item.itemLocation.tabName
                 const stashGridType = stashGridTypes[uniqueStashTabs.findIndex(x => x.tabName === stashTabName)]
+                const stashGridOptions: StashGridOptions = {
+                  gridMode: StashGridMode.Normal,
+                  gridType: stashGridType,
+                  highlightLocation: {
+                    tabName: stashTabName,
+                    bounds: [item.itemLocation.bounds]
+                  },
+                  autoClose: true,
+                }
                 items.push({
                   type: RecipeQueueItemType.StashGrid,
-                  item: {
-                    gridMode: StashGridMode.Normal,
-                    gridType: stashGridType,
-                    highlightLocation: {
-                      tabName: stashTabName,
-                      bounds: [item.itemLocation.bounds]
-                    },
-                  },
+                  item: stashGridOptions,
                 })
               })
               items.push({
@@ -169,19 +200,19 @@ export class ItemSetRecipePanelComponent implements OnInit, OnDestroy, OnChanges
                 const stashGridOption = setStashOptions.find(x => x.highlightLocation.tabName == stashTabName)
                 if (!stashGridOption) {
                   const stashGridType = stashGridTypes[uniqueStashTabs.findIndex(x => x.tabName === stashTabName)]
-                  const newStashGridOption = {
-                    identifier: Date.now().toString(),
+                  const stashGridOptions: StashGridOptions = {
                     gridMode: StashGridMode.Normal,
                     gridType: stashGridType,
                     highlightLocation: {
                       tabName: stashTabName,
                       bounds: [item.itemLocation.bounds]
-                    }
+                    },
+                    autoClose: true,
                   }
-                  setStashOptions.push(newStashGridOption)
+                  setStashOptions.push(stashGridOptions)
                   items.push({
                     type: RecipeQueueItemType.StashGrid,
-                    item: newStashGridOption,
+                    item: stashGridOptions,
                   })
                 } else {
                   stashGridOption.highlightLocation.bounds.push(item.itemLocation.bounds)
@@ -209,17 +240,19 @@ export class ItemSetRecipePanelComponent implements OnInit, OnDestroy, OnChanges
                 })?.item as StashGridOptions
                 if (!stashGridOption) {
                   const stashGridType = stashGridTypes[uniqueStashTabs.findIndex(x => x.tabName === stashTabName)]
+                  const stashGridOptions: StashGridOptions = {
+                    gridMode: StashGridMode.Normal,
+                    gridType: stashGridType,
+                    highlightLocation: {
+                      tabName: stashTabName,
+                      bounds: [item.itemLocation.bounds]
+                    },
+                    autoClose: true,
+                  }
                   items.push({
-                      type: RecipeQueueItemType.StashGrid,
-                      item: {
-                        gridMode: StashGridMode.Normal,
-                        gridType: stashGridType,
-                        highlightLocation: {
-                          tabName: stashTabName,
-                          bounds: [item.itemLocation.bounds]
-                        },
-                      },
-                    })
+                    type: RecipeQueueItemType.StashGrid,
+                    item: stashGridOptions,
+                  })
                 } else {
                   stashGridOption.highlightLocation.bounds.push(item.itemLocation.bounds)
                 }
@@ -269,5 +302,11 @@ export class ItemSetRecipePanelComponent implements OnInit, OnDestroy, OnChanges
         showStashGrid(items[index])
       })
     }
+  }
+
+  private updateCurrencies(): void {
+    this.currenciesProvider.provide(this.globalSettings.language).subscribe((currencies) => {
+      this.currencies$.next(currencies.filter(x => x.image))
+    })
   }
 }

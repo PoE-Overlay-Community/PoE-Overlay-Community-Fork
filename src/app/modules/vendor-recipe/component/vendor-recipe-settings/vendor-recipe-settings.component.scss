@@ -32,3 +32,18 @@ label {
     }
   }
 }
+
+.draggable {
+  display: block;
+}
+
+.drag-handle {
+  cursor: move;
+}
+
+.placeholder {
+  background: $settings-grey-one;
+  border: dotted 3px $settings-grey-three;
+  min-height: 68px;
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}

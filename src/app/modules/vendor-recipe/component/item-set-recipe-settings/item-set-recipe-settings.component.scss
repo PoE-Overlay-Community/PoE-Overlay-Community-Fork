@@ -1,5 +1,46 @@
 @import './../../../../../styles/variables';
 
+.hidden {
+  display: none;
+}
+
+.title {
+  margin-bottom: 12px;
+  cursor: pointer;
+}
+
+.title > mat-icon {
+  vertical-align: text-bottom;
+}
+
+.recipe-count-large-icon, .recipe-count-small-icon {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-blend-mode: overlay;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.recipe-count-large-icon {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: relative;
+  width: 20px;
+  height: 20px;
+  display: inline-flex;
+  top: 4px;
+}
+
+.recipe-count-small-icon {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  width: 50%;
+  height: 50%;
+}
+
 .item-set-icon-preview {
   width: 32px;
   height: 32px;
@@ -7,6 +48,16 @@
   position: absolute;
   top: 5px;
   right: 5px;
+}
+
+.currency {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+}
+
+.currency-label {
+  margin-left: 25px;
 }
 
 app-card {

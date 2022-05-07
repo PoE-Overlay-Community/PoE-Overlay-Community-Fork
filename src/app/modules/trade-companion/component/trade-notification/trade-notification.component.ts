@@ -306,6 +306,7 @@ export class TradeNotificationComponent implements OnInit, OnDestroy, OnChanges 
               tabName: this.notification.itemLocation.tabName,
               bounds: [this.notification.itemLocation.bounds]
             },
+            autoClose: false,
           })
           .subscribe(null, null, () => {
             this.stashGridSubscription.unsubscribe()

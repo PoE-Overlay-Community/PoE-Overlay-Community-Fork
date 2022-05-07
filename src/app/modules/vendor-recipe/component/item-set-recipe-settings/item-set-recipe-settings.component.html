@@ -1,10 +1,75 @@
-<app-card [title]="title">
+<app-card>
   <div class="row">
-    <div class="col-3">
+    <div class="col-3" (click)="collapsed = !collapsed">
+      <div class="title">
+        <mat-icon>{{ collapsed ? 'keyboard_arrow_down' : 'keyboard_arrow_up' }}</mat-icon>
+        {{ (identifier + 1) }}.
+        <div class="recipe-count-large-icon" [style.background-image]="getIconBackgroundImage(selectedLargeIcon)" *ngIf="selectedLargeIcon || selectedSmallIcon">
+          <div class="recipe-count-small-icon" [style.background-image]="getIconBackgroundImage(selectedSmallIcon)"></div>
+        </div>
+        {{ 'vendor-recipe.item-set-settings.title.' + (VendorRecipeType[settings.type] | lowercase) | translate }}
+      </div>
+    </div>
+    <div class="col-2">
       <mat-slide-toggle [checked]="settings.enabled" (change)="settings.enabled = $event.checked">
         {{ 'settings.enabled' | translate }}
       </mat-slide-toggle>
     </div>
+    <ng-content select="[slot=drag-handle]"></ng-content>
+    <div class="col-1 text-right">
+      <button mat-raised-button (click)="onResetSettingsClick()">
+        {{ 'vendor-recipe.item-set-panel.reset' | translate }}
+      </button>
+    </div>
+    <div class="col-1 text-right">
+      <button mat-icon-button (click)="remove.emit()">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+  </div>
+  <div class="row" [class.hidden]="collapsed || !settings.enabled">
+    <div class="col-3">
+      <mat-form-field matTooltip="{{ 'vendor-recipe.item-set-settings.large-icon-tooltip' | translate }}">
+        <mat-label>{{ 'vendor-recipe.item-set-settings.large-icon' | translate }}</mat-label>
+        <mat-select [(value)]="settings.largeIconId">
+          <mat-select-trigger>
+            <ng-container *ngIf="selectedLargeIcon">
+              <img [src]="'https://web.poecdn.com' + selectedLargeIcon.image" class="currency" style="top: -5px;" />
+              <span class="currency-label">{{ selectedLargeIcon.nameType }}</span>
+            </ng-container>
+          </mat-select-trigger>
+          <mat-option [value]="">
+            <i>No Icon</i>
+          </mat-option>
+          <mat-option *ngFor="let currency of currencies$ | async" [value]="currency.id">
+            <img [src]="'https://web.poecdn.com' + currency.image" class="currency" style="top: 10px;" />
+            <span class="currency-label">{{ currency.nameType }}</span>
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-3">
+      <mat-form-field matTooltip="{{ 'vendor-recipe.item-set-settings.small-icon-tooltip' | translate }}">
+        <mat-label>{{ 'vendor-recipe.item-set-settings.small-icon' | translate }}</mat-label>
+        <mat-select [(value)]="settings.smallIconId">
+          <mat-select-trigger>
+            <ng-container *ngIf="selectedSmallIcon">
+              <img [src]="'https://web.poecdn.com' + selectedSmallIcon.image" class="currency" style="top: -5px;" />
+              <span class="currency-label">{{ selectedSmallIcon.nameType }}</span>
+            </ng-container>
+          </mat-select-trigger>
+          <mat-option [value]="">
+            <i>No Icon</i>
+          </mat-option>
+          <mat-option *ngFor="let currency of currencies$ | async" [value]="currency.id">
+            <img [src]="'https://web.poecdn.com' + currency.image" class="currency" style="top: 10px;" />
+            <span class="currency-label">{{ currency.nameType }}</span>
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row" [class.hidden]="collapsed || !settings.enabled">
     <div class="col-2">
       <mat-form-field>
         <mat-label>{{ 'vendor-recipe.item-set-settings.item-threshold' | translate }}</mat-label>
@@ -34,25 +99,55 @@
         {{ 'vendor-recipe.item-set-settings.show-item-amounts' | translate }}
       </mat-slide-toggle>
     </div>
-    <div class="col-2 text-right">
-      <button mat-raised-button (click)="onResetSettingsClick()">
-        {{ 'vendor-recipe.item-set-panel.reset' | translate }}
-      </button>
+    <div class="col-2">
+      <mat-form-field>
+        <mat-label>{{ 'vendor-recipe.item-set-settings.highlight-mode' | translate }}</mat-label>
+        <mat-select [(value)]="settings.highlightMode">
+          <mat-option *ngFor="let highlightMode of highlightModes.keys" [value]="highlightMode" matTooltip="{{ 'vendor-recipe.item-set-settings.highlight-mode-tooltips.' + (highlightModes.values[highlightMode] | lowercase) | translate }}" matTooltipClass="mat-tooltip-lighter" matTooltipPosition="left">
+            {{ 'vendor-recipe.item-set-settings.highlight-modes.' + (highlightModes.values[highlightMode] | lowercase) | translate }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-2">
+      <mat-form-field>
+        <mat-label>{{ 'vendor-recipe.item-set-settings.highlight-order' | translate }}</mat-label>
+        <mat-select [(value)]="settings.highlightOrder">
+          <mat-option *ngFor="let highlightOrder of highlightOrders.keys" [value]="highlightOrder" matTooltip="{{ 'vendor-recipe.item-set-settings.highlight-order-tooltips.' + (highlightOrders.values[highlightOrder] | lowercase) | translate }}" matTooltipClass="mat-tooltip-lighter" matTooltipPosition="left">
+            {{ 'vendor-recipe.item-set-settings.highlight-orders.' + (highlightOrders.values[highlightOrder] | lowercase) | translate }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
     </div>
   </div>
-  <div class="row" *ngIf="isItemLevelBasedItemSetSettings(settings)">
-    <div class="col-3">
-      <mat-slide-toggle [checked]="settings.fillGreedy" (change)="settings.fillGreedy = $event.checked" matTooltip="{{ 'vendor-recipe.item-set-settings.fill-greedy-tooltip' | translate }}">
+  <div class="row" [class.hidden]="collapsed || !settings.enabled">
+    <div class="col-3" *ngIf="settings.type === VendorRecipeType.Chaos">
+      <mat-slide-toggle [checked]="levelBasedSettings.fillGreedy" (change)="levelBasedSettings.fillGreedy = $event.checked" matTooltip="{{ 'vendor-recipe.item-set-settings.fill-greedy-tooltip' | translate }}">
         {{ 'vendor-recipe.item-set-settings.fill-greedy' | translate }}
       </mat-slide-toggle>
     </div>
     <div class="col-3">
-      <mat-slide-toggle [checked]="settings.separateQualityItems" (change)="settings.separateQualityItems = $event.checked" matTooltip="{{ 'vendor-recipe.item-set-settings.separate-quality-items-tooltip' | translate }}">
-        {{ 'vendor-recipe.item-set-settings.separate-quality-items' | translate }}
-      </mat-slide-toggle>
+      <mat-form-field>
+        <mat-label>{{ 'vendor-recipe.item-set-settings.identified-item-usage' | translate }}</mat-label>
+        <mat-select [(value)]="settings.identifiedItemUsage">
+          <mat-option *ngFor="let itemUsageType of itemUsageTypes.keys" [value]="itemUsageType" matTooltip="{{ 'vendor-recipe.item-set-settings.identified-item-usage-tooltips.' + (itemUsageTypes.values[itemUsageType] | lowercase) | translate }}" matTooltipClass="mat-tooltip-lighter" matTooltipPosition="left">
+            {{ 'vendor-recipe.item-set-settings.item-usage.' + (itemUsageTypes.values[itemUsageType] | lowercase) | translate }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-3">
+      <mat-form-field>
+        <mat-label>{{ 'vendor-recipe.item-set-settings.quality-item-usage' | translate }}</mat-label>
+        <mat-select [(value)]="settings.qualityItemUsage">
+          <mat-option *ngFor="let itemUsageType of itemUsageTypes.keys" [value]="itemUsageType" matTooltip="{{ 'vendor-recipe.item-set-settings.quality-item-usage-tooltips.' + (itemUsageTypes.values[itemUsageType] | lowercase) | translate }}" matTooltipClass="mat-tooltip-lighter" matTooltipPosition="left">
+            {{ 'vendor-recipe.item-set-settings.item-usage.' + (itemUsageTypes.values[itemUsageType] | lowercase) | translate }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
     </div>
   </div>
-  <div class="row">
+  <div class="row" [class.hidden]="collapsed || !settings.enabled">
     <div class="col-3">
       <mat-form-field>
         <mat-label>{{ 'vendor-recipe.item-set-settings.stash-tab-search-mode' | translate }}</mat-label>
@@ -70,29 +165,7 @@
       </mat-form-field>
     </div>
   </div>
-  <div class="row">
-    <div class="col-3">
-      <mat-form-field>
-        <mat-label>{{ 'vendor-recipe.item-set-settings.highlight-mode' | translate }}</mat-label>
-        <mat-select [(value)]="settings.highlightMode">
-          <mat-option *ngFor="let highlightMode of highlightModes.keys" [value]="highlightMode" matTooltip="{{ 'vendor-recipe.item-set-settings.highlight-mode-tooltips.' + (highlightModes.values[highlightMode] | lowercase) | translate }}" matTooltipClass="mat-tooltip-lighter" matTooltipPosition="left">
-            {{ 'vendor-recipe.item-set-settings.highlight-modes.' + (highlightModes.values[highlightMode] | lowercase) | translate }}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-    </div>
-    <div class="col-3">
-      <mat-form-field>
-        <mat-label>{{ 'vendor-recipe.item-set-settings.highlight-order' | translate }}</mat-label>
-        <mat-select [(value)]="settings.highlightOrder">
-          <mat-option *ngFor="let highlightOrder of highlightOrders.keys" [value]="highlightOrder" matTooltip="{{ 'vendor-recipe.item-set-settings.highlight-order-tooltips.' + (highlightOrders.values[highlightOrder] | lowercase) | translate }}" matTooltipClass="mat-tooltip-lighter" matTooltipPosition="left">
-            {{ 'vendor-recipe.item-set-settings.highlight-orders.' + (highlightOrders.values[highlightOrder] | lowercase) | translate }}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-    </div>
-  </div>
-  <mat-card class="card">
+  <mat-card class="card" [class.hidden]="collapsed || !settings.enabled">
     <mat-label>{{ 'vendor-recipe.item-set-settings.item-set-groups' | translate }}</mat-label>
     <div class="row">
       <div class="col-3">
@@ -139,7 +212,7 @@
       </div>
     </div>
   </mat-card>
-  <mat-card class="card">
+  <mat-card class="card" [class.hidden]="collapsed || !settings.enabled">
     <mat-label>{{ 'settings.audio-options' | translate }}</mat-label>
     <div class="row">
       <app-audio-clip-settings class="col-md-4 subcard" [settings]="settings.recipeCompleteAudio" [title]="'vendor-recipe.item-set-settings.audio.recipe-complete' | translate"></app-audio-clip-settings>

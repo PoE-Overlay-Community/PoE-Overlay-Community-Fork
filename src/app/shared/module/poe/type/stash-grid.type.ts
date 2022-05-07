@@ -33,6 +33,7 @@ export interface StashGridOptions {
   gridType: StashGridType
   gridBounds?: Rectangle
   highlightLocation?: TradeItemLocations
+  autoClose?: boolean
   settings?: StashGridUserSettings    // Can be used to preview settings from within the settings window without applying them first
 }
 

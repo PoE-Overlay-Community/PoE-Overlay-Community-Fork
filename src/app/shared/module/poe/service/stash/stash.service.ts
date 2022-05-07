@@ -120,6 +120,9 @@ export class StashService {
   }
 
   public getStashTabContents(stashTabs: PoEStashTab[], cacheExpiration?: CacheExpirationType): Observable<PoEStashTabItem[]> {
+    if (stashTabs.length === 0) {
+      return of([])
+    }
     const account = this.accountService.get()
     if (account.loggedIn) {
       const context = this.context.get()
@@ -212,7 +215,7 @@ export class StashService {
     }
   }
 
-  private periodicStashContentUpdate(cacheExpiration?: CacheExpirationType) {
+  private periodicStashContentUpdate(cacheExpiration?: CacheExpirationType): void {
     this.stashTabContentPeriodicUpdateActiveChanged$.next(true)
     const account = this.accountService.get()
     if (account.loggedIn) {

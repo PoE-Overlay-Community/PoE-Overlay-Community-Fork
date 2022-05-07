@@ -117,8 +117,15 @@ export class StashGridComponent implements OnInit, OnDestroy, OnChanges {
       delay(10),
       tap(() => {
         this.markedBoundsIndex++
-        if (this.markedBoundsIndex >= this.stashGridOptions$.value.highlightLocation.bounds.length) {
-          this.stashGridService.nextStashGridInSequence()
+        const stashGridOptions = this.stashGridOptions$.value
+        const totalHighlightLocations = stashGridOptions.highlightLocation.bounds.length
+        if (this.markedBoundsIndex >= totalHighlightLocations) {
+          if (stashGridOptions.autoClose) {
+            this.stashGridService.nextStashGridInSequence()
+          } else {
+            this.markedBoundsIndex = totalHighlightLocations - 1
+            this.ref.detectChanges()
+          }
         } else {
           this.ref.detectChanges()
         }
@@ -134,8 +141,15 @@ export class StashGridComponent implements OnInit, OnDestroy, OnChanges {
       return
     }
     this.markedBoundsIndex++
-    if (this.markedBoundsIndex >= this.stashGridOptions$.value.highlightLocation.bounds.length) {
-      this.stashGridService.nextStashGridInSequence()
+    const stashGridOptions = this.stashGridOptions$.value
+    const totalHighlightLocations = stashGridOptions.highlightLocation.bounds.length
+    if (this.markedBoundsIndex >= totalHighlightLocations) {
+      if (stashGridOptions.autoClose) {
+        this.stashGridService.nextStashGridInSequence()
+      } else {
+        this.markedBoundsIndex = totalHighlightLocations - 1
+        this.ref.detectChanges()
+      }
     } else {
       this.ref.detectChanges()
     }

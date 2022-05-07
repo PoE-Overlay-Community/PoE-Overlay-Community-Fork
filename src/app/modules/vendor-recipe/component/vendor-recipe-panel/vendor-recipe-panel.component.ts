@@ -22,7 +22,7 @@ import { StashService } from '../../../../shared/module/poe/service'
   styleUrls: ['./vendor-recipe-panel.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class VendorRecipePanelComponent implements OnInit, AfterViewInit, OnDestroy, OnChanges {
+export class VendorRecipePanelComponent implements OnInit, AfterViewInit, OnDestroy {
   @Input()
   public settings: VendorRecipeUserSettings
 
@@ -31,6 +31,10 @@ export class VendorRecipePanelComponent implements OnInit, AfterViewInit, OnDest
 
   @Output()
   public openSettings = new EventEmitter<void>()
+
+  public get enabled(): boolean {
+    return this.settings.vendorRecipeItemSetPanelSettings.enabled && this.settings.vendorRecipeItemSetSettings.some(x => x.enabled)
+  }
 
   public optionsHovered = false
   public optionsDowned = false
@@ -45,25 +49,16 @@ export class VendorRecipePanelComponent implements OnInit, AfterViewInit, OnDest
   public readonly lastItemSetResult$ = new BehaviorSubject<ItemSetProcessResult>(undefined)
   public readonly lastFilteredItemSetResult$ = new BehaviorSubject<ItemSetProcessResult>(undefined)
 
+  private currentRecipeIndex = 0
+
   public get vendorRecipeSettings(): ItemSetRecipeUserSettings {
-    switch (this.currentRecipeType) {
-      case VendorRecipeType.Chaos:
-        return this.settings.vendorRecipeChaosRecipeSettings
-
-      case VendorRecipeType.ExaltedShard:
-        return this.settings.vendorRecipeExaltedShardRecipeSettings
-
-      default:
-        return undefined
-    }
+    return this.settings.vendorRecipeItemSetSettings[this.currentRecipeIndex]
   }
 
   private vendorRecipeSub: Subscription
 
   private readonly boundsUpdate$ = new Subject<Rectangle>()
   private readonly closeClick$ = new Subject()
-
-  private currentRecipeType = VendorRecipeType.Chaos
 
   private audioClips: HTMLAudioElement[] = []
 
@@ -107,6 +102,10 @@ export class VendorRecipePanelComponent implements OnInit, AfterViewInit, OnDest
         })
       )
       .subscribe()
+
+    if (!this.vendorRecipeSettings.enabled) {
+      this.currentRecipeIndex = this.getNextEnabledSettingsIndex(1)
+    }
   }
 
   public ngAfterViewInit(): void {
@@ -115,9 +114,6 @@ export class VendorRecipePanelComponent implements OnInit, AfterViewInit, OnDest
   public ngOnDestroy(): void {
     this.vendorRecipeSub.unsubscribe()
     this.audioClips.forEach(x => x.remove())
-  }
-
-  public ngOnChanges(changes: SimpleChanges): void {
   }
 
   public onResizeDragEnd(bounds: Rectangle): void {
@@ -133,12 +129,40 @@ export class VendorRecipePanelComponent implements OnInit, AfterViewInit, OnDest
     }
   }
 
+  public onRecipeTypeScroll(event: WheelEvent): void {
+    if (!this.settings.vendorRecipeItemSetSettings.some(x => x.enabled)) {
+      return
+    }
+    const factor = event.deltaY > 0 ? 1 : -1
+    this.currentRecipeIndex = this.getNextEnabledSettingsIndex(factor)
+    this.updateLastFilteredItemSetResult()
+    this.ref.detectChanges()
+  }
+
   public close(): void {
     this.closeClick$.next()
   }
 
-  public forceRefreshStashTabContents(): void {
+  public forceRefreshVendorRecipes(): void {
+    // Force-updating the content will trigger a vendor recipe update too
     this.stashService.forceUpdateTabContent()
+  }
+
+  private getNextEnabledSettingsIndex(factor: number): number {
+    if (!this.settings.vendorRecipeItemSetSettings.some(x => x.enabled)) {
+      return this.currentRecipeIndex
+    }
+    let newIndex = this.currentRecipeIndex
+    while (true) {
+      newIndex += factor
+      if (newIndex < 0) {
+        newIndex += this.settings.vendorRecipeItemSetSettings.length
+      }
+      newIndex %= this.settings.vendorRecipeItemSetSettings.length
+      if (this.settings.vendorRecipeItemSetSettings[newIndex].enabled) {
+        return newIndex
+      }
+    }
   }
 
   private intersects(a: Rectangle, b: Rectangle): boolean {
@@ -167,8 +191,8 @@ export class VendorRecipePanelComponent implements OnInit, AfterViewInit, OnDest
       if (vendorRecipeSettings) {
         // Play audio when any item group reached its threshold
         if (vendorRecipeSettings.itemThresholdAudio.enabled) {
-          for (const lastItemGroup of lastItemSetResult.itemGroups.filter(x => x.type === this.currentRecipeType)) {
-            const newItemGroup = itemSetResult.itemGroups.find(x => x.type === lastItemGroup.type && x.group === lastItemGroup.group)
+          for (const lastItemGroup of lastItemSetResult.itemGroups.filter(x => x.identifier === this.currentRecipeIndex)) {
+            const newItemGroup = itemSetResult.itemGroups.find(x => x.identifier === lastItemGroup.identifier && x.group === lastItemGroup.group)
             if (newItemGroup && lastItemGroup.count < vendorRecipeSettings.itemThreshold && newItemGroup.count >= vendorRecipeSettings.itemThreshold) {
               this.playAudioClip(vendorRecipeSettings.itemThresholdAudio)
               break
@@ -183,11 +207,16 @@ export class VendorRecipePanelComponent implements OnInit, AfterViewInit, OnDest
     }
     if (itemSetResult) {
       this.lastItemSetResult$.next(itemSetResult)
-      this.lastFilteredItemSetResult$.next({
-        recipes: itemSetResult.recipes.filter(x => x.type === this.currentRecipeType),
-        itemGroups: itemSetResult.itemGroups.filter(x => x.type === this.currentRecipeType),
-      })
+      this.updateLastFilteredItemSetResult()
       this.ref.detectChanges()
     }
+  }
+
+  private updateLastFilteredItemSetResult() {
+    const itemSetResult = this.lastItemSetResult$.value
+    this.lastFilteredItemSetResult$.next({
+      recipes: itemSetResult.recipes.filter(x => x.identifier === this.currentRecipeIndex),
+      itemGroups: itemSetResult.itemGroups.filter(x => x.identifier === this.currentRecipeIndex),
+    })
   }
 }

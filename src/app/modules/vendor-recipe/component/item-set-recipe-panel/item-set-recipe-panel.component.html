@@ -1,14 +1,28 @@
 <div class="item-set-recipe-panel">
   <div class="item-set-icons">
-    <div class="item-set-icon recipes-count clickable" (click)="onRecipesCountClick()">{{ itemSetProcessResult?.recipes.length || 0 }}</div>
+    <div class="recipe-count-large-icon" [style.background-image]="recipeCountLargeBGImage">
+      <div class="recipe-count-small-icon" [style.background-image]="recipeCountSmallBGImage"></div>
+      <div class="recipe-count-top" *ngIf="showRecipeCountScrollArrows">
+        <mat-icon>keyboard_arrow_up</mat-icon>
+      </div>
+      <div class="recipe-count-bottom" *ngIf="showRecipeCountScrollArrows">
+        <mat-icon>keyboard_arrow_down</mat-icon>
+      </div>
+      <div class="recipes-count clickable"
+           (click)="onRecipesCountClick()"
+           (mouseenter)="showRecipeCountScrollArrows = true"
+           (mouseleave)="showRecipeCountScrollArrows = false"
+           (wheel)="recipeTypeScroll.emit($event)"
+           >{{ itemSetProcessResult?.recipes.length || 0 }}</div>
+    </div>
     <ng-template ngFor let-itemSet [ngForOf]="itemSets">
       <div class="item-set-icon {{ itemSet.itemGroupColorName }}"
-           [style]="'background-color: ' + ColorUtils.toRGBA(itemSet.itemGroupColor.color) + ';'"
+           [style.background-color]="ColorUtils.toRGBA(itemSet.itemGroupColor.color)"
            matTooltip="{{ itemSet.itemGroupResult?.count || 0 }} {{ 'vendor-recipe.item-set-settings.item-set-group-names.' + itemSet.itemGroupColorName | translate }}"
            [appAlphaColor]="['background-color']"
            [appAlphaColor.baseColors]="[ColorUtils.copy(itemSet.itemGroupColor.color)]"
            [appAlphaColor.alpha]="(itemSet.itemGroupResult?.count || 0) >= settings.itemThreshold ? 0.2 : 1">
-        <div>{{ itemSet.itemGroupResult?.count || 0 }}</div>
+        <div class="item-set-icon-count">{{ itemSet.itemGroupResult?.count || 0 }}</div>
       </div>
     </ng-template>
   </div>
