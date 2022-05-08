@@ -21,7 +21,7 @@
            matTooltip="{{ itemSet.itemGroupResult?.count || 0 }} {{ 'vendor-recipe.item-set-settings.item-set-group-names.' + itemSet.itemGroupColorName | translate }}"
            [appAlphaColor]="['background-color']"
            [appAlphaColor.baseColors]="[ColorUtils.copy(itemSet.itemGroupColor.color)]"
-           [appAlphaColor.alpha]="(itemSet.itemGroupResult?.count || 0) >= settings.itemThreshold ? 0.2 : 1">
+           [appAlphaColor.alpha]="(itemSet.itemGroupResult?.count || 0) >= itemSet.itemThreshold ? 0.2 : 1">
         <div class="item-set-icon-count">{{ itemSet.itemGroupResult?.count || 0 }}</div>
       </div>
     </ng-template>

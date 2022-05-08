@@ -4,7 +4,7 @@ import { ColorUtils, EnumValues } from '@app/class'
 import { AppTranslateService } from '@app/service'
 import { CurrenciesProvider } from '@shared/module/poe/provider/currency/currencies.provider'
 import { Currency } from '@shared/module/poe/type'
-import { ItemGroupColor, ItemLevelBasedItemSetRecipeUserSettings, ItemSetGroup, ItemSetRecipeUserSettings, ItemUsageType, RecipeHighlightMode, RecipeHighlightOrder, StashTabSearchMode, VendorRecipeType, VendorRecipeUserSettings } from '@shared/module/poe/type/vendor-recipe.type'
+import { ItemGroupSettings, ItemLevelBasedItemSetRecipeUserSettings, ItemSetGroup, ItemSetRecipeUserSettings, ItemUsageType, RecipeHighlightMode, RecipeHighlightOrder, StashTabSearchMode, VendorRecipeType, VendorRecipeUserSettings } from '@shared/module/poe/type/vendor-recipe.type'
 import { BehaviorSubject } from 'rxjs'
 
 @Component({
@@ -82,11 +82,11 @@ export class VendorRecipeItemSetSettingsComponent implements OnInit {
     return ''
   }
 
-  public getItemColorGroup(settings: ItemSetRecipeUserSettings, itemSetGroup: ItemSetGroup): ItemGroupColor {
-    return settings.itemClassColors.find(x => x.group === itemSetGroup)
+  public getItemGroupSettings(settings: ItemSetRecipeUserSettings, itemSetGroup: ItemSetGroup): ItemGroupSettings {
+    return settings.itemGroupSettings.find(x => x.group === itemSetGroup)
   }
 
-  public getItemColorGroupName(itemSetGroup: ItemSetGroup): string {
+  public getItemGroupName(itemSetGroup: ItemSetGroup): string {
     if (this.settings.groupWeaponsTogether && itemSetGroup === ItemSetGroup.OneHandedWeapons) {
       return "weapons"
     }

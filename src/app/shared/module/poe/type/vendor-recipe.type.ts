@@ -30,7 +30,7 @@ export interface ItemSetRecipeUserSettings {
   highlightMode: RecipeHighlightMode
   highlightOrder: RecipeHighlightOrder
   groupWeaponsTogether: boolean
-  itemClassColors: ItemGroupColor[]
+  itemGroupSettings: ItemGroupSettings[]
   recipeCompleteAudio: AudioClipSettings
   itemThresholdAudio: AudioClipSettings
   fullSetThresholdAudio: AudioClipSettings
@@ -46,10 +46,11 @@ export enum ItemUsageType {
   AlwaysUse = 2,
 }
 
-export interface ItemGroupColor {
+export interface ItemGroupSettings {
   group: ItemSetGroup
-  showOnOverlay: boolean
   color: Color
+  showOnOverlay: boolean
+  itemThreshold?: number
 }
 
 export enum ItemSetGroup {
@@ -124,7 +125,7 @@ export const DefaultChaosRecipeSettings: ItemLevelBasedItemSetRecipeUserSettings
   highlightMode: RecipeHighlightMode.ItemByItem,
   highlightOrder: RecipeHighlightOrder.LargeToSmall,
   groupWeaponsTogether: true,
-  itemClassColors: [
+  itemGroupSettings: [
     {
       group: ItemSetGroup.Helmets,
       showOnOverlay: true,
@@ -200,7 +201,7 @@ export const DefaultExaltedShardRecipeSettings: ItemSetRecipeUserSettings = {
   highlightMode: RecipeHighlightMode.ItemByItem,
   highlightOrder: RecipeHighlightOrder.LargeToSmall,
   groupWeaponsTogether: true,
-  itemClassColors: [
+  itemGroupSettings: [
     {
       group: ItemSetGroup.Helmets,
       showOnOverlay: true,

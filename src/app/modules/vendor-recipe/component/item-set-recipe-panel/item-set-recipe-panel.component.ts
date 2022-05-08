@@ -7,7 +7,7 @@ import { ColorUtils, EnumValues } from '@app/class'
 import { CurrenciesProvider } from '@shared/module/poe/provider/currency/currencies.provider'
 import { StashService } from '@shared/module/poe/service'
 import { StashGridService } from '@shared/module/poe/service/stash-grid/stash-grid.service'
-import { AudioClipSettings, Currency, ItemGroupColor, ItemSetGroup, ItemSetProcessResult, ItemSetRecipeUserSettings, RecipeHighlightMode, VendorRecipeUserSettings } from '@shared/module/poe/type'
+import { AudioClipSettings, Currency, ItemGroupSettings, ItemSetGroup, ItemSetProcessResult, ItemSetRecipeUserSettings, RecipeHighlightMode, VendorRecipeUserSettings } from '@shared/module/poe/type'
 import { StashGridMode, StashGridOptions, TradeItemLocations } from '@shared/module/poe/type/stash-grid.type'
 import { BehaviorSubject, forkJoin, Subscription } from 'rxjs'
 import { delay, throttleTime } from 'rxjs/operators'
@@ -74,9 +74,10 @@ export class ItemSetRecipePanelComponent implements OnInit, OnDestroy, OnChanges
     return this.itemSetGroups.keys.map(itemSetGroup => {
       return {
         itemSetGroup,
-        itemGroupColor: this.settings?.itemClassColors.find(x => x.group === itemSetGroup),
+        itemGroupColor: this.settings?.itemGroupSettings.find(x => x.group === itemSetGroup),
         itemGroupColorName: this.getItemColorGroupName(itemSetGroup),
         itemGroupResult: this.itemSetProcessResult?.itemGroups.find(x => x.group === itemSetGroup),
+        itemThreshold: this.settings.itemGroupSettings.find(x => x.group === itemSetGroup)?.itemThreshold || this.settings.itemThreshold
       }
     }).filter(x => x.itemGroupColor && this.canShowItemColorGroup(x.itemGroupColor))
   }
@@ -128,7 +129,7 @@ export class ItemSetRecipePanelComponent implements OnInit, OnDestroy, OnChanges
     return (this.itemSetGroups.values[itemSetGroup] as string).toLowerCase()
   }
 
-  public canShowItemColorGroup(itemClassColor: ItemGroupColor): boolean {
+  public canShowItemColorGroup(itemClassColor: ItemGroupSettings): boolean {
     if (!itemClassColor.showOnOverlay || (itemClassColor.group === ItemSetGroup.TwoHandedWeapons && this.settings.groupWeaponsTogether)) {
       return false;
     }

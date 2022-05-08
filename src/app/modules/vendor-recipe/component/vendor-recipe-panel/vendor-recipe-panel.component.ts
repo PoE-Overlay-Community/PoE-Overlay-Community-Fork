@@ -10,7 +10,7 @@ import {
 import { WindowService } from '@app/service'
 import { UserSettingsService } from '@layout/service'
 import { VendorRecipeService } from '@shared/module/poe/service/vendor-recipe/vendor-recipe.service'
-import { AudioClipSettings, ItemSetProcessResult, ItemSetRecipeUserSettings, VendorRecipeType, VendorRecipeUserSettings } from '@shared/module/poe/type'
+import { AudioClipSettings, ItemSetGroup, ItemSetProcessResult, ItemSetRecipeUserSettings, VendorRecipeType, VendorRecipeUserSettings } from '@shared/module/poe/type'
 import { Rectangle } from 'electron'
 import { BehaviorSubject, Subject, Subscription } from 'rxjs'
 import { debounceTime, map } from 'rxjs/operators'
@@ -193,7 +193,8 @@ export class VendorRecipePanelComponent implements OnInit, AfterViewInit, OnDest
         if (vendorRecipeSettings.itemThresholdAudio.enabled) {
           for (const lastItemGroup of lastItemSetResult.itemGroups.filter(x => x.identifier === this.currentRecipeIndex)) {
             const newItemGroup = itemSetResult.itemGroups.find(x => x.identifier === lastItemGroup.identifier && x.group === lastItemGroup.group)
-            if (newItemGroup && lastItemGroup.count < vendorRecipeSettings.itemThreshold && newItemGroup.count >= vendorRecipeSettings.itemThreshold) {
+            const itemThreshold = vendorRecipeSettings.itemGroupSettings.find(x => x.group === itemGroup)?.itemThreshold || vendorRecipeSettings.itemThreshold
+            if (newItemGroup && lastItemGroup.count < itemThreshold && newItemGroup.count >= itemThreshold) {
               this.playAudioClip(vendorRecipeSettings.itemThresholdAudio)
               break
             }

@@ -502,6 +502,7 @@
         "neveruse": "Identified items are never used as part of a Set, and Unidentified items will always be used"
       },
       "item-threshold": "Item Threshold",
+      "item-threshold-override": "Item Threshold Override",
       "item-set-group-bg-color": "Background Color",
       "item-set-group-bg-color-tooltip": "The color used as background for this item set group on the (draggable) item set group overlay/bar",
       "item-set-groups": "Item Set Groups",
@@ -524,6 +525,7 @@
       },
       "large-icon": "Large Icon",
       "large-icon-tooltip": "This icon will be shown as a background icon in the total set count bubble",
+      "no-override":  "Don't Override",
       "quality-item-usage": "Quality Item Usage",
       "quality-item-usage-tooltips": {
         "alwaysuse": "Only items with Quality will be used as part of a Set, and items without Quality will never be used",
