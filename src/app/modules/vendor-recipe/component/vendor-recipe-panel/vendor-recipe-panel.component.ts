@@ -193,7 +193,7 @@ export class VendorRecipePanelComponent implements OnInit, AfterViewInit, OnDest
         if (vendorRecipeSettings.itemThresholdAudio.enabled) {
           for (const lastItemGroup of lastItemSetResult.itemGroups.filter(x => x.identifier === this.currentRecipeIndex)) {
             const newItemGroup = itemSetResult.itemGroups.find(x => x.identifier === lastItemGroup.identifier && x.group === lastItemGroup.group)
-            const itemThreshold = vendorRecipeSettings.itemGroupSettings.find(x => x.group === itemGroup)?.itemThreshold || vendorRecipeSettings.itemThreshold
+            const itemThreshold = vendorRecipeSettings.itemGroupSettings.find(x => x.group === lastItemGroup.group)?.itemThreshold || vendorRecipeSettings.itemThreshold
             if (newItemGroup && lastItemGroup.count < itemThreshold && newItemGroup.count >= itemThreshold) {
               this.playAudioClip(vendorRecipeSettings.itemThresholdAudio)
               break

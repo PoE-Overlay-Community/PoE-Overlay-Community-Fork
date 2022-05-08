@@ -1,4 +1,4 @@
-import { ItemValue } from '../../../type'
+import { ItemValue } from '@shared/module/poe/type'
 
 export abstract class ItemParserUtils {
   public static parseNumberSimple(text: string): number {

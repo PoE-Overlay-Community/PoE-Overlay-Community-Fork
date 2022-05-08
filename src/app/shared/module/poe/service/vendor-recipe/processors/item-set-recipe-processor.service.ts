@@ -2,6 +2,7 @@ import { EnumValues } from '@app/class'
 import { environment } from '@env/environment'
 import { BaseItemTypesService } from '@shared/module/poe/service/base-item-types/base-item-types.service'
 import { BaseItemType, ItemCategory, ItemRarity, ItemSetGroup, ItemSetGroupCount, ItemSetProcessResult, ItemSetRecipeProcessor, ItemSetRecipeUserSettings, ItemUsageType, PoEStashTabItem, RecipeHighlightOrder } from '@shared/module/poe/type'
+import { ItemParserUtils } from '../../item/parser/item-parser.utils'
 
 export interface ExpandedStashItem extends PoEStashTabItem {
   baseItemTypeId: string
@@ -9,6 +10,7 @@ export interface ExpandedStashItem extends PoEStashTabItem {
   calcX: number
   calcY: number
   itemSetGroup: ItemSetGroup
+  quality: number
 }
 
 const DefaultRecipeCategoryOrder = [
@@ -218,13 +220,13 @@ export abstract class ItemSetRecipeProcessorService implements ItemSetRecipeProc
     // Check quality item usage
     switch (settings.qualityItemUsage) {
       case ItemUsageType.AlwaysUse:
-        if (!stashItem.source.properties || !stashItem.source.properties.some(x => x.name == "Quality")) {
+        if (stashItem.quality === 0) {
           return false
         }
         break
 
       case ItemUsageType.NeverUse:
-        if (stashItem.source.properties && stashItem.source.properties.some(x => x.name == "Quality")) {
+        if (stashItem.quality > 0) {
           return false
         }
         break
@@ -256,13 +258,15 @@ export abstract class ItemSetRecipeProcessorService implements ItemSetRecipeProc
   private expandItem(stashItem: PoEStashTabItem): ExpandedStashItem {
     const baseItemType = this.baseItemTypeService.search(stashItem.baseItemTypeName)
     const bounds = stashItem.itemLocation.bounds
+    const qualityText = stashItem.source.properties?.find(x => x.name === "Quality")?.values[0][0] as string
     return {
       ...stashItem,
       baseItemTypeId: baseItemType.id,
       baseItemType: baseItemType.baseItemType,
       calcX: bounds.x + bounds.width / 2,
       calcY: bounds.y + bounds.height / 2,
-      itemSetGroup: CategoryMapping[baseItemType.baseItemType.category]
+      itemSetGroup: CategoryMapping[baseItemType.baseItemType.category],
+      quality: qualityText ? ItemParserUtils.parseNumber(qualityText) : 0
     }
   }
 
