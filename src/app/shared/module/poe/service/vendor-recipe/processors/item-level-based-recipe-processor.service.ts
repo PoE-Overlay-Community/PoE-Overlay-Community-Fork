@@ -1,6 +1,7 @@
 import { BaseItemTypesService } from '@shared/module/poe/service/base-item-types/base-item-types.service'
 import { ItemLevelBasedItemSetRecipeUserSettings } from '@shared/module/poe/type'
-import { ExpandedStashItem, ItemSetRecipeProcessorService } from './item-set-recipe-processor.service'
+import { ItemSetRecipeProcessorService } from './item-set-recipe-processor.service'
+import { ExpandedStashItem } from './recipe-processor.service'
 
 export abstract class ItemLevelBasedRecipeProcessorService extends ItemSetRecipeProcessorService {
   constructor(

@@ -455,7 +455,7 @@
   },
   "vendor-recipe": {
     "create-new-settings": "Create new Vendor Recipe settings",
-    "item-set-panel": {
+    "panel": {
       "background-opacity": "Background Opacity",
       "name": "Item Sets panel",
       "force-refresh-stash-tooltip": "Refresh Vendor Recipes",
@@ -463,19 +463,16 @@
       "unset": "unset",
       "window-bounds": "Window Bounds"
     },
-    "item-set-settings": {
+    "settings": {
       "audio": {
         "full-set-threshold": "Full Set Threshold reached",
         "item-threshold": "Item Threshold reached",
         "recipe-complete": "Recipe Complete"
       },
-      "fill-greedy": "Fill Greedy",
-      "fill-greedy-tooltip": "Use lower level items to fill up a set",
       "full-set-threshold": "Full Set Threshold",
-      "group-weapons-together": "Group Weapons Together",
       "highlight-mode": "Highlight Mode",
       "highlight-mode-tooltips": {
-        "allitems": "Highlight all items of all sets all atonce",
+        "allitems": "Highlight all items of all sets all at once",
         "itembyitem": "Highlight item by item",
         "setbyset": "Highlight all items of a single set"
       },
@@ -495,22 +492,35 @@
         "shortestdistance": "Shortest Distance",
         "smalltolarge": "Small to Large"
       },
-      "identified-item-usage": "Identified Item Usage",
-      "identified-item-usage-tooltips": {
-        "alwaysuse": "Only Identified items will be used as part of a Set, and Unidentified items will never be used",
-        "canuse": "Both Identified and Unidentified items will be used as part of a set",
-        "neveruse": "Identified items are never used as part of a Set, and Unidentified items will always be used"
+      "item-set": {
+        "fill-greedy": "Fill Greedy",
+        "fill-greedy-tooltip": "Use lower level items to fill up a set",
+        "group-weapons-together": "Group Weapons Together",
+        "identified-item-usage": "Identified Item Usage",
+        "identified-item-usage-tooltips": {
+          "alwaysuse": "Only Identified items will be used as part of a Set, and Unidentified items will never be used",
+          "canuse": "Both Identified and Unidentified items will be used as part of a set",
+          "neveruse": "Identified items are never used as part of a Set, and Unidentified items will always be used"
+        },
+        "quality-item-usage": "Quality Item Usage",
+        "quality-item-usage-tooltips": {
+          "alwaysuse": "Only items with Quality will be used as part of a Set, and items without Quality will never be used",
+          "canuse": "Both items with and without Quality will be used as part of a set",
+          "neveruse": "Items with Quality are never used as part of a Set, and items without Quality will always be used"
+        }
       },
       "item-threshold": "Item Threshold",
       "item-threshold-override": "Item Threshold Override",
-      "item-set-group-bg-color": "Background Color",
-      "item-set-group-bg-color-tooltip": "The color used as background for this item set group on the (draggable) item set group overlay/bar",
-      "item-set-groups": "Item Set Groups",
-      "item-set-group-names": {
+      "recipe-item-group-bg-color": "Background Color",
+      "recipe-item-group-bg-color-tooltip": "The color used as background for this item set group on the (draggable) item set group overlay/bar",
+      "recipe-item-groups": "Item Groups",
+      "recipe-item-group-names": {
         "amulets": "Amulets",
         "belts": "Belts",
         "boots": "Boots",
         "chests": "Chests",
+        "flasks": "Flasks",
+        "gems": "Gems",
         "gloves": "Gloves",
         "helmets": "Helmets",
         "onehandedweapons": "One-Handed Weapons",
@@ -525,12 +535,16 @@
       },
       "large-icon": "Large Icon",
       "large-icon-tooltip": "This icon will be shown as a background icon in the total set count bubble",
-      "no-override":  "Don't Override",
-      "quality-item-usage": "Quality Item Usage",
-      "quality-item-usage-tooltips": {
-        "alwaysuse": "Only items with Quality will be used as part of a Set, and items without Quality will never be used",
-        "canuse": "Both items with and without Quality will be used as part of a set",
-        "neveruse": "Items with Quality are never used as part of a Set, and items without Quality will always be used"
+      "no-override": "Don't Override",
+      "quality": {
+        "calc-efficiency": "Calculate recipe efficiency",
+        "corrupted-item-usage": "Corrupted Item Usage",
+        "corrupted-item-usage-tooltips": {
+          "alwaysuse": "Only items that are Corrupted will be used as part of a set, and items that aren't Corrupted will never be used",
+          "canuse": "Both items that are and aren't Corrupted will be used as part of a set",
+          "neveruse": "Items that are Corrupted will never used as part of a set, and items that aren't Corrupted will always be used"
+        },
+        "num-of-bag-spaces-to-use": "# of Bag spaces to use"
       },
       "separate-quality-items": "Separate Quality Items",
       "separate-quality-items-tooltip": "Separate Quality Items into their own sets (allows you to gain 1 additional currency)",
@@ -555,7 +569,9 @@
       },
       "title": {
         "chaos": "Chaos Recipe",
-        "exaltedshard": "Exalted Shards Recipe"
+        "exaltedshard": "Exalted Shards Recipe",
+        "gemcutter": "Gemcutter's Prism Recipe",
+        "glassblowerbauble": "Glassblower's Bauble Recipe"
       }
     },
     "name": "Vendor Recipes"

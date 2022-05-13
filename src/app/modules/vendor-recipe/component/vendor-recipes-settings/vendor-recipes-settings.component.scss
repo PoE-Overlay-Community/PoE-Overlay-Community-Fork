@@ -1,0 +1,49 @@
+@import './../../../../../styles/variables';
+
+app-card {
+  .card, button {
+    background-color: $settings-grey-one;
+  }
+
+  .card {
+    position: relative;
+
+    button {
+      background-color: $settings-grey-two;
+    }
+  }
+}
+
+label {
+  display: block;
+  color: $label-color;
+  font-size: 12px;
+  transform: perspective(100px) translateZ(0.001px);
+}
+
+.value-range {
+  > .slider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .mat-slider {
+      width: 100%;
+    }
+  }
+}
+
+.draggable {
+  display: block;
+}
+
+.drag-handle {
+  cursor: move;
+}
+
+.placeholder {
+  background: $settings-grey-one;
+  border: dotted 3px $settings-grey-three;
+  min-height: 68px;
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}

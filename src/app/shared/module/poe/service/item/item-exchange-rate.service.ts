@@ -108,7 +108,7 @@ export class ItemExchangeRateService {
       if (isNaN(gemLevel) || x.gemLevel === undefined) {
         switch (item.category) {
           case ItemCategory.Gem:
-          case ItemCategory.GemActivegem:
+          case ItemCategory.GemActiveGem:
           case ItemCategory.GemSupportGem:
           case ItemCategory.GemSupportGemplus:
             return false
@@ -123,7 +123,7 @@ export class ItemExchangeRateService {
       if (isNaN(gemQuality) || x.gemQuality === undefined) {
         switch (item.category) {
           case ItemCategory.Gem:
-          case ItemCategory.GemActivegem:
+          case ItemCategory.GemActiveGem:
           case ItemCategory.GemSupportGem:
           case ItemCategory.GemSupportGemplus:
             return false
@@ -138,7 +138,7 @@ export class ItemExchangeRateService {
       if (corrupted === undefined || x.corrupted === undefined) {
         switch (item.category) {
           case ItemCategory.Gem:
-          case ItemCategory.GemActivegem:
+          case ItemCategory.GemActiveGem:
           case ItemCategory.GemSupportGem:
           case ItemCategory.GemSupportGemplus:
             return false
@@ -192,7 +192,7 @@ export class ItemExchangeRateService {
           }
           break
         case ItemCategory.Gem:
-        case ItemCategory.GemActivegem:
+        case ItemCategory.GemActiveGem:
         case ItemCategory.GemSupportGem:
           if (item.properties?.gemQualityType) {
             name = this.clientString

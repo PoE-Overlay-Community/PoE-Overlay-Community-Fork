@@ -102,4 +102,10 @@ export abstract class Colors {
   public static get royalblue(): Color {
     return ColorUtils.create(65, 105, 225)
   }
+  public static get lightSeaGreen(): Color {
+    return ColorUtils.create(32, 178, 170)
+  }
+  public static get chocolate(): Color {
+    return ColorUtils.create(210, 105, 30)
+  }
 }

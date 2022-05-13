@@ -1,39 +1,48 @@
-import { Color, Colors } from '@app/class'
+import { Color, Colors, ObjectUtils } from '@app/class'
 import { Rectangle } from '@app/type'
 import { UserSettings } from '@layout/type'
 import { AudioClipSettings } from './audioclip.type'
 import { PoEStashTabItem } from './stash.type'
 
 export interface VendorRecipeUserSettings extends UserSettings {
-  vendorRecipeItemSetPanelSettings: ItemSetPanelUserSettings
-  vendorRecipeItemSetSettings: ItemSetRecipeUserSettings[]
+  vendorRecipePanelSettings: VendorRecipePanelUserSettings
+  vendorRecipeSettings: RecipeUserSettings[]
 }
 
-export interface ItemSetPanelUserSettings {
+export interface VendorRecipePanelUserSettings {
   enabled: boolean
   bounds?: Rectangle
   backgroundOpacity: number
 }
 
-export interface ItemSetRecipeUserSettings {
+export interface RecipeUserSettings {
   type: VendorRecipeType
   enabled: boolean
   largeIconId: string
   smallIconId: string
   itemThreshold: number
   fullSetThreshold: number
-  identifiedItemUsage: ItemUsageType
-  qualityItemUsage: ItemUsageType
+  showItemAmounts: boolean
   stashTabSearchMode: StashTabSearchMode
   stashTabSearchValue?: string
-  showItemAmounts: boolean
   highlightMode: RecipeHighlightMode
   highlightOrder: RecipeHighlightOrder
-  groupWeaponsTogether: boolean
   itemGroupSettings: ItemGroupSettings[]
   recipeCompleteAudio: AudioClipSettings
   itemThresholdAudio: AudioClipSettings
   fullSetThresholdAudio: AudioClipSettings
+}
+
+export interface QualityRecipeUserSettings extends RecipeUserSettings {
+  corruptedItemUsage: ItemUsageType
+  numOfBagSpacesToUse: number
+  calcEfficiency: boolean
+}
+
+export interface ItemSetRecipeUserSettings extends RecipeUserSettings {
+  identifiedItemUsage: ItemUsageType
+  qualityItemUsage: ItemUsageType
+  groupWeaponsTogether: boolean
 }
 
 export interface ItemLevelBasedItemSetRecipeUserSettings extends ItemSetRecipeUserSettings {
@@ -47,13 +56,13 @@ export enum ItemUsageType {
 }
 
 export interface ItemGroupSettings {
-  group: ItemSetGroup
+  group: RecipeItemGroup
   color: Color
   showOnOverlay: boolean
   itemThreshold?: number
 }
 
-export enum ItemSetGroup {
+export enum RecipeItemGroup {
   Helmets,
   Chests,
   Gloves,
@@ -63,6 +72,8 @@ export enum ItemSetGroup {
   Belts,
   Rings,
   Amulets,
+  Gems,
+  Flasks,
 }
 
 export enum StashTabSearchMode {
@@ -84,32 +95,51 @@ export enum RecipeHighlightOrder {
   ShortestDistance = 2,
 }
 
-export interface VendorRecipe {
-  identifier: number
-  items: PoEStashTabItem[]
-}
-
 export enum VendorRecipeType {
   Chaos = 0,
   ExaltedShard = 1,
+  Gemcutter = 2,
+  GlassblowerBauble = 3,
 }
 
-export interface ItemSetProcessResult {
-  recipes: VendorRecipe[]
-  itemGroups: ItemSetGroupCount[]
-}
-
-export interface ItemSetGroupCount {
+export interface VendorRecipeProcessResult {
   identifier: number
-  group: ItemSetGroup
+  recipes: PoEStashTabItem[][]
+  itemGroups: RecipeItemGroupCount[]
+}
+
+export interface ItemSetProcessResult extends VendorRecipeProcessResult {
+}
+
+export interface QualityRecipeProcessResult extends VendorRecipeProcessResult {
+  efficiency?: number
+}
+
+export interface RecipeItemGroupCount {
+  group: RecipeItemGroup
   count: number
 }
 
-export interface ItemSetRecipeProcessor {
-  process(identifier: number, stashItems: PoEStashTabItem[], settings: ItemSetRecipeUserSettings, allRecipes: ItemSetProcessResult): ItemSetProcessResult
+const ItemSetGroups: RecipeItemGroup[] = [
+  RecipeItemGroup.Helmets,
+  RecipeItemGroup.Chests,
+  RecipeItemGroup.Gloves,
+  RecipeItemGroup.Boots,
+  RecipeItemGroup.OneHandedWeapons,
+  RecipeItemGroup.TwoHandedWeapons,
+  RecipeItemGroup.Belts,
+  RecipeItemGroup.Rings,
+  RecipeItemGroup.Amulets,
+]
+
+export const RecipeItemGroups: { [key: string]: RecipeItemGroup[] } = {
+  [VendorRecipeType.Chaos]: ItemSetGroups,
+  [VendorRecipeType.ExaltedShard]: ItemSetGroups,
+  [VendorRecipeType.Gemcutter]: [RecipeItemGroup.Gems],
+  [VendorRecipeType.GlassblowerBauble]: [RecipeItemGroup.Flasks],
 }
 
-export const DefaultChaosRecipeSettings: ItemLevelBasedItemSetRecipeUserSettings = {
+const DefaultChaosRecipeSettings: ItemLevelBasedItemSetRecipeUserSettings = {
   type: VendorRecipeType.Chaos,
   enabled: true,
   largeIconId: 'chaos',
@@ -127,47 +157,47 @@ export const DefaultChaosRecipeSettings: ItemLevelBasedItemSetRecipeUserSettings
   groupWeaponsTogether: true,
   itemGroupSettings: [
     {
-      group: ItemSetGroup.Helmets,
+      group: RecipeItemGroup.Helmets,
       showOnOverlay: true,
       color: Colors.yellow,
     },
     {
-      group: ItemSetGroup.Chests,
+      group: RecipeItemGroup.Chests,
       showOnOverlay: true,
       color: Colors.magenta,
     },
     {
-      group: ItemSetGroup.Gloves,
+      group: RecipeItemGroup.Gloves,
       showOnOverlay: true,
       color: Colors.lightgreen,
     },
     {
-      group: ItemSetGroup.Boots,
+      group: RecipeItemGroup.Boots,
       showOnOverlay: true,
       color: Colors.royalblue,
     },
     {
-      group: ItemSetGroup.Belts,
+      group: RecipeItemGroup.Belts,
       showOnOverlay: true,
       color: Colors.red,
     },
     {
-      group: ItemSetGroup.Amulets,
+      group: RecipeItemGroup.Amulets,
       showOnOverlay: true,
       color: Colors.red,
     },
     {
-      group: ItemSetGroup.Rings,
+      group: RecipeItemGroup.Rings,
       showOnOverlay: true,
       color: Colors.red,
     },
     {
-      group: ItemSetGroup.TwoHandedWeapons,
+      group: RecipeItemGroup.TwoHandedWeapons,
       showOnOverlay: true,
       color: Colors.cyan,
     },
     {
-      group: ItemSetGroup.OneHandedWeapons,
+      group: RecipeItemGroup.OneHandedWeapons,
       showOnOverlay: true,
       color: Colors.cyan,
     },
@@ -186,7 +216,7 @@ export const DefaultChaosRecipeSettings: ItemLevelBasedItemSetRecipeUserSettings
   },
 }
 
-export const DefaultExaltedShardRecipeSettings: ItemSetRecipeUserSettings = {
+const DefaultExaltedShardRecipeSettings: ItemSetRecipeUserSettings = {
   type: VendorRecipeType.ExaltedShard,
   enabled: false,
   largeIconId: 'exalted-shard',
@@ -203,47 +233,47 @@ export const DefaultExaltedShardRecipeSettings: ItemSetRecipeUserSettings = {
   groupWeaponsTogether: true,
   itemGroupSettings: [
     {
-      group: ItemSetGroup.Helmets,
+      group: RecipeItemGroup.Helmets,
       showOnOverlay: true,
       color: Colors.yellow,
     },
     {
-      group: ItemSetGroup.Chests,
+      group: RecipeItemGroup.Chests,
       showOnOverlay: true,
       color: Colors.magenta,
     },
     {
-      group: ItemSetGroup.Gloves,
+      group: RecipeItemGroup.Gloves,
       showOnOverlay: true,
       color: Colors.lightgreen,
     },
     {
-      group: ItemSetGroup.Boots,
+      group: RecipeItemGroup.Boots,
       showOnOverlay: true,
       color: Colors.royalblue,
     },
     {
-      group: ItemSetGroup.Belts,
+      group: RecipeItemGroup.Belts,
       showOnOverlay: true,
       color: Colors.red,
     },
     {
-      group: ItemSetGroup.Amulets,
+      group: RecipeItemGroup.Amulets,
       showOnOverlay: true,
       color: Colors.red,
     },
     {
-      group: ItemSetGroup.Rings,
+      group: RecipeItemGroup.Rings,
       showOnOverlay: true,
       color: Colors.red,
     },
     {
-      group: ItemSetGroup.TwoHandedWeapons,
+      group: RecipeItemGroup.TwoHandedWeapons,
       showOnOverlay: true,
       color: Colors.cyan,
     },
     {
-      group: ItemSetGroup.OneHandedWeapons,
+      group: RecipeItemGroup.OneHandedWeapons,
       showOnOverlay: true,
       color: Colors.cyan,
     },
@@ -260,4 +290,83 @@ export const DefaultExaltedShardRecipeSettings: ItemSetRecipeUserSettings = {
     enabled: false,
     volume: 1,
   },
+}
+
+const DefaultGemcutterRecipeSettings: QualityRecipeUserSettings = {
+  type: VendorRecipeType.Gemcutter,
+  enabled: false,
+  largeIconId: 'gcp',
+  smallIconId: '',
+  corruptedItemUsage: ItemUsageType.CanUse,
+  numOfBagSpacesToUse: 50,
+  calcEfficiency: false,
+  itemThreshold: 50,
+  fullSetThreshold: 1,
+  showItemAmounts: true,
+  stashTabSearchMode: StashTabSearchMode.Prefix,
+  stashTabSearchValue: 'gcp',
+  highlightMode: RecipeHighlightMode.ItemByItem,
+  highlightOrder: RecipeHighlightOrder.ShortestDistance,
+  itemGroupSettings: [
+    {
+      group: RecipeItemGroup.Gems,
+      showOnOverlay: true,
+      color: Colors.lightSeaGreen,
+    },
+  ],
+  recipeCompleteAudio: {
+    enabled: false,
+    volume: 1,
+  },
+  itemThresholdAudio: {
+    enabled: false,
+    volume: 1,
+  },
+  fullSetThresholdAudio: {
+    enabled: false,
+    volume: 1,
+  },
+}
+
+const DefaultGlassblowerBaubleSettings: QualityRecipeUserSettings = {
+  type: VendorRecipeType.GlassblowerBauble,
+  enabled: false,
+  largeIconId: 'bauble',
+  smallIconId: '',
+  corruptedItemUsage: ItemUsageType.CanUse,
+  numOfBagSpacesToUse: 50,
+  calcEfficiency: false,
+  itemThreshold: 20,
+  fullSetThreshold: 1,
+  showItemAmounts: true,
+  stashTabSearchMode: StashTabSearchMode.Prefix,
+  stashTabSearchValue: 'flasks',
+  highlightMode: RecipeHighlightMode.ItemByItem,
+  highlightOrder: RecipeHighlightOrder.ShortestDistance,
+  itemGroupSettings: [
+    {
+      group: RecipeItemGroup.Flasks,
+      showOnOverlay: true,
+      color: Colors.chocolate,
+    },
+  ],
+  recipeCompleteAudio: {
+    enabled: false,
+    volume: 1,
+  },
+  itemThresholdAudio: {
+    enabled: false,
+    volume: 1,
+  },
+  fullSetThresholdAudio: {
+    enabled: false,
+    volume: 1,
+  },
+}
+
+export const DefaultRecipeSettings: { [key: string]: RecipeUserSettings } = {
+  [VendorRecipeType.Chaos]: DefaultChaosRecipeSettings,
+  [VendorRecipeType.ExaltedShard]: DefaultExaltedShardRecipeSettings,
+  [VendorRecipeType.Gemcutter]: DefaultGemcutterRecipeSettings,
+  [VendorRecipeType.GlassblowerBauble]: DefaultGlassblowerBaubleSettings,
 }

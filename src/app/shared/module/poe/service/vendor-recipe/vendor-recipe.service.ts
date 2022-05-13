@@ -1,23 +1,21 @@
 import { Injectable } from '@angular/core'
-import { BehaviorSubject, forkJoin, merge, Observable, of, Subscription, concat } from 'rxjs'
-import { catchError, concatAll, flatMap, map, switchMap, tap } from 'rxjs/operators'
-import { UserSettings } from '../../../../../layout/type'
-import { PoEAccount } from '../../type'
-import { PoEStashTab, StashTabsToSearch } from '../../type/stash.type'
-import { ItemSetProcessResult, ItemSetRecipeProcessor, ItemSetRecipeUserSettings, StashTabSearchMode, VendorRecipe, VendorRecipeType, VendorRecipeUserSettings } from '../../type/vendor-recipe.type'
-import { PoEAccountService } from '../account/account.service'
-import { StashService } from '../stash/stash.service'
-import ChaosRecipeProcessorService from './processors/chaos-recipe-processor.service'
-import ExaltedShardRecipeProcessorService from './processors/exalted-shard-recipe-processor.service'
-
-const ChaosRecipeResourceName = 'ChaosRecipe';
-const ExaltedShardRecipeResourceName = 'ExaltedShard';
+import { UserSettings } from '@layout/type'
+import { PoEAccountService } from '@shared/module/poe/service/account/account.service'
+import { StashService } from '@shared/module/poe/service/stash/stash.service'
+import { PoEAccount, PoEStashTab, RecipeUserSettings, StashTabSearchMode, StashTabsToSearch, VendorRecipeProcessResult, VendorRecipeType, VendorRecipeUserSettings } from '@shared/module/poe/type'
+import { BehaviorSubject, forkJoin, Observable, of, Subscription } from 'rxjs'
+import { concatAll, flatMap, map } from 'rxjs/operators'
+import { ChaosRecipeProcessorService } from './processors/chaos-recipe-processor.service'
+import { ExaltedShardRecipeProcessorService } from './processors/exalted-shard-recipe-processor.service'
+import { GemcutterRecipeProcessorService } from './processors/gemcutter-recipe-processor.service'
+import { GlassblowerRecipeProcessorService } from './processors/glassblower-recipe-processor.service'
+import { RecipeProcessorService } from './processors/recipe-processor.service'
 
 @Injectable({
   providedIn: 'root',
 })
 export class VendorRecipeService implements StashTabsToSearch {
-  public readonly vendorRecipes$ = new BehaviorSubject<ItemSetProcessResult>(undefined);
+  public readonly vendorRecipes$ = new BehaviorSubject<VendorRecipeProcessResult[]>(undefined);
 
   private settings: VendorRecipeUserSettings
 
@@ -26,19 +24,31 @@ export class VendorRecipeService implements StashTabsToSearch {
   private accountSub: Subscription
   private stashContentSub: Subscription
 
+  private readonly recipeProcessors: {
+    [key: string]: RecipeProcessorService
+  }
+
   constructor(
     private readonly stashService: StashService,
     private readonly accountService: PoEAccountService,
-    private readonly chaosRecipeProcessor: ChaosRecipeProcessorService,
-    private readonly exaltedShardRecipeProcessor: ExaltedShardRecipeProcessorService,
+    chaosRecipeProcessor: ChaosRecipeProcessorService,
+    exaltedShardRecipeProcessor: ExaltedShardRecipeProcessorService,
+    gemcutterRecipeProcessor: GemcutterRecipeProcessorService,
+    glassblowerRecipeProcessor: GlassblowerRecipeProcessorService,
   ) {
+    this.recipeProcessors = {
+      [VendorRecipeType.Chaos]: chaosRecipeProcessor,
+      [VendorRecipeType.ExaltedShard]: exaltedShardRecipeProcessor,
+      [VendorRecipeType.Gemcutter]: gemcutterRecipeProcessor,
+      [VendorRecipeType.GlassblowerBauble]: glassblowerRecipeProcessor,
+    }
   }
 
   public register(settings: UserSettings): void {
     this.settings = settings as VendorRecipeUserSettings
 
     this.stashTabSearchRegexes = []
-    this.settings.vendorRecipeItemSetSettings.forEach((settings, index) => {
+    this.settings.vendorRecipeSettings.forEach((settings, index) => {
       if (settings.stashTabSearchMode === StashTabSearchMode.Regex) {
         this.stashTabSearchRegexes[index] = new RegExp(settings.stashTabSearchValue, 'gi')
       }
@@ -61,12 +71,12 @@ export class VendorRecipeService implements StashTabsToSearch {
   }
 
   public getStashTabsToSearch(): Observable<PoEStashTab[]> {
-    if (!this.settings) {
+    if (!this.settings || !this.settings.vendorRecipePanelSettings.enabled) {
       return of([])
     }
 
     return forkJoin(
-      this.settings.vendorRecipeItemSetSettings.map((settings, index) => this.getItemSetStashTabsToSearch(index, settings))
+      this.settings.vendorRecipeSettings.map((settings, index) => this.getItemSetStashTabsToSearch(index, settings)),
     ).pipe(concatAll())
   }
 
@@ -83,30 +93,35 @@ export class VendorRecipeService implements StashTabsToSearch {
     }
   }
 
-  private getItemSetStashTabsToSearch(index: number, settings: ItemSetRecipeUserSettings): Observable<PoEStashTab[]> {
+  private getItemSetStashTabsToSearch(index: number, settings: RecipeUserSettings): Observable<PoEStashTab[]> {
+    if (!settings.enabled) {
+      return of([])
+    }
     return this.stashService.getStashTabs((stashTab) => this.stashTabPredicate(stashTab, settings, index))
   }
 
-  private getVendorRecipes(identifier: number, settings: ItemSetRecipeUserSettings, recipeProcessor: ItemSetRecipeProcessor, allRecipes: ItemSetProcessResult): Observable<ItemSetProcessResult> {
+  private getVendorRecipes(identifier: number, settings: RecipeUserSettings, processedRecipes: VendorRecipeProcessResult[]): Observable<VendorRecipeProcessResult> {
     if (!settings.enabled) {
       return of({
-        itemGroups: [],
+        identifier,
         recipes: [],
+        itemGroups: [],
       })
     }
+    const recipeProcessor = this.recipeProcessors[settings.type]
     return this.getItemSetStashTabsToSearch(identifier, settings)
       .pipe(
         flatMap((stashTabs) => this.stashService.getStashTabContents(stashTabs)
           .pipe(
             map((stashItems) => {
-              return recipeProcessor.process(identifier, stashItems, settings, allRecipes)
+              return recipeProcessor.process(identifier, stashItems, settings, processedRecipes)
             })
           )
         )
       )
   }
 
-  private stashTabPredicate(stashTab: PoEStashTab, settings: ItemSetRecipeUserSettings, index: number): boolean {
+  private stashTabPredicate(stashTab: PoEStashTab, settings: RecipeUserSettings, index: number): boolean {
     switch (settings.stashTabSearchMode) {
       case StashTabSearchMode.Index:
         return settings.stashTabSearchValue.split(',').map((x) => +x).findIndex((x) => stashTab.tabIndex === x) !== -1
@@ -123,28 +138,19 @@ export class VendorRecipeService implements StashTabsToSearch {
   }
 
   private updateVendorRecipes(): void {
-    const allResults: ItemSetProcessResult = {
-      recipes: [],
-      itemGroups: [],
+    if (!this.settings.vendorRecipePanelSettings.enabled) {
+      return
     }
 
+    const processedRecipes: VendorRecipeProcessResult[] = []
+
     forkJoin(
-      this.settings.vendorRecipeItemSetSettings.map((settings, index) => this.getVendorRecipes(index, settings, this.getVendorRecipeProcessor(settings), allResults))
+      this.settings.vendorRecipeSettings.map((settings, index) => this.getVendorRecipes(index, settings, processedRecipes))
     ).subscribe(null, (err) => console.log(err), () => {
-      this.vendorRecipes$.next(allResults)
+      this.vendorRecipes$.next(processedRecipes)
     })
 
     this.trySubscribeStashContentUpdate()
-  }
-
-  private getVendorRecipeProcessor(settings: ItemSetRecipeUserSettings): ItemSetRecipeProcessor {
-    switch (settings.type) {
-      case VendorRecipeType.Chaos:
-        return this.chaosRecipeProcessor
-
-      case VendorRecipeType.ExaltedShard:
-        return this.exaltedShardRecipeProcessor
-    }
   }
 
   private onAccountChange(account: PoEAccount) {

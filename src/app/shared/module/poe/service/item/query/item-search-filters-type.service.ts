@@ -131,7 +131,7 @@ export class ItemSearchFiltersTypeService implements ItemSearchFiltersService {
         break
       // gem
       case ItemCategory.Gem:
-      case ItemCategory.GemActivegem:
+      case ItemCategory.GemActiveGem:
       case ItemCategory.GemSupportGem:
       case ItemCategory.GemSupportGemplus:
       case ItemCategory.Leaguestone:

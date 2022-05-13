@@ -1,10 +1,12 @@
-import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop'
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnChanges, OnDestroy, QueryList, SimpleChanges, ViewChildren } from '@angular/core'
-import { EnumValues } from '@app/class'
-import { WindowService } from '@app/service'
-import { UserSettingsComponent } from '@layout/type'
-import { DefaultChaosRecipeSettings, DefaultExaltedShardRecipeSettings, ItemSetRecipeUserSettings, VendorRecipeType, VendorRecipeUserSettings } from '@shared/module/poe/type/vendor-recipe.type'
-import { VendorRecipeItemSetSettingsComponent } from '../item-set-recipe-settings/item-set-recipe-settings.component'
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output } from '@angular/core'
+import { ColorUtils, EnumValues } from '@app/class'
+import { ofType } from '@app/function'
+import { AppTranslateService } from '@app/service'
+import { CurrenciesProvider } from '@shared/module/poe/provider/currency/currencies.provider'
+import { Currency } from '@shared/module/poe/type'
+import { DefaultRecipeSettings, ItemGroupSettings, ItemSetRecipeUserSettings, ItemUsageType, RecipeHighlightMode, RecipeHighlightOrder, RecipeItemGroup, RecipeItemGroups, RecipeUserSettings, StashTabSearchMode, VendorRecipeType, VendorRecipeUserSettings } from '@shared/module/poe/type/vendor-recipe.type'
+import { BehaviorSubject } from 'rxjs'
+import { VendorRecipeUtils } from '../../class/vendor-recipe-utils.class'
 
 @Component({
   selector: 'app-vendor-recipe-settings',
@@ -12,71 +14,107 @@ import { VendorRecipeItemSetSettingsComponent } from '../item-set-recipe-setting
   styleUrls: ['./vendor-recipe-settings.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class VendorRecipeSettingsComponent implements UserSettingsComponent, OnDestroy {
+export class VendorRecipeSettingsComponent implements OnInit {
   @Input()
-  public settings: VendorRecipeUserSettings
+  public globalSettings: VendorRecipeUserSettings
 
   @Input()
-  public defaultSettings: VendorRecipeUserSettings
+  public identifier: number
 
-  @ViewChildren(VendorRecipeItemSetSettingsComponent)
-  public itemSetRecipeSettingComponents: QueryList<VendorRecipeItemSetSettingsComponent>
+  @Input()
+  public settings: RecipeUserSettings
 
-  public vendorRecipeTypes = new EnumValues(VendorRecipeType)
+  @Input()
+  public defaultSettings: RecipeUserSettings
+
+  @Output()
+  public resetToDefault = new EventEmitter<any>()
+
+  @Output()
+  public remove = new EventEmitter<any>()
+
+  public collapsed = true
+
+  public currencies$ = new BehaviorSubject<Currency[]>([])
+
+  public get selectedLargeIcon(): Currency {
+    return this.currencies$.value?.find(x => x.id === this.settings.largeIconId)
+  }
+
+  public get selectedSmallIcon(): Currency {
+    return this.currencies$.value?.find(x => x.id === this.settings.smallIconId)
+  }
+
+  public VendorRecipeType = VendorRecipeType
+
+  public ColorUtils = ColorUtils
+  public RecipeItemGroup = RecipeItemGroup
+
+  public stashTabSearchModes = new EnumValues(StashTabSearchMode)
+  public itemUsageTypes = new EnumValues(ItemUsageType)
+  public highlightModes = new EnumValues(RecipeHighlightMode)
+  public highlightOrders = new EnumValues(RecipeHighlightOrder)
+  public get recipeItemGroups(): RecipeItemGroup[] {
+    const recipeItemGroups = RecipeItemGroups[this.settings.type]
+    return recipeItemGroups
+  }
+
+  public get itemSetRecipeUserSettings(): ItemSetRecipeUserSettings {
+    return VendorRecipeUtils.getItemSetRecipeUserSettings(this.settings)
+  }
 
   constructor(
-    private readonly ref: ChangeDetectorRef,
-    private readonly window: WindowService,
+    private readonly translate: AppTranslateService,
+    private readonly currenciesProvider: CurrenciesProvider
   ) {
   }
 
-  ngOnDestroy(): void {
+  ngOnInit(): void {
+    this.load()
   }
 
   public load(): void {
-    this.itemSetRecipeSettingComponents?.forEach(x => x.load())
-  }
-
-  public getRoundedPercentage = (value: number) => `${Math.round(value * 100)}%`
-
-  public onResetItemSetPanelBoundsClick(): void {
-    const bounds = this.window.getOffsettedGameBounds(false)
-    bounds.width = bounds.height = 0
-    this.settings.vendorRecipeItemSetPanelSettings.bounds = bounds
-  }
-
-  public getDefaultRecipeSettings(vendorRecipeType: VendorRecipeType): ItemSetRecipeUserSettings {
-    switch (vendorRecipeType) {
-      case VendorRecipeType.Chaos:
-        return DefaultChaosRecipeSettings
-
-      case VendorRecipeType.ExaltedShard:
-        return DefaultExaltedShardRecipeSettings
-
-      default:
-        return undefined
+    if (this.globalSettings.language) {
+      this.updateCurrencies()
     }
   }
 
-  public onVendorRecipeSettingsDrop(event: CdkDragDrop<string[]>): void {
-    moveItemInArray(this.settings.vendorRecipeItemSetSettings, event.previousIndex, event.currentIndex);
-  }
-
-  public onResetRecipeSettingsToDefaultClick(identifier: number) {
-    this.settings.vendorRecipeItemSetSettings[identifier] = { ... this.getDefaultRecipeSettings(this.settings.vendorRecipeItemSetSettings[identifier].type) }
-  }
-
-  public onRemoveRecipeSettingsClick(identifier: number) {
-    if (this.settings.vendorRecipeItemSetSettings.length <= 1) {
-      return
+  public getIconBackgroundImage(currency: Currency): string {
+    if (currency) {
+      return 'url(https://web.poecdn.com' + currency.image + ')'
     }
-    this.settings.vendorRecipeItemSetSettings.splice(identifier, 1)
+    return ''
   }
 
-  public onAddItemSetRecipe(vendorRecipeType: VendorRecipeType): void {
-    const newSettings = { ... this.getDefaultRecipeSettings(vendorRecipeType) }
-    newSettings.enabled = true
-    this.settings.vendorRecipeItemSetSettings.push(newSettings)
-    this.ref.detectChanges()
+  public getItemGroupSettings(recipeItemGroup: RecipeItemGroup): ItemGroupSettings {
+    return this.settings.itemGroupSettings.find(x => x.group === recipeItemGroup)
+  }
+
+  public getDefaultItemGroupSettings(recipeItemGroup: RecipeItemGroup): ItemGroupSettings {
+    const defaultRecipeSettings = DefaultRecipeSettings[this.settings.type]
+    return defaultRecipeSettings.itemGroupSettings.find(x => x.group === recipeItemGroup)
+  }
+
+  public getItemGroupName(recipeItemGroup: RecipeItemGroup): string {
+    return VendorRecipeUtils.getItemGroupName(this.settings, recipeItemGroup)
+  }
+
+  public canShowItemColorGroup(recipeItemGroup: RecipeItemGroup): boolean {
+    if (recipeItemGroup === RecipeItemGroup.TwoHandedWeapons && this.itemSetRecipeUserSettings?.groupWeaponsTogether) {
+      return false
+    }
+    return true
+  }
+
+  public onResetSettingsClick(): void {
+    if (confirm(this.translate.get(`settings.are-you-sure-reset`, { featureName: `${(this.identifier + 1)}. ${this.translate.get(`vendor-recipe.settings.title.${VendorRecipeType[this.settings.type].toLowerCase()}`)}` }))) {
+      this.resetToDefault.emit()
+    }
+  }
+
+  private updateCurrencies(): void {
+    this.currenciesProvider.provide(this.globalSettings.language).subscribe((currencies) => {
+      this.currencies$.next(currencies.filter(x => x.image))
+    })
   }
 }

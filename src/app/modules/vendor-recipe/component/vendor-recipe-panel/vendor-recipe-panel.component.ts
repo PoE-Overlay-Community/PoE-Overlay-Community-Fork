@@ -1,20 +1,26 @@
 import {
-    AfterViewInit,
-    ChangeDetectionStrategy,
-    ChangeDetectorRef,
-    Component, EventEmitter, Input,
-    OnChanges,
-    OnDestroy,
+    ChangeDetectionStrategy, Component, EventEmitter, Input, OnChanges, OnDestroy,
     OnInit, Output, SimpleChanges
 } from '@angular/core'
-import { WindowService } from '@app/service'
-import { UserSettingsService } from '@layout/service'
-import { VendorRecipeService } from '@shared/module/poe/service/vendor-recipe/vendor-recipe.service'
-import { AudioClipSettings, ItemSetGroup, ItemSetProcessResult, ItemSetRecipeUserSettings, VendorRecipeType, VendorRecipeUserSettings } from '@shared/module/poe/type'
-import { Rectangle } from 'electron'
-import { BehaviorSubject, Subject, Subscription } from 'rxjs'
-import { debounceTime, map } from 'rxjs/operators'
-import { StashService } from '../../../../shared/module/poe/service'
+import { ColorUtils } from '@app/class'
+import { CurrenciesProvider } from '@shared/module/poe/provider/currency/currencies.provider'
+import { StashService } from '@shared/module/poe/service'
+import { StashGridService } from '@shared/module/poe/service/stash-grid/stash-grid.service'
+import { AudioClipSettings, Currency, ItemGroupSettings, QualityRecipeProcessResult, QualityRecipeUserSettings, RecipeHighlightMode, RecipeItemGroup, RecipeItemGroups, RecipeUserSettings, VendorRecipeProcessResult, VendorRecipeUserSettings } from '@shared/module/poe/type'
+import { StashGridMode, StashGridOptions, TradeItemLocations } from '@shared/module/poe/type/stash-grid.type'
+import { BehaviorSubject, forkJoin, Subscription } from 'rxjs'
+import { delay, throttleTime } from 'rxjs/operators'
+import { VendorRecipeUtils } from '../../class/vendor-recipe-utils.class'
+
+interface RecipeQueueItem {
+  type: RecipeQueueItemType
+  item: any
+}
+
+enum RecipeQueueItemType {
+  StashGrid = 0,
+  Audio = 1,
+}
 
 @Component({
   selector: 'app-vendor-recipe-panel',
@@ -22,202 +28,292 @@ import { StashService } from '../../../../shared/module/poe/service'
   styleUrls: ['./vendor-recipe-panel.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class VendorRecipePanelComponent implements OnInit, AfterViewInit, OnDestroy {
+export class VendorRecipePanelComponent implements OnInit, OnDestroy, OnChanges {
   @Input()
-  public settings: VendorRecipeUserSettings
+  public globalSettings: VendorRecipeUserSettings
 
   @Input()
-  public gameBounds: Rectangle
+  public settings: RecipeUserSettings
+
+  @Input()
+  public vendorRecipeProcessResult: VendorRecipeProcessResult
 
   @Output()
-  public openSettings = new EventEmitter<void>()
+  public recipeTypeScroll = new EventEmitter<WheelEvent>();
 
-  public get enabled(): boolean {
-    return this.settings.vendorRecipeItemSetPanelSettings.enabled && this.settings.vendorRecipeItemSetSettings.some(x => x.enabled)
+  public showRecipeCountScrollArrows = false
+
+  public readonly stashTabContentPeriodicUpdateActiveChanged$ = new BehaviorSubject<boolean>(false)
+
+  public readonly currencies$ = new BehaviorSubject<Currency[]>([])
+
+  public get recipeCountLargeBGImage(): string {
+    const icon = this.currencies$.value?.find(x => x.id === this.settings.largeIconId)
+    if (icon) {
+      return 'url(https://web.poecdn.com' + icon.image + ')'
+    }
+    return ''
   }
 
-  public optionsHovered = false
-  public optionsDowned = false
-  public optionsClicked = false
-
-  public get optionsExpanded(): boolean {
-    return this.optionsHovered || this.optionsClicked || this.optionsDowned
+  public get recipeCountSmallBGImage(): string {
+    const icon = this.currencies$.value?.find(x => x.id === this.settings.smallIconId)
+    if (icon) {
+      return 'url(https://web.poecdn.com' + icon.image + ')'
+    }
+    return ''
   }
 
-  public locked = true
+  public getRoundedPercentage = (value: number) => `${Math.round(value * 100)}%`
 
-  public readonly lastItemSetResult$ = new BehaviorSubject<ItemSetProcessResult>(undefined)
-  public readonly lastFilteredItemSetResult$ = new BehaviorSubject<ItemSetProcessResult>(undefined)
+  private readonly stashSub: Subscription
+  private recipeSub: Subscription
 
-  private currentRecipeIndex = 0
+  private recipeCompleteAudioClip: HTMLAudioElement
 
-  public get vendorRecipeSettings(): ItemSetRecipeUserSettings {
-    return this.settings.vendorRecipeItemSetSettings[this.currentRecipeIndex]
+  public get itemsGroups(): any {
+    return RecipeItemGroups[this.settings.type].map(group => {
+      const itemGroupSettings = this.settings?.itemGroupSettings.find(x => x.group === group)
+      return {
+        group,
+        itemGroupColor: itemGroupSettings,
+        itemGroupColorName: this.getItemColorGroupName(group),
+        itemGroupResult: this.vendorRecipeProcessResult?.itemGroups.find(x => x.group === group),
+        itemThreshold: itemGroupSettings?.itemThreshold || this.settings.itemThreshold
+      }
+    }).filter(x => x.itemGroupColor && this.canShowItemColorGroup(x.itemGroupColor))
   }
 
-  private vendorRecipeSub: Subscription
+  public get qualityRecipeUserSettings(): QualityRecipeUserSettings {
+    return VendorRecipeUtils.getQualityRecipeUserSettings(this.settings)
+  }
 
-  private readonly boundsUpdate$ = new Subject<Rectangle>()
-  private readonly closeClick$ = new Subject()
+  public get qualityRecipeProcessResult(): QualityRecipeProcessResult {
+    return this.vendorRecipeProcessResult as QualityRecipeProcessResult
+  }
 
-  private audioClips: HTMLAudioElement[] = []
+  public ColorUtils = ColorUtils
 
   constructor(
-    private readonly ref: ChangeDetectorRef,
-    private readonly vendorRecipeService: VendorRecipeService,
-    private readonly userSettingsService: UserSettingsService,
-    private readonly windowService: WindowService,
     private readonly stashService: StashService,
+    private readonly stashGridService: StashGridService,
+    private readonly currenciesProvider: CurrenciesProvider
   ) {
+    this.stashSub = this.stashService.stashTabContentPeriodicUpdateActiveChanged$.pipe(
+      throttleTime(2000, undefined, { leading: true, trailing: true }),
+    ).subscribe(x => this.stashTabContentPeriodicUpdateActiveChanged$.next(x))
   }
 
   public ngOnInit(): void {
-    this.vendorRecipeSub = this.vendorRecipeService.vendorRecipes$.subscribe(x => this.updateItemSetResult(x))
-    this.boundsUpdate$
-      .pipe(
-        debounceTime(350),
-        map((bounds) => {
-          this.userSettingsService
-            .update<VendorRecipeUserSettings>((settings) => {
-              settings.vendorRecipeItemSetPanelSettings.bounds = bounds
-              return settings
-            })
-            .subscribe()
-        })
-      )
-      .subscribe()
-    this.closeClick$
-      .pipe(
-        debounceTime(350),
-        map(() => {
-          this.userSettingsService
-            .update<VendorRecipeUserSettings>((settings) => {
-              settings.vendorRecipeItemSetPanelSettings.enabled = false
-              return settings
-            })
-            .subscribe((settings) => {
-              this.settings = settings
-              this.ref.detectChanges()
-            })
-        })
-      )
-      .subscribe()
-
-    if (!this.vendorRecipeSettings.enabled) {
-      this.currentRecipeIndex = this.getNextEnabledSettingsIndex(1)
-    }
-  }
-
-  public ngAfterViewInit(): void {
+    this.updateCurrencies()
   }
 
   public ngOnDestroy(): void {
-    this.vendorRecipeSub.unsubscribe()
-    this.audioClips.forEach(x => x.remove())
+    this.stashSub.unsubscribe()
+    this.recipeSub?.unsubscribe()
+    this.recipeCompleteAudioClip?.remove()
   }
 
-  public onResizeDragEnd(bounds: Rectangle): void {
-    const offset = 50
-    const windowBounds = this.windowService.getWindowBounds()
-    windowBounds.x = offset
-    windowBounds.y = offset
-    windowBounds.width -= offset * 2
-    windowBounds.height -= offset * 2
-
-    if (this.intersects(bounds, windowBounds)) {
-      this.boundsUpdate$.next(bounds)
-    }
-  }
-
-  public onRecipeTypeScroll(event: WheelEvent): void {
-    if (!this.settings.vendorRecipeItemSetSettings.some(x => x.enabled)) {
-      return
-    }
-    const factor = event.deltaY > 0 ? 1 : -1
-    this.currentRecipeIndex = this.getNextEnabledSettingsIndex(factor)
-    this.updateLastFilteredItemSetResult()
-    this.ref.detectChanges()
-  }
-
-  public close(): void {
-    this.closeClick$.next()
-  }
-
-  public forceRefreshVendorRecipes(): void {
-    // Force-updating the content will trigger a vendor recipe update too
-    this.stashService.forceUpdateTabContent()
-  }
-
-  private getNextEnabledSettingsIndex(factor: number): number {
-    if (!this.settings.vendorRecipeItemSetSettings.some(x => x.enabled)) {
-      return this.currentRecipeIndex
-    }
-    let newIndex = this.currentRecipeIndex
-    while (true) {
-      newIndex += factor
-      if (newIndex < 0) {
-        newIndex += this.settings.vendorRecipeItemSetSettings.length
+  public ngOnChanges(changes: SimpleChanges): void {
+    if (changes['settings']) {
+      const recipeCompleteAudio = this.settings.recipeCompleteAudio
+      if (recipeCompleteAudio.enabled) {
+        if (!this.recipeCompleteAudioClip) {
+          this.recipeCompleteAudioClip = new Audio()
+        }
+        this.recipeCompleteAudioClip.src = recipeCompleteAudio.src
+        this.recipeCompleteAudioClip.volume = recipeCompleteAudio.volume
+      } else if (this.recipeCompleteAudioClip) {
+        this.recipeCompleteAudioClip.remove()
+        this.recipeCompleteAudioClip = null
       }
-      newIndex %= this.settings.vendorRecipeItemSetSettings.length
-      if (this.settings.vendorRecipeItemSetSettings[newIndex].enabled) {
-        return newIndex
+
+      this.updateCurrencies()
+    }
+  }
+
+  public getItemColorGroupName(recipeItemGroup: RecipeItemGroup): string {
+    return VendorRecipeUtils.getItemGroupName(this.settings, recipeItemGroup)
+  }
+
+  public canShowItemColorGroup(itemClassColor: ItemGroupSettings): boolean {
+    if (!itemClassColor.showOnOverlay || (itemClassColor.group === RecipeItemGroup.TwoHandedWeapons && VendorRecipeUtils.getItemSetRecipeUserSettings(this.settings)?.groupWeaponsTogether)) {
+      return false;
+    }
+    return true;
+  }
+
+  public onRecipesCountClick(): void {
+    if (this.recipeSub) {
+      this.recipeSub.unsubscribe()
+      this.recipeSub = null
+      this.stashGridService.hideStashGrid()
+    } else {
+      const recipes = this.vendorRecipeProcessResult.recipes
+      if (!recipes || recipes.length === 0) {
+        return
       }
-    }
-  }
+      const uniqueStashTabs: TradeItemLocations[] = []
+      recipes.forEach(recipe => recipe.forEach(item => {
+        const stashTabName = item.itemLocation.tabName
+        const uniqueStashTab = uniqueStashTabs.find(x => x.tabName === stashTabName)
+        if (!uniqueStashTab) {
+          uniqueStashTabs.push({
+            tabName: stashTabName,
+            bounds: [item.itemLocation.bounds]
+          })
+        } else {
+          uniqueStashTab.bounds.push(item.itemLocation.bounds)
+        }
+      }))
 
-  private intersects(a: Rectangle, b: Rectangle): boolean {
-    return (
-      a.x <= b.x + b.width && a.x + a.width >= b.x && a.y <= b.y + b.height && a.y + a.height >= b.y
-    )
-  }
+      this.recipeSub = forkJoin(
+        uniqueStashTabs.map(x => this.stashGridService.getStashGridTypeByItemLocations(x))
+      ).pipe(
+        delay(10)
+      ).subscribe((stashGridTypes) => {
+        const items: RecipeQueueItem[] = []
+        switch (this.settings.highlightMode) {
+          case RecipeHighlightMode.ItemByItem:
+            recipes.forEach(recipe => {
+              recipe.forEach(item => {
+                const stashTabName = item.itemLocation.tabName
+                const stashGridType = stashGridTypes[uniqueStashTabs.findIndex(x => x.tabName === stashTabName)]
+                const stashGridOptions: StashGridOptions = {
+                  gridMode: StashGridMode.Normal,
+                  gridType: stashGridType,
+                  highlightLocation: {
+                    tabName: stashTabName,
+                    bounds: [item.itemLocation.bounds]
+                  },
+                  autoClose: true,
+                }
+                items.push({
+                  type: RecipeQueueItemType.StashGrid,
+                  item: stashGridOptions,
+                })
+              })
+              items.push({
+                type: RecipeQueueItemType.Audio,
+                item: this.settings.recipeCompleteAudio
+              })
+            })
+            break
 
-  private playAudioClip(audioClipSettings: AudioClipSettings): void {
-    const audioClip = new Audio()
-    audioClip.src = audioClipSettings.src
-    audioClip.volume = audioClipSettings.volume
-    const scopedEndedHandler = () => {
-      audioClip.removeEventListener('ended', scopedEndedHandler)
-      this.audioClips.splice(this.audioClips.indexOf(audioClip), 1)
-      audioClip.remove()
-    }
-    audioClip.addEventListener('ended', scopedEndedHandler)
-    audioClip.play()
-  }
+          case RecipeHighlightMode.SetBySet:
+            recipes.forEach(recipe => {
+              const setStashOptions: StashGridOptions[] = []
+              recipe.forEach(item => {
+                const stashTabName = item.itemLocation.tabName
+                const stashGridOption = setStashOptions.find(x => x.highlightLocation.tabName == stashTabName)
+                if (!stashGridOption) {
+                  const stashGridType = stashGridTypes[uniqueStashTabs.findIndex(x => x.tabName === stashTabName)]
+                  const stashGridOptions: StashGridOptions = {
+                    gridMode: StashGridMode.Normal,
+                    gridType: stashGridType,
+                    highlightLocation: {
+                      tabName: stashTabName,
+                      bounds: [item.itemLocation.bounds]
+                    },
+                    autoClose: true,
+                  }
+                  setStashOptions.push(stashGridOptions)
+                  items.push({
+                    type: RecipeQueueItemType.StashGrid,
+                    item: stashGridOptions,
+                  })
+                } else {
+                  stashGridOption.highlightLocation.bounds.push(item.itemLocation.bounds)
+                }
+              })
+              items.push({
+                type: RecipeQueueItemType.Audio,
+                item: this.settings.recipeCompleteAudio
+              })
+            })
+            break
 
-  private updateItemSetResult(itemSetResult: ItemSetProcessResult): void {
-    const lastItemSetResult = this.lastItemSetResult$.value
-    if (lastItemSetResult) {
-      const vendorRecipeSettings = this.vendorRecipeSettings
-      if (vendorRecipeSettings) {
-        // Play audio when any item group reached its threshold
-        if (vendorRecipeSettings.itemThresholdAudio.enabled) {
-          for (const lastItemGroup of lastItemSetResult.itemGroups.filter(x => x.identifier === this.currentRecipeIndex)) {
-            const newItemGroup = itemSetResult.itemGroups.find(x => x.identifier === lastItemGroup.identifier && x.group === lastItemGroup.group)
-            const itemThreshold = vendorRecipeSettings.itemGroupSettings.find(x => x.group === lastItemGroup.group)?.itemThreshold || vendorRecipeSettings.itemThreshold
-            if (newItemGroup && lastItemGroup.count < itemThreshold && newItemGroup.count >= itemThreshold) {
-              this.playAudioClip(vendorRecipeSettings.itemThresholdAudio)
+          case RecipeHighlightMode.AllItems:
+            recipes.forEach(recipe => {
+              recipe.forEach(item => {
+                const stashTabName = item.itemLocation.tabName
+                const stashGridOption = items.find(x => {
+                  if (x.type === RecipeQueueItemType.StashGrid) {
+                    const stashGridOption = x.item as StashGridOptions
+                    if (stashGridOption) {
+                      return stashGridOption.highlightLocation.tabName == stashTabName
+                    }
+                  }
+                  return false
+                })?.item as StashGridOptions
+                if (!stashGridOption) {
+                  const stashGridType = stashGridTypes[uniqueStashTabs.findIndex(x => x.tabName === stashTabName)]
+                  const stashGridOptions: StashGridOptions = {
+                    gridMode: StashGridMode.Normal,
+                    gridType: stashGridType,
+                    highlightLocation: {
+                      tabName: stashTabName,
+                      bounds: [item.itemLocation.bounds]
+                    },
+                    autoClose: true,
+                  }
+                  items.push({
+                    type: RecipeQueueItemType.StashGrid,
+                    item: stashGridOptions,
+                  })
+                } else {
+                  stashGridOption.highlightLocation.bounds.push(item.itemLocation.bounds)
+                }
+              })
+            })
+            break
+        }
+        if (items.length === 0) {
+          return
+        }
+
+        // Show the stash grid options one after the other
+        let index = 0
+        const showStashGrid = (queueItem: RecipeQueueItem) => {
+          if (!queueItem || !this.recipeSub) {
+            this.recipeSub?.unsubscribe()
+            this.recipeSub = null
+            return
+          }
+          switch (queueItem.type) {
+            case RecipeQueueItemType.StashGrid:
+              this.stashGridService.showStashGrid(queueItem.item).subscribe((next) => {
+                if (next) {
+                  index++
+                  showStashGrid(items[index])
+                } else {
+                  this.recipeSub.unsubscribe()
+                  this.recipeSub = null
+                }
+              })
               break
-            }
+
+            case RecipeQueueItemType.Audio:
+              if ((queueItem.item as AudioClipSettings)?.enabled) {
+                this.recipeCompleteAudioClip.play()
+              }
+              index++
+              showStashGrid(items[index])
+              break
+
+            default:
+              index++
+              showStashGrid(items[index])
+              break
           }
         }
-        // Play audio when the full set threshold is reached
-        if (vendorRecipeSettings.fullSetThresholdAudio.enabled && lastItemSetResult.recipes.length < vendorRecipeSettings.fullSetThreshold && itemSetResult.recipes.length >= vendorRecipeSettings.fullSetThreshold) {
-          this.playAudioClip(vendorRecipeSettings.fullSetThresholdAudio)
-        }
-      }
-    }
-    if (itemSetResult) {
-      this.lastItemSetResult$.next(itemSetResult)
-      this.updateLastFilteredItemSetResult()
-      this.ref.detectChanges()
+        showStashGrid(items[index])
+      })
     }
   }
 
-  private updateLastFilteredItemSetResult() {
-    const itemSetResult = this.lastItemSetResult$.value
-    this.lastFilteredItemSetResult$.next({
-      recipes: itemSetResult.recipes.filter(x => x.identifier === this.currentRecipeIndex),
-      itemGroups: itemSetResult.itemGroups.filter(x => x.identifier === this.currentRecipeIndex),
+  private updateCurrencies(): void {
+    this.currenciesProvider.provide(this.globalSettings.language).subscribe((currencies) => {
+      this.currencies$.next(currencies.filter(x => x.image))
     })
   }
 }

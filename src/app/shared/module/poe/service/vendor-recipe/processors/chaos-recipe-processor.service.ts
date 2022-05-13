@@ -5,7 +5,7 @@ import { ItemLevelBasedRecipeProcessorService } from './item-level-based-recipe-
 @Injectable({
   providedIn: 'root',
 })
-export default class ChaosRecipeProcessorService extends ItemLevelBasedRecipeProcessorService {
+export class ChaosRecipeProcessorService extends ItemLevelBasedRecipeProcessorService {
   constructor(
     readonly baseItemTypeService: BaseItemTypesService
   ) {

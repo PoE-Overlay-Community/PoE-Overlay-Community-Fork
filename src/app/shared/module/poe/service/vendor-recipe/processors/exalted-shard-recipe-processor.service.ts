@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { BaseItemTypesService } from '@shared/module/poe/service/base-item-types/base-item-types.service';
-import { ItemLevelBasedItemSetRecipeUserSettings, ItemSetGroup, ItemSetRecipeUserSettings } from '@shared/module/poe/type';
-import { ExpandedStashItem, ItemSetRecipeProcessorService } from './item-set-recipe-processor.service';
+import { RecipeItemGroup, ItemSetRecipeUserSettings, VendorRecipeType } from '@shared/module/poe/type';
+import { ItemSetRecipeProcessorService } from './item-set-recipe-processor.service';
+import { ExpandedStashItem } from './recipe-processor.service';
 
 @Injectable({
   providedIn: 'root',
 })
-export default class ExaltedShardRecipeProcessorService extends ItemSetRecipeProcessorService {
+export class ExaltedShardRecipeProcessorService extends ItemSetRecipeProcessorService {
   constructor(
     readonly baseItemTypeService: BaseItemTypesService
   ) {
@@ -35,7 +36,7 @@ export default class ExaltedShardRecipeProcessorService extends ItemSetRecipePro
     return true
   }
 
-  protected canTakeItem(item: ExpandedStashItem, group: ItemSetGroup[], lastItem: ExpandedStashItem): boolean {
+  protected canTakeItem(item: ExpandedStashItem, group: RecipeItemGroup[], lastItem: ExpandedStashItem): boolean {
     if (!super.canTakeItem(item, group, lastItem)) {
       return false
     }
