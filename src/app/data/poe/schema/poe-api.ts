@@ -254,6 +254,7 @@ export interface ReqFilters {
   str?: FilterValueOption
   dex?: FilterValueOption
   int?: FilterValueOption
+  class?: FilterOption
 }
 
 export interface MapFilters {

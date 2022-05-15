@@ -229,6 +229,7 @@ export interface ItemRequirements {
   int?: number
   str?: number
   dex?: number
+  class?: CharacterClass
 }
 
 export interface ItemInfluences {
@@ -245,6 +246,16 @@ export interface ItemInfluences {
 export interface ItemsMap {
   label: string
   items: Item[]
+}
+
+export enum CharacterClass {
+  Scion = 'scion',
+  Marauder = 'marauder',
+  Ranger = 'ranger',
+  Witch = 'witch',
+  Duelist = 'duelist',
+  Templar = 'templar',
+  Shadow = 'shadow',
 }
 
 export enum UltimatumChallengeType {
