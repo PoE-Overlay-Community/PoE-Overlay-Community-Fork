@@ -7,6 +7,7 @@ import { ItemSearchFiltersIncursionService } from './item-search-filters-incursi
 import { ItemSearchFiltersMapService } from './item-search-filters-map.service'
 import { ItemSearchFiltersMiscsService } from './item-search-filters-miscs.service'
 import { ItemSearchFiltersRequirementsService } from './item-search-filters-requirements.service'
+import { ItemSearchFiltersSentinelService } from './item-search-filters-sentinel.service'
 import { ItemSearchFiltersSocketService } from './item-search-filters-socket.service'
 import { ItemSearchFiltersStatsService } from './item-search-filters-stats.service'
 import { ItemSearchFiltersTypeService } from './item-search-filters-type.service'
@@ -30,7 +31,8 @@ export class ItemSearchQueryService {
     filtersStatsService: ItemSearchFiltersStatsService,
     filtersUltimatumService: ItemSearchFiltersUltimatumService,
     filtersIncursionService: ItemSearchFiltersIncursionService,
-    filtersHeistService: ItemSearchFiltersHeistService
+    filtersHeistService: ItemSearchFiltersHeistService,
+    filtersSentinelService: ItemSearchFiltersSentinelService,
   ) {
     this.filters = [
       filtersTypeService,
@@ -41,6 +43,7 @@ export class ItemSearchQueryService {
       filtersMapService,
       filtersHeistService,
       filtersUltimatumService,
+      filtersSentinelService,
       filtersMiscsService,
       filtersIncursionService,
       filtersStatsService,

@@ -21,6 +21,7 @@ export class EvaluateQueryItemProvider {
       category: item.category,
       rarity: item.rarity,
       corrupted: item.corrupted,
+      unmodifiable: item.unmodifiable,
       unidentified: item.unidentified,
       veiled: item.veiled,
       blighted: item.blighted,
@@ -35,6 +36,7 @@ export class EvaluateQueryItemProvider {
         heist: {
           requiredSkills: [],
         },
+        sentinel: {},
       },
       requirements: {},
       sockets: new Array((item.sockets || []).length).fill({}),
@@ -78,6 +80,24 @@ export class EvaluateQueryItemProvider {
         queryHeist.wingsRevealed = heist.wingsRevealed
         queryHeist.escapeRoutes = heist.escapeRoutes
         queryHeist.rewardRooms = heist.rewardRooms
+      }
+    }
+
+    const sentinel = item.properties?.sentinel
+    if (sentinel) {
+      const querySentinel = queryItem.properties.sentinel
+      if (settings.evaluateQueryDefaultSentinelCharges) {
+        querySentinel.durability = sentinel.durability
+        querySentinel.maxDurability = sentinel.maxDurability
+      }
+      if (settings.evaluateQueryDefaultSentinelDuration) {
+        querySentinel.duration = sentinel.duration
+      }
+      if (settings.evaluateQueryDefaultSentinelEnemies) {
+        querySentinel.enemiesEmpowered = sentinel.enemiesEmpowered
+      }
+      if (settings.evaluateQueryDefaultSentinelEmpowerment) {
+        querySentinel.empowerment = sentinel.empowerment
       }
     }
 
@@ -156,8 +176,8 @@ export class EvaluateQueryItemProvider {
         (item.rarity === ItemRarity.Unique || item.rarity === ItemRarity.UniqueRelic) &&
         settings.evaluateQueryDefaultStatsUnique
       ) {
-        // Select all stats if it's corrupted, otherwise exclude implicit stats
-        queryItem.stats = item.stats.filter((stat) => item.corrupted || stat.type !== StatType.Implicit)
+        // Select all stats if it's corrupted or unmodifiable, otherwise exclude implicit stats
+        queryItem.stats = item.stats.filter((stat) => item.corrupted || item.unmodifiable || stat.type !== StatType.Implicit)
       } else {
         queryItem.stats = item.stats.map((stat) => {
           if (stat.type === StatType.Enchant && settings.evaluateQueryDefaultStatsEnchants) {

@@ -34,6 +34,10 @@ export interface EvaluateUserSettings extends UserSettings {
   evaluateQueryDefaultHeistRequiredLevels: boolean
   evaluateQueryDefaultHeistContracts: boolean
   evaluateQueryDefaultHeistBlueprints: boolean
+  evaluateQueryDefaultSentinelCharges: boolean
+  evaluateQueryDefaultSentinelDuration: boolean
+  evaluateQueryDefaultSentinelEnemies: boolean
+  evaluateQueryDefaultSentinelEmpowerment: boolean
   evaluateQueryDefaultMiscs: boolean
   evaluateQueryDefaultType: boolean
   evaluateQueryDefaultAttack: boolean

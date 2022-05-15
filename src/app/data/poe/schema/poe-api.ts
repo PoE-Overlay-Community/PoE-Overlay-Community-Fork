@@ -295,6 +295,14 @@ export interface UltimatumFilters {
   ultimatum_output?: FilterOption
 }
 
+export interface SentinelFilters {
+  sentinel_duration?: FilterValueOption
+  sentinel_empowerment_limit?: FilterValueOption
+  sentinel_empowerment?: FilterValueOption
+  sentinel_durability?: FilterValueOption
+  sentinel_max_durability?: FilterValueOption
+}
+
 export interface MiscFilters {
   quality?: FilterValueOption
   ilvl?: FilterValueOption
@@ -335,6 +343,7 @@ export interface Filters {
   map_filters?: FilterGroup<MapFilters>
   heist_filters?: FilterGroup<HeistFilters>
   ultimatum_filters?: FilterGroup<UltimatumFilters>
+  sentinel_filters?: FilterGroup<SentinelFilters>
   misc_filters?: FilterGroup<MiscFilters>
   trade_filters?: TradeFilterGroup
 }
