@@ -1,0 +1,93 @@
+<div *ngIf="item.properties.sentinel.durability && item.properties.sentinel.maxDurability" class="firstLine">
+  <span>{{ 'ItemDisplaySentinelDroneDurability' | clientString: language }}:&nbsp;</span>
+  <app-item-frame-query [(property)]="queryItem.properties.sentinel.durability" [value]="item.properties.sentinel.durability">
+    <app-item-frame-value-group>
+      <span [class]="item.properties.sentinel.durability.augmented ? 'purple' : 'white'">
+        <app-item-frame-value [(value)]="item.properties.sentinel.durability.value"
+                              [minRange]="minRange"
+                              [maxRange]="maxRange">
+        </app-item-frame-value>
+      </span>
+    </app-item-frame-value-group>
+  </app-item-frame-query>
+  <span>/</span>
+  <app-item-frame-query [(property)]="queryItem.properties.sentinel.maxDurability" [value]="item.properties.sentinel.maxDurability">
+    <app-item-frame-value-group>
+      <span [class]="item.properties.sentinel.maxDurability.augmented ? 'purple' : 'white'">
+        <app-item-frame-value [(value)]="item.properties.sentinel.maxDurability.value"
+                              [minRange]="minRange"
+                              [maxRange]="maxRange">
+        </app-item-frame-value>
+      </span>
+    </app-item-frame-value-group>
+  </app-item-frame-query>
+</div>
+<div *ngIf="item.properties.sentinel.duration">
+  <ng-container *ngTemplateOutlet="
+                value;
+                context: {
+                  prop: item.properties.sentinel,
+                  name: 'duration',
+                  key: 'ItemDisplaySentinelDroneDuration',
+                  minRange: minRange,
+                  maxRange: maxRange
+                }
+                ">
+  </ng-container>
+</div>
+<div *ngIf="item.properties.sentinel.enemiesEmpowered">
+  <ng-container *ngTemplateOutlet="
+                value;
+                context: {
+                  prop: item.properties.sentinel,
+                  name: 'enemiesEmpowered',
+                  key: 'ItemDisplaySentinelDroneTagLimit',
+                  minRange: minRange,
+                  maxRange: maxRange
+                }
+                ">
+  </ng-container>
+</div>
+<div *ngIf="item.properties.sentinel.empowerment">
+  <ng-container *ngTemplateOutlet="
+                value;
+                context: {
+                  prop: item.properties.sentinel,
+                  name: 'empowerment',
+                  key: 'ItemDisplaySentinelDroneDifficulty',
+                  minRange: minRange,
+                  maxRange: maxRange
+                }
+                ">
+  </ng-container>
+</div>
+
+
+<!-- Templates -->
+<ng-template #value
+             let-prop="prop"
+             let-name="name"
+             let-key="key"
+             let-minRange="minRange"
+             let-maxRange="maxRange">
+  <app-item-frame-query [(property)]="queryItem.properties.sentinel[name]" [value]="prop[name]">
+    <app-item-frame-value-group>
+      <ng-container *ngFor="let part of getPhraseParts(key); let index = index">
+        <ng-container [ngSwitch]="index">
+          <ng-container *ngSwitchCase="0">
+            <span>{{ part }}</span>
+            <span [class]="prop[name].augmented ? 'purple' : 'white'">
+              <app-item-frame-value [(value)]="prop[name].value"
+                                    [minRange]="minRange"
+                                    [maxRange]="maxRange">
+              </app-item-frame-value>
+            </span>
+          </ng-container>
+          <ng-container *ngSwitchDefault>
+            <span>{{ part }}</span>
+          </ng-container>
+        </ng-container>
+      </ng-container>
+    </app-item-frame-value-group>
+  </app-item-frame-query>
+</ng-template>

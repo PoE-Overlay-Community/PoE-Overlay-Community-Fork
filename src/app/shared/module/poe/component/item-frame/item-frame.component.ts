@@ -81,6 +81,7 @@ export class ItemFrameComponent implements OnInit {
     this.stats = !!(this.item.stats && this.item.stats.length > 0)
     this.state = !!(
       this.item.corrupted !== undefined ||
+      this.item.unmodifiable !== undefined ||
       this.item.veiled !== undefined ||
       this.item.unidentified !== undefined ||
       this.item.relic !== undefined

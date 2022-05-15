@@ -36,5 +36,10 @@ export class ItemSearchFiltersRequirementsService implements ItemSearchFiltersSe
         min: req.int,
       }
     }
+    if (req.class) {
+      query.filters.req_filters.filters.class = {
+        option: req.class,
+      }
+    }
   }
 }

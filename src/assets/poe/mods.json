@@ -415,6 +415,12 @@
 					"max": 20
 				}
 			],
+			"Unique__22": [
+				{
+					"min": 20,
+					"max": 50
+				}
+			],
 			"Crafted": [
 				{
 					"min": 25,
@@ -1151,6 +1157,12 @@
 					"max": 50
 				}
 			],
+			"Unique__23": [
+				{
+					"min": 20,
+					"max": 50
+				}
+			],
 			"Crafted": [
 				{
 					"min": 25,
@@ -1879,6 +1891,12 @@
 				{
 					"min": 10,
 					"max": 20
+				}
+			],
+			"Unique__29": [
+				{
+					"min": 20,
+					"max": 50
 				}
 			],
 			"Crafted": [
@@ -3829,6 +3847,12 @@
 				{
 					"min": 80,
 					"max": 100
+				}
+			],
+			"Unique__113": [
+				{
+					"min": 50,
+					"max": 70
 				}
 			],
 			"LifeCrafted1__": [
@@ -17599,9 +17623,10 @@
 			"LightningClone": [],
 			"LightningCloneLarge": [],
 			"ColdBeam": [],
-			"Rampage": [],
-			"HeraldOfTheObelisk_": [],
-			"MirrorImage": [],
+			"___": [],
+			"": [],
+			"_": [],
+			"": [],
 			"MinionHeraldOfTheObelisk__": [],
 			"MinionCorrupter": [],
 			"MonsterBossSparkTotemDaemon": [],
@@ -17654,7 +17679,6 @@
 			"MonsterRimePulseblood": [],
 			"MonsterStaticPulseblood": [],
 			"MonsterPhylacteralLink1": [],
-			"MonsterVoidspawn": [],
 			"TouchedEffect": [],
 			"PossessedEffect": [],
 			"PlasmaBallEffectUniqueBelt12": [],
@@ -18536,6 +18560,12 @@
 				{
 					"min": 150,
 					"max": 250
+				}
+			],
+			"LocalIncreasedPhysicalDamageReductionRatingPercentUnique__26": [
+				{
+					"min": 80,
+					"max": 120
 				}
 			],
 			"LocalIncreasedPhysicalDamageReductionRatingUnique__2": [
@@ -23312,8 +23342,8 @@
 			],
 			"": [
 				{
-					"min": 90,
-					"max": 120
+					"min": 250,
+					"max": 500
 				}
 			]
 		},
@@ -23678,12 +23708,6 @@
 				{
 					"min": 50000,
 					"max": 50000
-				}
-			],
-			"": [
-				{
-					"min": -4000,
-					"max": -4000
 				}
 			]
 		},
@@ -25402,12 +25426,6 @@
 				{
 					"min": 10,
 					"max": 10
-				}
-			],
-			"": [
-				{
-					"min": 15,
-					"max": 25
 				}
 			]
 		},
@@ -32849,6 +32867,42 @@
 					"min": 13,
 					"max": 13
 				}
+			],
+			"SentinelCastSpeed1": [
+				{
+					"min": 20,
+					"max": 25
+				}
+			],
+			"SentinelCastSpeed2": [
+				{
+					"min": 26,
+					"max": 35
+				}
+			],
+			"SentinelCastSpeed3": [
+				{
+					"min": 36,
+					"max": 45
+				}
+			],
+			"SentinelCastSpeed4": [
+				{
+					"min": 46,
+					"max": 55
+				}
+			],
+			"SentinelCastSpeed5": [
+				{
+					"min": 56,
+					"max": 70
+				}
+			],
+			"SentinelImplicitCraftedA2": [
+				{
+					"min": 30,
+					"max": 40
+				}
 			]
 		},
 		"base_cast_speed_+% spell_minimum_added_chaos_damage spell_maximum_added_chaos_damage": {
@@ -37798,10 +37852,10 @@
 					"max": 40
 				}
 			],
-			"CorpseExploder_": [
+			"_": [
 				{
-					"min": 60,
-					"max": 60
+					"min": 40,
+					"max": 40
 				}
 			],
 			"Crafted": [
@@ -38530,6 +38584,12 @@
 				{
 					"min": 20,
 					"max": 40
+				}
+			],
+			"ColdResistUnique__37": [
+				{
+					"min": 20,
+					"max": 30
 				}
 			],
 			"Crafted": [
@@ -43184,7 +43244,7 @@
 			],
 			"": [
 				{
-					"min": 75,
+					"min": 70,
 					"max": 130
 				}
 			]
@@ -43486,7 +43546,7 @@
 			],
 			"": [
 				{
-					"min": 75,
+					"min": 70,
 					"max": 130
 				}
 			]
@@ -43728,7 +43788,7 @@
 			],
 			"": [
 				{
-					"min": 75,
+					"min": 70,
 					"max": 130
 				}
 			]
@@ -44149,18 +44209,18 @@
 			"": [
 				{
 					"min": 50,
-					"max": 50
+					"max": 70
 				}
 			],
 			"": [
 				{
 					"min": 50,
-					"max": 50
+					"max": 80
 				}
 			],
 			"": [
 				{
-					"min": -40,
+					"min": -60,
 					"max": -40
 				}
 			]
@@ -44238,13 +44298,13 @@
 					"max": 25
 				}
 			],
-			"CycleOfElements": [
+			"": [
 				{
 					"min": 0,
 					"max": 0
 				}
 			],
-			"VoodooDoll": [
+			"": [
 				{
 					"min": 0,
 					"max": 0
@@ -44615,7 +44675,7 @@
 			"": [
 				{
 					"min": 3,
-					"max": 3
+					"max": 5
 				}
 			]
 		},
@@ -44910,12 +44970,6 @@
 					"max": 15
 				}
 			],
-			"MinionArcaneEnchanted": [
-				{
-					"min": 40,
-					"max": 40
-				}
-			],
 			"SpiritSmuggler": [
 				{
 					"min": 50,
@@ -45090,14 +45144,14 @@
 		"monster_slain_experience_+%": {
 			"MonsterMagic1": [
 				{
-					"min": 250,
-					"max": 250
+					"min": 50,
+					"max": 50
 				}
 			],
 			"MonsterRare1": [
 				{
-					"min": 750,
-					"max": 750
+					"min": 400,
+					"max": 400
 				}
 			],
 			"MonsterUnique1": [
@@ -45158,8 +45212,8 @@
 		"monster_life_+%_final_from_rarity gain_x_vaal_souls_at_2%_life_thresholds": {
 			"MonsterMagic2": [
 				{
-					"min": 187,
-					"max": 187
+					"min": 90,
+					"max": 90
 				},
 				{
 					"min": 0,
@@ -45168,8 +45222,8 @@
 			],
 			"MonsterRare2": [
 				{
-					"min": 463,
-					"max": 463
+					"min": 180,
+					"max": 180
 				},
 				{
 					"min": 1,
@@ -45200,14 +45254,14 @@
 		"monster_dropped_item_quantity_+%": {
 			"MonsterMagic3": [
 				{
-					"min": 600,
-					"max": 600
+					"min": 150,
+					"max": 150
 				}
 			],
 			"MonsterRare3": [
 				{
-					"min": 1400,
-					"max": 1400
+					"min": 500,
+					"max": 500
 				}
 			],
 			"MonsterUnique3": [
@@ -45244,14 +45298,14 @@
 		"monster_dropped_item_rarity_+%": {
 			"MonsterMagic4": [
 				{
-					"min": 200,
-					"max": 200
+					"min": 0,
+					"max": 0
 				}
 			],
 			"MonsterRare4": [
 				{
-					"min": 1000,
-					"max": 1000
+					"min": 600,
+					"max": 600
 				}
 			],
 			"MonsterUnique4": [
@@ -46088,14 +46142,14 @@
 					"max": 800
 				}
 			],
-			"Wealthy": [
+			"": [
 				{
 					"min": 5000,
 					"max": 5000
 				},
 				{
-					"min": 25000,
-					"max": 25000
+					"min": 20000,
+					"max": 20000
 				}
 			],
 			"HauntedMonsterDrops": [
@@ -47284,8 +47338,8 @@
 			],
 			"": [
 				{
-					"min": 20,
-					"max": 30
+					"min": 100,
+					"max": 100
 				}
 			]
 		},
@@ -50993,6 +51047,12 @@
 					"min": -1,
 					"max": -1
 				}
+			],
+			"RecombinatorSpecialMaximumEnduranceCharge": [
+				{
+					"min": 1,
+					"max": 1
+				}
 			]
 		},
 		"gain_power_charge_per_enemy_you_crit": {
@@ -51336,8 +51396,8 @@
 			],
 			"": [
 				{
-					"min": 25,
-					"max": 35
+					"min": 70,
+					"max": 130
 				}
 			]
 		},
@@ -53370,7 +53430,7 @@
 			]
 		},
 		"keystone_blood_magic dummy_stat_display_nothing": {
-			"": [
+			"BloodMagic": [
 				{
 					"min": 1,
 					"max": 1
@@ -53380,7 +53440,7 @@
 					"max": 0
 				}
 			],
-			"KeystoneUnique__1_": [
+			"BloodMagicUnique__1_": [
 				{
 					"min": 1,
 					"max": 1
@@ -53390,7 +53450,7 @@
 					"max": 0
 				}
 			],
-			"KeystoneMortalConvictionUnique__1": [
+			"MortalConvictionUnique__1": [
 				{
 					"min": 1,
 					"max": 1
@@ -53400,7 +53460,7 @@
 					"max": 0
 				}
 			],
-			"HellscapeUpsideKeystone": [
+			"HellscapeUpsideBloodMagic": [
 				{
 					"min": 1,
 					"max": 1
@@ -53410,7 +53470,27 @@
 					"max": 0
 				}
 			],
-			"HellscapeUpsideKeystoneMortalConviction_": [
+			"HellscapeUpsideMortalConviction_": [
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 0,
+					"max": 0
+				}
+			],
+			"RecombinatorSpecialBloodMagic": [
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 0,
+					"max": 0
+				}
+			],
+			"RecombinatorSpecialMortalConviction": [
 				{
 					"min": 1,
 					"max": 1
@@ -54880,6 +54960,12 @@
 					"max": 100
 				}
 			],
+			"BeltFlaskLifeRecoveryUnique__1": [
+				{
+					"min": 30,
+					"max": 40
+				}
+			],
 			"DelveJewelry1": [
 				{
 					"min": 20,
@@ -55048,7 +55134,7 @@
 					"max": 1
 				}
 			],
-			"Hexer": [
+			"": [
 				{
 					"min": 1,
 					"max": 1
@@ -55432,7 +55518,7 @@
 			]
 		},
 		"keystone_acrobatics dummy_stat_display_nothing": {
-			"": [
+			"Acrobatics": [
 				{
 					"min": 1,
 					"max": 1
@@ -55446,7 +55532,7 @@
 					"max": 0
 				}
 			],
-			"KeystoneUnique__1": [
+			"AcrobaticsUnique__1": [
 				{
 					"min": 1,
 					"max": 1
@@ -55460,7 +55546,7 @@
 					"max": 0
 				}
 			],
-			"KeystonePhaseUnique__1": [
+			"PhaseAcrobaticsUnique__1": [
 				{
 					"min": 1,
 					"max": 1
@@ -55474,7 +55560,21 @@
 					"max": 0
 				}
 			],
-			"HellscapeUpsideKeystone___": [
+			"HellscapeUpsideAcrobatics___": [
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 0,
+					"max": 0
+				}
+			],
+			"RecombinatorSpecialAcrobatics": [
 				{
 					"min": 1,
 					"max": 1
@@ -56182,19 +56282,25 @@
 			]
 		},
 		"keystone_pain_attunement": {
-			"": [
+			"PainAttunement": [
 				{
 					"min": 1,
 					"max": 1
 				}
 			],
-			"KeystoneUnique__1": [
+			"PainAttunementUnique__1": [
 				{
 					"min": 1,
 					"max": 1
 				}
 			],
-			"HellscapeUpsideKeystone": [
+			"HellscapeUpsidePainAttunement": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"RecombinatorSpecialPainAttunement": [
 				{
 					"min": 1,
 					"max": 1
@@ -56606,19 +56712,19 @@
 			]
 		},
 		"keystone_conduit": {
-			"": [
+			"Conduit": [
 				{
 					"min": 1,
 					"max": 1
 				}
 			],
-			"KeystoneUnique__1__": [
+			"ConduitUnique__1__": [
 				{
 					"min": 1,
 					"max": 1
 				}
 			],
-			"HellscapeUpside1": [
+			"HellscapeUpsideConduit1": [
 				{
 					"min": 1,
 					"max": 1
@@ -79555,12 +79661,6 @@
 					"min": 100,
 					"max": 100
 				}
-			],
-			"": [
-				{
-					"min": 20,
-					"max": 30
-				}
 			]
 		},
 		"monster_casts_firestorm_text": {
@@ -80064,19 +80164,25 @@
 			]
 		},
 		"keystone_ancestral_bond": {
-			"Monster": [
+			"MonsterAncestralBond": [
 				{
 					"min": 1,
 					"max": 1
 				}
 			],
-			"KeystoneUnique__1": [
+			"AncestralBondUnique__1": [
 				{
 					"min": 1,
 					"max": 1
 				}
 			],
-			"HellscapeUpsideKeystone": [
+			"HellscapeUpsideAncestralBond": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"RecombinatorSpecialAncestralBond": [
 				{
 					"min": 1,
 					"max": 1
@@ -83271,6 +83377,12 @@
 					"min": 19,
 					"max": 20
 				}
+			],
+			"RecombinatorSpecial": [
+				{
+					"min": 15,
+					"max": 20
+				}
 			]
 		},
 		"minions_have_non_curse_aura_effect_+%_from_parent_skills": {
@@ -84245,6 +84357,42 @@
 					"min": 20,
 					"max": 25
 				}
+			],
+			"EldritchImplicit1": [
+				{
+					"min": 7,
+					"max": 8
+				}
+			],
+			"EldritchImplicit2": [
+				{
+					"min": 9,
+					"max": 10
+				}
+			],
+			"EldritchImplicit3": [
+				{
+					"min": 11,
+					"max": 12
+				}
+			],
+			"EldritchImplicit4": [
+				{
+					"min": 13,
+					"max": 14
+				}
+			],
+			"EldritchImplicit5": [
+				{
+					"min": 15,
+					"max": 16
+				}
+			],
+			"EldritchImplicit6": [
+				{
+					"min": 17,
+					"max": 18
+				}
 			]
 		},
 		"spark_skill_effect_duration_+%": {
@@ -84500,6 +84648,12 @@
 				{
 					"min": -1,
 					"max": -1
+				}
+			],
+			"RecombinatorSpecialMaximumFrenzyCharge": [
+				{
+					"min": 1,
+					"max": 1
 				}
 			]
 		},
@@ -85812,6 +85966,12 @@
 				{
 					"min": -1,
 					"max": -1
+				}
+			],
+			"RecombinatorSpecialMaximumPowerCharge": [
+				{
+					"min": 1,
+					"max": 1
 				}
 			]
 		},
@@ -87402,13 +87562,13 @@
 					"max": 1
 				}
 			],
-			"KeystoneUnique__1": [
+			"SoulTetherUnique__1": [
 				{
 					"min": 1,
 					"max": 1
 				}
 			],
-			"KeystoneUnique__2": [
+			"SoulTetherUnique__2": [
 				{
 					"min": 1,
 					"max": 1
@@ -88544,19 +88704,19 @@
 			]
 		},
 		"keystone_iron_reflexes": {
-			"": [
+			"IronReflexes": [
 				{
 					"min": 1,
 					"max": 1
 				}
 			],
-			"KeystoneUnique__1": [
+			"IronReflexesUnique__1": [
 				{
 					"min": 1,
 					"max": 1
 				}
 			],
-			"HellscapeUpside1__": [
+			"HellscapeUpsideIronReflexes1__": [
 				{
 					"min": 1,
 					"max": 1
@@ -90114,7 +90274,7 @@
 			],
 			"": [
 				{
-					"min": 75,
+					"min": 70,
 					"max": 130
 				}
 			]
@@ -90844,19 +91004,25 @@
 			]
 		},
 		"keystone_minion_instability": {
-			"": [
+			"MonsterMinionInstability": [
 				{
 					"min": 1,
 					"max": 1
 				}
 			],
-			"KeystoneUnique__1": [
+			"MinionInstabilityUnique__1": [
 				{
 					"min": 1,
 					"max": 1
 				}
 			],
-			"HellscapeUpsideKeystone": [
+			"HellscapeUpsideMinionInstability": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"RecombinatorSpecialMinionInstability": [
 				{
 					"min": 1,
 					"max": 1
@@ -90890,7 +91056,7 @@
 					"max": 1
 				}
 			],
-			"SoulConduit____": [
+			"____": [
 				{
 					"min": 1,
 					"max": 1
@@ -91480,7 +91646,7 @@
 					"max": 0
 				}
 			],
-			"SoulEater_": [
+			"_": [
 				{
 					"min": 1,
 					"max": 1
@@ -92032,19 +92198,19 @@
 			]
 		},
 		"keystone_mana_shield": {
-			"": [
+			"ManaShield": [
 				{
 					"min": 1,
 					"max": 1
 				}
 			],
-			"KeystoneMindOverMatterUnique__1": [
+			"MindOverMatterUnique__1": [
 				{
 					"min": 1,
 					"max": 1
 				}
 			],
-			"HellscapeUpside1_": [
+			"HellscapeUpsideManaShield1_": [
 				{
 					"min": 1,
 					"max": 1
@@ -92107,10 +92273,24 @@
 					"min": 1,
 					"max": 1
 				}
+			],
+			"": [
+				{
+					"min": 5000,
+					"max": 5000
+				},
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 1,
+					"max": 1
+				}
 			]
 		},
 		"global_poison_on_hit all_damage_can_poison base_poison_duration_+% base_poison_damage_+% additional_chaos_resistance_against_damage_over_time_%": {
-			"Poisoner_": [
+			"_": [
 				{
 					"min": 1,
 					"max": 1
@@ -92128,13 +92308,13 @@
 					"max": 30
 				},
 				{
-					"min": 100,
-					"max": 100
+					"min": 50,
+					"max": 50
 				}
 			]
 		},
 		"non_chaos_damage_to_add_as_chaos_damage_% base_physical_damage_%_to_convert_to_chaos base_chaos_damage_resistance_% base_maximum_chaos_damage_resistance_% immune_to_wither": {
-			"VoidTouched": [
+			"": [
 				{
 					"min": 20,
 					"max": 20
@@ -92144,8 +92324,8 @@
 					"max": 25
 				},
 				{
-					"min": 75,
-					"max": 75
+					"min": 50,
+					"max": 50
 				},
 				{
 					"min": 10,
@@ -92158,7 +92338,7 @@
 			]
 		},
 		"base_inflict_cold_exposure_on_hit_%_chance base_physical_damage_%_to_convert_to_cold cold_damage_+% physical_damage_%_to_add_as_cold base_cold_damage_resistance_% base_maximum_cold_damage_resistance_%": {
-			"FrostTouched_": [
+			"_": [
 				{
 					"min": 100,
 					"max": 100
@@ -92176,8 +92356,8 @@
 					"max": 50
 				},
 				{
-					"min": 75,
-					"max": 75
+					"min": 50,
+					"max": 50
 				},
 				{
 					"min": 10,
@@ -92185,11 +92365,11 @@
 				}
 			]
 		},
-		"always_freeze all_damage_can_freeze freeze_duration_+% base_immune_to_freeze base_immune_to_chill": {
-			"Freezer__": [
+		"base_chance_to_freeze_% all_damage_can_freeze freeze_duration_+% base_immune_to_freeze base_immune_to_chill": {
+			"__": [
 				{
-					"min": 1,
-					"max": 1
+					"min": 35,
+					"max": 35
 				},
 				{
 					"min": 1,
@@ -92207,17 +92387,35 @@
 					"min": 1,
 					"max": 1
 				}
-			]
-		},
-		"always_crit critical_strike_multiplier_vs_enemies_on_full_life_+ self_take_no_extra_damage_from_critical_strikes global_chance_to_blind_on_hit_% blind_effect_+%": {
-			"Assassin": [
+			],
+			"Magic": [
+				{
+					"min": 20,
+					"max": 20
+				},
 				{
 					"min": 1,
 					"max": 1
 				},
 				{
-					"min": 50,
-					"max": 50
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"always_crit self_take_no_extra_damage_from_critical_strikes global_chance_to_blind_on_hit_% blind_effect_+%": {
+			"": [
+				{
+					"min": 1,
+					"max": 1
 				},
 				{
 					"min": 1,
@@ -92233,35 +92431,57 @@
 				}
 			]
 		},
-		"attack_and_cast_speed_+% base_movement_velocity_+% evasion_rating_+% add_frenzy_charge_on_skill_hit_%": {
-			"Raider_": [
+		"attack_speed_+% base_cast_speed_+% base_movement_velocity_+% evasion_rating_+% add_frenzy_charge_on_skill_hit_%": {
+			"_": [
 				{
-					"min": 50,
-					"max": 50
+					"min": 35,
+					"max": 35
 				},
 				{
-					"min": 50,
-					"max": 50
+					"min": 35,
+					"max": 35
+				},
+				{
+					"min": 75,
+					"max": 75
 				},
 				{
 					"min": 100,
 					"max": 100
 				},
 				{
+					"min": 20,
+					"max": 20
+				}
+			],
+			"Magic": [
+				{
+					"min": 35,
+					"max": 35
+				},
+				{
+					"min": 35,
+					"max": 35
+				},
+				{
+					"min": 75,
+					"max": 75
+				},
+				{
 					"min": 100,
 					"max": 100
+				},
+				{
+					"min": 20,
+					"max": 20
 				}
 			]
 		},
-		"global_always_hit damage_+% damage_taken_+%_if_not_hit_recently_final evasion_+%_if_hit_recently": {
-			"Deadeye": [
+		"damage_+% damage_taken_+%_if_not_hit_recently_final evasion_+%_if_hit_recently accuracy_rating_+% critical_strike_chance_+%": {
+			"": [
 				{
-					"min": 1,
-					"max": 1
-				},
-				{
-					"min": 50,
-					"max": 50
+					"min": 30,
+					"max": 30
 				},
 				{
 					"min": -60,
@@ -92270,22 +92490,30 @@
 				{
 					"min": 200,
 					"max": 200
-				}
-			]
-		},
-		"base_spell_suppression_chance_% base_spell_damage_%_suppressed moment_of_respite_damage_taken_over_time_+%_final reflect_non_damaging_ailments_%_chance": {
-			"Trickster_": [
+				},
 				{
 					"min": 100,
 					"max": 100
 				},
 				{
-					"min": 20,
-					"max": 20
+					"min": 100,
+					"max": 100
+				}
+			]
+		},
+		"base_spell_suppression_chance_% base_spell_damage_%_suppressed moment_of_respite_damage_taken_over_time_+%_final reflect_non_damaging_ailments_%_chance": {
+			"_": [
+				{
+					"min": 100,
+					"max": 100
 				},
 				{
-					"min": -75,
-					"max": -75
+					"min": 10,
+					"max": 10
+				},
+				{
+					"min": -50,
+					"max": -50
 				},
 				{
 					"min": 100,
@@ -92294,27 +92522,27 @@
 			]
 		},
 		"number_of_additional_projectiles number_of_chains projectile_chain_from_terrain_chance_% projectile_damage_+%_max_as_distance_travelled_increases": {
-			"Bombardier___": [
+			"___": [
 				{
-					"min": 3,
-					"max": 3
+					"min": 2,
+					"max": 2
 				},
 				{
 					"min": 2,
 					"max": 2
 				},
 				{
-					"min": 30,
-					"max": 30
+					"min": 20,
+					"max": 20
 				},
 				{
-					"min": 80,
-					"max": 80
+					"min": 60,
+					"max": 60
 				}
 			]
 		},
 		"base_inflict_fire_exposure_on_hit_%_chance base_physical_damage_%_to_convert_to_fire fire_damage_+% physical_damage_%_to_add_as_fire base_fire_damage_resistance_% base_maximum_fire_damage_resistance_%": {
-			"FlameTouched": [
+			"": [
 				{
 					"min": 100,
 					"max": 100
@@ -92332,8 +92560,8 @@
 					"max": 50
 				},
 				{
-					"min": 75,
-					"max": 75
+					"min": 50,
+					"max": 50
 				},
 				{
 					"min": 10,
@@ -92342,7 +92570,7 @@
 			]
 		},
 		"always_ignite all_damage_can_ignite ignite_duration_+% ignite_damage_+% base_fire_damage_resistance_% self_ignite_duration_+%_final": {
-			"Igniter": [
+			"": [
 				{
 					"min": 1,
 					"max": 1
@@ -92364,13 +92592,13 @@
 					"max": 75
 				},
 				{
-					"min": -80,
-					"max": -80
+					"min": -60,
+					"max": -60
 				}
 			]
 		},
 		"maximum_life_%_to_add_to_maximum_energy_shield energy_shield_delay_-% chaos_damage_does_not_bypass_energy_shield": {
-			"ArcaneEnchanted": [
+			"MonsterArchnemesisArcaneEnchanted": [
 				{
 					"min": 40,
 					"max": 40
@@ -92383,10 +92611,24 @@
 					"min": 1,
 					"max": 1
 				}
+			],
+			"MonsterArchnemesisArcaneEnchantedMagic": [
+				{
+					"min": 40,
+					"max": 40
+				},
+				{
+					"min": 50,
+					"max": 50
+				},
+				{
+					"min": 1,
+					"max": 1
+				}
 			]
 		},
 		"life_leech_from_any_damage_permyriad life_leech_does_not_stop_at_full_life damage_+%_while_life_leeching cannot_have_life_leeched_from cannot_have_mana_leeched_from cannot_have_energy_shield_leeched_from": {
-			"Vampiric": [
+			"": [
 				{
 					"min": 10000,
 					"max": 10000
@@ -92414,7 +92656,7 @@
 			]
 		},
 		"maximum_life_+% non_chaos_damage_to_add_as_chaos_damage_%": {
-			"Necromancer_": [
+			"_": [
 				{
 					"min": 30,
 					"max": 30
@@ -92425,28 +92667,8 @@
 				}
 			]
 		},
-		"attack_speed_+% base_cast_speed_+% skill_repeat_count interrupt_for_X_ms_after_skill_use": {
-			"Echoist___": [
-				{
-					"min": 200,
-					"max": 200
-				},
-				{
-					"min": 200,
-					"max": 200
-				},
-				{
-					"min": 2,
-					"max": 2
-				},
-				{
-					"min": 1500,
-					"max": 1500
-				}
-			]
-		},
 		"monster_base_block_% base_spell_block_% maximum_block_% base_maximum_spell_block_%": {
-			"Defender": [
+			"": [
 				{
 					"min": 50,
 					"max": 50
@@ -92484,7 +92706,7 @@
 			]
 		},
 		"base_inflict_lightning_exposure_on_hit_%_chance base_physical_damage_%_to_convert_to_lightning lightning_damage_+% physical_damage_%_to_add_as_lightning base_lightning_damage_resistance_% base_maximum_lightning_damage_resistance_%": {
-			"StormTouched_": [
+			"_": [
 				{
 					"min": 100,
 					"max": 100
@@ -92502,8 +92724,8 @@
 					"max": 50
 				},
 				{
-					"min": 75,
-					"max": 75
+					"min": 50,
+					"max": 50
 				},
 				{
 					"min": 10,
@@ -92512,7 +92734,7 @@
 			]
 		},
 		"always_shock all_damage_can_shock shock_effect_+% shock_duration_+% base_immune_to_shock": {
-			"Shocker_": [
+			"_": [
 				{
 					"min": 1,
 					"max": 1
@@ -92520,42 +92742,42 @@
 				{
 					"min": 1,
 					"max": 1
+				},
+				{
+					"min": 25,
+					"max": 25
 				},
 				{
 					"min": 50,
 					"max": 50
 				},
 				{
-					"min": 100,
-					"max": 100
-				},
-				{
 					"min": 1,
 					"max": 1
 				}
 			]
 		},
-		"always_stun chance_to_double_stun_duration_% damage_+% attack_and_cast_speed_+% resolute_technique base_cannot_be_stunned": {
-			"Bonebreaker_": [
+		"always_stun chance_to_double_stun_duration_% physical_damage_+% attack_and_cast_speed_+% accuracy_rating_+% base_cannot_be_stunned": {
+			"_": [
 				{
 					"min": 1,
 					"max": 1
 				},
 				{
-					"min": 100,
-					"max": 100
+					"min": 25,
+					"max": 25
 				},
 				{
 					"min": 60,
 					"max": 60
 				},
 				{
-					"min": -30,
-					"max": -30
+					"min": -40,
+					"max": -40
 				},
 				{
-					"min": 1,
-					"max": 1
+					"min": 100,
+					"max": 100
 				},
 				{
 					"min": 1,
@@ -92563,8 +92785,30 @@
 				}
 			]
 		},
-		"global_bleed_on_hit bleeding_damage_+% base_bleed_duration_+% base_physical_damage_over_time_taken_+% base_movement_velocity_+% corrupted_blood_on_hit_%_average_damage_to_deal_per_minute_per_stack": {
-			"Bloodletter_": [
+		"global_bleed_on_hit bleeding_damage_+% base_bleed_duration_+% base_physical_damage_over_time_taken_+% base_movement_velocity_+%": {
+			"_": [
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 100,
+					"max": 100
+				},
+				{
+					"min": 25,
+					"max": 25
+				},
+				{
+					"min": -25,
+					"max": -25
+				},
+				{
+					"min": -30,
+					"max": -30
+				}
+			],
+			"Magic": [
 				{
 					"min": 1,
 					"max": 1
@@ -92584,15 +92828,11 @@
 				{
 					"min": -30,
 					"max": -30
-				},
-				{
-					"min": 100,
-					"max": 100
 				}
 			]
 		},
 		"base_cannot_be_stunned action_speed_cannot_be_reduced_below_base movement_speed_cannot_be_reduced_below_base base_actor_scale_+% base_skill_area_of_effect_+% max_endurance_charges": {
-			"Juggernaut___": [
+			"___": [
 				{
 					"min": 1,
 					"max": 1
@@ -92614,20 +92854,20 @@
 					"max": 30
 				},
 				{
-					"min": 3,
-					"max": 3
+					"min": 2,
+					"max": 2
 				}
 			]
 		},
 		"enemy_phys_reduction_%_penalty_vs_hit physical_damage_+% base_additional_physical_damage_reduction_% base_cannot_be_stunned blood_and_armour_type_override_robot": {
-			"SteelAttuned___": [
+			"___": [
 				{
-					"min": 100,
-					"max": 100
+					"min": 30,
+					"max": 30
 				},
 				{
-					"min": 50,
-					"max": 50
+					"min": 40,
+					"max": 40
 				},
 				{
 					"min": 50,
@@ -92644,7 +92884,7 @@
 			]
 		},
 		"damage_+% base_actor_scale_+% base_skill_area_of_effect_+% maximum_life_+%": {
-			"Gargantuan": [
+			"": [
 				{
 					"min": 40,
 					"max": 40
@@ -92664,10 +92904,10 @@
 			]
 		},
 		"life_regeneration_rate_per_minute_% maximum_life_+%": {
-			"Rejuvenating": [
+			"": [
 				{
-					"min": 180,
-					"max": 180
+					"min": 120,
+					"max": 120
 				},
 				{
 					"min": 20,
@@ -92676,58 +92916,58 @@
 			]
 		},
 		"damage_+% base_movement_velocity_+% base_damage_taken_+% base_actor_scale_+% attack_speed_+% base_cast_speed_+%": {
-			"Berserker__": [
+			"__": [
 				{
-					"min": 80,
-					"max": 80
+					"min": 60,
+					"max": 60
 				},
 				{
 					"min": 60,
 					"max": 60
 				},
 				{
-					"min": -60,
-					"max": -60
+					"min": -30,
+					"max": -30
 				},
 				{
 					"min": 50,
 					"max": 50
 				},
 				{
-					"min": 100,
-					"max": 100
+					"min": 75,
+					"max": 75
 				},
 				{
-					"min": 100,
-					"max": 100
+					"min": 75,
+					"max": 75
 				}
 			]
 		},
 		"max_endurance_charges max_frenzy_charges max_power_charges": {
-			"ChargeGenerator__": [
+			"__": [
 				{
-					"min": 3,
-					"max": 3
+					"min": 2,
+					"max": 2
 				},
 				{
-					"min": 3,
-					"max": 3
+					"min": 2,
+					"max": 2
 				},
 				{
-					"min": 3,
-					"max": 3
+					"min": 2,
+					"max": 2
 				}
 			]
 		},
 		"hellscape_monster_damage_+%_final base_damage_taken_+% base_movement_velocity_+%": {
-			"Oppressor_": [
+			"_": [
 				{
-					"min": -50,
-					"max": -50
+					"min": -30,
+					"max": -30
 				},
 				{
-					"min": 50,
-					"max": 50
+					"min": 30,
+					"max": 30
 				},
 				{
 					"min": -20,
@@ -92735,24 +92975,24 @@
 				}
 			]
 		},
-		"immune_to_elemental_ailments_while_on_consecrated_ground": {
-			"Consecration_": [
+		"elemental_damage_taken_+%_while_on_consecrated_ground": {
+			"_": [
 				{
-					"min": 1,
-					"max": 1
+					"min": -30,
+					"max": -30
 				}
 			]
 		},
 		"buff_impl_stat": {
-			"UnionOfSouls": [
+			"": [
 				{
-					"min": 4,
-					"max": 4
+					"min": 3,
+					"max": 3
 				}
 			]
 		},
 		"immune_to_culling_strike cannot_recover_life_or_energy_shield_above_% hit_damage_+%_per_10%_missing_enemy_life": {
-			"Executioner": [
+			"": [
 				{
 					"min": 1,
 					"max": 1
@@ -92767,15 +93007,11 @@
 				}
 			]
 		},
-		"flask_charges_recovered_per_3_seconds remove_flask_effects_on_hit_% remove_charges_on_hit_% life_regeneration_rate_per_minute_%": {
-			"FlaskDrain__": [
+		"flask_charges_recovered_per_3_seconds remove_charges_on_hit_% life_regeneration_rate_per_minute_%": {
+			"__": [
 				{
-					"min": -9,
-					"max": -9
-				},
-				{
-					"min": 100,
-					"max": 100
+					"min": -15,
+					"max": -15
 				},
 				{
 					"min": 100,
@@ -92788,7 +93024,7 @@
 			]
 		},
 		"global_poison_on_hit all_damage_can_poison base_chaos_damage_resistance_%": {
-			"GraspingVines": [
+			"": [
 				{
 					"min": 1,
 					"max": 1
@@ -92804,18 +93040,18 @@
 			]
 		},
 		"action_speed_-% debuff_time_passed_+% base_cooldown_speed_+% cannot_be_damaged_by_things_outside_radius": {
-			"TimeBubble": [
+			"": [
 				{
-					"min": 45,
-					"max": 45
+					"min": 25,
+					"max": 25
+				},
+				{
+					"min": -40,
+					"max": -40
 				},
 				{
 					"min": -60,
 					"max": -60
-				},
-				{
-					"min": -80,
-					"max": -80
 				},
 				{
 					"min": 32,
@@ -92824,7 +93060,7 @@
 			]
 		},
 		"rare_pack_minions_are_replaced_with_saplings damage_removed_from_pack_minions_before_life_or_es_%": {
-			"Saplings": [
+			"": [
 				{
 					"min": 1,
 					"max": 1
@@ -92836,22 +93072,22 @@
 			]
 		},
 		"base_physical_damage_%_to_convert_to_cold cold_damage_+% physical_damage_%_to_add_as_cold base_cold_damage_resistance_% base_immune_to_cold_ailments chill_effect_+%": {
-			"FrostWalker": [
+			"": [
 				{
 					"min": 50,
 					"max": 50
+				},
+				{
+					"min": 30,
+					"max": 30
 				},
 				{
 					"min": 50,
 					"max": 50
 				},
 				{
-					"min": 50,
-					"max": 50
-				},
-				{
-					"min": 60,
-					"max": 60
+					"min": 40,
+					"max": 40
 				},
 				{
 					"min": 1,
@@ -92864,22 +93100,22 @@
 			]
 		},
 		"base_physical_damage_%_to_convert_to_cold cold_damage_+% physical_damage_%_to_add_as_cold base_cold_damage_resistance_% base_immune_to_cold_ailments base_additional_physical_damage_reduction_%": {
-			"GlacialCage": [
+			"": [
 				{
-					"min": 25,
-					"max": 25
+					"min": 50,
+					"max": 50
+				},
+				{
+					"min": 30,
+					"max": 30
 				},
 				{
 					"min": 50,
 					"max": 50
 				},
 				{
-					"min": 50,
-					"max": 50
-				},
-				{
-					"min": 60,
-					"max": 60
+					"min": 40,
+					"max": 40
 				},
 				{
 					"min": 1,
@@ -92892,22 +93128,22 @@
 			]
 		},
 		"base_physical_damage_%_to_convert_to_fire fire_damage_+% physical_damage_%_to_add_as_fire base_fire_damage_resistance_% cannot_be_scorched always_ignite": {
-			"FlameWalker_": [
+			"_": [
 				{
 					"min": 50,
 					"max": 50
+				},
+				{
+					"min": 30,
+					"max": 30
 				},
 				{
 					"min": 50,
 					"max": 50
 				},
 				{
-					"min": 50,
-					"max": 50
-				},
-				{
-					"min": 60,
-					"max": 60
+					"min": 40,
+					"max": 40
 				},
 				{
 					"min": 1,
@@ -92919,11 +93155,37 @@
 				}
 			]
 		},
-		"base_resist_all_elements_% always_ignite always_shock always_freeze all_damage_can_ignite all_damage_can_shock": {
-			"Prismatic": [
+		"base_resist_all_elements_% always_ignite always_shock all_damage_can_ignite all_damage_can_shock all_damage_can_chill": {
+			"MonsterArchnemesisPrismatic": [
 				{
-					"min": 75,
-					"max": 75
+					"min": 50,
+					"max": 50
+				},
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"MonsterArchnemesisPrismaticMagic": [
+				{
+					"min": 50,
+					"max": 50
 				},
 				{
 					"min": 1,
@@ -92948,22 +93210,22 @@
 			]
 		},
 		"base_physical_damage_%_to_convert_to_fire fire_damage_+% physical_damage_%_to_add_as_fire base_fire_damage_resistance_% base_additional_physical_damage_reduction_%": {
-			"VolatileFlameBlood": [
+			"": [
 				{
 					"min": 25,
 					"max": 25
 				},
 				{
-					"min": 50,
-					"max": 50
+					"min": 30,
+					"max": 30
 				},
 				{
 					"min": 50,
 					"max": 50
 				},
 				{
-					"min": 60,
-					"max": 60
+					"min": 40,
+					"max": 40
 				},
 				{
 					"min": 25,
@@ -92972,22 +93234,22 @@
 			]
 		},
 		"base_physical_damage_%_to_convert_to_lightning lightning_damage_+% physical_damage_%_to_add_as_lightning base_lightning_damage_resistance_% base_immune_to_shock cannot_be_sapped": {
-			"LightningWalker_": [
+			"_": [
 				{
 					"min": 50,
 					"max": 50
+				},
+				{
+					"min": 30,
+					"max": 30
 				},
 				{
 					"min": 50,
 					"max": 50
 				},
 				{
-					"min": 50,
-					"max": 50
-				},
-				{
-					"min": 60,
-					"max": 60
+					"min": 40,
+					"max": 40
 				},
 				{
 					"min": 1,
@@ -92998,14 +93260,40 @@
 					"max": 1
 				}
 			],
-			"ManaDonut": [
+			"": [
 				{
 					"min": 50,
 					"max": 50
 				},
 				{
+					"min": 30,
+					"max": 30
+				},
+				{
 					"min": 50,
 					"max": 50
+				},
+				{
+					"min": 40,
+					"max": 40
+				},
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"": [
+				{
+					"min": 50,
+					"max": 50
+				},
+				{
+					"min": 30,
+					"max": 30
 				},
 				{
 					"min": 50,
@@ -93026,10 +93314,10 @@
 			]
 		},
 		"base_corrupt_blood_when_hit_%_average_damage_to_deal_per_minute_per_stack corrupted_blood_on_hit_num_stacks corrupted_blood_on_hit_duration corrupted_blood_on_hit_%_average_damage_to_deal_per_minute_per_stack": {
-			"Corrupter_": [
+			"_": [
 				{
-					"min": 80,
-					"max": 80
+					"min": 60,
+					"max": 60
 				},
 				{
 					"min": 1,
@@ -93046,10 +93334,10 @@
 			]
 		},
 		"damage_+% monster_base_block_% base_spell_block_%": {
-			"DivineTouched__": [
+			"__": [
 				{
-					"min": 30,
-					"max": 30
+					"min": 0,
+					"max": 0
 				},
 				{
 					"min": 30,
@@ -93062,14 +93350,14 @@
 			]
 		},
 		"base_resist_all_elements_% physical_damage_%_to_add_as_random_element": {
-			"LivingCrystals__": [
+			"__": [
 				{
 					"min": 50,
 					"max": 50
 				},
 				{
-					"min": 50,
-					"max": 50
+					"min": 40,
+					"max": 40
 				}
 			],
 			"MinionPrismatic": [
@@ -93084,7 +93372,7 @@
 			]
 		},
 		"max_life_+%_final_for_minion base_movement_velocity_+% base_actor_scale_+%": {
-			"Splitting_": [
+			"_": [
 				{
 					"min": -30,
 					"max": -30
@@ -93100,7 +93388,7 @@
 			]
 		},
 		"damage_+% base_cold_damage_resistance_% base_additional_physical_damage_reduction_%": {
-			"Lunaris": [
+			"": [
 				{
 					"min": 75,
 					"max": 75
@@ -93114,7 +93402,7 @@
 					"max": 10
 				}
 			],
-			"BrineKing___": [
+			"___": [
 				{
 					"min": 75,
 					"max": 75
@@ -93130,7 +93418,7 @@
 			]
 		},
 		"damage_+% base_fire_damage_resistance_% base_additional_physical_damage_reduction_%": {
-			"Solaris": [
+			"": [
 				{
 					"min": 75,
 					"max": 75
@@ -93144,7 +93432,7 @@
 					"max": 10
 				}
 			],
-			"Tukohama": [
+			"": [
 				{
 					"min": 75,
 					"max": 75
@@ -93158,7 +93446,7 @@
 					"max": 20
 				}
 			],
-			"Abberath": [
+			"": [
 				{
 					"min": 75,
 					"max": 75
@@ -93174,7 +93462,7 @@
 			]
 		},
 		"damage_+% base_chaos_damage_resistance_% base_additional_physical_damage_reduction_%": {
-			"Arakaali_": [
+			"_": [
 				{
 					"min": 75,
 					"max": 75
@@ -93188,7 +93476,7 @@
 					"max": 10
 				}
 			],
-			"Shakari_": [
+			"_": [
 				{
 					"min": 75,
 					"max": 75
@@ -93204,7 +93492,7 @@
 			]
 		},
 		"damage_+% base_resist_all_elements_% base_additional_physical_damage_reduction_%": {
-			"Innocence_____": [
+			"_____": [
 				{
 					"min": 75,
 					"max": 75
@@ -93220,7 +93508,7 @@
 			]
 		},
 		"damage_+% base_resist_all_elements_% base_additional_physical_damage_reduction_% base_chaos_damage_resistance_%": {
-			"Kitava": [
+			"": [
 				{
 					"min": 75,
 					"max": 75
@@ -93236,6 +93524,186 @@
 				{
 					"min": 30,
 					"max": 30
+				}
+			]
+		},
+		"number_of_additional_projectiles projectile_damage_+% base_avoid_projectiles_%_chance": {
+			"": [
+				{
+					"min": 4,
+					"max": 4
+				},
+				{
+					"min": 30,
+					"max": 30
+				},
+				{
+					"min": 50,
+					"max": 50
+				}
+			]
+		},
+		"monster_spawn_bloodlines_ghost_totem_on_death": {
+			"": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"MonsterGhostTotem": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"MonsterGhostTotem2": [
+				{
+					"min": 2,
+					"max": 2
+				}
+			],
+			"MonsterGhostTotem3": [
+				{
+					"min": 3,
+					"max": 3
+				}
+			],
+			"MonsterGhostTotem4": [
+				{
+					"min": 4,
+					"max": 4
+				}
+			],
+			"MonsterGhostTotem5": [
+				{
+					"min": 5,
+					"max": 5
+				}
+			]
+		},
+		"monster_slain_experience_+% monster_dropped_item_quantity_+% monster_spirit_walker": {
+			"": [
+				{
+					"min": -175,
+					"max": -175
+				},
+				{
+					"min": -350,
+					"max": -350
+				},
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"MonsterSpiritWalkers": [
+				{
+					"min": -175,
+					"max": -175
+				},
+				{
+					"min": -350,
+					"max": -350
+				},
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"actor_scale_+%_granted_to_pack_members_on_death maximum_life_+%_granted_to_pack_members_on_death base_actor_scale_+% base_skill_area_of_effect_+% maximum_life_+%": {
+			"": [
+				{
+					"min": 10,
+					"max": 10
+				},
+				{
+					"min": 40,
+					"max": 40
+				},
+				{
+					"min": 15,
+					"max": 15
+				},
+				{
+					"min": 20,
+					"max": 20
+				},
+				{
+					"min": 30,
+					"max": 30
+				}
+			]
+		},
+		"monster_voidspawn damage_+% base_resist_all_elements_% base_additional_physical_damage_reduction_% base_chaos_damage_resistance_%": {
+			"": [
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 50,
+					"max": 50
+				},
+				{
+					"min": 50,
+					"max": 50
+				},
+				{
+					"min": 40,
+					"max": 40
+				},
+				{
+					"min": 35,
+					"max": 35
+				}
+			]
+		},
+		"accuracy_rating_+% damage_+% damage_taken_+%_if_not_hit_recently_final evasion_+%_if_hit_recently": {
+			"Magic": [
+				{
+					"min": 100,
+					"max": 100
+				},
+				{
+					"min": 30,
+					"max": 30
+				},
+				{
+					"min": -60,
+					"max": -60
+				},
+				{
+					"min": 200,
+					"max": 200
+				}
+			]
+		},
+		"base_stun_threshold_reduction_+% chance_to_double_stun_duration_% physical_damage_+% attack_and_cast_speed_+% accuracy_rating_+% base_cannot_be_stunned": {
+			"Magic": [
+				{
+					"min": 50,
+					"max": 50
+				},
+				{
+					"min": 25,
+					"max": 25
+				},
+				{
+					"min": 60,
+					"max": 60
+				},
+				{
+					"min": -40,
+					"max": -40
+				},
+				{
+					"min": 100,
+					"max": 100
+				},
+				{
+					"min": 1,
+					"max": 1
 				}
 			]
 		},
@@ -93266,8 +93734,8 @@
 					"max": 20
 				},
 				{
-					"min": 75,
-					"max": 75
+					"min": 50,
+					"max": 50
 				}
 			]
 		},
@@ -93282,8 +93750,8 @@
 					"max": 50
 				},
 				{
-					"min": 75,
-					"max": 75
+					"min": 50,
+					"max": 50
 				}
 			],
 			"MinionFrostWalker": [
@@ -93296,24 +93764,20 @@
 					"max": 50
 				},
 				{
-					"min": 75,
-					"max": 75
+					"min": 50,
+					"max": 50
 				}
 			]
 		},
-		"always_freeze all_damage_can_freeze freeze_duration_+%": {
+		"all_damage_can_freeze base_chance_to_freeze_%": {
 			"MinionFreezer_": [
 				{
 					"min": 1,
 					"max": 1
 				},
 				{
-					"min": 1,
-					"max": 1
-				},
-				{
-					"min": 25,
-					"max": 25
+					"min": 10,
+					"max": 10
 				}
 			]
 		},
@@ -93342,8 +93806,8 @@
 					"max": 50
 				},
 				{
-					"min": 75,
-					"max": 75
+					"min": 50,
+					"max": 50
 				}
 			],
 			"MinionFlameWalker": [
@@ -93356,8 +93820,8 @@
 					"max": 50
 				},
 				{
-					"min": 75,
-					"max": 75
+					"min": 50,
+					"max": 50
 				}
 			]
 		},
@@ -93412,8 +93876,8 @@
 					"max": 50
 				},
 				{
-					"min": 75,
-					"max": 75
+					"min": 50,
+					"max": 50
 				}
 			],
 			"MinionLightningWalker": [
@@ -93426,8 +93890,8 @@
 					"max": 50
 				},
 				{
-					"min": 75,
-					"max": 75
+					"min": 50,
+					"max": 50
 				}
 			]
 		},
@@ -93451,15 +93915,15 @@
 				}
 			]
 		},
-		"always_stun chance_to_double_stun_duration_%": {
+		"base_stun_threshold_reduction_+% chance_to_double_stun_duration_%": {
 			"MinionBonebreaker": [
-				{
-					"min": 1,
-					"max": 1
-				},
 				{
 					"min": 50,
 					"max": 50
+				},
+				{
+					"min": 25,
+					"max": 25
 				}
 			]
 		},
@@ -94295,12 +94759,6 @@
 					"min": 12,
 					"max": 12
 				}
-			],
-			"": [
-				{
-					"min": 40,
-					"max": 40
-				}
 			]
 		},
 		"add_endurance_charge_on_kill": {
@@ -94770,6 +95228,12 @@
 				{
 					"min": 15,
 					"max": 20
+				}
+			],
+			"Unique__5": [
+				{
+					"min": 10,
+					"max": 15
 				}
 			],
 			"AllDefensesImplicitJetRing": [
@@ -100518,31 +100982,37 @@
 			]
 		},
 		"keystone_point_blank": {
-			"V2Corrupted": [
+			"V2PointBlankCorrupted": [
 				{
 					"min": 1,
 					"max": 1
 				}
 			],
-			"KeystoneUnique__1": [
+			"PointBlankUnique__1": [
 				{
 					"min": 1,
 					"max": 1
 				}
 			],
-			"KeystoneUnique__2": [
+			"PointBlankUnique__2": [
 				{
 					"min": 1,
 					"max": 1
 				}
 			],
-			"BetrayalUpgradeMonster": [
+			"BetrayalUpgradeMonsterPointBlank": [
 				{
 					"min": 1,
 					"max": 1
 				}
 			],
-			"HellscapeUpsideKeystone": [
+			"HellscapeUpsidePointBlank": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"RecombinatorSpecialPointBlank": [
 				{
 					"min": 1,
 					"max": 1
@@ -100668,25 +101138,31 @@
 			]
 		},
 		"resolute_technique": {
-			"V2Corrupted": [
+			"V2ResoluteTechniqueCorrupted": [
 				{
 					"min": 1,
 					"max": 1
 				}
 			],
-			"UniqueTwoHandAxe9": [
+			"ResoluteTechniqueUniqueTwoHandAxe9": [
 				{
 					"min": 1,
 					"max": 1
 				}
 			],
-			"KeystoneUnique__1": [
+			"ResoluteTechniqueUnique__1": [
 				{
 					"min": 1,
 					"max": 1
 				}
 			],
-			"HellscapeUpsideKeystone": [
+			"HellscapeUpsideResoluteTechnique": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"RecombinatorSpecialResoluteTechnique": [
 				{
 					"min": 1,
 					"max": 1
@@ -102008,6 +102484,12 @@
 				{
 					"min": 18,
 					"max": 19
+				}
+			],
+			"": [
+				{
+					"min": 50,
+					"max": 80
 				}
 			]
 		},
@@ -103435,6 +103917,30 @@
 					"min": 1,
 					"max": 1
 				}
+			],
+			"SentinelExtraChains1": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"SentinelExtraChains2": [
+				{
+					"min": 2,
+					"max": 2
+				}
+			],
+			"SentinelExtraChains3": [
+				{
+					"min": 3,
+					"max": 3
+				}
+			],
+			"SentinelImplicitCraftedA1": [
+				{
+					"min": 1,
+					"max": 1
+				}
 			]
 		},
 		"transfer_hexes_to_X_nearby_enemies_on_kill": {
@@ -103640,25 +104146,25 @@
 			]
 		},
 		"keystone_unwavering_stance": {
-			"": [
+			"UnwaveringStance": [
 				{
 					"min": 1,
 					"max": 1
 				}
 			],
-			"KeystoneUnique__1": [
+			"UnwaveringStanceUnique__1": [
 				{
 					"min": 1,
 					"max": 1
 				}
 			],
-			"SynthesisImplicit1": [
+			"SynthesisImplicitUnwaveringStance1": [
 				{
 					"min": 1,
 					"max": 1
 				}
 			],
-			"HellscapeUpside1": [
+			"HellscapeUpsideUnwaveringStance1": [
 				{
 					"min": 1,
 					"max": 1
@@ -104936,12 +105442,6 @@
 				{
 					"min": 11,
 					"max": 12
-				}
-			],
-			"": [
-				{
-					"min": 100,
-					"max": 100
 				}
 			]
 		},
@@ -108168,6 +108668,20 @@
 					"max": 1
 				}
 			],
+			"MapExtraStrongBoxesCrafted": [
+				{
+					"min": 4,
+					"max": 4
+				},
+				{
+					"min": 7,
+					"max": 7
+				},
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
 			"HarvestInfusedMapExtraStrongBoxes_": [
 				{
 					"min": 6,
@@ -108302,8 +108816,8 @@
 			],
 			"MapExtraShrinesCrafted_": [
 				{
-					"min": 3,
-					"max": 3
+					"min": 4,
+					"max": 4
 				},
 				{
 					"min": 5,
@@ -108431,6 +108945,28 @@
 		},
 		"map_item_drop_quantity_+% map_spawn_extra_exiles map_ignore_rogue_exile_rarity_bias map_set_league_category map_extra_content_weighting": {
 			"MapAnarchyExiles": [
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 3,
+					"max": 3
+				},
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 2,
+					"max": 2
+				},
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"MapAnarchyExilesCrafted": [
 				{
 					"min": 0,
 					"max": 0
@@ -109857,50 +110393,6 @@
 				}
 			]
 		},
-		"monster_spawn_bloodlines_ghost_totem_on_death": {
-			"MonsterGhostTotem": [
-				{
-					"min": 1,
-					"max": 1
-				}
-			],
-			"MonsterGhostTotem2": [
-				{
-					"min": 2,
-					"max": 2
-				}
-			],
-			"MonsterGhostTotem3": [
-				{
-					"min": 3,
-					"max": 3
-				}
-			],
-			"MonsterGhostTotem4": [
-				{
-					"min": 4,
-					"max": 4
-				}
-			],
-			"MonsterGhostTotem5": [
-				{
-					"min": 5,
-					"max": 5
-				}
-			]
-		},
-		"monster_slain_experience_+% monster_dropped_item_quantity_+%": {
-			"MonsterSpiritWalkers": [
-				{
-					"min": -175,
-					"max": -175
-				},
-				{
-					"min": -350,
-					"max": -350
-				}
-			]
-		},
 		"map_spawn_tormented_spirits map_extra_content_weighting": {
 			"Map": [
 				{
@@ -110050,6 +110542,14 @@
 				{
 					"min": 100,
 					"max": 100
+				}
+			]
+		},
+		"monster_voidspawn": {
+			"MonsterVoidspawn": [
+				{
+					"min": 1,
+					"max": 1
 				}
 			]
 		},
@@ -110514,12 +111014,6 @@
 				{
 					"min": 25,
 					"max": 25
-				}
-			],
-			"": [
-				{
-					"min": 100,
-					"max": 100
 				}
 			]
 		},
@@ -111864,19 +112358,25 @@
 			]
 		},
 		"strong_casting": {
-			"UniqueGlovesStrInt4__": [
+			"IronWillUniqueGlovesStrInt4__": [
 				{
 					"min": 1,
 					"max": 1
 				}
 			],
-			"KeystoneUnique_1": [
+			"IronWillUnique_1": [
 				{
 					"min": 1,
 					"max": 1
 				}
 			],
-			"HellscapeUpsideKeystone": [
+			"HellscapeUpsideIronWill": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"RecombinatorSpecialIronWill": [
 				{
 					"min": 1,
 					"max": 1
@@ -112812,12 +113312,12 @@
 			],
 			"": [
 				{
-					"min": 50,
-					"max": 50
+					"min": 100,
+					"max": 200
 				},
 				{
-					"min": 50,
-					"max": 50
+					"min": 100,
+					"max": 200
 				}
 			]
 		},
@@ -114078,6 +114578,12 @@
 				{
 					"min": 1,
 					"max": 4
+				}
+			],
+			"Unique__2": [
+				{
+					"min": 5,
+					"max": 5
 				}
 			]
 		},
@@ -116858,25 +117364,31 @@
 			]
 		},
 		"keystone_elemental_equilibrium": {
-			"": [
+			"ElementalEquilibrium": [
 				{
 					"min": 1,
 					"max": 1
 				}
 			],
-			"KeystoneUnique__1": [
+			"ElementalEquilibriumUnique__1": [
 				{
 					"min": 1,
 					"max": 1
 				}
 			],
-			"KeystoneSceptreImplicit1": [
+			"ElementalEquilibriumSceptreImplicit1": [
 				{
 					"min": 1,
 					"max": 1
 				}
 			],
-			"HellscapeUpsideKeystone_": [
+			"HellscapeUpsideElementalEquilibrium_": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"RecombinatorSpecialElementalEquilibrium": [
 				{
 					"min": 1,
 					"max": 1
@@ -135074,6 +135586,12 @@
 					"max": 6
 				}
 			],
+			"Unique__2": [
+				{
+					"min": 5,
+					"max": 10
+				}
+			],
 			"JunMaster21": [
 				{
 					"min": 6,
@@ -135124,8 +135642,8 @@
 			],
 			"": [
 				{
-					"min": 25,
-					"max": 35
+					"min": 50,
+					"max": 70
 				}
 			]
 		},
@@ -135342,13 +135860,19 @@
 			]
 		},
 		"keystone_strong_bowman": {
-			"KeystoneUnique__1": [
+			"IronGripUnique__1": [
 				{
 					"min": 1,
 					"max": 1
 				}
 			],
-			"HellscapeUpsideKeystone": [
+			"HellscapeUpsideIronGrip": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"RecombinatorSpecialIronGrip": [
 				{
 					"min": 1,
 					"max": 1
@@ -135356,13 +135880,13 @@
 			]
 		},
 		"keystone_projectile_evasion": {
-			"KeystoneUnique__1": [
+			"ArrowDodgingUnique__1": [
 				{
 					"min": 1,
 					"max": 1
 				}
 			],
-			"HellscapeUpsideOndarsGuile1__": [
+			"HellscapeUpsideMonsterNemesisOndarsGuile1__": [
 				{
 					"min": 1,
 					"max": 1
@@ -135370,13 +135894,19 @@
 			]
 		},
 		"keystone_ghost_reaver": {
-			"Unique__1": [
+			"GhostReaverUnique__1": [
 				{
 					"min": 1,
 					"max": 1
 				}
 			],
-			"HellscapeUpside": [
+			"HellscapeUpsideGhostReaver": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"RecombinatorSpecialGhostReaver": [
 				{
 					"min": 1,
 					"max": 1
@@ -135384,19 +135914,25 @@
 			]
 		},
 		"keystone_vaal_pact": {
-			"KeystoneUnique__1": [
+			"VaalPactUnique__1": [
 				{
 					"min": 1,
 					"max": 1
 				}
 			],
-			"KeystoneUnique__2": [
+			"VaalPactUnique__2": [
 				{
 					"min": 1,
 					"max": 1
 				}
 			],
-			"HellscapeUpsideKeystone": [
+			"HellscapeUpsideVaalPact": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"RecombinatorSpecialVaalPact": [
 				{
 					"min": 1,
 					"max": 1
@@ -135404,19 +135940,25 @@
 			]
 		},
 		"keystone_elemental_overload": {
-			"KeystoneUnique__1": [
+			"ElementalOverloadUnique__1": [
 				{
 					"min": 1,
 					"max": 1
 				}
 			],
-			"KeystoneSceptreImplicit1_": [
+			"ElementalOverloadSceptreImplicit1_": [
 				{
 					"min": 1,
 					"max": 1
 				}
 			],
-			"HellscapeUpsideKeystone": [
+			"HellscapeUpsideElementalOverload": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"RecombinatorSpecialElementalOverload": [
 				{
 					"min": 1,
 					"max": 1
@@ -135424,13 +135966,19 @@
 			]
 		},
 		"keystone_avatar_of_fire": {
-			"KeystoneUnique__1": [
+			"AvatarOfFireUnique__1": [
 				{
 					"min": 1,
 					"max": 1
 				}
 			],
-			"HellscapeUpsideKeystone": [
+			"HellscapeUpsideAvatarOfFire": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"RecombinatorSpecialAvatarOfFire": [
 				{
 					"min": 1,
 					"max": 1
@@ -135438,19 +135986,25 @@
 			]
 		},
 		"keystone_eldritch_battery": {
-			"KeystoneUnique__1": [
+			"EldritchBatteryUnique__1": [
 				{
 					"min": 1,
 					"max": 1
 				}
 			],
-			"KeystoneUnique__2": [
+			"EldritchBatteryUnique__2": [
 				{
 					"min": 1,
 					"max": 1
 				}
 			],
-			"HellscapeUpsideKeystone_": [
+			"HellscapeUpsideEldritchBattery_": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"RecombinatorSpecialEldritchBattery": [
 				{
 					"min": 1,
 					"max": 1
@@ -135458,13 +136012,19 @@
 			]
 		},
 		"keystone_crimson_dance": {
-			"KeystoneUnique__1": [
+			"CrimsonDanceUnique__1": [
 				{
 					"min": 1,
 					"max": 1
 				}
 			],
-			"HellscapeUpsideKeystone_": [
+			"HellscapeUpsideCrimsonDance_": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"RecombinatorSpecialCrimsonDance": [
 				{
 					"min": 1,
 					"max": 1
@@ -135472,13 +136032,19 @@
 			]
 		},
 		"keystone_ailment_crit": {
-			"KeystoneUnique__1": [
+			"PerfectAgonyUnique__1": [
 				{
 					"min": 1,
 					"max": 1
 				}
 			],
-			"HellscapeUpsideKeystone_": [
+			"HellscapeUpsidePerfectAgony_": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"RecombinatorSpecialPerfectAgony": [
 				{
 					"min": 1,
 					"max": 1
@@ -135486,13 +136052,19 @@
 			]
 		},
 		"keystone_runebinder": {
-			"KeystoneUnique__1": [
+			"RunebinderUnique__1": [
 				{
 					"min": 1,
 					"max": 1
 				}
 			],
-			"HellscapeUpsideKeystone___": [
+			"HellscapeUpsideRunebinder___": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"RecombinatorSpecialRunebinder": [
 				{
 					"min": 1,
 					"max": 1
@@ -135500,13 +136072,13 @@
 			]
 		},
 		"keystone_wicked_ward": {
-			"KeystoneUnique__1": [
+			"WickedWardUnique__1": [
 				{
 					"min": 1,
 					"max": 1
 				}
 			],
-			"HellscapeUpside1": [
+			"HellscapeUpsideWickedWard1": [
 				{
 					"min": 1,
 					"max": 1
@@ -135514,13 +136086,13 @@
 			]
 		},
 		"keystone_glancing_blows": {
-			"KeystoneUnique__1___": [
+			"GlancingBlowsUnique__1___": [
 				{
 					"min": 1,
 					"max": 1
 				}
 			],
-			"HellscapeUpside1": [
+			"HellscapeUpsideGlancingBlows1": [
 				{
 					"min": 1,
 					"max": 1
@@ -135528,19 +136100,25 @@
 			]
 		},
 		"keystone_call_to_arms": {
-			"KeystoneUnique__1": [
+			"CallToArmsUnique__1": [
 				{
 					"min": 1,
 					"max": 1
 				}
 			],
-			"KeystoneUnique__2_": [
+			"CallToArmsUnique__2_": [
 				{
 					"min": 1,
 					"max": 1
 				}
 			],
-			"HellscapeUpsideKeystone": [
+			"HellscapeUpsideCallToArms": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"RecombinatorSpecialCallToArms": [
 				{
 					"min": 1,
 					"max": 1
@@ -135548,19 +136126,19 @@
 			]
 		},
 		"keystone_eternal_youth": {
-			"KeystoneUnique__1": [
+			"EternalYouthUnique__1": [
 				{
 					"min": 1,
 					"max": 1
 				}
 			],
-			"KeystoneUnique__2_": [
+			"EternalYouthUnique__2_": [
 				{
 					"min": 1,
 					"max": 1
 				}
 			],
-			"HellscapeUpside1_": [
+			"HellscapeUpsideEternalYouth1_": [
 				{
 					"min": 1,
 					"max": 1
@@ -135568,13 +136146,13 @@
 			]
 		},
 		"keystone_wind_dancer": {
-			"KeystoneUnique__1_": [
+			"WindDancerUnique__1_": [
 				{
 					"min": 1,
 					"max": 1
 				}
 			],
-			"HellscapeUpside1": [
+			"HellscapeUpsideWindDancer1": [
 				{
 					"min": 1,
 					"max": 1
@@ -135582,19 +136160,25 @@
 			]
 		},
 		"keystone_miracle_of_thaumaturgy": {
-			"KeystoneUnique__1_": [
+			"TheAgnosticUnique__1_": [
 				{
 					"min": 1,
 					"max": 1
 				}
 			],
-			"KeystoneUnique__2": [
+			"TheAgnosticUnique__2": [
 				{
 					"min": 1,
 					"max": 1
 				}
 			],
-			"HellscapeUpsideKeystone_": [
+			"HellscapeUpsideTheAgnostic_": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"RecombinatorSpecialTheAgnostic": [
 				{
 					"min": 1,
 					"max": 1
@@ -135602,13 +136186,19 @@
 			]
 		},
 		"keystone_supreme_ego": {
-			"KeystoneUnique__1_": [
+			"SupremeEgoUnique__1_": [
 				{
 					"min": 1,
 					"max": 1
 				}
 			],
-			"HellscapeUpsideKeystone_": [
+			"HellscapeUpsideSupremeEgo_": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"RecombinatorSpecialSupremeEgo": [
 				{
 					"min": 1,
 					"max": 1
@@ -135616,13 +136206,13 @@
 			]
 		},
 		"keystone_sacred_bastion": {
-			"KeystoneUnique__1": [
+			"SacredBastionUnique__1": [
 				{
 					"min": 1,
 					"max": 1
 				}
 			],
-			"HellscapeUpside1_": [
+			"HellscapeUpsideSacredBastion1_": [
 				{
 					"min": 1,
 					"max": 1
@@ -135630,13 +136220,19 @@
 			]
 		},
 		"keystone_impale": {
-			"KeystoneTheUnique__1_": [
+			"TheImpalerUnique__1_": [
 				{
 					"min": 1,
 					"max": 1
 				}
 			],
-			"HellscapeUpsideKeystoneThe_": [
+			"HellscapeUpsideTheImpaler_": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"RecombinatorSpecialTheImpaler": [
 				{
 					"min": 1,
 					"max": 1
@@ -135644,13 +136240,13 @@
 			]
 		},
 		"keystone_corrupted_defences": {
-			"KeystoneUnique_1": [
+			"CorruptedSoulUnique_1": [
 				{
 					"min": 1,
 					"max": 1
 				}
 			],
-			"KeystoneUnique__2_": [
+			"CorruptedSoulUnique__2_": [
 				{
 					"min": 1,
 					"max": 1
@@ -135658,13 +136254,19 @@
 			]
 		},
 		"keystone_hex_zone_behaviour": {
-			"KeystoneUnique__1": [
+			"DoomsdayUnique__1": [
 				{
 					"min": 1,
 					"max": 1
 				}
 			],
-			"HellscapeUpsideKeystone": [
+			"HellscapeUpsideDoomsday": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"RecombinatorSpecialDoomsday": [
 				{
 					"min": 1,
 					"max": 1
@@ -135672,7 +136274,7 @@
 			]
 		},
 		"keystone_divine_flesh": {
-			"KeystoneUnique__1_": [
+			"DivineFleshUnique__1_": [
 				{
 					"min": 1,
 					"max": 1
@@ -135680,7 +136282,7 @@
 			]
 		},
 		"keystone_everlasting_sacrifice": {
-			"KeystoneUnique__1": [
+			"EverlastingSacrificeUnique__1": [
 				{
 					"min": 1,
 					"max": 1
@@ -135688,7 +136290,7 @@
 			]
 		},
 		"keystone_shepherd_of_souls": {
-			"KeystoneUnique__1": [
+			"ShepherdOfSoulsUnique__1": [
 				{
 					"min": 1,
 					"max": 1
@@ -135696,13 +136298,19 @@
 			]
 		},
 		"keystone_lethe_shade": {
-			"KeystoneUnique_1": [
+			"LetheShadeUnique_1": [
 				{
 					"min": 1,
 					"max": 1
 				}
 			],
-			"HellscapeUpsideKeystone1_": [
+			"HellscapeUpsideLetheShade1_": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"RecombinatorSpecialLetheShade1": [
 				{
 					"min": 1,
 					"max": 1
@@ -135710,13 +136318,19 @@
 			]
 		},
 		"keystone_ghost_dance": {
-			"KeystoneUnique__1": [
+			"GhostDanceUnique__1": [
 				{
 					"min": 1,
 					"max": 1
 				}
 			],
-			"HellscapeUpsideKeystone": [
+			"HellscapeUpsideGhostDance": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"RecombinatorSpecialGhostDance": [
 				{
 					"min": 1,
 					"max": 1
@@ -135724,13 +136338,19 @@
 			]
 		},
 		"keystone_versatile_combatant": {
-			"KeystoneUnique___1": [
+			"VersatileCombatantUnique___1": [
 				{
 					"min": 1,
 					"max": 1
 				}
 			],
-			"HellscapeUpsideKeystone___": [
+			"HellscapeUpsideVersatileCombatant___": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"RecombinatorSpecialVersatileCombatant": [
 				{
 					"min": 1,
 					"max": 1
@@ -135738,13 +136358,19 @@
 			]
 		},
 		"keystone_magebane": {
-			"KeystoneUnique_1": [
+			"MagebaneUnique_1": [
 				{
 					"min": 1,
 					"max": 1
 				}
 			],
-			"HellscapeUpsideKeystone": [
+			"HellscapeUpsideMagebane": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"RecombinatorSpecialMagebane": [
 				{
 					"min": 1,
 					"max": 1
@@ -135752,13 +136378,19 @@
 			]
 		},
 		"keystone_solipsism": {
-			"KeystoneUnique_1": [
+			"SolipsismUnique_1": [
 				{
 					"min": 1,
 					"max": 1
 				}
 			],
-			"HellscapeUpsideKeystone": [
+			"HellscapeUpsideSolipsism": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"RecombinatorSpecialSolipsism": [
 				{
 					"min": 1,
 					"max": 1
@@ -135766,13 +136398,19 @@
 			]
 		},
 		"keystone_divine_shield": {
-			"KeystoneUnique_1": [
+			"DivineShieldUnique_1": [
 				{
 					"min": 1,
 					"max": 1
 				}
 			],
-			"HellscapeUpsideKeystone": [
+			"HellscapeUpsideDivineShield": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"RecombinatorSpecialDivineShield": [
 				{
 					"min": 1,
 					"max": 1
@@ -135780,7 +136418,15 @@
 			]
 		},
 		"keystone_precise_technique": {
-			"KeystoneUnique__1": [
+			"PreciseTechniqueUnique__1": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"keystone_emperors_heart": {
+			"SupremeDecadenceUnique__1": [
 				{
 					"min": 1,
 					"max": 1
@@ -138261,12 +138907,6 @@
 					"min": 15,
 					"max": 25
 				}
-			],
-			"": [
-				{
-					"min": 25,
-					"max": 35
-				}
 			]
 		},
 		"gain_alchemists_genius_on_flask_use_%": {
@@ -138608,6 +139248,12 @@
 				{
 					"min": 16,
 					"max": 17
+				}
+			],
+			"RecombinatorSpecialMarkEffect": [
+				{
+					"min": 30,
+					"max": 40
 				}
 			]
 		},
@@ -140330,28 +140976,6 @@
 				{
 					"min": 100,
 					"max": 100
-				},
-				{
-					"min": 100,
-					"max": 100
-				}
-			]
-		},
-		"sextant_uses_remaining map_incursion_random_room_upgrade_on_architect_kill_%_chance": {
-			"": [
-				{
-					"min": 3,
-					"max": 3
-				},
-				{
-					"min": 100,
-					"max": 100
-				}
-			],
-			"Maven": [
-				{
-					"min": 15,
-					"max": 15
 				},
 				{
 					"min": 100,
@@ -146856,8 +147480,8 @@
 					"max": 5
 				},
 				{
-					"min": 0,
-					"max": 0
+					"min": 1,
+					"max": 1
 				}
 			]
 		},
@@ -147146,8 +147770,8 @@
 					"max": 1
 				},
 				{
-					"min": 0,
-					"max": 0
+					"min": 1,
+					"max": 1
 				},
 				{
 					"min": 1,
@@ -147198,8 +147822,8 @@
 					"max": 1
 				},
 				{
-					"min": 0,
-					"max": 0
+					"min": 1,
+					"max": 1
 				}
 			]
 		},
@@ -147774,16 +148398,16 @@
 		"map_spawn_harbingers map_num_extra_harbingers map_set_league_category map_extra_content_weighting": {
 			"MapCrafted": [
 				{
-					"min": 1,
-					"max": 1
+					"min": 0,
+					"max": 0
 				},
 				{
 					"min": 2,
 					"max": 2
 				},
 				{
-					"min": 23,
-					"max": 23
+					"min": 0,
+					"max": 0
 				},
 				{
 					"min": 1,
@@ -147792,16 +148416,16 @@
 			],
 			"HarvestInfusedCrafted": [
 				{
-					"min": 1,
-					"max": 1
+					"min": 0,
+					"max": 0
 				},
 				{
-					"min": 4,
-					"max": 4
+					"min": 5,
+					"max": 5
 				},
 				{
-					"min": 23,
-					"max": 23
+					"min": 0,
+					"max": 0
 				},
 				{
 					"min": 1,
@@ -151266,6 +151890,54 @@
 				{
 					"min": 5,
 					"max": 5
+				}
+			]
+		},
+		"local_unique_hungry_loop_number_of_gems_to_consume local_unique_hungry_loop_has_consumed_gem local_display_supported_by_level_x_awakened_empower": {
+			"SupportedByAwakenedEmpower": [
+				{
+					"min": -1,
+					"max": -1
+				},
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 4,
+					"max": 4
+				}
+			]
+		},
+		"local_unique_hungry_loop_number_of_gems_to_consume local_unique_hungry_loop_has_consumed_gem local_display_supported_by_level_x_awakened_enlighten": {
+			"SupportedByAwakenedEnlighten": [
+				{
+					"min": -1,
+					"max": -1
+				},
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 4,
+					"max": 4
+				}
+			]
+		},
+		"local_unique_hungry_loop_number_of_gems_to_consume local_unique_hungry_loop_has_consumed_gem local_display_supported_by_level_x_awakened_enhance": {
+			"SupportedByAwakenedEnhance": [
+				{
+					"min": -1,
+					"max": -1
+				},
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 4,
+					"max": 4
 				}
 			]
 		},
@@ -162516,7 +163188,7 @@
 			]
 		},
 		"keystone_shared_suffering": {
-			"Unique__1": [
+			"SharedSufferingUnique__1": [
 				{
 					"min": 1,
 					"max": 1
@@ -162573,6 +163245,36 @@
 		},
 		"temporal_chains_no_reservation": {
 			"TemporalChainsReservationCostUnique__1": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"TemporalChainsReservationCostUnique__2": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"punishment_no_reservation": {
+			"PunishmentReservationCostUnique__1": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"enfeeble_no_reservation": {
+			"EnfeebleReservationCostUnique__1": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"elemental_weakness_no_reservation": {
+			"ElementalWeaknessReservationCostUnique__1": [
 				{
 					"min": 1,
 					"max": 1
@@ -163644,6 +164346,278 @@
 				{
 					"min": 2,
 					"max": 2
+				}
+			]
+		},
+		"always_scorch_while_affected_by_anger your_auras_except_anger_are_disabled aura_effect_on_self_from_your_skills_+%": {
+			"SublimeVisionAnger": [
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 20,
+					"max": 40
+				}
+			]
+		},
+		"arcane_surge_effect_+%_while_affected_by_clarity your_auras_except_clarity_are_disabled aura_effect_on_self_from_your_skills_+%": {
+			"SublimeVisionClarity": [
+				{
+					"min": 80,
+					"max": 80
+				},
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 20,
+					"max": 40
+				}
+			]
+		},
+		"maximum_endurance_charges_+_while_affected_by_determination your_auras_except_determination_are_disabled aura_effect_on_self_from_your_skills_+%": {
+			"SublimeVisionDetermination": [
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 20,
+					"max": 40
+				}
+			]
+		},
+		"maximum_power_charges_+_while_affected_by_discipline your_auras_except_discipline_are_disabled aura_effect_on_self_from_your_skills_+%": {
+			"SublimeVisionDiscipline": [
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 20,
+					"max": 40
+				}
+			]
+		},
+		"maximum_frenzy_charges_+_while_affected_by_grace your_auras_except_grace_are_disabled aura_effect_on_self_from_your_skills_+%": {
+			"SublimeVisionGrace": [
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 20,
+					"max": 40
+				}
+			]
+		},
+		"action_speed_+%_while_affected_by_haste your_auras_except_haste_are_disabled aura_effect_on_self_from_your_skills_+%": {
+			"SublimeVisionHaste": [
+				{
+					"min": 10,
+					"max": 10
+				},
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 20,
+					"max": 40
+				}
+			]
+		},
+		"always_frostburn_while_affected_by_hatred your_auras_except_hatred_are_disabled aura_effect_on_self_from_your_skills_+%": {
+			"SublimeVisionHatred": [
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 20,
+					"max": 40
+				}
+			]
+		},
+		"number_of_additional_curses_allowed_while_affected_by_malevolence your_auras_except_malevolence_are_disabled aura_effect_on_self_from_your_skills_+%": {
+			"SublimeVisionMalevolence": [
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 20,
+					"max": 40
+				}
+			]
+		},
+		"critical_strike_chance_+%_final_while_affected_by_precision your_auras_except_precision_are_disabled aura_effect_on_self_from_your_skills_+%": {
+			"SublimeVisionPrecision": [
+				{
+					"min": 25,
+					"max": 25
+				},
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 20,
+					"max": 40
+				}
+			]
+		},
+		"explode_enemies_for_10%_life_as_physical_on_kill_chance_%_while_using_pride your_auras_except_pride_are_disabled non_curse_aura_effect_+%_vs_enemies": {
+			"SublimeVisionPride": [
+				{
+					"min": 25,
+					"max": 25
+				},
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 20,
+					"max": 40
+				}
+			]
+		},
+		"additional_maximum_all_elemental_resistances_%_while_affected_by_purity_of_elements your_auras_except_purity_of_elements_are_disabled aura_effect_on_self_from_your_skills_+%": {
+			"SublimeVisionPurityOfElements": [
+				{
+					"min": 3,
+					"max": 3
+				},
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 20,
+					"max": 40
+				}
+			]
+		},
+		"fire_and_lightning_hit_and_dot_damage_%_taken_as_cold_while_affected_by_purity_of_ice your_auras_except_purity_of_ice_are_disabled aura_effect_on_self_from_your_skills_+%": {
+			"SublimeVisionPurityOfIce": [
+				{
+					"min": 30,
+					"max": 30
+				},
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 20,
+					"max": 40
+				}
+			]
+		},
+		"fire_and_cold_hit_and_dot_damage_%_taken_as_lightning_while_affected_by_purity_of_lightning your_auras_except_purity_of_lightning_are_disabled aura_effect_on_self_from_your_skills_+%": {
+			"SublimeVisionPurityOfLightning": [
+				{
+					"min": 30,
+					"max": 30
+				},
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 20,
+					"max": 40
+				}
+			]
+		},
+		"cold_and_lightning_hit_and_dot_damage_%_taken_as_fire_while_affected_by_purity_of_fire your_auras_except_purity_of_fire_are_disabled aura_effect_on_self_from_your_skills_+%": {
+			"SublimeVisionPurityOfFire": [
+				{
+					"min": 30,
+					"max": 30
+				},
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 20,
+					"max": 40
+				}
+			]
+		},
+		"regenerate_%_life_over_1_second_when_hit_while_affected_by_vitality your_auras_except_vitality_are_disabled aura_effect_on_self_from_your_skills_+%": {
+			"SublimeVisionVitality": [
+				{
+					"min": 15,
+					"max": 15
+				},
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 20,
+					"max": 40
+				}
+			]
+		},
+		"always_sap_while_affected_by_wrath your_auras_except_wrath_are_disabled aura_effect_on_self_from_your_skills_+%": {
+			"SublimeVisionWrath": [
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 20,
+					"max": 40
+				}
+			]
+		},
+		"unaffected_by_curses_while_affected_by_zealotry your_auras_except_zealotry_are_disabled aura_effect_on_self_from_your_skills_+%": {
+			"SublimeVisionZealotry": [
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 20,
+					"max": 40
 				}
 			]
 		},
@@ -165301,6 +166275,16 @@
 					"min": 2,
 					"max": 2
 				}
+			],
+			"RecombinatorSpecialFireDamageToAttacksPerStrength": [
+				{
+					"min": 2,
+					"max": 2
+				},
+				{
+					"min": 4,
+					"max": 4
+				}
 			]
 		},
 		"minimum_added_cold_damage_to_attacks_per_10_dexterity maximum_added_cold_damage_to_attacks_per_10_dexterity": {
@@ -165313,6 +166297,16 @@
 					"min": 2,
 					"max": 2
 				}
+			],
+			"RecombinatorSpecialColdDamageToAttacksPerDexterity": [
+				{
+					"min": 2,
+					"max": 2
+				},
+				{
+					"min": 4,
+					"max": 4
+				}
 			]
 		},
 		"minimum_added_lightning_damage_to_attacks_per_10_intelligence maximum_added_lightning_damage_to_attacks_per_10_intelligence": {
@@ -165324,6 +166318,16 @@
 				{
 					"min": 3,
 					"max": 3
+				}
+			],
+			"RecombinatorSpecialLightningDamageToAttacksPerIntelligence": [
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 5,
+					"max": 5
 				}
 			]
 		},
@@ -170228,6 +171232,18 @@
 				{
 					"min": 16,
 					"max": 17
+				}
+			],
+			"RecombinatorSpecial1H": [
+				{
+					"min": 30,
+					"max": 40
+				}
+			],
+			"RecombinatorSpecial2H": [
+				{
+					"min": 50,
+					"max": 70
 				}
 			]
 		},
@@ -181143,6 +182159,16 @@
 					"min": 1,
 					"max": 1
 				}
+			],
+			"": [
+				{
+					"min": 70,
+					"max": 130
+				},
+				{
+					"min": 1,
+					"max": 1
+				}
 			]
 		},
 		"critical_strike_chance_+% base_critical_strike_multiplier_+ accuracy_rating_+%": {
@@ -182052,8 +183078,8 @@
 					"max": 3
 				},
 				{
-					"min": 0,
-					"max": 0
+					"min": 1,
+					"max": 1
 				}
 			]
 		},
@@ -186004,7 +187030,7 @@
 			]
 		},
 		"keystone_quiet_might": {
-			"Unique__1": [
+			"InnerConvictionUnique__1": [
 				{
 					"min": 1,
 					"max": 1
@@ -214341,6 +215367,20 @@
 					"min": 0,
 					"max": 0
 				}
+			],
+			"TangledAltarDownsideMonsterSpeed": [
+				{
+					"min": 30,
+					"max": 50
+				},
+				{
+					"min": 30,
+					"max": 50
+				},
+				{
+					"min": 30,
+					"max": 50
+				}
 			]
 		},
 		"damage_+% base_damage_taken_+%": {
@@ -215440,8 +216480,8 @@
 					"max": 1
 				},
 				{
-					"min": 0,
-					"max": 0
+					"min": 1,
+					"max": 1
 				}
 			]
 		},
@@ -222816,16 +223856,16 @@
 		"expedition_elite_%_to_drop_influenced_item": {
 			"___": [
 				{
-					"min": 35,
-					"max": 35
+					"min": 20,
+					"max": 20
 				}
 			]
 		},
 		"expedition_chest_%_to_drop_influenced_item": {
 			"__": [
 				{
-					"min": 35,
-					"max": 35
+					"min": 20,
+					"max": 20
 				}
 			]
 		},
@@ -223705,18 +224745,6 @@
 					"min": 5,
 					"max": 5
 				}
-			],
-			"": [
-				{
-					"min": 15,
-					"max": 25
-				}
-			],
-			"": [
-				{
-					"min": 15,
-					"max": 25
-				}
 			]
 		},
 		"guard_skill_cooldown_recovery_+%": {
@@ -223871,12 +224899,6 @@
 					"min": 100,
 					"max": 100
 				}
-			],
-			"": [
-				{
-					"min": 20,
-					"max": 30
-				}
 			]
 		},
 		"curse_on_hit_%_elemental_weakness": {
@@ -223893,12 +224915,6 @@
 					"min": 100,
 					"max": 100
 				}
-			],
-			"": [
-				{
-					"min": 15,
-					"max": 25
-				}
 			]
 		},
 		"curse_on_hit_%_frostbite": {
@@ -223906,12 +224922,6 @@
 				{
 					"min": 100,
 					"max": 100
-				}
-			],
-			"": [
-				{
-					"min": 15,
-					"max": 25
 				}
 			]
 		},
@@ -240435,6 +241445,18 @@
 					"min": 16,
 					"max": 17
 				}
+			],
+			"RecombinatorSpecial1H": [
+				{
+					"min": 30,
+					"max": 40
+				}
+			],
+			"RecombinatorSpecial2H": [
+				{
+					"min": 50,
+					"max": 70
+				}
 			]
 		},
 		"arcane_surge_effect_+% local_influence_mod_requires_unique_monster_presence": {
@@ -254775,6 +255797,130 @@
 				}
 			]
 		},
+		"skill_effect_duration_+% local_influence_mod_requires_unique_monster_presence": {
+			"UniquePresence1": [
+				{
+					"min": 13,
+					"max": 14
+				},
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"UniquePresence2": [
+				{
+					"min": 15,
+					"max": 16
+				},
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"UniquePresence3": [
+				{
+					"min": 17,
+					"max": 18
+				},
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"UniquePresence4": [
+				{
+					"min": 19,
+					"max": 20
+				},
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"UniquePresence5": [
+				{
+					"min": 21,
+					"max": 22
+				},
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"UniquePresence6": [
+				{
+					"min": 23,
+					"max": 24
+				},
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"skill_effect_duration_+% local_influence_mod_requires_celestial_boss_presence": {
+			"PinnaclePresence1": [
+				{
+					"min": 19,
+					"max": 20
+				},
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"PinnaclePresence2": [
+				{
+					"min": 21,
+					"max": 22
+				},
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"PinnaclePresence3": [
+				{
+					"min": 23,
+					"max": 24
+				},
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"PinnaclePresence4": [
+				{
+					"min": 25,
+					"max": 26
+				},
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"PinnaclePresence5": [
+				{
+					"min": 27,
+					"max": 28
+				},
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"PinnaclePresence6": [
+				{
+					"min": 29,
+					"max": 30
+				},
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
 		"map_archnemesis_league": {
 			"Map__": [
 				{
@@ -254814,8 +255960,8 @@
 					"max": 3
 				},
 				{
-					"min": 0,
-					"max": 0
+					"min": 1,
+					"max": 1
 				}
 			]
 		},
@@ -254842,8 +255988,8 @@
 					"max": 1
 				},
 				{
-					"min": 0,
-					"max": 0
+					"min": 100,
+					"max": 100
 				},
 				{
 					"min": 1,
@@ -254878,8 +256024,8 @@
 					"max": 100
 				},
 				{
-					"min": 0,
-					"max": 0
+					"min": 1,
+					"max": 1
 				}
 			]
 		},
@@ -254971,40 +256117,52 @@
 				}
 			]
 		},
-		"base_cold_damage_resistance_% base_lightning_damage_resistance_%": {
+		"base_cold_damage_resistance_% base_lightning_damage_resistance_% base_maximum_cold_damage_resistance_% base_maximum_lightning_damage_resistance_%": {
 			"": [
 				{
-					"min": 50,
-					"max": 50
+					"min": 80,
+					"max": 80
 				},
 				{
-					"min": 50,
-					"max": 50
+					"min": 80,
+					"max": 80
+				},
+				{
+					"min": 10,
+					"max": 10
+				},
+				{
+					"min": 10,
+					"max": 10
 				}
 			],
 			"": [
 				{
-					"min": 50,
-					"max": 50
+					"min": 80,
+					"max": 80
 				},
 				{
-					"min": 50,
-					"max": 50
-				}
-			],
-			"": [
-				{
-					"min": -40,
-					"max": -40
+					"min": 80,
+					"max": 80
 				},
 				{
-					"min": -40,
-					"max": -40
+					"min": 10,
+					"max": 10
+				},
+				{
+					"min": 10,
+					"max": 10
 				}
 			]
 		},
 		"all_damage_can_chill": {
 			"": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"Unique__1": [
 				{
 					"min": 1,
 					"max": 1
@@ -255023,8 +256181,84 @@
 				}
 			]
 		},
-		"cover_in_frost_on_hit": {
+		"base_spell_suppression_chance_% base_spell_damage_%_suppressed": {
 			"": [
+				{
+					"min": 100,
+					"max": 100
+				},
+				{
+					"min": 20,
+					"max": 30
+				}
+			],
+			"": [
+				{
+					"min": 100,
+					"max": 100
+				},
+				{
+					"min": 20,
+					"max": 30
+				}
+			]
+		},
+		"base_penetrate_elemental_resistances_% physical_damage_%_to_add_as_random_element": {
+			"": [
+				{
+					"min": 15,
+					"max": 25
+				},
+				{
+					"min": 50,
+					"max": 80
+				}
+			],
+			"": [
+				{
+					"min": 15,
+					"max": 25
+				},
+				{
+					"min": 50,
+					"max": 80
+				}
+			]
+		},
+		"cover_in_frost_on_hit physical_damage_%_to_add_as_cold": {
+			"": [
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 50,
+					"max": 80
+				}
+			]
+		},
+		"global_chance_to_blind_on_hit_% blind_effect_+%": {
+			"": [
+				{
+					"min": 100,
+					"max": 100
+				},
+				{
+					"min": 100,
+					"max": 200
+				}
+			]
+		},
+		"physical_damage_%_to_add_as_lightning all_damage_can_shock always_shock": {
+			"": [
+				{
+					"min": 70,
+					"max": 130
+				},
+				{
+					"min": 1,
+					"max": 1
+				},
 				{
 					"min": 1,
 					"max": 1
@@ -255042,8 +256276,8 @@
 		"remove_random_charge_on_hit_%": {
 			"": [
 				{
-					"min": 25,
-					"max": 35
+					"min": 100,
+					"max": 100
 				}
 			]
 		},
@@ -255058,8 +256292,8 @@
 		"shocked_ground_on_death_%": {
 			"": [
 				{
-					"min": 15,
-					"max": 25
+					"min": 100,
+					"max": 100
 				}
 			]
 		},
@@ -255074,32 +256308,44 @@
 		"curse_with_punishment_on_hit_%": {
 			"": [
 				{
-					"min": 15,
-					"max": 25
+					"min": 100,
+					"max": 100
+				}
+			]
+		},
+		"base_cold_damage_resistance_% base_lightning_damage_resistance_%": {
+			"": [
+				{
+					"min": -60,
+					"max": -40
+				},
+				{
+					"min": -60,
+					"max": -40
 				}
 			]
 		},
 		"global_defences_+%_per_frenzy_charge": {
 			"": [
 				{
-					"min": -8,
-					"max": -6
+					"min": -50,
+					"max": -30
 				}
 			]
 		},
 		"life_mana_es_recovery_rate_+%_per_endurance_charge": {
 			"": [
 				{
-					"min": -8,
-					"max": -6
+					"min": -20,
+					"max": -10
 				}
 			]
 		},
 		"cooldown_recovery_+%_per_power_charge": {
 			"": [
 				{
-					"min": -8,
-					"max": -6
+					"min": -20,
+					"max": -10
 				}
 			]
 		},
@@ -255134,16 +256380,16 @@
 		"display_altar_cold_aura": {
 			"": [
 				{
-					"min": 40,
-					"max": 80
+					"min": 100,
+					"max": 100
 				}
 			]
 		},
 		"display_altar_lightning_aura": {
 			"": [
 				{
-					"min": 40,
-					"max": 80
+					"min": 100,
+					"max": 100
 				}
 			]
 		},
@@ -255179,43 +256425,53 @@
 				}
 			]
 		},
-		"base_fire_damage_resistance_% base_chaos_damage_resistance_%": {
+		"base_fire_damage_resistance_% base_chaos_damage_resistance_% base_maximum_fire_damage_resistance_% base_maximum_chaos_damage_resistance_%": {
 			"": [
 				{
-					"min": 50,
-					"max": 50
+					"min": 80,
+					"max": 80
 				},
 				{
-					"min": 50,
-					"max": 50
+					"min": 80,
+					"max": 80
+				},
+				{
+					"min": 10,
+					"max": 10
+				},
+				{
+					"min": 10,
+					"max": 10
 				}
 			],
 			"": [
 				{
-					"min": 50,
-					"max": 50
+					"min": 80,
+					"max": 80
 				},
 				{
-					"min": 50,
-					"max": 50
-				}
-			],
-			"": [
-				{
-					"min": -40,
-					"max": -40
+					"min": 80,
+					"max": 80
 				},
 				{
-					"min": -40,
-					"max": -40
+					"min": 10,
+					"max": 10
+				},
+				{
+					"min": 10,
+					"max": 10
 				}
 			]
 		},
-		"cover_in_ash_on_hit_%": {
+		"cover_in_ash_on_hit_% physical_damage_%_to_add_as_fire": {
 			"": [
 				{
 					"min": 100,
 					"max": 100
+				},
+				{
+					"min": 50,
+					"max": 80
 				}
 			]
 		},
@@ -255266,14 +256522,14 @@
 		"drain_x_flask_charges_over_time_on_hit_for_6_seconds": {
 			"": [
 				{
-					"min": 3,
-					"max": 3
+					"min": 6,
+					"max": 6
 				}
 			],
 			"": [
 				{
-					"min": 3,
-					"max": 3
+					"min": 6,
+					"max": 6
 				}
 			]
 		},
@@ -255285,15 +256541,47 @@
 				}
 			]
 		},
+		"physical_damage_%_to_add_as_fire all_damage_can_ignite always_ignite": {
+			"": [
+				{
+					"min": 70,
+					"max": 130
+				},
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"physical_damage_%_to_add_as_chaos all_damage_can_poison global_poison_on_hit": {
+			"": [
+				{
+					"min": 70,
+					"max": 130
+				},
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
 		"hinder_aura_behaviour_variation local_display_nearby_enemies_movement_speed_+%": {
 			"": [
 				{
-					"min": 0,
-					"max": 0
+					"min": 1,
+					"max": 1
 				},
 				{
-					"min": -25,
-					"max": -25
+					"min": -40,
+					"max": -40
 				}
 			]
 		},
@@ -255308,44 +256596,72 @@
 		"consecrated_ground_on_death": {
 			"": [
 				{
-					"min": 20,
-					"max": 20
+					"min": 100,
+					"max": 100
 				}
 			]
 		},
-		"inflict_all_exposure_on_hit": {
+		"inflict_all_exposure_on_hit physical_damage_%_to_add_as_random_element": {
 			"": [
 				{
 					"min": 1,
 					"max": 1
+				},
+				{
+					"min": 70,
+					"max": 130
+				}
+			]
+		},
+		"base_fire_damage_resistance_% base_chaos_damage_resistance_%": {
+			"": [
+				{
+					"min": -60,
+					"max": -40
+				},
+				{
+					"min": -60,
+					"max": -40
+				}
+			]
+		},
+		"base_physical_damage_reduction_rating base_evasion_rating": {
+			"": [
+				{
+					"min": -3000,
+					"max": -3000
+				},
+				{
+					"min": -3000,
+					"max": -3000
 				}
 			]
 		},
 		"flask_charges_used_+% flask_duration_+%": {
 			"": [
 				{
-					"min": 15,
-					"max": 20
+					"min": 20,
+					"max": 40
 				},
 				{
-					"min": -20,
-					"max": -20
+					"min": -60,
+					"max": -40
 				}
 			]
 		},
 		"chaos_damage_per_minute_while_affected_by_flask": {
 			"": [
 				{
-					"min": 18000,
-					"max": 18000
+					"min": 36000,
+					"max": 36000
 				}
 			]
 		},
 		"chance_to_be_scorched_when_hit_% all_damage_taken_can_scorch": {
 			"": [
 				{
-					"min": 15,
-					"max": 20
+					"min": 25,
+					"max": 35
 				},
 				{
 					"min": 1,
@@ -255380,256 +256696,152 @@
 		"display_altar_fire_aura": {
 			"": [
 				{
-					"min": 40,
-					"max": 80
+					"min": 100,
+					"max": 100
 				}
 			]
 		},
 		"display_altar_chaos_aura": {
 			"": [
 				{
-					"min": 40,
-					"max": 80
+					"min": 100,
+					"max": 100
 				}
 			]
 		},
-		"map_boss_additional_tangled_influenced_items_t1": {
-			"TangleAltarUpsideBossTangledInfluencedItems_t1": [
+		"map_boss_additional_tangled_influenced_items": {
+			"": [
 				{
-					"min": 1,
-					"max": 2
+					"min": 2,
+					"max": 4
 				}
 			]
 		},
-		"map_boss_additional_tangled_influenced_items_t2": {
-			"TangleAltarUpsideBossTangledInfluencedItems_t2": [
-				{
-					"min": 1,
-					"max": 2
-				}
-			]
-		},
-		"map_boss_additional_tangled_influenced_items_t3": {
-			"TangleAltarUpsideBossTangledInfluencedItems_t3": [
-				{
-					"min": 1,
-					"max": 2
-				}
-			]
-		},
-		"map_boss_additional_tangled_currency_t1_to_drop": {
+		"map_boss_additional_tangled_currency_to_drop": {
 			"": [
 				{
 					"min": 1,
-					"max": 2
+					"max": 3
 				}
 			]
 		},
-		"map_boss_additional_tangled_currency_t2_to_drop": {
+		"chance_%_to_drop_additional_tangled_influenced_item": {
+			"": [
+				{
+					"min": 20,
+					"max": 40
+				}
+			]
+		},
+		"chance_%_to_drop_additional_tangled_currency": {
+			"": [
+				{
+					"min": 10,
+					"max": 20
+				}
+			]
+		},
+		"chance_%_to_drop_additional_cleansing_currency": {
+			"": [
+				{
+					"min": 10,
+					"max": 20
+				}
+			]
+		},
+		"map_boss_additional_cleansing_influenced_items": {
+			"": [
+				{
+					"min": 2,
+					"max": 4
+				}
+			]
+		},
+		"map_boss_additional_cleansing_currency_to_drop": {
 			"": [
 				{
 					"min": 1,
-					"max": 2
+					"max": 3
 				}
 			]
 		},
-		"map_boss_additional_tangled_currency_t3_to_drop": {
+		"chance_%_to_drop_additional_cleansing_influenced_item": {
 			"": [
 				{
-					"min": 1,
-					"max": 2
-				}
-			]
-		},
-		"chance_%_to_drop_additional_tangled_influenced_t1": {
-			"TangleAltarUpsideMonsterTangledInfluencedItems_t1": [
-				{
-					"min": 1,
-					"max": 1
-				}
-			]
-		},
-		"chance_%_to_drop_additional_tangled_influenced_t2": {
-			"TangleAltarUpsideMonsterTangledInfluencedItems_t2": [
-				{
-					"min": 1,
-					"max": 1
-				}
-			]
-		},
-		"chance_%_to_drop_additional_tangled_influenced_t3": {
-			"TangleAltarUpsideMonsterTangledInfluencedItems_t3": [
-				{
-					"min": 1,
-					"max": 1
-				}
-			]
-		},
-		"chance_%_to_drop_additional_tangled_currency_t1": {
-			"": [
-				{
-					"min": 5,
-					"max": 15
-				}
-			]
-		},
-		"chance_%_to_drop_additional_tangled_currency_t2": {
-			"": [
-				{
-					"min": 5,
-					"max": 15
-				}
-			]
-		},
-		"chance_%_to_drop_additional_tangled_currency_t3": {
-			"": [
-				{
-					"min": 5,
-					"max": 15
-				}
-			]
-		},
-		"chance_%_to_drop_additional_cleansing_currency_t1": {
-			"": [
-				{
-					"min": 5,
-					"max": 15
-				}
-			]
-		},
-		"chance_%_to_drop_additional_cleansing_currency_t2": {
-			"": [
-				{
-					"min": 5,
-					"max": 15
-				}
-			]
-		},
-		"chance_%_to_drop_additional_cleansing_currency_t3": {
-			"": [
-				{
-					"min": 5,
-					"max": 15
-				}
-			]
-		},
-		"map_boss_additional_cleansing_influenced_items_t1": {
-			"CleansingAltarUpsideBossCleansingInfluencedItems_t1": [
-				{
-					"min": 1,
-					"max": 2
-				}
-			]
-		},
-		"map_boss_additional_cleansing_influenced_items_t2": {
-			"CleansingAltarUpsideBossCleansingInfluencedItems_t2": [
-				{
-					"min": 1,
-					"max": 2
-				}
-			]
-		},
-		"map_boss_additional_cleansing_influenced_items_t3": {
-			"CleansingAltarUpsideBossCleansingInfluencedItems_t3": [
-				{
-					"min": 1,
-					"max": 2
-				}
-			]
-		},
-		"map_boss_additional_cleansing_currency_t1_to_drop": {
-			"": [
-				{
-					"min": 1,
-					"max": 2
-				}
-			]
-		},
-		"map_boss_additional_cleansing_currency_t2_to_drop": {
-			"": [
-				{
-					"min": 1,
-					"max": 2
-				}
-			]
-		},
-		"map_boss_additional_cleansing_currency_t3_to_drop": {
-			"": [
-				{
-					"min": 1,
-					"max": 2
-				}
-			]
-		},
-		"chance_%_to_drop_additional_cleansing_influenced_t1": {
-			"CleansingAltarUpsideMonsterCleansingInfluencedItems_t1": [
-				{
-					"min": 1,
-					"max": 2
-				}
-			]
-		},
-		"chance_%_to_drop_additional_cleansing_influenced_t2": {
-			"CleansingAltarUpsideMonsterCleansingInfluencedItems_t2": [
-				{
-					"min": 1,
-					"max": 2
-				}
-			]
-		},
-		"chance_%_to_drop_additional_cleansing_influenced_t3": {
-			"CleansingAltarUpsideMonsterCleansingInfluencedItems_t3": [
-				{
-					"min": 1,
-					"max": 2
+					"min": 15,
+					"max": 30
 				}
 			]
 		},
 		"chance_%_to_drop_additional_currency": {
 			"": [
 				{
-					"min": 1,
-					"max": 3
+					"min": 20,
+					"max": 40
 				}
 			]
 		},
 		"chance_%_to_drop_additional_gem": {
 			"": [
 				{
-					"min": 1,
-					"max": 3
+					"min": 20,
+					"max": 40
 				}
 			]
 		},
 		"chance_%_to_drop_additional_unique": {
 			"": [
 				{
-					"min": 1,
-					"max": 3
+					"min": 10,
+					"max": 20
 				}
 			]
 		},
 		"chance_%_to_drop_additional_scarab": {
 			"": [
 				{
-					"min": 1,
-					"max": 3
+					"min": 10,
+					"max": 20
+				}
+			]
+		},
+		"chance_%_to_drop_additional_map_currency": {
+			"": [
+				{
+					"min": 20,
+					"max": 40
+				}
+			]
+		},
+		"chance_%_to_drop_additional_divination_cards": {
+			"": [
+				{
+					"min": 20,
+					"max": 40
+				}
+			]
+		},
+		"chance_%_to_drop_additional_maps": {
+			"": [
+				{
+					"min": 10,
+					"max": 20
 				}
 			]
 		},
 		"map_boss_additional_currency_to_drop": {
 			"": [
 				{
-					"min": 1,
-					"max": 3
+					"min": 3,
+					"max": 5
 				}
 			]
 		},
 		"map_boss_additional_gems_to_drop": {
 			"": [
 				{
-					"min": 1,
-					"max": 3
+					"min": 3,
+					"max": 5
 				}
 			]
 		},
@@ -255649,11 +256861,35 @@
 				}
 			]
 		},
+		"map_boss_additional_map_currency_to_drop": {
+			"": [
+				{
+					"min": 3,
+					"max": 5
+				}
+			]
+		},
+		"map_boss_additional_divination_cards_to_drop": {
+			"": [
+				{
+					"min": 3,
+					"max": 5
+				}
+			]
+		},
+		"map_boss_additional_maps_to_drop": {
+			"": [
+				{
+					"min": 1,
+					"max": 3
+				}
+			]
+		},
 		"%_chance_to_duplicate_dropped_currency": {
 			"": [
 				{
 					"min": 10,
-					"max": 15
+					"max": 20
 				}
 			]
 		},
@@ -255661,7 +256897,7 @@
 			"": [
 				{
 					"min": 10,
-					"max": 15
+					"max": 20
 				}
 			]
 		},
@@ -255669,7 +256905,7 @@
 			"": [
 				{
 					"min": 10,
-					"max": 15
+					"max": 20
 				}
 			]
 		},
@@ -255677,7 +256913,7 @@
 			"": [
 				{
 					"min": 10,
-					"max": 15
+					"max": 20
 				}
 			]
 		},
@@ -255685,7 +256921,15 @@
 			"": [
 				{
 					"min": 10,
-					"max": 15
+					"max": 20
+				}
+			]
+		},
+		"%_chance_to_duplicate_dropped_divination_cards": {
+			"": [
+				{
+					"min": 10,
+					"max": 20
 				}
 			]
 		},
@@ -255795,6 +257039,2468 @@
 		},
 		"display_map_labyrinth_trial_gives_offering": {
 			"Display": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"base_actor_scale_+% tagged_by_sentinel": {
+			"TestNormal": [
+				{
+					"min": 100,
+					"max": 100
+				},
+				{
+					"min": -93,
+					"max": -93
+				}
+			],
+			"TestMagic": [
+				{
+					"min": 75,
+					"max": 75
+				},
+				{
+					"min": -90,
+					"max": -90
+				}
+			],
+			"TestRare": [
+				{
+					"min": 50,
+					"max": 50
+				},
+				{
+					"min": -75,
+					"max": -75
+				}
+			],
+			"TestUnique": [
+				{
+					"min": 30,
+					"max": 30
+				},
+				{
+					"min": -75,
+					"max": -75
+				}
+			],
+			"SentinelTagNormalDrone1": [
+				{
+					"min": 20,
+					"max": 20
+				},
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"SentinelTagNormalDrone2": [
+				{
+					"min": 15,
+					"max": 15
+				},
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"SentinelTagMagicDrone1": [
+				{
+					"min": 20,
+					"max": 20
+				},
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"SentinelTagMagicDrone2": [
+				{
+					"min": 15,
+					"max": 15
+				},
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"SentinelTagMagicDrone3": [
+				{
+					"min": 30,
+					"max": 30
+				},
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"SentinelTagRareDrone1": [
+				{
+					"min": 20,
+					"max": 20
+				},
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"SentinelTagRareDrone2": [
+				{
+					"min": 15,
+					"max": 15
+				},
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"SentinelTagUniqueDrone1": [
+				{
+					"min": 20,
+					"max": 20
+				},
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"SentinelTagUniqueDrone2": [
+				{
+					"min": 15,
+					"max": 15
+				},
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"base_actor_scale_+% tagged_by_sentinel monster_sentinel_experience_+%": {
+			"SentinelTagRareDrone3": [
+				{
+					"min": 30,
+					"max": 30
+				},
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 100,
+					"max": 100
+				}
+			],
+			"SentinelTagUniqueDrone3": [
+				{
+					"min": 25,
+					"max": 25
+				},
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 100,
+					"max": 100
+				}
+			]
+		},
+		"base_actor_scale_+% tagged_by_sentinel tagged_by_sentinel_unique monster_sentinel_experience_+% archnemesis_monster_life_+%_final": {
+			"SentinelTagUniqueDroneMapBossUnique1": [
+				{
+					"min": 25,
+					"max": 25
+				},
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 500,
+					"max": 500
+				},
+				{
+					"min": 150,
+					"max": 150
+				}
+			]
+		},
+		"local_sentinel_only_tag_rare_or_unique": {
+			"SentinelImplicitTagOnlyRareOrUniqueDisplay": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"local_sentinel_only_one_use": {
+			"SentinelImplicitOnlyOneUseDisplay": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"local_sentinel_only_tag_rare": {
+			"SentinelImplicitTagOnlyRareDisplay": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"base_chaos_damage_damages_energy_shield_%": {
+			"ChaosDamageDoesNotBypassEnergyShieldPercentUnique__1": [
+				{
+					"min": 33,
+					"max": 33
+				}
+			]
+		},
+		"base_non_chaos_damage_bypass_energy_shield_%": {
+			"NonChaosPercentUnique__1": [
+				{
+					"min": 33,
+					"max": 33
+				}
+			]
+		},
+		"local_kill_enemy_on_hit_if_under_15%_life_if_searing_exarch_dominant": {
+			"Unique__1": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"local_inflict_malignant_madness_on_critical_strike_%_if_eater_of_worlds_dominant": {
+			"Unique__1": [
+				{
+					"min": 100,
+					"max": 100
+				}
+			]
+		},
+		"local_display_socketed_warcry_skills_cooldown_use_+": {
+			"Unique__1": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"self_physical_damage_on_skill_use_%_max_life_per_warcry_exerting_action": {
+			"Unique__1": [
+				{
+					"min": 15,
+					"max": 20
+				}
+			]
+		},
+		"unique_helmet_damage_+%_final_per_warcry_exerting_action": {
+			"Unique__1": [
+				{
+					"min": 10,
+					"max": 15
+				}
+			]
+		},
+		"all_damage_taken_can_chill": {
+			"AllDamageTakenCanChillUnique__1": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"chills_from_your_hits_cause_shattering": {
+			"Unique__1": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"enemies_chilled_by_hits_take_damage_increased_by_chill_effect": {
+			"Unique__1": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"enemies_chilled_by_hits_deal_damage_lessened_by_chill_effect": {
+			"Unique__1": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"map_sentinel_league": {
+			"Map": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"monster_aggro_radius_+%": {
+			"SentinelAggroRadius1": [
+				{
+					"min": 30,
+					"max": 39
+				}
+			],
+			"SentinelAggroRadius2": [
+				{
+					"min": 40,
+					"max": 49
+				}
+			],
+			"SentinelAggroRadius3": [
+				{
+					"min": 50,
+					"max": 59
+				}
+			],
+			"Unique1": [
+				{
+					"min": -100,
+					"max": -100
+				}
+			]
+		},
+		"local_sentinel_drone_duration_+%": {
+			"SentinelDuration1": [
+				{
+					"min": 20,
+					"max": 25
+				}
+			],
+			"SentinelDuration2": [
+				{
+					"min": 26,
+					"max": 35
+				}
+			],
+			"SentinelDuration3": [
+				{
+					"min": 36,
+					"max": 45
+				}
+			],
+			"SentinelDuration4": [
+				{
+					"min": 46,
+					"max": 55
+				}
+			],
+			"SentinelDuration5": [
+				{
+					"min": 56,
+					"max": 70
+				}
+			],
+			"SentinelDroneIncreasedDurationUnique1": [
+				{
+					"min": 30,
+					"max": 50
+				}
+			]
+		},
+		"local_sentinel_duration_+": {
+			"SentinelBaseDuration1": [
+				{
+					"min": 10,
+					"max": 14
+				}
+			],
+			"SentinelBaseDuration2": [
+				{
+					"min": 15,
+					"max": 19
+				}
+			],
+			"SentinelBaseDuration3": [
+				{
+					"min": 20,
+					"max": 24
+				}
+			],
+			"SentinelBaseDuration4": [
+				{
+					"min": 25,
+					"max": 29
+				}
+			],
+			"SentinelBaseDuration5": [
+				{
+					"min": 30,
+					"max": 40
+				}
+			]
+		},
+		"local_sentinel_tag_limit_+": {
+			"SentinelAdditionalTags1": [
+				{
+					"min": 5,
+					"max": 8
+				}
+			],
+			"SentinelAdditionalTags2": [
+				{
+					"min": 9,
+					"max": 12
+				}
+			],
+			"SentinelAdditionalTags3": [
+				{
+					"min": 13,
+					"max": 18
+				}
+			],
+			"SentinelAdditionalTags4": [
+				{
+					"min": 19,
+					"max": 24
+				}
+			],
+			"SentinelAdditionalTags5": [
+				{
+					"min": 25,
+					"max": 35
+				}
+			],
+			"SentinelAdditionalTagsDrone3_1": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"SentinelAdditionalTagsDrone3_2": [
+				{
+					"min": 2,
+					"max": 2
+				}
+			],
+			"SentinelAdditionalTagsDrone3_3": [
+				{
+					"min": 3,
+					"max": 3
+				}
+			],
+			"SentinelImplicitCraftedC1": [
+				{
+					"min": 2,
+					"max": 2
+				}
+			],
+			"SentinelDroneAdditionalTagsUnique1": [
+				{
+					"min": 70,
+					"max": 100
+				}
+			],
+			"SentinelDroneAdditionalTagsUnique2": [
+				{
+					"min": 50,
+					"max": 80
+				}
+			],
+			"SentinelDroneAdditionalTagsUnique3": [
+				{
+					"min": 40,
+					"max": 70
+				}
+			]
+		},
+		"local_sentinel_drone_charge_+": {
+			"SentinelLocalCharge1": [
+				{
+					"min": 1,
+					"max": 2
+				}
+			],
+			"SentinelLocalCharge2": [
+				{
+					"min": 3,
+					"max": 4
+				}
+			],
+			"SentinelLocalCharge3": [
+				{
+					"min": 5,
+					"max": 6
+				}
+			],
+			"SentinelLocalCharge4": [
+				{
+					"min": 7,
+					"max": 8
+				}
+			],
+			"SentinelLocalCharge5": [
+				{
+					"min": 9,
+					"max": 10
+				}
+			],
+			"Unique1": [
+				{
+					"min": 8,
+					"max": 12
+				}
+			],
+			"Unique2": [
+				{
+					"min": 6,
+					"max": 10
+				}
+			]
+		},
+		"local_sentinel_tag_limit_+%": {
+			"SentinelIncreasedlTags1": [
+				{
+					"min": 16,
+					"max": 20
+				}
+			],
+			"SentinelIncreasedlTags2": [
+				{
+					"min": 21,
+					"max": 25
+				}
+			],
+			"SentinelIncreasedlTags3": [
+				{
+					"min": 26,
+					"max": 30
+				}
+			],
+			"SentinelIncreasedlTags4": [
+				{
+					"min": 31,
+					"max": 35
+				}
+			],
+			"SentinelIncreasedlTags5": [
+				{
+					"min": 36,
+					"max": 45
+				}
+			],
+			"SentinelDroneIncreasedTagsUnique1": [
+				{
+					"min": -60,
+					"max": -40
+				}
+			]
+		},
+		"local_sentinel_drone_difficulty_+%": {
+			"SentinelReducedDifficulty1": [
+				{
+					"min": -19,
+					"max": -10
+				}
+			],
+			"SentinelReducedDifficulty2": [
+				{
+					"min": -29,
+					"max": -20
+				}
+			],
+			"SentinelReducedDifficulty3": [
+				{
+					"min": -40,
+					"max": -30
+				}
+			],
+			"SentinelIncreasedDifficulty1": [
+				{
+					"min": 14,
+					"max": 19
+				}
+			],
+			"SentinelIncreasedDifficulty2": [
+				{
+					"min": 20,
+					"max": 25
+				}
+			],
+			"SentinelIncreasedDifficulty3": [
+				{
+					"min": 26,
+					"max": 35
+				}
+			],
+			"SentinelImplicitCraftedA3": [
+				{
+					"min": 10,
+					"max": 15
+				}
+			],
+			"SentinelImplicitCraftedB3": [
+				{
+					"min": 10,
+					"max": 15
+				}
+			],
+			"SentinelImplicitCraftedC3": [
+				{
+					"min": 10,
+					"max": 15
+				}
+			],
+			"SentinelDroneEmpowermentUnique1": [
+				{
+					"min": 150,
+					"max": 300
+				}
+			]
+		},
+		"sentinel_drone_player_gains_unholy_might_on_summon_ms": {
+			"SentinelUnholyMightOnUse1": [
+				{
+					"min": 10000,
+					"max": 10000
+				}
+			],
+			"SentinelUnholyMightOnUse2": [
+				{
+					"min": 15000,
+					"max": 15000
+				}
+			],
+			"SentinelUnholyMightOnUse3": [
+				{
+					"min": 20000,
+					"max": 20000
+				}
+			],
+			"1": [
+				{
+					"min": 5000,
+					"max": 5000
+				}
+			]
+		},
+		"sentinel_drone_player_gains_tailwind_on_summon_ms": {
+			"SentinelTailwindOnUse1": [
+				{
+					"min": 10000,
+					"max": 10000
+				}
+			],
+			"SentinelTailwindOnUse2": [
+				{
+					"min": 15000,
+					"max": 15000
+				}
+			],
+			"SentinelTailwindOnUse3": [
+				{
+					"min": 20000,
+					"max": 20000
+				}
+			]
+		},
+		"sentinel_drone_player_gains_accelerating_shrine_on_summon_ms": {
+			"Sentinel1": [
+				{
+					"min": 20000,
+					"max": 20000
+				}
+			]
+		},
+		"sentinel_drone_player_gains_resonating_shrine_on_summon_ms": {
+			"Sentinel1": [
+				{
+					"min": 10000,
+					"max": 10000
+				}
+			],
+			"Sentinel2": [
+				{
+					"min": 15000,
+					"max": 15000
+				}
+			],
+			"Sentinel3": [
+				{
+					"min": 20000,
+					"max": 20000
+				}
+			]
+		},
+		"sentinel_drone_player_gains_diamond_shrine_on_summon_ms": {
+			"Sentinel1": [
+				{
+					"min": 10000,
+					"max": 10000
+				}
+			],
+			"Sentinel2": [
+				{
+					"min": 15000,
+					"max": 15000
+				}
+			],
+			"Sentinel3": [
+				{
+					"min": 20000,
+					"max": 20000
+				}
+			]
+		},
+		"sentinel_drone_player_gains_gloom_shrine_on_summon_ms": {
+			"Sentinel1": [
+				{
+					"min": 10000,
+					"max": 10000
+				}
+			],
+			"Sentinel2": [
+				{
+					"min": 15000,
+					"max": 15000
+				}
+			],
+			"Sentinel3": [
+				{
+					"min": 20000,
+					"max": 20000
+				}
+			]
+		},
+		"sentinel_drone_player_gains_resistance_shrine_on_summon_ms": {
+			"Sentinel1": [
+				{
+					"min": 10000,
+					"max": 10000
+				}
+			],
+			"Sentinel2": [
+				{
+					"min": 15000,
+					"max": 15000
+				}
+			],
+			"Sentinel3": [
+				{
+					"min": 20000,
+					"max": 20000
+				}
+			]
+		},
+		"sentinel_drone_player_gains_massive_shrine_on_summon_ms": {
+			"Sentinel1": [
+				{
+					"min": 10000,
+					"max": 10000
+				}
+			],
+			"Sentinel2": [
+				{
+					"min": 15000,
+					"max": 15000
+				}
+			],
+			"Sentinel3": [
+				{
+					"min": 20000,
+					"max": 20000
+				}
+			]
+		},
+		"sentinel_drone_player_gains_echoing_shrine_on_summon_ms": {
+			"Sentinel1": [
+				{
+					"min": 20000,
+					"max": 20000
+				}
+			]
+		},
+		"sentinel_drone_player_gains_impenetrable_shrine_on_summon_ms": {
+			"Sentinel1": [
+				{
+					"min": 10000,
+					"max": 10000
+				}
+			],
+			"Sentinel2": [
+				{
+					"min": 15000,
+					"max": 15000
+				}
+			],
+			"Sentinel3": [
+				{
+					"min": 20000,
+					"max": 20000
+				}
+			]
+		},
+		"sentinel_drone_player_gains_adrenaline_on_summon_ms": {
+			"Sentinel1": [
+				{
+					"min": 20000,
+					"max": 20000
+				}
+			]
+		},
+		"sentinel_drone_player_gains_endurance_charge_on_summon_ms": {
+			"SentinelSentinelEnduranceChargeOnUse1": [
+				{
+					"min": 15000,
+					"max": 15000
+				}
+			]
+		},
+		"sentinel_drone_player_gains_power_charge_on_summon_ms": {
+			"SentinelSentinelPowerChargeOnUse1": [
+				{
+					"min": 15000,
+					"max": 15000
+				}
+			]
+		},
+		"sentinel_drone_player_gains_frenzy_charge_on_summon_ms": {
+			"SentinelSentinelFrenzyChargeOnUse1": [
+				{
+					"min": 15000,
+					"max": 15000
+				}
+			]
+		},
+		"sentinel_tag_currency_reward_chance_permillage local_sentinel_drone_difficulty_+": {
+			"SentinelCurrencyRewardChance1": [
+				{
+					"min": 26,
+					"max": 30
+				},
+				{
+					"min": 2,
+					"max": 2
+				}
+			],
+			"SentinelCurrencyRewardChance2": [
+				{
+					"min": 31,
+					"max": 35
+				},
+				{
+					"min": 4,
+					"max": 4
+				}
+			],
+			"SentinelCurrencyRewardChance3": [
+				{
+					"min": 36,
+					"max": 50
+				},
+				{
+					"min": 6,
+					"max": 6
+				}
+			]
+		},
+		"sentinel_tag_essence_reward_chance_permillage local_sentinel_drone_difficulty_+": {
+			"SentinelEssenceRewardChance1": [
+				{
+					"min": 26,
+					"max": 30
+				},
+				{
+					"min": 2,
+					"max": 2
+				}
+			],
+			"SentinelEssenceRewardChance2": [
+				{
+					"min": 31,
+					"max": 35
+				},
+				{
+					"min": 4,
+					"max": 4
+				}
+			],
+			"SentinelEssenceRewardChance3": [
+				{
+					"min": 36,
+					"max": 50
+				},
+				{
+					"min": 6,
+					"max": 6
+				}
+			]
+		},
+		"sentinel_tag_unique_reward_chance_permillage local_sentinel_drone_difficulty_+": {
+			"SentinelUniqueRewardChance1": [
+				{
+					"min": 10,
+					"max": 15
+				},
+				{
+					"min": 2,
+					"max": 2
+				}
+			],
+			"SentinelUniqueRewardChance2": [
+				{
+					"min": 16,
+					"max": 20
+				},
+				{
+					"min": 4,
+					"max": 4
+				}
+			],
+			"SentinelUniqueRewardChance3": [
+				{
+					"min": 21,
+					"max": 30
+				},
+				{
+					"min": 6,
+					"max": 6
+				}
+			]
+		},
+		"sentinel_tag_gems_reward_chance_permillage local_sentinel_drone_difficulty_+": {
+			"1": [
+				{
+					"min": 26,
+					"max": 30
+				},
+				{
+					"min": 4,
+					"max": 4
+				}
+			],
+			"2": [
+				{
+					"min": 31,
+					"max": 35
+				},
+				{
+					"min": 6,
+					"max": 6
+				}
+			],
+			"3": [
+				{
+					"min": 36,
+					"max": 50
+				},
+				{
+					"min": 8,
+					"max": 8
+				}
+			]
+		},
+		"sentinel_tag_maps_reward_chance_permillage local_sentinel_drone_difficulty_+": {
+			"1": [
+				{
+					"min": 10,
+					"max": 15
+				},
+				{
+					"min": 4,
+					"max": 4
+				}
+			],
+			"2": [
+				{
+					"min": 16,
+					"max": 20
+				},
+				{
+					"min": 6,
+					"max": 6
+				}
+			],
+			"3": [
+				{
+					"min": 21,
+					"max": 30
+				},
+				{
+					"min": 8,
+					"max": 8
+				}
+			]
+		},
+		"sentinel_tag_trinkets_reward_chance_permillage local_sentinel_drone_difficulty_+": {
+			"1": [
+				{
+					"min": 26,
+					"max": 30
+				},
+				{
+					"min": 4,
+					"max": 4
+				}
+			],
+			"2": [
+				{
+					"min": 31,
+					"max": 35
+				},
+				{
+					"min": 6,
+					"max": 6
+				}
+			],
+			"3": [
+				{
+					"min": 36,
+					"max": 50
+				},
+				{
+					"min": 8,
+					"max": 8
+				}
+			]
+		},
+		"sentinel_tag_armour_reward_chance_permillage local_sentinel_drone_difficulty_+": {
+			"1": [
+				{
+					"min": 26,
+					"max": 30
+				},
+				{
+					"min": 4,
+					"max": 4
+				}
+			],
+			"2": [
+				{
+					"min": 31,
+					"max": 35
+				},
+				{
+					"min": 6,
+					"max": 6
+				}
+			],
+			"3": [
+				{
+					"min": 36,
+					"max": 50
+				},
+				{
+					"min": 8,
+					"max": 8
+				}
+			]
+		},
+		"sentinel_tag_weapon_reward_chance_permillage local_sentinel_drone_difficulty_+": {
+			"1": [
+				{
+					"min": 26,
+					"max": 30
+				},
+				{
+					"min": 4,
+					"max": 4
+				}
+			],
+			"2": [
+				{
+					"min": 31,
+					"max": 35
+				},
+				{
+					"min": 6,
+					"max": 6
+				}
+			],
+			"3": [
+				{
+					"min": 36,
+					"max": 50
+				},
+				{
+					"min": 8,
+					"max": 8
+				}
+			]
+		},
+		"sentinel_tag_fragments_reward_chance_permillage local_sentinel_drone_difficulty_+": {
+			"1": [
+				{
+					"min": 20,
+					"max": 25
+				},
+				{
+					"min": 4,
+					"max": 4
+				}
+			],
+			"2": [
+				{
+					"min": 26,
+					"max": 30
+				},
+				{
+					"min": 6,
+					"max": 6
+				}
+			],
+			"3": [
+				{
+					"min": 31,
+					"max": 40
+				},
+				{
+					"min": 8,
+					"max": 8
+				}
+			]
+		},
+		"sentinel_tag_scarabs_reward_chance_permillage local_sentinel_drone_difficulty_+": {
+			"1": [
+				{
+					"min": 20,
+					"max": 25
+				},
+				{
+					"min": 4,
+					"max": 4
+				}
+			],
+			"2": [
+				{
+					"min": 26,
+					"max": 30
+				},
+				{
+					"min": 6,
+					"max": 6
+				}
+			],
+			"3": [
+				{
+					"min": 31,
+					"max": 40
+				},
+				{
+					"min": 8,
+					"max": 8
+				}
+			]
+		},
+		"sentinel_tag_divinationcards_reward_chance_permillage local_sentinel_drone_difficulty_+": {
+			"1": [
+				{
+					"min": 26,
+					"max": 30
+				},
+				{
+					"min": 4,
+					"max": 4
+				}
+			],
+			"2": [
+				{
+					"min": 31,
+					"max": 35
+				},
+				{
+					"min": 6,
+					"max": 6
+				}
+			],
+			"3": [
+				{
+					"min": 36,
+					"max": 50
+				},
+				{
+					"min": 8,
+					"max": 8
+				}
+			]
+		},
+		"sentinel_tag_abyss_reward_chance_permillage local_sentinel_drone_difficulty_+": {
+			"1": [
+				{
+					"min": 10,
+					"max": 15
+				},
+				{
+					"min": 4,
+					"max": 4
+				}
+			],
+			"2": [
+				{
+					"min": 16,
+					"max": 20
+				},
+				{
+					"min": 6,
+					"max": 6
+				}
+			],
+			"3": [
+				{
+					"min": 21,
+					"max": 30
+				},
+				{
+					"min": 8,
+					"max": 8
+				}
+			]
+		},
+		"sentinel_tag_harbinger_reward_chance_permillage local_sentinel_drone_difficulty_+": {
+			"1": [
+				{
+					"min": 20,
+					"max": 25
+				},
+				{
+					"min": 4,
+					"max": 4
+				}
+			],
+			"2": [
+				{
+					"min": 26,
+					"max": 30
+				},
+				{
+					"min": 6,
+					"max": 6
+				}
+			],
+			"3": [
+				{
+					"min": 31,
+					"max": 40
+				},
+				{
+					"min": 8,
+					"max": 8
+				}
+			]
+		},
+		"sentinel_tag_breach_reward_chance_permillage local_sentinel_drone_difficulty_+": {
+			"1": [
+				{
+					"min": 10,
+					"max": 15
+				},
+				{
+					"min": 4,
+					"max": 4
+				}
+			],
+			"2": [
+				{
+					"min": 16,
+					"max": 20
+				},
+				{
+					"min": 6,
+					"max": 6
+				}
+			],
+			"3": [
+				{
+					"min": 21,
+					"max": 30
+				},
+				{
+					"min": 8,
+					"max": 8
+				}
+			]
+		},
+		"sentinel_tag_fossils_reward_chance_permillage local_sentinel_drone_difficulty_+": {
+			"1": [
+				{
+					"min": 20,
+					"max": 25
+				},
+				{
+					"min": 4,
+					"max": 4
+				}
+			],
+			"2": [
+				{
+					"min": 26,
+					"max": 30
+				},
+				{
+					"min": 6,
+					"max": 6
+				}
+			],
+			"3": [
+				{
+					"min": 31,
+					"max": 40
+				},
+				{
+					"min": 8,
+					"max": 8
+				}
+			]
+		},
+		"sentinel_tag_legion_reward_chance_permillage local_sentinel_drone_difficulty_+": {
+			"1": [
+				{
+					"min": 10,
+					"max": 15
+				},
+				{
+					"min": 4,
+					"max": 4
+				}
+			],
+			"2": [
+				{
+					"min": 16,
+					"max": 20
+				},
+				{
+					"min": 6,
+					"max": 6
+				}
+			],
+			"3": [
+				{
+					"min": 21,
+					"max": 30
+				},
+				{
+					"min": 8,
+					"max": 8
+				}
+			]
+		},
+		"sentinel_tag_blight_reward_chance_permillage local_sentinel_drone_difficulty_+": {
+			"1": [
+				{
+					"min": 10,
+					"max": 15
+				},
+				{
+					"min": 4,
+					"max": 4
+				}
+			],
+			"2": [
+				{
+					"min": 16,
+					"max": 20
+				},
+				{
+					"min": 6,
+					"max": 6
+				}
+			],
+			"3": [
+				{
+					"min": 21,
+					"max": 30
+				},
+				{
+					"min": 8,
+					"max": 8
+				}
+			]
+		},
+		"sentinel_tag_metamorphosis_reward_chance_permillage local_sentinel_drone_difficulty_+": {
+			"1": [
+				{
+					"min": 10,
+					"max": 15
+				},
+				{
+					"min": 4,
+					"max": 4
+				}
+			],
+			"2": [
+				{
+					"min": 16,
+					"max": 20
+				},
+				{
+					"min": 6,
+					"max": 6
+				}
+			],
+			"3": [
+				{
+					"min": 21,
+					"max": 30
+				},
+				{
+					"min": 8,
+					"max": 8
+				}
+			]
+		},
+		"sentinel_tag_expedition_reward_chance_permillage local_sentinel_drone_difficulty_+": {
+			"1": [
+				{
+					"min": 10,
+					"max": 15
+				},
+				{
+					"min": 4,
+					"max": 4
+				}
+			],
+			"2": [
+				{
+					"min": 16,
+					"max": 20
+				},
+				{
+					"min": 6,
+					"max": 6
+				}
+			],
+			"3": [
+				{
+					"min": 21,
+					"max": 30
+				},
+				{
+					"min": 8,
+					"max": 8
+				}
+			]
+		},
+		"sentinel_tag_heist_reward_chance_permillage local_sentinel_drone_difficulty_+": {
+			"1": [
+				{
+					"min": 10,
+					"max": 15
+				},
+				{
+					"min": 4,
+					"max": 4
+				}
+			],
+			"2": [
+				{
+					"min": 16,
+					"max": 20
+				},
+				{
+					"min": 6,
+					"max": 6
+				}
+			],
+			"3": [
+				{
+					"min": 21,
+					"max": 30
+				},
+				{
+					"min": 8,
+					"max": 8
+				}
+			]
+		},
+		"sentinel_tag_ritual_reward_chance_permillage local_sentinel_drone_difficulty_+": {
+			"1": [
+				{
+					"min": 10,
+					"max": 15
+				},
+				{
+					"min": 4,
+					"max": 4
+				}
+			],
+			"2": [
+				{
+					"min": 16,
+					"max": 20
+				},
+				{
+					"min": 6,
+					"max": 6
+				}
+			],
+			"3": [
+				{
+					"min": 21,
+					"max": 30
+				},
+				{
+					"min": 8,
+					"max": 8
+				}
+			]
+		},
+		"sentinel_tag_delirium_reward_chance_permillage local_sentinel_drone_difficulty_+": {
+			"1": [
+				{
+					"min": 10,
+					"max": 15
+				},
+				{
+					"min": 4,
+					"max": 4
+				}
+			],
+			"2": [
+				{
+					"min": 16,
+					"max": 20
+				},
+				{
+					"min": 6,
+					"max": 6
+				}
+			],
+			"3": [
+				{
+					"min": 21,
+					"max": 30
+				},
+				{
+					"min": 8,
+					"max": 8
+				}
+			]
+		},
+		"sentinel_tag_sentinel_reward_chance_permillage local_sentinel_drone_difficulty_+": {
+			"1": [
+				{
+					"min": 20,
+					"max": 25
+				},
+				{
+					"min": 4,
+					"max": 4
+				}
+			],
+			"2": [
+				{
+					"min": 26,
+					"max": 30
+				},
+				{
+					"min": 6,
+					"max": 6
+				}
+			],
+			"3": [
+				{
+					"min": 31,
+					"max": 40
+				},
+				{
+					"min": 8,
+					"max": 8
+				}
+			]
+		},
+		"chaining_range_+%": {
+			"SentinelChainDistance1": [
+				{
+					"min": 21,
+					"max": 30
+				}
+			],
+			"SentinelChainDistance2": [
+				{
+					"min": 31,
+					"max": 40
+				}
+			],
+			"SentinelChainDistance3": [
+				{
+					"min": 41,
+					"max": 55
+				}
+			],
+			"SentinelImplicitCraftedB1": [
+				{
+					"min": 30,
+					"max": 40
+				}
+			]
+		},
+		"sentinel_tag_beam_number_of_beams": {
+			"SentinelExtraBeams1": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			],
+			"SentinelExtraBeams2": [
+				{
+					"min": 2,
+					"max": 2
+				}
+			],
+			"SentinelExtraBeams3": [
+				{
+					"min": 3,
+					"max": 3
+				}
+			],
+			"SentinelImplicitCraftedB2": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"sentinel_tag_duplicate_reward_chance_% local_sentinel_drone_difficulty_+": {
+			"1": [
+				{
+					"min": 16,
+					"max": 20
+				},
+				{
+					"min": 10,
+					"max": 10
+				}
+			],
+			"SentinelImplicitCraftedC2": [
+				{
+					"min": 10,
+					"max": 15
+				},
+				{
+					"min": 0,
+					"max": 0
+				}
+			]
+		},
+		"sentinel_refresh_on_use_chance_%": {
+			"1": [
+				{
+					"min": 20,
+					"max": 25
+				}
+			]
+		},
+		"local_display_sentinel_uses_level_x_anger_aura": {
+			"SentinelDroneAngerAura": [
+				{
+					"min": 20,
+					"max": 20
+				}
+			],
+			"SentinelDroneAngerAuraUnique1": [
+				{
+					"min": 20,
+					"max": 20
+				}
+			]
+		},
+		"local_display_sentinel_uses_level_x_determination_aura": {
+			"SentinelDroneDeterminationAura": [
+				{
+					"min": 20,
+					"max": 20
+				}
+			],
+			"SentinelDroneDeterminationAuraUnique1": [
+				{
+					"min": 20,
+					"max": 20
+				}
+			]
+		},
+		"local_display_sentinel_uses_level_x_fire_resist_aura": {
+			"SentinelDroneFireResistAura": [
+				{
+					"min": 20,
+					"max": 20
+				}
+			],
+			"SentinelDroneFireResistAuraUnique1": [
+				{
+					"min": 20,
+					"max": 20
+				}
+			]
+		},
+		"local_display_sentinel_uses_level_x_purity_aura": {
+			"SentinelDronePurityAura": [
+				{
+					"min": 20,
+					"max": 20
+				}
+			],
+			"SentinelDronePurityAuraUnique1": [
+				{
+					"min": 20,
+					"max": 20
+				}
+			]
+		},
+		"local_display_sentinel_uses_level_x_hatred_aura": {
+			"SentinelDroneHatredAura": [
+				{
+					"min": 20,
+					"max": 20
+				}
+			],
+			"SentinelDroneHatredAuraUnique1": [
+				{
+					"min": 20,
+					"max": 20
+				}
+			]
+		},
+		"local_display_sentinel_uses_level_x_grace_aura": {
+			"SentinelDroneGraceAura": [
+				{
+					"min": 20,
+					"max": 20
+				}
+			],
+			"SentinelDroneGraceAuraUnique1": [
+				{
+					"min": 20,
+					"max": 20
+				}
+			]
+		},
+		"local_display_sentinel_uses_level_x_cold_resist_aura": {
+			"SentinelDroneColdReistAura": [
+				{
+					"min": 20,
+					"max": 20
+				}
+			],
+			"SentinelDroneColdReistAuraUnique1": [
+				{
+					"min": 20,
+					"max": 20
+				}
+			]
+		},
+		"local_display_sentinel_uses_level_x_haste_aura": {
+			"SentinelDroneHasteAura": [
+				{
+					"min": 20,
+					"max": 20
+				}
+			],
+			"SentinelDroneHasteAuraUnique1": [
+				{
+					"min": 20,
+					"max": 20
+				}
+			]
+		},
+		"local_display_sentinel_uses_level_x_wrath_aura": {
+			"SentinelDroneWrathAura": [
+				{
+					"min": 20,
+					"max": 20
+				}
+			],
+			"SentinelDroneWrathAuraUnique1": [
+				{
+					"min": 20,
+					"max": 20
+				}
+			]
+		},
+		"local_display_sentinel_uses_level_x_discipline_aura": {
+			"SentinelDroneDisciplineAura": [
+				{
+					"min": 20,
+					"max": 20
+				}
+			],
+			"SentinelDroneDisciplineAuraUnique1": [
+				{
+					"min": 20,
+					"max": 20
+				}
+			]
+		},
+		"local_display_sentinel_uses_level_x_lightning_resist_aura": {
+			"SentinelDroneLightningResistAura": [
+				{
+					"min": 20,
+					"max": 20
+				}
+			],
+			"SentinelDroneLightningResistAuraUnique1": [
+				{
+					"min": 20,
+					"max": 20
+				}
+			]
+		},
+		"local_display_sentinel_uses_level_x_zealotry_aura": {
+			"SentinelDroneZealotryAura": [
+				{
+					"min": 20,
+					"max": 20
+				}
+			],
+			"SentinelDroneZealotryAuraUnique1": [
+				{
+					"min": 20,
+					"max": 20
+				}
+			]
+		},
+		"local_display_sentinel_uses_level_x_malevolence_aura": {
+			"SentinelDroneMalevolenceAura": [
+				{
+					"min": 20,
+					"max": 20
+				}
+			],
+			"SentinelDroneMalevolenceAuraUnique1": [
+				{
+					"min": 20,
+					"max": 20
+				}
+			]
+		},
+		"sentinel_tagged_item_quantity_+% local_sentinel_drone_difficulty_+": {
+			"1": [
+				{
+					"min": 50,
+					"max": 100
+				},
+				{
+					"min": 2,
+					"max": 2
+				}
+			],
+			"2": [
+				{
+					"min": 110,
+					"max": 150
+				},
+				{
+					"min": 4,
+					"max": 4
+				}
+			],
+			"3": [
+				{
+					"min": 160,
+					"max": 250
+				},
+				{
+					"min": 6,
+					"max": 6
+				}
+			],
+			"Apex1": [
+				{
+					"min": 300,
+					"max": 400
+				},
+				{
+					"min": 2,
+					"max": 2
+				}
+			],
+			"Apex2": [
+				{
+					"min": 420,
+					"max": 500
+				},
+				{
+					"min": 4,
+					"max": 4
+				}
+			],
+			"Apex3": [
+				{
+					"min": 520,
+					"max": 650
+				},
+				{
+					"min": 6,
+					"max": 6
+				}
+			]
+		},
+		"sentinel_tagged_item_rarity_+% local_sentinel_drone_difficulty_+": {
+			"1": [
+				{
+					"min": 50,
+					"max": 100
+				},
+				{
+					"min": 2,
+					"max": 2
+				}
+			],
+			"2": [
+				{
+					"min": 110,
+					"max": 150
+				},
+				{
+					"min": 4,
+					"max": 4
+				}
+			],
+			"3": [
+				{
+					"min": 160,
+					"max": 250
+				},
+				{
+					"min": 6,
+					"max": 6
+				}
+			],
+			"Apex1": [
+				{
+					"min": 300,
+					"max": 400
+				},
+				{
+					"min": 2,
+					"max": 2
+				}
+			],
+			"Apex2": [
+				{
+					"min": 420,
+					"max": 500
+				},
+				{
+					"min": 4,
+					"max": 4
+				}
+			],
+			"Apex3": [
+				{
+					"min": 520,
+					"max": 650
+				},
+				{
+					"min": 6,
+					"max": 6
+				}
+			]
+		},
+		"sentinel_tagged_sentinel_experience_+% local_sentinel_drone_difficulty_+": {
+			"1": [
+				{
+					"min": 30,
+					"max": 60
+				},
+				{
+					"min": 2,
+					"max": 2
+				}
+			],
+			"2": [
+				{
+					"min": 70,
+					"max": 100
+				},
+				{
+					"min": 4,
+					"max": 4
+				}
+			],
+			"3": [
+				{
+					"min": 110,
+					"max": 150
+				},
+				{
+					"min": 6,
+					"max": 6
+				}
+			],
+			"Apex1": [
+				{
+					"min": 60,
+					"max": 120
+				},
+				{
+					"min": 2,
+					"max": 2
+				}
+			],
+			"Apex2": [
+				{
+					"min": 140,
+					"max": 200
+				},
+				{
+					"min": 4,
+					"max": 4
+				}
+			],
+			"Apex3": [
+				{
+					"min": 220,
+					"max": 300
+				},
+				{
+					"min": 6,
+					"max": 6
+				}
+			],
+			"SentinelDroneExperienceIncreaseUnique1": [
+				{
+					"min": 800,
+					"max": 1200
+				},
+				{
+					"min": 0,
+					"max": 0
+				}
+			]
+		},
+		"sentinel_chance_for_reward_+% local_sentinel_drone_difficulty_+": {
+			"1": [
+				{
+					"min": 10,
+					"max": 14
+				},
+				{
+					"min": 2,
+					"max": 2
+				}
+			],
+			"2": [
+				{
+					"min": 15,
+					"max": 19
+				},
+				{
+					"min": 4,
+					"max": 4
+				}
+			],
+			"3": [
+				{
+					"min": 20,
+					"max": 30
+				},
+				{
+					"min": 6,
+					"max": 6
+				}
+			],
+			"Unique1": [
+				{
+					"min": 300,
+					"max": 400
+				},
+				{
+					"min": 0,
+					"max": 0
+				}
+			]
+		},
+		"sentinel_reward_count_+% local_sentinel_drone_difficulty_+": {
+			"1": [
+				{
+					"min": 20,
+					"max": 25
+				},
+				{
+					"min": 10,
+					"max": 10
+				}
+			]
+		},
+		"sentinel_monster_gives_mods_to_killer_chance_%": {
+			"Unique1": [
+				{
+					"min": 100,
+					"max": 100
+				}
+			]
+		},
+		"local_unique_jewel_disconnected_passives_can_be_allocated_around_keystone_hash local_jewel_effect_base_radius": {
+			"JewelUniqueAllocateDisconnectedPassivesAroundKeystone": [
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 800,
+					"max": 800
+				}
+			]
+		},
+		"sentinel_tag_specific_monster_variety_hash sentinel_tag_specific_monster_level": {
+			"TEST": [
+				{
+					"min": -1723,
+					"max": -1723
+				},
+				{
+					"min": 83,
+					"max": 83
+				}
+			],
+			"1": [
+				{
+					"min": -203,
+					"max": -203
+				},
+				{
+					"min": 83,
+					"max": 83
+				}
+			],
+			"2": [
+				{
+					"min": 13984,
+					"max": 13984
+				},
+				{
+					"min": 83,
+					"max": 83
+				}
+			],
+			"3": [
+				{
+					"min": -24353,
+					"max": -24353
+				},
+				{
+					"min": 83,
+					"max": 83
+				}
+			],
+			"4": [
+				{
+					"min": 28892,
+					"max": 28892
+				},
+				{
+					"min": 83,
+					"max": 83
+				}
+			],
+			"5": [
+				{
+					"min": 13600,
+					"max": 13600
+				},
+				{
+					"min": 83,
+					"max": 83
+				}
+			],
+			"6": [
+				{
+					"min": -9888,
+					"max": -9888
+				},
+				{
+					"min": 83,
+					"max": 83
+				}
+			],
+			"7": [
+				{
+					"min": -22404,
+					"max": -22404
+				},
+				{
+					"min": 83,
+					"max": 83
+				}
+			],
+			"8": [
+				{
+					"min": 28403,
+					"max": 28403
+				},
+				{
+					"min": 83,
+					"max": 83
+				}
+			]
+		},
+		"sentinel_destroyed_on_tagging_specific_monster": {
+			"": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"sentinel_map_quantity_applies_to_rewards": {
+			"": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"sentinel_tagged_monsters_drop_x_currency_rewards": {
+			"SentinelDroneTagDropsCurrencyRewardsUnique1": [
+				{
+					"min": 8,
+					"max": 12
+				}
+			]
+		},
+		"sentinel_tagged_monsters_drop_x_sentinel_rewards": {
+			"SentinelDroneTagDropsSentinelRewardsUnique1": [
+				{
+					"min": 8,
+					"max": 12
+				}
+			]
+		},
+		"sentinel_tagged_monsters_drop_x_divination_card_rewards": {
+			"SentinelDroneTagDropsDivinationCardsRewardsUnique1": [
+				{
+					"min": 8,
+					"max": 12
+				}
+			]
+		},
+		"sentinel_tagged_monsters_drop_x_scarab_rewards": {
+			"SentinelDroneTagDropsScarabsRewardsUnique1": [
+				{
+					"min": 8,
+					"max": 12
+				}
+			]
+		},
+		"sentinel_tagged_monsters_drop_x_unique_rewards": {
+			"SentinelDroneTagDropsUniquesRewardsUnique1": [
+				{
+					"min": 8,
+					"max": 12
+				}
+			]
+		},
+		"sentinel_tagged_monsters_drop_x_map_rewards": {
+			"SentinelDroneTagDropsMapsRewardsUnique1": [
+				{
+					"min": 8,
+					"max": 12
+				}
+			]
+		},
+		"sentinel_tagged_monsters_drop_x_fragment_rewards": {
+			"SentinelDroneTagDropsFragmentsRewardsUnique1": [
+				{
+					"min": 8,
+					"max": 12
+				}
+			]
+		},
+		"local_sentinel_cannot_tag_anything": {
+			"Unique1": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"sentinel_tag_no_rewards": {
+			"Unique1": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"sentinel_tag_difficulty_+permillage_final_per_previous_tag": {
+			"Unique1": [
+				{
+					"min": 16,
+					"max": 24
+				}
+			]
+		},
+		"sentinel_tag_reward_chance_+permillage_per_previous_tag": {
+			"Unique1": [
+				{
+					"min": 16,
+					"max": 24
+				}
+			]
+		},
+		"sentinel_tag_upgrade_target_to_rare_%": {
+			"Unique1": [
+				{
+					"min": 20,
+					"max": 25
+				}
+			]
+		},
+		"local_display_sentinel_spawns_worms": {
+			"Unique1": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"sentinel_tag_no_drops": {
+			"Unique1": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"sentinel_can_cleanse_corrupted_fish": {
+			"Unique1": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"sentinel_can_purify_corrupted_water": {
+			"SentinelDronePurifyWaterUnique1": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"hellscape_monster_damage_+%_final hellscape_monster_damage_taken_+%_final monster_dropped_item_quantity_+% monster_dropped_item_rarity_+% monster_slain_experience_+% sentinel_tag_difficulty": {
+			"": [
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 0,
+					"max": 0
+				},
+				{
+					"min": 0,
+					"max": 0
+				}
+			]
+		},
+		"sentinel_petrify_tagged_monsters_ms": {
+			"Unique1": [
+				{
+					"min": 5000,
+					"max": 5000
+				}
+			]
+		},
+		"magic_utility_flask_effect_+%": {
+			"RecombinatorSpecialMagicUtility": [
+				{
+					"min": 20,
+					"max": 25
+				}
+			]
+		},
+		"fire_damage_can_shock": {
+			"RecombinatorSpecialAllFireDamageCanShock": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"cold_damage_can_ignite": {
+			"RecombinatorSpecialAllColdDamageCanIgnite": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"lightning_damage_can_freeze": {
+			"RecombinatorSpecialAllLightningDamageCanFreeze": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"taunted_enemies_by_warcry_damage_taken_+%": {
+			"RecombinatorSpecialIncreasedDamageVsWarcryTauntedEnemies1H": [
+				{
+					"min": 10,
+					"max": 15
+				}
+			],
+			"RecombinatorSpecialIncreasedDamageVsWarcryTauntedEnemies2H": [
+				{
+					"min": 20,
+					"max": 25
+				}
+			]
+		},
+		"local_display_socketed_gems_supported_by_level_x_enlighten": {
+			"RecombinatorSpecialSupportedByLevelFourEnlighten": [
+				{
+					"min": 4,
+					"max": 4
+				}
+			]
+		},
+		"local_display_socketed_gems_supported_by_level_x_enhance": {
+			"RecombinatorSpecialSupportedByLevelFourEnhance": [
+				{
+					"min": 4,
+					"max": 4
+				}
+			]
+		},
+		"local_display_socketed_gems_supported_by_level_x_empower": {
+			"RecombinatorSpecialSupportedByLevelFourEmpower": [
+				{
+					"min": 4,
+					"max": 4
+				}
+			]
+		},
+		"local_display_socketed_triggered_skills_deal_double_damage": {
+			"RecombinatorSpecialTriggerSkillsDoubleDamage": [
+				{
+					"min": 1,
+					"max": 1
+				}
+			]
+		},
+		"summoned_skeleton_is_mage": {
+			"SummonSkeletonsSkeletonIsMage": [
 				{
 					"min": 1,
 					"max": 1

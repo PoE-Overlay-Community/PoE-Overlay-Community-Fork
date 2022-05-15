@@ -113,6 +113,12 @@
         "never": "Never"
       },
       "item-sockets": "Sockets",
+      "item-specific-properties": "Item Specific Properties",
+      "item-specific-property": {
+        "heist": "Heist",
+        "sentinel": "Sentinel",
+        "ultimatum": "Ultimatum"
+      },
       "item-type": "Item Type",
       "max-age": {
         "any": "Any Time",
@@ -127,6 +133,12 @@
       "normalize-quality": "Normalize Quality",
       "online-only": "Online Only",
       "properties": "Base Item Properties",
+      "sentinel": {
+        "charges": "Sentinel Charges",
+        "duration": "Sentinel Duration",
+        "empowerment": "Sentinel Empowerment",
+        "enemies-empowered": "Sentinel Enemies Empowered"
+      },
       "ultimatum": "Ultimatum Challenge/Input/Output"
     },
     "searching": "Searching...",

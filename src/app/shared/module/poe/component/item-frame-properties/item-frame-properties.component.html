@@ -208,6 +208,9 @@
     <ng-container *ngSwitchCase="'heist'">
       <app-item-frame-properties-heist [item]="item" [queryItem]="queryItem" [language]="language" [minRange]="minRange" [maxRange]="maxRange"></app-item-frame-properties-heist>
     </ng-container>
+    <ng-container *ngSwitchCase="'sentinel'">
+      <app-item-frame-properties-sentinel [item]="item" [queryItem]="queryItem" [language]="language" [minRange]="minRange" [maxRange]="maxRange"></app-item-frame-properties-sentinel>
+    </ng-container>
     <ng-container *ngSwitchCase="'areaLevel'">
       <ng-container *ngTemplateOutlet="
           value;
@@ -215,7 +218,7 @@
         ">
       </ng-container>
     </ng-container>
-</div>
+  </div>
 </ng-container>
 
 <ng-template #damage let-name="name" let-prop="prop">

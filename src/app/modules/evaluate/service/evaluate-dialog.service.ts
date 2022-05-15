@@ -115,6 +115,21 @@ export class EvaluateDialogService {
                   height += DIALOG_LINE_HEIGHT
                 }
                 break
+              case 'sentinel':
+                const sentinel = item.properties.sentinel
+                if (sentinel.durability || sentinel.maxDurability) {
+                  height += DIALOG_LINE_HEIGHT
+                }
+                if (sentinel.duration) {
+                  height += DIALOG_LINE_HEIGHT
+                }
+                if (sentinel.enemiesEmpowered) {
+                  height += DIALOG_LINE_HEIGHT
+                }
+                if (sentinel.empowerment) {
+                  height += DIALOG_LINE_HEIGHT
+                }
+                break
               default:
                 height += DIALOG_LINE_HEIGHT
                 break
@@ -180,11 +195,11 @@ export class EvaluateDialogService {
       }
     }
 
-    if (item.veiled || item.corrupted || item.relic) {
+    if (item.veiled || item.corrupted || item.unmodifiable || item.relic) {
       if (item.veiled) {
         height += DIALOG_LINE_HEIGHT
       }
-      if (item.corrupted) {
+      if (item.corrupted || item.unmodifiable) {
         height += DIALOG_LINE_HEIGHT
       }
       if (item.relic) {

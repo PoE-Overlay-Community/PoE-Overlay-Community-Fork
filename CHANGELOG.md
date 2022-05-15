@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.8.15 (2022-05-15)
+
+- Updated PoE Assets to support 3.18.0 (Sentinel League)
+- Added support for 'Sentinel' property parsing & filtering
+  - Added options to the settings menu to automatically include Sentinel properties when evaluating an item
+- Added support for 'character class' requirement parsing & filtering
+
 ## 0.8.14 (2022-04-17)
 
 - Added Japanese to the language list

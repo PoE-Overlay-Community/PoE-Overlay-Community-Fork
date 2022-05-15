@@ -12,6 +12,7 @@ export interface Item {
   type?: string
   level?: ItemValue
   corrupted?: boolean
+  unmodifiable?: boolean
   unidentified?: boolean
   veiled?: boolean
   blighted?: boolean
@@ -111,6 +112,10 @@ export enum ItemCategory {
   HeistContract = 'heistmission.contract',
   HeistBlueprint = 'heistmission.blueprint',
   ExpeditionLogbook = 'logbook',
+  Sentinel = 'sentinel',
+  SentinelStalker = 'sentinel.stalker',
+  SentinelPandemonium = 'sentinel.pandemonium',
+  SentinelApex = 'sentinel.apex',
   Currency = 'currency',
   CurrencyPiece = 'currency.piece',
   CurrencyResonator = 'currency.resonator',
@@ -181,6 +186,7 @@ export interface ItemProperties {
   ultimatum?: ItemPropertiesUltimatum
   incursion?: ItemPropertiesIncursion
   heist?: ItemPropertiesHeist
+  sentinel?: ItemPropertiesSentinel
 }
 
 export interface ItemProperty {
@@ -230,6 +236,7 @@ export interface ItemRequirements {
   int?: number
   str?: number
   dex?: number
+  class?: CharacterClass
 }
 
 export interface ItemInfluences {
@@ -246,6 +253,16 @@ export interface ItemInfluences {
 export interface ItemsMap {
   label: string
   items: Item[]
+}
+
+export enum CharacterClass {
+  Scion = 'scion',
+  Marauder = 'marauder',
+  Ranger = 'ranger',
+  Witch = 'witch',
+  Duelist = 'duelist',
+  Templar = 'templar',
+  Shadow = 'shadow',
 }
 
 export enum UltimatumChallengeType {
@@ -287,6 +304,14 @@ export interface ItemPropertiesHeist {
   wingsRevealed?: ItemValue
   escapeRoutes?: ItemValue
   rewardRooms?: ItemValue
+}
+
+export interface ItemPropertiesSentinel {
+  duration?: ItemValueProperty
+  durability?: ItemValueProperty
+  maxDurability?: ItemValueProperty
+  empowerment?: ItemValueProperty
+  enemiesEmpowered?: ItemValueProperty
 }
 
 export enum HeistObjectiveValue {
@@ -341,6 +366,7 @@ export enum ItemSection {
   Relic,
   Incursion,
   Heist,
+  Sentinel,
 }
 
 export interface ItemSectionParserService {

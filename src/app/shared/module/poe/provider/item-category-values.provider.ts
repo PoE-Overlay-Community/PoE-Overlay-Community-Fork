@@ -220,6 +220,10 @@ export class ItemCategoryValuesProvider {
       case ItemCategory.HeistContract:
       case ItemCategory.HeistBlueprint:
       case ItemCategory.ExpeditionLogbook:
+      case ItemCategory.Sentinel:
+      case ItemCategory.SentinelStalker:
+      case ItemCategory.SentinelPandemonium:
+      case ItemCategory.SentinelApex:
         return of({ values: [] })
     }
   }

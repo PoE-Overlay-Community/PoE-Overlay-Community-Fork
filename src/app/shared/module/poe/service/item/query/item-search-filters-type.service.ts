@@ -165,6 +165,11 @@ export class ItemSearchFiltersTypeService implements ItemSearchFiltersService {
       case ItemCategory.HeistBlueprint:
       // expedition
       case ItemCategory.ExpeditionLogbook:
+      // sentinel
+      case ItemCategory.Sentinel:
+      case ItemCategory.SentinelStalker:
+      case ItemCategory.SentinelPandemonium:
+      case ItemCategory.SentinelApex:
         query.filters.type_filters.filters.category = {
           option: item.category,
         }
