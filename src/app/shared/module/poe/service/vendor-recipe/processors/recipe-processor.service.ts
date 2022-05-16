@@ -47,6 +47,8 @@ const CategoryMapping = {
 }
 
 export abstract class RecipeProcessorService {
+  protected readonly log = false
+
   constructor(
     protected readonly baseItemTypeService: BaseItemTypesService
   ) {
@@ -58,7 +60,7 @@ export abstract class RecipeProcessorService {
     }
 
     let dateNow
-    if (!environment.production) {
+    if (this.log || !environment.production) {
       dateNow = Date.now()
       console.time(`${dateNow}-recipe-${(identifier + 1)}-${VendorRecipeType[settings.type]}`)
     }
@@ -81,11 +83,12 @@ export abstract class RecipeProcessorService {
 
     processedRecipes.push(processedRecipe)
 
-    if (!environment.production) {
+    if (this.log) {
+      console.log(settings)
       console.log(`${identifier}. ${VendorRecipeType[settings.type]} recipes`)
       console.log(processedRecipe)
-      console.timeEnd(`${dateNow}-recipe-${(identifier + 1)}-${VendorRecipeType[settings.type]}`)
     }
+    (this.log || !environment.production) && console.timeEnd(`${dateNow}-recipe-${(identifier + 1)}-${VendorRecipeType[settings.type]}`)
 
     return processedRecipe
   }

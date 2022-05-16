@@ -9,8 +9,6 @@ const MaxBagSpace = 60
   providedIn: 'root',
 })
 export abstract class QualityRecipeProcessorService extends RecipeProcessorService {
-  private readonly log = false
-
   protected abstract get recipeItemGroup(): RecipeItemGroup
   protected abstract get bagSlotsPerItem(): number
   protected abstract get qualityThreshold(): number
@@ -55,7 +53,7 @@ export abstract class QualityRecipeProcessorService extends RecipeProcessorServi
       const groupQuality = groupRecipes.reduce((sum, recipes) => sum + recipes.reduce((innerSum, item) => innerSum + item.quality, 0), 0)
       const groupCurrency = groupQuality / this.qualityDivisor
 
-      result.efficiency = groupCurrency / maxGroupCurrency
+      result.efficiency = maxGroupCurrency === 0 ? 0 : groupCurrency / maxGroupCurrency
 
       this.log && console.log(`Currency: ${groupCurrency}/${maxGroupCurrency} (Quality: ${groupQuality}/${maxGroupQuality}) (Efficiency: ${result.efficiency}%)`)
     }

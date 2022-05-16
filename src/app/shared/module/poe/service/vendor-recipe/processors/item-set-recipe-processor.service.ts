@@ -70,7 +70,7 @@ export abstract class ItemSetRecipeProcessorService extends RecipeProcessorServi
 
     // Find all recipes
     while (result.recipes.length < settings.fullSetThreshold) {
-      const emptySlots = defaultEmptySlots.map(x => [...x])
+      const emptySlots = defaultEmptySlots.map(groups => groups.filter(x => x !== RecipeItemGroup.TwoHandedWeapons || !settings.groupWeaponsTogether))
 
       const items: ExpandedStashItem[] = []
       let noItemsFound = false
