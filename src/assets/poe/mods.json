@@ -45150,8 +45150,8 @@
 			],
 			"MonsterRare1": [
 				{
-					"min": 400,
-					"max": 400
+					"min": 650,
+					"max": 650
 				}
 			],
 			"MonsterUnique1": [
@@ -45222,8 +45222,8 @@
 			],
 			"MonsterRare2": [
 				{
-					"min": 180,
-					"max": 180
+					"min": 275,
+					"max": 275
 				},
 				{
 					"min": 1,
@@ -45260,8 +45260,8 @@
 			],
 			"MonsterRare3": [
 				{
-					"min": 500,
-					"max": 500
+					"min": 850,
+					"max": 850
 				}
 			],
 			"MonsterUnique3": [
@@ -45304,8 +45304,8 @@
 			],
 			"MonsterRare4": [
 				{
-					"min": 600,
-					"max": 600
+					"min": 800,
+					"max": 800
 				}
 			],
 			"MonsterUnique4": [
@@ -45348,14 +45348,14 @@
 		"monster_rarity_damage_+%_final": {
 			"MonsterMagic5": [
 				{
-					"min": 30,
-					"max": 30
+					"min": 15,
+					"max": 15
 				}
 			],
 			"MonsterRare5": [
 				{
-					"min": 50,
-					"max": 50
+					"min": 30,
+					"max": 30
 				}
 			],
 			"MonsterUnique5": [
@@ -92316,8 +92316,8 @@
 		"non_chaos_damage_to_add_as_chaos_damage_% base_physical_damage_%_to_convert_to_chaos base_chaos_damage_resistance_% base_maximum_chaos_damage_resistance_% immune_to_wither": {
 			"": [
 				{
-					"min": 20,
-					"max": 20
+					"min": 15,
+					"max": 15
 				},
 				{
 					"min": 25,
@@ -92434,54 +92434,54 @@
 		"attack_speed_+% base_cast_speed_+% base_movement_velocity_+% evasion_rating_+% add_frenzy_charge_on_skill_hit_%": {
 			"_": [
 				{
-					"min": 35,
-					"max": 35
+					"min": 30,
+					"max": 30
 				},
 				{
-					"min": 35,
-					"max": 35
+					"min": 30,
+					"max": 30
 				},
 				{
-					"min": 75,
-					"max": 75
+					"min": 40,
+					"max": 40
 				},
 				{
 					"min": 100,
 					"max": 100
 				},
 				{
-					"min": 20,
-					"max": 20
+					"min": 0,
+					"max": 0
 				}
 			],
 			"Magic": [
 				{
-					"min": 35,
-					"max": 35
+					"min": 30,
+					"max": 30
 				},
 				{
-					"min": 35,
-					"max": 35
+					"min": 30,
+					"max": 30
 				},
 				{
-					"min": 75,
-					"max": 75
+					"min": 40,
+					"max": 40
 				},
 				{
 					"min": 100,
 					"max": 100
 				},
 				{
-					"min": 20,
-					"max": 20
+					"min": 0,
+					"max": 0
 				}
 			]
 		},
 		"damage_+% damage_taken_+%_if_not_hit_recently_final evasion_+%_if_hit_recently accuracy_rating_+% critical_strike_chance_+%": {
 			"": [
 				{
-					"min": 30,
-					"max": 30
+					"min": 20,
+					"max": 20
 				},
 				{
 					"min": -60,
@@ -92638,8 +92638,8 @@
 					"max": 1
 				},
 				{
-					"min": 40,
-					"max": 40
+					"min": 25,
+					"max": 25
 				},
 				{
 					"min": 1,
@@ -92768,12 +92768,12 @@
 					"max": 25
 				},
 				{
-					"min": 60,
-					"max": 60
+					"min": 40,
+					"max": 40
 				},
 				{
-					"min": -40,
-					"max": -40
+					"min": -30,
+					"max": -30
 				},
 				{
 					"min": 100,
@@ -92886,20 +92886,20 @@
 		"damage_+% base_actor_scale_+% base_skill_area_of_effect_+% maximum_life_+%": {
 			"": [
 				{
-					"min": 40,
-					"max": 40
+					"min": 20,
+					"max": 20
 				},
 				{
 					"min": 40,
 					"max": 40
 				},
 				{
-					"min": 100,
-					"max": 100
+					"min": 80,
+					"max": 80
 				},
 				{
-					"min": 60,
-					"max": 60
+					"min": 40,
+					"max": 40
 				}
 			]
 		},
@@ -92918,12 +92918,12 @@
 		"damage_+% base_movement_velocity_+% base_damage_taken_+% base_actor_scale_+% attack_speed_+% base_cast_speed_+%": {
 			"__": [
 				{
-					"min": 60,
-					"max": 60
+					"min": 40,
+					"max": 40
 				},
 				{
-					"min": 60,
-					"max": 60
+					"min": 40,
+					"max": 40
 				},
 				{
 					"min": -30,
@@ -93082,8 +93082,8 @@
 					"max": 30
 				},
 				{
-					"min": 50,
-					"max": 50
+					"min": 25,
+					"max": 25
 				},
 				{
 					"min": 40,
@@ -93110,8 +93110,8 @@
 					"max": 30
 				},
 				{
-					"min": 50,
-					"max": 50
+					"min": 25,
+					"max": 25
 				},
 				{
 					"min": 40,
@@ -93138,8 +93138,8 @@
 					"max": 30
 				},
 				{
-					"min": 50,
-					"max": 50
+					"min": 25,
+					"max": 25
 				},
 				{
 					"min": 40,
@@ -93220,8 +93220,8 @@
 					"max": 30
 				},
 				{
-					"min": 50,
-					"max": 50
+					"min": 25,
+					"max": 25
 				},
 				{
 					"min": 40,
@@ -93244,8 +93244,8 @@
 					"max": 30
 				},
 				{
-					"min": 50,
-					"max": 50
+					"min": 25,
+					"max": 25
 				},
 				{
 					"min": 40,
@@ -93270,8 +93270,8 @@
 					"max": 30
 				},
 				{
-					"min": 50,
-					"max": 50
+					"min": 25,
+					"max": 25
 				},
 				{
 					"min": 40,
@@ -93296,8 +93296,8 @@
 					"max": 30
 				},
 				{
-					"min": 50,
-					"max": 50
+					"min": 25,
+					"max": 25
 				},
 				{
 					"min": 60,
@@ -93390,8 +93390,8 @@
 		"damage_+% base_cold_damage_resistance_% base_additional_physical_damage_reduction_%": {
 			"": [
 				{
-					"min": 75,
-					"max": 75
+					"min": 50,
+					"max": 50
 				},
 				{
 					"min": 60,
@@ -93404,8 +93404,8 @@
 			],
 			"___": [
 				{
-					"min": 75,
-					"max": 75
+					"min": 50,
+					"max": 50
 				},
 				{
 					"min": 60,
@@ -93420,8 +93420,8 @@
 		"damage_+% base_fire_damage_resistance_% base_additional_physical_damage_reduction_%": {
 			"": [
 				{
-					"min": 75,
-					"max": 75
+					"min": 50,
+					"max": 50
 				},
 				{
 					"min": 60,
@@ -93434,8 +93434,8 @@
 			],
 			"": [
 				{
-					"min": 75,
-					"max": 75
+					"min": 50,
+					"max": 50
 				},
 				{
 					"min": 40,
@@ -93448,8 +93448,8 @@
 			],
 			"": [
 				{
-					"min": 75,
-					"max": 75
+					"min": 50,
+					"max": 50
 				},
 				{
 					"min": 60,
@@ -93464,8 +93464,8 @@
 		"damage_+% base_chaos_damage_resistance_% base_additional_physical_damage_reduction_%": {
 			"_": [
 				{
-					"min": 75,
-					"max": 75
+					"min": 50,
+					"max": 50
 				},
 				{
 					"min": 60,
@@ -93478,8 +93478,8 @@
 			],
 			"_": [
 				{
-					"min": 75,
-					"max": 75
+					"min": 50,
+					"max": 50
 				},
 				{
 					"min": 60,
@@ -93494,8 +93494,8 @@
 		"damage_+% base_resist_all_elements_% base_additional_physical_damage_reduction_%": {
 			"_____": [
 				{
-					"min": 75,
-					"max": 75
+					"min": 50,
+					"max": 50
 				},
 				{
 					"min": 40,
@@ -93510,8 +93510,8 @@
 		"damage_+% base_resist_all_elements_% base_additional_physical_damage_reduction_% base_chaos_damage_resistance_%": {
 			"": [
 				{
-					"min": 75,
-					"max": 75
+					"min": 50,
+					"max": 50
 				},
 				{
 					"min": 30,
@@ -93966,26 +93966,26 @@
 					"max": 1
 				},
 				{
-					"min": 30,
-					"max": 30
+					"min": 20,
+					"max": 20
 				}
 			]
 		},
 		"damage_+% maximum_life_+%": {
 			"MinionNecromancer": [
 				{
-					"min": 100,
-					"max": 100
+					"min": 40,
+					"max": 40
 				},
 				{
-					"min": 200,
-					"max": 200
+					"min": 150,
+					"max": 150
 				}
 			],
 			"MinionUnionofSouls": [
 				{
-					"min": 50,
-					"max": 50
+					"min": 30,
+					"max": 30
 				},
 				{
 					"min": 100,

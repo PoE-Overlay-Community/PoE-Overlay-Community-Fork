@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.8.16 (2022-05-16)
+
+- Updated PoE Assets to support 3.18.0b
+- Fixed an issue with some global stats that have local stat equivalents not being recognized
+
 ## 0.8.15 (2022-05-15)
 
 - Updated PoE Assets to support 3.18.0 (Sentinel League)
