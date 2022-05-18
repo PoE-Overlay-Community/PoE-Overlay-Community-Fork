@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.8.17 (2022-05-18)
+
+- Updated PoE Assets to support additional mods for 3.18.0b
+- Updated the Bulk Exchange evaluation so it now supports and uses the 'new engine'
+- Improved 'significant decimal' displaying for bulk exchange listings
+
 ## 0.8.16 (2022-05-16)
 
 - Updated PoE Assets to support 3.18.0b

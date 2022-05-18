@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core'
-import { Currency, CurrencyRange } from '../../type'
+import { MathUtils } from '@app/class'
+import { Currency } from '../../type'
 
 @Component({
   selector: 'app-currency-ratio-frame',
@@ -19,4 +20,8 @@ export class CurrencyRatioFrameComponent {
 
   @Input()
   public denominator: number
+
+  public get significantDecimalCount(): number {
+    return Math.max(3, MathUtils.significantDecimalCount(this.numerator, this.denominator))
+  }
 }

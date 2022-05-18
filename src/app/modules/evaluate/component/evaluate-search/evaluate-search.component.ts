@@ -1,31 +1,34 @@
 import {
-  ChangeDetectionStrategy,
-  Component,
-  EventEmitter,
-  Input,
-  OnDestroy,
-  OnInit,
-  Output,
+    ChangeDetectionStrategy,
+    Component,
+    EventEmitter,
+    Input,
+    OnDestroy,
+    OnInit,
+    Output
 } from '@angular/core'
 import { BrowserService, LoggerService } from '@app/service'
+import { TradeSearchType } from '@data/poe'
+import { environment } from '@env/environment'
 import { EvaluateResult } from '@modules/evaluate/type/evaluate.type'
 import {
-  ItemSearchAnalyzeResult,
-  ItemSearchAnalyzeService,
-  ItemSearchListing,
-  ItemSearchResult,
-  ItemSearchService,
+    ExchangeSearchResult,
+    ItemSearchAnalyzeResult,
+    ItemSearchAnalyzeService,
+    ItemSearchListing,
+    ItemSearchResult,
+    ItemSearchService,
+    TradeSearchResult
 } from '@shared/module/poe/service'
 import { Currency, Item } from '@shared/module/poe/type'
 import { ItemSearchOptions } from '@shared/module/poe/type/search.type'
 import { BehaviorSubject, Subject, Subscription, timer } from 'rxjs'
 import { debounceTime, takeUntil } from 'rxjs/operators'
-import { TradeSearchType } from '@data/poe'
 import { EvaluateOptions } from '../evaluate-options/evaluate-options.component'
 import {
-  EvaluateResultView,
-  EvaluateUserSettings,
-  EVALUATE_QUERY_DEBOUNCE_TIME_MAX,
+    EvaluateResultView,
+    EvaluateUserSettings,
+    EVALUATE_QUERY_DEBOUNCE_TIME_MAX
 } from '../evaluate-settings/evaluate-settings.component'
 
 @Component({
@@ -199,16 +202,39 @@ export class EvaluateSearchComponent implements OnInit, OnDestroy {
           if (search.total > 0) {
             const count = Math.min(this.options.fetchCount, search.total)
             this.count$.next(count)
-            this.list(search, currency)
+            switch (search.searchType) {
+              case TradeSearchType.NormalTrade:
+                this.listTradeSearch(search as TradeSearchResult, currency)
+                break
+
+              case TradeSearchType.BulkExchange:
+                this.listExchangeSearch(search as ExchangeSearchResult, currency)
+                break
+            }
           }
         },
         (error) => this.handleError(error)
       )
   }
 
-  private list(search: ItemSearchResult, currency?: Currency): void {
+  private listTradeSearch(search: TradeSearchResult, currency?: Currency): void {
     this.listSubscription = this.itemSearchService
-      .list(search, this.options.fetchCount)
+      .listTradeSearch(search, this.options.fetchCount)
+      .pipe(takeUntil(this.queryItemChange))
+      .subscribe(
+        (listings) => {
+          this.listings$.next(listings)
+          if (listings.length > 0) {
+            this.analyze(listings, currency)
+          }
+        },
+        (error) => this.handleError(error)
+      )
+  }
+
+  private listExchangeSearch(search: ExchangeSearchResult, currency?: Currency): void {
+    this.listSubscription = this.itemSearchService
+      .listExchangeSearch(search, this.options.fetchCount)
       .pipe(takeUntil(this.queryItemChange))
       .subscribe(
         (listings) => {
@@ -242,6 +268,9 @@ export class EvaluateSearchComponent implements OnInit, OnDestroy {
 
   private handleError(error: any): void {
     this.clear()
+    if (!environment.production) {
+      console.log(error)
+    }
     this.logger.warn(error)
     if (typeof error === 'string') {
       this.error$.next(error)

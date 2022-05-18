@@ -7,7 +7,7 @@ import { ItemSearchService } from './item-search.service'
 import {
   TradeFetchResult,
   PoEHttpService,
-  TradeOrExchangeSearchResponse,
+  TradeSearchResponse,
   TradeResponse,
   TradeSearchType,
 } from '@data/poe'
@@ -21,7 +21,7 @@ describe('ItemSearchService', () => {
 
   const mockLeagues: any = require('doc/poe/api_trade_data_leagues.json')
   const mockStatic: any = require('doc/poe/api_trade_data_static.json')
-  const mockSearchResult: TradeOrExchangeSearchResponse = {
+  const mockSearchResult: TradeSearchResponse = {
     searchType: TradeSearchType.NormalTrade,
     id: 'y35jtR',
     result: [
@@ -125,7 +125,7 @@ describe('ItemSearchService', () => {
         (result) => {
           expect(result.hits.length).toBeGreaterThan(0)
 
-          sut.list(result, 2).subscribe(
+          sut.listTradeSearch(result, 2).subscribe(
             (listings) => {
               expect(listings.length).toBe(Math.min(result.hits.length, 2))
 

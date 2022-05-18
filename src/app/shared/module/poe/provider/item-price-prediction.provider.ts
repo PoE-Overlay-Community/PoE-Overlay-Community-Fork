@@ -28,7 +28,7 @@ export class ItemPricePredictionProvider {
   public provide(leagueId: string, stringifiedItem: string): Observable<ItemPricePrediction> {
     const hash = cyrb53(stringifiedItem)
     const key = `${CACHE_PATH}${leagueId}_${hash}`
-    return this.cache.clear(CACHE_PATH).pipe(
+    return this.cache.prune(CACHE_PATH).pipe(
       flatMap(() =>
         this.cache.proxy(
           key,
