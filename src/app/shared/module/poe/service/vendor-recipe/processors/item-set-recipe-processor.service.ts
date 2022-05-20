@@ -70,10 +70,11 @@ export abstract class ItemSetRecipeProcessorService extends RecipeProcessorServi
 
     // Find all recipes
     while (result.recipes.length < settings.fullSetThreshold) {
-      const emptySlots = defaultEmptySlots.map(groups => groups.filter(x => x !== RecipeItemGroup.TwoHandedWeapons || !settings.groupWeaponsTogether))
+      const emptySlots = defaultEmptySlots.map(groups => [...groups])
+
+      let requiredItemCount = emptySlots.reduce((sum, group) => sum + group.length, 0)
 
       const items: ExpandedStashItem[] = []
-      let noItemsFound = false
       let lastItem: ExpandedStashItem = undefined
       while (true) {
         const group = emptySlots.find(x => x.length > 0)
@@ -84,13 +85,7 @@ export abstract class ItemSetRecipeProcessorService extends RecipeProcessorServi
         const candidates = this.getPickableCandidates(splittedCandidates, settings, items)
         const item = this.takeItem(candidates, group, lastItem)
         if (item) {
-          // Remove the picked item
-          splittedCandidates.forEach(splittedCandidate => {
-            const itemIndex = splittedCandidate.indexOf(item)
-            if (itemIndex !== -1) {
-              splittedCandidate.splice(itemIndex, 1)
-            }
-          })
+          item.usedInRecipe = true
           items.push(item)
           lastItem = item
           group.splice(group.indexOf(item.recipeItemGroup), 1)
@@ -100,6 +95,7 @@ export abstract class ItemSetRecipeProcessorService extends RecipeProcessorServi
             case RecipeItemGroup.TwoHandedWeapons:
               // Remove 1h from the list of items we need
               for (const g in emptySlots) {
+                requiredItemCount -= emptySlots[g].reduce((sum, item) => sum + (item === RecipeItemGroup.OneHandedWeapons ? 1 : 0), 0)
                 emptySlots[g] = emptySlots[g].filter(x => x !== RecipeItemGroup.OneHandedWeapons)
               }
               break
@@ -107,17 +103,21 @@ export abstract class ItemSetRecipeProcessorService extends RecipeProcessorServi
             case RecipeItemGroup.OneHandedWeapons:
               // Remove 2h from the list of items we need
               for (const g in emptySlots) {
+                requiredItemCount -= emptySlots[g].reduce((sum, item) => sum + (item === RecipeItemGroup.TwoHandedWeapons ? 1 : 0), 0)
                 emptySlots[g] = emptySlots[g].filter(x => x !== RecipeItemGroup.TwoHandedWeapons)
               }
               break
           }
         } else {
-          noItemsFound = true
-          break
+          // Remove the first item in the group and try again
+          group.splice(0, 1)
         }
       }
 
-      if (noItemsFound) {
+      // Not all items that are part of this recipe could be found
+      if (items.length !== requiredItemCount) {
+        // Free up the items again
+        items.forEach(item => item.usedInRecipe = false)
         break
       }
 
@@ -175,7 +175,7 @@ export abstract class ItemSetRecipeProcessorService extends RecipeProcessorServi
   }
 
   protected canTakeItem(item: ExpandedStashItem, group: RecipeItemGroup[], lastItem: ExpandedStashItem): boolean {
-    return group.some((y) => y === item.recipeItemGroup)
+    return !item.usedInRecipe && group.some((y) => y === item.recipeItemGroup)
   }
 
   protected abstract getSplittedCandidates(allCandidates: ExpandedStashItem[], settings: ItemSetRecipeUserSettings): ExpandedStashItem[][]

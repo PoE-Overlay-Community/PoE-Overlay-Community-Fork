@@ -115,7 +115,7 @@ export abstract class QualityRecipeProcessorService extends RecipeProcessorServi
 
   private findAllRecipes(stashItems: ExpandedStashItem[], maxBagSlots: number, maxRecipes): ExpandedStashItem[][] {
     const foundRecipes: ExpandedStashItem[][] = []
-    const candidates = [...stashItems]
+    const candidates = stashItems.filter(item => !item.usedInRecipe)
     while (candidates.length > 0) {
       const groupSize = Math.floor(maxBagSlots / this.bagSlotsPerItem)
       this.log && console.log(`searching combinations with maxBagSlots ${maxBagSlots} and groupSize ${groupSize}`)
@@ -124,7 +124,11 @@ export abstract class QualityRecipeProcessorService extends RecipeProcessorServi
         break
       }
 
-      groupCombination.forEach(item => candidates.splice(candidates.findIndex(x => x.source.id === item.source.id), 1))
+      // Remove the found combination from the candidates list and mark them as used
+      groupCombination.forEach(item => {
+        item.usedInRecipe = true
+        candidates.splice(candidates.findIndex(x => x.source.id === item.source.id), 1)
+      })
 
       if (this.log) {
         const groupQuality = groupCombination.reduce((sum, item) => sum + item.quality, 0)
@@ -168,7 +172,7 @@ export abstract class QualityRecipeProcessorService extends RecipeProcessorServi
             this.log && console.log(`Found combo at ${targetQuality} after ${count.toLocaleString('en-US')} combinations (Total: ${totalCount.toLocaleString('en-US')})`)
             return combination
           }
-          // Stop looking after 1 billion combinations
+          // Stop looking after 1 billion combinations or when it takes more then 1 second to find a combination
           if (count >= 1000000000) {
             this.log && console.log(`Failed to find combo after ${count.toLocaleString('en-US')} combinations (Total: ${totalCount.toLocaleString('en-US')})`)
             break

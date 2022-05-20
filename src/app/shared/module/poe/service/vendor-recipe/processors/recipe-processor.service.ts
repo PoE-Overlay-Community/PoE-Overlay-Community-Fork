@@ -10,6 +10,7 @@ export interface ExpandedStashItem extends PoEStashTabItem {
   calcY: number
   recipeItemGroup: RecipeItemGroup
   quality: number
+  usedInRecipe: boolean
 }
 
 const CategoryMapping = {
@@ -65,7 +66,7 @@ export abstract class RecipeProcessorService {
       console.time(`${dateNow}-recipe-${(identifier + 1)}-${VendorRecipeType[settings.type]}`)
     }
 
-    // Remove any already used items
+    // Remove any items already used in previous recipes
     const availableStashItems = stashItems.filter(item =>
       !processedRecipes.some(result =>
         result.recipes.some(recipe => 
@@ -108,7 +109,8 @@ export abstract class RecipeProcessorService {
       calcX: bounds.x + bounds.width / 2,
       calcY: bounds.y + bounds.height / 2,
       recipeItemGroup: CategoryMapping[baseItemType.baseItemType.category],
-      quality: qualityText ? ItemParserUtils.parseNumber(qualityText) : 0
+      quality: qualityText ? ItemParserUtils.parseNumber(qualityText) : 0,
+      usedInRecipe: false,
     }
   }
 
