@@ -14,7 +14,7 @@ import { concatAll, delay, flatMap, map, tap } from 'rxjs/operators'
 import { StashProvider } from '../../provider/stash.provider'
 import { CacheExpirationType, Currency, PoEAccount } from '../../type'
 import { PoEStashTab, PoEStashTabItem, StashTabsToSearch } from '../../type/stash.type'
-import { StashGridType } from '../../type/stash-grid.type'
+import { StashGridType, StashGridUserSettings } from '../../type/stash-grid.type'
 import { PoEAccountService } from '../account/account.service'
 import { BaseItemTypesService } from '../base-item-types/base-item-types.service'
 import { ContextService } from '../context.service'
@@ -57,7 +57,7 @@ export class StashService {
   private stashTabInfoInterval: NodeJS.Timeout
   private stashTabContentInterval: NodeJS.Timeout
 
-  private settings: UserSettings
+  private settings: StashGridUserSettings
 
   private stashTabProviders: StashTabsToSearch[] = []
 
@@ -75,7 +75,7 @@ export class StashService {
   }
 
   public register(settings: UserSettings): void {
-    this.settings = settings
+    this.settings = settings as StashGridUserSettings
 
     this.accountSub = this.accountService.subscribe((account) => this.onAccountChange(account))
 
