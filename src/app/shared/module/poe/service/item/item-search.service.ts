@@ -408,10 +408,10 @@ export class ItemSearchService {
       return of(undefined)
     }
 
-    const { currency, amount } = offer.item
+    const { currency, amount } = offer.exchange
 
-    const priceNumerator = offer.exchange.amount
-    const priceDenominator = amount
+    const priceNumerator = amount
+    const priceDenominator = offer.item.amount
 
     if (priceNumerator <= 0) {
       this.logger.warn(`Exchange amount was less or equal zero. Seller: ${seller}`)
