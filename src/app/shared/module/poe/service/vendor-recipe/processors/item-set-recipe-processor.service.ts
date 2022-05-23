@@ -110,7 +110,14 @@ export abstract class ItemSetRecipeProcessorService extends RecipeProcessorServi
           }
         } else {
           // Remove the first item in the group and try again
-          group.splice(0, 1)
+          const removedItemGroup = group.splice(0, 1)[0]
+
+          switch (removedItemGroup) {
+            case RecipeItemGroup.TwoHandedWeapons:
+            case RecipeItemGroup.OneHandedWeapons:
+              requiredItemCount--
+              break
+          }
         }
       }
 
