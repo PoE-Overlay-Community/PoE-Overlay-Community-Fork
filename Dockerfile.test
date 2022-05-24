@@ -1,0 +1,48 @@
+# Dockerfile for Linux build automation.
+#
+# Demonstrates developing PoE-Overlay on Linux and produces testable Linux
+# builds. Each step will be cached independently, so subsequent builds will be
+# faster. First build will take up to 10 minutes.
+# IMPORTANT: Set DOCKER_BUILDKIT=1 in your environment variables or you will not
+# get any build artifacts in your release folder.
+ARG codedir=/opt/PoE-Overlay-Community-Fork
+
+# Since the Electron builder targets Debian packaging, start with an Ubuntu LTS image.
+FROM ubuntu:20.04 AS build-stage
+
+# Install build environment dependencies.
+RUN apt-get update
+RUN apt-get install -y libx11-dev libxtst-dev libpng-dev wget make g++ git lsb-release gnupg
+# https://github.com/nodesource/distributions/blob/0d3d988/README.md#installation-instructions
+RUN wget https://deb.nodesource.com/setup_12.x -O nodesource.sh
+RUN bash nodesource.sh
+RUN apt-get install -y nodejs
+RUN DEBIAN_FRONTEND="noninteractive" TZ="America/New_York" apt-get install -y tzdata
+
+# Install Google Chrome
+RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
+RUN sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
+RUN apt-get update && apt-get install -y google-chrome-stable
+
+# Set up working directory.
+ARG codedir
+RUN mkdir $codedir
+WORKDIR $codedir
+
+# Copy the code into the container, avoiding .git and node_modules.
+COPY *.json $codedir/
+COPY browserslist $codedir
+COPY dev-app-update.yml $codedir
+COPY main.ts $codedir
+COPY overlay.babel $codedir
+COPY electron $codedir/electron
+COPY img $codedir/img
+COPY src $codedir/src
+COPY karma*.conf.js $codedir/
+
+# Install NodeJS dependencies/modules.
+RUN npm install
+
+# Run tests
+# If you get an out of memory error, increase Docker's resources.
+RUN npm run ng:test:ci
