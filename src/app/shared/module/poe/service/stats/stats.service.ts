@@ -306,10 +306,6 @@ export class StatsService {
               const isLocalOption = locals[localKey].startsWith('local_')
               const localOptId = isLocalOption ? optId : locals[optId]
               let globalOptId = locals[localOptId]
-              // Only change global to local optId when the global optId doesn't exist as an option
-              if (!Object.getOwnPropertyNames(options).some(x => x == globalOptId)) {
-                globalOptId = localOptId
-              }
 
               // Global vs Local stat approach:
               //   All stats are considered global, unless marked as local in the options and the global isn't present or marked false
