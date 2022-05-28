@@ -35,7 +35,10 @@ export abstract class ItemSetRecipeProcessorService extends RecipeProcessorServi
           countMultiplier++
         }
       }))
-      return stashItems.filter(x => x.recipeItemGroup === recipeItemGroup).length / countMultiplier
+      const groupItems = stashItems.filter(x => x.recipeItemGroup === recipeItemGroup)
+      this.log && console.log(`Group '${RecipeItemGroup[recipeItemGroup]}' Items:`)
+      this.log && console.log(groupItems)
+      return groupItems.length / countMultiplier
     }
 
     // Find Item counts for each Item Set Group
@@ -68,65 +71,97 @@ export abstract class ItemSetRecipeProcessorService extends RecipeProcessorServi
         break
     }
 
+    let lastItem: ExpandedStashItem = undefined
+
     // Find all recipes
     while (result.recipes.length < settings.fullSetThreshold) {
-      const emptySlots = defaultEmptySlots.map(groups => [...groups])
+      this.log && console.log(`===== ***** =====`)
 
-      let requiredItemCount = emptySlots.reduce((sum, group) => sum + group.length, 0)
-
-      const items: ExpandedStashItem[] = []
-      let lastItem: ExpandedStashItem = undefined
-      while (true) {
-        const group = emptySlots.find(x => x.length > 0)
-        if (!group) {
-          break
-        }
-        // Attempt to find an item, prioritizing main items first
-        const candidates = this.getPickableCandidates(splittedCandidates, settings, items)
-        const item = this.takeItem(candidates, group, lastItem)
-        if (item) {
-          item.usedInRecipe = true
-          items.push(item)
-          lastItem = item
-          group.splice(group.indexOf(item.recipeItemGroup), 1)
-
-          // Remove conflicting categories based on the added item
-          switch (item.recipeItemGroup) {
-            case RecipeItemGroup.TwoHandedWeapons:
-              // Remove 1h from the list of items we need
-              for (const g in emptySlots) {
-                requiredItemCount -= emptySlots[g].reduce((sum, item) => sum + (item === RecipeItemGroup.OneHandedWeapons ? 1 : 0), 0)
-                emptySlots[g] = emptySlots[g].filter(x => x !== RecipeItemGroup.OneHandedWeapons)
-              }
-              break
-
-            case RecipeItemGroup.OneHandedWeapons:
-              // Remove 2h from the list of items we need
-              for (const g in emptySlots) {
-                requiredItemCount -= emptySlots[g].reduce((sum, item) => sum + (item === RecipeItemGroup.TwoHandedWeapons ? 1 : 0), 0)
-                emptySlots[g] = emptySlots[g].filter(x => x !== RecipeItemGroup.TwoHandedWeapons)
-              }
-              break
+      const findRecipe = (emptySlots: RecipeItemGroup[][]): ExpandedStashItem[] => {
+        const items: ExpandedStashItem[] = []
+        while (true) {
+          const groups = emptySlots.find(x => x.length > 0)
+          if (!groups) {
+            break
           }
-        } else {
-          // Remove the first item in the group and try again
-          const removedItemGroup = group.splice(0, 1)[0]
+          this.log && console.log(`-----`)
+          this.log && console.log(`Attempting to fill '${groups.map(x => RecipeItemGroup[x])}'. Candidates:`)
+          // Attempt to find an item, prioritizing main items first
+          const candidates = this.getPickableCandidates(splittedCandidates, settings, items, groups, lastItem)
+          this.log && console.log(candidates)
+          const item = this.findItem(candidates, lastItem)
+          if (item) {
+            this.log && console.log(`found item:`)
+            this.log && console.log(item)
+            item.usedInRecipe = true
+            items.push(item)
+            lastItem = item
+            groups.splice(groups.indexOf(item.recipeItemGroup), 1)
 
-          switch (removedItemGroup) {
-            case RecipeItemGroup.TwoHandedWeapons:
-            case RecipeItemGroup.OneHandedWeapons:
-              requiredItemCount--
+            // Remove conflicting categories based on the added item
+            switch (item.recipeItemGroup) {
+              case RecipeItemGroup.TwoHandedWeapons:
+                // Remove 1h from the list of items we need
+                for (const g in emptySlots) {
+                  emptySlots[g] = emptySlots[g].filter(x => x !== RecipeItemGroup.OneHandedWeapons)
+                }
+                break
+
+              case RecipeItemGroup.OneHandedWeapons:
+                // Remove 2h from the list of items we need
+                for (const g in emptySlots) {
+                  emptySlots[g] = emptySlots[g].filter(x => x !== RecipeItemGroup.TwoHandedWeapons)
+                }
+                break
+            }
+          } else {
+            // Remove the first item in the group and try again
+            const removedItemGroup = groups.splice(0, 1)[0]
+
+            this.log && console.log(`Removed group '${RecipeItemGroup[removedItemGroup]}'`)
+
+            // If it's NOT weapon we can quit early since other pieces aren't interchargable.
+            if (removedItemGroup !== RecipeItemGroup.TwoHandedWeapons && removedItemGroup !== RecipeItemGroup.OneHandedWeapons) {
               break
+            }
           }
         }
+        return items
       }
 
-      // Not all items that are part of this recipe could be found
-      if (items.length !== requiredItemCount) {
+      let items = findRecipe(defaultEmptySlots.map(groups => [...groups]))
+      if (items.some(x => x.recipeItemGroup === RecipeItemGroup.TwoHandedWeapons || x.recipeItemGroup === RecipeItemGroup.OneHandedWeapons) && !this.isValidRecipe(items)) {
+        // Try this recipe again, explicitly using the opposite/other weapon type
+        const excludedGroup = items.some(x => x.recipeItemGroup === RecipeItemGroup.TwoHandedWeapons) ? RecipeItemGroup.TwoHandedWeapons : RecipeItemGroup.OneHandedWeapons
+        items = findRecipe(defaultEmptySlots.map(groups => [...groups.filter(x => x !== excludedGroup)]))
+      }
+
+      if (!this.isValidRecipe(items)) {
+        this.log && console.log(`Invalid recipe found. Attempted to use items:`)
+        this.log && console.log(items)
         // Free up the items again
         items.forEach(item => item.usedInRecipe = false)
         break
       }
+      
+      let requiredItemCount = defaultEmptySlots.reduce((sum, group) => sum + group.length, 0)
+      if (items.some(x => x.recipeItemGroup === RecipeItemGroup.TwoHandedWeapons)) {
+        requiredItemCount -= 2
+      } else if (items.some(x => x.recipeItemGroup === RecipeItemGroup.OneHandedWeapons)) {
+        requiredItemCount--
+      }
+
+      // Not all items that are part of this recipe could be found
+      if (items.length !== requiredItemCount) {
+        this.log && console.log(`Insufficient items found. Found ${items.length} Expected ${requiredItemCount}`)
+        this.log && console.log(items)
+        // Free up the items again
+        items.forEach(item => item.usedInRecipe = false)
+        break
+      }
+
+      this.log && console.log(`Recipe complete. Used items:`)
+      this.log && console.log(items)
 
       result.recipes.push(items)
     }
@@ -181,19 +216,22 @@ export abstract class ItemSetRecipeProcessorService extends RecipeProcessorServi
     return true
   }
 
-  protected canTakeItem(item: ExpandedStashItem, group: RecipeItemGroup[], lastItem: ExpandedStashItem): boolean {
-    return !item.usedInRecipe && group.some((y) => y === item.recipeItemGroup)
+  protected canTakeItem(item: ExpandedStashItem, groups: RecipeItemGroup[], lastItem: ExpandedStashItem): boolean {
+    return !item.usedInRecipe && groups.some(x => x === item.recipeItemGroup)
   }
 
   protected abstract getSplittedCandidates(allCandidates: ExpandedStashItem[], settings: ItemSetRecipeUserSettings): ExpandedStashItem[][]
 
-  protected abstract getPickableCandidates(splittedCandidates: ExpandedStashItem[][], settings: ItemSetRecipeUserSettings, pickedItems: ExpandedStashItem[]): ExpandedStashItem[]
+  protected abstract getPickableCandidates(splittedCandidates: ExpandedStashItem[][], settings: ItemSetRecipeUserSettings, pickedItems: ExpandedStashItem[], groups: RecipeItemGroup[], lastItem: ExpandedStashItem): ExpandedStashItem[]
 
-  private takeItem(items: ExpandedStashItem[], group: RecipeItemGroup[], lastItem: ExpandedStashItem): ExpandedStashItem {
+  protected abstract isValidRecipe(items: ExpandedStashItem[]): boolean
+
+  private findItem(items: ExpandedStashItem[], lastItem: ExpandedStashItem): ExpandedStashItem {
     const candidates = items
-      .filter((x) => this.canTakeItem(x, group, lastItem))
       .map((x) => ({ distance: this.calcDistance(lastItem, x), item: x }))
       .sort((a, b) => a.distance - b.distance)
+    this.log && console.log(`Sorted candidates:`)
+    this.log && console.log(candidates)
     return candidates[0]?.item
   }
 }

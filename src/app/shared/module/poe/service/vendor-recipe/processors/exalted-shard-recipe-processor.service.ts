@@ -18,8 +18,12 @@ export class ExaltedShardRecipeProcessorService extends ItemSetRecipeProcessorSe
     return [allCandidates]
   }
 
-  protected getPickableCandidates(splittedCandidates: ExpandedStashItem[][], settings: ItemSetRecipeUserSettings, pickedItems: ExpandedStashItem[]): ExpandedStashItem[] {
-    return splittedCandidates[0]
+  protected getPickableCandidates(splittedCandidates: ExpandedStashItem[][], settings: ItemSetRecipeUserSettings, pickedItems: ExpandedStashItem[], groups: RecipeItemGroup[], lastItem: ExpandedStashItem): ExpandedStashItem[] {
+    return splittedCandidates[0].filter((x) => this.canTakeItem(x, groups, lastItem))
+  }
+
+  protected isValidRecipe(items: ExpandedStashItem[]): boolean {
+    return true
   }
 
   protected isPartOfRecipe(stashItem: ExpandedStashItem, settings: ItemSetRecipeUserSettings): boolean {
