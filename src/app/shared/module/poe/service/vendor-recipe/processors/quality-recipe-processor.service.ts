@@ -21,19 +21,19 @@ export abstract class QualityRecipeProcessorService extends RecipeProcessorServi
   }
 
   protected processCandidates(identifier: number, stashItems: ExpandedStashItem[], settings: QualityRecipeUserSettings): QualityRecipeProcessResult {
+    const candidates = stashItems.filter(x => !x.usedInRecipe).sort((a, b) => b.quality - a.quality)
+
     const result: QualityRecipeProcessResult = {
       identifier,
       recipes: [],
       itemGroups: [{
         group: this.recipeItemGroup,
-        count: stashItems.length,
+        count: candidates.length,
       }]
     }
 
-    stashItems = stashItems.sort((a, b) => b.quality - a.quality)
-
-    const maxQualityItems = stashItems.filter(x => x.quality >= this.qualityThreshold)
-    const lesserQualityItems = stashItems.filter(x => x.quality < this.qualityThreshold)
+    const maxQualityItems = candidates.filter(x => x.quality >= this.qualityThreshold)
+    const lesserQualityItems = candidates.filter(x => x.quality < this.qualityThreshold)
 
     if (this.log) {
       console.log(`Recipe ${(identifier + 1)}`)
@@ -43,9 +43,8 @@ export abstract class QualityRecipeProcessorService extends RecipeProcessorServi
     }
 
     const groupRecipes = this.findAllRecipes(lesserQualityItems, settings.numOfBagSpacesToUse, settings.fullSetThreshold)
-    let maxGroupRecipes = undefined
     if (settings.calcEfficiency) {
-      maxGroupRecipes = settings.numOfBagSpacesToUse === MaxBagSpace ? groupRecipes : this.findAllRecipes(lesserQualityItems, MaxBagSpace, settings.fullSetThreshold)
+      const maxGroupRecipes = settings.numOfBagSpacesToUse === MaxBagSpace ? groupRecipes : this.findAllRecipes(lesserQualityItems, MaxBagSpace, settings.fullSetThreshold)
 
       const maxGroupQuality = maxGroupRecipes.reduce((sum, recipes) => sum + recipes.reduce((innerSum, item) => innerSum + item.quality, 0), 0)
       const maxGroupCurrency = maxGroupQuality / this.qualityDivisor
@@ -75,8 +74,8 @@ export abstract class QualityRecipeProcessorService extends RecipeProcessorServi
         let lastItem = undefined
         for (let i = 0; i < recipe.length; i++) {
           const mappedItems = recipe
-            .map((x) => ({ distance: this.calcDistance(lastItem, x), item: x }))
-            .sort((a, b) => a.distance - b.distance)
+            .map((x) => ({ distanceToLastItem: this.calcDistance(lastItem, x), distanceToOrigin: this.calcDistance(undefined, x), item: x }))
+            .sort((a, b) => a.distanceToLastItem === b.distanceToLastItem ? a.distanceToOrigin - b.distanceToOrigin : a.distanceToLastItem - b.distanceToLastItem)
           const idx = recipe.findIndex(x => x.source.id === mappedItems[0].item.source.id)
           const temp = recipe[i]
           recipe[i] = recipe[idx]
@@ -85,6 +84,9 @@ export abstract class QualityRecipeProcessorService extends RecipeProcessorServi
         }
       })
     }
+
+    // Mark the items as used
+    groupRecipes.forEach(recipe => recipe.forEach(item => item.usedInRecipe = true))
 
     result.recipes.push(...groupRecipes)
 
@@ -113,9 +115,9 @@ export abstract class QualityRecipeProcessorService extends RecipeProcessorServi
     return true
   }
 
-  private findAllRecipes(stashItems: ExpandedStashItem[], maxBagSlots: number, maxRecipes): ExpandedStashItem[][] {
+  private findAllRecipes(stashItems: ExpandedStashItem[], maxBagSlots: number, maxRecipes: number): ExpandedStashItem[][] {
+    const candidates = [...stashItems]
     const foundRecipes: ExpandedStashItem[][] = []
-    const candidates = stashItems.filter(item => !item.usedInRecipe)
     while (candidates.length > 0) {
       const groupSize = Math.floor(maxBagSlots / this.bagSlotsPerItem)
       this.log && console.log(`searching combinations with maxBagSlots ${maxBagSlots} and groupSize ${groupSize}`)
@@ -126,7 +128,6 @@ export abstract class QualityRecipeProcessorService extends RecipeProcessorServi
 
       // Remove the found combination from the candidates list and mark them as used
       groupCombination.forEach(item => {
-        item.usedInRecipe = true
         candidates.splice(candidates.findIndex(x => x.source.id === item.source.id), 1)
       })
 
@@ -148,7 +149,9 @@ export abstract class QualityRecipeProcessorService extends RecipeProcessorServi
   }
 
   private findCombination(stashItems: ExpandedStashItem[], maxGroupSize: number): ExpandedStashItem[] {
-    const totalQuality = stashItems.slice(0, maxGroupSize).reduce((sum, item) => sum + item.quality, 0)
+    const groupItems = stashItems.slice(0, maxGroupSize)
+    this.log && console.log(groupItems)
+    const totalQuality = groupItems.reduce((sum, item) => sum + item.quality, 0)
     const maxQuality = Math.floor(totalQuality / this.qualityDivisor) * this.qualityDivisor
     this.log && console.log(`findCombination: maxQuality ${maxQuality} (Total: ${totalQuality})`)
     let totalCount = 0
