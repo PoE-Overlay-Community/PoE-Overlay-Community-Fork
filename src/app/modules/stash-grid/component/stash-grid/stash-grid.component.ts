@@ -21,6 +21,14 @@ import { delay, map, tap } from 'rxjs/operators'
 
 const stashGridCompRef = 'stash-grid'
 
+interface CellData {
+  highlight: boolean
+  marked: boolean
+  bgColor: string
+  lineColor: string
+  markedTextColor: string,
+}
+
 @Component({
   selector: 'app-stash-grid',
   templateUrl: './stash-grid.component.html',
@@ -40,6 +48,7 @@ export class StashGridComponent implements OnInit, OnDestroy, OnChanges {
   public visible: boolean
   public gridBounds: Rectangle
   public cellArray: number[]
+  public cellData: CellData[][]
   public fontRatio: number
 
   public get settings(): StashGridUserSettings {
@@ -122,11 +131,12 @@ export class StashGridComponent implements OnInit, OnDestroy, OnChanges {
         if (this.markedBoundsIndex >= totalHighlightLocations) {
           if (stashGridOptions.autoClose) {
             this.stashGridService.nextStashGridInSequence()
+            return
           } else {
             this.markedBoundsIndex = totalHighlightLocations - 1
-            this.ref.detectChanges()
           }
         } else {
+          this.updateCellData(stashGridOptions, false, false)
           this.ref.detectChanges()
         }
       })
@@ -146,11 +156,12 @@ export class StashGridComponent implements OnInit, OnDestroy, OnChanges {
     if (this.markedBoundsIndex >= totalHighlightLocations) {
       if (stashGridOptions.autoClose) {
         this.stashGridService.nextStashGridInSequence()
+        return
       } else {
         this.markedBoundsIndex = totalHighlightLocations - 1
-        this.ref.detectChanges()
       }
     } else {
+      this.updateCellData(stashGridOptions, false, false)
       this.ref.detectChanges()
     }
   }
@@ -215,11 +226,69 @@ export class StashGridComponent implements OnInit, OnDestroy, OnChanges {
     this.updateStashGridOptions(stashGridOptions)
   }
 
+  private updateCellData(stashGridOptions: StashGridOptions, rebuild: boolean, updateHighlighted: boolean) {
+    const stashGridColors = this.settings.stashGridColors
+    const highlightLocations = stashGridOptions.highlightLocation
+    const markedBounds = highlightLocations?.bounds[this.markedBoundsIndex]
+    const cellCount = STASH_TAB_CELL_COUNT_MAP[stashGridOptions.gridType]
+    const normalBGColor = ColorUtils.toRGBA(stashGridColors.gridBackground)
+    const normalLineColor = ColorUtils.toRGBA(stashGridColors.gridLine)
+    const highlightBGColor = ColorUtils.toRGBA(stashGridColors.highlightBackground)
+    const highlightLineColor = ColorUtils.toRGBA(stashGridColors.highlightLine)
+    const markedTextColor = ColorUtils.toRGBA(stashGridColors.highlightText)
+    if (rebuild) {
+      this.cellData = []
+      for (let row = 0; row < cellCount; row++) {
+        const colData: CellData[] = []
+        for (let col = 0; col < cellCount; col++) {
+          colData.push({
+            highlight: false,
+            marked: false,
+            bgColor: normalBGColor,
+            lineColor: normalLineColor,
+            markedTextColor: markedTextColor,
+          })
+        }
+        this.cellData.push(colData)
+      }
+    }
+    for (let row = 0; row < cellCount; row++) {
+      const rowIndex = row + 1
+      for (let col = 0; col < cellCount; col++) {
+        const colIndex = col + 1
+        const cellData = this.cellData[row][col]
+        if (highlightLocations) {
+          if (updateHighlighted) {
+            cellData.highlight = highlightLocations.bounds.some(bounds => {
+              return (
+                colIndex >= bounds.x &&
+                colIndex < bounds.x + bounds.width &&
+                rowIndex >= bounds.y &&
+                rowIndex < bounds.y + bounds.height
+              )
+            })
+          }
+          cellData.marked = (
+            cellData.highlight &&
+            colIndex >= markedBounds.x &&
+            colIndex < markedBounds.x + markedBounds.width &&
+            rowIndex >= markedBounds.y &&
+            rowIndex < markedBounds.y + markedBounds.height
+          )
+          cellData.bgColor = cellData.highlight ? highlightBGColor : normalBGColor
+          cellData.lineColor = cellData.highlight ? highlightLineColor : normalLineColor
+        }
+      }
+    }
+  }
+
   private updateStashGridOptions(stashGridOptions: StashGridOptions): void {
     if (stashGridOptions) {
       this.visible = true
+      this.markedBoundsIndex = 0
       const cellCount = STASH_TAB_CELL_COUNT_MAP[stashGridOptions.gridType]
       this.cellArray = this.createArray(cellCount)
+      this.updateCellData(stashGridOptions, true, true)
       this.fontRatio = STASH_TAB_CELL_COUNT_MAP[StashGridType.Quad] / cellCount
       this.gridBounds = stashGridOptions.gridBounds ||
         (stashGridOptions.settings || this.globalSettings).stashGridBounds[stashGridOptions.gridType] || {
@@ -228,7 +297,6 @@ export class StashGridComponent implements OnInit, OnDestroy, OnChanges {
         width: 624,
         height: 624,
       }
-      this.markedBoundsIndex = 0
       this.enableShortcuts()
     } else {
       this.visible = false

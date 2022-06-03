@@ -18,8 +18,7 @@
             <ng-container *ngTemplateOutlet="
                     gridCell;
                     context: {
-                      highlight: intersectsHighlightBounds(colIndex, rowIndex),
-                      marked: intersectsMarkedBounds(colIndex, rowIndex),
+                      cellData: this.cellData[row][col],
                       colIndex: colIndex,
                       rowIndex: rowIndex
                     }
@@ -62,18 +61,18 @@
       </div>
     </div>
   </ng-container>
-  <ng-template #gridCell let-highlight="highlight" let-marked="marked" let-colIndex="colIndex" let-rowIndex="rowIndex">
+  <ng-template #gridCell let-cellData="cellData" let-colIndex="colIndex" let-rowIndex="rowIndex">
     <div class="gridCell"
          [class.editMode]="options.gridMode === StashGridMode.Edit"
-         [style.background-color]="getGridBackgroundColor(highlight)"
-         [style.border-color]="getGridLineColor(highlight)"
-         [class.clickable]="marked"
+         [style.background-color]="cellData.bgColor"
+         [style.border-color]="cellData.lineColor"
+         [class.clickable]="cellData.marked"
          (click)="gridCellClick($event, colIndex, rowIndex)"
          (contextmenu)="gridCellRightClick($event, colIndex, rowIndex)"
          >
-      <span *ngIf="marked" class="marked"
+      <span *ngIf="cellData.marked" class="marked"
             [style.font-size]="(fontRatio * 100) + '%'"
-            [style.color]="ColorUtils.toRGBA(settings.stashGridColors.highlightText)"
+            [style.color]="cellData.markedTextColor"
             >
       </span>
     </div>
