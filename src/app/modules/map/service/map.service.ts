@@ -29,7 +29,7 @@ export class MapService {
         flatMap((result) => {
           switch (result.code) {
             case ItemClipboardResultCode.Success:
-              if (result.item.category !== ItemCategory.Map && result.item.category !== ItemCategory.MapInvitation) {
+              if (result.item.category !== ItemCategory.Map && result.item.category !== ItemCategory.MapInvitation && result.item.category !== ItemCategory.ExpeditionLogbook) {
                 return this.snackbar.warning('map.no-map')
               }
               return this.dialogService.open(result.point, result.item, settings)
