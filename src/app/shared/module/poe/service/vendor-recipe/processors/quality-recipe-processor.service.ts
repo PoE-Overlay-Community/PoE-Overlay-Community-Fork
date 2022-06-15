@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { LoggerService } from '@app/service';
 import { BaseItemTypesService } from '@shared/module/poe/service/base-item-types/base-item-types.service';
 import { ItemUsageType, QualityRecipeProcessResult, QualityRecipeUserSettings, RecipeHighlightOrder, RecipeItemGroup } from '@shared/module/poe/type';
 import { ExpandedStashItem, RecipeProcessorService } from './recipe-processor.service';
@@ -16,11 +17,12 @@ export abstract class QualityRecipeProcessorService extends RecipeProcessorServi
 
   constructor(
     readonly baseItemTypeService: BaseItemTypesService,
+    readonly logger: LoggerService,
   ) {
-    super(baseItemTypeService)
+    super(baseItemTypeService, logger)
   }
 
-  protected processCandidates(identifier: number, stashItems: ExpandedStashItem[], settings: QualityRecipeUserSettings): QualityRecipeProcessResult {
+  protected processCandidates(logTag: string, identifier: number, stashItems: ExpandedStashItem[], settings: QualityRecipeUserSettings): QualityRecipeProcessResult {
     const candidates = stashItems.filter(x => !x.usedInRecipe).sort((a, b) => b.quality - a.quality)
 
     const result: QualityRecipeProcessResult = {
@@ -35,16 +37,12 @@ export abstract class QualityRecipeProcessorService extends RecipeProcessorServi
     const maxQualityItems = candidates.filter(x => x.quality >= this.qualityThreshold)
     const lesserQualityItems = candidates.filter(x => x.quality < this.qualityThreshold)
 
-    if (this.log) {
-      console.log(`Recipe ${(identifier + 1)}`)
-      console.log([...lesserQualityItems])
-      console.log(`Max Quality Items:`)
-      console.log(maxQualityItems)
-    }
+    this.logger.debug(logTag, `Recipe ${(identifier + 1)}`, [...lesserQualityItems])
+    this.logger.debug(logTag, 'Max Quality Items:', maxQualityItems)
 
-    const groupRecipes = this.findAllRecipes(lesserQualityItems, settings.numOfBagSpacesToUse, settings.fullSetThreshold)
+    const groupRecipes = this.findAllRecipes(logTag, lesserQualityItems, settings.numOfBagSpacesToUse, settings.fullSetThreshold)
     if (settings.calcEfficiency) {
-      const maxGroupRecipes = settings.numOfBagSpacesToUse === MaxBagSpace ? groupRecipes : this.findAllRecipes(lesserQualityItems, MaxBagSpace, settings.fullSetThreshold)
+      const maxGroupRecipes = settings.numOfBagSpacesToUse === MaxBagSpace ? groupRecipes : this.findAllRecipes(logTag, lesserQualityItems, MaxBagSpace, settings.fullSetThreshold)
 
       const maxGroupQuality = maxGroupRecipes.reduce((sum, recipes) => sum + recipes.reduce((innerSum, item) => innerSum + item.quality, 0), 0)
       const maxGroupCurrency = maxGroupQuality / this.qualityDivisor
@@ -54,7 +52,7 @@ export abstract class QualityRecipeProcessorService extends RecipeProcessorServi
 
       result.efficiency = maxGroupCurrency === 0 ? 0 : groupCurrency / maxGroupCurrency
 
-      this.log && console.log(`Currency: ${groupCurrency}/${maxGroupCurrency} (Quality: ${groupQuality}/${maxGroupQuality}) (Efficiency: ${result.efficiency}%)`)
+      this.logger.debug(logTag, `Currency: ${groupCurrency}/${maxGroupCurrency} (Quality: ${groupQuality}/${maxGroupQuality}) (Efficiency: ${result.efficiency}%)`)
     }
 
     // mix-in the max quality items
@@ -115,13 +113,13 @@ export abstract class QualityRecipeProcessorService extends RecipeProcessorServi
     return true
   }
 
-  private findAllRecipes(stashItems: ExpandedStashItem[], maxBagSlots: number, maxRecipes: number): ExpandedStashItem[][] {
+  private findAllRecipes(logTag: string, stashItems: ExpandedStashItem[], maxBagSlots: number, maxRecipes: number): ExpandedStashItem[][] {
     const candidates = [...stashItems]
     const foundRecipes: ExpandedStashItem[][] = []
     while (candidates.length > 0) {
       const groupSize = Math.floor(maxBagSlots / this.bagSlotsPerItem)
-      this.log && console.log(`searching combinations with maxBagSlots ${maxBagSlots} and groupSize ${groupSize}`)
-      const groupCombination = this.findCombination(candidates, groupSize)
+      this.logger.debug(logTag, `searching combinations with maxBagSlots ${maxBagSlots} and groupSize ${groupSize}`)
+      const groupCombination = this.findCombination(logTag, candidates, groupSize)
       if (!groupCombination) {
         break
       }
@@ -131,14 +129,12 @@ export abstract class QualityRecipeProcessorService extends RecipeProcessorServi
         candidates.splice(candidates.findIndex(x => x.source.id === item.source.id), 1)
       })
 
-      if (this.log) {
+      if (this.logger.isLogTagEnabled(logTag)) {
         const groupQuality = groupCombination.reduce((sum, item) => sum + item.quality, 0)
         const groupCurrency = groupQuality / this.qualityDivisor
 
-        console.log(`Currency: ${groupCurrency} (Quality: ${groupQuality})`)
-        console.log(groupCombination)
-        console.log(`Remaining Candidates:`)
-        console.log([...candidates])
+        this.logger.debug(logTag, `Currency: ${groupCurrency} (Quality: ${groupQuality})`, groupCombination)
+        this.logger.debug(logTag, 'Remaining Candidates:', [...candidates])
       }
       foundRecipes.push(groupCombination)
       if (foundRecipes.length === maxRecipes) {
@@ -148,23 +144,23 @@ export abstract class QualityRecipeProcessorService extends RecipeProcessorServi
     return foundRecipes
   }
 
-  private findCombination(stashItems: ExpandedStashItem[], maxGroupSize: number): ExpandedStashItem[] {
+  private findCombination(logTag: string, stashItems: ExpandedStashItem[], maxGroupSize: number): ExpandedStashItem[] {
     const groupItems = stashItems.slice(0, maxGroupSize)
-    this.log && console.log(groupItems)
+    this.logger.debug(logTag, 'Group Items:', groupItems)
     const totalQuality = groupItems.reduce((sum, item) => sum + item.quality, 0)
     const maxQuality = Math.floor(totalQuality / this.qualityDivisor) * this.qualityDivisor
-    this.log && console.log(`findCombination: maxQuality ${maxQuality} (Total: ${totalQuality})`)
+    this.logger.debug(logTag, `findCombination: maxQuality ${maxQuality} (Total: ${totalQuality})`)
     let totalCount = 0
     for (let targetQuality = maxQuality; targetQuality > 0; targetQuality -= this.qualityDivisor) {
       for (let targetGroupSize = Math.min(stashItems.length, maxGroupSize), minGroupSize = Math.ceil(targetQuality / 19); targetGroupSize >= minGroupSize; targetGroupSize--) {
-        this.log && console.log(`searching for targetQuality ${targetQuality} and targetGroupSize ${targetGroupSize}`)
+        this.logger.debug(logTag, `searching for targetQuality ${targetQuality} and targetGroupSize ${targetGroupSize}`)
         const combinator = this.combinations(stashItems, targetGroupSize)
         let count = 0
         const startTime = Date.now()
         for (; ;) {
           const it = combinator.next()
           if (it.done) {
-            this.log && console.log(`Failed to find combo after ${count.toLocaleString('en-US')} combinations (Total: ${totalCount.toLocaleString('en-US')})`)
+            this.logger.debug(logTag, `Failed to find combo after ${count.toLocaleString('en-US')} combinations (Total: ${totalCount.toLocaleString('en-US')})`)
             break
           }
           totalCount++
@@ -172,15 +168,15 @@ export abstract class QualityRecipeProcessorService extends RecipeProcessorServi
           const combination = (it.value as ExpandedStashItem[])
           const sum = combination.reduce((sum, item) => sum + item.quality, 0)
           if (sum === targetQuality) {
-            this.log && console.log(`Found combo at ${targetQuality} after ${count.toLocaleString('en-US')} combinations (Total: ${totalCount.toLocaleString('en-US')})`)
+            this.logger.debug(logTag, `Found combo at ${targetQuality} after ${count.toLocaleString('en-US')} combinations (Total: ${totalCount.toLocaleString('en-US')})`)
             return combination
           }
           // Stop looking after 1 billion combinations or when it takes more then 1 second to find a combination
           if (count >= 1000000000) {
-            this.log && console.log(`Failed to find combo after ${count.toLocaleString('en-US')} combinations (Total: ${totalCount.toLocaleString('en-US')})`)
+            this.logger.debug(logTag, `Failed to find combo after ${count.toLocaleString('en-US')} combinations (Total: ${totalCount.toLocaleString('en-US')})`)
             break
           } else if (Date.now() - startTime >= 1000) {
-            this.log && console.log(`Failed to find combo after ${(Date.now() - startTime).toLocaleString('en-US')}ms (${count.toLocaleString('en-US')} combinations (Total: ${totalCount.toLocaleString('en-US')}))`)
+            this.logger.debug(logTag, `Failed to find combo after ${(Date.now() - startTime).toLocaleString('en-US')}ms (${count.toLocaleString('en-US')} combinations (Total: ${totalCount.toLocaleString('en-US')}))`)
             break
           }
         }

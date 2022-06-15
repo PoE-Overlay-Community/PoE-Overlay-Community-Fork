@@ -1,7 +1,8 @@
-import { Injectable } from '@angular/core';
-import { BaseItemTypesService } from '@shared/module/poe/service/base-item-types/base-item-types.service';
-import { RecipeItemGroup } from '@shared/module/poe/type';
-import { QualityRecipeProcessorService } from './quality-recipe-processor.service';
+import { Injectable } from '@angular/core'
+import { LoggerService } from '@app/service'
+import { BaseItemTypesService } from '@shared/module/poe/service/base-item-types/base-item-types.service'
+import { RecipeItemGroup } from '@shared/module/poe/type'
+import { QualityRecipeProcessorService } from './quality-recipe-processor.service'
 
 @Injectable({
   providedIn: 'root',
@@ -25,7 +26,8 @@ export class GemcutterRecipeProcessorService extends QualityRecipeProcessorServi
 
   constructor(
     readonly baseItemTypeService: BaseItemTypesService,
+    readonly logger: LoggerService,
   ) {
-    super(baseItemTypeService)
+    super(baseItemTypeService, logger)
   }
 }

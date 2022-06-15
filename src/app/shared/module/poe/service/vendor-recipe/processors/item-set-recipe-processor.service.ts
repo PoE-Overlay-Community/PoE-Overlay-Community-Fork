@@ -1,5 +1,6 @@
 import { BaseItemTypesService } from '@shared/module/poe/service/base-item-types/base-item-types.service'
 import { ItemRarity, ItemSetProcessResult, ItemSetRecipeUserSettings, ItemUsageType, RecipeHighlightOrder, RecipeItemGroup, RecipeItemGroupCount, RecipeItemGroups } from '@shared/module/poe/type'
+import { LoggerService } from '@app/service'
 import { ExpandedStashItem, RecipeProcessorService } from './recipe-processor.service'
 
 const DefaultRecipeCategoryOrder = [
@@ -13,12 +14,13 @@ const DefaultRecipeCategoryOrder = [
 
 export abstract class ItemSetRecipeProcessorService extends RecipeProcessorService {
   constructor(
-    readonly baseItemTypeService: BaseItemTypesService
+    readonly baseItemTypeService: BaseItemTypesService,
+    readonly logger: LoggerService,
   ) {
-    super(baseItemTypeService)
+    super(baseItemTypeService, logger)
   }
 
-  protected processCandidates(identifier: number, stashItems: ExpandedStashItem[], settings: ItemSetRecipeUserSettings): ItemSetProcessResult {
+  protected processCandidates(logTag: string, identifier: number, stashItems: ExpandedStashItem[], settings: ItemSetRecipeUserSettings): ItemSetProcessResult {
     const result: ItemSetProcessResult = {
       identifier,
       recipes: [],
@@ -36,8 +38,7 @@ export abstract class ItemSetRecipeProcessorService extends RecipeProcessorServi
         }
       }))
       const groupItems = stashItems.filter(x => x.recipeItemGroup === recipeItemGroup)
-      this.log && console.log(`Group '${RecipeItemGroup[recipeItemGroup]}' Items:`)
-      this.log && console.log(groupItems)
+      this.logger.debug(logTag, `Group '${RecipeItemGroup[recipeItemGroup]}' Items:`, groupItems)
       return groupItems.length / countMultiplier
     }
 
@@ -75,7 +76,7 @@ export abstract class ItemSetRecipeProcessorService extends RecipeProcessorServi
 
     // Find all recipes
     while (result.recipes.length < settings.fullSetThreshold) {
-      this.log && console.log(`===== ***** =====`)
+      this.logger.debug(logTag, '%cGreen ===== ***** =====')
 
       const findRecipe = (emptySlots: RecipeItemGroup[][]): ExpandedStashItem[] => {
         const items: ExpandedStashItem[] = []
@@ -84,15 +85,14 @@ export abstract class ItemSetRecipeProcessorService extends RecipeProcessorServi
           if (!groups) {
             break
           }
-          this.log && console.log(`-----`)
-          this.log && console.log(`Attempting to fill '${groups.map(x => RecipeItemGroup[x])}'. Candidates:`)
+          this.logger.debug(logTag, `%cBlue -----`)
+          this.logger.debug(logTag, `Attempting to fill '${groups.map(x => RecipeItemGroup[x])}'. Candidates:`)
           // Attempt to find an item, prioritizing main items first
           const candidates = this.getPickableCandidates(splittedCandidates, settings, items, groups, lastItem)
-          this.log && console.log(candidates)
-          const item = this.findItem(candidates, lastItem)
+          this.logger.debug(logTag, 'Candidates:', candidates)
+          const item = this.findItem(logTag, candidates, lastItem)
           if (item) {
-            this.log && console.log(`found item:`)
-            this.log && console.log(item)
+            this.logger.debug(logTag, `Found item:`, item)
             item.usedInRecipe = true
             items.push(item)
             lastItem = item
@@ -118,7 +118,7 @@ export abstract class ItemSetRecipeProcessorService extends RecipeProcessorServi
             // Remove the first item in the group and try again
             const removedItemGroup = groups.splice(0, 1)[0]
 
-            this.log && console.log(`Removed group '${RecipeItemGroup[removedItemGroup]}'`)
+            this.logger.debug(logTag, `Removed group '${RecipeItemGroup[removedItemGroup]}'`)
 
             // If it's NOT weapon we can quit early since other pieces aren't interchargable.
             if (removedItemGroup !== RecipeItemGroup.TwoHandedWeapons && removedItemGroup !== RecipeItemGroup.OneHandedWeapons) {
@@ -137,8 +137,7 @@ export abstract class ItemSetRecipeProcessorService extends RecipeProcessorServi
       }
 
       if (!this.isValidRecipe(items)) {
-        this.log && console.log(`Invalid recipe found. Attempted to use items:`)
-        this.log && console.log(items)
+        this.logger.debug(logTag, `Invalid recipe found. Attempted to use items:`, items)
         // Free up the items again
         items.forEach(item => item.usedInRecipe = false)
         break
@@ -153,15 +152,13 @@ export abstract class ItemSetRecipeProcessorService extends RecipeProcessorServi
 
       // Not all items that are part of this recipe could be found
       if (items.length !== requiredItemCount) {
-        this.log && console.log(`Insufficient items found. Found ${items.length} Expected ${requiredItemCount}`)
-        this.log && console.log(items)
+        this.logger.debug(logTag, `Insufficient items found. Found ${items.length} Expected ${requiredItemCount}`, items)
         // Free up the items again
         items.forEach(item => item.usedInRecipe = false)
         break
       }
 
-      this.log && console.log(`Recipe complete. Used items:`)
-      this.log && console.log(items)
+      this.logger.debug(logTag, `Recipe complete. Used items:`, items)
 
       result.recipes.push(items)
     }
@@ -226,12 +223,11 @@ export abstract class ItemSetRecipeProcessorService extends RecipeProcessorServi
 
   protected abstract isValidRecipe(items: ExpandedStashItem[]): boolean
 
-  private findItem(items: ExpandedStashItem[], lastItem: ExpandedStashItem): ExpandedStashItem {
+  private findItem(logTag: string, items: ExpandedStashItem[], lastItem: ExpandedStashItem): ExpandedStashItem {
     const candidates = items
       .map((x) => ({ distance: this.calcDistance(lastItem, x), item: x }))
       .sort((a, b) => a.distance - b.distance)
-    this.log && console.log(`Sorted candidates:`)
-    this.log && console.log(candidates)
+    this.logger.debug(logTag, `Sorted candidates:`, candidates)
     return candidates[0]?.item
   }
 }

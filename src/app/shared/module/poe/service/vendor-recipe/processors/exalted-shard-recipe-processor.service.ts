@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
+import { LoggerService } from '@app/service';
 import { BaseItemTypesService } from '@shared/module/poe/service/base-item-types/base-item-types.service';
-import { RecipeItemGroup, ItemSetRecipeUserSettings, VendorRecipeType } from '@shared/module/poe/type';
+import { ItemSetRecipeUserSettings, RecipeItemGroup } from '@shared/module/poe/type';
 import { ItemSetRecipeProcessorService } from './item-set-recipe-processor.service';
 import { ExpandedStashItem } from './recipe-processor.service';
 
@@ -9,9 +10,10 @@ import { ExpandedStashItem } from './recipe-processor.service';
 })
 export class ExaltedShardRecipeProcessorService extends ItemSetRecipeProcessorService {
   constructor(
-    readonly baseItemTypeService: BaseItemTypesService
+    readonly baseItemTypeService: BaseItemTypesService,
+    readonly logger: LoggerService,
   ) {
-    super(baseItemTypeService)
+    super(baseItemTypeService, logger)
   }
 
   protected getSplittedCandidates(allCandidates: ExpandedStashItem[], settings: ItemSetRecipeUserSettings): ExpandedStashItem[][] {

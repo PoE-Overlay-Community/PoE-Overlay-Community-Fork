@@ -1,4 +1,4 @@
-import { environment } from '@env/environment'
+import { LoggerService } from '@app/service'
 import { BaseItemTypesService } from '@shared/module/poe/service/base-item-types/base-item-types.service'
 import { BaseItemType, ItemCategory, PoEStashTabItem, RecipeItemGroup, RecipeUserSettings, VendorRecipeProcessResult, VendorRecipeType } from '@shared/module/poe/type'
 import { ItemParserUtils } from '../../item/parser/item-parser.utils'
@@ -47,11 +47,18 @@ const CategoryMapping = {
   [ItemCategory.Flask]: RecipeItemGroup.Flasks,
 }
 
+const PerformanceSuffix = 'Performance'
+const GlobalPerformanceTag = 'vendorRecipePerformance'
+
 export abstract class RecipeProcessorService {
-  protected readonly log = false
+  protected getLogTag(settings: RecipeUserSettings, suffix: string = ''): string {
+    let logTag = VendorRecipeType[settings.type]
+    return logTag[0].toLowerCase() + logTag.substr(1) + 'Recipe' + suffix
+  }
 
   constructor(
-    protected readonly baseItemTypeService: BaseItemTypesService
+    protected readonly baseItemTypeService: BaseItemTypesService,
+    protected readonly logger: LoggerService,
   ) {
   }
 
@@ -60,11 +67,16 @@ export abstract class RecipeProcessorService {
       return undefined
     }
 
+    const logTag = this.getLogTag(settings, identifier.toString())
+
+    const measurePerformance = this.logger.isLogTagEnabled(logTag + PerformanceSuffix) || this.logger.isLogTagEnabled(GlobalPerformanceTag)
     let dateNow
-    if (this.log || !environment.production) {
+    if (measurePerformance) {
       dateNow = Date.now()
       console.time(`${dateNow}-recipe-${(identifier + 1)}-${VendorRecipeType[settings.type]}`)
     }
+
+    this.logger.debug(logTag, `${identifier}. ${VendorRecipeType[settings.type]}`, settings)
 
     // Remove any items already used in previous recipes
     const availableStashItems = stashItems.filter(item =>
@@ -80,23 +92,21 @@ export abstract class RecipeProcessorService {
     // Determine the base list of recipe items
     const allCandidates = this.getAllRecipeCandidates(availableStashItems, settings)
 
-    const processedRecipe = this.processCandidates(identifier, allCandidates, settings)
+    const processedRecipe = this.processCandidates(logTag, identifier, allCandidates, settings)
 
     processedRecipes.push(processedRecipe)
 
-    if (this.log) {
-      console.log(settings)
-      console.log(`${identifier}. ${VendorRecipeType[settings.type]} recipes`)
-      console.log(processedRecipe)
+    this.logger.debug(logTag, 'Recipes:', processedRecipe)
+    if (measurePerformance) {
+      console.timeEnd(`${dateNow}-recipe-${(identifier + 1)}-${VendorRecipeType[settings.type]}`)
     }
-    (this.log || !environment.production) && console.timeEnd(`${dateNow}-recipe-${(identifier + 1)}-${VendorRecipeType[settings.type]}`)
 
     return processedRecipe
   }
 
   protected abstract isPartOfRecipe(stashItem: ExpandedStashItem, settings: RecipeUserSettings): boolean
 
-  protected abstract processCandidates(identifier: number, stashItems: ExpandedStashItem[], settings: RecipeUserSettings): VendorRecipeProcessResult
+  protected abstract processCandidates(logTag: string, identifier: number, stashItems: ExpandedStashItem[], settings: RecipeUserSettings): VendorRecipeProcessResult
 
   protected expandItem(stashItem: PoEStashTabItem): ExpandedStashItem {
     const baseItemType = this.baseItemTypeService.search(stashItem.baseItemTypeName)

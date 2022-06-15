@@ -118,7 +118,7 @@ export class ItemSearchService {
         const hitsMissing = retrievedHits.filter((x) => !x.value).map((x) => x.id)
         const hitsCached = retrievedHits.filter((x) => x.value).map((x) => x.value)
 
-        this.logger.debug(
+        this.logger.debug('',
           `missing hits: ${hitsMissing.length}, cached hits: ${hitsCached.length}` +
             ` - saved: ${Math.round((hitsCached.length / maxHits.length) * 100)}%`
         )
@@ -182,7 +182,7 @@ export class ItemSearchService {
         const hitsMissing = retrievedHits.filter((x) => !x.value)
         const hitsCached = retrievedHits.filter((x) => x.value)
 
-        this.logger.debug(
+        this.logger.debug('',
           `missing hits: ${hitsMissing.length}, cached hits: ${hitsCached.length}` +
           ` - saved: ${Math.round((hitsCached.length / maxHits.length) * 100)}%`
         )
