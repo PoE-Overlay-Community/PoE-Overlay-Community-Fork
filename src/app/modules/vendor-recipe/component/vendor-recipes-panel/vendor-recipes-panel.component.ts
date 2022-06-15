@@ -1,3 +1,4 @@
+import { OnChanges, SimpleChanges } from '@angular/core'
 import {
     AfterViewInit,
     ChangeDetectionStrategy,
@@ -20,7 +21,7 @@ import { debounceTime, map } from 'rxjs/operators'
   styleUrls: ['./vendor-recipes-panel.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class VendorRecipesPanelComponent implements OnInit, AfterViewInit, OnDestroy {
+export class VendorRecipesPanelComponent implements OnInit, OnChanges, OnDestroy {
   @Input()
   public settings: VendorRecipeUserSettings
 
@@ -30,30 +31,30 @@ export class VendorRecipesPanelComponent implements OnInit, AfterViewInit, OnDes
   @Output()
   public openSettings = new EventEmitter<void>()
 
-  public get enabled(): boolean {
-    return this.settings.vendorRecipePanelSettings.enabled && this.settings.vendorRecipeSettings.some(x => x.enabled)
-  }
-
   public optionsHovered = false
   public optionsDowned = false
   public optionsClicked = false
 
+  public locked = true
+
+  public readonly lastVendorRecipeResults$ = new BehaviorSubject<VendorRecipeProcessResult[]>([])
+  public readonly currentVendorRecipeResult$ = new BehaviorSubject<VendorRecipeProcessResult>(undefined)
+
+  public get enabled(): boolean {
+    return this.settings.vendorRecipePanelSettings.enabled && this.settings.vendorRecipeSettings.some(x => x.enabled)
+  }
+
   public get optionsExpanded(): boolean {
     return this.optionsHovered || this.optionsClicked || this.optionsDowned
   }
-
-  public locked = true
-
-  public readonly lastVendorRecipeResults$ = new BehaviorSubject<VendorRecipeProcessResult[]>(undefined)
-  public readonly currentVendorRecipeResult$ = new BehaviorSubject<VendorRecipeProcessResult>(undefined)
-
-  private currentRecipeIndex = 0
 
   public get vendorRecipeSettings(): RecipeUserSettings {
     return this.settings.vendorRecipeSettings[this.currentRecipeIndex]
   }
 
   public VendorRecipeType = VendorRecipeType
+
+  private currentRecipeIndex = 0
 
   private vendorRecipeSub: Subscription
 
@@ -67,12 +68,11 @@ export class VendorRecipesPanelComponent implements OnInit, AfterViewInit, OnDes
     private readonly vendorRecipeService: VendorRecipeService,
     private readonly userSettingsService: UserSettingsService,
     private readonly windowService: WindowService,
-    private readonly stashService: StashService,
   ) {
   }
 
   public ngOnInit(): void {
-    this.vendorRecipeSub = this.vendorRecipeService.vendorRecipes$.subscribe(x => this.updateItemSetResult(x))
+    this.vendorRecipeSub = this.vendorRecipeService.vendorRecipes$.subscribe(x => this.updateVendorRecipes(x))
     this.boundsUpdate$
       .pipe(
         debounceTime(350),
@@ -108,7 +108,11 @@ export class VendorRecipesPanelComponent implements OnInit, AfterViewInit, OnDes
     }
   }
 
-  public ngAfterViewInit(): void {
+  public ngOnChanges(changes: SimpleChanges): void {
+    if (changes['settings']) {
+      this.lastVendorRecipeResults$.next(undefined)
+      this.currentVendorRecipeResult$.next(undefined)
+    }
   }
 
   public ngOnDestroy(): void {
@@ -135,7 +139,7 @@ export class VendorRecipesPanelComponent implements OnInit, AfterViewInit, OnDes
     }
     const factor = event.deltaY > 0 ? 1 : -1
     this.currentRecipeIndex = this.getNextEnabledSettingsIndex(factor)
-    this.updateCurrencVendorRecipeResult()
+    this.updateCurrentVendorRecipeResult()
     this.ref.detectChanges()
   }
 
@@ -144,8 +148,7 @@ export class VendorRecipesPanelComponent implements OnInit, AfterViewInit, OnDes
   }
 
   public forceRefreshVendorRecipes(): void {
-    // Force-updating the content will trigger a vendor recipe update too
-    this.stashService.forceUpdateTabContent()
+    this.vendorRecipeService.updateVendorRecipes(true)
   }
 
   private getNextEnabledSettingsIndex(factor: number): number {
@@ -184,7 +187,7 @@ export class VendorRecipesPanelComponent implements OnInit, AfterViewInit, OnDes
     audioClip.play()
   }
 
-  private updateItemSetResult(vendorRecipes: VendorRecipeProcessResult[]): void {
+  private updateVendorRecipes(vendorRecipes: VendorRecipeProcessResult[]): void {
     const lastResults = this.lastVendorRecipeResults$.value
     const lastVendorRecipe = this.currentVendorRecipeResult$.value
     if (lastResults && lastVendorRecipe) {
@@ -210,15 +213,18 @@ export class VendorRecipesPanelComponent implements OnInit, AfterViewInit, OnDes
     }
     if (vendorRecipes) {
       this.lastVendorRecipeResults$.next(vendorRecipes)
-      this.updateCurrencVendorRecipeResult()
+      this.updateCurrentVendorRecipeResult()
       this.ref.detectChanges()
     }
   }
 
-  private updateCurrencVendorRecipeResult(): void {
+  private updateCurrentVendorRecipeResult(): void {
     const vendorRecipes = this.lastVendorRecipeResults$.value
     if (vendorRecipes) {
-      this.currentVendorRecipeResult$.next(vendorRecipes.find(x => x.identifier === this.currentRecipeIndex))
+      const recipe = vendorRecipes.find(x => x.identifier === this.currentRecipeIndex)
+      if (recipe) {
+        this.currentVendorRecipeResult$.next(recipe)
+      }
     }
   }
 }

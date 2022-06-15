@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core'
-import { WindowService } from '@app/service'
+import { ElectronService, WindowService } from '@app/service'
 import {
     ClipboardService,
     KeyboardService,
@@ -9,15 +9,15 @@ import {
 } from '@app/service/input'
 import { Point } from '@app/type'
 import { UserSettings } from '@layout/type'
-import { BehaviorSubject, forkJoin, Observable, of, Subject, Subscription } from 'rxjs'
+import { BehaviorSubject, forkJoin, Observable, of, Subject } from 'rxjs'
 import { concatAll, delay, flatMap, map, tap } from 'rxjs/operators'
 import { StashProvider } from '../../provider/stash.provider'
-import { CacheExpirationType, Currency, PoEAccount } from '../../type'
-import { PoEStashTab, PoEStashTabItem, StashTabsToSearch } from '../../type/stash.type'
+import { CacheExpirationType, Currency } from '../../type'
 import { StashGridType, StashGridUserSettings } from '../../type/stash-grid.type'
+import { PoEStashTab, PoEStashTabItem, StashTabsToSearch } from '../../type/stash.type'
 import { PoEAccountService } from '../account/account.service'
-import { BaseItemTypesService } from '../base-item-types/base-item-types.service'
 import { ContextService } from '../context.service'
+import { STASH_PERIODIC_UPDATE_ACTIVE_CHANGED, STASH_TAB_INFO_CHANGED } from './stash-thread.service'
 
 export enum StashNavigationDirection {
   Left,
@@ -53,15 +53,15 @@ export class StashService {
   public readonly stashTabContentPeriodicUpdateActiveChanged$ = new BehaviorSubject<boolean>(false)
   public readonly stashTabContentUpdated$ = new Subject<void>()
 
-  private accountSub: Subscription
-  private stashTabInfoInterval: NodeJS.Timeout
-  private stashTabContentInterval: NodeJS.Timeout
+  private scopedStashTabInfoChangedEventHandler
+  private scopedStashPeriodicUpdateActiveChangedEventHandler
 
   private settings: StashGridUserSettings
 
   private stashTabProviders: StashTabsToSearch[] = []
 
   constructor(
+    private readonly electronService: ElectronService,
     private readonly keyboard: KeyboardService,
     private readonly shortcut: ShortcutService,
     private readonly mouse: MouseService,
@@ -70,25 +70,46 @@ export class StashService {
     private readonly stashProvider: StashProvider,
     private readonly accountService: PoEAccountService,
     private readonly context: ContextService,
-    private readonly baseItemTypesService: BaseItemTypesService,
   ) {
   }
 
   public register(settings: UserSettings): void {
     this.settings = settings as StashGridUserSettings
 
-    this.accountSub = this.accountService.subscribe((account) => this.onAccountChange(account))
+    // Start listening to 'stash tab info' updates from the stash thread
+    if (!this.scopedStashTabInfoChangedEventHandler) {
+      this.scopedStashTabInfoChangedEventHandler = () => this.updateStashTabInfo()
 
-    this.periodicStashTabInfoUpdate()
-    this.periodicStashContentUpdate()
+      this.electronService.onMain(STASH_TAB_INFO_CHANGED, this.scopedStashTabInfoChangedEventHandler)
+    }
+
+    // Start listening to 'stash periodic update active changed' updates from the stash thread
+    if (!this.scopedStashPeriodicUpdateActiveChangedEventHandler) {
+      this.scopedStashPeriodicUpdateActiveChangedEventHandler = (_, periodicUpdateActive: boolean) => {
+        this.stashTabContentPeriodicUpdateActiveChanged$.next(periodicUpdateActive)
+        // The threaded update has finished -> update our local data
+        if (!periodicUpdateActive) {
+          this.updateStashContent()
+        }
+      }
+
+      this.electronService.onMain(STASH_PERIODIC_UPDATE_ACTIVE_CHANGED, this.scopedStashPeriodicUpdateActiveChangedEventHandler)
+    }
+
+    this.stashTabContentPeriodicUpdateActiveChanged$.next(true)
   }
 
   public unregister(): void {
-    this.tryStopPeriodicUpdate()
-    if (this.accountSub) {
-      this.accountSub.unsubscribe()
-      this.accountSub = null
+    if (this.scopedStashTabInfoChangedEventHandler) {
+      this.electronService.removeMainListener(STASH_TAB_INFO_CHANGED, this.scopedStashTabInfoChangedEventHandler)
+      this.scopedStashTabInfoChangedEventHandler = null
     }
+    if (this.scopedStashPeriodicUpdateActiveChangedEventHandler) {
+      this.electronService.removeMainListener(STASH_PERIODIC_UPDATE_ACTIVE_CHANGED, this.scopedStashPeriodicUpdateActiveChangedEventHandler)
+      this.scopedStashPeriodicUpdateActiveChangedEventHandler = null
+    }
+
+    this.stashTabContentPeriodicUpdateActiveChanged$.next(false)
   }
 
   public registerStashTabToSearch(provider: StashTabsToSearch): void {
@@ -100,11 +121,11 @@ export class StashService {
   }
 
   public forceUpdateTabInfo(): void {
-    this.periodicStashTabInfoUpdate(CacheExpirationType.FiveSeconds)
+    this.updateStashTabInfo(CacheExpirationType.FiveSeconds)
   }
 
   public forceUpdateTabContent(): void {
-    this.periodicStashContentUpdate(CacheExpirationType.FiveSeconds)
+    this.updateStashContent(CacheExpirationType.FiveSeconds)
   }
 
   public getStashTabs(predicate: (stashTab: PoEStashTab) => boolean): Observable<PoEStashTab[]> {
@@ -206,19 +227,18 @@ export class StashService {
     )
   }
 
-  private periodicStashTabInfoUpdate(cacheExpiration?: CacheExpirationType) {
+  private updateStashTabInfo(cacheExpiration?: CacheExpirationType): void {
     const account = this.accountService.get()
     if (account.loggedIn) {
       const context = this.context.get()
       this.stashProvider.provideTabInfo(account.name, context.leagueId, context.language, cacheExpiration || this.settings?.stashTabInfoCacheExpiration).subscribe()
-      this.tryStartPeriodicUpdate()
     }
   }
 
-  private periodicStashContentUpdate(cacheExpiration?: CacheExpirationType): void {
-    this.stashTabContentPeriodicUpdateActiveChanged$.next(true)
+  private updateStashContent(cacheExpiration?: CacheExpirationType): void {
     const account = this.accountService.get()
-    if (account.loggedIn) {
+    if (account.loggedIn && this.stashTabProviders.length > 0) {
+      this.stashTabContentPeriodicUpdateActiveChanged$.next(true)
       const providers = this.stashTabProviders.map((provider) => provider.getStashTabsToSearch())
       forkJoin(providers).pipe(
         concatAll(),
@@ -227,36 +247,6 @@ export class StashService {
         this.stashTabContentUpdated$.next()
         this.stashTabContentPeriodicUpdateActiveChanged$.next(false)
       })
-      this.tryStartPeriodicUpdate()
-    }
-  }
-
-  private tryStartPeriodicUpdate(): void {
-    if (!this.stashTabInfoInterval && this.settings && (!this.settings.stashTabInfoCacheExpiration || this.settings.stashTabInfoCacheExpiration !== CacheExpirationType.Never)) {
-      this.stashTabInfoInterval = setInterval(() => this.periodicStashTabInfoUpdate(), (this.settings.stashTabInfoCacheExpiration || this.stashProvider.defaultTabInfoCacheExpiration) + 10)
-    }
-    if (!this.stashTabContentInterval && this.settings && (!this.settings.stashTabContentCacheExpiration || this.settings.stashTabContentCacheExpiration !== CacheExpirationType.Never)) {
-      this.stashTabContentInterval = setInterval(() => this.periodicStashContentUpdate(), (this.settings.stashTabContentCacheExpiration || this.stashProvider.defaultTabContentCacheExpiration) + 10)
-    }
-  }
-
-  private tryStopPeriodicUpdate(): void {
-    if (this.stashTabInfoInterval) {
-      clearInterval(this.stashTabInfoInterval)
-      this.stashTabInfoInterval = null
-    }
-    if (this.stashTabContentInterval) {
-      clearInterval(this.stashTabContentInterval)
-      this.stashTabContentInterval = null
-    }
-  }
-
-  private onAccountChange(account: PoEAccount) {
-    if (account.loggedIn) {
-      this.periodicStashTabInfoUpdate(CacheExpirationType.Instant)
-      this.periodicStashContentUpdate(CacheExpirationType.Instant)
-    } else {
-      this.tryStopPeriodicUpdate()
     }
   }
 }

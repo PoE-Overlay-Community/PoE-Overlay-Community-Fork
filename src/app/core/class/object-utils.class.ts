@@ -1,4 +1,8 @@
 export abstract class ObjectUtils {
+  public static deepCopy(item: any): any {
+    return this.merge({}, item)
+  }
+
   public static merge(left: any, right: any): any {
     return Object.keys(right).reduce((result, currentKey) => {
       const rightValue = right[currentKey]

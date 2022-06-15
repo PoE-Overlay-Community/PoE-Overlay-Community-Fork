@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core'
+import { BrowserService, ElectronService } from '@app/service'
 import { PoEHttpService } from '@data/poe'
-import { BehaviorSubject, Observable, of, Subscription, TimeInterval } from 'rxjs'
+import { UserSettings } from '@layout/type'
+import { BehaviorSubject, Observable, of, Subscription } from 'rxjs'
 import { flatMap, map, tap } from 'rxjs/operators'
-import { BrowserService } from '@app/service'
 import { PoEAccountProvider } from '../../provider/account.provider'
+import { PoECharacterProvider } from '../../provider/character.provider'
 import { CacheExpirationType, Language, PoEAccount, PoECharacter } from '../../type'
 import { ContextService } from '../context.service'
-import { PoECharacterProvider } from '../../provider/character.provider'
-import { UserSettings } from '../../../../../layout/type'
+import { POE_ACCOUNT_UPDATED } from './account-thread.service'
 
 @Injectable({
   providedIn: 'root',
@@ -21,9 +22,10 @@ export class PoEAccountService {
 
   private settings: UserSettings
 
-  private characterInterval: NodeJS.Timeout
+  private scopedAccountUpdatedEventHandler
 
   constructor(
+    private readonly electronService: ElectronService,
     private readonly context: ContextService,
     private readonly accountProvider: PoEAccountProvider,
     private readonly browser: BrowserService,
@@ -34,11 +36,20 @@ export class PoEAccountService {
   public register(settings: UserSettings): Observable<PoEAccount> {
     this.settings = settings
 
+    if (!this.scopedAccountUpdatedEventHandler) {
+      this.scopedAccountUpdatedEventHandler = () => this.updateCharacters()
+
+      this.electronService.onMain(POE_ACCOUNT_UPDATED, this.scopedAccountUpdatedEventHandler)
+    }
+
     return this.getAsync()
   }
 
   public unregister(): void {
-    this.tryStopPeriodicUpdate()
+    if (this.scopedAccountUpdatedEventHandler) {
+      this.electronService.removeMainListener(POE_ACCOUNT_UPDATED, this.scopedAccountUpdatedEventHandler)
+      this.scopedAccountUpdatedEventHandler = null
+    }
   }
 
   public subscribe(next: (value: PoEAccount) => void): Subscription {
@@ -61,14 +72,13 @@ export class PoEAccountService {
         if (oldAccount !== account) {
           this.accountSubject.next(account)
         }
-        this.tryStartPeriodicUpdate()
         return account
       }))
     }))
   }
 
   public forceUpdateCharacters(): void {
-    this.periodicCharacterUpdate(CacheExpirationType.FiveSeconds)
+    this.updateCharacters(CacheExpirationType.FiveSeconds)
   }
 
   public login(language?: Language): Observable<PoEAccount> {
@@ -79,7 +89,6 @@ export class PoEAccountService {
           return this.characterProvider.provide(account.name, language, CacheExpirationType.Instant).pipe(map((characters) => {
             account.characters = characters
             this.accountSubject.next(account)
-            this.tryStartPeriodicUpdate()
             return account
           }))
         } else {
@@ -98,7 +107,6 @@ export class PoEAccountService {
         }, language)
       ),
       tap((account) => {
-        this.tryStopPeriodicUpdate()
         this.accountSubject.next(account)
       })
     )
@@ -114,29 +122,15 @@ export class PoEAccountService {
     return of([])
   }
 
-  private tryStartPeriodicUpdate(): void {
-    if (!this.characterInterval && this.settings && (!this.settings.charactersCacheExpiration || this.settings.charactersCacheExpiration !== CacheExpirationType.Never)) {
-      this.characterInterval = setInterval(() => this.periodicCharacterUpdate(), (this.settings.charactersCacheExpiration || this.characterProvider.defaultCacheExpiration) + 10)
-    }
-  }
-
-  private tryStopPeriodicUpdate(): void {
-    if (this.characterInterval) {
-      clearInterval(this.characterInterval)
-      this.characterInterval = null
-    }
-  }
-
-  private periodicCharacterUpdate(cacheExpiration?: CacheExpirationType) {
+  private updateCharacters(cacheExpiration?: CacheExpirationType) {
     const account = this.get()
-    if (account.loggedIn) {
+    if (account?.loggedIn) {
       const oldAccount = { ...account }
       this.getCharacters(account, undefined, cacheExpiration || this.settings?.charactersCacheExpiration).subscribe(() => {
         if (oldAccount !== account) {
           this.accountSubject.next(account)
         }
       })
-      this.tryStartPeriodicUpdate()
     }
   }
 }

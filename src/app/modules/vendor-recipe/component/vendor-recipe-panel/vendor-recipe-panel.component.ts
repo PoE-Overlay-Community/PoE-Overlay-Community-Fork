@@ -1,5 +1,5 @@
 import {
-    ChangeDetectionStrategy, Component, EventEmitter, Input, OnChanges, OnDestroy,
+    ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, Input, OnChanges, OnDestroy,
     OnInit, Output, SimpleChanges
 } from '@angular/core'
 import { ColorUtils } from '@app/class'
@@ -65,6 +65,9 @@ export class VendorRecipePanelComponent implements OnInit, OnDestroy, OnChanges 
 
   public getRoundedPercentage = (value: number) => `${Math.round(value * 100)}%`
 
+  private readonly internalStashTabContentPeriodicUpdateActiveChanged$ = new BehaviorSubject<boolean>(false)
+  private periodicUpdateMarkedAsCompleted = false
+
   private readonly stashSub: Subscription
   private recipeSub: Subscription
 
@@ -94,17 +97,33 @@ export class VendorRecipePanelComponent implements OnInit, OnDestroy, OnChanges 
   public ColorUtils = ColorUtils
 
   constructor(
+    private readonly ref: ChangeDetectorRef,
     private readonly stashService: StashService,
     private readonly stashGridService: StashGridService,
     private readonly currenciesProvider: CurrenciesProvider
   ) {
-    this.stashSub = this.stashService.stashTabContentPeriodicUpdateActiveChanged$.pipe(
-      throttleTime(2000, undefined, { leading: true, trailing: true }),
-    ).subscribe(x => this.stashTabContentPeriodicUpdateActiveChanged$.next(x))
+    this.stashSub = this.stashService.stashTabContentPeriodicUpdateActiveChanged$.subscribe(x => {
+      if (!x && this.vendorRecipeProcessResult == undefined) {
+        // Mark as completed to keep the loading bar active while waiting for the process result to arrive
+        this.periodicUpdateMarkedAsCompleted = true
+      } else {
+        this.internalStashTabContentPeriodicUpdateActiveChanged$.next(x)
+      }
+    })
   }
 
   public ngOnInit(): void {
+    this.internalStashTabContentPeriodicUpdateActiveChanged$.pipe(
+      throttleTime(2000, undefined, { leading: true, trailing: true }),
+    ).subscribe(x => {
+      this.stashTabContentPeriodicUpdateActiveChanged$.next(x)
+      this.ref.detectChanges()
+    })
+
     this.updateCurrencies()
+    if (!this.vendorRecipeProcessResult) {
+      this.internalStashTabContentPeriodicUpdateActiveChanged$.next(true)
+    }
   }
 
   public ngOnDestroy(): void {
@@ -128,6 +147,9 @@ export class VendorRecipePanelComponent implements OnInit, OnDestroy, OnChanges 
       }
 
       this.updateCurrencies()
+    } else if (changes['vendorRecipeProcessResult'] && this.periodicUpdateMarkedAsCompleted) {
+      this.internalStashTabContentPeriodicUpdateActiveChanged$.next(false)
+      this.periodicUpdateMarkedAsCompleted = false
     }
   }
 

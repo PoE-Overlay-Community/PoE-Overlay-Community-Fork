@@ -11,6 +11,7 @@ import { AppTranslationsLoader } from './app-translations.loader'
 import { AppComponent } from './app.component'
 import { LayoutModule } from './layout/layout.module'
 import { OverlayComponent, UserSettingsComponent } from './layout/page'
+import { PeriodicUpdateThreadComponent } from './layout/page/periodic-update-thread/periodic-update-thread'
 import { StashGridModule } from './modules/stash-grid/stash-grid.module'
 import { VendorRecipeModule } from './modules/vendor-recipe/vendor-recipe.module'
 
@@ -18,6 +19,10 @@ const routes: Routes = [
   {
     path: 'user-settings',
     component: UserSettingsComponent,
+  },
+  {
+    path: 'periodic-update-thread',
+    component: PeriodicUpdateThreadComponent,
   },
   {
     path: '**',
