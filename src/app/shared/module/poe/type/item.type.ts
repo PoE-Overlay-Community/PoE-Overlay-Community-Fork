@@ -229,6 +229,7 @@ export interface ItemStat {
   values: ItemValue[]
   option: boolean
   indistinguishables: string[]
+  relatedStats?: ItemStat[]
 }
 
 export interface ItemRequirements {

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core'
 import { ItemSocketService } from '@shared/module/poe/service/item/item-socket.service'
-import { Item, ItemCategory, ItemRarity, StatType } from '@shared/module/poe/type'
+import { Item, ItemCategory, ItemRarity, ItemStat, StatType } from '@shared/module/poe/type'
 import { EvaluateUserSettings } from '../component/evaluate-settings/evaluate-settings.component'
 
 export interface EvaluateQueryItemResult {
@@ -177,7 +177,7 @@ export class EvaluateQueryItemProvider {
         settings.evaluateQueryDefaultStatsUnique
       ) {
         // Select all stats if it's corrupted or unmodifiable, otherwise exclude implicit stats
-        queryItem.stats = item.stats.filter((stat) => item.corrupted || item.unmodifiable || stat.type !== StatType.Implicit)
+        queryItem.stats = item.stats.map((stat) => (item.corrupted || item.unmodifiable || this.isRelatedToAnImplicitStat(stat)) ? stat : undefined)
       } else {
         queryItem.stats = item.stats.map((stat) => {
           if (stat.type === StatType.Enchant && settings.evaluateQueryDefaultStatsEnchants) {
@@ -197,5 +197,9 @@ export class EvaluateQueryItemProvider {
 
   private copy(item: Item): Item {
     return JSON.parse(JSON.stringify(item))
+  }
+
+  private isRelatedToAnImplicitStat(stat: ItemStat): boolean {
+    return stat.type !== StatType.Implicit && !stat.relatedStats?.some(s => this.isRelatedToAnImplicitStat(s))
   }
 }

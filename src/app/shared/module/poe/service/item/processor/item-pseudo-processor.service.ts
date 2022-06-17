@@ -126,7 +126,7 @@ export class ItemPseudoProcessorService {
     return maxMods
   }
 
-  private createPseudoMod(id: string, values: number[]): ItemStat {
+  private createPseudoMod(id: string, values: number[], relatedStats?: ItemStat[]): ItemStat {
     const itemStat: ItemStat = {
       id,
       type: StatType.Pseudo,
@@ -138,6 +138,7 @@ export class ItemPseudoProcessorService {
       option: false,
       mod: undefined,
       indistinguishables: undefined,
+      relatedStats,
     }
     return itemStat
   }
@@ -146,9 +147,10 @@ export class ItemPseudoProcessorService {
     const itemStats = [...item.stats]
     Object.getOwnPropertyNames(PSEUDO_MODIFIERS).forEach((id) => {
       const pseudo = PSEUDO_MODIFIERS[id]
-      let values = []
+      let values: number[] = []
       let count = 0
       let minCount = pseudo.count
+      const relatedStats: ItemStat[] = []
 
       if (pseudo.mods) {
         for (const mod of pseudo.mods) {
@@ -161,9 +163,12 @@ export class ItemPseudoProcessorService {
             continue
           }
 
+          relatedStats.push(...stats)
+
           if (mod.count && (!minCount || mod.count > minCount)) {
             minCount = mod.count
           }
+
 
           stats.forEach((stat) => {
             count++
@@ -191,7 +196,7 @@ export class ItemPseudoProcessorService {
         }
       }
 
-      const itemStat = this.createPseudoMod(id, values)
+      const itemStat = this.createPseudoMod(id, values, relatedStats)
       itemStats.push(itemStat)
       if (values.length > 0 && (!minCount || count >= minCount)) {
         item.stats.push(itemStat)

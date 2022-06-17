@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.8.18 (2022-06-17)
+
+- Updated PoE Assets to support additional mods for 3.18.1
+- Added support for Logbooks when map-checking (for bad mods)
+- Fixed an issue where the incorrect currency icon would show when evaluating using bulk-exchange evaluation
+- Fixed an issue with local vs global stat detection
+- Fixed an issue with stat translations in the map settings tab
+- Fixed an issue where implicits (or pseudo's added based on these implicits) of non-corrupted unique items were not being unselected when evaluating all unique item stats
+- Fixed an issue with the settings window not unregistering properly from services it was using/registering to
+
 ## 0.8.17 (2022-05-18)
 
 - Updated PoE Assets to support additional mods for 3.18.0b

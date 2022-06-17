@@ -89449,7 +89449,7 @@
 				}
 			]
 		},
-		"shock_art_variation": {
+		"use_unique_purple_shock_effect": {
 			"": [
 				{
 					"min": 1,
@@ -92308,8 +92308,8 @@
 					"max": 30
 				},
 				{
-					"min": 50,
-					"max": 50
+					"min": 40,
+					"max": 40
 				}
 			]
 		},
@@ -92324,12 +92324,12 @@
 					"max": 25
 				},
 				{
-					"min": 50,
-					"max": 50
+					"min": 40,
+					"max": 40
 				},
 				{
-					"min": 10,
-					"max": 10
+					"min": 5,
+					"max": 5
 				},
 				{
 					"min": 1,
@@ -92365,7 +92365,7 @@
 				}
 			]
 		},
-		"base_chance_to_freeze_% all_damage_can_freeze freeze_duration_+% base_immune_to_freeze base_immune_to_chill": {
+		"base_chance_to_freeze_% all_damage_can_freeze freeze_duration_+% cold_ailment_effect_on_self_+%": {
 			"__": [
 				{
 					"min": 35,
@@ -92380,12 +92380,8 @@
 					"max": 25
 				},
 				{
-					"min": 1,
-					"max": 1
-				},
-				{
-					"min": 1,
-					"max": 1
+					"min": -80,
+					"max": -80
 				}
 			],
 			"Magic": [
@@ -92404,22 +92400,18 @@
 				{
 					"min": 1,
 					"max": 1
-				},
-				{
-					"min": 1,
-					"max": 1
 				}
 			]
 		},
-		"always_crit self_take_no_extra_damage_from_critical_strikes global_chance_to_blind_on_hit_% blind_effect_+%": {
+		"always_crit base_self_critical_strike_multiplier_-% global_chance_to_blind_on_hit_% blind_effect_+%": {
 			"": [
 				{
 					"min": 1,
 					"max": 1
 				},
 				{
-					"min": 1,
-					"max": 1
+					"min": 75,
+					"max": 75
 				},
 				{
 					"min": 100,
@@ -92584,12 +92576,12 @@
 					"max": 25
 				},
 				{
-					"min": 300,
-					"max": 300
+					"min": 100,
+					"max": 100
 				},
 				{
-					"min": 75,
-					"max": 75
+					"min": 50,
+					"max": 50
 				},
 				{
 					"min": -60,
@@ -92733,7 +92725,7 @@
 				}
 			]
 		},
-		"always_shock all_damage_can_shock shock_effect_+% shock_duration_+% base_immune_to_shock": {
+		"always_shock all_damage_can_shock shock_effect_+% shock_duration_+% lightning_ailment_effect_on_self_+%": {
 			"_": [
 				{
 					"min": 1,
@@ -92752,8 +92744,8 @@
 					"max": 50
 				},
 				{
-					"min": 1,
-					"max": 1
+					"min": -80,
+					"max": -80
 				}
 			]
 		},
@@ -92792,8 +92784,8 @@
 					"max": 1
 				},
 				{
-					"min": 100,
-					"max": 100
+					"min": 50,
+					"max": 50
 				},
 				{
 					"min": 25,
@@ -92814,16 +92806,16 @@
 					"max": 1
 				},
 				{
-					"min": 100,
-					"max": 100
+					"min": 50,
+					"max": 50
 				},
 				{
 					"min": 25,
 					"max": 25
 				},
 				{
-					"min": -70,
-					"max": -70
+					"min": -25,
+					"max": -25
 				},
 				{
 					"min": -30,
@@ -92862,8 +92854,8 @@
 		"enemy_phys_reduction_%_penalty_vs_hit physical_damage_+% base_additional_physical_damage_reduction_% base_cannot_be_stunned blood_and_armour_type_override_robot": {
 			"___": [
 				{
-					"min": 30,
-					"max": 30
+					"min": 10,
+					"max": 10
 				},
 				{
 					"min": 40,
@@ -92946,16 +92938,16 @@
 		"max_endurance_charges max_frenzy_charges max_power_charges": {
 			"__": [
 				{
-					"min": 2,
-					"max": 2
+					"min": 1,
+					"max": 1
 				},
 				{
-					"min": 2,
-					"max": 2
+					"min": 1,
+					"max": 1
 				},
 				{
-					"min": 2,
-					"max": 2
+					"min": 1,
+					"max": 1
 				}
 			]
 		},
@@ -93010,8 +93002,8 @@
 		"flask_charges_recovered_per_3_seconds remove_charges_on_hit_% life_regeneration_rate_per_minute_%": {
 			"__": [
 				{
-					"min": -15,
-					"max": -15
+					"min": -6,
+					"max": -6
 				},
 				{
 					"min": 100,
@@ -93034,8 +93026,8 @@
 					"max": 1
 				},
 				{
-					"min": 40,
-					"max": 40
+					"min": 30,
+					"max": 30
 				}
 			]
 		},
@@ -93071,7 +93063,7 @@
 				}
 			]
 		},
-		"base_physical_damage_%_to_convert_to_cold cold_damage_+% physical_damage_%_to_add_as_cold base_cold_damage_resistance_% base_immune_to_cold_ailments chill_effect_+%": {
+		"base_physical_damage_%_to_convert_to_cold cold_damage_+% physical_damage_%_to_add_as_cold base_cold_damage_resistance_% cold_ailment_effect_on_self_+% chill_effect_+%": {
 			"": [
 				{
 					"min": 50,
@@ -93090,8 +93082,8 @@
 					"max": 40
 				},
 				{
-					"min": 1,
-					"max": 1
+					"min": -80,
+					"max": -80
 				},
 				{
 					"min": 200,
@@ -93099,7 +93091,7 @@
 				}
 			]
 		},
-		"base_physical_damage_%_to_convert_to_cold cold_damage_+% physical_damage_%_to_add_as_cold base_cold_damage_resistance_% base_immune_to_cold_ailments base_additional_physical_damage_reduction_%": {
+		"base_physical_damage_%_to_convert_to_cold cold_damage_+% physical_damage_%_to_add_as_cold base_cold_damage_resistance_% cold_ailment_effect_on_self_+% base_additional_physical_damage_reduction_%": {
 			"": [
 				{
 					"min": 50,
@@ -93118,8 +93110,8 @@
 					"max": 40
 				},
 				{
-					"min": 1,
-					"max": 1
+					"min": -50,
+					"max": -50
 				},
 				{
 					"min": 25,
@@ -93127,7 +93119,7 @@
 				}
 			]
 		},
-		"base_physical_damage_%_to_convert_to_fire fire_damage_+% physical_damage_%_to_add_as_fire base_fire_damage_resistance_% cannot_be_scorched always_ignite": {
+		"base_physical_damage_%_to_convert_to_fire fire_damage_+% physical_damage_%_to_add_as_fire base_fire_damage_resistance_% scorch_ailment_effect_on_self_+% always_ignite": {
 			"_": [
 				{
 					"min": 50,
@@ -93146,8 +93138,8 @@
 					"max": 40
 				},
 				{
-					"min": 1,
-					"max": 1
+					"min": -80,
+					"max": -80
 				},
 				{
 					"min": 1,
@@ -93233,7 +93225,7 @@
 				}
 			]
 		},
-		"base_physical_damage_%_to_convert_to_lightning lightning_damage_+% physical_damage_%_to_add_as_lightning base_lightning_damage_resistance_% base_immune_to_shock cannot_be_sapped": {
+		"base_physical_damage_%_to_convert_to_lightning lightning_damage_+% physical_damage_%_to_add_as_lightning base_lightning_damage_resistance_% lightning_ailment_effect_on_self_+%": {
 			"_": [
 				{
 					"min": 50,
@@ -93252,12 +93244,8 @@
 					"max": 40
 				},
 				{
-					"min": 1,
-					"max": 1
-				},
-				{
-					"min": 1,
-					"max": 1
+					"min": -80,
+					"max": -80
 				}
 			],
 			"": [
@@ -93278,12 +93266,8 @@
 					"max": 40
 				},
 				{
-					"min": 1,
-					"max": 1
-				},
-				{
-					"min": 1,
-					"max": 1
+					"min": -50,
+					"max": -50
 				}
 			],
 			"": [
@@ -93304,12 +93288,8 @@
 					"max": 60
 				},
 				{
-					"min": 1,
-					"max": 1
-				},
-				{
-					"min": 1,
-					"max": 1
+					"min": -50,
+					"max": -50
 				}
 			]
 		},
@@ -93333,11 +93313,11 @@
 				}
 			]
 		},
-		"damage_+% monster_base_block_% base_spell_block_%": {
+		"monster_allies_cannot_take_damage_pulse_owner monster_base_block_% base_spell_block_%": {
 			"__": [
 				{
-					"min": 0,
-					"max": 0
+					"min": 1,
+					"max": 1
 				},
 				{
 					"min": 30,
@@ -93468,8 +93448,8 @@
 					"max": 50
 				},
 				{
-					"min": 60,
-					"max": 60
+					"min": 50,
+					"max": 50
 				},
 				{
 					"min": 10,
@@ -93482,8 +93462,8 @@
 					"max": 50
 				},
 				{
-					"min": 60,
-					"max": 60
+					"min": 50,
+					"max": 50
 				},
 				{
 					"min": 10,
@@ -93836,12 +93816,12 @@
 					"max": 1
 				},
 				{
-					"min": 100,
-					"max": 100
+					"min": 25,
+					"max": 25
 				},
 				{
-					"min": 50,
-					"max": 50
+					"min": 100,
+					"max": 100
 				}
 			]
 		},
@@ -93946,8 +93926,8 @@
 		"enemy_phys_reduction_%_penalty_vs_hit physical_damage_+% base_additional_physical_damage_reduction_%": {
 			"MinionSteelAttuned": [
 				{
-					"min": 50,
-					"max": 50
+					"min": 10,
+					"max": 10
 				},
 				{
 					"min": 25,
@@ -108585,15 +108565,15 @@
 				}
 			]
 		},
-		"map_num_extra_invasion_bosses map_set_league_category map_item_drop_quantity_+% map_extra_content_weighting": {
+		"map_num_extra_invasion_bosses dummy_stat_display_nothing map_item_drop_quantity_+% map_extra_content_weighting": {
 			"MapExtraInvasionBosses": [
 				{
 					"min": 1,
 					"max": 1
 				},
 				{
-					"min": 8,
-					"max": 8
+					"min": 0,
+					"max": 0
 				},
 				{
 					"min": 20,
@@ -108653,15 +108633,15 @@
 				}
 			]
 		},
-		"map_num_extra_strongboxes map_set_league_category map_extra_content_weighting": {
+		"map_num_extra_strongboxes dummy_stat_display_nothing map_extra_content_weighting": {
 			"MapExtraStrongBoxes": [
 				{
 					"min": 4,
 					"max": 4
 				},
 				{
-					"min": 7,
-					"max": 7
+					"min": 0,
+					"max": 0
 				},
 				{
 					"min": 1,
@@ -108674,8 +108654,8 @@
 					"max": 4
 				},
 				{
-					"min": 7,
-					"max": 7
+					"min": 0,
+					"max": 0
 				},
 				{
 					"min": 1,
@@ -108688,8 +108668,8 @@
 					"max": 6
 				},
 				{
-					"min": 7,
-					"max": 7
+					"min": 0,
+					"max": 0
 				},
 				{
 					"min": 1,
@@ -108799,15 +108779,15 @@
 				}
 			]
 		},
-		"map_num_extra_shrines map_set_league_category map_extra_content_weighting": {
+		"map_num_extra_shrines dummy_stat_display_nothing map_extra_content_weighting": {
 			"MapExtraShrines": [
 				{
 					"min": 5,
 					"max": 5
 				},
 				{
-					"min": 5,
-					"max": 5
+					"min": 0,
+					"max": 0
 				},
 				{
 					"min": 1,
@@ -108820,8 +108800,8 @@
 					"max": 4
 				},
 				{
-					"min": 5,
-					"max": 5
+					"min": 0,
+					"max": 0
 				},
 				{
 					"min": 1,
@@ -108834,8 +108814,8 @@
 					"max": 6
 				},
 				{
-					"min": 5,
-					"max": 5
+					"min": 0,
+					"max": 0
 				},
 				{
 					"min": 1,
@@ -108875,7 +108855,7 @@
 				}
 			]
 		},
-		"map_all_monster_packs_rare_and_allow_magic map_rare_monsters_have_nemesis_mod map_set_league_category": {
+		"map_all_monster_packs_rare_and_allow_magic map_rare_monsters_have_nemesis_mod dummy_stat_display_nothing": {
 			"MapAllPacksRareNemesis": [
 				{
 					"min": 1,
@@ -108886,8 +108866,8 @@
 					"max": 1
 				},
 				{
-					"min": 6,
-					"max": 6
+					"min": 0,
+					"max": 0
 				}
 			],
 			"MapCustomLeagueHeadhunterNemesisPacks": [
@@ -108905,7 +108885,7 @@
 				}
 			]
 		},
-		"map_contains_x_additional_rare_packs map_rare_monsters_have_nemesis_mod map_set_league_category map_extra_content_weighting": {
+		"map_contains_x_additional_rare_packs map_rare_monsters_have_nemesis_mod dummy_stat_display_nothing map_extra_content_weighting": {
 			"MapNemesisZana": [
 				{
 					"min": 5,
@@ -108916,8 +108896,8 @@
 					"max": 1
 				},
 				{
-					"min": 6,
-					"max": 6
+					"min": 0,
+					"max": 0
 				},
 				{
 					"min": 1,
@@ -108934,8 +108914,8 @@
 					"max": 1
 				},
 				{
-					"min": 6,
-					"max": 6
+					"min": 0,
+					"max": 0
 				},
 				{
 					"min": 1,
@@ -108943,7 +108923,7 @@
 				}
 			]
 		},
-		"map_item_drop_quantity_+% map_spawn_extra_exiles map_ignore_rogue_exile_rarity_bias map_set_league_category map_extra_content_weighting": {
+		"map_item_drop_quantity_+% map_spawn_extra_exiles map_ignore_rogue_exile_rarity_bias dummy_stat_display_nothing map_extra_content_weighting": {
 			"MapAnarchyExiles": [
 				{
 					"min": 0,
@@ -108958,8 +108938,8 @@
 					"max": 1
 				},
 				{
-					"min": 2,
-					"max": 2
+					"min": 0,
+					"max": 0
 				},
 				{
 					"min": 1,
@@ -108980,8 +108960,8 @@
 					"max": 1
 				},
 				{
-					"min": 2,
-					"max": 2
+					"min": 0,
+					"max": 0
 				},
 				{
 					"min": 1,
@@ -109002,8 +108982,8 @@
 					"max": 1
 				},
 				{
-					"min": 2,
-					"max": 2
+					"min": 0,
+					"max": 0
 				},
 				{
 					"min": 1,
@@ -109027,7 +109007,7 @@
 				}
 			]
 		},
-		"map_monsters_have_onslaught map_item_drop_quantity_+% map_set_league_category map_monsters_attack_speed_+% map_monsters_cast_speed_+% map_monsters_movement_speed_+%": {
+		"map_monsters_have_onslaught map_item_drop_quantity_+% dummy_stat_display_nothing map_monsters_attack_speed_+% map_monsters_cast_speed_+% map_monsters_movement_speed_+%": {
 			"_": [
 				{
 					"min": 1,
@@ -109038,8 +109018,8 @@
 					"max": 20
 				},
 				{
-					"min": 3,
-					"max": 3
+					"min": 0,
+					"max": 0
 				},
 				{
 					"min": 20,
@@ -109123,15 +109103,15 @@
 				}
 			]
 		},
-		"map_players_gain_rampage_stacks map_set_league_category map_item_drop_quantity_+%": {
+		"map_players_gain_rampage_stacks dummy_stat_display_nothing map_item_drop_quantity_+%": {
 			"": [
 				{
 					"min": 1,
 					"max": 1
 				},
 				{
-					"min": 9,
-					"max": 9
+					"min": 0,
+					"max": 0
 				},
 				{
 					"min": 20,
@@ -109144,8 +109124,8 @@
 					"max": 1
 				},
 				{
-					"min": 9,
-					"max": 9
+					"min": 0,
+					"max": 0
 				},
 				{
 					"min": 20,
@@ -109153,7 +109133,7 @@
 				}
 			]
 		},
-		"map_item_drop_quantity_+% map_beyond_chance_% map_set_league_category map_extra_content_weighting": {
+		"map_item_drop_quantity_+% map_beyond_chance_% dummy_stat_display_nothing map_extra_content_weighting": {
 			"": [
 				{
 					"min": 0,
@@ -109164,8 +109144,8 @@
 					"max": 15
 				},
 				{
-					"min": 10,
-					"max": 10
+					"min": 0,
+					"max": 0
 				},
 				{
 					"min": 1,
@@ -109182,8 +109162,8 @@
 					"max": 30
 				},
 				{
-					"min": 10,
-					"max": 10
+					"min": 0,
+					"max": 0
 				},
 				{
 					"min": 1,
@@ -109439,15 +109419,15 @@
 				}
 			]
 		},
-		"map_magic_pack_mod_rules map_set_league_category map_contains_x_additional_magic_packs map_extra_content_weighting": {
+		"map_magic_pack_mod_rules dummy_stat_display_nothing map_contains_x_additional_magic_packs map_extra_content_weighting": {
 			"LeagueCrafted": [
 				{
 					"min": 1,
 					"max": 1
 				},
 				{
-					"min": 12,
-					"max": 12
+					"min": 0,
+					"max": 0
 				},
 				{
 					"min": 3,
@@ -109464,8 +109444,8 @@
 					"max": 1
 				},
 				{
-					"min": 12,
-					"max": 12
+					"min": 0,
+					"max": 0
 				},
 				{
 					"min": 6,
@@ -110435,15 +110415,15 @@
 				}
 			]
 		},
-		"map_spawn_extra_torment_spirits map_set_league_category map_item_drop_quantity_+% map_extra_content_weighting": {
+		"map_spawn_extra_torment_spirits dummy_stat_display_nothing map_item_drop_quantity_+% map_extra_content_weighting": {
 			"MapLeagueCrafted": [
 				{
 					"min": 4,
 					"max": 4
 				},
 				{
-					"min": 11,
-					"max": 11
+					"min": 0,
+					"max": 0
 				},
 				{
 					"min": 0,
@@ -111961,15 +111941,15 @@
 				}
 			]
 		},
-		"map_always_has_weather map_set_league_category map_item_drop_quantity_+%": {
+		"map_always_has_weather dummy_stat_display_nothing map_item_drop_quantity_+%": {
 			"": [
 				{
 					"min": 1,
 					"max": 1
 				},
 				{
-					"min": 14,
-					"max": 14
+					"min": 0,
+					"max": 0
 				},
 				{
 					"min": 20,
@@ -114337,11 +114317,11 @@
 				}
 			]
 		},
-		"map_set_league_category map_item_drop_quantity_+% map_spawn_extra_warbands map_extra_content_weighting": {
+		"dummy_stat_display_nothing map_item_drop_quantity_+% map_spawn_extra_warbands map_extra_content_weighting": {
 			"_": [
 				{
-					"min": 13,
-					"max": 13
+					"min": 0,
+					"max": 0
 				},
 				{
 					"min": 0,
@@ -132573,11 +132553,11 @@
 				}
 			]
 		},
-		"map_set_league_category map_spawn_extra_talismans map_force_stone_circle map_extra_content_weighting": {
+		"dummy_stat_display_nothing map_spawn_extra_talismans map_force_stone_circle map_extra_content_weighting": {
 			"Crafted": [
 				{
-					"min": 17,
-					"max": 17
+					"min": 0,
+					"max": 0
 				},
 				{
 					"min": 3,
@@ -134505,11 +134485,11 @@
 				}
 			]
 		},
-		"map_set_league_category map_spawn_extra_perandus_chests map_spawn_cadiro_%_chance map_extra_content_weighting": {
+		"dummy_stat_display_nothing map_spawn_extra_perandus_chests map_spawn_cadiro_%_chance map_extra_content_weighting": {
 			"Crafted": [
 				{
-					"min": 18,
-					"max": 18
+					"min": 0,
+					"max": 0
 				},
 				{
 					"min": 3,
@@ -134526,8 +134506,8 @@
 			],
 			"HarvestInfusedCrafted": [
 				{
-					"min": 18,
-					"max": 18
+					"min": 0,
+					"max": 0
 				},
 				{
 					"min": 5,
@@ -138973,7 +138953,7 @@
 				}
 			]
 		},
-		"map_has_monoliths map_extra_monoliths map_set_league_category map_extra_content_weighting": {
+		"map_has_monoliths map_extra_monoliths dummy_stat_display_nothing map_extra_content_weighting": {
 			"Crafted__": [
 				{
 					"min": 1,
@@ -138984,8 +138964,8 @@
 					"max": 3
 				},
 				{
-					"min": 20,
-					"max": 20
+					"min": 0,
+					"max": 0
 				},
 				{
 					"min": 1,
@@ -139002,8 +138982,8 @@
 					"max": 6
 				},
 				{
-					"min": 20,
-					"max": 20
+					"min": 0,
+					"max": 0
 				},
 				{
 					"min": 1,
@@ -142291,7 +142271,7 @@
 				}
 			]
 		},
-		"map_breach_rules map_contains_additional_breaches map_set_league_category map_extra_content_weighting": {
+		"map_breach_rules map_contains_additional_breaches dummy_stat_display_nothing map_extra_content_weighting": {
 			"": [
 				{
 					"min": 1,
@@ -142302,8 +142282,8 @@
 					"max": 1
 				},
 				{
-					"min": 21,
-					"max": 21
+					"min": 0,
+					"max": 0
 				},
 				{
 					"min": 1,
@@ -143259,15 +143239,15 @@
 				}
 			]
 		},
-		"map_leaguestone_override_base_num_breaches map_set_league_category": {
+		"map_leaguestone_override_base_num_breaches dummy_stat_display_nothing": {
 			"MapAreaContainsBreachesImplicit": [
 				{
 					"min": 1,
 					"max": 1
 				},
 				{
-					"min": 21,
-					"max": 21
+					"min": 0,
+					"max": 0
 				}
 			]
 		},
@@ -143387,15 +143367,15 @@
 				}
 			]
 		},
-		"map_leaguestone_override_base_num_monoliths map_set_league_category": {
+		"map_leaguestone_override_base_num_monoliths dummy_stat_display_nothing": {
 			"MapAreaContainsMonolithsImplicit": [
 				{
 					"min": 1,
 					"max": 1
 				},
 				{
-					"min": 20,
-					"max": 20
+					"min": 0,
+					"max": 0
 				}
 			]
 		},
@@ -143579,15 +143559,15 @@
 				}
 			]
 		},
-		"map_leaguestone_override_base_num_talismans map_set_league_category map_leaguestone_stone_circle_%_chance": {
+		"map_leaguestone_override_base_num_talismans dummy_stat_display_nothing map_leaguestone_stone_circle_%_chance": {
 			"MapAreaContainsTalismansImplicit_": [
 				{
 					"min": 1,
 					"max": 1
 				},
 				{
-					"min": 17,
-					"max": 17
+					"min": 0,
+					"max": 0
 				},
 				{
 					"min": 25,
@@ -143717,15 +143697,15 @@
 				}
 			]
 		},
-		"map_leaguestone_override_base_num_rogue_exiles map_set_league_category": {
+		"map_leaguestone_override_base_num_rogue_exiles dummy_stat_display_nothing": {
 			"MapAreaContainsRogueExilesImplicit": [
 				{
 					"min": 1,
 					"max": 1
 				},
 				{
-					"min": 2,
-					"max": 2
+					"min": 0,
+					"max": 0
 				}
 			]
 		},
@@ -144649,15 +144629,15 @@
 				}
 			]
 		},
-		"map_leaguestone_override_base_num_prophecy_coins map_set_league_category": {
+		"map_leaguestone_override_base_num_prophecy_coins dummy_stat_display_nothing": {
 			"Implicit": [
 				{
 					"min": 1,
 					"max": 1
 				},
 				{
-					"min": 19,
-					"max": 19
+					"min": 0,
+					"max": 0
 				}
 			]
 		},
@@ -144811,15 +144791,15 @@
 				}
 			]
 		},
-		"map_leaguestone_override_base_num_perandus_chests map_set_league_category map_spawn_cadiro_%_chance": {
+		"map_leaguestone_override_base_num_perandus_chests dummy_stat_display_nothing map_spawn_cadiro_%_chance": {
 			"MapSpawnAdditionalPerandusChestsImplicit": [
 				{
 					"min": 1,
 					"max": 1
 				},
 				{
-					"min": 18,
-					"max": 18
+					"min": 0,
+					"max": 0
 				},
 				{
 					"min": 20,
@@ -145059,15 +145039,15 @@
 				}
 			]
 		},
-		"map_leaguestone_override_base_num_shrines map_set_league_category": {
+		"map_leaguestone_override_base_num_shrines dummy_stat_display_nothing": {
 			"Implicit": [
 				{
 					"min": 1,
 					"max": 1
 				},
 				{
-					"min": 5,
-					"max": 5
+					"min": 0,
+					"max": 0
 				}
 			]
 		},
@@ -145201,15 +145181,15 @@
 				}
 			]
 		},
-		"map_leaguestone_override_base_num_warband_packs map_set_league_category": {
+		"map_leaguestone_override_base_num_warband_packs dummy_stat_display_nothing": {
 			"MapNumberOfWarbandPacksImplicit": [
 				{
 					"min": 1,
 					"max": 1
 				},
 				{
-					"min": 13,
-					"max": 13
+					"min": 0,
+					"max": 0
 				}
 			]
 		},
@@ -145351,15 +145331,15 @@
 				}
 			]
 		},
-		"map_players_gain_rampage_stacks map_set_league_category": {
+		"map_players_gain_rampage_stacks dummy_stat_display_nothing": {
 			"MapRampageLeaguestoneImplicit_": [
 				{
 					"min": 1,
 					"max": 1
 				},
 				{
-					"min": 9,
-					"max": 9
+					"min": 0,
+					"max": 0
 				}
 			]
 		},
@@ -145503,15 +145483,15 @@
 				}
 			]
 		},
-		"map_leaguestone_override_base_num_tormented_spirits map_set_league_category": {
+		"map_leaguestone_override_base_num_tormented_spirits dummy_stat_display_nothing": {
 			"Implicit": [
 				{
 					"min": 1,
 					"max": 1
 				},
 				{
-					"min": 11,
-					"max": 11
+					"min": 0,
+					"max": 0
 				}
 			]
 		},
@@ -145577,7 +145557,7 @@
 				}
 			]
 		},
-		"map_magic_pack_mod_rules map_contains_x_additional_magic_packs map_set_league_category": {
+		"map_magic_pack_mod_rules map_contains_x_additional_magic_packs dummy_stat_display_nothing": {
 			"MapBloodlinesLeaguestoneImplicit": [
 				{
 					"min": 1,
@@ -145588,8 +145568,8 @@
 					"max": 2
 				},
 				{
-					"min": 12,
-					"max": 12
+					"min": 0,
+					"max": 0
 				}
 			]
 		},
@@ -145697,15 +145677,15 @@
 				}
 			]
 		},
-		"map_leaguestone_implicit_tempest_random map_set_league_category": {
+		"map_leaguestone_implicit_tempest_random dummy_stat_display_nothing": {
 			"Implicit_": [
 				{
 					"min": 1,
 					"max": 1
 				},
 				{
-					"min": 14,
-					"max": 14
+					"min": 0,
+					"max": 0
 				}
 			]
 		},
@@ -145839,15 +145819,15 @@
 				}
 			]
 		},
-		"map_beyond_rules map_set_league_category": {
+		"map_beyond_rules dummy_stat_display_nothing": {
 			"MapBeyondLeaguestoneImplicit": [
 				{
 					"min": 1,
 					"max": 1
 				},
 				{
-					"min": 10,
-					"max": 10
+					"min": 0,
+					"max": 0
 				}
 			]
 		},
@@ -146031,15 +146011,15 @@
 				}
 			]
 		},
-		"map_monsters_have_onslaught map_set_league_category map_item_drop_quantity_+%": {
+		"map_monsters_have_onslaught dummy_stat_display_nothing map_item_drop_quantity_+%": {
 			"MapOnslaughtLeaguestoneImplicit": [
 				{
 					"min": 1,
 					"max": 1
 				},
 				{
-					"min": 3,
-					"max": 3
+					"min": 0,
+					"max": 0
 				},
 				{
 					"min": 20,
@@ -146133,7 +146113,7 @@
 				}
 			]
 		},
-		"map_rare_monsters_have_nemesis_mod map_contains_x_additional_rare_packs map_set_league_category": {
+		"map_rare_monsters_have_nemesis_mod map_contains_x_additional_rare_packs dummy_stat_display_nothing": {
 			"MapNemesisLeaguestoneImplicit": [
 				{
 					"min": 1,
@@ -146144,8 +146124,8 @@
 					"max": 2
 				},
 				{
-					"min": 6,
-					"max": 6
+					"min": 0,
+					"max": 0
 				}
 			]
 		},
@@ -146197,15 +146177,15 @@
 				}
 			]
 		},
-		"map_leaguestone_override_base_num_invasion_bosses map_set_league_category": {
+		"map_leaguestone_override_base_num_invasion_bosses dummy_stat_display_nothing": {
 			"MapInvasionLeaguestoneImplicit_": [
 				{
 					"min": 1,
 					"max": 1
 				},
 				{
-					"min": 8,
-					"max": 8
+					"min": 0,
+					"max": 0
 				}
 			]
 		},
@@ -146231,15 +146211,15 @@
 				}
 			]
 		},
-		"map_leaguestone_override_base_num_strongboxes map_set_league_category": {
+		"map_leaguestone_override_base_num_strongboxes dummy_stat_display_nothing": {
 			"_": [
 				{
 					"min": 1,
 					"max": 1
 				},
 				{
-					"min": 7,
-					"max": 7
+					"min": 0,
+					"max": 0
 				}
 			]
 		},
@@ -148395,7 +148375,7 @@
 				}
 			]
 		},
-		"map_spawn_harbingers map_num_extra_harbingers map_set_league_category map_extra_content_weighting": {
+		"map_spawn_harbingers map_num_extra_harbingers dummy_stat_display_nothing map_extra_content_weighting": {
 			"MapCrafted": [
 				{
 					"min": 0,
@@ -156941,7 +156921,7 @@
 				}
 			]
 		},
-		"map_spawn_abysses map_num_extra_abysses map_set_league_category map_extra_content_weighting": {
+		"map_spawn_abysses map_num_extra_abysses dummy_stat_display_nothing map_extra_content_weighting": {
 			"Crafted": [
 				{
 					"min": 1,
@@ -156952,8 +156932,8 @@
 					"max": 1
 				},
 				{
-					"min": 24,
-					"max": 24
+					"min": 0,
+					"max": 0
 				},
 				{
 					"min": 1,
@@ -172191,7 +172171,7 @@
 				}
 			]
 		},
-		"map_spawn_betrayals map_set_league_category map_extra_content_weighting": {
+		"map_spawn_betrayals dummy_stat_display_nothing map_extra_content_weighting": {
 			"MapBetrayalLeagueCrafted": [
 				{
 					"min": 1,
@@ -183665,15 +183645,15 @@
 				}
 			]
 		},
-		"map_synthesis_league map_set_league_category map_extra_content_weighting": {
+		"map_synthesis_league dummy_stat_display_nothing map_extra_content_weighting": {
 			"MapGenesisLeagueCrafted": [
 				{
 					"min": 1,
 					"max": 1
 				},
 				{
-					"min": 29,
-					"max": 29
+					"min": 0,
+					"max": 0
 				},
 				{
 					"min": 0,
@@ -188929,15 +188909,15 @@
 				}
 			]
 		},
-		"map_item_drop_quantity_+% map_set_league_category map_legion_league map_legion_league_extra_spawns map_extra_content_weighting": {
+		"map_item_drop_quantity_+% dummy_stat_display_nothing map_legion_league map_legion_league_extra_spawns map_extra_content_weighting": {
 			"": [
 				{
 					"min": 0,
 					"max": 0
 				},
 				{
-					"min": 30,
-					"max": 30
+					"min": 0,
+					"max": 0
 				},
 				{
 					"min": 1,
@@ -190115,15 +190095,15 @@
 				}
 			]
 		},
-		"map_item_drop_quantity_+% map_set_league_category map_blight_league map_num_extra_blights_ map_extra_content_weighting": {
+		"map_item_drop_quantity_+% dummy_stat_display_nothing map_blight_league map_num_extra_blights_ map_extra_content_weighting": {
 			"_": [
 				{
 					"min": 0,
 					"max": 0
 				},
 				{
-					"min": 31,
-					"max": 31
+					"min": 0,
+					"max": 0
 				},
 				{
 					"min": 1,
@@ -193361,15 +193341,15 @@
 				}
 			]
 		},
-		"map_affliction_league map_set_league_category map_spawn_affliction_mirror": {
+		"map_affliction_league dummy_stat_display_nothing map_spawn_affliction_mirror": {
 			"": [
 				{
 					"min": 1,
 					"max": 1
 				},
 				{
-					"min": 33,
-					"max": 33
+					"min": 0,
+					"max": 0
 				},
 				{
 					"min": 1,
@@ -198737,15 +198717,15 @@
 				}
 			]
 		},
-		"map_item_drop_quantity_+% map_set_league_category map_heist_league map_spawn_x_additional_heist_smugglers_caches map_extra_content_weighting": {
+		"map_item_drop_quantity_+% dummy_stat_display_nothing map_heist_league map_spawn_x_additional_heist_smugglers_caches map_extra_content_weighting": {
 			"MapCrafted": [
 				{
 					"min": 0,
 					"max": 0
 				},
 				{
-					"min": 35,
-					"max": 35
+					"min": 0,
+					"max": 0
 				},
 				{
 					"min": 1,
@@ -198791,15 +198771,15 @@
 				}
 			]
 		},
-		"map_harvest_league map_set_league_category map_extra_content_weighting map_chance_for_area_%_to_contain_harvest": {
+		"map_harvest_league dummy_stat_display_nothing map_extra_content_weighting map_chance_for_area_%_to_contain_harvest": {
 			"MapCrafted": [
 				{
 					"min": 1,
 					"max": 1
 				},
 				{
-					"min": 34,
-					"max": 34
+					"min": 0,
+					"max": 0
 				},
 				{
 					"min": 1,
@@ -255965,7 +255945,7 @@
 				}
 			]
 		},
-		"map_num_extra_abysses map_set_league_category map_extra_content_weighting": {
+		"map_num_extra_abysses dummy_stat_display_nothing map_extra_content_weighting": {
 			"MapAreaContainsAbysses": [
 				{
 					"min": 2,
@@ -255997,11 +255977,11 @@
 				}
 			]
 		},
-		"map_set_league_category map_heist_league map_spawn_x_additional_heist_smugglers_caches map_extra_content_weighting": {
+		"dummy_stat_display_nothing map_heist_league map_spawn_x_additional_heist_smugglers_caches map_extra_content_weighting": {
 			"MapAreaContainsHeistCaches": [
 				{
-					"min": 35,
-					"max": 35
+					"min": 0,
+					"max": 0
 				},
 				{
 					"min": 0,
