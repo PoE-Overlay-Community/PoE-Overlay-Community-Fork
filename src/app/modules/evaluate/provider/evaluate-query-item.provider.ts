@@ -177,7 +177,7 @@ export class EvaluateQueryItemProvider {
         settings.evaluateQueryDefaultStatsUnique
       ) {
         // Select all stats if it's corrupted or unmodifiable, otherwise exclude implicit stats
-        queryItem.stats = item.stats.map((stat) => (item.corrupted || item.unmodifiable || this.isRelatedToAnImplicitStat(stat)) ? stat : undefined)
+        queryItem.stats = item.stats.map((stat) => (item.corrupted || item.unmodifiable || !this.isRelatedToAnImplicitStat(stat)) ? stat : undefined)
       } else {
         queryItem.stats = item.stats.map((stat) => {
           if (stat.type === StatType.Enchant && settings.evaluateQueryDefaultStatsEnchants) {
@@ -200,6 +200,6 @@ export class EvaluateQueryItemProvider {
   }
 
   private isRelatedToAnImplicitStat(stat: ItemStat): boolean {
-    return stat.type !== StatType.Implicit && !stat.relatedStats?.some(s => this.isRelatedToAnImplicitStat(s))
+    return stat.type === StatType.Implicit && (!stat.relatedStats || stat.relatedStats.some(s => this.isRelatedToAnImplicitStat(s)))
   }
 }

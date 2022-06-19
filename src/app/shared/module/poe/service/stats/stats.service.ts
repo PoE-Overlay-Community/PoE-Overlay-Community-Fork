@@ -235,8 +235,11 @@ export class StatsService {
     for (let index = search.sections.length - 1; index >= 0; --index) {
       const section = search.sections[index]
       // Ignore anything between the special hyphen and the first open-bracket (or the rest of the text if no bracket exists) [e.g. ' — Unscalable Value' or ' — Unscalable Value (implicit)']
-      section.text = section.text.split('\n').map(x => {
-        const splitted = x.split(' — ')
+      section.text = section.text.split('\n').map(statLine => {
+        if (statLine.startsWith('{')) {
+          return statLine
+        }
+        const splitted = statLine.split(' — ')
         let statText = splitted[0]
         const unscalableText = splitted[1]
         if (unscalableText && unscalableText.indexOf('(') !== -1) {
@@ -379,13 +382,14 @@ export class StatsService {
           let genType = StatGenType.Unknown
           const lines = section.text.split('\n')
           const lineIdx = lines.indexOf(matchedText.split('\n')[0])
-          const prevLine = lineIdx > 0 ? lines[lineIdx - 1] : undefined
-          if (prevLine) {
+          const prevLineIdx = lineIdx - 1
+          if (prevLineIdx >= 0) {
+            const prevLine = lines[prevLineIdx]
             if (prevLine.match(prefixRegex) || prevLine.match(craftedPrefixRegex)) {
-              section.text = section.text.replace(prevLine, '')
+              section.text = lines.map((line, idx) => idx === prevLineIdx ? '' : line).join('\n')
               genType = StatGenType.Prefix
             } else if (prevLine.match(suffixRegex) || prevLine.match(craftedSuffixRegex)) {
-              section.text = section.text.replace(prevLine, '')
+              section.text = lines.map((line, idx) => idx === prevLineIdx ? '' : line).join('\n')
               genType = StatGenType.Suffix
             }
           }
