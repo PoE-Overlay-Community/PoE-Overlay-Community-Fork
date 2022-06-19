@@ -200,6 +200,6 @@ export class EvaluateQueryItemProvider {
   }
 
   private isRelatedToAnImplicitStat(stat: ItemStat): boolean {
-    return stat.type === StatType.Implicit && (!stat.relatedStats || stat.relatedStats.some(s => this.isRelatedToAnImplicitStat(s)))
+    return stat.type === StatType.Implicit || (stat.relatedStats?.some(s => this.isRelatedToAnImplicitStat(s)) ?? false)
   }
 }
