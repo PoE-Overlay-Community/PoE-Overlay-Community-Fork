@@ -100,6 +100,8 @@ export enum VendorRecipeType {
   ExaltedShard = 1,
   Gemcutter = 2,
   GlassblowerBauble = 3,
+  Regal = 4,
+  Chance = 5,
 }
 
 export interface VendorRecipeProcessResult {
@@ -137,6 +139,8 @@ export const RecipeItemGroups: { [key: string]: RecipeItemGroup[] } = {
   [VendorRecipeType.ExaltedShard]: ItemSetGroups,
   [VendorRecipeType.Gemcutter]: [RecipeItemGroup.Gems],
   [VendorRecipeType.GlassblowerBauble]: [RecipeItemGroup.Flasks],
+  [VendorRecipeType.Regal]: ItemSetGroups,
+  [VendorRecipeType.Chance]: ItemSetGroups,
 }
 
 const DefaultChaosRecipeSettings: ItemLevelBasedItemSetRecipeUserSettings = {
@@ -364,9 +368,165 @@ const DefaultGlassblowerBaubleSettings: QualityRecipeUserSettings = {
   },
 }
 
+const DefaultRegalRecipeSettings: ItemLevelBasedItemSetRecipeUserSettings = {
+  type: VendorRecipeType.Regal,
+  enabled: true,
+  largeIconId: 'regal',
+  smallIconId: '',
+  itemThreshold: 5,
+  fullSetThreshold: 5,
+  fillGreedy: true,
+  identifiedItemUsage: ItemUsageType.NeverUse,
+  qualityItemUsage: ItemUsageType.CanUse,
+  stashTabSearchMode: StashTabSearchMode.Prefix,
+  stashTabSearchValue: 'Re',
+  showItemAmounts: true,
+  highlightMode: RecipeHighlightMode.ItemByItem,
+  highlightOrder: RecipeHighlightOrder.LargeToSmall,
+  groupWeaponsTogether: true,
+  itemGroupSettings: [
+    {
+      group: RecipeItemGroup.Helmets,
+      showOnOverlay: true,
+      color: Colors.yellow,
+    },
+    {
+      group: RecipeItemGroup.Chests,
+      showOnOverlay: true,
+      color: Colors.magenta,
+    },
+    {
+      group: RecipeItemGroup.Gloves,
+      showOnOverlay: true,
+      color: Colors.lightgreen,
+    },
+    {
+      group: RecipeItemGroup.Boots,
+      showOnOverlay: true,
+      color: Colors.royalblue,
+    },
+    {
+      group: RecipeItemGroup.Belts,
+      showOnOverlay: true,
+      color: Colors.red,
+    },
+    {
+      group: RecipeItemGroup.Amulets,
+      showOnOverlay: true,
+      color: Colors.red,
+    },
+    {
+      group: RecipeItemGroup.Rings,
+      showOnOverlay: true,
+      color: Colors.red,
+    },
+    {
+      group: RecipeItemGroup.TwoHandedWeapons,
+      showOnOverlay: true,
+      color: Colors.cyan,
+    },
+    {
+      group: RecipeItemGroup.OneHandedWeapons,
+      showOnOverlay: true,
+      color: Colors.cyan,
+    },
+  ],
+  recipeCompleteAudio: {
+    enabled: false,
+    volume: 1,
+  },
+  itemThresholdAudio: {
+    enabled: false,
+    volume: 1,
+  },
+  fullSetThresholdAudio: {
+    enabled: false,
+    volume: 1,
+  },
+}
+
+const DefaultChanceRecipeSettings: ItemLevelBasedItemSetRecipeUserSettings = {
+  type: VendorRecipeType.Chance,
+  enabled: true,
+  largeIconId: 'chance',
+  smallIconId: '',
+  itemThreshold: 5,
+  fullSetThreshold: 5,
+  fillGreedy: false,
+  identifiedItemUsage: ItemUsageType.NeverUse,
+  qualityItemUsage: ItemUsageType.CanUse,
+  stashTabSearchMode: StashTabSearchMode.Prefix,
+  stashTabSearchValue: 'Chance',
+  showItemAmounts: true,
+  highlightMode: RecipeHighlightMode.ItemByItem,
+  highlightOrder: RecipeHighlightOrder.LargeToSmall,
+  groupWeaponsTogether: true,
+  itemGroupSettings: [
+    {
+      group: RecipeItemGroup.Helmets,
+      showOnOverlay: true,
+      color: Colors.yellow,
+    },
+    {
+      group: RecipeItemGroup.Chests,
+      showOnOverlay: true,
+      color: Colors.magenta,
+    },
+    {
+      group: RecipeItemGroup.Gloves,
+      showOnOverlay: true,
+      color: Colors.lightgreen,
+    },
+    {
+      group: RecipeItemGroup.Boots,
+      showOnOverlay: true,
+      color: Colors.royalblue,
+    },
+    {
+      group: RecipeItemGroup.Belts,
+      showOnOverlay: true,
+      color: Colors.red,
+    },
+    {
+      group: RecipeItemGroup.Amulets,
+      showOnOverlay: true,
+      color: Colors.red,
+    },
+    {
+      group: RecipeItemGroup.Rings,
+      showOnOverlay: true,
+      color: Colors.red,
+    },
+    {
+      group: RecipeItemGroup.TwoHandedWeapons,
+      showOnOverlay: true,
+      color: Colors.cyan,
+    },
+    {
+      group: RecipeItemGroup.OneHandedWeapons,
+      showOnOverlay: true,
+      color: Colors.cyan,
+    },
+  ],
+  recipeCompleteAudio: {
+    enabled: false,
+    volume: 1,
+  },
+  itemThresholdAudio: {
+    enabled: false,
+    volume: 1,
+  },
+  fullSetThresholdAudio: {
+    enabled: false,
+    volume: 1,
+  },
+}
+
 export const DefaultRecipeSettings: { [key: string]: RecipeUserSettings } = {
   [VendorRecipeType.Chaos]: DefaultChaosRecipeSettings,
   [VendorRecipeType.ExaltedShard]: DefaultExaltedShardRecipeSettings,
   [VendorRecipeType.Gemcutter]: DefaultGemcutterRecipeSettings,
   [VendorRecipeType.GlassblowerBauble]: DefaultGlassblowerBaubleSettings,
+  [VendorRecipeType.Regal]: DefaultRegalRecipeSettings,
+  [VendorRecipeType.Chance]: DefaultChanceRecipeSettings,
 }

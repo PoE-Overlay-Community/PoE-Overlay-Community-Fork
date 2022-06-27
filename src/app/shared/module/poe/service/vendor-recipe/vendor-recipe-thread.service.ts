@@ -7,11 +7,13 @@ import { PoEAccount, PoEStashTab, RecipeUserSettings, StashTabSearchMode, StashT
 import { forkJoin, Observable, of, Subscription } from 'rxjs'
 import { concatAll, flatMap, map } from 'rxjs/operators'
 import { PoEAccountThreadService } from '../account/account-thread.service'
+import { ChanceRecipeProcessorService } from './processors/chance-recipe-processor.service'
 import { ChaosRecipeProcessorService } from './processors/chaos-recipe-processor.service'
 import { ExaltedShardRecipeProcessorService } from './processors/exalted-shard-recipe-processor.service'
 import { GemcutterRecipeProcessorService } from './processors/gemcutter-recipe-processor.service'
 import { GlassblowerRecipeProcessorService } from './processors/glassblower-recipe-processor.service'
 import { RecipeProcessorService } from './processors/recipe-processor.service'
+import { RegalRecipeProcessorService } from './processors/regal-recipe-processor.service'
 
 export const VENDOR_RECIPES = 'vendor-recipes'
 export const GET_VENDOR_RECIPES = 'get-vendor-recipes'
@@ -41,12 +43,16 @@ export class VendorRecipeThreadService implements StashTabsToSearch {
     exaltedShardRecipeProcessor: ExaltedShardRecipeProcessorService,
     gemcutterRecipeProcessor: GemcutterRecipeProcessorService,
     glassblowerRecipeProcessor: GlassblowerRecipeProcessorService,
+    regalRecipeProcessor: RegalRecipeProcessorService,
+    chanceRecipeProcessor: ChanceRecipeProcessorService,
   ) {
     this.recipeProcessors = {
       [VendorRecipeType.Chaos]: chaosRecipeProcessor,
       [VendorRecipeType.ExaltedShard]: exaltedShardRecipeProcessor,
       [VendorRecipeType.Gemcutter]: gemcutterRecipeProcessor,
       [VendorRecipeType.GlassblowerBauble]: glassblowerRecipeProcessor,
+      [VendorRecipeType.Regal]: regalRecipeProcessor,
+      [VendorRecipeType.Chance]: chanceRecipeProcessor,
     }
   }
 

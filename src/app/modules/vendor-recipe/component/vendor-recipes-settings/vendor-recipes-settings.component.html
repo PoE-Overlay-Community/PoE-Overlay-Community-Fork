@@ -55,7 +55,7 @@
 </div>
 <app-card [title]="'vendor-recipe.create-new-settings' | translate">
   <div class="row">
-    <div class="col-3" *ngFor="let vendorRecipeType of vendorRecipeTypes.keys">
+    <div class="col-3" style="padding: 6px;" *ngFor="let vendorRecipeType of vendorRecipeTypes.keys">
       <button mat-raised-button (click)="onAddVendorRecipeSettings(vendorRecipeType)">
         {{ 'vendor-recipe.settings.title.' + (vendorRecipeTypes.values[vendorRecipeType] | lowercase) | translate }}
       </button>

@@ -580,10 +580,12 @@
         "suffix": "A comma-separated list of stash tab name suffixes to be search"
       },
       "title": {
-        "chaos": "Chaos Recipe",
+        "chance": "Chance Orb Recipe",
+        "chaos": "Chaos Orb Recipe",
         "exaltedshard": "Exalted Shards Recipe",
         "gemcutter": "Gemcutter's Prism Recipe",
-        "glassblowerbauble": "Glassblower's Bauble Recipe"
+        "glassblowerbauble": "Glassblower's Bauble Recipe",
+        "regal": "Regal Orb Recipe"
       }
     },
     "name": "Vendor Recipes"

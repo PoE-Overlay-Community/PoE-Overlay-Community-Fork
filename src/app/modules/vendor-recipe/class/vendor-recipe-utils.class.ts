@@ -5,6 +5,8 @@ export abstract class VendorRecipeUtils {
     switch (settings.type) {
       case VendorRecipeType.Chaos:
       case VendorRecipeType.ExaltedShard:
+      case VendorRecipeType.Regal:
+      case VendorRecipeType.Chance:
         return settings as ItemSetRecipeUserSettings
     }
     return undefined
