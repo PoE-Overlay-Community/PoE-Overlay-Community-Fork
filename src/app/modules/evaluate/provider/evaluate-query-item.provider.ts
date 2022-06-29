@@ -49,7 +49,7 @@ export class EvaluateQueryItemProvider {
       queryItem.influences.synthesised = undefined
     }
 
-    if (settings.evaluateQueryDefaultItemLevel) {
+    if (settings.evaluateQueryDefaultItemLevel && queryItem.rarity !== ItemRarity.Unique && queryItem.rarity !== ItemRarity.UniqueRelic) {
       queryItem.level = item.level
     }
 
@@ -116,7 +116,7 @@ export class EvaluateQueryItemProvider {
       }
     }
 
-    if (settings.evaluateQueryDefaultAttack) {
+    if (settings.evaluateQueryDefaultAttack && queryItem.rarity !== ItemRarity.Unique && queryItem.rarity !== ItemRarity.UniqueRelic) {
       queryItem.damage = item.damage
 
       const prop = item.properties
@@ -128,7 +128,7 @@ export class EvaluateQueryItemProvider {
       }
     }
 
-    if (settings.evaluateQueryDefaultDefense) {
+    if (settings.evaluateQueryDefaultDefense && queryItem.rarity !== ItemRarity.Unique && queryItem.rarity !== ItemRarity.UniqueRelic) {
       const prop = item.properties
       if (prop) {
         if (item.category.startsWith(ItemCategory.Armour)) {
