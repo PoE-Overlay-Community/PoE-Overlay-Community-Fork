@@ -19,7 +19,7 @@ describe('ItemSearchAnalyzeService', () => {
   let baseItemTypesService: BaseItemTypesService
   let itemSearchServiceSpy: jasmine.SpyObj<ItemSearchService>
 
-  const mockSearchResult: ItemSearchResult = {
+  const mockSearchResult: TradeSearchResult = {
     searchType: TradeSearchType.NormalTrade,
     id: 'y35jtR',
     hits: [
