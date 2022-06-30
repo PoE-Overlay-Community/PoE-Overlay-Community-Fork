@@ -8,7 +8,7 @@ import { BaseItemTypesService } from '../base-item-types/base-item-types.service
 import { ContextService } from '../context.service'
 import { CurrencyService } from '../currency/currency.service'
 import { ItemSearchAnalyzeService } from './item-search-analyze.service'
-import { ItemSearchListing, ItemSearchResult, ItemSearchService } from './item-search.service'
+import { ItemSearchListing, ItemSearchResult, ItemSearchService, TradeSearchResult } from './item-search.service'
 import moment from 'moment'
 
 describe('ItemSearchAnalyzeService', () => {
@@ -98,7 +98,7 @@ describe('ItemSearchAnalyzeService', () => {
     forkJoin([
       searchService
         .searchOrExchange(requestedItem)
-        .pipe(flatMap((result) => searchService.listTradeSearch(result, 10))),
+        .pipe(flatMap((result) => searchService.listTradeSearch(result as TradeSearchResult, 10))),
       currencyService.searchById('chaos'),
     ]).subscribe(
       (results) => {
