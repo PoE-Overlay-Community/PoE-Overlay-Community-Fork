@@ -29,7 +29,7 @@ describe('ItemExchangeRateService', () => {
   it('should get rate for dev-card item', (done) => {
     const item: Item = {
       category: ItemCategory.Card,
-      typeId: 'DivinationCardHouseOfMirrors',
+      typeId: 'DivinationCardTheTrial',
     }
 
     currencyService
