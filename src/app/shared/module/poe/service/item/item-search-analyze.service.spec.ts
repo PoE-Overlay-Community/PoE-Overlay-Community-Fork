@@ -1,15 +1,15 @@
 import { TestBed } from '@angular/core/testing'
+import { TradeSearchType } from '@data/poe'
 import { Item, Language } from '@shared/module/poe/type'
 import { SharedModule } from '@shared/shared.module'
+import moment from 'moment'
 import { forkJoin, of } from 'rxjs'
 import { flatMap } from 'rxjs/operators'
-import { TradeSearchType } from '@data/poe'
 import { BaseItemTypesService } from '../base-item-types/base-item-types.service'
 import { ContextService } from '../context.service'
 import { CurrencyService } from '../currency/currency.service'
 import { ItemSearchAnalyzeService } from './item-search-analyze.service'
-import { ItemSearchListing, ItemSearchResult, ItemSearchService, TradeSearchResult } from './item-search.service'
-import moment from 'moment'
+import { ItemSearchListing, ItemSearchService, TradeSearchResult } from './item-search.service'
 
 describe('ItemSearchAnalyzeService', () => {
   let sut: ItemSearchAnalyzeService
@@ -65,7 +65,7 @@ describe('ItemSearchAnalyzeService', () => {
   beforeEach((done) => {
     const itemSearchServiceSpyObj = jasmine.createSpyObj('ItemSearchService', [
       'searchOrExchange',
-      'list',
+      'listTradeSearch',
     ])
 
     TestBed.configureTestingModule({
