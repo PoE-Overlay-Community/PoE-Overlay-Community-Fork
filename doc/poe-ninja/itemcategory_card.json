@@ -1,11 +1,12 @@
 {
     "values": [
         {
-            "name": "Hunter's Lesson",
+            "name": "The Trial",
             "type": null,
             "mapTier": 0,
             "links": 0,
-			"prophecyText":"You will slay a powerful foe and gain its powers.",
+			"prophecyText": null,
+			"flavourText": "You cannot journey to new lands until you have the courage to leave the safety of home.",
             "relic": false,
             "change": 0,
             "history": [
@@ -18,7 +19,7 @@
                 0
             ],
             "chaosAmount": 1,
-            "url": "https://poe.ninja/challenge/prophecies"
+            "url": "https://poe.ninja/challenge/divination-cards"
         }
     ]
 }

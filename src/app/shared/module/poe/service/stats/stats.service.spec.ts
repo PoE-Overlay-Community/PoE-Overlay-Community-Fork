@@ -25,7 +25,7 @@ describe('StatsService', () => {
       // implicit
       '+2 to Level of Socketed Curse Gems (implicit)',
       // explicit
-      'Grants Level 20 Death Aura Skill\n' +
+      'Trigger Level 20 Death Aura when Equipped\n' +
         '+42 to all Attributes\n' +
         '13% increased Attack Speed\n' +
         '183% increased Armour\n' +

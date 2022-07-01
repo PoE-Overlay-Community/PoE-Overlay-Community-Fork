@@ -101,7 +101,7 @@ export class PoEHttpService {
   }
 
   public getStashTabInfo(accountName: string, leagueId: string, language: Language): Observable<ApiStashTabNames | ApiErrorResponse> {
-    const url = this.getPoEUrl(`character-window/get-stash-items?tabs=1&realm=pc&league=${encodeURIComponent(leagueId)}&accountName=${encodeURIComponent(accountName)}`, language)
+    const url = this.getPoEUrl(`character-window/get-stash-items?tabs=1&tabIndex=0&realm=pc&league=${encodeURIComponent(leagueId)}&accountName=${encodeURIComponent(accountName)}`, language)
     return this.getAndParse('stash-tab-names', url)
   }
 

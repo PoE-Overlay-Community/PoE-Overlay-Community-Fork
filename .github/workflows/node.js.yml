@@ -12,7 +12,7 @@ on:
 jobs:
   build:
 
-    runs-on: windows-latest
+    runs-on: windows-2019
 
     strategy:
       matrix:
@@ -25,4 +25,8 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - run: npm ci
+      env:
+        NODE_OPTIONS: "--max-old-space-size=7168"
     - run: npm run ng:test:ci
+      env:
+        NODE_OPTIONS: "--max-old-space-size=7168"
