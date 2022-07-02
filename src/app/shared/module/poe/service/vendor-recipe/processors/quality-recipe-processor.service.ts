@@ -72,6 +72,7 @@ export abstract class QualityRecipeProcessorService extends RecipeProcessorServi
         let lastItem = undefined
         for (let i = 0; i < recipe.length; i++) {
           const mappedItems = recipe
+            .slice(i)
             .map((x) => ({ distanceToLastItem: this.calcDistance(lastItem, x), distanceToOrigin: this.calcDistance(undefined, x), item: x }))
             .sort((a, b) => a.distanceToLastItem === b.distanceToLastItem ? a.distanceToOrigin - b.distanceToOrigin : a.distanceToLastItem - b.distanceToLastItem)
           const idx = recipe.findIndex(x => x.source.id === mappedItems[0].item.source.id)
