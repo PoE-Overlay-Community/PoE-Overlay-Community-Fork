@@ -22,3 +22,11 @@
   color: rgba(200, 200, 200, 0.87);
   border-top: 1px solid rgba(200, 200, 200, 0.12);
 }
+
+.loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgba(200, 200, 200, 0.87);
+}
