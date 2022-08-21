@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.8.19 (2022-08-21)
+
+- Updated item parser and query to remove sentinel mods
+
 ## 0.8.18 (2022-06-17)
 
 - Updated PoE Assets to support additional mods for 3.18.1
