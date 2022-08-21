@@ -41,7 +41,6 @@ export class EvaluateQueryItemProvider {
         heist: {
           requiredSkills: [],
         },
-        sentinel: {},
       },
       requirements: {},
       sockets: new Array((item.sockets || []).length).fill({}),
@@ -85,24 +84,6 @@ export class EvaluateQueryItemProvider {
         queryHeist.wingsRevealed = heist.wingsRevealed
         queryHeist.escapeRoutes = heist.escapeRoutes
         queryHeist.rewardRooms = heist.rewardRooms
-      }
-    }
-
-    const sentinel = item.properties?.sentinel
-    if (sentinel) {
-      const querySentinel = queryItem.properties.sentinel
-      if (settings.evaluateQueryDefaultSentinelCharges) {
-        querySentinel.durability = sentinel.durability
-        querySentinel.maxDurability = sentinel.maxDurability
-      }
-      if (settings.evaluateQueryDefaultSentinelDuration) {
-        querySentinel.duration = sentinel.duration
-      }
-      if (settings.evaluateQueryDefaultSentinelEnemies) {
-        querySentinel.enemiesEmpowered = sentinel.enemiesEmpowered
-      }
-      if (settings.evaluateQueryDefaultSentinelEmpowerment) {
-        querySentinel.empowerment = sentinel.empowerment
       }
     }
 

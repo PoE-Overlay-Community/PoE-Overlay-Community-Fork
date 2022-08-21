@@ -13,7 +13,6 @@ import { ItemSectionProphecyParserService } from './item-section-prophecy-parser
 import { ItemSectionRarityParserService } from './item-section-rarity-parser.service'
 import { ItemSectionRelicParserService } from './item-section-relic-parser.service'
 import { ItemSectionRequirementsParserService } from './item-section-requirements-parser.service'
-import { ItemSectionSentinelParserService } from './item-section-sentinel-parser.service'
 import { ItemSectionSocketsParserService } from './item-section-sockets-parser.service'
 import { ItemSectionSpecialStatsParserService } from './item-section-special-stats-parser.service'
 import { ItemSectionStatsParserService } from './item-section-stats-parser.service'
@@ -47,7 +46,6 @@ export class ItemParserService {
     itemSectionIncursionParserService: ItemSectionIncursionParserService,
     itemSectionHeistParserService: ItemSectionHeistParserService,
     itemSectionSpecialStatsParserService: ItemSectionSpecialStatsParserService,
-    itemSectionSentinelParserService: ItemSectionSentinelParserService,
   ) {
     this.parsers = [
       itemSectionRarityParser,
@@ -59,8 +57,6 @@ export class ItemParserService {
       itemSectionRelicParserService, // Parse prior to Properties
       itemSectionIncursionParserService, // Parse prior to Properties
       itemSectionHeistParserService, // Parse prior to Properties
-      itemSectionSentinelParserService, // Parse prior to Properties
-      itemSectionSentinelParserService, // Parse Sentinel a second time since properties are across multiple section. - Parse prior to Properties
       itemSectionPropertiesParserService,
       itemSectionFlaskParserService, // Properties have to be parsed first in case the Flask Parser contains Quality.
       itemSectionProphecyParserService, // Properties have to be parsed first in case the Prophecy Parser needs to adjust some properties.

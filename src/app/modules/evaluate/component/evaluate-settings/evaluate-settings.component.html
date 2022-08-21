@@ -305,28 +305,6 @@
             </mat-slide-toggle>
           </div>
 
-          <label class="label">{{ 'evaluate.search.item-specific-property.sentinel' | translate }}</label>
-          <div class="toggle">
-            <mat-slide-toggle [checked]="settings.evaluateQueryDefaultSentinelCharges"
-                              (change)="settings.evaluateQueryDefaultSentinelCharges = $event.checked">
-              {{ 'evaluate.search.sentinel.charges' | translate }}
-            </mat-slide-toggle>
-            <mat-slide-toggle [checked]="settings.evaluateQueryDefaultSentinelDuration"
-                              (change)="settings.evaluateQueryDefaultSentinelDuration = $event.checked">
-              {{ 'evaluate.search.sentinel.duration' | translate }}
-            </mat-slide-toggle>
-            <mat-slide-toggle [checked]="settings.evaluateQueryDefaultSentinelEnemies"
-                              (change)="settings.evaluateQueryDefaultSentinelEnemies = $event.checked">
-              {{ 'evaluate.search.sentinel.enemies-empowered' | translate }}
-            </mat-slide-toggle>
-          </div>
-          <div class="toggle">
-            <mat-slide-toggle [checked]="settings.evaluateQueryDefaultSentinelEmpowerment"
-                              (change)="settings.evaluateQueryDefaultSentinelEmpowerment = $event.checked">
-              {{ 'evaluate.search.sentinel.empowerment' | translate }}
-            </mat-slide-toggle>
-          </div>
-
           <label class="label">{{ 'evaluate.search.item-specific-property.ultimatum' | translate }}</label>
           <div class="toggle">
             <mat-slide-toggle [checked]="settings.evaluateQueryDefaultUltimatum"

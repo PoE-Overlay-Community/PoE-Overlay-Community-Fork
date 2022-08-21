@@ -8,7 +8,6 @@ import { ItemFrameInfluencesComponent } from './component/item-frame-influences/
 import { ItemFrameLevelRequirementsComponent } from './component/item-frame-level-requirements/item-frame-level-requirements.component'
 import { ItemFramePropertiesHeistComponent } from './component/item-frame-properties-heist/item-frame-properties-heist.component'
 import { ItemFramePropertiesIncursionComponent } from './component/item-frame-properties-incursion/item-frame-properties-incursion.component'
-import { ItemFramePropertiesSentinelComponent } from './component/item-frame-properties-sentinel/item-frame-properties-sentinel.component'
 import { ItemFramePropertiesUltimatumComponent } from './component/item-frame-properties-ultimatum/item-frame-properties-ultimatum.component'
 import { ItemFramePropertiesComponent } from './component/item-frame-properties/item-frame-properties.component'
 import { ItemFrameQueryComponent } from './component/item-frame-query/item-frame-query.component'
@@ -48,7 +47,6 @@ import { WordPipe } from './pipe/word.pipe'
     ItemFramePropertiesUltimatumComponent,
     ItemFramePropertiesIncursionComponent,
     ItemFramePropertiesHeistComponent,
-    ItemFramePropertiesSentinelComponent,
     ItemFrameSocketsComponent,
     ItemFrameLevelRequirementsComponent,
     ItemFrameStatsComponent,
