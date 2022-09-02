@@ -16,6 +16,7 @@
         <mat-icon class="incomingArrow" matTooltip="{{ 'trade-companion.trade-notification.incoming-trade' | translate }}">forward</mat-icon>
         <ng-container *ngTemplateOutlet="offerAndTimeTemplate"></ng-container>
         <mat-icon class="inviteToParty clickable" (click)="inviteToPartyClick()" matTooltip="{{ 'trade-companion.trade-notification.invite-to-party' | translate }}">add_circle_outline</mat-icon>
+        <mat-icon class="highlight clickable" (click)="highlightClick()" matTooltip="{{ 'trade-companion.trade-notification.highlight' | translate }}">search</mat-icon>
         <ng-container *ngTemplateOutlet="requestTradeTemplate"></ng-container>
         <mat-icon class="kickFromParty clickable" (click)="kickFromPartyClick()" matTooltip="{{ 'trade-companion.trade-notification.kick-from-party' | translate }}">remove_circle_outline</mat-icon>
       </ng-container>
