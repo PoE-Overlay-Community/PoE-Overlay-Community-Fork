@@ -144,9 +144,9 @@ export class EvaluateSearchComponent implements OnInit, OnDestroy {
     }
   }
 
-  public onAmountSelect(amount: number, currency?: Currency): void {
+  public onAmountSelect(amount: number, currency?: Currency, numerator?: number, denominator?: number): void {
     currency = currency || this.result$.value.currency
-    this.evaluateResult.next({ amount, currency })
+    this.evaluateResult.next({ amount, currency, numerator: numerator, denominator: denominator })
   }
 
   public useWideViewport(): boolean {
