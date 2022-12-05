@@ -19,7 +19,7 @@ describe('ItemPricePredictionService', () => {
       min: 1,
       max: 2,
       currency: 'exalt',
-      currencyId: 'exa',
+      currencyId: 'exalted',
       score: 1,
     }
     const mockObservable = from(Promise.resolve(result))

@@ -9,7 +9,7 @@ import { CacheExpirationType } from '@shared/module/poe/type'
 export interface ItemPricePrediction {
   min: number
   max: number
-  currency: 'chaos' | 'exalt'
+  currency: 'chaos' | 'exalt' | 'divine'
   currencyId: string
   score: number
 }
@@ -35,7 +35,7 @@ export class ItemPricePredictionProvider {
           () =>
             this.http.get(leagueId, stringifiedItem).pipe(
               map((response) => {
-                const currencyId = response.currency === 'exalt' ? 'exa' : response.currency
+                const currencyId = response.currency === 'exalt' ? 'exalted' : response.currency
                 const result: ItemPricePrediction = {
                   currencyId,
                   currency: response.currency,

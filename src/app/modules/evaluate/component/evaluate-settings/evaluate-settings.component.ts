@@ -119,7 +119,7 @@ export class EvaluateSettingsComponent implements UserSettingsComponent {
 
   public onCurrenciesValueChange(): void {
     if (this.settings.evaluateCurrencyIds.length <= 0) {
-      this.settings.evaluateCurrencyIds = ['chaos', 'exa']
+      this.settings.evaluateCurrencyIds = ['chaos', 'divine']
     }
   }
 

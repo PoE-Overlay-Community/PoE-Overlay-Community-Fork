@@ -19,7 +19,7 @@ export interface ItemPricePredictionResult {
 export interface ItemPricePredictionResultId {
   leagueId: string
   source: string
-  currency: 'chaos' | 'exalt'
+  currency: 'chaos' | 'exalt' | 'divine'
   min: number
   max: number
 }
