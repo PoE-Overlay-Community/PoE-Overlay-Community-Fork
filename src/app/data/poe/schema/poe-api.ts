@@ -38,6 +38,7 @@ export interface TradeItemsEntryFlags {
 export interface TradeLeaguesResult {
   id: string
   text: string
+  realm: string
 }
 
 export interface TradeStaticResult {
