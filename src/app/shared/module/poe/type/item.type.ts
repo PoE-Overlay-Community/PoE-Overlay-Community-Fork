@@ -99,6 +99,7 @@ export enum ItemCategory {
   MapScarab = 'map.scarab',
   Watchstone = 'watchstone',
   Leaguestone = 'leaguestone',
+  MemoryLine = 'memoryline',
   Prophecy = 'prophecy',
   Card = 'card',
   MonsterBeast = 'monster.beast',

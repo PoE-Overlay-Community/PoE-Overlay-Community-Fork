@@ -3,6 +3,7 @@
 ## 0.8.20 (2022-12-04)
 
 - Updated PoE Assets to support 3.19.2b (Kalandra League)
+- Added support for the 'Memory Line' item category
 
 ## 0.8.19 (2022-08-21)
 
