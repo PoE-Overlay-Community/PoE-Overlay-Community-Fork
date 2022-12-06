@@ -134,7 +134,10 @@ export class ItemSearchFiltersTypeService implements ItemSearchFiltersService {
       case ItemCategory.GemActivegem:
       case ItemCategory.GemSupportGem:
       case ItemCategory.GemSupportGemplus:
+      // leaguestone
       case ItemCategory.Leaguestone:
+      // memoryline
+      case ItemCategory.MemoryLine:
       // currency
       case ItemCategory.Currency:
       case ItemCategory.CurrencyPiece:
