@@ -9,6 +9,7 @@
 - Replaced 'exa' with 'divine' in the list of default evaluation currency settings
 - Fixed an issue with the setting's league list (i.e. added a realm=pc filter)
 - Fixed an issue with 'Unmodifiable' evaluation
+- Fixed an issue with the bulk trade message regex
 
 ## 0.8.19 (2022-08-21)
 
