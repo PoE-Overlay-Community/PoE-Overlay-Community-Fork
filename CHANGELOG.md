@@ -8,6 +8,7 @@
 - Added 'divine' currency to the list of possible currencies for poe price predictions
 - Replaced 'exa' with 'divine' in the list of default evaluation currency settings
 - Fixed an issue with the setting's league list (i.e. added a realm=pc filter)
+- Fixed an issue with 'Unmodifiable' evaluation
 
 ## 0.8.19 (2022-08-21)
 

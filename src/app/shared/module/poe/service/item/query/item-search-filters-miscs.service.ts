@@ -25,7 +25,7 @@ export class ItemSearchFiltersMiscsService implements ItemSearchFiltersService {
     }
 
     query.filters.misc_filters.filters.corrupted = {
-      option: `${!!item.corrupted || !!item.unmodifiable}`,
+      option: `${!!item.corrupted}`,
     }
 
     if (item.unidentified) {
