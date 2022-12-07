@@ -10,6 +10,7 @@
 - Fixed an issue with the setting's league list (i.e. added a realm=pc filter)
 - Fixed an issue with 'Unmodifiable' evaluation
 - Fixed an issue with the bulk trade message regex
+- Fixed an issue with Metamorph Samples returning almost no results due to the item name being used as a search term
 
 ## 0.8.19 (2022-08-21)
 

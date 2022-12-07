@@ -178,7 +178,9 @@ export class ItemSearchFiltersTypeService implements ItemSearchFiltersService {
           option: item.category,
         }
         if (item.rarity === ItemRarity.Unique || item.rarity === ItemRarity.UniqueRelic) {
+          query.term = undefined
           query.name = undefined
+          query.type = undefined
         }
         break
       // prophecy
