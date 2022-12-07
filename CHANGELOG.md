@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.8.20 (2022-12-04)
+## 0.8.20 (TBD)
 
 - Updated PoE Assets to support 3.19.2b (Kalandra League)
 - Added support for the 'Memory Line' item category
