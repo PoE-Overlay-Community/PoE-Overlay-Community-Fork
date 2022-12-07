@@ -206,6 +206,7 @@ export class ItemCategoryValuesProvider {
         const seedKey = `${leagueId}_${ItemCategory.CurrencySeed}`
         return this.fetch(seedKey, () => this.fetchItem(leagueId, ItemOverviewType.Seed))
       case ItemCategory.Leaguestone:
+      case ItemCategory.MemoryLine:
       case ItemCategory.MonsterSample:
       case ItemCategory.CurrencyPiece:
       case ItemCategory.CurrencySeedBooster:
@@ -220,6 +221,9 @@ export class ItemCategoryValuesProvider {
       case ItemCategory.HeistContract:
       case ItemCategory.HeistBlueprint:
       case ItemCategory.ExpeditionLogbook:
+        return of({ values: [] })
+      default:
+        console.warn(`Missing ItemCategory case for '${category}'`)
         return of({ values: [] })
     }
   }

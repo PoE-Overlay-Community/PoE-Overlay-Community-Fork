@@ -29,10 +29,18 @@ export class MapService {
         flatMap((result) => {
           switch (result.code) {
             case ItemClipboardResultCode.Success:
-              if (result.item.category !== ItemCategory.Map && result.item.category !== ItemCategory.MapInvitation) {
-                return this.snackbar.warning('map.no-map')
+              switch (result.item.category) {
+                case ItemCategory.Map:
+                case ItemCategory.MapInvitation:
+                case ItemCategory.ExpeditionLogbook:
+                  return this.dialogService.open(result.point, result.item, settings)
+                case ItemCategory.MapFragment:
+                  if (result.item.level || result.item.stats.length > 0) {
+                    return this.dialogService.open(result.point, result.item, settings)
+                  }
+                  break
               }
-              return this.dialogService.open(result.point, result.item, settings)
+              return this.snackbar.warning('map.no-map')
             case ItemClipboardResultCode.Empty:
               return this.snackbar.warning('clipboard.empty')
             case ItemClipboardResultCode.ParserError:

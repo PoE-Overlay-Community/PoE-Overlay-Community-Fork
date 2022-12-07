@@ -42,7 +42,7 @@ export class ItemPricePredictionHttpService {
     selector: 'fair' | 'high' | 'low',
     min: number,
     max: number,
-    currencyId: 'chaos' | 'exalt'
+    currencyId: 'chaos' | 'exalt' | 'divine'
   ): Observable<string> {
     const form = new FormData()
     form.set('league', leagueId)

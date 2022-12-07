@@ -89,6 +89,14 @@ export class ItemSectionRarityParserService implements ItemSectionParserService 
       target.blighted = true
     }
 
+    // Check for blight-ravaged map
+    const blightRavagedMapItemNameDisplay = this.clientString
+      .translate('UberInfectedMap')
+      .replace('{0}', this.baseItemTypesService.translate(target.typeId))
+    if (target.type === blightRavagedMapItemNameDisplay) {
+      target.blightRavaged = true
+    }
+
     // Check for metamorph samples
     const metamorphSamplePhrase = this.clientString.translate('MetamorphosisItemisedMapBoss')
 

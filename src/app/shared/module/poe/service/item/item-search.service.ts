@@ -1,20 +1,21 @@
 import { Injectable } from '@angular/core'
+import { MathUtils } from '@app/class'
 import { CacheService, LoggerService } from '@app/service'
 import {
-  ExchangeSearchRequest,
-  TradeFetchResult,
-  PoEHttpService,
-  TradeSearchRequest,
-  TradeSearchType,
+    ExchangeEngine,
+    ExchangeFetchResult, ExchangeSearchRequest, PoEHttpService, TradeFetchResult, TradeSearchRequest,
+    TradeSearchType
 } from '@data/poe'
+import { environment } from '@env/environment'
 import { Currency, Item, ItemCategory, Language } from '@shared/module/poe/type'
 import moment from 'moment'
 import { forkJoin, from, Observable, of } from 'rxjs'
-import { flatMap, map, mergeMap, toArray } from 'rxjs/operators'
+import { catchError, flatMap, map, toArray } from 'rxjs/operators'
 import { ItemSearchIndexed, ItemSearchOptions } from '../../type/search.type'
 import { BaseItemTypesService } from '../base-item-types/base-item-types.service'
 import { ContextService } from '../context.service'
 import { CurrencyService } from '../currency/currency.service'
+import { ItemParserUtils } from './parser/item-parser.utils'
 import { ItemSearchQueryService } from './query/item-search-query.service'
 
 const MAX_FETCH_PER_REQUEST_COUNT = 10
@@ -30,14 +31,25 @@ export interface ItemSearchListing {
   priceDenominator: number
 }
 
-export interface ItemSearchResult {
+export interface SearchResult {
   searchType: TradeSearchType
   id: string
   language: Language
   url: string
   total: number
+}
+
+export interface TradeSearchResult extends SearchResult {
   hits: string[]
 }
+
+export interface ExchangeSearchResult extends SearchResult {
+  hits: {
+    [key: string]: ExchangeFetchResult
+  }
+}
+
+export type ItemSearchResult = TradeSearchResult | ExchangeSearchResult
 
 @Injectable({
   providedIn: 'root',
@@ -78,7 +90,7 @@ export class ItemSearchService {
     return this.search(requestedItem, options)
   }
 
-  public list(search: ItemSearchResult, fetchCount: number): Observable<ItemSearchListing[]> {
+  public listTradeSearch(search: TradeSearchResult, fetchCount: number): Observable<ItemSearchListing[]> {
     const { id, language, hits } = search
 
     const maxFetchCount = Math.min(fetchCount, hits.length)
@@ -98,7 +110,7 @@ export class ItemSearchService {
       )
     })
 
-    return this.cache.clear('item_listing_').pipe(
+    return this.cache.prune('item_listing_').pipe(
       flatMap(() => forkJoin(retrievedHits$)),
       flatMap((retrievedHits) => {
         const hitsChunked: string[][] = []
@@ -131,7 +143,7 @@ export class ItemSearchService {
               const key = `item_listing_${language}_${result.id}`
               return this.cache
                 .store(key, result, CACHE_EXPIRY, false)
-                .pipe(flatMap(() => this.mapResult(result)))
+                .pipe(flatMap(() => this.mapTradeFetchResult(result)))
             })
 
             return forkJoin(listings$).pipe(
@@ -143,7 +155,56 @@ export class ItemSearchService {
     )
   }
 
-  private search(requestedItem: Item, options: ItemSearchOptions): Observable<ItemSearchResult> {
+  public listExchangeSearch(search: ExchangeSearchResult, fetchCount: number): Observable<ItemSearchListing[]> {
+    const { language } = search
+    const hits = Object.keys(search.hits)
+
+    const maxFetchCount = Math.min(fetchCount, hits.length)
+    const maxHits = hits.slice(0, maxFetchCount)
+    if (maxHits.length <= 0) {
+      return of([])
+    }
+
+    // check cache for values of items about to be searched
+    const retrievedHits$ = maxHits.map((hit) => {
+      const key = `item_listing_${language}_${hit}`
+      return this.cache.retrieve<ExchangeFetchResult>(key).pipe(
+        map((value) => {
+          // value will be null or undefined if not in cache
+          return { id: hit, value }
+        })
+      )
+    })
+
+    return this.cache.prune('item_listing_').pipe(
+      flatMap(() => forkJoin(retrievedHits$)),
+      flatMap((retrievedHits) => {
+        const hitsMissing = retrievedHits.filter((x) => !x.value)
+        const hitsCached = retrievedHits.filter((x) => x.value)
+
+        this.logger.debug(
+          `missing hits: ${hitsMissing.length}, cached hits: ${hitsCached.length}` +
+          ` - saved: ${Math.round((hitsCached.length / maxHits.length) * 100)}%`
+        )
+
+        const listings$ = retrievedHits.map((result) => {
+          const key = `item_listing_${language}_${result.id}`
+          if (!result.value) {
+            result.value = search.hits[result.id]
+          }
+          return this.cache
+            .store(key, result.value, CACHE_EXPIRY, false)
+            .pipe(flatMap(() => this.mapExchangeFetchResult(result.value)))
+        })
+
+        return forkJoin(listings$).pipe(
+          map((listings) => listings.filter((x) => x !== undefined))
+        )
+      })
+    )
+  }
+
+  private search(requestedItem: Item, options: ItemSearchOptions): Observable<TradeSearchResult> {
     const request: TradeSearchRequest = {
       sort: {
         price: 'asc',
@@ -178,7 +239,7 @@ export class ItemSearchService {
     return this.poeHttpService.search(request, language, leagueId).pipe(
       map((response) => {
         const { id, url, total } = response
-        const result: ItemSearchResult = {
+        const result: TradeSearchResult = {
           searchType: response.searchType,
           id,
           language,
@@ -205,14 +266,13 @@ export class ItemSearchService {
       )
       .pipe(
         flatMap((requestedCurrency) => {
+          // Fall-back to normal search when the requested currency can't be found or is invalid
           if (!requestedCurrency) {
             return this.search(requestedItem, options)
           }
 
           const request: ExchangeSearchRequest = {
-            sort: {
-              price: 'asc',
-            },
+            engine: ExchangeEngine.New,
             exchange: {
               status: {
                 option: online ? 'online' : 'any',
@@ -225,22 +285,29 @@ export class ItemSearchService {
           return this.poeHttpService.exchange(request, language, leagueId).pipe(
             map((response) => {
               const { id, url, total } = response
-              const result: ItemSearchResult = {
+              const result: ExchangeSearchResult = {
                 searchType: response.searchType,
                 id,
                 language,
                 url,
                 total,
-                hits: response.result || [],
+                hits: response.result || {},
               }
               return result
+            }),
+            catchError(err => {
+              if (!environment.production) {
+                console.log(`Failed to retrieve BulkExchange result for '${requestedCurrency.nameType}' Error:`)
+                console.log(err)
+              }
+              return this.search(requestedItem, options)
             })
           )
         })
       )
   }
 
-  private mapResult(result: TradeFetchResult): Observable<ItemSearchListing> {
+  private mapTradeFetchResult(result: TradeFetchResult): Observable<ItemSearchListing> {
     if (
       !result ||
       !result.listing ||
@@ -277,11 +344,17 @@ export class ItemSearchService {
     let priceDenominator = 1
 
     const { note } = item
-    const priceFraction =
-      note?.replace(price.type, '').replace(price.currency, '').trim().split('/') || []
-    if (priceFraction.length === 2) {
-      priceNumerator = +priceFraction[0]
-      priceDenominator = +priceFraction[1]
+    const notePrice = note?.replace(price.type, '').replace(price.currency, '').trim()
+    if (notePrice) {
+      if (notePrice.indexOf('/') !== -1) {
+        const priceFraction = notePrice.split('/') || []
+        if (priceFraction.length === 2) {
+          priceNumerator = ItemParserUtils.parseNumber(priceFraction[0])
+          priceDenominator = ItemParserUtils.parseNumber(priceFraction[1])
+        }
+      } else if (notePrice.indexOf('.') !== -1 || notePrice.indexOf(',') !== -1) {
+        priceNumerator = ItemParserUtils.parseDecimalNumber(notePrice, notePrice.split(/[.,]+/)[1].length)
+      }
     }
 
     const currencyId = price.currency
@@ -291,7 +364,7 @@ export class ItemSearchService {
           this.logger.warn(`Could not parse '${currencyId}' as currency.`)
           return undefined
         }
-        return {
+        const result: ItemSearchListing =  {
           seller,
           indexed,
           currency,
@@ -300,6 +373,72 @@ export class ItemSearchService {
           priceNumerator,
           priceDenominator,
         }
+        return result
+      })
+    )
+  }
+
+  private mapExchangeFetchResult(result: ExchangeFetchResult): Observable<ItemSearchListing> {
+    if (
+      !result ||
+      !result.id ||
+      !result.listing ||
+      !result.listing.account ||
+      !result.listing.indexed ||
+      !result.listing.offers ||
+      result.listing.offers.length === 0 ||
+      !result.listing.offers.some(x => x.item.id === result.id)
+    ) {
+      this.logger.warn(`Result was invalid.`, result)
+      return of(undefined)
+    }
+
+    const { id, listing } = result
+    const offer = listing.offers.find(x => x.item.id === id)
+
+    const indexed = moment(listing.indexed)
+    if (!indexed.isValid()) {
+      this.logger.warn(`Indexed value: '${listing.indexed}' was not a valid date.`)
+      return of(undefined)
+    }
+
+    const seller = listing.account.name || ''
+    if (seller.length <= 0) {
+      this.logger.warn(`Seller: '${seller}' was empty or undefined.`)
+      return of(undefined)
+    }
+
+    const { currency, amount } = offer.exchange
+
+    const priceNumerator = amount
+    const priceDenominator = offer.item.amount
+
+    if (priceNumerator <= 0) {
+      this.logger.warn(`Exchange amount was less or equal zero. Seller: ${seller}`)
+      return of(undefined)
+    }
+
+    if (priceDenominator <= 0) {
+      this.logger.warn(`Offer Amount was less or equal zero. Seller: ${seller}`)
+      return of(undefined)
+    }
+
+    return this.currencyService.searchById(currency).pipe(
+      map((currency) => {
+        if (!currency) {
+          this.logger.warn(`Could not parse '${currency}' as currency.`)
+          return undefined
+        }
+        const result: ItemSearchListing = {
+          seller,
+          indexed,
+          currency,
+          amount: MathUtils.floor((priceNumerator / priceDenominator), MathUtils.significantDecimalCount(priceNumerator, priceDenominator)),
+          age: indexed.fromNow(),
+          priceNumerator,
+          priceDenominator,
+        }
+        return result
       })
     )
   }

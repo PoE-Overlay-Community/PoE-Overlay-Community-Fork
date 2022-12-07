@@ -120,3 +120,73 @@ mat-card {
     max-width: 600px;
   }
 }
+
+.mod-icon {
+  width: 16px;
+  height: 16px;
+  transform: translateY(3px);
+  display: inline-block;
+
+  &.shaper {
+    background-image: url('assets/poe/item/mod-icons/shaper-icon.png');
+    background-size: contain;
+  }
+
+  &.elder {
+    background-image: url('assets/poe/item/mod-icons/elder-icon.png');
+    background-size: contain;
+  }
+
+  &.crusader {
+    background-image: url('assets/poe/item/mod-icons/crusader-icon.png');
+    background-size: contain;
+  }
+
+  &.redeemer {
+    background-image: url('assets/poe/item/mod-icons/redeemer-icon.png');
+    background-size: contain;
+  }
+
+  &.hunter {
+    background-image: url('assets/poe/item/mod-icons/hunter-icon.png');
+    background-size: contain;
+  }
+
+  &.warlord {
+    background-image: url('assets/poe/item/mod-icons/warlord-icon.png');
+    background-size: contain;
+  }
+
+  &.delve {
+    background-image: url('assets/poe/item/mod-icons/minimap-icons.png');
+    background-position-x: -48px;
+    background-position-y: -48px;
+    background-size: 224px 704px;
+  }
+
+  &.incursion {
+    background-image: url('assets/poe/item/mod-icons/minimap-icons.png');
+    background-position-x: -208px;
+    background-position-y: -32px;
+    background-size: 224px 704px;
+  }
+
+  &.veiled {
+    background-image: url('assets/poe/item/mod-icons/veiled-icon.png');
+    background-size: contain;
+  }
+
+  &.essence {
+    background-image: url('assets/poe/item/mod-icons/minimap-icons.png');
+    background-position-x: -208px;
+    background-position-y: -16px;
+    background-size: 224px 704px;
+  }
+
+  &.bestiary {
+    background-image: url('assets/poe/item/mod-icons/minimap-icons.png');
+    background-position-x: -96px;
+    background-position-y: -32px;
+    background-size: 224px 704px;
+  }
+}

@@ -34,6 +34,7 @@ const MAP_TIER_REGEXES: LangRegExp[] = [
   { language: Language.Spanish, regex: new RegExp('\\(G(?<tier>\\S+)\\)') },
   { language: Language.Korean, regex: new RegExp('\\(T(?<tier>\\S+)\\)') },
   { language: Language.TraditionalChinese, regex: new RegExp('\\(T(?<tier>\\S+)\\)') },
+  { language: Language.Japanese, regex: new RegExp('\\(T(?<tier>\\S+)\\)') },
 ]
 
 const TIERLESS_MAPS = ['MapWorldsChimera', 'MapWorldsHydra', 'MapWorldsMinotaur', 'MapWorldsPhoenix']
@@ -366,15 +367,23 @@ export class TradeNotificationsService {
         }
 
         // Check for blighted map
-        let blighted = ''
+        let suffix = ''
         const blightedMapItemNameDisplay = this.clientString
           .translate('InfectedMap')
           .replace('{0}', baseItemType.names[language])
         if (item.startsWith(blightedMapItemNameDisplay)) {
-          blighted = '&mb=1'
+          suffix = '&mb=1'
         }
 
-        return `/image/${baseItemType.image}.png?w=1&h=1&scale=1&mn=${MAP_GENERATION_ID}&mt=${tier}${blighted}`
+        // Check for blight-ravaged map
+        const blightRavagedMapItemNameDisplay = this.clientString
+          .translate('UberInfectedMap')
+          .replace('{0}', baseItemType.names[language])
+        if (item.startsWith(blightRavagedMapItemNameDisplay)) {
+          suffix = '&mb=2'
+        }
+
+        return `/image/${baseItemType.image}.png?w=1&h=1&scale=1&mn=${MAP_GENERATION_ID}&mt=${tier}${suffix}`
     }
     return null
   }

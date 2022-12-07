@@ -3,11 +3,11 @@ import { Item, Language } from '@shared/module/poe/type'
 import { SharedModule } from '@shared/shared.module'
 import { BaseItemTypesService } from '../base-item-types/base-item-types.service'
 import { ContextService } from '../context.service'
-import { ItemSearchService } from './item-search.service'
+import { ItemSearchService, TradeSearchResult } from './item-search.service'
 import {
   TradeFetchResult,
   PoEHttpService,
-  TradeOrExchangeSearchResponse,
+  TradeSearchResponse,
   TradeResponse,
   TradeSearchType,
 } from '@data/poe'
@@ -21,7 +21,7 @@ describe('ItemSearchService', () => {
 
   const mockLeagues: any = require('doc/poe/api_trade_data_leagues.json')
   const mockStatic: any = require('doc/poe/api_trade_data_static.json')
-  const mockSearchResult: TradeOrExchangeSearchResponse = {
+  const mockSearchResult: TradeSearchResponse = {
     searchType: TradeSearchType.NormalTrade,
     id: 'y35jtR',
     result: [
@@ -97,7 +97,6 @@ describe('ItemSearchService', () => {
       typeId: baseItemTypesService.searchId('Topaz Ring', 1),
     }
     tradeServiceSpy.search.and.returnValue(of(mockSearchResult))
-    tradeServiceSpy.exchange.and.returnValue(of(mockSearchResult))
 
     sut.searchOrExchange(requestedItem, { language: Language.English }).subscribe(
       (result) => {
@@ -115,7 +114,6 @@ describe('ItemSearchService', () => {
       typeId: baseItemTypesService.searchId('Topaz Ring', 1),
     }
     tradeServiceSpy.search.and.returnValue(of(mockSearchResult))
-    tradeServiceSpy.exchange.and.returnValue(of(mockSearchResult))
     tradeServiceSpy.fetch.and.returnValue(of(mockFetchResult))
     tradeServiceSpy.getStatic.and.returnValue(of(mockStatic))
 
@@ -123,11 +121,12 @@ describe('ItemSearchService', () => {
       .searchOrExchange(requestedItem, { language: Language.English, leagueId: 'Delirium' })
       .subscribe(
         (result) => {
-          expect(result.hits.length).toBeGreaterThan(0)
+          const tradeResult = result as TradeSearchResult
+          expect(tradeResult.hits.length).toBeGreaterThan(0)
 
-          sut.list(result, 2).subscribe(
+          sut.listTradeSearch(tradeResult, 2).subscribe(
             (listings) => {
-              expect(listings.length).toBe(Math.min(result.hits.length, 2))
+              expect(listings.length).toBe(Math.min(tradeResult.hits.length, 2))
 
               done()
             },

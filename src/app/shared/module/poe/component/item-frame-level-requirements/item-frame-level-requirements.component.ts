@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core'
-import { Item, Language } from '../../type'
+import { ClientStringService } from '../../service/client-string/client-string.service'
+import { CharacterClass, Item, Language } from '../../type'
 
 @Component({
   selector: 'app-item-frame-level-requirements',
@@ -16,4 +17,27 @@ export class ItemFrameLevelRequirementsComponent {
 
   @Input()
   public language: Language
+
+  constructor(
+    private readonly clientString: ClientStringService,
+  ) { }
+
+  public getCharacterClassString(): string {
+    switch (this.item.requirements.class) {
+      case CharacterClass.Marauder:
+        return this.clientString.translate('CharacterName0')
+      case CharacterClass.Witch:
+        return this.clientString.translate('CharacterName1')
+      case CharacterClass.Scion:
+        return this.clientString.translate('CharacterName2')
+      case CharacterClass.Ranger:
+        return this.clientString.translate('CharacterName3')
+      case CharacterClass.Duelist:
+        return this.clientString.translate('CharacterName4')
+      case CharacterClass.Shadow:
+        return this.clientString.translate('CharacterName5')
+      case CharacterClass.Templar:
+        return this.clientString.translate('CharacterName6')
+    }
+  }
 }

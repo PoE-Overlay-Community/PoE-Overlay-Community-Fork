@@ -9,7 +9,7 @@ import { CacheExpirationType } from '@shared/module/poe/type'
 export interface ItemPricePrediction {
   min: number
   max: number
-  currency: 'chaos' | 'exalt'
+  currency: 'chaos' | 'exalt' | 'divine'
   currencyId: string
   score: number
 }
@@ -28,14 +28,14 @@ export class ItemPricePredictionProvider {
   public provide(leagueId: string, stringifiedItem: string): Observable<ItemPricePrediction> {
     const hash = cyrb53(stringifiedItem)
     const key = `${CACHE_PATH}${leagueId}_${hash}`
-    return this.cache.clear(CACHE_PATH).pipe(
+    return this.cache.prune(CACHE_PATH).pipe(
       flatMap(() =>
         this.cache.proxy(
           key,
           () =>
             this.http.get(leagueId, stringifiedItem).pipe(
               map((response) => {
-                const currencyId = response.currency === 'exalt' ? 'exa' : response.currency
+                const currencyId = response.currency === 'exalt' ? 'exalted' : response.currency
                 const result: ItemPricePrediction = {
                   currencyId,
                   currency: response.currency,

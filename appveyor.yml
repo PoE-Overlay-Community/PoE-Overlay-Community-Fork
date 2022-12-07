@@ -19,7 +19,6 @@ init:
 install:
   - echo "* Running Install..."
   - ps: Install-Product node 12 x64
-  - npm install npm -g
   - npm -v
   - npm install
   - npm run electron:rebuild

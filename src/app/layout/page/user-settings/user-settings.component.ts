@@ -1,3 +1,4 @@
+import { HostListener, OnDestroy } from '@angular/core'
 import {
   ChangeDetectionStrategy,
   Component,
@@ -23,7 +24,7 @@ import { UserSettings, UserSettingsFeature } from '../../type'
   templateUrl: './user-settings.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class UserSettingsComponent implements OnInit {
+export class UserSettingsComponent implements OnInit, OnDestroy {
   public init$ = new BehaviorSubject<boolean>(false)
 
   public settings: UserSettings
@@ -40,11 +41,21 @@ export class UserSettingsComponent implements OnInit {
     private readonly context: ContextService,
     private readonly translate: AppTranslateService,
     private readonly accountService: PoEAccountService,
-  ) {}
+  ) {
+  }
+
+  @HostListener('window:beforeunload', [])
+  public onWindowBeforeUnload(): void {
+    this.reset()
+  }
 
   public ngOnInit(): void {
     this.createTitlebar()
     this.init()
+  }
+
+  public ngOnDestroy(): void {
+    this.reset()
   }
 
   public onSelectedIndexChange(index: number): void {
@@ -93,6 +104,10 @@ export class UserSettingsComponent implements OnInit {
         })
       })
     })
+  }
+
+  private reset(): void {
+    this.accountService.unregister()
   }
 
   private save(): Observable<boolean> {

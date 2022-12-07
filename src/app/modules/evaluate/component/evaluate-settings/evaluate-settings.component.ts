@@ -44,6 +44,7 @@ export interface EvaluateUserSettings extends UserSettings {
   evaluateQueryDefaultStats: any
   evaluateQueryDefaultStatsUnique: boolean
   evaluateQueryDefaultStatsEnchants: boolean
+  evaluateQueryDefaultStatsModIcon: boolean
   evaluateQueryPostProcessClusterJewels: boolean
   evaluateQueryOnline: boolean
   evaluateQueryIndexedRange: ItemSearchIndexed
@@ -118,7 +119,7 @@ export class EvaluateSettingsComponent implements UserSettingsComponent {
 
   public onCurrenciesValueChange(): void {
     if (this.settings.evaluateCurrencyIds.length <= 0) {
-      this.settings.evaluateCurrencyIds = ['chaos', 'exa']
+      this.settings.evaluateCurrencyIds = ['chaos', 'divine']
     }
   }
 

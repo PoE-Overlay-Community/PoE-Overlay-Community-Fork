@@ -18,14 +18,21 @@ export class ItemSectionCorruptedParserService implements ItemSectionParserServi
   public section = ItemSection.Corrupted
 
   public parse(item: ExportedItem, target: Item): Section {
-    const phrase = new RegExp(`^${this.clientString.translate('ItemPopupCorrupted')}$`)
+    const phrases = [
+      new RegExp(`^${this.clientString.translate('ItemPopupCorrupted')}$`),
+      new RegExp(`^${this.clientString.translate('ItemPopupUnmodifiable')}$`),
+    ]
 
-    const corruptedSection = item.sections.find((x) => phrase.test(x.content))
+    const corruptedSection = item.sections.find(section => phrases.some(phrase => phrase.test(section.content)))
     if (!corruptedSection) {
       return null
     }
 
-    target.corrupted = true
+    if (phrases[0].test(corruptedSection.content)) {
+      target.corrupted = true
+    } else if (phrases[1].test(corruptedSection.content)) {
+      target.unmodifiable = true
+    }
     return corruptedSection
   }
 }

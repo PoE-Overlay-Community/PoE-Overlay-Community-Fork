@@ -1,5 +1,90 @@
 # Changelog
 
+## 0.8.20 (TBD)
+
+- Updated PoE Assets to support 3.19.2b (Kalandra League)
+- Added support for the 'Memory Line' item category
+- Added support for the 'Engraved Ultimatum' base item type
+- Added 'divine' currency to the list of possible currencies for poe price predictions
+- Replaced 'exa' with 'divine' in the list of default evaluation currency settings
+- Fixed an issue with the setting's league list (i.e. added a realm=pc filter)
+- Fixed an issue with 'Unmodifiable' evaluation
+- Fixed an issue with the bulk trade message regex
+- Fixed an issue with Metamorph Samples returning almost no results due to the item name being used as a search term
+
+## 0.8.19 (2022-08-21)
+
+- Updated item parser and query to remove sentinel mods
+
+## 0.8.18 (2022-06-17)
+
+- Updated PoE Assets to support additional mods for 3.18.1
+- Added support for Logbooks when map-checking (for bad mods)
+- Fixed an issue where the incorrect currency icon would show when evaluating using bulk-exchange evaluation
+- Fixed an issue with local vs global stat detection
+- Fixed an issue with stat translations in the map settings tab
+- Fixed an issue where implicits (or pseudo's added based on these implicits) of non-corrupted unique items were not being unselected when evaluating all unique item stats
+- Fixed an issue with the settings window not unregistering properly from services it was using/registering to
+
+## 0.8.17 (2022-05-18)
+
+- Updated PoE Assets to support additional mods for 3.18.0b
+- Updated the Bulk Exchange evaluation so it now supports and uses the 'new engine'
+- Improved 'significant decimal' displaying for bulk exchange listings
+
+## 0.8.16 (2022-05-16)
+
+- Updated PoE Assets to support 3.18.0b
+- Fixed an issue with some global stats that have local stat equivalents not being recognized
+
+## 0.8.15 (2022-05-15)
+
+- Updated PoE Assets to support 3.18.0 (Sentinel League)
+- Added support for 'Sentinel' property parsing & filtering
+  - Added options to the settings menu to automatically include Sentinel properties when evaluating an item
+- Added support for 'character class' requirement parsing & filtering
+
+## 0.8.14 (2022-04-17)
+
+- Added Japanese to the language list
+  - This fixes the non-responsive v0.8.13
+
+## 0.8.13 (2022-04-17)
+
+- Updated PoE Assets to support 3.17.3b
+- Fixed (another) parsing issue with 'unscalable value' stats
+
+## 0.8.12 (2022-02-21)
+
+- Fixed identical stat grouping causing stats of different types being merged together unintentionally
+
+## 0.8.11 (2022-02-19)
+
+- Updated PoE Assets to support 3.17.1
+  - Added support for the new influence stats that have 'in your presence' in their stat name
+  - Fixed an issue with certain 'option' stats (e.g. 'Area contains Strongboxes') which also adds support for the Forbidden Flame/Flesh jewels
+- Added identical stat merging when using the advanced-mod-copy feature (this fixes normal & hybrid mods being shown separately instead of being added up together)
+- Added the Korean and Chinese PoE URLs to the list of 'cookie sharing urls' (this should fix not being able to login in PoE Overlay CF using either websites) ([#273](https://github.com/PoE-Overlay-Community/PoE-Overlay-Community-Fork/issues/273))
+- Changed the default querying of unique items so it now excludes the implicit for non-corrupted uniques
+- Fixed parsing of some implicit/crafted/enchanted stats that are marked with 'unscalable value' ([#276](https://github.com/PoE-Overlay-Community/PoE-Overlay-Community-Fork/issues/276))
+
+## 0.8.10 (2022-02-07)
+
+- Updated PoE Assets to support 3.17.0 (Archnemesis League)
+- Added support to toggle on/off Advanced Mod copying when price-checking an item
+- Added support for pre- and suffix detection when using Advanced Mod copying
+- Added support for 'empty pre/suffix' and 'crafted' pseudo-modifiers when using Advanced Mod copying
+- Added support to toggle on/off Price Predictions (provided by poeprices.info) and/or Price Exchange Rates (privided by poe.ninja)
+- Added support for `@price` and `@item` special keywords to the customizable button messages of the Trade Companion
+- Added support to toggle on/off auto-selection of Enchants
+- Added support for stat type (e.g. 'Crafted', 'Enchant', 'Pseudo', etc...) searching in the Evaluate Setting's stats list
+- Added support to toggle on/off processing of cluster jewels to auto fill '# of notables' and 'item level' ranges based on threshold values
+- Added support for Blight-Ravaged maps when price-checking
+- Added support to explicitly restrict item searching to Fractured and Synthesised items
+- Changed visualisation of Fractured modifiers: they're now colored like fractured stats
+- Changed 'total resistance' pseudo mod: it now occurs even if either elemental of chaos resistance is present
+- Fixed an issue with certain price predictions (provided by poeprices.info) causing 'invalid data' errors
+
 ## 0.8.9 (2021-11-07)
 
 - Updated PoE Assets to support 3.16.0d
@@ -53,7 +138,7 @@
 - Updated PoE assets to support 3.15.0
 - Added support for 'Logbook' item category
 - Added support for 'Ward' stat
-- Added support for '@me' and '@last' for the Commands module
+- Added support for `@me` and `@last` for the Commands module
 - Improved the Trade Companion:
   - Added a hideout button to the Trade Notification Panel
   - Added the option to reverse the Trade Notification Panel's horizontal alignment
@@ -61,7 +146,7 @@
   - Added 'active trade notification' with highlighting (with customizable border color)
   - Added optional shortcut keys for all built-in trade notification actions
   - Added support for shortcuts for the custom trade options/buttons
-  - Made the 'Ask if still interested' message customizable (with '@item' and '@price' placeholders)
+  - Made the 'Ask if still interested' message customizable (with `@item` and `@price` placeholders)
 - Improved map mod checking
   - Slight UI changes
   - Updated Layout, Encounters and Boss data
@@ -129,8 +214,8 @@
 
 - Updated assets to support 3.13.1e
   - This fixed certain watchstone modifiers not being found/parsed when evaluating the item
-- Added support to detect Fractured and Synthesized item 'influences'
-- Pseudo grouping no longer removes Fractured or Synthesized Implicits stats
+- Added support to detect Fractured and Synthesised item 'influences'
+- Pseudo grouping no longer removes Fractured or Synthesised Implicits stats
 - Fixed 'Map Tier' not being taken into account when evaluating the item or retrieving the item exchange rate
 - Fixed Critical Strike Chance and Attacks Per Second decimal parsing ([#185](https://github.com/PoE-Overlay-Community/PoE-Overlay-Community-Fork/issues/185))
 

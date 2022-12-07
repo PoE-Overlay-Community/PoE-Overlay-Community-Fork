@@ -175,10 +175,8 @@
         <mat-card>
           <mat-label>{{ 'evaluate.search.filter' | translate }}</mat-label>
           <div class="toggle">
-            <mat-slide-toggle
-              [checked]="settings.evaluateQueryOnline"
-              (change)="settings.evaluateQueryOnline = $event.checked"
-            >
+            <mat-slide-toggle [checked]="settings.evaluateQueryOnline"
+                              (change)="settings.evaluateQueryOnline = $event.checked">
               {{ 'evaluate.search.online-only' | translate }}
             </mat-slide-toggle>
           </div>
@@ -266,26 +264,6 @@
                               (change)="settings.evaluateQueryDefaultType = $event.checked">
               {{ 'evaluate.search.item-type' | translate }}
             </mat-slide-toggle>
-            <mat-slide-toggle [checked]="settings.evaluateQueryDefaultUltimatum"
-                              (change)="settings.evaluateQueryDefaultUltimatum = $event.checked">
-              {{ 'evaluate.search.ultimatum' | translate }}
-            </mat-slide-toggle>
-          </div>
-          <div class="toggle">
-            <mat-slide-toggle [checked]="settings.evaluateQueryDefaultHeistRequiredLevels"
-                              (change)="settings.evaluateQueryDefaultHeistRequiredLevels = $event.checked">
-              {{ 'evaluate.search.heist.req-lvls' | translate }}
-            </mat-slide-toggle>
-            <mat-slide-toggle [checked]="settings.evaluateQueryDefaultHeistContracts"
-                              (change)="settings.evaluateQueryDefaultHeistContracts = $event.checked">
-              {{ 'evaluate.search.heist.contract' | translate }}
-            </mat-slide-toggle>
-            <mat-slide-toggle [checked]="settings.evaluateQueryDefaultHeistBlueprints"
-                              (change)="settings.evaluateQueryDefaultHeistBlueprints = $event.checked">
-              {{ 'evaluate.search.heist.blueprint' | translate }}
-            </mat-slide-toggle>
-          </div>
-          <div class="toggle">
             <mat-slide-toggle [checked]="settings.evaluateQueryDefaultMiscs"
                               (change)="settings.evaluateQueryDefaultMiscs = $event.checked">
               {{ 'evaluate.search.gem' | translate }}
@@ -309,6 +287,34 @@
         </mat-card>
 
         <mat-card>
+          <mat-label>{{ 'evaluate.search.item-specific-properties' | translate }}</mat-label>
+
+          <label class="label">{{ 'evaluate.search.item-specific-property.heist' | translate }}</label>
+          <div class="toggle">
+            <mat-slide-toggle [checked]="settings.evaluateQueryDefaultHeistRequiredLevels"
+                              (change)="settings.evaluateQueryDefaultHeistRequiredLevels = $event.checked">
+              {{ 'evaluate.search.heist.req-lvls' | translate }}
+            </mat-slide-toggle>
+            <mat-slide-toggle [checked]="settings.evaluateQueryDefaultHeistContracts"
+                              (change)="settings.evaluateQueryDefaultHeistContracts = $event.checked">
+              {{ 'evaluate.search.heist.contract' | translate }}
+            </mat-slide-toggle>
+            <mat-slide-toggle [checked]="settings.evaluateQueryDefaultHeistBlueprints"
+                              (change)="settings.evaluateQueryDefaultHeistBlueprints = $event.checked">
+              {{ 'evaluate.search.heist.blueprint' | translate }}
+            </mat-slide-toggle>
+          </div>
+
+          <label class="label">{{ 'evaluate.search.item-specific-property.ultimatum' | translate }}</label>
+          <div class="toggle">
+            <mat-slide-toggle [checked]="settings.evaluateQueryDefaultUltimatum"
+                              (change)="settings.evaluateQueryDefaultUltimatum = $event.checked">
+              {{ 'evaluate.search.ultimatum' | translate }}
+            </mat-slide-toggle>
+          </div>
+        </mat-card>
+
+        <mat-card>
           <mat-label> {{ 'evaluate.stats' | translate }} </mat-label>
 
           <label class="label" [title]="'evaluate.property.range-description' | translate">
@@ -321,24 +327,20 @@
               + {{ displayWithStat(settings.evaluateModifierMaxRange) }}%
             </span>
             <span>#</span>
-            <mat-slider
-              min="0"
-              max="50"
-              step="1"
-              tickInterval="10"
-              invert
-              [displayWith]="displayWithStat"
-              [(value)]="settings.evaluateModifierMinRange"
-            >
+            <mat-slider min="0"
+                        max="50"
+                        step="1"
+                        tickInterval="10"
+                        invert
+                        [displayWith]="displayWithStat"
+                        [(value)]="settings.evaluateModifierMinRange">
             </mat-slider>
-            <mat-slider
-              min="0"
-              max="50"
-              step="1"
-              tickInterval="10"
-              [displayWith]="displayWithStat"
-              [(value)]="settings.evaluateModifierMaxRange"
-            >
+            <mat-slider min="0"
+                        max="50"
+                        step="1"
+                        tickInterval="10"
+                        [displayWith]="displayWithStat"
+                        [(value)]="settings.evaluateModifierMaxRange">
             </mat-slider>
             <span>#</span>
             <ng-template #single>
@@ -359,13 +361,18 @@
                               matTooltip="{{ 'evaluate.stats-enchants-check-all-tooltip' | translate }}">
               {{ 'evaluate.stats-enchants-check-all' | translate }}
             </mat-slide-toggle>
-            <mat-slide-toggle [checked]="settings.evaluateShowAnnointmentOils"
-                              (change)="settings.evaluateShowAnnointmentOils = $event.checked">
-              {{ 'evaluate.stats-show-annointment-oils' | translate }}
+            <mat-slide-toggle [checked]="settings.evaluateQueryDefaultStatsModIcon"
+                              (change)="settings.evaluateQueryDefaultStatsModIcon = $event.checked"
+                              matTooltip="{{ 'evaluate.stats-mod-icon-check-all-tooltip' | translate }}">
+              {{ 'evaluate.stats-mod-icon-check-all' | translate }}
             </mat-slide-toggle>
           </div>
 
           <div class="toggle">
+            <mat-slide-toggle [checked]="settings.evaluateShowAnnointmentOils"
+                              (change)="settings.evaluateShowAnnointmentOils = $event.checked">
+              {{ 'evaluate.stats-show-annointment-oils' | translate }}
+            </mat-slide-toggle>
             <mat-slide-toggle [checked]="settings.evaluateQueryPostProcessClusterJewels"
                               (change)="settings.evaluateQueryPostProcessClusterJewels = $event.checked"
                               matTooltip="{{ 'evaluate.stats-pp-cluster-jewels-tooltip' | translate }}">

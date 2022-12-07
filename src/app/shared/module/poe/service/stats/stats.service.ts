@@ -32,6 +32,7 @@ export interface StatsSearchOptions {
   local_mana_leech_from_physical_damage_permyriad?: boolean
   local_life_leech_from_physical_damage_permyriad?: boolean
   local_critical_strike_chance___?: boolean
+  critical_strike_chance___?: boolean
 }
 
 interface StatsSectionText {
@@ -42,6 +43,13 @@ interface StatsSectionText {
 interface StatsSectionsSearch {
   types: StatType[]
   sections: StatsSectionText[]
+}
+
+interface StatMatch {
+  tradeId: string
+  statDescIndex: number
+  sectionText: string
+  match: RegExpExecArray
 }
 
 const REVERSE_REGEX = /\\[.*+?^${}()|[\]\\]/g
@@ -226,8 +234,21 @@ export class StatsService {
     // Sanitize sections (i.e. remove some advanced mod stuff we currently don't use at all)
     for (let index = search.sections.length - 1; index >= 0; --index) {
       const section = search.sections[index]
-      // Ignore anything after the special hyphen (e.g. ' — Unscalable Value')
-      section.text = section.text.split('\n').map(x => x.split(' — ')[0]).join('\n')
+      // Ignore anything between the special hyphen and the first open-bracket (or the rest of the text if no bracket exists) [e.g. ' — Unscalable Value' or ' — Unscalable Value (implicit)']
+      section.text = section.text.split('\n').map(statLine => {
+        if (statLine.startsWith('{')) {
+          return statLine
+        }
+        const splitted = statLine.split(' — ')
+        let statText = splitted[0]
+        const unscalableText = splitted[1]
+        if (unscalableText && unscalableText.indexOf('(') !== -1) {
+          // Extract the text found in brackets at the end of the unscalable text and append it (including brackets) to the stat text
+          const splitted2 = unscalableText.split('(')
+          statText += ' (' + splitted2[1]
+        }
+        return statText
+      }).join('\n')
     }
 
     // Compose Stat Gen Type Regexes
@@ -241,35 +262,38 @@ export class StatsService {
       const stats = this.statsProvider.provide(type)
       const locals = this.statsLocalProvider.provide(type)
       const indistinguishableStats = this.statsIndistinguishableProvider.provide(type) || {}
-      for (const tradeId in stats) {
-        if (!stats.hasOwnProperty(tradeId)) {
-          continue
-        }
 
-        const stat = stats[tradeId]
+      for (let index = search.sections.length - 1; index >= 0; --index) {
+        const section = search.sections[index]
 
-        const statDescs = stat.text[language]
-        statDescs.forEach((statDesc, statDescIndex) => {
-          const predicate = Object.getOwnPropertyNames(statDesc)[0]
-          const regex = statDesc[predicate]
-          if (!regex.length) {
-            return
+        // Gather all possible matching stats
+        const matchingStats: StatMatch[] = []
+        for (const tradeId in stats) {
+          if (!stats.hasOwnProperty(tradeId)) {
+            continue
           }
 
-          const key = `${type}_${tradeId}_${statDescIndex}`
-          const expr = this.cache[key] || (this.cache[key] = new RegExp(regex, 'm'))
-          for (let index = search.sections.length - 1; index >= 0; --index) {
-            const section = search.sections[index]
+          const stat = stats[tradeId]
 
+          const statDescs = stat.text[language]
+          statDescs.forEach((statDesc, statDescIndex) => {
+            const predicate = Object.getOwnPropertyNames(statDesc)[0]
+            const regex = statDesc[predicate]
+            if (!regex.length) {
+              return
+            }
+
+            const key = `${type}_${tradeId}_${statDescIndex}`
+            const expr = this.cache[key] || (this.cache[key] = new RegExp(regex, 'm'))
             const test = expr.exec(section.text)
 
             if (!test) {
-              continue
+              return
             }
 
             // Check if we're explicitly dealing with maps and map mods
             if (stat.mod === 'maps' && !options.map) {
-              continue
+              return
             }
 
             const getKey = (id: string) => {
@@ -280,98 +304,148 @@ export class StatsService {
 
             const localKey = getKey(stat.id || '')
             if (locals[localKey] && !indistinguishables) {
-              let optId = locals[localKey]
-              if (stat.mod === 'local') {
-                // global to local optId
-                optId = locals[optId]
-              }
+              const optId = locals[localKey]
+              const isLocalStat = stat.mod === 'local'
+              const isLocalOption = locals[localKey].startsWith('local_')
+              const localOptId = isLocalOption ? optId : locals[optId]
+              let globalOptId = locals[localOptId]
 
-              // item has local stat
+              // Global vs Local stat approach:
+              //   All stats are considered global, unless marked as local in the options and the global isn't present or marked false
               if (
-                (options[optId] && stat.mod !== 'local') ||
-                (!options[optId] && stat.mod === 'local')
+                (isLocalStat && !options[localOptId]) ||
+                (!isLocalStat && !options[globalOptId] && options[localOptId])
               ) {
-                continue
+                return
               }
             }
 
             const sectionText = test[0]
-            let matchedText = sectionText
-            let matchedIndex = statDescIndex
-            let matchedPredicate = predicate
 
-            // Strip advanced mod values (located within brackets after the actual value) by splitting on the opening-bracket and taking the first element only
-            let matchedValues = test.slice(1).map((x) => ({ text: x.split('(')[0] }))
-
-            // Check if your predicate uses a single number
-            // (e.g. '1 Added Passive Skill is a Jewel Socket' or 'Bow Attacks fire an additional Arrow')
-            if (predicate === '1' && stat.option !== true) {
-              // Check if the 'next' predicate is an 'any' ('#') number predicate, if it is, then use it accordingly
-              const nextIndex = statDescIndex + 1
-              const nextStatDesc = statDescs[nextIndex]
-              if (nextStatDesc) {
-                const nextStatPredicate = Object.getOwnPropertyNames(nextStatDesc)[0]
-                if (nextStatPredicate.indexOf('#') !== -1) {
-                  matchedIndex = nextIndex
-                  matchedPredicate = nextStatPredicate
-                  matchedText = nextStatDesc[nextStatPredicate]
-                  matchedValues = [{ text: '1' }]
-                }
+            const matchingStatIndex = matchingStats.findIndex(x => x.sectionText == sectionText)
+            if (matchingStatIndex !== -1) {
+              const matchingStat = matchingStats[matchingStatIndex]
+              // Lower index takes priority
+              if (statDescIndex >= matchingStat.statDescIndex) {
+                return
+              } else {
+                matchingStats.splice(matchingStatIndex, 1)
               }
             }
 
-            // Determine the Stat Gen Type based on the previous line (which contains advanced mod info)
-            let genType = StatGenType.Unknown
-            const lines = section.text.split('\n')
-            const lineIdx = lines.indexOf(matchedText.split('\n')[0])
-            const prevLine = lineIdx > 0 ? lines[lineIdx - 1] : undefined
-            if (prevLine) {
-              if (prevLine.match(prefixRegex) || prevLine.match(craftedPrefixRegex)) {
-                section.text = section.text.replace(prevLine, '')
-                genType = StatGenType.Prefix
-              } else if (prevLine.match(suffixRegex) || prevLine.match(craftedSuffixRegex)) {
-                section.text = section.text.replace(prevLine, '')
-                genType = StatGenType.Suffix
-              }
-            }
-
-            const itemStat: ItemStat = {
-              id: stat.id,
-              mod: stat.mod,
-              option: stat.option,
-              negated: stat.negated,
-              genType: genType,
-              predicateIndex: matchedIndex,
-              predicate: matchedPredicate,
-              type,
-              tradeId,
-              values: matchedValues,
-              indistinguishables,
-            }
-            results.push({
-              stat: itemStat,
-              match: { index: section.index, text: matchedText },
+            matchingStats.push({
+              tradeId: tradeId,
+              statDescIndex: statDescIndex,
+              sectionText: test[0],
+              match: test,
             })
+          })
+        }
 
-            const length = section.text.length
-            if (section.text[expr.lastIndex] === '\n') {
-              section.text = section.text.replace(`${sectionText}\n`, '')
-            }
-            if (section.text.length === length) {
-              section.text = section.text.replace(`${sectionText}`, '')
-            }
-            if (section.text.trim().length === 0) {
-              search.sections.splice(index, 1)
-            } else {
-              // A stat was succesfully found & added, but the same stat might occur more than once in the same section -> increased index to search this section again.
-              index++
+        matchingStats.forEach(matchingStat => {
+          const { tradeId, statDescIndex, match } = matchingStat
+          const stat = stats[tradeId]
+          const statDescs = stat.text[language]
+          const statDesc = statDescs[statDescIndex]
+          const predicate = Object.getOwnPropertyNames(statDesc)[0]
+          const indistinguishables = indistinguishableStats[tradeId]
+
+          const key = `${type}_${tradeId}_${statDescIndex}`
+          const expr = this.cache[key]
+
+          const sectionText = match[0]
+          let matchedText = sectionText
+          let matchedIndex = statDescIndex
+          let matchedPredicate = predicate
+
+          // Strip advanced mod values (located within brackets after the actual value) by splitting on the opening-bracket and taking the first element only
+          let matchedValues = match.slice(1).map((x) => ({ text: x.split('(')[0] }))
+
+          // Check if your predicate uses a single number
+          // (e.g. '1 Added Passive Skill is a Jewel Socket' or 'Bow Attacks fire an additional Arrow')
+          if (matchedPredicate === '1' && stat.option !== true) {
+            // Check if the 'next' predicate is an 'any' ('#') number predicate, if it is, then use it accordingly
+            const nextIndex = statDescIndex + 1
+            const nextStatDesc = statDescs[nextIndex]
+            if (nextStatDesc) {
+              const nextStatPredicate = Object.getOwnPropertyNames(nextStatDesc)[0]
+              if (nextStatPredicate.indexOf('#') !== -1) {
+                matchedIndex = nextIndex
+                matchedPredicate = nextStatPredicate
+                matchedText = nextStatDesc[nextStatPredicate]
+                matchedValues = [{ text: '1' }]
+              }
             }
           }
-        })
 
-        if (search.sections.length === 0) {
-          return
+          // Determine the Stat Gen Type based on the previous line (which contains advanced mod info)
+          let genType = StatGenType.Unknown
+          let modName: string = undefined
+          const lines = section.text.split('\n')
+          const lineIdx = lines.indexOf(matchedText.split('\n')[0])
+          let prevLineIdx = lineIdx - 1
+          while (prevLineIdx >= 0) {
+            const prevLine = lines[prevLineIdx]
+            if (prevLine.length === 0) {
+              prevLineIdx--
+              continue
+            }
+
+            // Determine the Stat Gen Type
+            if (prevLine.match(prefixRegex) || prevLine.match(craftedPrefixRegex)) {
+              genType = StatGenType.Prefix
+            } else if (prevLine.match(suffixRegex) || prevLine.match(craftedSuffixRegex)) {
+              genType = StatGenType.Suffix
+            }
+
+            // Determine the Mod Name
+            const modNameSplit = prevLine.split("\"")
+            if (modNameSplit.length >= 3) {
+              modName = modNameSplit[1]
+            }
+
+            // Found the info -> break out of the loop
+            break
+          }
+
+          const itemStat: ItemStat = {
+            id: stat.id,
+            mod: stat.mod,
+            option: stat.option,
+            negated: stat.negated,
+            genType,
+            predicateIndex: matchedIndex,
+            predicate: matchedPredicate,
+            type,
+            tradeId,
+            values: matchedValues,
+            indistinguishables,
+            modName,
+          }
+          results.push({
+            stat: itemStat,
+            match: { index: section.index, text: matchedText },
+          })
+
+          const length = section.text.length
+          if (section.text[expr.lastIndex] === '\n') {
+            section.text = section.text.replace(`${sectionText}\n`, '')
+          }
+          if (section.text.length === length) {
+            section.text = section.text.replace(`${sectionText}`, '')
+          }
+          if (section.text.trim().length === 0) {
+            search.sections.splice(index, 1)
+          }
+        })
+        if (matchingStats.length > 0 && section.text.trim().length !== 0) {
+          // one or more stats were succesfully found & added, but the same stat(s) might occur more than once in the same section -> increased index to search this section again.
+          index++
         }
+      }
+
+      if (search.sections.length === 0) {
+        return
       }
     }
   }

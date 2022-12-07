@@ -42,7 +42,7 @@ export class EvaluateModule implements FeatureModule {
   public getSettings(): UserSettingsFeature {
     const defaultSettings: EvaluateUserSettings = {
       evaluateCurrencyOriginal: true,
-      evaluateCurrencyIds: ['chaos', 'exa'],
+      evaluateCurrencyIds: ['chaos', 'divine'],
       evaluateResultView: EvaluateResultView.List,
       evaluateQueryDefaultItemLevel: true,
       evaluateQueryDefaultLinks: 5,
@@ -73,6 +73,7 @@ export class EvaluateModule implements FeatureModule {
       },
       evaluateQueryDefaultStatsUnique: true,
       evaluateQueryDefaultStatsEnchants: true,
+      evaluateQueryDefaultStatsModIcon: true,
       evaluateQueryPostProcessClusterJewels: true,
       evaluateQueryIndexedRange: ItemSearchIndexed.UpTo3DaysAgo,
       evaluateQueryOnline: true,

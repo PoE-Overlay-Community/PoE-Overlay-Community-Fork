@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core'
 import { ElectronProvider } from '@app/provider'
-import { BrowserWindow } from 'electron'
-import { Remote } from 'electron'
+import { environment } from '@env/environment'
+import { BrowserWindow, Remote } from 'electron'
 import { Observable, Subject } from 'rxjs'
 import { Dialog, DialogRefService, DialogType } from './dialog/dialog-ref.service'
 
@@ -118,7 +118,7 @@ export class BrowserService {
 
   private setupCookieSharing(browserWindow: BrowserWindow) {
     browserWindow.webContents.session.webRequest.onHeadersReceived({
-      urls: ['https://*.pathofexile.com/*']
+      urls: environment.cookieSharingUrls
     }, (details, next) => {
       const cookies = details.responseHeaders?.['set-cookie']
       if (cookies) {

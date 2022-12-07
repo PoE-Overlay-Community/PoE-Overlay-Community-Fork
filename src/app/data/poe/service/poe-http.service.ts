@@ -14,10 +14,12 @@ import {
     TradeFetchResult,
     TradeItemsResult,
     TradeLeaguesResult,
-    TradeOrExchangeSearchResponse, TradeResponse,
+    TradeSearchResponse, TradeResponse,
     TradeSearchRequest,
     TradeSearchType, TradeStaticResult,
-    TradeStatsResult
+    TradeStatsResult,
+    ExchangeSearchResponse,
+    SearchResponse
 } from '../schema/poe-api'
 import { TradeRateLimitService } from './trade-rate-limit.service'
 
@@ -100,7 +102,7 @@ export class PoEHttpService {
   }
 
   public getStashTabInfo(accountName: string, leagueId: string, language: Language): Observable<ApiStashItems> {
-    const url = this.getPoEUrl(`character-window/get-stash-items?tabs=1&realm=pc&league=${encodeURIComponent(leagueId)}&accountName=${encodeURIComponent(accountName)}`, language)
+    const url = this.getPoEUrl(`character-window/get-stash-items?tabs=1&tabIndex=0&realm=pc&league=${encodeURIComponent(leagueId)}&accountName=${encodeURIComponent(accountName)}`, language)
     return this.getAndParse('stash-tab-names', url)
   }
 
@@ -108,7 +110,7 @@ export class PoEHttpService {
     request: TradeSearchRequest,
     language: Language,
     leagueId: string
-  ): Observable<TradeOrExchangeSearchResponse> {
+  ): Observable<TradeSearchResponse> {
     return this.searchOrExchange(request, language, leagueId, TradeSearchType.NormalTrade)
   }
 
@@ -116,7 +118,7 @@ export class PoEHttpService {
     request: ExchangeSearchRequest,
     language: Language,
     leagueId: string
-  ): Observable<TradeOrExchangeSearchResponse> {
+  ): Observable<ExchangeSearchResponse> {
     return this.searchOrExchange(request, language, leagueId, TradeSearchType.BulkExchange)
   }
 
@@ -145,16 +147,19 @@ export class PoEHttpService {
       )
   }
 
-  private searchOrExchange(
+  private searchOrExchange<TSearchResponse extends SearchResponse>(
     request: TradeSearchRequest | ExchangeSearchRequest,
     language: Language,
     leagueId: string,
     searchType: TradeSearchType
-  ): Observable<TradeOrExchangeSearchResponse> {
+  ): Observable<TSearchResponse> {
     const url = this.getTradeApiUrl(`${searchType}/${encodeURIComponent(leagueId)}`, language)
+    if (!environment.production) {
+      console.log(`[PoEHttp] Contacting ${url}?q=${encodeURIComponent(JSON.stringify(request))}`)
+    }
     return this.limit
       .throttle(searchType, () =>
-        this.http.post<TradeOrExchangeSearchResponse>(url, request, {
+        this.http.post<TSearchResponse>(url, request, {
           withCredentials: true,
           observe: 'response',
         })

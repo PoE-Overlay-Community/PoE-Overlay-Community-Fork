@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core'
 import { ItemSocketService } from '@shared/module/poe/service/item/item-socket.service'
-import { Item, ItemCategory, ItemRarity, StatType } from '@shared/module/poe/type'
+import { Item, ItemCategory, ItemRarity, ItemStat, StatType } from '@shared/module/poe/type'
+import { language } from 'custom-electron-titlebar/lib/common/platform'
+import { ModIconsService } from '../../../shared/module/poe/service/mod-icons/mod-icons.service'
 import { EvaluateUserSettings } from '../component/evaluate-settings/evaluate-settings.component'
 
 export interface EvaluateQueryItemResult {
@@ -12,7 +14,10 @@ export interface EvaluateQueryItemResult {
   providedIn: 'root',
 })
 export class EvaluateQueryItemProvider {
-  constructor(private readonly itemSocketService: ItemSocketService) {}
+  constructor(
+    private readonly itemSocketService: ItemSocketService,
+    private readonly modIconService: ModIconsService,
+  ) { }
 
   public provide(item: Item, settings: EvaluateUserSettings): EvaluateQueryItemResult {
     const defaultItem: Item = this.copy({
@@ -21,9 +26,11 @@ export class EvaluateQueryItemProvider {
       category: item.category,
       rarity: item.rarity,
       corrupted: item.corrupted,
+      unmodifiable: item.unmodifiable,
       unidentified: item.unidentified,
       veiled: item.veiled,
       blighted: item.blighted,
+      blightRavaged: item.blightRavaged,
       relic: item.relic,
       influences: item.influences || {},
       damage: {},
@@ -40,7 +47,13 @@ export class EvaluateQueryItemProvider {
     })
     const queryItem = this.copy(defaultItem)
 
-    if (settings.evaluateQueryDefaultItemLevel) {
+    // Deselect fractured & synthesised to avoid narrowing the query item too much
+    if (queryItem.influences) {
+      queryItem.influences.fractured = undefined
+      queryItem.influences.synthesised = undefined
+    }
+
+    if (settings.evaluateQueryDefaultItemLevel && queryItem.rarity !== ItemRarity.Unique && queryItem.rarity !== ItemRarity.UniqueRelic) {
       queryItem.level = item.level
     }
 
@@ -89,7 +102,7 @@ export class EvaluateQueryItemProvider {
       }
     }
 
-    if (settings.evaluateQueryDefaultAttack) {
+    if (settings.evaluateQueryDefaultAttack && queryItem.rarity !== ItemRarity.Unique && queryItem.rarity !== ItemRarity.UniqueRelic) {
       queryItem.damage = item.damage
 
       const prop = item.properties
@@ -101,7 +114,7 @@ export class EvaluateQueryItemProvider {
       }
     }
 
-    if (settings.evaluateQueryDefaultDefense) {
+    if (settings.evaluateQueryDefaultDefense && queryItem.rarity !== ItemRarity.Unique && queryItem.rarity !== ItemRarity.UniqueRelic) {
       const prop = item.properties
       if (prop) {
         if (item.category.startsWith(ItemCategory.Armour)) {
@@ -149,10 +162,13 @@ export class EvaluateQueryItemProvider {
         (item.rarity === ItemRarity.Unique || item.rarity === ItemRarity.UniqueRelic) &&
         settings.evaluateQueryDefaultStatsUnique
       ) {
-        queryItem.stats = item.stats
+        // Select all stats if it's corrupted or unmodifiable, otherwise exclude implicit stats
+        queryItem.stats = item.stats.map((stat) => (item.corrupted || item.unmodifiable || !this.isRelatedToAnImplicitStat(stat)) ? stat : undefined)
       } else {
         queryItem.stats = item.stats.map((stat) => {
-          if (stat.type === StatType.Enchant && settings.evaluateQueryDefaultStatsEnchants) {
+          // Auto-select enchanted stats or stats with a mod icon
+          if ((stat.type === StatType.Enchant && settings.evaluateQueryDefaultStatsEnchants) ||
+            (settings.evaluateQueryDefaultStatsModIcon && this.modIconService.get(stat.modName))) {
             return stat
           }
           const key = `${stat.type}.${stat.tradeId}`
@@ -169,5 +185,9 @@ export class EvaluateQueryItemProvider {
 
   private copy(item: Item): Item {
     return JSON.parse(JSON.stringify(item))
+  }
+
+  private isRelatedToAnImplicitStat(stat: ItemStat): boolean {
+    return stat.type === StatType.Implicit || (stat.relatedStats?.some(s => this.isRelatedToAnImplicitStat(s)) ?? false)
   }
 }

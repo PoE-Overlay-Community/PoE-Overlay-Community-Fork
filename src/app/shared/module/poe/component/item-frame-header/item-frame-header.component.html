@@ -8,7 +8,8 @@
     <app-item-frame-query [(property)]="queryItem.typeId" [value]="item.typeId" [disabled]="!queryable">
       <ng-container [ngSwitch]="getNameLabelType(item)">
         <span *ngSwitchCase="1">{{ ('InfectedMap' | clientString: language).replace('{0}', (item.typeId | baseItemType: language)) }}</span>
-        <span *ngSwitchCase="2">{{ ('GemAlternateQuality' + item.properties.gemQualityType + 'Affix' | clientString: language).replace('{0}', (item.typeId | baseItemType: language)) }}</span>
+        <span *ngSwitchCase="2">{{ ('UberInfectedMap' | clientString: language).replace('{0}', (item.typeId | baseItemType: language)) }}</span>
+        <span *ngSwitchCase="3">{{ ('GemAlternateQuality' + item.properties.gemQualityType + 'Affix' | clientString: language).replace('{0}', (item.typeId | baseItemType: language)) }}</span>
         <span *ngSwitchDefault>{{ item.typeId | baseItemType: language }}</span>
       </ng-container>
     </app-item-frame-query>

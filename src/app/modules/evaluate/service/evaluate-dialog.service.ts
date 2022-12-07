@@ -180,11 +180,11 @@ export class EvaluateDialogService {
       }
     }
 
-    if (item.veiled || item.corrupted || item.relic) {
+    if (item.veiled || item.corrupted || item.unmodifiable || item.relic) {
       if (item.veiled) {
         height += DIALOG_LINE_HEIGHT
       }
-      if (item.corrupted) {
+      if (item.corrupted || item.unmodifiable) {
         height += DIALOG_LINE_HEIGHT
       }
       if (item.relic) {

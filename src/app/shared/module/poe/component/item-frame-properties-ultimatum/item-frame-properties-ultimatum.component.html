@@ -8,7 +8,7 @@
   <app-item-frame-query [(property)]="queryItem.properties.ultimatum.requiredItem" [value]="item.properties.ultimatum.requiredItem">
     <span>{{ ('UltimatumItemisedTrialItemRequirement' | clientString: language).replace('{0}', '').trim() }}&nbsp;</span>
     <span class="white">{{ getSacrificeString() }}</span>
-    <span class="purpel" *ngIf="item.properties.ultimatum.requiredItemAmount">
+    <span class="purple" *ngIf="item.properties.ultimatum.requiredItemAmount">
       {{ ('UltimatumItemisedTrialQuantityFormat' | clientString: language).replace('{0}', item.properties.ultimatum.requiredItemAmount.text) }}
     </span>
   </app-item-frame-query>

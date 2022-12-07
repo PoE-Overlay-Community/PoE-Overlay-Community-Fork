@@ -12,9 +12,11 @@ export interface Item {
   type?: string
   level?: ItemValue
   corrupted?: boolean
+  unmodifiable?: boolean
   unidentified?: boolean
   veiled?: boolean
   blighted?: boolean
+  blightRavaged?: boolean
   relic?: boolean
   damage?: ItemWeaponDamage
   sockets?: ItemSocket[]
@@ -97,6 +99,7 @@ export enum ItemCategory {
   MapScarab = 'map.scarab',
   Watchstone = 'watchstone',
   Leaguestone = 'leaguestone',
+  MemoryLine = 'memoryline',
   Prophecy = 'prophecy',
   Card = 'card',
   MonsterBeast = 'monster.beast',
@@ -221,6 +224,8 @@ export interface ItemStat {
   values: ItemValue[]
   option: boolean
   indistinguishables: string[]
+  relatedStats?: ItemStat[]
+  modName?: string
 }
 
 export interface ItemRequirements {
@@ -228,6 +233,7 @@ export interface ItemRequirements {
   int?: number
   str?: number
   dex?: number
+  class?: CharacterClass
 }
 
 export interface ItemInfluences {
@@ -238,12 +244,22 @@ export interface ItemInfluences {
   redeemer?: boolean
   warlord?: boolean
   fractured?: boolean
-  synthesized?: boolean
+  synthesised?: boolean
 }
 
 export interface ItemsMap {
   label: string
   items: Item[]
+}
+
+export enum CharacterClass {
+  Scion = 'scion',
+  Marauder = 'marauder',
+  Ranger = 'ranger',
+  Witch = 'witch',
+  Duelist = 'duelist',
+  Templar = 'templar',
+  Shadow = 'shadow',
 }
 
 export enum UltimatumChallengeType {

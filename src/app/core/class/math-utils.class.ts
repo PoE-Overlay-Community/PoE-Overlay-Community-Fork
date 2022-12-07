@@ -7,4 +7,13 @@ export abstract class MathUtils {
     }
     return value
   }
+
+  public static significantDecimalCount(numerator: number, denominator: number): number {
+    return (denominator.toString().length - numerator.toString().length + 3)
+  }
+
+  public static floor(value: number, numDecimals: number): number {
+    const decimals = Math.pow(10, numDecimals)
+    return Math.floor(value * decimals) / decimals
+  }
 }

@@ -113,7 +113,7 @@ export class MapSettingsComponent implements UserSettingsComponent {
         if (localStat) {
           const statDescIndex = localStat.findIndex(
             (statDesc) =>
-              (statDesc[Object.getOwnPropertyNames(statDesc)[0]][0] === 'N' && stat.negated) ||
+              (Object.getOwnPropertyNames(statDesc)[0][0] === 'N' && stat.negated) ||
               !stat.negated
           )
           const item: SelectListItem = {

@@ -101,7 +101,7 @@ export class CacheService {
     return this.storage.get<CacheEntry<TValue>>(key).pipe(map((entry) => entry?.value))
   }
 
-  public clear(path: string): Observable<void> {
+  public prune(path: string): Observable<void> {
     const now = Date.now()
     return this.storage.delete<CacheEntry<any>>((key, value) => {
       return key.startsWith(path) && value && value.expired <= now

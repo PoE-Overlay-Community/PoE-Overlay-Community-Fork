@@ -134,7 +134,10 @@ export class ItemSearchFiltersTypeService implements ItemSearchFiltersService {
       case ItemCategory.GemActivegem:
       case ItemCategory.GemSupportGem:
       case ItemCategory.GemSupportGemplus:
+      // leaguestone
       case ItemCategory.Leaguestone:
+      // memoryline
+      case ItemCategory.MemoryLine:
       // currency
       case ItemCategory.Currency:
       case ItemCategory.CurrencyPiece:
@@ -175,7 +178,9 @@ export class ItemSearchFiltersTypeService implements ItemSearchFiltersService {
           option: item.category,
         }
         if (item.rarity === ItemRarity.Unique || item.rarity === ItemRarity.UniqueRelic) {
+          query.term = undefined
           query.name = undefined
+          query.type = undefined
         }
         break
       // prophecy

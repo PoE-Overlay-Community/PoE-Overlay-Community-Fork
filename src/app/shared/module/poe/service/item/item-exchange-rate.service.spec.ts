@@ -1,8 +1,8 @@
-import { async, TestBed } from '@angular/core/testing'
+import { TestBed } from '@angular/core/testing'
 import { SharedModule } from '@shared/shared.module'
 import { flatMap } from 'rxjs/operators'
 import { ContextService } from '..'
-import { Item, ItemCategory, ItemProperties, Language } from '../../type'
+import { Item, ItemCategory, ItemRarity, Language } from '../../type'
 import { CurrencyService } from '../currency/currency.service'
 import { ItemExchangeRateService } from './item-exchange-rate.service'
 
@@ -21,19 +21,17 @@ describe('ItemExchangeRateService', () => {
     contextService
       .init({
         language: Language.English,
+        leagueId: 'Delirium',
       })
       .subscribe(() => done())
     currencyService = TestBed.inject<CurrencyService>(CurrencyService)
   })
 
-  it('should get rate for prophecy item', (done) => {
-    const props: ItemProperties = {
-      prophecyText: 'You will slay a powerful foe and gain its powers.',
-    }
+  it('should get rate for div-card item', (done) => {
     const item: Item = {
-      category: ItemCategory.Prophecy,
-      typeId: 'KillingRareStealsMods',
-      properties: props,
+      rarity: ItemRarity.DivinationCard,
+      category: ItemCategory.Card,
+      typeId: 'DivinationCardTheTrial',
     }
 
     currencyService

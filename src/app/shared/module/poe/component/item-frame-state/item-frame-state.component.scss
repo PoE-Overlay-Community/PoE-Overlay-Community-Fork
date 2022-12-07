@@ -6,7 +6,7 @@
 }
 
 .veiled {
-  background-image: url(../../../../../../assets/poe/item/veiled.png);
+  background-image: url(../../../../../../assets/poe/item/veiled-stat.png);
   background-repeat: no-repeat;
   background-position: -14220px;
   animation: animate-veiled-mod 3s steps(90) reverse infinite;
@@ -23,4 +23,8 @@
 
 .relic {
   color: $green;
+}
+
+.unmodifiable {
+  color: $purple;
 }

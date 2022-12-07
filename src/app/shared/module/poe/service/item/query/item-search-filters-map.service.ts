@@ -53,5 +53,11 @@ export class ItemSearchFiltersMapService implements ItemSearchFiltersService {
         option: 'true',
       }
     }
+
+    if (item.blightRavaged) {
+      query.filters.map_filters.filters.map_uberblighted = {
+        option: 'true',
+      }
+    }
   }
 }

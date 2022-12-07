@@ -30,7 +30,7 @@ export class ItemSearchQueryService {
     filtersStatsService: ItemSearchFiltersStatsService,
     filtersUltimatumService: ItemSearchFiltersUltimatumService,
     filtersIncursionService: ItemSearchFiltersIncursionService,
-    filtersHeistService: ItemSearchFiltersHeistService
+    filtersHeistService: ItemSearchFiltersHeistService,
   ) {
     this.filters = [
       filtersTypeService,

@@ -19,4 +19,10 @@ export const environment = {
   poePrices: {
     baseUrl: 'https://www.poeprices.info',
   },
+  cookieSharingUrls: [
+    'https://*.pathofexile.com/*',
+    'https://poe.game.daum.net/*',
+    'https://poe.game.qq.com/*',
+    'https://web.poe.garena.tw/*',
+  ],
 }

@@ -51,9 +51,11 @@ export class ItemSectionStatsParserService implements ItemSectionParserService {
   private createOptions(item: Item): StatsSearchOptions {
     const options: StatsSearchOptions = {
       monsterSample: item.category === ItemCategory.MonsterSample,
-      ultimatum: item.typeId === 'ItemisedTrial',
+      ultimatum: item.typeId === 'ItemisedTrial' || item.typeId === 'MapWorldsTrialmaster',
       map: item.category === ItemCategory.Map,
+      critical_strike_chance___: true,
     }
+
     if (!item.properties) {
       return options
     }
@@ -76,7 +78,8 @@ export class ItemSectionStatsParserService implements ItemSectionParserService {
       options.local_attack_speed___ = true
     }
 
-    if (item.properties.weaponCriticalStrikeChance) {
+    // Weapons have local crit chance when its crit chance is marked as 'augmented'
+    if (item.properties.weaponCriticalStrikeChance?.augmented) {
       options.local_critical_strike_chance___ = true
     }
 

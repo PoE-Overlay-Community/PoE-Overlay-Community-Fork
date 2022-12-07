@@ -10,6 +10,7 @@ import {
   Spanish,
   Thai,
   TraditionalChinese,
+  Japanese,
 } from '../../../../../assets/poe/words.json'
 import { Language, WordMap } from '../type'
 
@@ -39,6 +40,8 @@ export class WordProvider {
       //     return SimplifiedChinese;
       case Language.TraditionalChinese:
         return TraditionalChinese
+      case Language.Japanese:
+        return Japanese
       default:
         throw new Error(`Could not map words to language: '${Language[language]}'.`)
     }

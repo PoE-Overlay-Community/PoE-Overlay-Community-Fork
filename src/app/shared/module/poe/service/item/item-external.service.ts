@@ -48,6 +48,7 @@ const LANGUAGE_MAPPING = {
   [Language.Thai]: 'th',
   // [Language.SimplifiedChinese]: 'cn',
   [Language.TraditionalChinese]: 'tw',
+  [Language.Japanese]: 'jp',
 }
 
 @Injectable({

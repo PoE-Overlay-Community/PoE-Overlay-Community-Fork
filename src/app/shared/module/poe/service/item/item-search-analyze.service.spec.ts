@@ -1,15 +1,15 @@
 import { TestBed } from '@angular/core/testing'
+import { TradeSearchType } from '@data/poe'
 import { Item, Language } from '@shared/module/poe/type'
 import { SharedModule } from '@shared/shared.module'
+import moment from 'moment'
 import { forkJoin, of } from 'rxjs'
 import { flatMap } from 'rxjs/operators'
-import { TradeSearchType } from '@data/poe'
 import { BaseItemTypesService } from '../base-item-types/base-item-types.service'
 import { ContextService } from '../context.service'
 import { CurrencyService } from '../currency/currency.service'
 import { ItemSearchAnalyzeService } from './item-search-analyze.service'
-import { ItemSearchListing, ItemSearchResult, ItemSearchService } from './item-search.service'
-import moment from 'moment'
+import { ItemSearchListing, ItemSearchService, TradeSearchResult } from './item-search.service'
 
 describe('ItemSearchAnalyzeService', () => {
   let sut: ItemSearchAnalyzeService
@@ -19,7 +19,7 @@ describe('ItemSearchAnalyzeService', () => {
   let baseItemTypesService: BaseItemTypesService
   let itemSearchServiceSpy: jasmine.SpyObj<ItemSearchService>
 
-  const mockSearchResult: ItemSearchResult = {
+  const mockSearchResult: TradeSearchResult = {
     searchType: TradeSearchType.NormalTrade,
     id: 'y35jtR',
     hits: [
@@ -65,7 +65,7 @@ describe('ItemSearchAnalyzeService', () => {
   beforeEach((done) => {
     const itemSearchServiceSpyObj = jasmine.createSpyObj('ItemSearchService', [
       'searchOrExchange',
-      'list',
+      'listTradeSearch',
     ])
 
     TestBed.configureTestingModule({
@@ -93,12 +93,12 @@ describe('ItemSearchAnalyzeService', () => {
       typeId: baseItemTypesService.searchId('Topaz Ring'),
     }
     itemSearchServiceSpy.searchOrExchange.and.returnValue(of(mockSearchResult))
-    itemSearchServiceSpy.list.and.returnValue(of(mockListResult))
+    itemSearchServiceSpy.listTradeSearch.and.returnValue(of(mockListResult))
 
     forkJoin([
       searchService
         .searchOrExchange(requestedItem)
-        .pipe(flatMap((result) => searchService.list(result, 10))),
+        .pipe(flatMap((result) => searchService.listTradeSearch(result as TradeSearchResult, 10))),
       currencyService.searchById('chaos'),
     ]).subscribe(
       (results) => {
