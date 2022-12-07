@@ -112,10 +112,6 @@ export enum ItemCategory {
   HeistContract = 'heistmission.contract',
   HeistBlueprint = 'heistmission.blueprint',
   ExpeditionLogbook = 'logbook',
-  Sentinel = 'sentinel',
-  SentinelStalker = 'sentinel.stalker',
-  SentinelPandemonium = 'sentinel.pandemonium',
-  SentinelApex = 'sentinel.apex',
   Currency = 'currency',
   CurrencyPiece = 'currency.piece',
   CurrencyResonator = 'currency.resonator',
@@ -186,7 +182,6 @@ export interface ItemProperties {
   ultimatum?: ItemPropertiesUltimatum
   incursion?: ItemPropertiesIncursion
   heist?: ItemPropertiesHeist
-  sentinel?: ItemPropertiesSentinel
 }
 
 export interface ItemProperty {
@@ -230,6 +225,7 @@ export interface ItemStat {
   option: boolean
   indistinguishables: string[]
   relatedStats?: ItemStat[]
+  modName?: string
 }
 
 export interface ItemRequirements {
@@ -307,14 +303,6 @@ export interface ItemPropertiesHeist {
   rewardRooms?: ItemValue
 }
 
-export interface ItemPropertiesSentinel {
-  duration?: ItemValueProperty
-  durability?: ItemValueProperty
-  maxDurability?: ItemValueProperty
-  empowerment?: ItemValueProperty
-  enemiesEmpowered?: ItemValueProperty
-}
-
 export enum HeistObjectiveValue {
   Moderate = 1,
   High = 2,
@@ -367,7 +355,6 @@ export enum ItemSection {
   Relic,
   Incursion,
   Heist,
-  Sentinel,
 }
 
 export interface ItemSectionParserService {

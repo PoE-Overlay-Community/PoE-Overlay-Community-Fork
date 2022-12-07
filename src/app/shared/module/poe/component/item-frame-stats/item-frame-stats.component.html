@@ -89,21 +89,25 @@
 <!-- template -->
 <ng-template #statQuery let-stat="stat">
   <app-item-frame-query [(property)]="queryItem.stats[stat.index]" [value]="stat">
+    <ng-container *ngTemplateOutlet="modIcon; context: { modIcon: getModIcon(stat.modName) }"></ng-container>
     <app-item-frame-value-group>
       <ng-container *ngIf="stat | statTransform: language as parts">
         <ng-container *ngFor="let part of parts; let index = index">
           <span>{{ part }}</span>
           <span [class]="getValueClass(stat.id)">
-            <app-item-frame-value
-              *ngIf="stat.values[index]"
-              [(value)]="stat.values[index]"
-              [minRange]="modifierMinRange"
-              [maxRange]="modifierMaxRange"
-            >
+            <app-item-frame-value *ngIf="stat.values[index]"
+                                  [(value)]="stat.values[index]"
+                                  [minRange]="modifierMinRange"
+                                  [maxRange]="modifierMaxRange">
             </app-item-frame-value>
           </span>
         </ng-container>
       </ng-container>
     </app-item-frame-value-group>
+    <ng-container *ngTemplateOutlet="modIcon; context: { modIcon: getModIcon(stat.modName) }"></ng-container>
   </app-item-frame-query>
+</ng-template>
+
+<ng-template #modIcon let-modIcon="modIcon">
+  <span *ngIf="modIcon" class="mod-icon {{ modIcon }}"></span>
 </ng-template>

@@ -75,3 +75,7 @@ export interface AtlasMapsMap {
 export interface AnnointmentMap {
   [id: string]: string[]
 }
+
+export interface ModIconsMap {
+  [id: string]: string
+}

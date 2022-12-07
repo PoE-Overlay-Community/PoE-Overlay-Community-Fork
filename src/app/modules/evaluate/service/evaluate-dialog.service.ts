@@ -115,21 +115,6 @@ export class EvaluateDialogService {
                   height += DIALOG_LINE_HEIGHT
                 }
                 break
-              case 'sentinel':
-                const sentinel = item.properties.sentinel
-                if (sentinel.durability || sentinel.maxDurability) {
-                  height += DIALOG_LINE_HEIGHT
-                }
-                if (sentinel.duration) {
-                  height += DIALOG_LINE_HEIGHT
-                }
-                if (sentinel.enemiesEmpowered) {
-                  height += DIALOG_LINE_HEIGHT
-                }
-                if (sentinel.empowerment) {
-                  height += DIALOG_LINE_HEIGHT
-                }
-                break
               default:
                 height += DIALOG_LINE_HEIGHT
                 break

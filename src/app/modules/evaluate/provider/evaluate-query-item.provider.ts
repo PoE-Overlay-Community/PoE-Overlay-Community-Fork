@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core'
 import { ItemSocketService } from '@shared/module/poe/service/item/item-socket.service'
 import { Item, ItemCategory, ItemRarity, ItemStat, StatType } from '@shared/module/poe/type'
+import { language } from 'custom-electron-titlebar/lib/common/platform'
+import { ModIconsService } from '../../../shared/module/poe/service/mod-icons/mod-icons.service'
 import { EvaluateUserSettings } from '../component/evaluate-settings/evaluate-settings.component'
 
 export interface EvaluateQueryItemResult {
@@ -12,7 +14,10 @@ export interface EvaluateQueryItemResult {
   providedIn: 'root',
 })
 export class EvaluateQueryItemProvider {
-  constructor(private readonly itemSocketService: ItemSocketService) {}
+  constructor(
+    private readonly itemSocketService: ItemSocketService,
+    private readonly modIconService: ModIconsService,
+  ) { }
 
   public provide(item: Item, settings: EvaluateUserSettings): EvaluateQueryItemResult {
     const defaultItem: Item = this.copy({
@@ -36,7 +41,6 @@ export class EvaluateQueryItemProvider {
         heist: {
           requiredSkills: [],
         },
-        sentinel: {},
       },
       requirements: {},
       sockets: new Array((item.sockets || []).length).fill({}),
@@ -80,24 +84,6 @@ export class EvaluateQueryItemProvider {
         queryHeist.wingsRevealed = heist.wingsRevealed
         queryHeist.escapeRoutes = heist.escapeRoutes
         queryHeist.rewardRooms = heist.rewardRooms
-      }
-    }
-
-    const sentinel = item.properties?.sentinel
-    if (sentinel) {
-      const querySentinel = queryItem.properties.sentinel
-      if (settings.evaluateQueryDefaultSentinelCharges) {
-        querySentinel.durability = sentinel.durability
-        querySentinel.maxDurability = sentinel.maxDurability
-      }
-      if (settings.evaluateQueryDefaultSentinelDuration) {
-        querySentinel.duration = sentinel.duration
-      }
-      if (settings.evaluateQueryDefaultSentinelEnemies) {
-        querySentinel.enemiesEmpowered = sentinel.enemiesEmpowered
-      }
-      if (settings.evaluateQueryDefaultSentinelEmpowerment) {
-        querySentinel.empowerment = sentinel.empowerment
       }
     }
 
@@ -180,7 +166,9 @@ export class EvaluateQueryItemProvider {
         queryItem.stats = item.stats.map((stat) => (item.corrupted || item.unmodifiable || !this.isRelatedToAnImplicitStat(stat)) ? stat : undefined)
       } else {
         queryItem.stats = item.stats.map((stat) => {
-          if (stat.type === StatType.Enchant && settings.evaluateQueryDefaultStatsEnchants) {
+          // Auto-select enchanted stats or stats with a mod icon
+          if ((stat.type === StatType.Enchant && settings.evaluateQueryDefaultStatsEnchants) ||
+            (settings.evaluateQueryDefaultStatsModIcon && this.modIconService.get(stat.modName))) {
             return stat
           }
           const key = `${stat.type}.${stat.tradeId}`

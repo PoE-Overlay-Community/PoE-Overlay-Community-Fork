@@ -154,6 +154,8 @@
     "stats-enchants-check-all-tooltip": "Auto-select all Enchantment stats",
     "stats-export": "Export Stats to Clipboard",
     "stats-import": "Import Stats from Clipboard",
+    "stats-mod-icon-check-all": "Mod Icon Check All",
+    "stats-mod-icon-check-all-tooltip": "Auto-select all stats that have a special mod icon (e.g. Influence, Delve, Incursion, Essence, etc...)",
     "stats-pp-cluster-jewels": "Post-Process Cluster Jewels",
     "stats-pp-cluster-jewels-tooltip": "Post-process Cluster Jewels and set threshold ranges for 'Item Level'' and 'Add # Passive Skills'",
     "stats-range": "Min-Max Range",

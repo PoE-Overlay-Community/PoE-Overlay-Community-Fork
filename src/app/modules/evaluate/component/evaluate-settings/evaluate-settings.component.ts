@@ -34,10 +34,6 @@ export interface EvaluateUserSettings extends UserSettings {
   evaluateQueryDefaultHeistRequiredLevels: boolean
   evaluateQueryDefaultHeistContracts: boolean
   evaluateQueryDefaultHeistBlueprints: boolean
-  evaluateQueryDefaultSentinelCharges: boolean
-  evaluateQueryDefaultSentinelDuration: boolean
-  evaluateQueryDefaultSentinelEnemies: boolean
-  evaluateQueryDefaultSentinelEmpowerment: boolean
   evaluateQueryDefaultMiscs: boolean
   evaluateQueryDefaultType: boolean
   evaluateQueryDefaultAttack: boolean
@@ -48,6 +44,7 @@ export interface EvaluateUserSettings extends UserSettings {
   evaluateQueryDefaultStats: any
   evaluateQueryDefaultStatsUnique: boolean
   evaluateQueryDefaultStatsEnchants: boolean
+  evaluateQueryDefaultStatsModIcon: boolean
   evaluateQueryPostProcessClusterJewels: boolean
   evaluateQueryOnline: boolean
   evaluateQueryIndexedRange: ItemSearchIndexed

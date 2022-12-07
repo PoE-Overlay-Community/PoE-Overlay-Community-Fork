@@ -380,18 +380,32 @@ export class StatsService {
 
           // Determine the Stat Gen Type based on the previous line (which contains advanced mod info)
           let genType = StatGenType.Unknown
+          let modName: string = undefined
           const lines = section.text.split('\n')
           const lineIdx = lines.indexOf(matchedText.split('\n')[0])
-          const prevLineIdx = lineIdx - 1
-          if (prevLineIdx >= 0) {
+          let prevLineIdx = lineIdx - 1
+          while (prevLineIdx >= 0) {
             const prevLine = lines[prevLineIdx]
+            if (prevLine.length === 0) {
+              prevLineIdx--
+              continue
+            }
+
+            // Determine the Stat Gen Type
             if (prevLine.match(prefixRegex) || prevLine.match(craftedPrefixRegex)) {
-              section.text = lines.map((line, idx) => idx === prevLineIdx ? '' : line).join('\n')
               genType = StatGenType.Prefix
             } else if (prevLine.match(suffixRegex) || prevLine.match(craftedSuffixRegex)) {
-              section.text = lines.map((line, idx) => idx === prevLineIdx ? '' : line).join('\n')
               genType = StatGenType.Suffix
             }
+
+            // Determine the Mod Name
+            const modNameSplit = prevLine.split("\"")
+            if (modNameSplit.length >= 3) {
+              modName = modNameSplit[1]
+            }
+
+            // Found the info -> break out of the loop
+            break
           }
 
           const itemStat: ItemStat = {
@@ -399,13 +413,14 @@ export class StatsService {
             mod: stat.mod,
             option: stat.option,
             negated: stat.negated,
-            genType: genType,
+            genType,
             predicateIndex: matchedIndex,
             predicate: matchedPredicate,
             type,
             tradeId,
             values: matchedValues,
             indistinguishables,
+            modName,
           }
           results.push({
             stat: itemStat,
