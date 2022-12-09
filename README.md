@@ -36,15 +36,31 @@ features, bugs, and development. All are welcome to join.
   - An in game browser to display the created search <details><summary>Click to see image</summary>![browser](img/item_browser_0.5.8.jpg)</details>
   - Lets you price tag the item by clicking the desired bar/value
 
+### Stash Grid Overlay
+
+  - Configurable (positioning & coloring) grid overlay for both Normal & Quad tabs
+  - Customizable colors for the grid lines, outline, background & highlighting of items
+  - Used mainly in conjuction with other features (e.g. Trade Companion, Vendor Recipes, ...)
+
 ### Trade Companion
 
   - Inspired by MercuryTrade's trade notifications
   - Receive a (small) notification popup when being whispered (or whispering someone else) for a trade
   - Has quick-action buttons to invite, trade, dismiss, whisper, ask-if-still-interested, repeat-trade-whisper, etc...
   - Customizable buttons with your own label that send your own customizable text to the buyer/seller
-  - Configurable (positioning & coloring) grid overlay for both Normal & Quad tabs
-  - Item highlighting to quickly find the item you're selling (uses the grid overlay & customizable highlight colors)
+  - Item highlighting to quickly find the item you're selling (uses the stash grid overlay)
   - [Demo Video](https://www.youtube.com/watch?v=unX1u6VZaCQ)
+
+### Vendor Recipes
+
+  - Inspired by ChaosRecipeEnhancer's chaos recipe tool
+  - Configure multiple vendor recipes, using a sensible default template of the recipe type which can then be fully customized
+    - It comes with templats for: Chaos Orb, Exalted Shards, Gemcutter's Prism, Glassblower's Bauble, Regal Orb and Chance Orb
+    - Multiple of the same recipe van be configured with different settings for each recipe
+  - Has its own separate overlay bar which can be customized and positioned anywhere on your screen
+  - Highlights completed 'sets' using the stash grid overlay
+  - Note: Filter updating currently isn't supported, but might be added later on
+  - Note: parts of this feature require you to sign-in to your PoE account through the tool's settings menu
 
 ### Other Features
 
@@ -147,7 +163,7 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 - [Mercury Trade](https://github.com/Exslims/MercuryTrade) inspiration for the Trade Companion
 - [SignPath.io](https://signpath.io/) for the free code signing  
 <a href="https://signpath.io/" target="_blank"><img src="./img/signpath_logo.png"></a>
-- [Smashicon via Flaticon.com](https://www.flaticon.com/authors/smashicons) for the Chaos Recipe icons
+- [Smashicon via Flaticon.com](https://www.flaticon.com/authors/smashicons) for the Vendor Recipe icons
 
 ## Disclosures
 
