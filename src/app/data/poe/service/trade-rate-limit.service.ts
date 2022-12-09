@@ -1,7 +1,9 @@
 import { HttpResponse } from '@angular/common/http'
 import { Injectable } from '@angular/core'
+import { environment } from '@env/environment'
 import { Observable, of, throwError } from 'rxjs'
 import { catchError, delay, finalize, flatMap, map, retryWhen } from 'rxjs/operators'
+import { LoggerService } from '../../../core/service'
 
 // 1 request
 // x-rate-limit-ip: 12:4:10,16:12:300
@@ -68,6 +70,8 @@ enum TradeRateThrottle {
   Limited = 5,
 }
 
+const LogTag = 'rateLimiter'
+
 @Injectable({
   providedIn: 'root',
 })
@@ -76,6 +80,11 @@ export class TradeRateLimitService {
     [resource: string]: TradeRateLimit
   } = {}
 
+  constructor(
+    private readonly logger: LoggerService,
+  ) {
+  }
+
   public throttle<TResult>(
     resource: string,
     getRequest: () => Observable<HttpResponse<TResult>>
@@ -83,6 +92,7 @@ export class TradeRateLimitService {
     return of(null).pipe(
       flatMap(() => {
         const reason = this.shouldThrottle(resource)
+        this.logger.debug(LogTag, `resource '${resource}' throttle state '${TradeRateThrottle[reason]}'`)
         switch (reason) {
           case TradeRateThrottle.Limited:
             return throwError('limited')

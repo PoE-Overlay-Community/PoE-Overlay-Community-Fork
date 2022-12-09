@@ -83,7 +83,8 @@ export class UserSettingsFormComponent implements OnInit, OnDestroy {
   public characterLeagues$ = new BehaviorSubject<string[]>([])
 
   public defaultCharacterUpdateInterval: UpdateInterval
-  public defaultStashUpdateInterval: UpdateInterval
+  public defaultStashTabInfoUpdateInterval: UpdateInterval
+  public defaultStashTabContentUpdateInterval: UpdateInterval
 
   @Input()
   public settings: UserSettings
@@ -102,7 +103,8 @@ export class UserSettingsFormComponent implements OnInit, OnDestroy {
     private readonly stashService: StashService,
   ) {
     this.defaultCharacterUpdateInterval = this.updateIntervals.find((x) => x.value === this.accountService.defaultCharacterCacheExpiration)
-    this.defaultStashUpdateInterval = this.updateIntervals.find((x) => x.value === this.stashService.defaultStashCacheExpiration)
+    this.defaultStashTabInfoUpdateInterval = this.updateIntervals.find((x) => x.value === this.stashService.defaultStashTabInfoCacheExpiration)
+    this.defaultStashTabContentUpdateInterval = this.updateIntervals.find((x) => x.value === this.stashService.defaultStashTabContentCacheExpiration)
   }
 
   public ngOnInit(): void {
@@ -162,7 +164,11 @@ export class UserSettingsFormComponent implements OnInit, OnDestroy {
   }
 
   public onForceRefreshStashInfoClick(): void {
-    this.stashService.forceUpdate()
+    this.stashService.forceUpdateTabInfo()
+  }
+
+  public onForceRefreshStashContentClick(): void {
+    this.stashService.forceUpdateTabContent()
   }
 
   public getActiveCharacter(): PoECharacter {
@@ -186,7 +192,7 @@ export class UserSettingsFormComponent implements OnInit, OnDestroy {
   }
 
   private updateLeagues(forceRefresh: boolean = false): void {
-    this.leagues.getLeagues(this.settings.language, forceRefresh ? CacheExpirationType.OneMin : CacheExpirationType.OneHour).subscribe((leagues) => this.onLeaguesChanged(leagues))
+    this.leagues.getLeagues(this.settings.language, forceRefresh ? CacheExpirationType.FiveSeconds : CacheExpirationType.OneHour).subscribe((leagues) => this.onLeaguesChanged(leagues))
   }
 
   private updateAccount(): void {

@@ -85,7 +85,7 @@ export enum ItemCategory {
   AccessoryRing = 'accessory.ring',
   AccessoryTrinket = 'accessory.trinket',
   Gem = 'gem',
-  GemActivegem = 'gem.activegem',
+  GemActiveGem = 'gem.activegem',
   GemSupportGem = 'gem.supportgem',
   GemSupportGemplus = 'gem.supportgemplus',
   Jewel = 'jewel',
@@ -146,6 +146,7 @@ export enum ItemSocketColor {
   Blue = 'B',
   White = 'W',
   Abyss = 'A',
+  Delve = 'DV',
 }
 
 export interface ItemSocket {

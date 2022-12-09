@@ -11,6 +11,7 @@ export enum CacheExpirationType {
   ThreeMin = 1000 * 60 * 3,//3m
   TwoMin = 1000 * 60 * 2,//2m
   OneMin = 1000 * 60,//1m
+  FiveSeconds = 1000 * 5//5s
 }
 
 export abstract class CacheExpiration {

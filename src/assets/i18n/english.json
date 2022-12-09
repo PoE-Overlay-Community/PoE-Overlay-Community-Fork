@@ -246,6 +246,14 @@
     "stash": "Stash",
     "wiki": "Wiki"
   },
+  "panel-tooltips": {
+    "disable": "Disable this overlay panel",
+    "drag-handle": "Drag this handle to move this panel",
+    "locked": "Locked - Click to unlock",
+    "settings": "Open Settings",
+    "unlocked": "Unlocked - Click to lock",
+    "unlock-to-move": "Locked - Unlock to allow moving of this overlay panel"
+  },
   "settings": {
     "abbr-level": "Lv",
     "account": {
@@ -255,6 +263,15 @@
       "name": "Account Name"
     },
     "active-character": "Active Character",
+    "are-you-sure-reset": "Are you sure you want to reset the '{{featureName}}' settings to their default values?",
+    "audio": {
+      "invalid-source": "Invalid Audio Source",
+      "play": "Play",
+      "stop": "Stop",
+      "source": "Source (URL or Path):",
+      "volume": "Volume"
+    },
+    "audio-options": "Audio Options",
     "auto": "Auto",
     "auto-select": "Auto Select",
     "auto-selected-desc": "The active character is auto-selected based on the last active character according to the PoE API.",
@@ -272,6 +289,7 @@
     },
     "dialog-spawn-position-title": "Dialog Spawn Position",
     "display-version": "Display Version",
+    "enabled": "Enabled",
     "exit-app": "Exit App",
     "focusable": "Focusable (Keyboard Support)",
     "focusable-description": "Allows keyboard navigation of the overlay (TAB / ARROW KEYS [←→↑↓])",
@@ -291,19 +309,23 @@
       "traditionalchinese": "Traditional Chinese"
     },
     "league": "League",
+    "loading": "Loading...",
+    "ok": "Ok",
     "open-settings": "Open Settings",
     "poe-account": "PoE Account",
     "private-league-info": "Private leagues become selectable when logged in",
     "refresh": "Refresh",
     "relaunch-app": "Relaunch App",
+    "reset": "Reset",
     "save": "Save",
-    "stash-update-interval": "Stash Update Interval",
+    "stash-tabs-update-interval": "Stash Tabs Update Interval",
+    "stash-contents-update-interval": "Stash Contents Update Interval",
     "ui-language": "UI Language",
     "update-intervals": {
       "default": "Default",
       "fifteen-min": "15 Min",
       "five-min": "5 Min",
-      "four-min":  "4 Min",
+      "four-min": "4 Min",
       "half-hour": "30 Min",
       "never": "Never",
       "one-day": "1 Day",
@@ -315,6 +337,32 @@
     },
     "zoom": "Zoom"
   },
+  "stash-grid": {
+    "cancel": "Cancel",
+    "close": "Close",
+    "disabled": "Disabled",
+    "edit": {
+      "normal": "Edit Normal stash grid",
+      "quad": "Edit Quad stash grid"
+    },
+    "grid-background-color": "Grid Background Color",
+    "grid-line-color": "Grid Line Color",
+    "grid-outline-color": "Grid Outline Color",
+    "grid-overlay": "Stash Grid Overlay",
+    "grid-overlay-colors": "Stash Grid Overlay Colors",
+    "highlight-background-color": "Highlight Background Color",
+    "highlight-line-color": "Highlight Line Color",
+    "highlight-text-color": "Highlight Text Color",
+    "name": "Stash Grid",
+    "ok": "Ok",
+    "preview": {
+      "normal": "Preview Normal stash grid",
+      "quad": "Preview Quad stash grid"
+    },
+    "save": "Save",
+    "tab": "Tab",
+    "toggle": "Toggle"
+  },
   "trade-companion": {
     "ask-if-still-interested-message": "Ask if still interested Message",
     "ask-if-still-interested-message-description": "The message that'll be sent to the trader when using the 'Ask if still interested' button (or shortcut)\n\nPlaceholders (use without the quotes):\n'@item' = The item requested by the trader (e.g. 'Header Hunter' or '3 Exalted Orb')\n'@price' = The price offered by the trader (e.g. '25 Chaos Orb')",
@@ -323,15 +371,8 @@
     "active-notification-border-color-description": "The Border Color for the currently active Trade Notifications (which'll accept shortcut inputs)",
     "audio": {
       "button-click": "Button Click",
-      "enabled": "Enabled",
-      "incoming-trade": "Incoming Trade",
-      "invalid-source": "Invalid Audio Source",
-      "play": "Play",
-      "stop": "Stop",
-      "source": "Source (URL or Path):",
-      "volume": "Volume"
+      "incoming-trade": "Incoming Trade"
     },
-    "audio-options": "Audio Options",
     "auto-collapse": {
       "all": "Always collapse",
       "all-description": "",
@@ -342,10 +383,6 @@
       "oldest": "Collapse oldest",
       "oldest-description": "Collapse old trade messages; i.e. keeps the newest trade message expanded."
     },
-    "edit-stash-grid": {
-      "normal": "Edit Normal stash grid",
-      "quad": "Edit Quad stash grid"
-    },
     "enabled": "Use Trade Companion",
     "error-select-active-character": "No active character selected in settings",
     "example-trade-notification": {
@@ -354,7 +391,6 @@
     },
     "general": "General",
     "general-trade-options": "General Trade Options",
-    "grid-overlay": "Stash Grid Overlay",
     "hide-highlight-on-trade": "Hide Highlight on Trade",
     "hide-highlight-on-trade-description": "Hide the stash grid item highlighting when clicking the trade button on an incoming trade notification",
     "incoming-trade-options": "Incoming Trade Options",
@@ -362,10 +398,6 @@
     "name": "Trade Companion",
     "notification-collapsing": "Notification Collapsing",
     "outgoing-trade-options": "Outgoing Trade Options",
-    "preview-stash-grid": {
-      "normal": "Preview Normal stash grid",
-      "quad": "Preview Quad stash grid"
-    },
     "reset": "Reset",
     "reversed-notification-direction": "Reversed Direction",
     "reversed-notification-direction-description": "Reverse the notification direction to be upwards.",
@@ -373,20 +405,6 @@
     "reversed-notification-h-alignment-description": "Reverse the horizontal alignment to be right-to-left.",
     "show-and-highlight-item": "Show & Highlight on Invite",
     "show-and-highlight-item-description": "Show the stash grid and highlight the item when clicking the invite button on an incoming trade notification",
-    "stash-grid": {
-      "cancel": "Cancel",
-      "close": "Close",
-      "disabled": "Disabled",
-      "grid-background-color": "Grid Background Color",
-      "grid-line-color": "Grid Line Color",
-      "grid-outline-color": "Grid Outline Color",
-      "highlight-background-color": "Highlight Background Color",
-      "highlight-line-color": "Highlight Line Color",
-      "ok": "Ok",
-      "save": "Save",
-      "tab": "Tab",
-      "toggle": "Toggle"
-    },
     "trade-notification": {
       "ask-if-still-interested": "Ask if still interested",
       "collapse": "Collapse",
@@ -435,13 +453,7 @@
       "whisper-player": "Whisper Player"
     },
     "trade-notification-panel": {
-      "disable": "Disable Trade Companion",
-      "drag-handle": "Drag this handle to move the Trade Companion",
-      "hideout": "Go to your Hideout",
-      "locked": "Locked - Click to unlock",
-      "settings": "Open Settings",
-      "unlocked": "Unlocked - Click to lock",
-      "unlock-to-move": "Locked - Unlock to allow moving of the Trade Companion"
+      "hideout": "Go to your Hideout"
     },
     "trade-option": {
       "add": "Add Trade Option",
@@ -455,5 +467,130 @@
     },
     "unset": "unset",
     "window-bounds": "Window Bounds"
+  },
+  "vendor-recipe": {
+    "create-new-settings": "Create new Vendor Recipe settings",
+    "panel": {
+      "background-opacity": "Background Opacity",
+      "name": "Item Sets panel",
+      "force-refresh-stash-tooltip": "Refresh Vendor Recipes",
+      "reset": "Reset",
+      "unset": "unset",
+      "window-bounds": "Window Bounds"
+    },
+    "settings": {
+      "audio": {
+        "full-set-threshold": "Full Set Threshold reached",
+        "item-threshold": "Item Threshold reached",
+        "recipe-complete": "Recipe Complete"
+      },
+      "full-set-threshold": "Full Set Threshold",
+      "highlight-mode": "Highlight Mode",
+      "highlight-mode-tooltips": {
+        "allitems": "Highlight all items of all sets all at once",
+        "itembyitem": "Highlight item by item",
+        "setbyset": "Highlight all items of a single set"
+      },
+      "highlight-modes": {
+        "allitems": "All Items",
+        "itembyitem": "Item by Item",
+        "setbyset": "Set by Set"
+      },
+      "highlight-order": "Higlight Order",
+      "highlight-order-tooltips": {
+        "largetosmall": "Highlight Large items first, then Small items",
+        "shortestdistance": "Higlight items based on the shortest distance (i.e. least mouse movements required)",
+        "smalltolarge": "Highlight Small items first, then Large items"
+      },
+      "highlight-orders": {
+        "largetosmall": "Large to Small",
+        "shortestdistance": "Shortest Distance",
+        "smalltolarge": "Small to Large"
+      },
+      "item-set": {
+        "fill-greedy": "Fill Greedy",
+        "fill-greedy-tooltip": "Use lower level items to fill up a set",
+        "group-weapons-together": "Group Weapons Together",
+        "identified-item-usage": "Identified Item Usage",
+        "identified-item-usage-tooltips": {
+          "alwaysuse": "Only Identified items will be used as part of a Set, and Unidentified items will never be used",
+          "canuse": "Both Identified and Unidentified items will be used as part of a set",
+          "neveruse": "Identified items are never used as part of a Set, and Unidentified items will always be used"
+        },
+        "quality-item-usage": "Quality Item Usage",
+        "quality-item-usage-tooltips": {
+          "alwaysuse": "Only items with Quality will be used as part of a Set, and items without Quality will never be used",
+          "canuse": "Both items with and without Quality will be used as part of a set",
+          "neveruse": "Items with Quality are never used as part of a Set, and items without Quality will always be used"
+        }
+      },
+      "item-threshold": "Item Threshold",
+      "item-threshold-override": "Item Threshold Override",
+      "recipe-item-group-bg-color": "Background Color",
+      "recipe-item-group-bg-color-tooltip": "The color used as background for this item set group on the (draggable) item set group overlay/bar",
+      "recipe-item-groups": "Item Groups",
+      "recipe-item-group-names": {
+        "amulets": "Amulets",
+        "belts": "Belts",
+        "boots": "Boots",
+        "chests": "Chests",
+        "flasks": "Flasks",
+        "gems": "Gems",
+        "gloves": "Gloves",
+        "helmets": "Helmets",
+        "onehandedweapons": "One-Handed Weapons",
+        "rings": "Rings",
+        "twohandedweapons": "Two-Handed Weapons",
+        "weapons": "Weapons"
+      },
+      "item-usage": {
+        "alwaysuse": "Always Use",
+        "canuse": "Can Use",
+        "neveruse": "Never Use"
+      },
+      "large-icon": "Large Icon",
+      "large-icon-tooltip": "This icon will be shown as a background icon in the total set count bubble",
+      "no-override": "Don't Override",
+      "quality": {
+        "calc-efficiency": "Calculate recipe efficiency",
+        "corrupted-item-usage": "Corrupted Item Usage",
+        "corrupted-item-usage-tooltips": {
+          "alwaysuse": "Only items that are Corrupted will be used as part of a set, and items that aren't Corrupted will never be used",
+          "canuse": "Both items that are and aren't Corrupted will be used as part of a set",
+          "neveruse": "Items that are Corrupted will never used as part of a set, and items that aren't Corrupted will always be used"
+        },
+        "num-of-bag-spaces-to-use": "# of Bag spaces to use"
+      },
+      "separate-quality-items": "Separate Quality Items",
+      "separate-quality-items-tooltip": "Separate Quality Items into their own sets (allows you to gain 1 additional currency)",
+      "show-item-amounts": "Show item amounts",
+      "show-on-overlay": "Show On Overlay",
+      "show-on-overlay-tooltip": "Show this item set group on the overlay/bar",
+      "small-icon": "Item Sets Small Icon",
+      "small-icon-tooltip": "This icon will be shown as a small icon in corner of the total set count bubble",
+      "stash-tab-search-mode": "Stash Tab Search Mode",
+      "stash-tab-search-modes": {
+        "index": "Index",
+        "prefix": "Prefix",
+        "regex": "Regex",
+        "suffix": "Suffix"
+      },
+      "stash-tab-search-value": "Stash Tab Search Value",
+      "stash-tab-search-tooltips": {
+        "index": "A comma-separated list of stash tab indices to be searched",
+        "prefix": "A comma-separated list of stash tab name prefixes to be search",
+        "regex": "A single regular expression used to find the stash tabs to be searched",
+        "suffix": "A comma-separated list of stash tab name suffixes to be search"
+      },
+      "title": {
+        "chance": "Chance Orb Recipe",
+        "chaos": "Chaos Orb Recipe",
+        "exaltedshard": "Exalted Shards Recipe",
+        "gemcutter": "Gemcutter's Prism Recipe",
+        "glassblowerbauble": "Glassblower's Bauble Recipe",
+        "regal": "Regal Orb Recipe"
+      }
+    },
+    "name": "Vendor Recipes"
   }
 }

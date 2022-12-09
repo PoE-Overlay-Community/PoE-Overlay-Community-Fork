@@ -23,7 +23,7 @@ export class ItemSectionGemExperienceParserService implements ItemSectionParserS
   public parse(item: ExportedItem, target: Item): Section {
     switch (target.category) {
       case ItemCategory.Gem:
-      case ItemCategory.GemActivegem:
+      case ItemCategory.GemActiveGem:
       case ItemCategory.GemSupportGem:
       case ItemCategory.GemSupportGemplus:
         break

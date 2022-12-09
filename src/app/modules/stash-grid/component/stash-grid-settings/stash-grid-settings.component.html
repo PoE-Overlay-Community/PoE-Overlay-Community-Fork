@@ -1,0 +1,45 @@
+<app-card [title]="'stash-grid.grid-overlay-colors' | translate">
+  <div class="row">
+    <div class="col-3">
+      <app-color-picker-settings side="right" [label]="'stash-grid.grid-line-color'" [color]="settings.stashGridColors.gridLine" [defaultColor]="defaultSettings.stashGridColors.gridLine"></app-color-picker-settings>
+    </div>
+    <div class="col-3">
+      <app-color-picker-settings side="right" [label]="'stash-grid.grid-outline-color'" [color]="settings.stashGridColors.gridOutline" [defaultColor]="defaultSettings.stashGridColors.gridOutline"></app-color-picker-settings>
+    </div>
+    <div class="col-3">
+      <app-color-picker-settings side="right" [label]="'stash-grid.grid-background-color'" [color]="settings.stashGridColors.gridBackground" [defaultColor]="defaultSettings.stashGridColors.gridBackground"></app-color-picker-settings>
+    </div>
+    <div class="col-3 text-right">
+      <button mat-raised-button (click)="onResetSettingsClick()">
+        {{ 'settings.reset' | translate }}
+      </button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-3">
+      <app-color-picker-settings side="right" [label]="'stash-grid.highlight-line-color'" [color]="settings.stashGridColors.highlightLine" [defaultColor]="defaultSettings.stashGridColors.highlightLine"></app-color-picker-settings>
+    </div>
+    <div class="col-3">
+      <app-color-picker-settings side="left" [label]="'stash-grid.highlight-background-color'" [color]="settings.stashGridColors.highlightBackground" [defaultColor]="defaultSettings.stashGridColors.highlightBackground"></app-color-picker-settings>
+    </div>
+    <div class="col-3">
+      <app-color-picker-settings side="left" [label]="'stash-grid.highlight-text-color'" [color]="settings.stashGridColors.highlightText" [defaultColor]="defaultSettings.stashGridColors.highlightText"></app-color-picker-settings>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-auto" *ngFor="let stashGridBound of settings.stashGridBounds | keyvalue">
+      <button mat-raised-button (click)="onEditStashGridClick(stashGridBound.key)">
+        {{ 'stash-grid.edit.' + (stashGridTypes.values[stashGridBound.key] | lowercase) | translate }}
+      </button>
+    </div>
+    <div class="col-1"></div>
+    <div class="col-auto" *ngFor="let stashGridBound of settings.stashGridBounds | keyvalue">
+      <button mat-raised-button (click)="onPreviewStashGridClick(stashGridBound.key)">
+        {{ 'stash-grid.preview.' + (stashGridTypes.values[stashGridBound.key] | lowercase) | translate }}
+      </button>
+    </div>
+  </div>
+</app-card>
+<div style="height: 250px;">
+   <!-- Dummy area so the color picker popup doesn't look weird -->
+</div>

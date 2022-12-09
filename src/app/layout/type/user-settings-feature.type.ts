@@ -3,6 +3,7 @@ import { UserSettings } from './user-settings.type'
 
 export interface UserSettingsComponent {
   settings: UserSettings
+  defaultSettings: UserSettings
   load(): void
 }
 

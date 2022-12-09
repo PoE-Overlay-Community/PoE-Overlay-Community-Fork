@@ -7,9 +7,9 @@ import moment from 'moment'
 import { forkJoin } from 'rxjs'
 import { TradeRegexesProvider } from '../../provider/trade-regexes.provider'
 import { ItemCategory, Language } from '../../type'
+import { MAX_STASH_SIZE } from '../../type/stash-grid.type'
 import {
     ExampleNotificationType,
-    MAX_STASH_SIZE,
     TradeNotification,
     TradeNotificationType
 } from '../../type/trade-companion.type'

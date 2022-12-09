@@ -18,7 +18,8 @@ export interface UserSettings {
   displayVersion?: boolean
   autoDownload?: boolean
   focusable?: boolean
-  stashCacheExpiration?: number
+  stashTabInfoCacheExpiration?: number
+  stashTabContentCacheExpiration?: number
   charactersCacheExpiration?: number
   activeCharacterName?: string
 }

@@ -11,6 +11,12 @@ export function register(ipcMain: IpcMain): void {
     event.returnValue = true
   })
 
+  ipcMain.on('move-to', (event, position) => {
+    robot.updateScreenMetrics()
+    robot.moveMouse(position.x, position.y)
+    event.returnValue = true
+  })
+
   ipcMain.on('mouse-pos', (event) => {
     event.returnValue = robot.getMousePos()
   })

@@ -25,9 +25,20 @@
       width: 100%;
       height: 100%;
       border: 1px solid rgb(0,0,0,0.65);
+      position: relative;
 
       &.editMode {
         border: 1px solid yellow;
+      }
+
+      .marked::after {
+        position: absolute;
+        text-align: center;
+        left: 0px;
+        right: 0px;
+        top: 0px;
+        bottom: 0px;
+        content: '\2573';
       }
     }
   }

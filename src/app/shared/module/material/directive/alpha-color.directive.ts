@@ -11,6 +11,10 @@ export class AlphaColorDirective implements OnInit, OnChanges {
   public stylePropertyNames: string[]
 
   // tslint:disable-next-line:no-input-rename
+  @Input('appAlphaColor.baseColors')
+  public baseColors?: Color[]
+
+  // tslint:disable-next-line:no-input-rename
   @Input('appAlphaColor.alpha')
   public alpha = 1
 
@@ -36,9 +40,12 @@ export class AlphaColorDirective implements OnInit, OnChanges {
     )
 
     const computedStyle = getComputedStyle(this.element)
-    this.stylePropertyNames.forEach((stylePropertyName) => {
+    this.stylePropertyNames.forEach((stylePropertyName, index) => {
       const colorString = computedStyle.getPropertyValue(stylePropertyName)
-      const color = ColorUtils.fromString(colorString)
+      let color = ColorUtils.fromString(colorString)
+      if (this.baseColors && this.baseColors[index]) {
+        color = this.baseColors[index]
+      }
       color.a *= this.alpha
       this.element.style[stylePropertyName] = ColorUtils.toRGBA(color)
     })

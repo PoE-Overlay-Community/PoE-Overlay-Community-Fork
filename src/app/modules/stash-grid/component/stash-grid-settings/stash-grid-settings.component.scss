@@ -1,0 +1,23 @@
+@import './../../../../../styles/variables';
+
+app-card {
+  .card, button {
+    background-color: $settings-grey-one;
+  }
+
+  .card {
+    position: relative;
+
+    button {
+      background-color: $settings-grey-two;
+    }
+  }
+}
+
+::ng-deep {
+  .color-picker-settings {
+    button {
+      background-color: $settings-grey-one;
+    }
+  }
+}

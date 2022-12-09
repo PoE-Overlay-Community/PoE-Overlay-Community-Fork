@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core'
+import { ObjectUtils } from '@app/class'
 import { FeatureModule, UiLanguage } from '@app/type'
 import { Language } from '@shared/module/poe/type'
 import { Observable } from 'rxjs'
@@ -46,17 +47,11 @@ export class UserSettingsService {
 
         modules.forEach((x) => {
           const featureSettings = x.getSettings()
-          mergedSettings = {
-            ...mergedSettings,
-            ...featureSettings.defaultSettings,
-          }
+          mergedSettings = ObjectUtils.merge(mergedSettings, featureSettings.defaultSettings)
           this.userSettingsFeatureService.register(featureSettings)
         })
 
-        mergedSettings = {
-          ...mergedSettings,
-          ...savedSettings,
-        }
+        mergedSettings = ObjectUtils.merge(mergedSettings, savedSettings)
 
         return this.userSettingsStorageService.save(mergedSettings)
       })

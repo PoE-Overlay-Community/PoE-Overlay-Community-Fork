@@ -38,64 +38,7 @@
     </div>
   </div>
 </app-card>
-<app-card [title]="'trade-companion.grid-overlay' | translate">
-  <div class="row">
-    <div class="col-2">
-      <ng-container *ngTemplateOutlet="
-                    colorPickerTemplate;
-                    context: {
-                      label: 'trade-companion.stash-grid.grid-line-color',
-                      color: settings.stashGridColors.gridLine,
-                      side: 'right'
-                    }
-                    ">
-      </ng-container>
-    </div>
-    <div class="col-2">
-      <ng-container *ngTemplateOutlet="
-                    colorPickerTemplate;
-                    context: {
-                      label: 'trade-companion.stash-grid.grid-outline-color',
-                      color: settings.stashGridColors.gridOutline,
-                      side: 'right'
-                    }
-                    ">
-      </ng-container>
-    </div>
-    <div class="col-2">
-      <ng-container *ngTemplateOutlet="
-                    colorPickerTemplate;
-                    context: {
-                      label: 'trade-companion.stash-grid.grid-background-color',
-                      color: settings.stashGridColors.gridBackground,
-                      side: 'right'
-                    }
-                    ">
-      </ng-container>
-    </div>
-    <div class="col-2">
-      <ng-container *ngTemplateOutlet="
-                    colorPickerTemplate;
-                    context: {
-                      label: 'trade-companion.stash-grid.highlight-line-color',
-                      color: settings.stashGridColors.highlightLine,
-                      side: 'right'
-                    }
-                    ">
-      </ng-container>
-    </div>
-    <div class="col-2">
-      <ng-container *ngTemplateOutlet="
-                    colorPickerTemplate;
-                    context: {
-                      label: 'trade-companion.stash-grid.highlight-background-color',
-                      color: settings.stashGridColors.highlightBackground,
-                      side: 'left'
-                    }
-                    ">
-      </ng-container>
-    </div>
-  </div>
+<app-card [title]="'stash-grid.grid-overlay' | translate">
   <div class="row">
     <div class="col-3">
       <mat-slide-toggle [checked]="settings.showStashGridOnInvite" (change)="settings.showStashGridOnInvite = $event.checked" matTooltip="{{ 'trade-companion.show-and-highlight-item-description' | translate }}">
@@ -106,19 +49,6 @@
       <mat-slide-toggle [checked]="settings.hideStashGridOnTrade" (change)="settings.hideStashGridOnTrade = $event.checked" matTooltip="{{ 'trade-companion.hide-highlight-on-trade-description' | translate }}">
         {{ 'trade-companion.hide-highlight-on-trade' | translate }}
       </mat-slide-toggle>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-auto" *ngFor="let stashGridBound of settings.stashGridBounds | keyvalue">
-      <button mat-raised-button (click)="onEditStashGridClick(stashGridBound.key)">
-        {{ 'trade-companion.edit-stash-grid.' + (stashGridTypes.values[stashGridBound.key] | lowercase) | translate }}
-      </button>
-    </div>
-    <div class="col-1"></div>
-    <div class="col-auto" *ngFor="let stashGridBound of settings.stashGridBounds | keyvalue">
-      <button mat-raised-button (click)="onPreviewStashGridClick(stashGridBound.key)">
-        {{ 'trade-companion.preview-stash-grid.' + (stashGridTypes.values[stashGridBound.key] | lowercase) | translate }}
-      </button>
     </div>
   </div>
 </app-card>
@@ -146,15 +76,7 @@
     </div>
     <div class="col-2">
       <span matTooltip="{{ 'trade-companion.active-notification-border-color-description' | translate }}">
-        <ng-container *ngTemplateOutlet="
-                    colorPickerTemplate;
-                    context: {
-                      label: 'trade-companion.active-notification-border-color',
-                      color: settings.activeTradeNotificationBorderColor,
-                      side: 'right'
-                    }
-                    ">
-        </ng-container>
+        <app-color-picker-settings side="right" [label]="'trade-companion.active-notification-border-color'" [color]="settings.activeTradeNotificationBorderColor"></app-color-picker-settings>
       </span>
     </div>
   </div>
@@ -313,26 +235,10 @@
   ">
   </ng-container>
 </app-card>
-<app-card [title]="'trade-companion.audio-options' | translate">
+<app-card [title]="'settings.audio-options' | translate">
   <div class="row">
-    <ng-container *ngTemplateOutlet="
-                audioTemplate;
-                context: {
-                  audioSettings: settings.buttonClickAudio,
-                  name: 'button-click',
-                  title: 'trade-companion.audio.button-click'
-                }
-    ">
-    </ng-container>
-    <ng-container *ngTemplateOutlet="
-                audioTemplate;
-                context: {
-                  audioSettings: settings.incomingTradeMessageAudio,
-                  name: 'incoming-trade',
-                  title: 'trade-companion.audio.incoming-trade'
-                }
-    ">
-    </ng-container>
+    <app-audio-clip-settings class="col-md-6" [settings]="settings.buttonClickAudio" [title]="'trade-companion.audio.button-click' | translate"></app-audio-clip-settings>
+    <app-audio-clip-settings class="col-md-6" [settings]="settings.incomingTradeMessageAudio" [title]="'trade-companion.audio.incoming-trade' | translate"></app-audio-clip-settings>
   </div>
 </app-card>
 
@@ -387,70 +293,5 @@
         {{ 'trade-companion.trade-option.add' | translate }}
       </button>
     </div>
-  </div>
-</ng-template>
-<ng-template #colorPickerTemplate let-label="label" let-color="color" let-side="side">
-  <mat-form-field>
-    <mat-label>{{ label | translate }}</mat-label>
-    <input matInput readonly
-           class="cp-input"
-           [colorPicker]="ColorUtils.toRGBA(color)"
-           (colorPickerChange)="ColorUtils.update(color, $event)"
-           [value]="ColorUtils.toRGBA(color)"
-           cpOutputFormat="rgba"
-           [cpPosition]="side"
-           [cpToggle]="true"
-           [cpSaveClickOutside]="false"
-           cpPositionOffset="-100%"
-           [cpOKButton]="true"
-           cpOKButtonText="{{ 'trade-companion.stash-grid.ok' | translate }}"
-           cpOKButtonClass="mat-focus-indicator mat-raised-button mat-button-base"
-           [cpCancelButton]="true"
-           cpCancelButtonText="{{ 'trade-companion.stash-grid.cancel' | translate }}"
-           cpCancelButtonClass="mat-focus-indicator mat-raised-button mat-button-base">
-    <mat-icon matSuffix>palette</mat-icon>
-  </mat-form-field>
-</ng-template>
-<ng-template #audioTemplate let-audioSettings="audioSettings" let-name="name" let-title="title">
-  <div class="col-md-6">
-    <mat-card class="card">
-      <mat-label>{{ title | translate }}</mat-label>
-      <div class="row">
-        <mat-slide-toggle [checked]="audioSettings.enabled" (change)="audioSettings.enabled = $event.checked">
-          {{ 'trade-companion.audio.enabled' | translate }}
-        </mat-slide-toggle>
-      </div>
-      <div class="row">
-        <mat-form-field>
-          <mat-label>{{ 'trade-companion.audio.source' | translate }}</mat-label>
-          <input matInput [(ngModel)]="audioSettings.src" />
-        </mat-form-field>
-      </div>
-      <div class="row">
-        <div class="col-10">
-          <div class="value-range">
-            <label class="label">
-              {{ 'trade-companion.audio.volume' | translate }}:
-              {{ getRoundedPercentage(audioSettings.volume) }}
-            </label>
-            <div class="slider">
-              <mat-slider min="0.05"
-                          max="1"
-                          step="0.05"
-                          tickInterval="1"
-                          [displayWith]="getRoundedPercentage"
-                          [(value)]="audioSettings.volume">
-              </mat-slider>
-              <span>100%</span>
-            </div>
-          </div>
-        </div>
-        <div class="col-2" style="align-self: flex-end; text-align: right;">
-          <button mat-raised-button (click)="onPlayOrStopAudioClick(name, audioSettings)">
-            {{ 'trade-companion.audio.' + (isPlaying(name) ? 'stop' : 'play') | translate }}
-          </button>
-        </div>
-      </div>
-    </mat-card>
   </div>
 </ng-template>

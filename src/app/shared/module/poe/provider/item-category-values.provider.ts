@@ -194,7 +194,7 @@ export class ItemCategoryValuesProvider {
         }
         return of({ values: [] })
       case ItemCategory.Gem:
-      case ItemCategory.GemActivegem:
+      case ItemCategory.GemActiveGem:
       case ItemCategory.GemSupportGem:
       case ItemCategory.GemSupportGemplus:
         const gemKey = `${leagueId}_${ItemCategory.Gem}`

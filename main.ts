@@ -267,8 +267,9 @@ function createWindow(): BrowserWindow {
 
 /* modal window */
 
-ipcMain.on('open-route', (event, route) => {
+ipcMain.on('open-route', (event, route: string) => {
   try {
+    const isThread = route.endsWith('-thread')
     if (!childs[route]) {
       childs[route] = new BrowserWindow({
         width: 1210,
@@ -283,6 +284,10 @@ ipcMain.on('open-route', (event, route) => {
         },
         center: true,
         transparent: true,
+        show: !isThread,
+        skipTaskbar: isThread,
+        focusable: !isThread,
+        closable: !isThread,
       })
 
       childs[route].removeMenu()
@@ -294,7 +299,7 @@ ipcMain.on('open-route', (event, route) => {
       })
 
       loadApp(childs[route], `#/${route}`)
-    } else {
+    } else if (!isThread) {
       if (childs[route].isMinimized) {
         childs[route].restore()
       }

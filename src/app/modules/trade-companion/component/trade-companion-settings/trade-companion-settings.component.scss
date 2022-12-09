@@ -1,18 +1,15 @@
-$dark-gray: #2a2a2a;
-$gray: #313131;
-$label-color: rgba(200, 200, 200, 0.54);
-$input-color: rgba(200, 200, 200, 0.87);
+@import './../../../../../styles/variables';
 
 app-card {
   .card, button {
-    background-color: $dark-gray;
+    background-color: $settings-grey-one;
   }
 
   .card {
     position: relative;
 
     button {
-      background-color: $gray;
+      background-color: $settings-grey-two;
     }
 
     .remove {
@@ -26,10 +23,6 @@ app-card {
   .card-button {
     padding: 16px;
     width: 100%;
-  }
-
-  .cp-input {
-    padding-right: 20px;
   }
 }
 
@@ -48,34 +41,6 @@ app-card {
       .mat-icon {
         font-size: 100%;
         line-height: 1;
-      }
-    }
-
-    color-picker {
-      .color-picker {
-        background-color: $dark-gray;
-        color: $label-color;
-
-        .rgba-text .box div {
-          color: $label-color;
-        }
-
-        .type-policy {
-          display: none;
-        }
-
-        .cursor {
-          border-color: $input-color;
-        }
-
-        input {
-          background-color: $dark-gray;
-          color: $input-color;
-        }
-
-        button {
-          font-size: 14px;
-        }
       }
     }
   }

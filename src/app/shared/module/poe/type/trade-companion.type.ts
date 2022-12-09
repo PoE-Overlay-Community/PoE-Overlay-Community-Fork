@@ -1,7 +1,9 @@
 import { Color } from '@app/class'
 import { Rectangle } from '@app/type'
-import { UserSettings } from 'src/app/layout/type'
+import { UserSettings } from '@layout/type'
+import { AudioClipSettings } from './audioclip.type'
 import { Currency } from './currency.type'
+import { TradeItemLocation } from './stash-grid.type'
 
 export const TradeNotificationPanelShortcutRef = 'trade-notifications-panel'
 
@@ -18,9 +20,6 @@ export interface TradeCompanionUserSettings extends UserSettings {
   maxVisibileTradeNotifications: number
   incomingTradeOptions: TradeCompanionButtonOption[]
   outgoingTradeOptions: TradeCompanionButtonOption[]
-  stashGridBounds: Rectangle[]
-  stashGrids: Map<string, StashGridType>
-  stashGridColors: TradeCompanionStashGridColors
   showStashGridOnInvite: boolean
   hideStashGridOnTrade: boolean
   reversedNotificationHorizontalAlignment: boolean
@@ -60,52 +59,12 @@ export enum TradeNotificationAutoCollapseType {
   All = 3,
 }
 
-export interface AudioClipSettings {
-  enabled: boolean
-  src?: string
-  volume: number
-}
-
-export interface TradeCompanionStashGridColors {
-  gridLine: Color
-  gridOutline: Color
-  gridBackground: Color
-  highlightLine: Color
-  highlightBackground: Color
-}
-
 export interface TradeCompanionButtonOption {
   buttonLabel: string
   whisperMessage: string
   kickAfterWhisper: boolean
   dismissNotification: boolean
   keybinding?: string
-}
-
-export enum StashGridType {
-  Normal = 0,
-  Quad = 1,
-}
-
-export enum StashGridMode {
-  Normal = 0,
-  Edit = 1,
-  Preview = 2,
-}
-
-export interface TradeCompanionStashGridOptions {
-  gridMode: StashGridMode
-  gridType: StashGridType
-  gridBounds?: Rectangle
-  highlightLocation?: TradeItemLocation
-  settings?: TradeCompanionUserSettings
-}
-
-export const MAX_STASH_SIZE = 24
-
-export const STASH_TAB_CELL_COUNT_MAP = {
-  [StashGridType.Normal]: 12,
-  [StashGridType.Quad]: 24,
 }
 
 export enum ExampleNotificationType {
@@ -136,11 +95,6 @@ export interface TradeNotification {
 export interface CurrencyAmount {
   amount: number
   currency: Currency
-}
-
-export interface TradeItemLocation {
-  tabName: string
-  bounds: Rectangle
 }
 
 export interface TradeRegexes {

@@ -18,7 +18,9 @@
             <ng-container *ngTemplateOutlet="
                     gridCell;
                     context: {
-                      highlight: intersectsHighlightBounds(colIndex, rowIndex)
+                      cellData: this.cellData[row][col],
+                      colIndex: colIndex,
+                      rowIndex: rowIndex
                     }
                     ">
             </ng-container>
@@ -28,41 +30,51 @@
       <div class="gridControls" [ngSwitch]="options.gridMode">
         <ng-container *ngSwitchCase="StashGridMode.Normal">
           <div class="gridControl clickable" (click)="toggleStashGrid()">
-            {{ 'trade-companion.stash-grid.toggle' | translate }} <mat-icon>grid_on</mat-icon>
+            {{ 'stash-grid.toggle' | translate }} <mat-icon>grid_on</mat-icon>
           </div>
-          <div class="gridControl interactable tabName" *ngIf="options.highlightLocation" matTooltip="{{ 'trade-companion.stash-grid.tab' | translate }}: {{ options.highlightLocation.tabName }}">
+          <div class="gridControl interactable tabName" *ngIf="options.highlightLocation" matTooltip="{{ 'stash-grid.tab' | translate }}: {{ options.highlightLocation.tabName }}">
             {{ options.highlightLocation.tabName }}
           </div>
           <div class="gridControl clickable" (click)="cancelChanges()">
-            {{ 'trade-companion.stash-grid.close' | translate }}
+            {{ 'stash-grid.close' | translate }}
           </div>
         </ng-container>
         <ng-container *ngSwitchCase="StashGridMode.Edit">
           <div class="gridControl clickable" (click)="saveChanges()">
-            {{ 'trade-companion.stash-grid.save' | translate }}
+            {{ 'stash-grid.save' | translate }}
           </div>
           <div class="gridControl clickable" (click)="cancelChanges()">
-            {{ 'trade-companion.stash-grid.cancel' | translate }}
+            {{ 'stash-grid.cancel' | translate }}
           </div>
         </ng-container>
         <ng-container *ngSwitchCase="StashGridMode.Preview">
-          <div class="gridControl interactable" matTooltip="{{ 'trade-companion.stash-grid.disabled' | translate }}">
-            {{ 'trade-companion.stash-grid.toggle' | translate }} <mat-icon>grid_on</mat-icon>
+          <div class="gridControl interactable" matTooltip="{{ 'stash-grid.disabled' | translate }}">
+            {{ 'stash-grid.toggle' | translate }} <mat-icon>grid_on</mat-icon>
           </div>
-          <div class="gridControl interactable tabName" *ngIf="options.highlightLocation" matTooltip="{{ 'trade-companion.stash-grid.tab' | translate }}: {{ options.highlightLocation.tabName }}">
+          <div class="gridControl interactable tabName" *ngIf="options.highlightLocation" matTooltip="{{ 'stash-grid.tab' | translate }}: {{ options.highlightLocation.tabName }}">
             {{ options.highlightLocation.tabName }}
           </div>
           <div class="gridControl clickable" (click)="cancelChanges()">
-            {{ 'trade-companion.stash-grid.close' | translate }}
+            {{ 'stash-grid.close' | translate }}
           </div>
         </ng-container>
       </div>
     </div>
   </ng-container>
-  <ng-template #gridCell let-highlight="highlight">
+  <ng-template #gridCell let-cellData="cellData" let-colIndex="colIndex" let-rowIndex="rowIndex">
     <div class="gridCell"
          [class.editMode]="options.gridMode === StashGridMode.Edit"
-         [style.background-color]="getGridBackgroundColor(highlight)"
-         [style.border-color]="getGridLineColor(highlight)"></div>
+         [style.background-color]="cellData.bgColor"
+         [style.border-color]="cellData.lineColor"
+         [class.clickable]="cellData.marked"
+         (click)="gridCellClick($event, colIndex, rowIndex)"
+         (contextmenu)="gridCellRightClick($event, colIndex, rowIndex)"
+         >
+      <span *ngIf="cellData.marked" class="marked"
+            [style.font-size]="(fontRatio * 100) + '%'"
+            [style.color]="cellData.markedTextColor"
+            >
+      </span>
+    </div>
   </ng-template>
 </ng-container>

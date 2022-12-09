@@ -6,22 +6,24 @@ import {
   OnDestroy,
   OnInit,
 } from '@angular/core'
-import { AppService, AppTranslateService, RendererService, WindowService } from '@app/service'
+import { AppService, AppTranslateService, ElectronService, WindowService } from '@app/service'
 import { DialogRefService } from '@app/service/dialog'
 import { ShortcutService } from '@app/service/input'
 import { FEATURE_MODULES } from '@app/token'
 import { AppUpdateState, FeatureModule, Rectangle, VisibleFlag } from '@app/type'
 import { SnackBarService } from '@shared/module/material/service'
 import { ContextService, StashService } from '@shared/module/poe/service'
-import { TradeCompanionStashGridService } from '@shared/module/poe/service/trade-companion/trade-companion-stash-grid.service'
+import { StashGridService } from '@shared/module/poe/service/stash-grid/stash-grid.service'
 import { Context } from '@shared/module/poe/type'
-import { BehaviorSubject, EMPTY, forkJoin, Observable, timer } from 'rxjs'
-import { debounce, distinctUntilChanged, flatMap, map, tap } from 'rxjs/operators'
+import { BehaviorSubject, EMPTY, forkJoin, Observable, throwError, timer } from 'rxjs'
+import { catchError, debounce, distinctUntilChanged, flatMap, map, tap } from 'rxjs/operators'
 import { PoEAccountService } from '../../../shared/module/poe/service/account/account.service'
 import { TradeNotificationsService } from '../../../shared/module/poe/service/trade-companion/trade-notifications.service'
+import { VendorRecipeService } from '../../../shared/module/poe/service/vendor-recipe/vendor-recipe.service'
 import { TradeNotificationPanelShortcutRef } from '../../../shared/module/poe/type/trade-companion.type'
 import { UserSettingsService } from '../../service'
 import { UserSettings } from '../../type'
+import { SETTINGS_CHANGED, THREAD_PAUSE } from '../periodic-update-thread/periodic-update-thread'
 
 const OverlayCompRef = 'overlay-component'
 
@@ -47,13 +49,14 @@ export class OverlayComponent implements OnInit, OnDestroy {
     private readonly translate: AppTranslateService,
     private readonly snackBar: SnackBarService,
     private readonly window: WindowService,
-    private readonly renderer: RendererService,
+    private readonly electronService: ElectronService,
     private readonly shortcut: ShortcutService,
     private readonly dialogRef: DialogRefService,
-    private readonly stashGridService: TradeCompanionStashGridService,
+    private readonly stashGridService: StashGridService,
     private readonly tradeNotificationsService: TradeNotificationsService,
     private readonly accountService: PoEAccountService,
     private readonly stashService: StashService,
+    private readonly vendorRecipeService: VendorRecipeService,
   ) {
     this.gameOverlayBounds = new BehaviorSubject<Rectangle>(this.window.getOffsettedGameBounds())
     this.window.gameBounds.subscribe((_) => {
@@ -68,6 +71,8 @@ export class OverlayComponent implements OnInit, OnDestroy {
   }
 
   public ngOnInit(): void {
+    console.log('=== Main Overlay ===')
+
     this.version$.next(this.app.version())
     this.initSettings()
     this.window.enableTransparencyMouseFix()
@@ -82,7 +87,7 @@ export class OverlayComponent implements OnInit, OnDestroy {
 
   public openUserSettings(): void {
     if (!this.userSettingsOpen) {
-      this.userSettingsOpen = this.renderer.open('user-settings')
+      this.userSettingsOpen = this.electronService.open('user-settings')
       this.userSettingsOpen.pipe(flatMap(() => this.userSettingsService.get())).subscribe(
         (settings) => {
           this.userSettingsOpen = null
@@ -99,8 +104,9 @@ export class OverlayComponent implements OnInit, OnDestroy {
         () => (this.userSettingsOpen = null)
       )
       this.reset()
+      this.electronService.send(THREAD_PAUSE)
     } else {
-      this.renderer.restore('user-settings')
+      this.electronService.restore('user-settings')
     }
   }
 
@@ -115,10 +121,10 @@ export class OverlayComponent implements OnInit, OnDestroy {
           this.register(settings)
           this.registerVisibleChange()
 
-          this.renderer.on('show-user-settings').subscribe(() => {
+          this.electronService.on('show-user-settings', () => {
             this.openUserSettings()
           })
-          this.renderer.on('reset-zoom').subscribe(() => {
+          this.electronService.on('reset-zoom', () => {
             this.userSettingsService
               .update((x) => {
                 x.zoom = 100
@@ -175,6 +181,7 @@ export class OverlayComponent implements OnInit, OnDestroy {
     this.dialogRef.reset()
     this.accountService.unregister()
     this.stashService.unregister()
+    this.vendorRecipeService.unregister()
     this.shortcut.removeAllByRef(OverlayCompRef)
     this.shortcut.removeAllByRef(TradeNotificationPanelShortcutRef)
   }
@@ -184,8 +191,13 @@ export class OverlayComponent implements OnInit, OnDestroy {
     this.registerSettings(settings)
     this.dialogRef.register()
     this.stashService.register(settings)
+    this.vendorRecipeService.register(settings)
 
     this.userSettings$.next(settings)
+    this.electronService.send(SETTINGS_CHANGED)
+
+    // Open/start the thread (= hidden browser window)
+    this.electronService.restore('periodic-update-thread')
   }
 
   private registerFeatures(settings: UserSettings): void {

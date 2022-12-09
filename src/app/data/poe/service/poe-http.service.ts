@@ -1,6 +1,6 @@
 import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http'
 import { Injectable } from '@angular/core'
-import { BrowserService } from '@app/service'
+import { BrowserService, LoggerService } from '@app/service'
 import { environment } from '@env/environment'
 import { Language } from '@shared/module/poe/type'
 import { Observable, of, Subscriber, throwError } from 'rxjs'
@@ -8,18 +8,14 @@ import { delay, flatMap, map, retryWhen } from 'rxjs/operators'
 import {
     ApiCharacterResponse,
     ApiErrorResponse,
-    ApiProfileResponse,
-    ApiStashItems,
-    ExchangeSearchRequest,
-    TradeFetchResult,
+    ApiProfileResponse, ApiStashTabItems,
+    ApiStashTabNames,
+    ExchangeSearchRequest, ExchangeSearchResponse,
+    SearchResponse, TradeFetchResult,
     TradeItemsResult,
-    TradeLeaguesResult,
-    TradeSearchResponse, TradeResponse,
-    TradeSearchRequest,
-    TradeSearchType, TradeStaticResult,
-    TradeStatsResult,
-    ExchangeSearchResponse,
-    SearchResponse
+    TradeLeaguesResult, TradeResponse,
+    TradeSearchRequest, TradeSearchResponse, TradeSearchType, TradeStaticResult,
+    TradeStatsResult
 } from '../schema/poe-api'
 import { TradeRateLimitService } from './trade-rate-limit.service'
 
@@ -29,6 +25,8 @@ const RETRY_LIMIT_COUNT = 1
 
 const LEAGUES_REGEX = new RegExp(/"leagues":(?<leagues>\[.*?\]),/i)
 
+const LogTag = 'poeHttp'
+
 @Injectable({
   providedIn: 'root',
 })
@@ -36,7 +34,8 @@ export class PoEHttpService {
   constructor(
     private readonly http: HttpClient,
     private readonly browser: BrowserService,
-    private readonly limit: TradeRateLimitService
+    private readonly limit: TradeRateLimitService,
+    private readonly logger: LoggerService,
   ) {}
 
   public getItems(language: Language): Observable<TradeResponse<TradeItemsResult>> {
@@ -59,7 +58,7 @@ export class PoEHttpService {
           const exec = LEAGUES_REGEX.exec(result)
           return `{"result":${exec.groups.leagues}}`
         }
-        console.log('[TradeHTTP] Cannot find Leagues list on the trade page.')
+        this.logger.warn('[TradeHTTP] Cannot find Leagues list on the trade page.')
         return ''
       }),
       map((result) => {
@@ -101,9 +100,14 @@ export class PoEHttpService {
     return this.getAndParse('character-names', url)
   }
 
-  public getStashTabInfo(accountName: string, leagueId: string, language: Language): Observable<ApiStashItems> {
+  public getStashTabInfo(accountName: string, leagueId: string, language: Language): Observable<ApiStashTabNames | ApiErrorResponse> {
     const url = this.getPoEUrl(`character-window/get-stash-items?tabs=1&tabIndex=0&realm=pc&league=${encodeURIComponent(leagueId)}&accountName=${encodeURIComponent(accountName)}`, language)
     return this.getAndParse('stash-tab-names', url)
+  }
+
+  public getStashTabItems(stashTabIndex: number, accountName: string, leagueId: string, language: Language): Observable<ApiStashTabItems | ApiErrorResponse> {
+    const url = this.getPoEUrl(`character-window/get-stash-items?realm=pc&league=${encodeURIComponent(leagueId)}&accountName=${encodeURIComponent(accountName)}&tabIndex=${encodeURIComponent(stashTabIndex)}`, language)
+    return this.getAndParse<ApiStashTabItems>('stash-tab-items', url)
   }
 
   public search(
@@ -154,9 +158,7 @@ export class PoEHttpService {
     searchType: TradeSearchType
   ): Observable<TSearchResponse> {
     const url = this.getTradeApiUrl(`${searchType}/${encodeURIComponent(leagueId)}`, language)
-    if (!environment.production) {
-      console.log(`[PoEHttp] Contacting ${url}?q=${encodeURIComponent(JSON.stringify(request))}`)
-    }
+    this.logger.debug(LogTag, `Contacting ${url}?q=${encodeURIComponent(JSON.stringify(request))}`)
     return this.limit
       .throttle(searchType, () =>
         this.http.post<TSearchResponse>(url, request, {
@@ -177,9 +179,7 @@ export class PoEHttpService {
   }
 
   private get(resource: string, url: string): Observable<string> {
-    if (!environment.production) {
-      console.log(`[PoEHttp] Contacting ${url}`)
-    }
+    this.logger.debug(LogTag, `Contacting ${url}`)
     return new Observable(observer => {
       this.limit.throttle(resource, () =>
         this.http.get(url, {

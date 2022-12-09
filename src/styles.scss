@@ -190,3 +190,50 @@ mat-card {
     background-size: 224px 704px;
   }
 }
+  
+.vendor-recipe-icon {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 65%;
+  border-radius: 50%;
+
+  &.amulets {
+    background-image: url('assets/icons/VendorRecipes/amulet.png');
+  }
+
+  &.belts {
+    background-image: url('assets/icons/VendorRecipes/belt.png')
+  }
+
+  &.boots {
+    background-image: url('assets/icons/VendorRecipes/boots.png')
+  }
+
+  &.chests {
+    background-image: url('assets/icons/VendorRecipes/chest.png')
+  }
+
+  &.gloves {
+    background-image: url('assets/icons/VendorRecipes/gloves.png')
+  }
+
+  &.helmets {
+    background-image: url('assets/icons/VendorRecipes/helmet.png')
+  }
+
+  &.rings {
+    background-image: url('assets/icons/VendorRecipes/ring.png')
+  }
+
+  &.weapons, &.onehandedweapons, &.twohandedweapons {
+    background-image: url('assets/icons/VendorRecipes/weapons.png')
+  }
+
+  &.gems {
+    background-image: url('assets/icons/VendorRecipes/gems.png')
+  }
+
+  &.flasks {
+    background-image: url('assets/icons/VendorRecipes/flask.png')
+  }
+}
