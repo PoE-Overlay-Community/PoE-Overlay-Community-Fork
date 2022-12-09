@@ -485,6 +485,7 @@
         "recipe-complete": "Recipe Complete"
       },
       "full-set-threshold": "Full Set Threshold",
+      "groups": "Groups",
       "highlight-mode": "Highlight Mode",
       "highlight-mode-tooltips": {
         "allitems": "Highlight all items of all sets all at once",
