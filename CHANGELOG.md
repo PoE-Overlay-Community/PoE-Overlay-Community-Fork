@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.8.20 (TBD)
+## 0.8.20 (2022-12-10)
 
 - Added a Trade Companion feature (inspired by the ChaosRecipeEnhancer tool)
   - Configure multiple vendor recipes, using a sensible default template of the recipe type which can then be fully customized
@@ -9,7 +9,7 @@
   - Highlights completed 'sets' using the stash grid overlay
   - Separated the Stash Grid Overlay to its own settings tab
   - Added additional settings related to stashes in the 'account' section of the settings
-- Updated PoE Assets to support 3.19.2b (Kalandra League)
+- Updated PoE Assets to support 3.19.2b and 3.20.0 (Kalandra & Forbidden Sanctum League)
 - Added support for the 'Memory Line' item category
 - Added support for the 'Engraved Ultimatum' base item type
 - Added 'divine' currency to the list of possible currencies for poe price predictions
