@@ -29,7 +29,7 @@
     "German": "^Hi, ich möchte '(?<name>.*)' zum angebotenen Preis von (?<price>\\d*([.|,]\\d*)?) (?<currency>.*) in der (?<league>.*)-Liga kaufen \\(Truhenfach \"(?<stash>.*)\"; Position: (?<left>\\d*) von links, (?<top>\\d*) von oben\\)(?<message>.*)?",
     "French": "^Bonjour, je souhaiterais t'acheter (?<name>.*) pour (?<price>\\d*([.|,]\\d*)?) (?<currency>.*) dans la ligue (?<league>.*) \\(onglet de réserve \"(?<stash>.*)\" ; (?<left>\\d*)e en partant de la gauche, (?<top>\\d*)e en partant du haut\\)(?<message>.*)?",
     "Spanish": "^Hola, quisiera comprar tu (?<name>.*) listado por (?<price>\\d*([.|,]\\d*)?) (?<currency>.*) en (?<league>.*) \\(pestaña de alijo \"(?<stash>.*)\"; posición: izquierda(?<left>\\d*), arriba (?<top>\\d*)\\)(?<message>.*)?",
-    "Korean": "^안녕하세요, 환영\\(보관함 탭 \"(?<stash>.*)\", 위치: 왼쪽 (?<left>\\d*), 상단 (?<top>\\d*)\\)에 (?<price>\\d*([.|,]\\d*)?) (?<currency>.*)\\(으\\)로 올려놓은(?<name>.*)\\(을\\)를 구매하고 싶습니다(?<message>.*)?"
+    "Korean": "^안녕하세요, (?<league>.*) 리그의 (?<name>.*)\\(을\\)를 (?<price>\\d*([.|,]\\d*)?) (?<currency>.*)\\(으\\)로 구매하고 싶습니다\\(보관함 탭 \\\"(?<stash>.*)\\\", 위치: 왼쪽 (?<left>\\d*), 상단 (?<top>\\d*)\\)(?<message>.*)?"
   },
   "tradeItemNoPrice": {
     "English": "^(((Hi, )?I would like to buy your)|wtb) (?<name>.*) in (?<league>.*) \\(stash( tab)? \"(?<stash>.*)\";( position:)? left (?<left>\\d*), top (?<top>\\d*)\\)(?<message>.*)?",
@@ -39,7 +39,7 @@
     "German": "^Hi, ich möchte '(?<name>.*)' in der (?<league>.*)-Liga kaufen \\(Truhenfach \"(?<stash>.*)\"; Position: (?<left>\\d*) von links, (?<top>\\d*) von oben\\)(?<message>.*)?",
     "French": "^Bonjour, je souhaiterais t'acheter (?<name>.*) dans la ligue (?<league>.*) \\(onglet de réserve \"(?<stash>.*)\" ; (?<left>\\d*)e en partant de la gauche, (?<top>\\d*)e en partant du haut\\)(?<message>.*)?",
     "Spanish": "^Hola, quisiera comprar tu (?<name>.*) en (?<league>.*) \\(pestaña de alijo \"(?<stash>.*)\"; posición: izquierda(?<left>\\d*), arriba (?<top>\\d*)\\)(?<message>.*)?",
-    "Korean": "^안녕하세요, 환영\\(보관함 탭 \"(?<stash>.*)\", 위치: 왼쪽 (?<left>\\d*), 상단 (?<top>\\d*)\\)에 (?<name>.*)\\(을\\)를 구매하고 싶습니다(?<message>.*)?"
+    "Korean": "^안녕하세요, (?<league>.*) 리그의 (?<name>.*)\\(을\\)를 구매하고 싶습니다\\(보관함 탭 \\\"(?<stash>.*)\\\", 위치: 왼쪽 (?<left>\\d*), 상단 (?<top>\\d*)\\)(?<message>.*)?"
   },
   "tradeBulk": {
     "English": "^((Hi, )?I'd like to buy your) (?<count>\\d*) (?<name>.*) for my (?<price>\\d*([.|,]\\d*)?) (?<currency>.*) in (?<league>.*)\\.?(?<message>.*)?",
@@ -49,7 +49,7 @@
     "German": "^Hi, ich möchte '(?<count>\\d*) (?<name>.*)' zum angebotenen Preis von (?<price>\\d*([.|,]\\d*)?) (?<currency>.*) in der (?<league>.*)-Liga kaufen\\.?(?<message>.*)?",
     "French": "^Bonjour, je voudrais t'acheter (?<count>\\d*) (?<name>.*) contre (?<price>\\d*([.|,]\\d*)?) (?<currency>.*) dans la ligue (?<league>.*)\\.?(?<message>.*)?",
     "Spanish": "^Hola, me gustaría comprar tu\\(s\\) (?<count>\\d*) (?<name>.*) por mi (?<price>\\d*([.|,]\\d*)?) (?<currency>.*) en (?<league>.*)\\.?(?<message>.*)?",
-    "Korean": "^안녕하세요, (?<league>.*)에 올려놓은(?<count>\\d*) (?<name>.*)\\(을\\)를 제 (?<price>\\d*([.|,]\\d*)?) (?<currency>.*)\\(으\\)로 구매하고 싶습니다(?<message>.*)?"
+    "Korean": "^안녕하세요, (?<league>.*)리그의 (?<count>\\d*) (?<name>.*)\\(을\\)를 (?<price>\\d*([.|,]\\d*)?) (?<currency>.*)\\(으\\)로 구매하고 싶습니다\\.?(?<message>.*)?"
   },
   "tradeMap": "^I'd like to exchange my (?<tier1>[IVX]*): \\((?<maps1>(.*(,)?))\\) for your (?<tier2>[IVX]*): \\((?<maps2>(.*(,)?))\\) in (?<league>.*)\\.(?<message>.*)?"
 }

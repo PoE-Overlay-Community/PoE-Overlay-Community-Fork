@@ -13,6 +13,7 @@
 - Added support for the 'Memory Line' item category
 - Added support for the 'Engraved Ultimatum' base item type
 - Added 'divine' currency to the list of possible currencies for poe price predictions
+- Updated the Korean trade regexes ([#297](https://github.com/PoE-Overlay-Community/PoE-Overlay-Community-Fork/issues/297))
 - Replaced 'exa' with 'divine' in the list of default evaluation currency settings
 - Fixed an issue with the setting's league list (i.e. added a realm=pc filter)
 - Fixed an issue with 'Unmodifiable' evaluation
