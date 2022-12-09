@@ -147,6 +147,7 @@ See [here](DEVELOPERS.md).
 ## Authors
 
 - **Nicklas Ronge** - _Initial work_ - [Kyusung4698](https://github.com/Kyusung4698)
+- **WhiteFang** - _Trade Companion, Vendor Recipes, Grid Stash Overlay_ - [WhiteFang5](https://github.com/WhiteFang5)
 
 See also the list of [contributors](https://github.com/PoE-Overlay-Community/PoE-Overlay-Community-Fork/contributors) who participated in this project.
 
