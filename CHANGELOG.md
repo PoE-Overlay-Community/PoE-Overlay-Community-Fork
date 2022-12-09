@@ -2,6 +2,13 @@
 
 ## 0.8.20 (TBD)
 
+- Added a Trade Companion feature (inspired by the ChaosRecipeEnhancer tool)
+  - Configure multiple vendor recipes, using a sensible default template of the recipe type which can then be fully customized
+    - It comes with templats for: Chaos Orb, Exalted Shards, Gemcutter's Prism, Glassblower's Bauble, Regal Orb and Chance Orb
+  - Has its own separate overlay bar which can be customized and positioned anywhere on your screen
+  - Highlights completed 'sets' using the stash grid overlay
+  - Separated the Stash Grid Overlay to its own settings tab
+  - Added additional settings related to stashes in the 'account' section of the settings
 - Updated PoE Assets to support 3.19.2b (Kalandra League)
 - Added support for the 'Memory Line' item category
 - Added support for the 'Engraved Ultimatum' base item type

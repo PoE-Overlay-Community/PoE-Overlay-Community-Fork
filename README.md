@@ -56,8 +56,8 @@ features, bugs, and development. All are welcome to join.
   - Inspired by ChaosRecipeEnhancer's chaos recipe tool
   - Configure multiple vendor recipes, using a sensible default template of the recipe type which can then be fully customized
     - It comes with templats for: Chaos Orb, Exalted Shards, Gemcutter's Prism, Glassblower's Bauble, Regal Orb and Chance Orb
-    - Multiple of the same recipe van be configured with different settings for each recipe
-  - Has its own separate overlay bar which can be customized and positioned anywhere on your screen
+    - Multiple of the same recipe van be configured with different settings for each recipe <details><summary>Click to see images</summary>![vendor_recipe_settings_overview](img/vendor_recipe_settings_overview.png) ![vendor_recipe_chaos_recipe_settings](img/vendor_recipe_chaos_recipe_settings.png)</details>
+  - Has its own separate overlay bar which can be customized and positioned anywhere on your screen <details><summary>Click to see image</summary>![vendor_recipe_overlay](img/vendor_recipe_overlay.png)</details>
   - Highlights completed 'sets' using the stash grid overlay
   - Note: Filter updating currently isn't supported, but might be added later on
   - Note: parts of this feature require you to sign-in to your PoE account through the tool's settings menu
