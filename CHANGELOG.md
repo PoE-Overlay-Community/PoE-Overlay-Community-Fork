@@ -3,6 +3,7 @@
 ## 0.8.21 (TBD)
 
 - Added (further) support for Japanese as game language
+- Changed the default 'fill greedy' setting to 'true' for both Chaos and Regal vendor recipe
 - Fixed an issue with the retrieval of the private leagues list when logged in
 - Fixed some incorrect localization key(s) being used
 
