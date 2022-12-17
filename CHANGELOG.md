@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.8.21 (TBD)
+## 0.8.21 (2022-12-17)
 
 - Updated PoE Assets to support additional mods for 3.20.0b (and Japanese)
 - Added (further) support for Japanese as game language ([#311](https://github.com/PoE-Overlay-Community/PoE-Overlay-Community-Fork/issues/311))
