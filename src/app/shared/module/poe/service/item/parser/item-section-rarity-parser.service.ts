@@ -7,6 +7,7 @@ import {
   ItemRarity,
   ItemSection,
   ItemSectionParserService,
+  Language,
   Section,
 } from '../../../type'
 import { BaseItemTypesService } from '../../base-item-types/base-item-types.service'
@@ -52,13 +53,13 @@ export class ItemSectionRarityParserService implements ItemSectionParserService 
     switch (lines.length) {
       case 3:
         target.type = lines[2].replace(/<<[^>>]*>>/g, '')
-        target.typeId = this.baseItemTypesService.searchId(target.type)
+        target.typeId = this.baseItemTypesService.searchId(target.type) || this.baseItemTypesService.searchId(target.type, Language.English)
         break
       case 4:
         target.name = lines[2].replace(/<<[^>>]*>>/g, '')
-        target.nameId = this.wordService.search(target.name)
+        target.nameId = this.wordService.search(target.name) || this.wordService.search(target.name, Language.English)
         target.type = lines[3].replace(/<<[^>>]*>>/g, '')
-        target.typeId = this.baseItemTypesService.searchId(target.type)
+        target.typeId = this.baseItemTypesService.searchId(target.type) || this.baseItemTypesService.searchId(target.type, Language.English)
         break
       default:
         console.warn(`[ItemRarityParser] Incorrect line count for this section. Expected 3~4, found ${lines.length}`)
