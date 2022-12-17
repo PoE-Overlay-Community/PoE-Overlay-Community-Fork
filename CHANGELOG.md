@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.8.21 (TBD)
+
+- Fixed an issue with the retrieval of the private leagues list when logged in
+
 ## 0.8.20 (2022-12-10)
 
 - Added a Trade Companion feature (inspired by the ChaosRecipeEnhancer tool)

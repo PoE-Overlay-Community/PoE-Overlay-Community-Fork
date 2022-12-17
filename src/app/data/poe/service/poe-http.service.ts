@@ -23,7 +23,7 @@ const RETRY_COUNT = 3
 const RETRY_DELAY = 300
 const RETRY_LIMIT_COUNT = 1
 
-const LEAGUES_REGEX = new RegExp(/"leagues":(?<leagues>\[.*?\]),/i)
+const LEAGUES_REGEX = new RegExp(/"leagues": ?(?<leagues>\[(\r|\n|.)*?\]),/i)
 
 const LogTag = 'poeHttp'
 
