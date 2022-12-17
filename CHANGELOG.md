@@ -6,6 +6,7 @@
 - Changed the default 'fill greedy' setting to 'true' for both Chaos and Regal vendor recipe
 - Fixed an issue with the retrieval of the private leagues list when logged in
 - Fixed some incorrect localization key(s) being used
+- Fixed an issue with certain vendor recipes when using a non-english game language
 
 ## 0.8.20 (2022-12-10)
 

@@ -1,5 +1,7 @@
 import { LoggerService } from '@app/service'
 import { BaseItemTypesService } from '@shared/module/poe/service/base-item-types/base-item-types.service'
+import { ClientStringService } from '@shared/module/poe/service/client-string/client-string.service'
+import { ContextService } from '@shared/module/poe/service/context.service'
 import { ItemLevelBasedItemSetRecipeUserSettings, RecipeItemGroup } from '@shared/module/poe/type'
 import { ItemSetRecipeProcessorService } from './item-set-recipe-processor.service'
 import { ExpandedStashItem } from './recipe-processor.service'
@@ -7,9 +9,11 @@ import { ExpandedStashItem } from './recipe-processor.service'
 export abstract class ItemLevelBasedRecipeProcessorService extends ItemSetRecipeProcessorService {
   constructor(
     readonly baseItemTypeService: BaseItemTypesService,
+    readonly clientString: ClientStringService,
+    readonly context: ContextService,
     readonly logger: LoggerService
   ) {
-    super(baseItemTypeService, logger)
+    super(baseItemTypeService, clientString, context, logger)
   }
 
   protected abstract get minItemLevel(): number

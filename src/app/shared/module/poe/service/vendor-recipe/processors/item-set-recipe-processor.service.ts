@@ -1,6 +1,8 @@
-import { BaseItemTypesService } from '@shared/module/poe/service/base-item-types/base-item-types.service'
-import { ItemRarity, ItemSetProcessResult, ItemSetRecipeUserSettings, ItemUsageType, RecipeHighlightOrder, RecipeItemGroup, RecipeItemGroupCount, RecipeItemGroups } from '@shared/module/poe/type'
 import { LoggerService } from '@app/service'
+import { BaseItemTypesService } from '@shared/module/poe/service/base-item-types/base-item-types.service'
+import { ClientStringService } from '@shared/module/poe/service/client-string/client-string.service'
+import { ContextService } from '@shared/module/poe/service/context.service'
+import { ItemRarity, ItemSetProcessResult, ItemSetRecipeUserSettings, ItemUsageType, RecipeHighlightOrder, RecipeItemGroup, RecipeItemGroupCount, RecipeItemGroups } from '@shared/module/poe/type'
 import { ExpandedStashItem, RecipeProcessorService } from './recipe-processor.service'
 
 const DefaultRecipeCategoryOrder = [
@@ -15,9 +17,11 @@ const DefaultRecipeCategoryOrder = [
 export abstract class ItemSetRecipeProcessorService extends RecipeProcessorService {
   constructor(
     readonly baseItemTypeService: BaseItemTypesService,
+    readonly clientString: ClientStringService,
+    readonly context: ContextService,
     readonly logger: LoggerService,
   ) {
-    super(baseItemTypeService, logger)
+    super(baseItemTypeService, clientString, context, logger)
   }
 
   protected processCandidates(logTag: string, identifier: number, stashItems: ExpandedStashItem[], settings: ItemSetRecipeUserSettings): ItemSetProcessResult {

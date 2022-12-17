@@ -1,7 +1,9 @@
 import { LoggerService } from '@app/service'
 import { BaseItemTypesService } from '@shared/module/poe/service/base-item-types/base-item-types.service'
+import { ClientStringService } from '@shared/module/poe/service/client-string/client-string.service'
+import { ContextService } from '@shared/module/poe/service/context.service'
+import { ItemParserUtils } from '@shared/module/poe/service/item/parser/item-parser.utils'
 import { BaseItemType, ItemCategory, PoEStashTabItem, RecipeItemGroup, RecipeUserSettings, VendorRecipeProcessResult, VendorRecipeType } from '@shared/module/poe/type'
-import { ItemParserUtils } from '../../item/parser/item-parser.utils'
 
 export interface ExpandedStashItem extends PoEStashTabItem {
   baseItemTypeId: string
@@ -58,6 +60,8 @@ export abstract class RecipeProcessorService {
 
   constructor(
     protected readonly baseItemTypeService: BaseItemTypesService,
+    protected readonly clientString: ClientStringService,
+    protected readonly context: ContextService,
     protected readonly logger: LoggerService,
   ) {
   }
@@ -109,9 +113,11 @@ export abstract class RecipeProcessorService {
   protected abstract processCandidates(logTag: string, identifier: number, stashItems: ExpandedStashItem[], settings: RecipeUserSettings): VendorRecipeProcessResult
 
   protected expandItem(stashItem: PoEStashTabItem): ExpandedStashItem {
-    const baseItemType = this.baseItemTypeService.search(stashItem.baseItemTypeName)
+    const language = this.context.get().language
+    const baseItemType = this.baseItemTypeService.search(stashItem.baseItemTypeName, language)
+    const qualityString = this.clientString.translate("Quality", language)
     const bounds = stashItem.itemLocation.bounds
-    const qualityText = stashItem.source.properties?.find(x => x.name === "Quality")?.values[0][0] as string
+    const qualityText = stashItem.source.properties?.find(x => x.name === qualityString)?.values[0][0] as string
     return {
       ...stashItem,
       baseItemTypeId: baseItemType.id,

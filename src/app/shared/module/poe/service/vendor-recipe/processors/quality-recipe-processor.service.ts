@@ -1,8 +1,10 @@
-import { Injectable } from '@angular/core';
-import { LoggerService } from '@app/service';
-import { BaseItemTypesService } from '@shared/module/poe/service/base-item-types/base-item-types.service';
-import { ItemUsageType, QualityRecipeProcessResult, QualityRecipeUserSettings, RecipeHighlightOrder, RecipeItemGroup } from '@shared/module/poe/type';
-import { ExpandedStashItem, RecipeProcessorService } from './recipe-processor.service';
+import { Injectable } from '@angular/core'
+import { LoggerService } from '@app/service'
+import { BaseItemTypesService } from '@shared/module/poe/service/base-item-types/base-item-types.service'
+import { ClientStringService } from '@shared/module/poe/service/client-string/client-string.service'
+import { ContextService } from '@shared/module/poe/service/context.service'
+import { ItemUsageType, QualityRecipeProcessResult, QualityRecipeUserSettings, RecipeHighlightOrder, RecipeItemGroup } from '@shared/module/poe/type'
+import { ExpandedStashItem, RecipeProcessorService } from './recipe-processor.service'
 
 const MaxBagSpace = 60
 
@@ -17,9 +19,11 @@ export abstract class QualityRecipeProcessorService extends RecipeProcessorServi
 
   constructor(
     readonly baseItemTypeService: BaseItemTypesService,
+    readonly clientString: ClientStringService,
+    readonly context: ContextService,
     readonly logger: LoggerService,
   ) {
-    super(baseItemTypeService, logger)
+    super(baseItemTypeService, clientString, context, logger)
   }
 
   protected processCandidates(logTag: string, identifier: number, stashItems: ExpandedStashItem[], settings: QualityRecipeUserSettings): QualityRecipeProcessResult {

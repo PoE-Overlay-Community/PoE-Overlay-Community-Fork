@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core'
 import { LoggerService } from '@app/service'
 import { BaseItemTypesService } from '@shared/module/poe/service/base-item-types/base-item-types.service'
+import { ClientStringService } from '@shared/module/poe/service/client-string/client-string.service'
+import { ContextService } from '@shared/module/poe/service/context.service'
 import { RecipeItemGroup } from '@shared/module/poe/type'
 import { QualityRecipeProcessorService } from './quality-recipe-processor.service'
 
@@ -26,8 +28,10 @@ export class GlassblowerRecipeProcessorService extends QualityRecipeProcessorSer
 
   constructor(
     readonly baseItemTypeService: BaseItemTypesService,
+    readonly context: ContextService,
+    readonly clientString: ClientStringService,
     readonly logger: LoggerService,
   ) {
-    super(baseItemTypeService, logger)
+    super(baseItemTypeService, clientString, context, logger)
   }
 }
