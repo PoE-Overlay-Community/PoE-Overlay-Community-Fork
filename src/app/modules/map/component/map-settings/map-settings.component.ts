@@ -37,7 +37,7 @@ export class MapSettingsComponent implements UserSettingsComponent {
   ) {}
 
   public load(): void {
-    if (this.settings.language) {
+    if (this.settings.gameLanguage) {
       this.updateStats()
     }
   }
@@ -112,7 +112,7 @@ export class MapSettingsComponent implements UserSettingsComponent {
 
         itemsContains[key] = true
 
-        const localStat = stat.text[this.settings.language]
+        const localStat = stat.text[this.settings.gameLanguage]
         if (localStat) {
           const statDescIndex = localStat.findIndex(
             (statDesc) =>
@@ -121,12 +121,12 @@ export class MapSettingsComponent implements UserSettingsComponent {
           )
           const item: SelectListItem = {
             key,
-            text: this.statsService.translate(stat, statDescIndex, this.settings.language),
+            text: this.statsService.translate(stat, statDescIndex, this.settings.gameLanguage),
             selected: !!this.settings.mapInfoWarningStats[key],
           }
           items.push(item)
         } else {
-          console.warn(`Stat with ${tradeId} not found in ${this.settings.language}.`)
+          console.warn(`Stat with ${tradeId} not found in ${this.settings.gameLanguage}.`)
         }
       })
     })

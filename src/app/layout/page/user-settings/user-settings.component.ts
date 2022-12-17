@@ -92,8 +92,8 @@ export class UserSettingsComponent implements OnInit, OnDestroy {
       this.translate.use(settings.uiLanguage)
       this.window.setZoom(settings.zoom / 100)
 
-      const { language, leagueId } = settings
-      this.context.init({ language, leagueId }).subscribe(() => {
+      const { language, gameLanguage, leagueId } = settings
+      this.context.init({ language, gameLanguage, leagueId }).subscribe(() => {
         this.accountService.register(settings).subscribe(() => {
           this.settings = settings
           this.features = [...this.settingsService.features()].sort(
@@ -115,8 +115,8 @@ export class UserSettingsComponent implements OnInit, OnDestroy {
       this.translate.use(this.settings.uiLanguage)
       this.window.setZoom(this.settings.zoom / 100)
 
-      const { language, leagueId } = this.settings
-      this.context.update({ language, leagueId })
+      const { language, gameLanguage, leagueId } = this.settings
+      this.context.update({ language, gameLanguage, leagueId })
 
       return this.settingsService.save(this.settings).pipe(
         map(() => true),

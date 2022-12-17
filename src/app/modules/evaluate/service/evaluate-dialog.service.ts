@@ -31,14 +31,16 @@ export class EvaluateDialogService {
     point: Point,
     item: Item,
     settings: EvaluateUserSettings,
-    language?: Language
+    language?: Language,
+    gameLanguage?: Language
   ): Observable<EvaluateResult> {
-    const { width, height } = this.estimateBounds(item, settings, language)
+    const { width, height } = this.estimateBounds(item, settings, gameLanguage)
 
     const data: EvaluateDialogData = {
       item,
       settings,
       language,
+      gameLanguage,
     }
 
     const position = settings.dialogSpawnPosition === DialogSpawnPosition.Cursor ? point : undefined

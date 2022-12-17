@@ -249,6 +249,7 @@ export class OverlayComponent implements OnInit, OnDestroy {
   private getContext(settings: UserSettings): Context {
     return {
       language: settings.language,
+      gameLanguage: settings.gameLanguage,
       leagueId: settings.leagueId,
     }
   }

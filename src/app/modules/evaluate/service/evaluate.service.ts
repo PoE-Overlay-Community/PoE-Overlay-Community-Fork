@@ -24,7 +24,7 @@ export class EvaluateService {
     private readonly evaluateDialog: EvaluateDialogService
   ) {}
 
-  public evaluate(settings: EvaluateUserSettings, language?: Language): Observable<void> {
+  public evaluate(settings: EvaluateUserSettings, language?: Language, gameLanguage?: Language): Observable<void> {
     return this.item.copy(settings.evaluateCopyAdvancedItemText).pipe(
       tap(({ item }) =>
         this.processor.process(item, {
@@ -35,7 +35,7 @@ export class EvaluateService {
       flatMap(({ code, point, item }) => {
         switch (code) {
           case ItemClipboardResultCode.Success:
-            return this.evaluateDialog.open(point, item, settings, language).pipe(
+            return this.evaluateDialog.open(point, item, settings, language, gameLanguage).pipe(
               flatMap((result) => {
                 if (!result) {
                   return of(null)

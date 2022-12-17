@@ -23,6 +23,7 @@ export interface EvaluateDialogData {
   item: Item
   settings: EvaluateUserSettings
   language?: Language
+  gameLanguage?: Language
 }
 
 @Component({

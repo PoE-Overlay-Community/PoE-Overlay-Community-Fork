@@ -61,7 +61,7 @@ export class ItemExternalService {
   ) {}
 
   public getDbUrl(item: Item, language?: Language): string {
-    language = language || this.context.get().language
+    language = language || this.context.get().gameLanguage || this.context.get().language
 
     const { typeId, nameId, rarity, category } = item
 

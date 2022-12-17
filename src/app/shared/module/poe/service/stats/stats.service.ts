@@ -74,7 +74,7 @@ export class StatsService {
   ) {}
 
   public translate(stat: Stat, statDescIndex: number, language?: Language): string {
-    language = language || this.context.get().language
+    language = language || this.context.get().gameLanguage || this.context.get().language
 
     if (!stat.text[language] || statDescIndex < 0 || statDescIndex >= stat.text[language].length) {
       return `untranslated: '${stat.id}' for language: '${Language[language]}'`
@@ -99,7 +99,7 @@ export class StatsService {
   }
 
   public transform(stat: ItemStat, language?: Language): string[] {
-    language = language || this.context.get().language
+    language = language || this.context.get().gameLanguage || this.context.get().language
 
     const stats = this.statsProvider.provide(stat.type)
     const tradeStat = stats[stat.tradeId]
@@ -149,7 +149,7 @@ export class StatsService {
     options?: StatsSearchOptions,
     language?: Language
   ): StatsSearchResult[] {
-    language = language || this.context.get().language
+    language = language || this.context.get().gameLanguage || this.context.get().language
     options = options || {}
 
     const { scourgedSearch, implicitsSearch, explicitsSearch } = this.buildSearch(texts, options)
@@ -175,7 +175,7 @@ export class StatsService {
     statTypesToSearch: StatType[],
     language?: Language
   ): ItemStat {
-    language = language || this.context.get().language
+    language = language || this.context.get().gameLanguage || this.context.get().language
 
     let result: ItemStat
 

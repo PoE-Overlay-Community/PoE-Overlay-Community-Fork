@@ -107,6 +107,8 @@ export class EvaluateSettingsComponent implements UserSettingsComponent {
   public load(): void {
     if (this.settings.language) {
       this.updateCurrencies()
+    }
+    if (this.settings.gameLanguage) {
       this.updateStats()
     }
   }
@@ -178,7 +180,7 @@ export class EvaluateSettingsComponent implements UserSettingsComponent {
         const item: StatSelectListItem = {
           key,
           type: StatType.Pseudo,
-          text: this.statsService.translate(pseudo, 0, this.settings.language),
+          text: this.statsService.translate(pseudo, 0, this.settings.gameLanguage),
           selected: !!this.settings.evaluateQueryDefaultStats[key],
         }
         items.push(item)
@@ -193,7 +195,7 @@ export class EvaluateSettingsComponent implements UserSettingsComponent {
             const item: StatSelectListItem = {
               key,
               type: StatType.Pseudo,
-              text: this.statsService.translate(pseudo, 0, this.settings.language),
+              text: this.statsService.translate(pseudo, 0, this.settings.gameLanguage),
               selected: !!this.settings.evaluateQueryDefaultStats[key],
             }
             items.push(item)
@@ -216,20 +218,20 @@ export class EvaluateSettingsComponent implements UserSettingsComponent {
       const stats = this.statsProvider.provide(type)
       Object.getOwnPropertyNames(stats).forEach((tradeId) => {
         const stat = stats[tradeId]
-        const localStat = stat.text[this.settings.language]
+        const localStat = stat.text[this.settings.gameLanguage]
         if (localStat) {
           localStat.forEach((_, index) => {
             const key = `${type}.${tradeId}`
             const item: StatSelectListItem = {
               key,
               type,
-              text: this.statsService.translate(stat, index, this.settings.language),
+              text: this.statsService.translate(stat, index, this.settings.gameLanguage),
               selected: !!this.settings.evaluateQueryDefaultStats[key],
             }
             items.push(item)
           })
         } else {
-          console.warn(`Stat with ${tradeId} not found in ${this.settings.language}.`)
+          console.warn(`Stat with ${tradeId} not found in ${this.settings.gameLanguage}.`)
         }
       })
     })

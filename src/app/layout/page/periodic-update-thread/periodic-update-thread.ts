@@ -62,8 +62,8 @@ export class PeriodicUpdateThreadComponent implements OnInit, OnDestroy {
     this.settingsService.init(this.modules).subscribe((settings) => {
       this.translate.use(settings.uiLanguage)
 
-      const { language, leagueId } = settings
-      this.context.init({ language, leagueId }).subscribe(() => {
+      const { language, gameLanguage, leagueId } = settings
+      this.context.init({ language, gameLanguage, leagueId }).subscribe(() => {
         this.accountThreadService.register(settings).subscribe(() => {
           this.stashThreadService.register(settings)
           this.vendorRecipeThreadService.register(settings)

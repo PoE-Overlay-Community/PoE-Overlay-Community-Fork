@@ -36,6 +36,7 @@ export class UserSettingsService {
           openUserSettingsKeybinding: 'F7',
           exitAppKeybinding: 'F8',
           language: Language.English,
+          gameLanguage: Language.English,
           uiLanguage: UiLanguage.English,
           zoom: 100,
           dialogSpawnPosition: DialogSpawnPosition.Center,

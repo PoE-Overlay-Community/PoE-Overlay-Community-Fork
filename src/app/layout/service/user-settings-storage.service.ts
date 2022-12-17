@@ -16,6 +16,7 @@ export class UserSettingsStorageService {
   public get(): Observable<UserSettings> {
     return this.storage.get<UserSettings>(USER_SETTINGS_KEY, {
       language: Language.English,
+      gameLanguage: Language.English,
       uiLanguage: UiLanguage.English,
     })
   }

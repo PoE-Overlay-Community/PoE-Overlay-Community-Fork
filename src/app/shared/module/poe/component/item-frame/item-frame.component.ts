@@ -67,7 +67,7 @@ export class ItemFrameComponent implements OnInit {
   constructor(private readonly context: ContextService) {}
 
   public ngOnInit(): void {
-    this.language = this.language || this.context.get().language
+    this.language = this.language || this.context.get().gameLanguage || this.context.get().language
     this.queryItem = this.queryItem || {
       influences: {},
       damage: {},

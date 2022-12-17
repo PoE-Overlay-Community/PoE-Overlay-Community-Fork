@@ -9,6 +9,7 @@ export enum DialogSpawnPosition {
 export interface UserSettings {
   leagueId?: string
   language?: Language
+  gameLanguage?: Language
   uiLanguage?: UiLanguage
   openUserSettingsKeybinding?: string
   exitAppKeybinding?: string

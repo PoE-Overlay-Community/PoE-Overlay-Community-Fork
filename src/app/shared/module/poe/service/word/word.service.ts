@@ -13,14 +13,14 @@ export class WordService {
   ) {}
 
   public translate(id: string, language?: Language): string {
-    language = language || this.context.get().language
+    language = language || this.context.get().gameLanguage || this.context.get().language
 
     const map = this.wordProvider.provide(language)
     return map[id] || `untranslated: '${id}' for language: '${Language[language]}'`
   }
 
   public search(text: string, language?: Language): string {
-    language = language || this.context.get().language
+    language = language || this.context.get().gameLanguage || this.context.get().language
 
     const map = this.wordProvider.provide(language)
     return map[text]

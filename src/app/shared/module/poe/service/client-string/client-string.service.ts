@@ -13,7 +13,7 @@ export class ClientStringService {
   ) {}
 
   public translate(id: string, language?: Language): string {
-    language = language || this.context.get().language
+    language = language || this.context.get().gameLanguage || this.context.get().language
 
     const map = this.clientStringProvider.provide(language)
     return map[id] || `untranslated: '${id}' for language: '${Language[language]}'`
@@ -26,7 +26,7 @@ export class ClientStringService {
     id: string
     translation: string
   }[] {
-    language = language || this.context.get().language
+    language = language || this.context.get().gameLanguage || this.context.get().language
 
     const map = this.clientStringProvider.provide(language)
     const translations: {

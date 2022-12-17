@@ -6,7 +6,9 @@
     "update": {
       "available": "A new update is available. Will be automatically downloaded unless otherwise specified.",
       "downloaded": "The new update is now ready to install. Please relaunch PoE-Overlay."
-    }
+    },
+    "web-language": "Website Language",
+    "web-language-tooltip": "Determines which webpages and APIs will be used when retrieving account, character and/or stash data"
   },
   "bookmark": {
     "add": "Add Bookmark",

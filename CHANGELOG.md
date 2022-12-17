@@ -2,7 +2,9 @@
 
 ## 0.8.21 (TBD)
 
-- Added (further) support for Japanese as game language
+- Updated PoE Assets to support additional mods for 3.20.0b (and Japanese)
+- Added (further) support for Japanese as game language ([#311](https://github.com/PoE-Overlay-Community/PoE-Overlay-Community-Fork/issues/311))
+- Added a new 'web language' setting ([#308](https://github.com/PoE-Overlay-Community/PoE-Overlay-Community-Fork/issues/308))
 - Changed the default 'fill greedy' setting to 'true' for both Chaos and Regal vendor recipe
 - Fixed an issue with the retrieval of the private leagues list when logged in
 - Fixed some incorrect localization key(s) being used

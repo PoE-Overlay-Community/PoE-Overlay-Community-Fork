@@ -19,7 +19,7 @@ export class BaseItemTypesService {
   ) {}
 
   public translate(id: string, language?: Language): string {
-    language = language || this.context.get().language
+    language = language || this.context.get().gameLanguage || this.context.get().language
 
     const name = this.get(id).names[language]
     if (!name) {
@@ -40,7 +40,7 @@ export class BaseItemTypesService {
   }
 
   public searchId(name: string, language?: Language): string {
-    language = language || this.context.get().language
+    language = language || this.context.get().gameLanguage || this.context.get().language
 
     const names = this.baseItemTypeProvider.provideNames(language)
 
