@@ -1,7 +1,6 @@
 {
   "app": {
     "clickable": "'Click' = In-Game Browser, 'CTRL + Click' Default Browser",
-
     "language": "Language",
     "shortcut": "Shortcut",
     "update": {

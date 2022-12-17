@@ -4,6 +4,7 @@
 
 - Added (further) support for Japanese as game language
 - Fixed an issue with the retrieval of the private leagues list when logged in
+- Fixed some incorrect localization key(s) being used
 
 ## 0.8.20 (2022-12-10)
 
