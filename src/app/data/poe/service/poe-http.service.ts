@@ -257,6 +257,9 @@ export class PoEHttpService {
       case Language.TraditionalChinese:
         baseUrl = environment.poe.traditionalChineseUrl
         break
+      case Language.Japanese:
+        baseUrl = environment.poe.countryUrl.replace('{country}', 'jp')
+        break
       default:
         throw new Error(`Could not map baseUrl to language: '${language}'.`)
     }
