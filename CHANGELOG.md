@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.8.22 (TBD)
+
+- Fixed an issue with the '@last' keyword where it didn't obtain the whisperer's name correctly
+
 ## 0.8.21 (2022-12-17)
 
 - Updated PoE Assets to support additional mods for 3.20.0b (and Japanese)
