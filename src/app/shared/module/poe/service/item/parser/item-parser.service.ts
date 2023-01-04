@@ -7,6 +7,7 @@ import { ItemSectionHeistParserService } from './item-section-heist-parser.servi
 import { ItemSectionIncursionParserService } from './item-section-incursion-parser.service'
 import { ItemSectionInfluencesParserService } from './item-section-influences-parser.service'
 import { ItemSectionItemLevelParserService } from './item-section-item-level-parser.service'
+import { ItemSectionMirroredParserService } from './item-section-mirrored-parser.service'
 import { ItemSectionNoteParserService } from './item-section-note-parser.service'
 import { ItemSectionPropertiesParserService } from './item-section-properties-parser.service'
 import { ItemSectionProphecyParserService } from './item-section-prophecy-parser.service'
@@ -34,6 +35,7 @@ export class ItemParserService {
     itemSectionSocketsParserService: ItemSectionSocketsParserService,
     itemSectionPropertiesParserService: ItemSectionPropertiesParserService,
     itemSectionCorruptedParserService: ItemSectionCorruptedParserService,
+    itemSectionMirroredParserService: ItemSectionMirroredParserService,
     itemSectionInfluencesParserService: ItemSectionInfluencesParserService,
     itemSectionVeiledParserService: ItemSectionVeiledParserService,
     itemSectionStatsParserService: ItemSectionStatsParserService,
@@ -63,6 +65,7 @@ export class ItemParserService {
       // Properties have to be parsed first in case the Gem Experience Parser needs to adjust some properties.
       itemSectionGemExperienceParserService,
       itemSectionCorruptedParserService,
+      itemSectionMirroredParserService,
       itemSectionVeiledParserService,
       itemSectionInfluencesParserService,
       itemSectionUnidentifiedParserService,

@@ -36,12 +36,12 @@ export class ItemPseudoProcessorService {
       return newMods
     }
 
-    // Only include crafted mods when the item is corrupted. Otherwise exclude them since they can easily be replaced or removed using the crafting bench (and this shouldn't count towards the total)
+    // Only include crafted mods when the item is corrupted or mirrored. Otherwise exclude them since they can easily be replaced or removed using the crafting bench (and this shouldn't count towards the total)
     const explicitMods = item.stats.filter(x => x.genType !== StatGenType.Unknown && (
       x.type === StatType.Explicit ||
       x.type === StatType.Fractured ||
       x.type === StatType.Veiled ||
-      (x.type === StatType.Crafted && item.corrupted)
+      (x.type === StatType.Crafted && (item.corrupted || item.mirrored))
     ))
 
     const numExplicitMods = explicitMods.length

@@ -2,6 +2,7 @@
 
 ## 0.8.22 (TBD)
 
+- Added support for the 'Mirrored' item tag when evaluating items
 - Fixed an issue with the '@last' keyword where it didn't obtain the whisperer's name correctly
 
 ## 0.8.21 (2022-12-17)

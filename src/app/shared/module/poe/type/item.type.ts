@@ -12,6 +12,7 @@ export interface Item {
   type?: string
   level?: ItemValue
   corrupted?: boolean
+  mirrored?: boolean
   unmodifiable?: boolean
   unidentified?: boolean
   veiled?: boolean
@@ -339,6 +340,7 @@ export interface Section {
 
 export enum ItemSection {
   Corrupted,
+  Mirrored,
   Unidentified,
   Influences,
   ItemLevel,
