@@ -83,7 +83,8 @@ export class PoEHttpService {
   }
 
   public getLoginUrl(language: Language): string {
-    return this.getPoEUrl('login', language)
+    // PoE 3.21: Redirecting to 'trade/search' instead of 'login' due to GET/POST issues causing an infinite cloudflare loop.
+    return this.getPoEUrl('trade/search', language)
   }
 
   public getLogoutUrl(language: Language): string {
