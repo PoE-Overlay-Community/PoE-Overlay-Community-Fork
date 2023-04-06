@@ -19,7 +19,7 @@
     <mat-icon [class.movable]="!locked" matTooltip="{{ 'panel-tooltips.' + (locked ? 'unlock-to-move' : 'drag-handle') | translate }}">open_with</mat-icon>
     <mat-icon class="clickable" (click)="goToHideout()" matTooltip="{{ 'trade-companion.trade-notification-panel.hideout' | translate }}">home</mat-icon>
     <mat-icon class="clickable" (click)="openSettings.emit()" matTooltip="{{ 'panel-tooltips.settings' | translate }}">settings</mat-icon>
-    <mat-icon class="clickable" (click)="purgeAll()" matTooltip="{{ 'panel-tooltips.purge-all' | translate }}">delete</mat-icon>
+    <mat-icon class="clickable" (click)="deleteAll()" matTooltip="{{ 'panel-tooltips.delete-all' | translate }}">delete</mat-icon>
     <mat-icon class="clickable" (click)="close()" matTooltip="{{ 'panel-tooltips.disable' | translate }}">power_settings_new</mat-icon>
   </div>
   <div class="notifications">

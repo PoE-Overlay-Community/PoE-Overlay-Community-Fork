@@ -222,7 +222,7 @@ export class TradeNotificationPanelComponent implements OnInit, AfterViewInit, O
     this.closeClick$.next()
   }
 
-  public purgeAll(): void {
+  public deleteAll(): void {
     this.notifications = []
   }
 

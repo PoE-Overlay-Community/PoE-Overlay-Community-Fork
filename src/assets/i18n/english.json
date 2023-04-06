@@ -254,7 +254,7 @@
     "settings": "Open Settings",
     "unlocked": "Unlocked - Click to lock",
     "unlock-to-move": "Locked - Unlock to allow moving of this overlay panel",
-    "purge-all": "Purges all notifications"
+    "delete-all": "Deletes all notifications"
   },
   "settings": {
     "abbr-level": "Lv",
