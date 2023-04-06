@@ -253,7 +253,8 @@
     "locked": "Locked - Click to unlock",
     "settings": "Open Settings",
     "unlocked": "Unlocked - Click to lock",
-    "unlock-to-move": "Locked - Unlock to allow moving of this overlay panel"
+    "unlock-to-move": "Locked - Unlock to allow moving of this overlay panel",
+    "purge-all": "Purges all notifications"
   },
   "settings": {
     "abbr-level": "Lv",

@@ -222,6 +222,10 @@ export class TradeNotificationPanelComponent implements OnInit, AfterViewInit, O
     this.closeClick$.next()
   }
 
+  public purgeAll(): void {
+    this.notifications = []
+  }
+
   public getCollapsed(notification: TradeNotification): boolean {
     const notifications = this.notifications.filter(x => x.type === notification.type)
     switch (notification.type) {
