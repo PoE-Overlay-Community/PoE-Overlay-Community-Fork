@@ -224,6 +224,7 @@ export class TradeNotificationPanelComponent implements OnInit, AfterViewInit, O
 
   public deleteAll(): void {
     this.notifications = []
+    this.userActiveTradeNotificationIndex = -1;
   }
 
   public getCollapsed(notification: TradeNotification): boolean {
