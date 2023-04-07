@@ -249,12 +249,12 @@
   },
   "panel-tooltips": {
     "disable": "Disable this overlay panel",
+    "delete-all": "Deletes all notifications",
     "drag-handle": "Drag this handle to move this panel",
     "locked": "Locked - Click to unlock",
     "settings": "Open Settings",
     "unlocked": "Unlocked - Click to lock",
-    "unlock-to-move": "Locked - Unlock to allow moving of this overlay panel",
-    "delete-all": "Deletes all notifications"
+    "unlock-to-move": "Locked - Unlock to allow moving of this overlay panel"
   },
   "settings": {
     "abbr-level": "Lv",
