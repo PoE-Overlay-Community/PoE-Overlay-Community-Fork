@@ -1,7 +1,10 @@
 # Changelog
 
-## 0.8.22 (TBD)
+## 0.8.22 (2023-04-09)
 
+- Updated PoE Assets to support 3.21.0 (Crucible League)
+- Updated the 'leave party' command (i.e. it no longer requires you to be logged in to use it)
+- Added a workaround for the login feature in the settings menu
 - Added support for the 'Mirrored' item tag when evaluating items
 - Fixed an issue with the '@last' keyword where it didn't obtain the whisperer's name correctly
 
