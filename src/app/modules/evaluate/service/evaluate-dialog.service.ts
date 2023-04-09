@@ -177,6 +177,9 @@ export class EvaluateDialogService {
       ) {
         height += DIALOG_DIVIDER_HEIGHT
       }
+      if (unique[StatType.Crucible]) {
+        height += DIALOG_DIVIDER_HEIGHT
+      }
       if (unique[StatType.Pseudo]) {
         height += DIALOG_DIVIDER_HEIGHT
       }

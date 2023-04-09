@@ -77,6 +77,14 @@
   <ng-container *ngIf="groups.fractured || groups.explicit || groups.monster || groups.ultimatum || groups.crafted">
     <app-item-frame-separator [item]="item" *ngIf="groups.pseudo"></app-item-frame-separator>
   </ng-container>
+  <ng-container *ngIf="groups.crucible">
+    <ng-container *ngFor="let stat of groups.crucible; let last = last">
+      <div class="crucible">
+        <ng-container *ngTemplateOutlet="statQuery; context: { stat: stat }"></ng-container>
+      </div>
+      <app-item-frame-separator [item]="item" *ngIf="last && groups.pseudo"></app-item-frame-separator>
+    </ng-container>
+  </ng-container>
   <ng-container *ngIf="groups.pseudo">
     <ng-container *ngFor="let stat of groups.pseudo">
       <div>

@@ -54,8 +54,9 @@ interface StatMatch {
 
 const REVERSE_REGEX = /\\[.*+?^${}()|[\]\\]/g
 const VALUE_PLACEHOLDER = '(\\S+)'
-const TYPE_PLACEHOLDER_REGEX = / \(implicit\)| \(fractured\)| \(crafted\)| \(enchant\)| \(scourge\)/
+const TYPE_PLACEHOLDER_REGEX = / \(implicit\)| \(fractured\)| \(crafted\)| \(enchant\)| \(scourge\)| \(crucible\)/
 const SCOURGE_PLACEHOLDER_REGEX = / \(scourge\)$/
+const CRUCIBLE_PLACEHOLDER_REGEX = / \(crucible\)$/
 
 @Injectable({
   providedIn: 'root',
@@ -152,7 +153,7 @@ export class StatsService {
     language = language || this.context.get().gameLanguage || this.context.get().language
     options = options || {}
 
-    const { scourgedSearch, implicitsSearch, explicitsSearch } = this.buildSearch(texts, options)
+    const { scourgedSearch, implicitsSearch, explicitsSearch, crucibleSearch } = this.buildSearch(texts, options)
 
     const results: StatsSearchResult[] = []
     if (scourgedSearch.sections.length > 0) {
@@ -165,6 +166,10 @@ export class StatsService {
 
     if (explicitsSearch.sections.length > 0) {
       this.executeSearch(explicitsSearch, options, language, results)
+    }
+
+    if (crucibleSearch.sections.length > 0) {
+      this.executeSearch(crucibleSearch, options, language, results)
     }
 
     return results
@@ -457,6 +462,7 @@ export class StatsService {
     scourgedSearch: StatsSectionsSearch
     implicitsSearch: StatsSectionsSearch
     explicitsSearch: StatsSectionsSearch
+    crucibleSearch: StatsSectionsSearch
   } {
     const implicitPhrase = ` (${StatType.Implicit})`
     const implicitsSearch: StatsSectionsSearch = {
@@ -481,12 +487,23 @@ export class StatsService {
     if (options.ultimatum) {
       explicitsSearch.types.push(StatType.Ultimatum)
     }
+    const cruciblePhrase = ` (${StatType.Crucible})`
+    const crucibleSearch: StatsSectionsSearch = {
+      types: [StatType.Crucible],
+      sections: [],
+    }
     texts.forEach((text, index) => {
       if (text.indexOf(scourgePhrase) !== -1) {
-        // scourge stats have there own section
+        // scourge stats have their own section
         scourgedSearch.sections.push({
-          index: index,
+          index,
           text: text.split('\n').map(x => x.replace(SCOURGE_PLACEHOLDER_REGEX, '')).join('\n')
+        })
+      } else if (text.indexOf(cruciblePhrase) !== -1) {
+        // crucible stats have their own section
+        crucibleSearch.sections.push({
+          index,
+          text,
         })
       } else {
         const section: StatsSectionText = {
@@ -522,6 +539,6 @@ export class StatsService {
         }
       }
     })
-    return { scourgedSearch, implicitsSearch, explicitsSearch }
+    return { scourgedSearch, implicitsSearch, explicitsSearch, crucibleSearch }
   }
 }
