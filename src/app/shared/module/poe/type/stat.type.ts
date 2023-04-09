@@ -9,6 +9,7 @@ export enum StatType {
   Monster = 'monster',
   Ultimatum = 'ultimatum',
   Scourge = 'scourge',
+  Crucible = 'crucible',
 }
 
 export interface Stat {

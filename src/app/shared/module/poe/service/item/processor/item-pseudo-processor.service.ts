@@ -180,10 +180,11 @@ export class ItemPseudoProcessorService {
               item.rarity !== ItemRarity.UniqueRelic && // Never remove stats from unique relic items
               stat.type !== StatType.Fractured && // Never remove fractured stats
               stat.type !== StatType.Scourge && // Never remove scourged stats
+              stat.type !== StatType.Crucible && // Never remove crucible stats
               // Never remove synthesised implicit stats
               (!item.influences || !item.influences.synthesised || stat.type !== StatType.Implicit) &&
-              // Never remove stats if the pseudo grouping occured with a scourged stat
-              stats.findIndex(x => x.type === StatType.Scourge) === -1
+              // Never remove stats if the pseudo grouping occured with a scourged or crucible stat
+              stats.findIndex(x => x.type === StatType.Scourge || x.type === StatType.Crucible) === -1
             ) {
               item.stats = item.stats.filter((y) => y !== stat)
             }
