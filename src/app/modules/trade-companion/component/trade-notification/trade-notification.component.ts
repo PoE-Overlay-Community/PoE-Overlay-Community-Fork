@@ -274,16 +274,7 @@ export class TradeNotificationComponent implements OnInit, OnDestroy, OnChanges 
   }
 
   private leaveParty(): void {
-    let activeCharacterName = this.settings.activeCharacterName
-    if (!activeCharacterName) {
-      activeCharacterName = this.accountService.getActiveCharacter()?.name
-    }
-    if (activeCharacterName) {
-      // Leaving a party is done by kicking yourself from said party
-      this.commandService.command(`/kick ${activeCharacterName}`, this.settings)
-    } else {
-      this.snackbar.warning(this.translate.get('settings.trade-companion.error-select-active-character'))
-    }
+    this.commandService.command(`/leave`, this.settings)
   }
 
   private kickFromParty(): void {
