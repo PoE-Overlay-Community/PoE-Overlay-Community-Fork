@@ -320,6 +320,16 @@
 			"Mushrune3",
 			"Mushrune7"
 		],
+		"59423": [
+			"Mushrune4",
+			"Mushrune4",
+			"Mushrune6b"
+		],
+		"60781": [
+			"Mushrune3",
+			"Mushrune5",
+			"Mushrune6b"
+		],
 		"56207": [
 			"Mushrune1",
 			"Mushrune5",
@@ -380,10 +390,20 @@
 			"Mushrune6",
 			"Mushrune6"
 		],
+		"28034": [
+			"Mushrune1",
+			"Mushrune6b",
+			"Mushrune6b"
+		],
 		"59866": [
 			"Mushrune2",
 			"Mushrune6",
 			"Mushrune7"
+		],
+		"45657": [
+			"Mushrune2",
+			"Mushrune6b",
+			"Mushrune6b"
 		],
 		"35436": [
 			"Mushrune3",
@@ -415,10 +435,35 @@
 			"Mushrune6",
 			"Mushrune6"
 		],
+		"55002": [
+			"Mushrune4",
+			"Mushrune6b",
+			"Mushrune6b"
+		],
+		"52789": [
+			"Mushrune1",
+			"Mushrune6b",
+			"Mushrune7"
+		],
 		"60619": [
 			"Mushrune1",
 			"Mushrune2",
 			"Mushrune8"
+		],
+		"63453": [
+			"Mushrune5",
+			"Mushrune6b",
+			"Mushrune6b"
+		],
+		"28449": [
+			"Mushrune3",
+			"Mushrune6b",
+			"Mushrune7"
+		],
+		"62802": [
+			"Mushrune4",
+			"Mushrune6b",
+			"Mushrune7"
 		],
 		"6237": [
 			"Mushrune2",
@@ -455,7 +500,7 @@
 			"Mushrune4",
 			"Mushrune8"
 		],
-		"51881": [
+		"48823": [
 			"Mushrune2",
 			"Mushrune4",
 			"Mushrune8"
@@ -550,6 +595,11 @@
 			"Mushrune7",
 			"Mushrune7"
 		],
+		"41870": [
+			"Mushrune1",
+			"Mushrune6b",
+			"Mushrune8"
+		],
 		"25738": [
 			"Mushrune2",
 			"Mushrune6b",
@@ -568,6 +618,11 @@
 		"35685": [
 			"Mushrune5",
 			"Mushrune6",
+			"Mushrune8"
+		],
+		"62849": [
+			"Mushrune4",
+			"Mushrune6b",
 			"Mushrune8"
 		],
 		"24858": [
@@ -735,6 +790,11 @@
 			"Mushrune6",
 			"Mushrune9"
 		],
+		"29522": [
+			"Mushrune6b",
+			"Mushrune8",
+			"Mushrune8"
+		],
 		"19730": [
 			"Mushrune1",
 			"Mushrune6b",
@@ -748,6 +808,11 @@
 		"24383": [
 			"Mushrune5",
 			"Mushrune5",
+			"Mushrune9"
+		],
+		"32681": [
+			"Mushrune2",
+			"Mushrune6b",
 			"Mushrune9"
 		],
 		"6967": [
@@ -764,6 +829,11 @@
 			"Mushrune7",
 			"Mushrune8",
 			"Mushrune8"
+		],
+		"45945": [
+			"Mushrune4",
+			"Mushrune6b",
+			"Mushrune9"
 		],
 		"49621": [
 			"Mushrune1",
@@ -965,6 +1035,11 @@
 			"Mushrune5",
 			"Mushrune10"
 		],
+		"34284": [
+			"Mushrune3",
+			"Mushrune6b",
+			"Mushrune10"
+		],
 		"24324": [
 			"Mushrune4",
 			"Mushrune6",
@@ -1104,6 +1179,11 @@
 			"Mushrune6b",
 			"Mushrune8",
 			"Mushrune10"
+		],
+		"30974": [
+			"Mushrune6b",
+			"Mushrune9",
+			"Mushrune9"
 		],
 		"6615": [
 			"Mushrune1",
@@ -1330,7 +1410,7 @@
 			"Mushrune8",
 			"Mushrune11"
 		],
-		"48823": [
+		"51881": [
 			"Mushrune2",
 			"Mushrune8",
 			"Mushrune11"
@@ -1480,6 +1560,11 @@
 			"Mushrune5",
 			"Mushrune12"
 		],
+		"53652": [
+			"Mushrune2",
+			"Mushrune6b",
+			"Mushrune12"
+		],
 		"53759": [
 			"Mushrune1",
 			"Mushrune6",
@@ -1584,6 +1669,11 @@
 			"Mushrune6",
 			"Mushrune6",
 			"Mushrune12"
+		],
+		"13375": [
+			"Mushrune6b",
+			"Mushrune9",
+			"Mushrune11"
 		],
 		"55485": [
 			"Mushrune5",
