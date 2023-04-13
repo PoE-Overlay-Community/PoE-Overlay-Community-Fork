@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.8.23 (2023-04-13)
+
+- Updated PoE Assets to support additional mods for 3.21.0c
+  - This also fixes an issue with price-checking Primeval and Primordial Remnants
+
 ## 0.8.22 (2023-04-09)
 
 - Updated PoE Assets to support 3.21.0 (Crucible League)
