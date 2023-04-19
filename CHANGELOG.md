@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.8.24 (2023-04-19)
+
+- Updated PoE Assets to support additional mods for 3.21.0c
+  - This also fixes an issue with annointments not showing their oils
+  - This also fixed some issues with indistinguishable stats (e.g. "Projectiles Pierce 2 additional Targets" and "Projectiles Pierce # additional Targets")
+
 ## 0.8.23 (2023-04-13)
 
 - Updated PoE Assets to support additional mods for 3.21.0c
