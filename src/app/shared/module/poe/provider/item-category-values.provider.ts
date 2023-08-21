@@ -125,6 +125,14 @@ export class ItemCategoryValuesProvider {
         const key = `${leagueId}_${ItemCategory.CurrencyIncubator}`
         return this.fetch(key, () => this.fetchItem(leagueId, ItemOverviewType.Incubator))
       }
+      case ItemCategory.CurrencyTattoo: {
+        const key = `${leagueId}_${ItemCategory.CurrencyTattoo}`
+        return this.fetch(key, () => this.fetchItem(leagueId, ItemOverviewType.Tattoo))
+      }
+      case ItemCategory.CurrencyOmen: {
+        const key = `${leagueId}_${ItemCategory.CurrencyOmen}`
+        return this.fetch(key, () => this.fetchItem(leagueId, ItemOverviewType.Omen))
+      }
       case ItemCategory.MonsterBeast: {
         const key = `${leagueId}_${ItemCategory.MonsterBeast}`
         return this.fetch(key, () => this.fetchItem(leagueId, ItemOverviewType.Beast))

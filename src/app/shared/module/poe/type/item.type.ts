@@ -98,10 +98,8 @@ export enum ItemCategory {
   MapFragment = 'map.fragment',
   MapInvitation = 'map.invitation',
   MapScarab = 'map.scarab',
-  Watchstone = 'watchstone',
   Leaguestone = 'leaguestone',
   MemoryLine = 'memoryline',
-  Prophecy = 'prophecy',
   Card = 'card',
   MonsterBeast = 'monster.beast',
   MonsterSample = 'monster.sample',
@@ -114,17 +112,25 @@ export enum ItemCategory {
   HeistContract = 'heistmission.contract',
   HeistBlueprint = 'heistmission.blueprint',
   ExpeditionLogbook = 'logbook',
+  SanctumResearch = 'sanctum.research',
+  SanctumRelic = 'sanctum.relic',
   Currency = 'currency',
   CurrencyPiece = 'currency.piece',
   CurrencyResonator = 'currency.resonator',
   CurrencyFossil = 'currency.fossil',
   CurrencyIncubator = 'currency.incubator',
   CurrencyHeistTarget = 'currency.heistobjective',
+  CurrencyOmen = 'currency.omen',
+  CurrencyTattoo = 'currency.tattoo',
+
+  // Deprecated (due to previous league mechanics not going core or being removed)
   CurrencySeed = 'currency.seed',
   CurrencyWildSeed = 'currency.wildseed',
   CurrencyVividSeed = 'currency.vividseed',
   CurrencyPrimalSeed = 'currency.primalseed',
   CurrencySeedBooster = 'currency.seedbooster',
+  Watchstone = 'watchstone',
+  Prophecy = 'prophecy',
 }
 
 // aka 'Mod Generation Type'
