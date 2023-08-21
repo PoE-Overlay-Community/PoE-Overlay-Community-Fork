@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.8.25 (2023-08-21)
+
+- Updated PoE Assets to support additional mods for 3.22.0
+- Added support for Ancestral Omens, Tattoos and Sanctum Relics and Research item categories
+- Updated the PoE Login URL (based on feedback in #334)
+
 ## 0.8.24 (2023-04-19)
 
 - Updated PoE Assets to support additional mods for 3.21.0c
