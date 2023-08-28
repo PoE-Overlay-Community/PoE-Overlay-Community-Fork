@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.8.26 (2023-08-28)
+
+- Updated PoE Assets to support additional mods and fix some mods that got broken
+- Added support for 'sanctum' labelled stats
+
 ## 0.8.25 (2023-08-21)
 
 - Updated PoE Assets to support additional mods for 3.22.0
