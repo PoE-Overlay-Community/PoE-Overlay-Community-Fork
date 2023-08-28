@@ -15,6 +15,7 @@
             groups.explicit ||
             groups.monster ||
             groups.ultimatum ||
+            groups.sanctum ||
             groups.crafted)
         ">
       </app-item-frame-separator>
@@ -26,7 +27,7 @@
         <ng-container *ngTemplateOutlet="statQuery; context: { stat: stat }"></ng-container>
       </div>
       <app-item-frame-separator [item]="item"
-                                *ngIf="last && (groups.implicit || groups.fractured || groups.explicit || groups.monster || groups.ultimatum || groups.crafted)">
+                                *ngIf="last && (groups.implicit || groups.fractured || groups.explicit || groups.monster || groups.ultimatum || groups.sanctum || groups.crafted)">
       </app-item-frame-separator>
     </ng-container>
   </ng-container>
@@ -36,7 +37,7 @@
         <ng-container *ngTemplateOutlet="statQuery; context: { stat: stat }"></ng-container>
       </div>
     </ng-container>
-    <app-item-frame-separator [item]="item" *ngIf="groups.fractured || groups.explicit || groups.monster || groups.ultimatum || groups.crafted || groups.pseudo">
+    <app-item-frame-separator [item]="item" *ngIf="groups.fractured || groups.explicit || groups.monster || groups.ultimatum || groups.sanctum || groups.crafted || groups.pseudo">
     </app-item-frame-separator>
   </ng-container>
   <ng-container *ngIf="groups.fractured">
@@ -67,6 +68,13 @@
       </div>
     </ng-container>
   </ng-container>
+  <ng-container *ngIf="groups.sanctum">
+    <ng-container *ngFor="let stat of groups.sanctum">
+      <div class="purpel">
+        <ng-container *ngTemplateOutlet="statQuery; context: { stat: stat }"></ng-container>
+      </div>
+    </ng-container>
+  </ng-container>
   <ng-container *ngIf="groups.crafted">
     <ng-container *ngFor="let stat of groups.crafted">
       <div class="blue">
@@ -74,7 +82,7 @@
       </div>
     </ng-container>
   </ng-container>
-  <ng-container *ngIf="groups.fractured || groups.explicit || groups.monster || groups.ultimatum || groups.crafted">
+  <ng-container *ngIf="groups.fractured || groups.explicit || groups.monster || groups.ultimatum || groups.sanctum || groups.crafted">
     <app-item-frame-separator [item]="item" *ngIf="groups.pseudo"></app-item-frame-separator>
   </ng-container>
   <ng-container *ngIf="groups.crucible">

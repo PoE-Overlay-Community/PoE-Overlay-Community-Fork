@@ -14,6 +14,7 @@ export interface StatsSearchResult {
 export interface StatsSearchOptions {
   monsterSample?: boolean
   ultimatum?: boolean
+  sanctum?: boolean
   map?: boolean
   // The options below must match the ones used in stats-local.json
   local_poison_on_hit__?: boolean
@@ -486,6 +487,9 @@ export class StatsService {
     }
     if (options.ultimatum) {
       explicitsSearch.types.push(StatType.Ultimatum)
+    }
+    if (options.sanctum) {
+      explicitsSearch.types.push(StatType.Sanctum)
     }
     const cruciblePhrase = ` (${StatType.Crucible})`
     const crucibleSearch: StatsSectionsSearch = {

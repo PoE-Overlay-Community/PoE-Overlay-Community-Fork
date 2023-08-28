@@ -11,6 +11,7 @@ import {
   ultimatum,
   scourge,
   crucible,
+  sanctum,
 } from '../../../../../assets/poe/stats.json'
 import { StatMap, StatType } from '../type'
 
@@ -42,6 +43,8 @@ export class StatsProvider {
         return scourge
       case StatType.Crucible:
         return crucible
+      case StatType.Sanctum:
+        return sanctum
     }
   }
 }
