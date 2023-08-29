@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.8.27 (2023-08-29)
+
+- Updated the PoE Assets using PoE Asset Updater (commit 37fbd1e) and PoE Client v3.22.0b (hotfix 4) - This fixes implicits/fractured/crafted and enchanted stats
+
 ## 0.8.26 (2023-08-28)
 
 - Updated PoE Assets to support additional mods and fix some mods that got broken
