@@ -110,6 +110,8 @@ export enum TradeStatsResultLabel {
   Delve = 'Delve',
   Ultimatum = 'Ultimatum',
   Scourge = 'Scourge',
+  Crucible = 'Crucible',
+  Sanctum = 'Sanctum',
 }
 
 export interface TradeStatsResultResultEntry {

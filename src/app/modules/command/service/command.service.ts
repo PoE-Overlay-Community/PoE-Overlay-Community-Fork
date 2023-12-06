@@ -32,7 +32,7 @@ export class CommandService {
 
     gameLogService.logLineAdded.subscribe((logLine) => {
       if (whisperRegex.test(logLine)) {
-        const from = whisperRegex.exec(logLine).groups.from
+        const from = whisperRegex.exec(logLine).groups.player
         if (from) {
           this.lastIncomingWhisperer = from
         }

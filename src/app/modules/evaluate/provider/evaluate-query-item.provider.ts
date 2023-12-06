@@ -26,6 +26,7 @@ export class EvaluateQueryItemProvider {
       category: item.category,
       rarity: item.rarity,
       corrupted: item.corrupted,
+      // Don't copy mirrored; doing so will auto-select it and narrow the search too much
       unmodifiable: item.unmodifiable,
       unidentified: item.unidentified,
       veiled: item.veiled,
@@ -162,8 +163,8 @@ export class EvaluateQueryItemProvider {
         (item.rarity === ItemRarity.Unique || item.rarity === ItemRarity.UniqueRelic) &&
         settings.evaluateQueryDefaultStatsUnique
       ) {
-        // Select all stats if it's corrupted or unmodifiable, otherwise exclude implicit stats
-        queryItem.stats = item.stats.map((stat) => (item.corrupted || item.unmodifiable || !this.isRelatedToAnImplicitStat(stat)) ? stat : undefined)
+        // Select all stats if it's corrupted, mirrored or unmodifiable, otherwise exclude implicit stats
+        queryItem.stats = item.stats.map((stat) => (item.corrupted || item.mirrored || item.unmodifiable || !this.isRelatedToAnImplicitStat(stat)) ? stat : undefined)
       } else {
         queryItem.stats = item.stats.map((stat) => {
           // Auto-select enchanted stats or stats with a mod icon

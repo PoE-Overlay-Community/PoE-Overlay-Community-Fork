@@ -13,6 +13,8 @@ export enum ItemOverviewType {
   Prophecy = 'Prophecy',
   Oil = 'Oil',
   Incubator = 'Incubator',
+  Tattoo = 'Tattoo',
+  Omen = 'Omen',
   // Equipment & Gems
   UniqueWeapon = 'UniqueWeapon',
   UniqueArmour = 'UniqueArmour',
@@ -45,6 +47,8 @@ const PATH_TYPE_MAP = {
   [ItemOverviewType.Prophecy]: 'prophecies',
   [ItemOverviewType.Oil]: 'oils',
   [ItemOverviewType.Incubator]: 'incubators',
+  [ItemOverviewType.Tattoo]: 'tattoo',
+  [ItemOverviewType.Omen]: 'omen',
   // Equipment & Gems
   [ItemOverviewType.UniqueWeapon]: 'unique-weapons',
   [ItemOverviewType.UniqueArmour]: 'unique-armours',
