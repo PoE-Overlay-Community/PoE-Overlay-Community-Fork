@@ -223,7 +223,12 @@ export class TradeNotificationPanelComponent implements OnInit, AfterViewInit, O
   }
 
   public deleteAll(): void {
-    this.notifications = []
+    this.notifications.forEach((notification) =>  {
+      this.tradeNotificationsService.dismissNotification(notification)
+      this.updateActiveNotificationIndex()
+      this.ref.detectChanges()
+    })
+
     this.userActiveTradeNotificationIndex = -1;
   }
 
