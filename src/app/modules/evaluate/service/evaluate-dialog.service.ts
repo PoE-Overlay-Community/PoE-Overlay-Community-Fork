@@ -173,8 +173,12 @@ export class EvaluateDialogService {
         unique[StatType.Crafted] ||
         unique[StatType.Fractured] ||
         unique[StatType.Monster] ||
-        unique[StatType.Ultimatum]
+        unique[StatType.Ultimatum] ||
+        unique[StatType.Sanctum]
       ) {
+        height += DIALOG_DIVIDER_HEIGHT
+      }
+      if (unique[StatType.Crucible]) {
         height += DIALOG_DIVIDER_HEIGHT
       }
       if (unique[StatType.Pseudo]) {
@@ -182,11 +186,14 @@ export class EvaluateDialogService {
       }
     }
 
-    if (item.veiled || item.corrupted || item.unmodifiable || item.relic) {
+    if (item.veiled || item.corrupted || item.mirrored || item.unmodifiable || item.relic) {
       if (item.veiled) {
         height += DIALOG_LINE_HEIGHT
       }
       if (item.corrupted || item.unmodifiable) {
+        height += DIALOG_LINE_HEIGHT
+      }
+      if (item.mirrored) {
         height += DIALOG_LINE_HEIGHT
       }
       if (item.relic) {

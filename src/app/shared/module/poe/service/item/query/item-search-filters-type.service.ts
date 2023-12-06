@@ -145,6 +145,8 @@ export class ItemSearchFiltersTypeService implements ItemSearchFiltersService {
       case ItemCategory.CurrencyFossil:
       case ItemCategory.CurrencyIncubator:
       case ItemCategory.CurrencyHeistTarget:
+      case ItemCategory.CurrencyOmen:
+      case ItemCategory.CurrencyTattoo:
       // seed
       case ItemCategory.CurrencySeed:
       case ItemCategory.CurrencyWildSeed:
@@ -168,6 +170,9 @@ export class ItemSearchFiltersTypeService implements ItemSearchFiltersService {
       case ItemCategory.HeistBlueprint:
       // expedition
       case ItemCategory.ExpeditionLogbook:
+      // sanctum
+      case ItemCategory.SanctumRelic:
+      case ItemCategory.SanctumResearch:
         query.filters.type_filters.filters.category = {
           option: item.category,
         }

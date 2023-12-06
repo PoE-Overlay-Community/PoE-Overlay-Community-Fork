@@ -8,8 +8,8 @@ const QUALITY_MAX = 20
 })
 export class ItemQualityProcessorService {
   public process(item: Item, normalizeQuality: boolean): void {
-    const { properties, stats, corrupted } = item
-    if (!properties || !stats || corrupted) {
+    const { properties, stats, corrupted, mirrored } = item
+    if (!properties || !stats || corrupted || mirrored) {
       return
     }
 

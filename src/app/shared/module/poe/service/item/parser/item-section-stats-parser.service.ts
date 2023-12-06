@@ -52,6 +52,7 @@ export class ItemSectionStatsParserService implements ItemSectionParserService {
     const options: StatsSearchOptions = {
       monsterSample: item.category === ItemCategory.MonsterSample,
       ultimatum: item.typeId === 'ItemisedTrial' || item.typeId === 'MapWorldsTrialmaster',
+      sanctum: item.category === ItemCategory.SanctumRelic || item.category === ItemCategory.SanctumResearch,
       map: item.category === ItemCategory.Map,
       critical_strike_chance___: true,
     }

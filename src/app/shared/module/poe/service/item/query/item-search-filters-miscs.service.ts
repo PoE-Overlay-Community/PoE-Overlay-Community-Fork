@@ -28,6 +28,12 @@ export class ItemSearchFiltersMiscsService implements ItemSearchFiltersService {
       option: `${!!item.corrupted}`,
     }
 
+    if (item.mirrored) {
+      query.filters.misc_filters.filters.mirrored = {
+        option: `${!item.mirrored}`,
+      }
+    }
+
     if (item.unidentified) {
       query.filters.misc_filters.filters.identified = {
         option: `${!item.unidentified}`,

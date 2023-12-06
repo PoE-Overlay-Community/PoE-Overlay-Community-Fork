@@ -1,5 +1,39 @@
 # Changelog
 
+## 0.8.27 (2023-08-29)
+
+- Updated the PoE Assets using PoE Asset Updater (commit 37fbd1e) and PoE Client v3.22.0b (hotfix 4) - This fixes implicits/fractured/crafted and enchanted stats
+
+## 0.8.26 (2023-08-28)
+
+- Updated PoE Assets to support additional mods and fix some mods that got broken
+- Added support for 'sanctum' labelled stats
+
+## 0.8.25 (2023-08-21)
+
+- Updated PoE Assets to support additional mods for 3.22.0
+- Added support for Ancestral Omens, Tattoos and Sanctum Relics and Research item categories
+- Updated the PoE Login URL (based on feedback in #334)
+
+## 0.8.24 (2023-04-19)
+
+- Updated PoE Assets to support additional mods for 3.21.0c
+  - This also fixes an issue with annointments not showing their oils
+  - This also fixed some issues with indistinguishable stats (e.g. "Projectiles Pierce 2 additional Targets" and "Projectiles Pierce # additional Targets")
+
+## 0.8.23 (2023-04-13)
+
+- Updated PoE Assets to support additional mods for 3.21.0c
+  - This also fixes an issue with price-checking Primeval and Primordial Remnants
+
+## 0.8.22 (2023-04-09)
+
+- Updated PoE Assets to support 3.21.0 (Crucible League)
+- Updated the 'leave party' command (i.e. it no longer requires you to be logged in to use it)
+- Added a workaround for the login feature in the settings menu
+- Added support for the 'Mirrored' item tag when evaluating items
+- Fixed an issue with the '@last' keyword where it didn't obtain the whisperer's name correctly
+
 ## 0.8.21 (2022-12-17)
 
 - Updated PoE Assets to support additional mods for 3.20.0b (and Japanese)
