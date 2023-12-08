@@ -34,8 +34,6 @@ export class StatsLocalProvider {
         return enchant
       case StatType.Veiled:
         return veiled
-      case StatType.Monster:
-        return monster
       case StatType.Ultimatum:
         return ultimatum
       case StatType.Scourge:

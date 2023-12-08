@@ -12,7 +12,6 @@ export interface StatsSearchResult {
 }
 
 export interface StatsSearchOptions {
-  monsterSample?: boolean
   ultimatum?: boolean
   sanctum?: boolean
   map?: boolean
@@ -481,9 +480,6 @@ export class StatsService {
     const explicitsSearch: StatsSectionsSearch = {
       types: [StatType.Explicit],
       sections: [],
-    }
-    if (options.monsterSample) {
-      explicitsSearch.types.push(StatType.Monster)
     }
     if (options.ultimatum) {
       explicitsSearch.types.push(StatType.Ultimatum)

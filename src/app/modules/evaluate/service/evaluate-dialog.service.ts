@@ -172,7 +172,6 @@ export class EvaluateDialogService {
         unique[StatType.Explicit] ||
         unique[StatType.Crafted] ||
         unique[StatType.Fractured] ||
-        unique[StatType.Monster] ||
         unique[StatType.Ultimatum] ||
         unique[StatType.Sanctum]
       ) {
