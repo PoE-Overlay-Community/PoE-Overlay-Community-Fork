@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.8.28 (2023-12-08)
+
+- Updated the PoE Assets using PoE Asset Updater (commit e05332b) and PoE Client v3.23.0
+- Added support for Tinctures, Charms and Corpse item categories
+
 ## 0.8.27 (2023-08-29)
 
 - Updated the PoE Assets using PoE Asset Updater (commit 37fbd1e) and PoE Client v3.22.0b (hotfix 4) - This fixes implicits/fractured/crafted and enchanted stats
