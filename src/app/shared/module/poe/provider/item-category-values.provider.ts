@@ -229,6 +229,9 @@ export class ItemCategoryValuesProvider {
       case ItemCategory.HeistContract:
       case ItemCategory.HeistBlueprint:
       case ItemCategory.ExpeditionLogbook:
+      case ItemCategory.AzmeriTincture:
+      case ItemCategory.AzmeriCharm:
+      case ItemCategory.AzmeriCorpse:
         return of({ values: [] })
       default:
         console.warn(`Missing ItemCategory case for '${category}'`)

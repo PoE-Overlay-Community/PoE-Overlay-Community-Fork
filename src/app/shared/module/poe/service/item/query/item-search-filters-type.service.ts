@@ -173,6 +173,10 @@ export class ItemSearchFiltersTypeService implements ItemSearchFiltersService {
       // sanctum
       case ItemCategory.SanctumRelic:
       case ItemCategory.SanctumResearch:
+      // affliction (azmeri)
+      case ItemCategory.AzmeriTincture:
+      case ItemCategory.AzmeriCharm:
+      case ItemCategory.AzmeriTincture:
         query.filters.type_filters.filters.category = {
           option: item.category,
         }
