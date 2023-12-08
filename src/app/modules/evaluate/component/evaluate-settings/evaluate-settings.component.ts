@@ -210,7 +210,6 @@ export class EvaluateSettingsComponent implements UserSettingsComponent {
       StatType.Crafted,
       StatType.Enchant,
       StatType.Fractured,
-      StatType.Monster,
       StatType.Ultimatum,
       StatType.Scourge,
       StatType.Crucible,

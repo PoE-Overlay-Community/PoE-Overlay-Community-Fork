@@ -6,7 +6,6 @@ export enum StatType {
   Fractured = 'fractured',
   Enchant = 'enchant',
   Veiled = 'veiled',
-  Monster = 'monster',
   Ultimatum = 'ultimatum',
   Scourge = 'scourge',
   Crucible = 'crucible',
