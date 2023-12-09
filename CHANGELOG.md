@@ -2,7 +2,7 @@
 
 ## 0.8.28 (2023-12-08)
 
-- Updated the PoE Assets using PoE Asset Updater (commit e05332b) and PoE Client v3.23.0
+- Updated the PoE Assets using PoE Asset Updater (commit e05332b) and PoE Client v3.23.0 (hotfix 6)
 - Added support for Tinctures, Charms and Corpse item categories
 - Removed the 'monster' (Metamorph Samples) item type
 
