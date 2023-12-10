@@ -134,6 +134,15 @@ export class ItemSearchFiltersTypeService implements ItemSearchFiltersService {
       case ItemCategory.GemActiveGem:
       case ItemCategory.GemSupportGem:
       case ItemCategory.GemSupportGemplus:
+        if (item.typeId?.startsWith("TransfiguredGem_")) {
+          query.term = query.type.option
+          query.type = undefined
+        }
+
+        query.filters.type_filters.filters.category = {
+          option: item.category,
+        }
+        break
       // leaguestone
       case ItemCategory.Leaguestone:
       // memoryline
