@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.8.29 (2023-12-09)
+
+- Updated the PoE Assets using PoE Asset Updater (commit 4bcf2eb) and PoE Client v3.23.0 (hotfix 10)
+- Added support for Transfigured Gems
+
 ## 0.8.28 (2023-12-08)
 
 - Updated the PoE Assets using PoE Asset Updater (commit e05332b) and PoE Client v3.23.0 (hotfix 6)
