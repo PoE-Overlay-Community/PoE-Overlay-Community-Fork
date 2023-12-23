@@ -1,5 +1,20 @@
 # Changelog
 
+## 0.8.30 (2023-12-23)
+
+- Updated the PoE Assets using PoE Asset Updater (commit e61a500) and PoE Client v3.23.0c
+  - This fixes price-checking corpses
+- Added support for socket color evaluating
+  - Sockets in the evaluation popup can now be clicked three times with the first click taking only the fact that it's selected into account (i.e. number of sockets), the second click taking the (amount of) color(s) into account and the third unselecting the socket
+    - The type of socket evaluation is indicated by either the hashtag symbol when the color is _not_ taken into account or the specific color's first letter (R for red, B for blue, etc...) when the color _is_ taken into account
+  - Splitted the item links & socket count default/auto selection setting when evaluating
+  - When sockets are auto evaluated (based on the sockets evaluation setting), only the number of sockets are evaluated;  
+    Unless any of the following conditions are met:
+    - The item is corrupted -> all socket colors are taken into account
+	- The socket is a white socket -> the color for this specific socket is taken into account
+	- The item has any of the pre-determined stats that have special interactions with sockets -> all socket colors are taken into account  
+	  (Pre-determined stats are related to specific uniques such as "Dialla's Malefaction", "Skin of the Lords/Loyal", "Prismatic Eclipse", "Triad Grip", "Scaeva", "The Pariah" and "Crown of the Tyrant")
+
 ## 0.8.29 (2023-12-09)
 
 - Updated the PoE Assets using PoE Asset Updater (commit 4bcf2eb) and PoE Client v3.23.0 (hotfix 10)
