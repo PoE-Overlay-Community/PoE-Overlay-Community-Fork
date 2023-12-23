@@ -74,7 +74,7 @@ export class EvaluateQueryItemProvider {
       })
     }
 
-    if (item.sockets.length >= settings.evaluateQueryDefaultColors) {
+    if (item.sockets && item.sockets.length >= settings.evaluateQueryDefaultColors) {
       item.sockets.forEach((socket, index) => {
         let newColor = ItemSocketColor.Any
         if (item.corrupted || socket.color === ItemSocketColor.White || item.stats.some(stat => SocketRelatedStatIds.some(y => stat.id === y))) {
