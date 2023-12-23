@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.8.31 (2023-12-23)
+
+- Fixed an issue when evaluating socketless items
+
 ## 0.8.30 (2023-12-23)
 
 - Updated the PoE Assets using PoE Asset Updater (commit e61a500) and PoE Client v3.23.0c
