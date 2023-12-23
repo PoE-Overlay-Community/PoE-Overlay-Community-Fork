@@ -46,6 +46,7 @@ export class EvaluateModule implements FeatureModule {
       evaluateResultView: EvaluateResultView.List,
       evaluateQueryDefaultItemLevel: true,
       evaluateQueryDefaultLinks: 5,
+      evaluateQueryDefaultColors: 5,
       evaluateQueryDefaultUltimatum: true,
       evaluateQueryDefaultHeistRequiredLevels: true,
       evaluateQueryDefaultHeistContracts: false,

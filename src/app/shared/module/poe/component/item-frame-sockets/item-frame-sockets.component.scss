@@ -1,3 +1,5 @@
+@import './../../../../../../styles/variables';
+
 .sockets {
   position: relative;
   width: 90px;
@@ -15,6 +17,7 @@
       background-color: rgba(170, 158, 130, 0.3);
       outline-style: solid;
       outline-width: 1px;
+      outline-color: $light-dark-grey;
     }
   }
 
@@ -42,8 +45,11 @@
   .socket {
     width: 34px;
     height: 34px;
-    left: 0;
+    line-height: 34px;
+    padding-right: 1px;
+    left: 0px;
     z-index: 2;
+    color: $white;
 
     &.right {
       left: 56px;

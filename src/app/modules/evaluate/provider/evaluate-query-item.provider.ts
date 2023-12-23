@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core'
 import { ItemSocketService } from '@shared/module/poe/service/item/item-socket.service'
-import { Item, ItemCategory, ItemRarity, ItemStat, StatType } from '@shared/module/poe/type'
-import { language } from 'custom-electron-titlebar/lib/common/platform'
+import { Item, ItemCategory, ItemRarity, ItemSocketColor, ItemStat, StatType } from '@shared/module/poe/type'
 import { ModIconsService } from '../../../shared/module/poe/service/mod-icons/mod-icons.service'
 import { EvaluateUserSettings } from '../component/evaluate-settings/evaluate-settings.component'
 
@@ -9,6 +8,16 @@ export interface EvaluateQueryItemResult {
   queryItem: Item
   defaultItem: Item
 }
+
+const SocketRelatedStatIds: string[] = [
+  "stat_899329924", // "Gems can be Socketed in this Item ignoring Socket Colour" -- Dialla's Malefaction
+  "stat_3192592092", // "Sockets cannot be modified" -- Skin of the Lords | Skin of the Loyal
+  "stat_2112615899", // "#% increased Global Physical Damage with Weapons per Red Socket" -- Prismatic Eclipse
+  "stat_2139569643", // "Minions convert #% of Physical Damage to Fire Damage per Red Socket" -- Triad Grip
+  "stat_3025389409", // "#% of Physical Attack Damage Leeched as Life per Red Socket" -- Scaeva
+  "stat_4210076836", // "# to Maximum Life per Red Socket" -- The Pariah
+  "stat_1666896662", // "You and Nearby Allies have # to # added Fire Damage per Red Socket" -- Crown of the Tyrant
+]
 
 @Injectable({
   providedIn: 'root',
@@ -60,7 +69,19 @@ export class EvaluateQueryItemProvider {
 
     const count = this.itemSocketService.getLinkCount(item.sockets)
     if (count >= settings.evaluateQueryDefaultLinks) {
-      queryItem.sockets = item.sockets
+      item.sockets.forEach((socket, index) => {
+        queryItem.sockets[index].linked = socket.linked
+      })
+    }
+
+    if (item.sockets.length >= settings.evaluateQueryDefaultColors) {
+      item.sockets.forEach((socket, index) => {
+        let newColor = ItemSocketColor.Any
+        if (item.corrupted || socket.color === ItemSocketColor.White || item.stats.some(stat => SocketRelatedStatIds.some(y => stat.id === y))) {
+          newColor = socket.color
+        }
+        queryItem.sockets[index].color = newColor
+      })
     }
 
     if (settings.evaluateQueryDefaultUltimatum) {

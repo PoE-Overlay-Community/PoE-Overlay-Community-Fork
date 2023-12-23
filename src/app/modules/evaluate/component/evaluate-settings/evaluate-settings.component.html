@@ -269,7 +269,8 @@
               {{ 'evaluate.search.gem' | translate }}
             </mat-slide-toggle>
           </div>
-          <div>
+
+          <div class="toggle">
             <mat-form-field>
               <mat-label>{{ 'evaluate.search.item-default-links' | translate }}</mat-label>
               <mat-select [(value)]="settings.evaluateQueryDefaultLinks">
@@ -280,6 +281,19 @@
                 <mat-option [value]="6"> 6 </mat-option>
                 <mat-option [value]="999">
                   {{ 'evaluate.search.item-links.never' | translate }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>{{ 'evaluate.search.item-default-sockets' | translate }}</mat-label>
+              <mat-select [(value)]="settings.evaluateQueryDefaultColors">
+                <mat-option [value]="0">
+                  {{ 'evaluate.search.item-sockets.always' | translate }}
+                </mat-option>
+                <mat-option [value]="5"> 5-6 </mat-option>
+                <mat-option [value]="6"> 6 </mat-option>
+                <mat-option [value]="999">
+                  {{ 'evaluate.search.item-sockets.never' | translate }}
                 </mat-option>
               </mat-select>
             </mat-form-field>

@@ -107,13 +107,17 @@
         "contract": "Heist Contract Properties",
         "req-lvls": "Heist Required Levels"
       },
-      "item-default-links": "Item Link",
+      "item-default-sockets": "Item Sockets",
+      "item-default-links": "Item Links",
       "item-level": "Item Level",
       "item-links": {
         "always": "Always",
         "never": "Never"
       },
-      "item-sockets": "Sockets",
+      "item-sockets": {
+        "always": "Always",
+        "never": "Never"
+      },
       "item-specific-properties": "Item Specific Properties",
       "item-specific-property": {
         "heist": "Heist",

@@ -30,6 +30,7 @@ export interface EvaluateUserSettings extends UserSettings {
   evaluateTranslatedKeybinding: string
   evaluateQueryDefaultItemLevel: boolean
   evaluateQueryDefaultLinks: number
+  evaluateQueryDefaultColors: number
   evaluateQueryDefaultUltimatum: boolean
   evaluateQueryDefaultHeistRequiredLevels: boolean
   evaluateQueryDefaultHeistContracts: boolean

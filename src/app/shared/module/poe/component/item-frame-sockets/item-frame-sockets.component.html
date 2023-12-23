@@ -1,12 +1,10 @@
 <div class="sockets" [style.height]="getSocketHeight()">
-  <div
-    *ngFor="let socket of item.sockets; let index = index"
-    [class]="'socket ' + (socket.color | lowercase)"
-    [class.right]="index % 4 === 1 || index % 4 === 2"
-    [style.top]="getSocketTop(index)"
-    [class.query]="queryItem.sockets[index] && queryItem.sockets[index].color"
-    (click)="toggleSocketColor($event, index, socket)"
-  ></div>
+  <div *ngFor="let socket of item.sockets; let index = index"
+       [class]="'socket ' + (socket.color | lowercase)"
+       [class.right]="index % 4 === 1 || index % 4 === 2"
+       [class.query]="queryItem.sockets[index] && queryItem.sockets[index].color"
+       [style.top]="getSocketTop(index)"
+       (click)="toggleSocketColor($event, index, socket)">{{ getSocketName(queryItem.sockets[index]) }}</div>
   <ng-container *ngFor="let socket of item.sockets; let index = index">
     <div
       *ngIf="socket.linked"

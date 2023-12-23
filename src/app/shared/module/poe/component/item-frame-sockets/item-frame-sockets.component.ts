@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Inject, Input } from '@angular/core'
-import { Item, ItemSocket } from '../../type'
+import { Item, ItemSocket, ItemSocketColor } from '../../type'
 import { ItemFrameComponent } from '../item-frame/item-frame.component'
 
 @Component({
@@ -21,17 +21,34 @@ export class ItemFrameSocketsComponent {
   ) {}
 
   public toggleSocketColor(event: MouseEvent, index: number, value: ItemSocket): void {
+    let newColor: ItemSocketColor
     if (event.shiftKey) {
-      const enabled = this.queryItem.sockets.every((x) => x.color !== undefined)
+      const isEnabled = this.queryItem.sockets.every((x) => x.color !== undefined)
+      const isColorless = isEnabled && this.queryItem.sockets.every((x) => x.color === ItemSocketColor.Any)
       for (let i = 0; i < this.queryItem.sockets.length; i++) {
-        this.queryItem.sockets[i].color = enabled ? undefined : this.item.sockets[i].color
+        if (!isEnabled) {
+          newColor = ItemSocketColor.Any
+        } else if (isColorless) {
+          newColor = this.item.sockets[i].color
+        } else {
+          newColor = undefined
+        }
+        this.queryItem.sockets[i].color = newColor
       }
     } else {
-      this.queryItem.sockets[index] = this.toggleSocket(
-        this.queryItem.sockets[index],
-        value,
-        'color'
-      )
+      switch (this.queryItem.sockets[index].color) {
+        case ItemSocketColor.Any:
+          newColor = this.item.sockets[index].color
+          break
+        case null:
+        case undefined:
+          newColor = ItemSocketColor.Any
+          break
+        default:
+          newColor = undefined
+          break
+      }
+      this.queryItem.sockets[index].color = newColor
     }
     this.itemFrame.onPropertyChange()
   }
@@ -61,6 +78,13 @@ export class ItemFrameSocketsComponent {
     const socketHeight = Math.floor((length + 1) / 2) * 34
     const linkHeight = length >= 3 ? Math.floor((length - 1) / 2) * 22 : 0
     return `${socketHeight + linkHeight}px`
+  }
+
+  public getSocketName(socket: ItemSocket): string {
+    if (!socket || !socket.color || socket.color == ItemSocketColor.Delve) {
+      return ''
+    }
+    return socket.color
   }
 
   private toggleSocket(socket: ItemSocket, value: ItemSocket, property: string): ItemSocket {

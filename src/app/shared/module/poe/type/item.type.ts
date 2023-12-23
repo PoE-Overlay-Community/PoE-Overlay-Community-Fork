@@ -152,6 +152,7 @@ export interface ItemWeaponDamage {
 }
 
 export enum ItemSocketColor {
+  Any = '#',
   Red = 'R',
   Green = 'G',
   Blue = 'B',
