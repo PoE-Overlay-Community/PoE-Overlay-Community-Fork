@@ -252,6 +252,7 @@
     "wiki": "Wiki"
   },
   "panel-tooltips": {
+    "delete-all": "Deletes all notifications",
     "disable": "Disable this overlay panel",
     "drag-handle": "Drag this handle to move this panel",
     "locked": "Locked - Click to unlock",
