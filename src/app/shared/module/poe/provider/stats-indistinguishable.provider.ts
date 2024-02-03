@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core'
-import { indistinguishableStats } from '../../../../../assets/poe/stats-indistinguishable.json'
+import indistinguishableStats from '../../../../../assets/poe/stats-indistinguishable.json'
 import { StatIndistinguishableMap, StatType } from '../type'
 
 @Injectable({
@@ -7,6 +7,6 @@ import { StatIndistinguishableMap, StatType } from '../type'
 })
 export class StatsIndistinguishableProvider {
   public provide(group: StatType): StatIndistinguishableMap {
-    return indistinguishableStats[group]
+    return indistinguishableStats.indistinguishableStats[group]
   }
 }

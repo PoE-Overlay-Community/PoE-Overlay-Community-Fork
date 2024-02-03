@@ -1,5 +1,5 @@
 import { IpcMain } from 'electron'
-import * as robot from 'robotjs'
+import * as robot from '@hurdlegroup/robotjs'
 
 export function register(ipcMain: IpcMain): void {
   ipcMain.on('click-at', (event, button, position) => {

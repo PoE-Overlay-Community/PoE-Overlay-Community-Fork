@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core'
-import { Default } from '../../../../../assets/poe/mods.json'
+import mods from '../../../../../assets/poe/mods.json'
 import { ModsMap } from '../type'
 
 @Injectable({
@@ -7,6 +7,7 @@ import { ModsMap } from '../type'
 })
 export class ModsProvider {
   public provide(): ModsMap {
-    return Default
+    // TODO: fix cast as any
+    return (mods as any).Default
   }
 }

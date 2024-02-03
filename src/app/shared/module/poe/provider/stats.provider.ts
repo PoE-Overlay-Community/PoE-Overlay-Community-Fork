@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core'
-import {
+import stats from '../../../../../assets/poe/stats.json'
+import { StatMap, StatType } from '../type'
+
+const {
   crafted,
   enchant,
   explicit,
@@ -11,8 +14,7 @@ import {
   scourge,
   crucible,
   sanctum,
-} from '../../../../../assets/poe/stats.json'
-import { StatMap, StatType } from '../type'
+} = stats as { [id: string]: StatMap }
 
 @Injectable({
   providedIn: 'root',

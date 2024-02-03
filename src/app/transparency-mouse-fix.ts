@@ -1,4 +1,5 @@
-import { BrowserWindow, Remote } from 'electron'
+import { Remote } from '@app/provider'
+import { BrowserWindow } from 'electron'
 
 // This class makes it possible to make certain elements clickable and keeping others click-through.
 //

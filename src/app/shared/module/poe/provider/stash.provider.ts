@@ -4,7 +4,6 @@ import { ApiErrorResponse, ApiStashTabItems, ApiStashTabNames, ApiStashType, PoE
 import { CacheExpiration, CacheExpirationType, ItemRarity, Language } from '@shared/module/poe/type'
 import { Observable } from 'rxjs'
 import { map } from 'rxjs/operators'
-import { isNullOrUndefined } from 'util'
 import { PoEStashTab, PoEStashTabItem } from '../type/stash.type'
 import { StashGridType } from '../type/stash-grid.type'
 
@@ -85,7 +84,7 @@ export class StashProvider {
             stashGridType
           }
           return poeStashTab
-        }).filter((x) => !isNullOrUndefined(x))
+        }).filter((x) => x !== null && x !== undefined)
       }
     }))
   }

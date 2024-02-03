@@ -1,7 +1,7 @@
 import { Injectable, NgZone } from '@angular/core'
-import { ElectronProvider } from '@app/provider'
+import { ElectronProvider, Remote } from '@app/provider'
 import { VisibleFlag } from '@app/type/app.type'
-import { IpcRenderer, Remote } from 'electron'
+import { IpcRenderer } from 'electron'
 import { Observable, Subject } from 'rxjs'
 
 export interface Shortcut {

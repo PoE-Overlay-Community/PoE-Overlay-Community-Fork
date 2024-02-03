@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core'
-import { default as baseItemTypes } from '../../../../../assets/poe/base-item-types-v2.json'
+import baseItemTypes from '../../../../../assets/poe/base-item-types-v2.json'
 import { EnumValues } from '../../../../core/class'
 import { BaseItemType, BaseItemTypeNameMap, Language } from '../type'
 

@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core'
-import {
+import statsLocal from '../../../../../assets/poe/stats-local.json'
+import { StatLocalMap, StatType } from '../type'
+
+const {
   crafted,
   enchant,
   explicit,
@@ -11,8 +14,7 @@ import {
   scourge,
   crucible,
   sanctum,
-} from '../../../../../assets/poe/stats-local.json'
-import { StatLocalMap, StatType } from '../type'
+} = statsLocal as { [id: string]: StatLocalMap }
 
 @Injectable({
   providedIn: 'root',

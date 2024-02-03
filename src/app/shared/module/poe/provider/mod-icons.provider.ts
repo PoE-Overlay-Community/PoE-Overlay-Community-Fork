@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core'
-import {
+import modIcons from '../../../../../assets/poe/mod-icons.json'
+import { Language, ModIconsMap } from '../type'
+
+const {
   English,
   French,
   German,
@@ -10,9 +13,8 @@ import {
   Spanish,
   Thai,
   TraditionalChinese,
-  Japanese,
-} from '../../../../../assets/poe/mod-icons.json'
-import { Language, ModIconsMap } from '../type'
+  Japanese
+} = modIcons as {[id: string]: ModIconsMap};
 
 @Injectable({
   providedIn: 'root',

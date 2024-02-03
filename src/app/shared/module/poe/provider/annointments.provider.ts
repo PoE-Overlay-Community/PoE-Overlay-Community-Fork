@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core'
-import { annointments } from '../../../../../assets/poe/annointments.json'
+import annointments from '../../../../../assets/poe/annointments.json';
 import { AnnointmentMap } from '../type'
 
 @Injectable({
@@ -7,6 +7,6 @@ import { AnnointmentMap } from '../type'
 })
 export class AnnointmentsProvider {
   public provide(): AnnointmentMap {
-    return annointments
+    return annointments.annointments
   }
 }

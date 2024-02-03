@@ -37,6 +37,9 @@
               "src/assets/icons/material-icons.css",
               "src/assets/fonts/fonts.css"
             ],
+            "allowedCommonJsDependencies": [
+              "path"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -124,5 +127,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }

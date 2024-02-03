@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core'
-import {
+import words from '../../../../../assets/poe/words.json'
+import { Language, WordMap } from '../type'
+
+const {
   English,
   French,
   German,
@@ -11,8 +14,7 @@ import {
   Thai,
   TraditionalChinese,
   Japanese,
-} from '../../../../../assets/poe/words.json'
-import { Language, WordMap } from '../type'
+} = words as { [id: string]: WordMap }
 
 @Injectable({
   providedIn: 'root',

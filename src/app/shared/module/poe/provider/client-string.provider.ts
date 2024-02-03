@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core'
-import {
+import clientStrings from '../../../../../assets/poe/client-strings.json'
+import { ClientStringMap, Language } from '../type'
+
+const {
   English,
   French,
   German,
@@ -10,9 +13,8 @@ import {
   Spanish,
   Thai,
   TraditionalChinese,
-  Japanese,
-} from '../../../../../assets/poe/client-strings.json'
-import { ClientStringMap, Language } from '../type'
+  Japanese
+} = clientStrings as {[id: string]: ClientStringMap};
 
 @Injectable({
   providedIn: 'root',

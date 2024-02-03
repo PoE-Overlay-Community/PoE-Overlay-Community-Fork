@@ -1,7 +1,7 @@
 import { Injectable, NgZone } from '@angular/core'
-import { ElectronProvider } from '@app/provider'
+import { ElectronProvider, Remote } from '@app/provider'
 import { Rectangle } from '@app/type'
-import { BrowserWindow, Point, IpcRenderer, Remote } from 'electron'
+import { BrowserWindow, Point, IpcRenderer } from 'electron'
 import { Observable, Subject, BehaviorSubject } from 'rxjs'
 import { TransparencyMouseFix } from '../../transparency-mouse-fix'
 

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core'
-import { ElectronProvider } from '@app/provider'
+import { ElectronProvider, Remote } from '@app/provider'
 import { environment } from '@env/environment'
-import { BrowserWindow, Remote } from 'electron'
+import { BrowserWindow } from 'electron'
 import { Observable, Subject } from 'rxjs'
 import { Dialog, DialogRefService, DialogType } from './dialog/dialog-ref.service'
 

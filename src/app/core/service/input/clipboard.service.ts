@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core'
-import { ElectronProvider } from '@app/provider'
-import { Remote } from 'electron'
+import { ElectronProvider, Remote } from '@app/provider'
 
 @Injectable({
   providedIn: 'root',
