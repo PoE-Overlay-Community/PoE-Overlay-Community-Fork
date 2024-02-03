@@ -34,7 +34,8 @@ if (process.platform === 'win32' && !systemPreferences.isAeroGlassEnabled()) {
   app.exit()
 }
 
-app.allowRendererProcessReuse = false
+// TODO: deprecated
+// app.allowRendererProcessReuse = false
 
 app.commandLine.appendSwitch('high-dpi-support', 'true')
 app.commandLine.appendSwitch('force-device-scale-factor', '1')

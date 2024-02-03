@@ -11,7 +11,7 @@ export interface Window {
 }
 
 // macos only - probably not needed for now
-windowManager.requestAccessibility()
+// windowManager.requestAccessibility()
 
 export async function getActiveWindow(): Promise<Window> {
   try {
@@ -46,7 +46,10 @@ export async function getActiveWindow(): Promise<Window> {
       path = active.path
       bounds = () => addon.getWindowBounds(active.id)
       title = () => active.getTitle()
-      bringToTop = () => active.bringToTop()
+      bringToTop = () => {
+        windowManager.requestAccessibility()
+        active.bringToTop()
+      }
     }
 
     return {
