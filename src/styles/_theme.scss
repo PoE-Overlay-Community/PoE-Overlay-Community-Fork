@@ -2,8 +2,9 @@
 * Generated theme by Material Theme Generator
 * https://material-theme-generator.travetto.io
 */
+@use '@angular/material' as mat;
 
-@import '~@angular/material/theming';
+@import '@angular/material/theming';
 // Include the common styles for Angular Material. We include this here so that you only
 // have to load a single css file for Angular Material in your app.
 
@@ -11,19 +12,19 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500');
 
 $fontConfig: (
-  display-4: mat-typography-level(112px, 112px, 300, 'Roboto', -0.0134em),
-  display-3: mat-typography-level(56px, 56px, 400, 'Roboto', -0.0089em),
-  display-2: mat-typography-level(45px, 48px, 400, 'Roboto', 0em),
-  display-1: mat-typography-level(34px, 40px, 400, 'Roboto', 0.0074em),
-  headline: mat-typography-level(24px, 32px, 400, 'Roboto', 0em),
-  title: mat-typography-level(20px, 32px, 500, 'Roboto', 0.0075em),
-  subheading-2: mat-typography-level(16px, 28px, 400, 'Roboto', 0.0094em),
-  subheading-1: mat-typography-level(15px, 24px, 500, 'Roboto', 0.0067em),
-  body-2: mat-typography-level(14px, 24px, 500, 'Roboto', 0.0179em),
-  body-1: mat-typography-level(14px, 20px, 400, 'Roboto', 0.0179em),
-  button: mat-typography-level(14px, 14px, 500, 'Roboto', 0.0893em),
-  caption: mat-typography-level(12px, 20px, 400, 'Roboto', 0.0333em),
-  input: mat-typography-level(inherit, 1.125, 400, 'Roboto', 1.5px),
+  display-4: mat.define-typography-level(112px, 112px, 300, 'Roboto', -0.0134em),
+  display-3: mat.define-typography-level(56px, 56px, 400, 'Roboto', -0.0089em),
+  display-2: mat.define-typography-level(45px, 48px, 400, 'Roboto', 0em),
+  display-1: mat.define-typography-level(34px, 40px, 400, 'Roboto', 0.0074em),
+  headline: mat.define-typography-level(24px, 32px, 400, 'Roboto', 0em),
+  title: mat.define-typography-level(20px, 32px, 500, 'Roboto', 0.0075em),
+  subheading-2: mat.define-typography-level(16px, 28px, 400, 'Roboto', 0.0094em),
+  subheading-1: mat.define-typography-level(15px, 24px, 500, 'Roboto', 0.0067em),
+  body-2: mat.define-typography-level(14px, 24px, 500, 'Roboto', 0.0179em),
+  body-1: mat.define-typography-level(14px, 20px, 400, 'Roboto', 0.0179em),
+  button: mat.define-typography-level(14px, 14px, 500, 'Roboto', 0.0893em),
+  caption: mat.define-typography-level(12px, 20px, 400, 'Roboto', 0.0333em),
+  input: mat.define-typography-level(inherit, 1.125, 400, 'Roboto', 1.5px),
 );
 
 // Foreground Elements
@@ -36,7 +37,7 @@ $dark-disabled-text: rgba($dark-primary-text, 0.38);
 $dark-dividers: rgba($dark-primary-text, 0.12);
 $dark-focused: rgba($dark-primary-text, 0.12);
 
-$mat-light-theme-foreground: (
+mat.$light-theme-foreground-palette: (
   base: black,
   divider: $dark-dividers,
   dividers: $dark-dividers,
@@ -63,7 +64,7 @@ $light-disabled-text: rgba($light-primary-text, 0.5);
 $light-dividers: rgba($light-primary-text, 0.12);
 $light-focused: rgba($light-primary-text, 0.12);
 
-$mat-dark-theme-foreground: (
+mat.$dark-theme-foreground-palette: (
   base: $light-text,
   divider: $light-dividers,
   dividers: $light-dividers,
@@ -93,7 +94,7 @@ $light-bg-lighter-5: lighten($light-background, 5%);
 $dark-bg-alpha-4: rgba(#161616, 0.04);
 $dark-bg-alpha-12: rgba(#161616, 0.12);
 
-$mat-light-theme-background: (
+mat.$light-theme-background-palette: (
   background: $light-background,
   status-bar: $light-bg-darker-20,
   app-bar: $light-bg-darker-5,
@@ -120,7 +121,7 @@ $light-bg-alpha-4: rgba(#161616, 0.04);
 $light-bg-alpha-12: rgba(#161616, 0.12);
 
 // Background palette for dark themes.
-$mat-dark-theme-background: (
+mat.$dark-theme-background-palette: (
   background: $dark-background,
   status-bar: $dark-bg-lighter-20,
   app-bar: $dark-bg-lighter-5,
@@ -138,7 +139,16 @@ $mat-dark-theme-background: (
 );
 
 // Compute font config
-@include mat-core($fontConfig);
+// TODO(v15): As of v15 mat.legacy-core no longer includes default typography styles.
+//  The following line adds:
+//    1. Default typography styles for all components
+//    2. Styles for typography hierarchy classes (e.g. .mat-headline-1)
+//  If you specify typography styles for the components you use elsewhere, you should delete this line.
+//  If you don't need the default component typographies but still want the hierarchy styles,
+//  you can delete this line and instead use:
+//    `@include mat.legacy-typography-hierarchy($fontConfig);`
+@include mat.all-legacy-component-typographies($fontConfig);
+@include mat.legacy-core();
 
 // Theme Config
 
@@ -194,7 +204,7 @@ $mat-accent: (
       darker: $dark-primary-text,
     ),
 );
-$theme-accent: mat-palette($mat-accent, main, lighter, darker);
+$theme-accent: mat.define-palette($mat-accent, main, lighter, darker);
 
 body {
   --warn-color: #ff0000;
@@ -218,16 +228,28 @@ $mat-warn: (
       darker: $light-primary-text,
     ),
 );
-$theme-warn: mat-palette($mat-warn, main, lighter, darker);
+$theme-warn: mat.define-palette($mat-warn, main, lighter, darker);
 
-$theme: mat-light-theme($theme-primary, $theme-accent, $theme-warn);
-$altTheme: mat-dark-theme($theme-primary, $theme-accent, $theme-warn);
+$theme: mat.define-light-theme((
+    color: (
+      primary: $theme-primary,
+      accent: $theme-accent,
+      warn: $theme-warn,
+    ),
+));
+$altTheme: mat.define-dark-theme((
+    color: (
+      primary: $theme-primary,
+      accent: $theme-accent,
+      warn: $theme-warn,
+    ),
+));
 
 // Theme Init
-@include angular-material-theme($theme);
+@include mat.all-legacy-component-themes($theme);
 
 .theme-alternate {
-  @include angular-material-theme($altTheme);
+  @include mat.all-legacy-component-themes($altTheme);
 }
 
 // Specific component overrides, pieces that are not in line with the general theming

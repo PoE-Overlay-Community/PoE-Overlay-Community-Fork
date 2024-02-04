@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core'
 import { IpcRenderer, IpcMain, GlobalShortcut, Clipboard, Shell, Screen, App, BrowserWindow } from 'electron'
-import { getCurrentWindow, app, screen, shell, clipboard, globalShortcut } from '@electron/remote'
+import { getCurrentWindow, app, screen, shell, clipboard, globalShortcut, ipcMain } from '@electron/remote'
 import { initialize, isInitialized } from '@electron/remote/main'
 
 type Electron = typeof Electron
@@ -53,6 +53,6 @@ export class ElectronProvider {
   }
 
   public provideIpcMain(): IpcMain {
-    return this.electron?.ipcMain
+    return ipcMain
   }
 }

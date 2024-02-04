@@ -124,8 +124,8 @@
             step="5"
             tickInterval="2"
             [displayWith]="displayWithTime"
-            [(value)]="settings.evaluateQueryDebounceTime"
           >
+            <input matSliderThumb [(value)]="settings.evaluateQueryDebounceTime">
           </mat-slider>
           <span>&nbsp;∞</span>
         </div>
@@ -144,8 +144,8 @@
             step="10"
             tickInterval="1"
             [displayWith]="displayWithCount"
-            [(value)]="settings.evaluateQueryFetchCount"
           >
+            <input matSliderThumb [(value)]="settings.evaluateQueryFetchCount">
           </mat-slider>
           <span>100</span>
         </div>
@@ -224,14 +224,16 @@
                         tickInterval="10"
                         invert
                         [displayWith]="displayWithStat"
-                        [(value)]="settings.evaluatePropertyMinRange">
+            >
+              <input matSliderThumb [(value)]="settings.evaluatePropertyMinRange">
             </mat-slider>
             <mat-slider min="0"
                         max="50"
                         step="1"
                         tickInterval="10"
                         [displayWith]="displayWithStat"
-                        [(value)]="settings.evaluatePropertyMaxRange">
+            >
+              <input matSliderThumb [(value)]="settings.evaluatePropertyMinRange">
             </mat-slider>
             <span>#</span>
             <ng-template #single>
@@ -347,14 +349,16 @@
                         tickInterval="10"
                         invert
                         [displayWith]="displayWithStat"
-                        [(value)]="settings.evaluateModifierMinRange">
+            >
+              <input matSliderThumb [(value)]="settings.evaluateModifierMinRange">
             </mat-slider>
             <mat-slider min="0"
                         max="50"
                         step="1"
                         tickInterval="10"
                         [displayWith]="displayWithStat"
-                        [(value)]="settings.evaluateModifierMaxRange">
+            >
+              <input matSliderThumb [(value)]="settings.evaluateModifierMinRange">
             </mat-slider>
             <span>#</span>
             <ng-template #single>

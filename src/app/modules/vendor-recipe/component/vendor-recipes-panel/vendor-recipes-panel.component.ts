@@ -144,7 +144,7 @@ export class VendorRecipesPanelComponent implements OnInit, OnChanges, OnDestroy
   }
 
   public close(): void {
-    this.closeClick$.next()
+    this.closeClick$.next(null)
   }
 
   public forceRefreshVendorRecipes(): void {

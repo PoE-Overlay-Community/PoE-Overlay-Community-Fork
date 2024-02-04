@@ -219,7 +219,7 @@ export class TradeNotificationPanelComponent implements OnInit, AfterViewInit, O
   }
 
   public close(): void {
-    this.closeClick$.next()
+    this.closeClick$.next(null)
   }
 
   public getCollapsed(notification: TradeNotification): boolean {

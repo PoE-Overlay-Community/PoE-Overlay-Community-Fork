@@ -30,7 +30,8 @@
                       step="0.05"
                       tickInterval="1"
                       [displayWith]="getRoundedPercentage"
-                      [(value)]="settings.tradeCompanionOpacity">
+          >
+            <input matSliderThumb [(value)]="settings.tradeCompanionOpacity">
           </mat-slider>
           <span>100%</span>
         </div>

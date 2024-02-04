@@ -21,6 +21,9 @@ import * as hook from './electron/hook'
 import * as log from './electron/log'
 import * as robot from './electron/robot'
 import { State } from './electron/state'
+import { initialize } from '@electron/remote/main'
+
+initialize();
 
 if (!app.requestSingleInstanceLock()) {
   app.exit()

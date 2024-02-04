@@ -1,6 +1,6 @@
 {
   "name": "poe-overlay",
-  "version": "0.8.31",
+  "version": "0.9.0",
   "private": true,
   "description": "An Overlay for Path of Exile. Built with Electron and Angular.",
   "main": "main.js",
@@ -14,7 +14,7 @@
     "electron:linux": "npm run build:prod && electron-builder build --linux",
     "electron:local": "npm run build:prod && electron .",
     "electron:rebuild": "npm rebuild --runtime=electron --target=8.2.3 --disturl=https://electronjs.org/headers --abi=76",
-    "electron:serve-tsc": "node_modules/.bin/tsc -p tsconfig.serve.json",
+    "electron:serve-tsc": "tsc -p tsconfig.serve.json",
     "electron:serve": "wait-on http-get://localhost:4200/ && npm run electron:serve-tsc && electron . --serve",
     "electron:version": "electron -v && electron -a",
     "electron:windows": "npm run build:prod && electron-builder build --windows",
@@ -44,26 +44,21 @@
     "@angular/cli": "^15.2.10",
     "@angular/compiler-cli": "^15.2.10",
     "@angular/language-service": "^15.2.10",
-    "@types/jasmine": "^3.5.10",
-    "@types/jasminewd2": "~2.0.3",
+    "@types/jasmine": "~4.3.0",
     "@types/node": "^18.11.9",
     "electron": "^23.3.13",
     "electron-builder": "^23.6.0",
     "electron-reload": "^2.0.0-alpha.1",
     "karma": "~6.4.2",
-    "karma-chrome-launcher": "~3.1.0",
-    "karma-coverage-istanbul-reporter": "~3.0.2",
-    "karma-jasmine": "~4.0.0",
-    "karma-jasmine-html-reporter": "^1.5.0",
+    "karma-chrome-launcher": "~3.2.0",
+    "karma-coverage": "~2.2.0",
+    "karma-jasmine": "~5.1.0",
+    "karma-jasmine-html-reporter": "~2.1.0",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.0.5",
-    "protractor": "~7.0.0",
-    "ts-node": "^8.9.1",
-    "tslint": "~6.1.0",
-    "tslint-config-prettier": "^1.18.0",
-    "tslint-plugin-prettier": "^2.3.0",
+    "ts-node": "^10.9.1",
     "typescript": "~4.9.5",
-    "wait-on": "^4.0.2"
+    "wait-on": "^7.0.1"
   },
   "dependencies": {
     "@angular/animations": "^15.2.10",
@@ -90,22 +85,18 @@
     "iohook": "^0.9.3",
     "localforage": "^1.10.0",
     "moment": "^2.30.1",
-    "ngx-color-picker": "^16.0.0",
+    "ngx-color-picker": "^14.0.0",
     "node-window-manager": "^2.2.4",
     "path-browserify": "^1.0.1",
     "rxjs": "^6.5.5",
     "tslib": "^2.0.0",
     "zone.js": "^0.11.8"
   },
-  "resolutions": {
-    "fsevents": "1.2.9",
-    "**/fsevents": "1.2.9"
-  },
-  "engines": {
-    "node": ">=10.9.0"
-  },
   "browser": {
     "fs": false
+  },
+  "engines": {
+    "node": ">=18.18.1"
   },
   "iohook": {
     "targets": [
