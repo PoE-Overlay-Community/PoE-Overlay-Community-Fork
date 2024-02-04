@@ -13,7 +13,7 @@
     "electron:deps": "electron-builder install-app-deps",
     "electron:linux": "npm run build:prod && electron-builder build --linux",
     "electron:local": "npm run build:prod && electron .",
-    "electron:rebuild": "npm rebuild --runtime=electron --target=8.2.3 --disturl=https://electronjs.org/headers --abi=76",
+    "electron:rebuild": "npm rebuild --runtime=electron --target=23.3.13 --disturl=https://electronjs.org/headers --abi=113",
     "electron:serve-tsc": "tsc -p tsconfig.serve.json",
     "electron:serve": "wait-on http-get://localhost:4200/ && npm run electron:serve-tsc && electron . --serve",
     "electron:version": "electron -v && electron -a",
@@ -100,7 +100,7 @@
   },
   "iohook": {
     "targets": [
-      "electron-76"
+      "electron-113"
     ],
     "platforms": [
       "win32",

@@ -7,58 +7,47 @@ export interface Window {
   path: string
   title: () => string
   bounds: () => Rectangle
-  bringToTop: any
+  bringToTop: () => void
 }
-
-// macos only - probably not needed for now
-// windowManager.requestAccessibility()
 
 export async function getActiveWindow(): Promise<Window> {
   try {
-    let active: any
-    let processId: number
-    let path: string
-    let bounds: () => Rectangle
-    let title: () => string
-    let bringToTop: any
-    const isLinux = process.platform !== ('win32' || 'darwin')
-
-    if (isLinux) {
-      active = await activeWin()
+    if (process.platform === 'linux') {
+      const active = await activeWin()
 
       if (!active) {
         return undefined
       }
 
-      processId = active.owner.processId
-      path = active.owner.path
-      bounds = () => active.bounds
-      title = () => active.title
-      bringToTop = undefined
-    } else {
-      active = windowManager.getActiveWindow()
+      return {
+        processId: active.owner.processId,
+        path: active.owner.path,
+        bounds: () => active.bounds,
+        title: () => active.title,
+        bringToTop: () => console.log('bring to top not supported on linux')
+      }
+    }
+
+    if (process.platform === 'win32' || process.platform === 'darwin') {
+      const active = windowManager.getActiveWindow()
 
       if (!active) {
         return undefined
       }
 
-      processId = active.processId
-      path = active.path
-      bounds = () => addon.getWindowBounds(active.id)
-      title = () => active.getTitle()
-      bringToTop = () => {
-        windowManager.requestAccessibility()
-        active.bringToTop()
+      return {
+        processId: active.processId,
+        path: active.path,
+        bounds: () => addon.getWindowBounds(active.id),
+        title: () => active.getTitle(),
+        bringToTop: () => {
+          windowManager.requestAccessibility()
+          active.bringToTop()
+        }
       }
     }
 
-    return {
-      processId,
-      path,
-      bounds,
-      title,
-      bringToTop,
-    }
+    throw new Error(`Platform not supported ${process.platform}`)
   } catch (error) {
     console.warn('Could not get active window.', error)
     return undefined
