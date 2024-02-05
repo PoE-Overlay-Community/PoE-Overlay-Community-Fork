@@ -51,6 +51,7 @@ export enum ItemRarity {
   Gem = 'gem',
   DivinationCard = 'divinationcard',
   NonUnique = 'nonunique',
+  Quest = 'quest',
 }
 
 export enum ItemCategory {

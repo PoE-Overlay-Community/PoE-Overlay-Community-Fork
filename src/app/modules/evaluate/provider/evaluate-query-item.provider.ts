@@ -63,7 +63,12 @@ export class EvaluateQueryItemProvider {
       queryItem.influences.synthesised = undefined
     }
 
-    if (settings.evaluateQueryDefaultItemLevel && queryItem.rarity !== ItemRarity.Unique && queryItem.rarity !== ItemRarity.UniqueRelic) {
+    // Deselect the item type/name since 'quest' items can't be sold, but in case of sextants they can be extracted to a different item type/name
+    if (queryItem.rarity === ItemRarity.Quest) {
+      queryItem.typeId = queryItem.nameId = undefined
+    }
+
+    if (settings.evaluateQueryDefaultItemLevel && queryItem.rarity !== ItemRarity.Unique && queryItem.rarity !== ItemRarity.UniqueRelic && queryItem.rarity !== ItemRarity.Quest) {
       queryItem.level = item.level
     }
 

@@ -33,7 +33,14 @@ export class ItemFrameHeaderComponent {
         break
       default:
         if (item.rarity) {
-          headerClasses.push(item.rarity)
+          switch (item.rarity) {
+            case ItemRarity.Quest:
+              headerClasses.push(ItemRarity.Normal)
+              break;
+            default:
+              headerClasses.push(item.rarity)
+              break;
+          }
         }
         break
     }

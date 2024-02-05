@@ -210,6 +210,10 @@ export class ItemSectionRarityParserService implements ItemSectionParserService 
         key: this.clientString.translate('ItemDisplayStringDivinationCard'),
         value: ItemRarity.DivinationCard,
       },
+      {
+        key: this.clientString.translate('ItemDisplayStringQuest'),
+        value: ItemRarity.Quest,
+      },
     ]
   }
 
