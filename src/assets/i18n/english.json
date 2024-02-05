@@ -464,6 +464,7 @@
     "trade-option": {
       "add": "Add Trade Option",
       "button": "Button Label",
+      "collapse": "Collapse",
       "dismiss": "Dismiss Notification",
       "shortcut": "Shortcut",
       "shortcut-description": "Keybinding to send this whisper message to the player (of the active Trade Notification)",

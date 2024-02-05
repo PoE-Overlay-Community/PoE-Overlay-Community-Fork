@@ -60,6 +60,7 @@ export class TradeCompanionSettingsComponent implements UserSettingsComponent {
       whisperMessage: '1 minute please',
       kickAfterWhisper: false,
       dismissNotification: false,
+      collapseNotification: false,
     })
   }
 
@@ -73,6 +74,7 @@ export class TradeCompanionSettingsComponent implements UserSettingsComponent {
       whisperMessage: 'Thank you very much!',
       kickAfterWhisper: false,
       dismissNotification: false,
+      collapseNotification: false,
     })
   }
 

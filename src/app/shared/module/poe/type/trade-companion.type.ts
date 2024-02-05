@@ -64,6 +64,7 @@ export interface TradeCompanionButtonOption {
   whisperMessage: string
   kickAfterWhisper: boolean
   dismissNotification: boolean
+  collapseNotification: boolean
   keybinding?: string
 }
 

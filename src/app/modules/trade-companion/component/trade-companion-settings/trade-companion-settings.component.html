@@ -286,6 +286,15 @@
             </mat-slide-toggle>
           </div>
         </div>
+        <div class="row">
+          <div class="col-4">
+            <mat-slide-toggle [checked]="tradeOption.collapseNotification" (change)="tradeOption.collapseNotification = $event.checked">
+              {{ 'trade-companion.trade-option.collapse' | translate }}
+            </mat-slide-toggle>
+          </div>
+          <div class="col-8 text-right">
+          </div>
+        </div>
       </mat-card>
     </div>
     <div class="col-md-6 col-lg-4">

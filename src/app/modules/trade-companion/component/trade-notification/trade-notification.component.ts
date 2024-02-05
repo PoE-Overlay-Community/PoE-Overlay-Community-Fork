@@ -255,10 +255,14 @@ export class TradeNotificationComponent implements OnInit, OnDestroy, OnChanges 
         }
         if (tradeOption.dismissNotification) {
           this.dismiss()
+        } else if (tradeOption.collapseNotification) {
+          this.collapse()
         }
       })
     } else if (tradeOption.dismissNotification) {
       this.dismiss()
+    } else if (tradeOption.collapseNotification) {
+      this.collapse()
     }
   }
 
@@ -267,6 +271,11 @@ export class TradeNotificationComponent implements OnInit, OnDestroy, OnChanges 
     const log10 = n ? Math.floor(Math.log10(n)) : 0
     const div = log10 < 0 ? Math.pow(10, 1 - log10) : Math.pow(10, d)
     return Math.floor(n * div) / div
+  }
+
+  private collapse(): void {
+    this.notification.userCollapsed = true
+    this.collapseClick.emit(this.notification)
   }
 
   private dismiss(): void {
