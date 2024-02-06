@@ -1,5 +1,6 @@
 import { IpcMain, Rectangle } from 'electron'
 import * as path from 'path'
+import { procfs } from '@stroncium/procfs'
 import { GameLogListener, OnLogLineAddedFunc } from './game-log-listener'
 import { getActiveWindow, Window } from './window'
 
@@ -24,9 +25,7 @@ const POE_NAMES = [
 
   // Linux
   'wine64-preloader',
-]
 
-const POE_KOREAN_NAMES = [
   // Kakao Client (Korean)
   'pathofexile_x64_kg.exe',
   'pathofexile_kg.exe',
@@ -37,6 +36,13 @@ const POE_KOREAN_NAMES = [
 const POE_TITLES = ['Path of Exile']
 
 const POE_ALTERNATIVE_TITLES = ['Path of Exile <---> ']
+
+/**
+ *  Gets the directory for pid on linux
+ *  This assumes the games is started through steam.
+ *  Get POE directory from wine process env variable PWD.
+ */
+const getLinuxDir = (pid: number) => (new Map(procfs.processEnviron(pid))).get('PWD') as string
 
 export class Game {
   private window: Window
@@ -54,15 +60,7 @@ export class Game {
 
     const window = await getActiveWindow()
     if (window) {
-      const windowPath = (window.path || '').toLowerCase()
-      const name = path.basename(windowPath)
-      if (POE_NAMES.includes(name)) {
-        this.updateWindow(window, "Client.txt")
-      } else if (POE_KOREAN_NAMES.includes(name)) {
-        this.updateWindow(window, "KakaoClient.txt")
-      } else {
-        this.active = false
-      }
+      this.updateWindow(window)
     } else {
       this.active = false
     }
@@ -83,16 +81,35 @@ export class Game {
     })
   }
 
-  private updateWindow(window: Window, logFileName: string): void {
-    const title = window.title()
-    if (POE_TITLES.includes(title) || POE_ALTERNATIVE_TITLES.some((x) => title.startsWith(x))) {
-      this.window = window
-      this.active = true
-      this.bounds = window.bounds()
-      this.gameLogListener.setLogFilePath(path.join(path.parse(window.path).dir, "logs", logFileName))
-    } else {
+  private updateWindow(window: Window): void {
+    const windowPath = path.parse((window.path || '').toLowerCase())
+
+    const isPOEWindowPath = POE_NAMES.includes(windowPath.name)
+
+    if (!isPOEWindowPath) {
       this.active = false
+      return
     }
+
+    const title = window.title()
+
+    const isPOETitle = POE_TITLES.includes(title) || POE_ALTERNATIVE_TITLES.some((x) => title.startsWith(x))
+
+    if (!isPOETitle) {
+      this.active = false
+      return
+    }
+
+    this.window = window
+    this.active = true
+    this.bounds = window.bounds()
+
+    const poeDir = process.platform === 'linux' ?  getLinuxDir(window.processId) : windowPath.dir
+    
+    // Kakao client uses a different logfile name
+    const logFileName = windowPath.name.endsWith('_kg') ? "KakaoClient.txt" : "Client.txt"
+
+    this.gameLogListener.setLogFilePath(path.join(poeDir, "logs", logFileName))
   }
 }
 

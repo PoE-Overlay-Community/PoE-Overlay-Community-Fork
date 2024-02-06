@@ -48,7 +48,9 @@ export class ElectronService {
   }
 
   public on(channel: string, listener: (event: IpcRendererEvent, ...args: any[]) => void): void {
+    console.log('electron.service.on')
     const scopedListener = (event: IpcRendererEvent, ...args: any[]): void => {
+      console.log('electron.service scoped listner', event)
       this.logger.log('electronService', `on(${channel})`)
       this.ngZone.run(() => listener(event, ...args))
     }

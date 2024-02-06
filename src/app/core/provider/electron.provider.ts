@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core'
-import { IpcRenderer, IpcMain, GlobalShortcut, Clipboard, Shell, Screen, App, BrowserWindow } from 'electron'
+import { IpcRenderer, IpcMain, GlobalShortcut, Clipboard, Shell, Screen, App, BrowserWindow, ipcRenderer } from 'electron'
 import { getCurrentWindow, app, screen, shell, clipboard, globalShortcut, ipcMain } from '@electron/remote'
-import { initialize, isInitialized } from '@electron/remote/main'
 
-type Electron = typeof Electron
 
 export interface Remote {
   getCurrentWindow: () => BrowserWindow
@@ -19,16 +17,14 @@ export interface Remote {
   providedIn: 'root',
 })
 export class ElectronProvider {
-  private readonly electron: Electron
+  // private readonly electron: Electron
 
   constructor() {
+    console.warn('construct electron provider')
     if (window?.require) {
-      this.electron = window.require('electron') as Electron
+      // this.electron = window.require('electron') as Electron
     } else {
       console.warn('window.require not defined.')
-    }
-    if (!isInitialized()) {
-      initialize()
     }
   }
 
@@ -49,7 +45,7 @@ export class ElectronProvider {
   }
 
   public provideIpcRenderer(): IpcRenderer {
-    return this.electron?.ipcRenderer
+    return ipcRenderer
   }
 
   public provideIpcMain(): IpcMain {

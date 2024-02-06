@@ -58,6 +58,7 @@ export class OverlayComponent implements OnInit, OnDestroy {
     private readonly stashService: StashService,
     private readonly vendorRecipeService: VendorRecipeService,
   ) {
+    console.log('contstruct overlay component')
     this.gameOverlayBounds = new BehaviorSubject<Rectangle>(this.window.getOffsettedGameBounds())
     this.window.gameBounds.subscribe((_) => {
       this.gameOverlayBounds.next(this.window.getOffsettedGameBounds())
@@ -86,6 +87,7 @@ export class OverlayComponent implements OnInit, OnDestroy {
   }
 
   public openUserSettings(): void {
+    console.log('open user settings')
     if (!this.userSettingsOpen) {
       this.userSettingsOpen = this.electronService.open('user-settings')
       this.userSettingsOpen.pipe(flatMap(() => this.userSettingsService.get())).subscribe(
@@ -122,6 +124,7 @@ export class OverlayComponent implements OnInit, OnDestroy {
           this.registerVisibleChange()
 
           this.electronService.on('show-user-settings', () => {
+            console.log('open setting event')
             this.openUserSettings()
           })
           this.electronService.on('reset-zoom', () => {

@@ -156,25 +156,30 @@ game.register(ipcMain, (poe) => {
   send('game-active-change', serve ? true : poe.active)
   // send('game-active-change', poe.active);
 
-  if (win) {
-    if (poe.active) {
-      if (process.platform !== 'linux') {
-        win.setAlwaysOnTop(true, 'pop-up-menu', 1)
-        win.setVisibleOnAllWorkspaces(true)
-      } else {
-        win.setAlwaysOnTop(true)
-        win.maximize()
-      }
-
-      if (poe.bounds) {
-        poeBounds = poe.bounds
-        send('game-bounds-change', poe.bounds)
-      }
-    } else {
-      win.setAlwaysOnTop(false)
-      win.setVisibleOnAllWorkspaces(false)
-    }
+  if (!win) {
+    console.error("No BrowserWindow")
+    return
   }
+
+  if (!poe.active) {
+    win.setAlwaysOnTop(false)
+    win.setVisibleOnAllWorkspaces(false)
+    return
+  }
+
+  if (process.platform === 'linux') {
+    win.setAlwaysOnTop(true)
+    win.maximize()
+  } else {
+    win.setAlwaysOnTop(true, 'pop-up-menu', 1)
+    win.setVisibleOnAllWorkspaces(true)
+  }
+
+  if (poe.bounds) {
+    poeBounds = poe.bounds
+    send('game-bounds-change', poe.bounds)
+  }
+
 }, (logLine: string) => send('game-log-line', logLine))
 
 hook.register(
@@ -233,7 +238,7 @@ function createWindow(): BrowserWindow {
       allowRunningInsecureContent: serve,
       webSecurity: false,
     },
-    focusable: process.platform !== 'linux' ? false : true,
+    focusable: process.platform === 'linux',
     skipTaskbar: true,
     show: false,
   })
@@ -316,14 +321,19 @@ ipcMain.on('open-route', (event, route: string) => {
 
 function loadApp(self: BrowserWindow, route: string = ''): void {
   if (serve) {
-    require('electron-reload')(__dirname, {
-      electron: require(`${__dirname}/node_modules/electron`),
+    /*
+    console.log('herewego', __dirname)
+    const electronReload = require('electron-reload')
+    electronReload(__dirname, {
+      electron: path.join(__dirname, 'node_modules', '.bin', 'electron'),
     })
+    */
     self.loadURL('http://localhost:4200' + route)
     self.webContents.openDevTools({ mode: 'undocked' })
   } else {
+    console.log('should ne be here')
     const appUrl = url.format({
-      pathname: path.join(__dirname, 'dist/index.html'),
+      pathname: path.join('__dirname', 'dist', 'index.html'), // TODO __dirname
       protocol: 'file:',
       slashes: true,
     })
@@ -336,13 +346,17 @@ function loadApp(self: BrowserWindow, route: string = ''): void {
 function createTray(): Tray {
   const iconFolder = serve ? 'src' : 'dist'
   const iconFile = /^win/.test(process.platform) ? 'favicon.ico' : 'favicon.png'
-  tray = new Tray(path.join(__dirname, iconFolder, iconFile))
+  console.log('againwego', __dirname)
+  tray = new Tray(path.join(__dirname, iconFolder, iconFile)) // TODO: dirname
 
   const items: MenuItemConstructorOptions[] = [
     {
       label: 'Settings',
       type: 'normal',
-      click: () => send('show-user-settings'),
+      click: () => {
+        console.log('settings clicked')
+        send('show-user-settings')
+      }
     },
     {
       label: 'Reset Zoom',
@@ -416,6 +430,7 @@ try {
   app.on('ready', () => {
     /* delay create window in order to support transparent windows at linux. */
     setTimeout(() => {
+      console.log('create window')
       createWindow()
       createTray()
     }, 300)
@@ -435,6 +450,7 @@ try {
     }
   })
 } catch (e) {
+  console.error('got a fatal error', e)
   // Catch Error
   // throw e;
 }
