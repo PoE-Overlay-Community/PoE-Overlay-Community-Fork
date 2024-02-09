@@ -7,14 +7,24 @@ import { AnnointmentsProvider } from '../../provider/annointments.provider'
 export class AnnointmentsService {
   constructor(private readonly annointmentsProvider: AnnointmentsProvider) {}
 
-  public get(annointmentId: string): string[] {
+  public get(statId: string, passiveHash: string): string[] {
     const annointmentsMap = this.annointmentsProvider.provide()
 
-    const annointment = annointmentsMap[annointmentId]
+    const annointment = annointmentsMap[statId]
     if (!annointment) {
       return undefined
     }
 
-    return annointment
+    if (statId.startsWith("mod_granted_passive_hash")) {
+      return annointment[passiveHash]
+    }
+
+    return annointment as string[]
+  }
+
+  public isAnnointmentStat(statId: string): boolean {
+    const annointmentsMap = this.annointmentsProvider.provide()
+
+    return annointmentsMap[statId] !== undefined
   }
 }

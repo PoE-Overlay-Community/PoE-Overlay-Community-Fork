@@ -73,6 +73,10 @@ export interface AtlasMapsMap {
 }
 
 export interface AnnointmentMap {
+  [statId: string]: string[] | AnnointmentList
+}
+
+export interface AnnointmentList {
   [id: string]: string[]
 }
 

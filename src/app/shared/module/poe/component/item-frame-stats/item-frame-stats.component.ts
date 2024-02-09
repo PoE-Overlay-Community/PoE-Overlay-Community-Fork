@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core'
 import { ModIconsService } from '@shared/module/poe/service/mod-icons/mod-icons.service'
+import { AnnointmentsService } from '../../service/annointments/annointments.service'
 import { Item, Language } from '../../type'
 
 @Component({
@@ -28,7 +29,8 @@ export class ItemFrameStatsComponent {
   public showAnnointmentOils: boolean
 
   constructor(
-    private readonly modIconsService: ModIconsService
+    private readonly modIconsService: ModIconsService,
+    private readonly annointmentService: AnnointmentsService,
   ) { }
 
   public getValueClass(id: string): string {
@@ -53,7 +55,7 @@ export class ItemFrameStatsComponent {
   }
 
   public isAnnointmentStat(id: string): boolean {
-    return id === 'mod_granted_passive_hash'
+    return this.annointmentService.isAnnointmentStat(id)
   }
 
   public getModIcon(modName: string): string {
