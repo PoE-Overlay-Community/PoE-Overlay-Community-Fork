@@ -7,6 +7,6 @@ import { AnnointmentMap } from '../type'
 })
 export class AnnointmentsProvider {
   public provide(): AnnointmentMap {
-    return annointments.annointments
+    return annointments
   }
 }
