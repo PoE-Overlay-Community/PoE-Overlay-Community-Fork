@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core'
-import { annointments } from '../../../../../assets/poe/annointments-v2.json'
+import { annointments } from '../../../../../assets/poe/annointments.json'
 import { AnnointmentMap } from '../type'
 
 @Injectable({
