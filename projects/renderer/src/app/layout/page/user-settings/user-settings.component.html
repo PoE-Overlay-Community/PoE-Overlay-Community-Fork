@@ -1,0 +1,37 @@
+<ng-container *ngIf="init$ | async; else loading">
+  <div class="content">
+    <mat-tab-group mat-stretch-tabs
+                   animationDuration="0ms"
+                   (selectedIndexChange)="onSelectedIndexChange($event)">
+      <mat-tab [label]="'settings.general' | translate">
+        <div class="tab-content">
+          <app-user-settings-form [settings]="settings"></app-user-settings-form>
+        </div>
+      </mat-tab>
+      <mat-tab [label]="feature.name | translate" *ngFor="let feature of features">
+        <div class="tab-content">
+          <app-user-settings-feature-container [component]="feature.component"
+                                               [settings]="settings"
+                                               [defaultSettings]="feature.defaultSettings">
+          </app-user-settings-feature-container>
+        </div>
+      </mat-tab>
+      <mat-tab [label]="'help.name' | translate">
+        <div class="tab-content">
+          <app-user-settings-help></app-user-settings-help>
+        </div>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+  <div class="action-bar">
+    <div align="right">
+      <button mat-button (click)="onSave()">{{ 'settings.save' | translate }}</button>
+    </div>
+  </div>
+</ng-container>
+<ng-template #loading>
+  <div>
+    <div class="loading">{{ 'settings.loading' | translate }}</div>
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+  </div>
+</ng-template>

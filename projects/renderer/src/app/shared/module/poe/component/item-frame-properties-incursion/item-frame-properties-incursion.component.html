@@ -1,0 +1,25 @@
+<ng-container *ngIf="item.properties.incursion.openRooms.length > 0">
+  <div>
+    {{ 'ItemDescriptionIncursionAccessibleRooms' | clientString: language }}
+  </div>
+  <ng-container *ngFor="let room of item.properties.incursion.openRooms; let index = index">
+    <div class="white">
+      <app-item-frame-query [(property)]="queryItem.properties.incursion.openRooms[index]" [value]="room">
+        {{ room.name }}{{ getLocalizedTier(room) }}
+      </app-item-frame-query>
+    </div>
+  </ng-container>
+</ng-container>
+<ng-container *ngIf="item.properties.incursion.closedRooms.length > 0">
+  <app-item-frame-separator [item]="item" *ngIf="item.properties.incursion.openRooms.length > 0"></app-item-frame-separator>
+  <div>
+    {{ 'ItemDescriptionIncursionInaccessibleRooms' | clientString: language }}
+  </div>
+  <ng-container *ngFor="let room of item.properties.incursion.closedRooms; let index = index">
+    <div class="white">
+      <app-item-frame-query [(property)]="queryItem.properties.incursion.closedRooms[index]" [value]="room">
+        {{ room.name }}{{ getLocalizedTier(room) }}
+      </app-item-frame-query>
+    </div>
+  </ng-container>
+</ng-container>

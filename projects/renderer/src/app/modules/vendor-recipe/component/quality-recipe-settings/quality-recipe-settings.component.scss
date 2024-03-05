@@ -1,0 +1,99 @@
+@import './../../../../../styles/variables';
+
+.hidden {
+  display: none;
+}
+
+.title {
+  margin-bottom: 12px;
+  cursor: pointer;
+}
+
+.title > mat-icon {
+  vertical-align: text-bottom;
+}
+
+.recipe-count-large-icon, .recipe-count-small-icon {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-blend-mode: overlay;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.recipe-count-large-icon {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: relative;
+  width: 20px;
+  height: 20px;
+  display: inline-flex;
+  top: 4px;
+}
+
+.recipe-count-small-icon {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  width: 50%;
+  height: 50%;
+}
+
+.item-set-icon-preview {
+  width: 32px;
+  height: 32px;
+  display: inline-flex;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+.currency {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+}
+
+.currency-label {
+  margin-left: 25px;
+}
+
+app-card {
+  .card, button {
+    background-color: $settings-grey-one;
+  }
+
+  .card {
+    position: relative;
+
+    .card, button {
+      background-color: $settings-grey-two;
+    }
+
+    .card {
+      position: relative;
+
+      .card, button {
+        background-color: $settings-grey-three;
+      }
+    }
+  }
+}
+
+::ng-deep {
+  .subcard {
+    .card {
+      background-color: $settings-grey-two;
+    }
+
+    button {
+      background-color: $settings-grey-three !important;
+    }
+  }
+
+  .mat-tooltip-lighter {
+    background-color: $settings-grey-two;
+  }
+}

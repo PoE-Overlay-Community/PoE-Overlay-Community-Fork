@@ -1,0 +1,44 @@
+@import './../../../../styles/variables';
+
+app-card {
+  .card, button {
+    background-color: $settings-grey-one;
+  }
+
+  .card {
+    height: 100%;
+
+    button {
+      background-color: $settings-grey-two;
+    }
+  }
+}
+
+label {
+  display: block;
+  color: $label-color;
+  font-size: 12px;
+  transform: perspective(100px) translateZ(0.001px);
+}
+
+.value-range {
+  > .slider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .mat-slider {
+      width: 100%;
+    }
+  }
+}
+
+.warning {
+  color: $orange;
+}
+
+::ng-deep {
+  .mat-tooltip-lighter {
+    background-color: $settings-grey-two;
+  }
+}

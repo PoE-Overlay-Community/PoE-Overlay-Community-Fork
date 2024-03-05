@@ -1,0 +1,30 @@
+<div *ngIf="item.veiled !== undefined">
+  <app-item-frame-query [(property)]="queryItem.veiled" [value]="item.veiled" class="item-frame-state">
+    <div class="veiled"></div>
+  </app-item-frame-query>
+</div>
+<ng-container *ngIf="item.corrupted !== undefined">
+  <app-item-frame-query [(property)]="queryItem.corrupted" [value]="item.corrupted" class="item-frame-state">
+    <div class="corrupted">{{ 'ItemPopupCorrupted' | clientString: language }}</div>
+  </app-item-frame-query>
+</ng-container>
+<ng-container *ngIf="item.mirrored !== undefined">
+  <app-item-frame-query [(property)]="queryItem.mirrored" [value]="item.mirrored" class="item-frame-state">
+    <div class="mirrored">{{ 'ItemPopupMirrored' | clientString: language }}</div>
+  </app-item-frame-query>
+</ng-container>
+<ng-container *ngIf="item.unmodifiable !== undefined">
+  <app-item-frame-query [(property)]="queryItem.unmodifiable" [value]="item.unmodifiable" class="item-frame-state">
+    <div class="unmodifiable">{{ 'ItemPopupUnmodifiable' | clientString: language }}</div>
+  </app-item-frame-query>
+</ng-container>
+<ng-container *ngIf="item.unidentified !== undefined">
+  <app-item-frame-query [(property)]="queryItem.unidentified" [value]="item.unidentified" class="item-frame-state">
+    <div class="unidentified">{{ 'ItemPopupUnidentified' | clientString: language }}</div>
+  </app-item-frame-query>
+</ng-container>
+<ng-container *ngIf="item.relic !== undefined">
+  <app-item-frame-query [(property)]="queryItem.relic" [value]="item.relic" class="item-frame-state">
+    <div class="relic">{{ 'ItemPopupRelicUnique' | clientString: language }}</div>
+  </app-item-frame-query>
+</ng-container>

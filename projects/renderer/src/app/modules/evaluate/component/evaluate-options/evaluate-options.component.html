@@ -1,0 +1,60 @@
+<div class="options">
+  <mat-icon class="clickable" (click)="openClose()">filter_list</mat-icon>
+  <div class="popover" *ngIf="isOpen">
+    <!-- league -->
+    <ng-container *ngIf="options.leagueId">
+      <ng-container *ngIf="leagues$ | async as leagues">
+        <div class="row">
+          <button mat-icon-button (click)="changeLeague(-1, leagues)">
+            <mat-icon>keyboard_arrow_left</mat-icon>
+          </button>
+          <span class="option" (wheel)="onLeaguesWheel($event, leagues)">
+            {{ leagues[options.leagueId] }}
+          </span>
+          <button mat-icon-button (click)="changeLeague(1, leagues)">
+            <mat-icon>keyboard_arrow_right</mat-icon>
+          </button>
+        </div>
+      </ng-container>
+      <span class="divider"></span>
+    </ng-container>
+
+    <!-- online -->
+    <mat-slide-toggle
+      [(ngModel)]="options.online"
+      (ngModelChange)="onToggleOnlineClick()"
+      labelPosition="before"
+    >
+      {{ 'evaluate.search.online-only' | translate }}</mat-slide-toggle
+    >
+    <!-- indexed -->
+    <ng-container *ngIf="options.indexed">
+      <div class="row">
+        <button mat-icon-button (click)="changeIndex(-1)">
+          <mat-icon>keyboard_arrow_left</mat-icon>
+        </button>
+        <span class="option" (wheel)="onIndexedWheel($event)">
+          {{ 'evaluate.search.max-age.' + getIndexedText() | translate }}
+        </span>
+        <button mat-icon-button (click)="changeIndex(1)">
+          <mat-icon>keyboard_arrow_right</mat-icon>
+        </button>
+      </div>
+      <span class="divider"></span>
+    </ng-container>
+
+    <!-- fetch-count -->
+    <ng-container *ngIf="options.fetchCount">
+      <span class="option" (wheel)="onFetchCountWheel($event)">
+        {{ options.fetchCount }}
+        <span>{{ 'evaluate.count' | translate }}</span>
+      </span>
+      <span class="divider"></span>
+    </ng-container>
+
+    <!-- reset -->
+    <button mat-stroked-button (click)="onResetClick()" class="button-text">
+      Reset
+    </button>
+  </div>
+</div>

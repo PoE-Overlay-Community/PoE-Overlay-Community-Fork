@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="col-3">
+    <mat-form-field>
+      <mat-label>{{ 'vendor-recipe.settings.quality.corrupted-item-usage' | translate }}</mat-label>
+      <mat-select [(value)]="settings.corruptedItemUsage">
+        <mat-option *ngFor="let itemUsageType of itemUsageTypes.keys" [value]="itemUsageType" matTooltip="{{ 'vendor-recipe.settings.quality.corrupted-item-usage-tooltips.' + (itemUsageTypes.values[itemUsageType] | lowercase) | translate }}" matTooltipClass="mat-tooltip-lighter" matTooltipPosition="left">
+          {{ 'vendor-recipe.settings.item-usage.' + (itemUsageTypes.values[itemUsageType] | lowercase) | translate }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div class="col-3">
+    <mat-form-field>
+      <mat-label>{{ 'vendor-recipe.settings.quality.num-of-bag-spaces-to-use' | translate }}</mat-label>
+      <mat-select [(value)]="settings.numOfBagSpacesToUse">
+        <mat-option *ngFor="let value of bagSpacesList" [value]="value">
+          {{ value }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div class="col-3">
+    <mat-slide-toggle [checked]="settings.calcEfficiency" (change)="settings.calcEfficiency = $event.checked">
+      {{ 'vendor-recipe.settings.quality.calc-efficiency' | translate }}
+    </mat-slide-toggle>
+  </div>
+</div>

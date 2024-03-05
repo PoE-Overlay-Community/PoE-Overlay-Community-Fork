@@ -4,20 +4,10 @@
         "provider": "github"
     },
     "directories": {
-        "output": "release/"
+        "output": "release"
     },
     "files": [
-        "main.js",
-        "electron/*.js",
-        "dist/**/*",
-        "!node_modules/@angular/**/*",
-        "!node_modules/@swimlane/**/*",
-        "!node_modules/rxjs/**/*",
-        "!node_modules/moment/**/*",
-        "!node_modules/zone.js/**/*",
-        "!node_modules/localforage/**/*",
-        "!node_modules/@ngx-translate/**/*",
-        "!node_modules/d3-*/**/*"
+        "dist/**"
     ],
     "win": {
         "icon": "dist/favicon.ico",
@@ -31,7 +21,7 @@
         "signAndEditExecutable": true
     },
     "linux": {
-        "icon": "dist/favicon256x256.png",
+        "icon": "dist/renderer/browser/favicon256x256.png",
         "target": [
             "deb",
             "AppImage"

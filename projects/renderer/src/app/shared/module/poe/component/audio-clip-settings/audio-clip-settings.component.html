@@ -1,0 +1,40 @@
+<mat-card class="card">
+  <mat-label>{{ title }}</mat-label>
+  <div class="row">
+    <mat-slide-toggle [checked]="settings.enabled" (change)="settings.enabled = $event.checked">
+      {{ 'settings.enabled' | translate }}
+    </mat-slide-toggle>
+  </div>
+  <div class="row">
+    <mat-form-field>
+      <mat-label>{{ 'settings.audio.source' | translate }}</mat-label>
+      <input matInput [(ngModel)]="settings.src" />
+    </mat-form-field>
+  </div>
+  <div class="row">
+    <div class="col-9">
+      <div class="value-range">
+        <label class="label">
+          {{ 'settings.audio.volume' | translate }}:
+          {{ getRoundedPercentage(settings.volume) }}
+        </label>
+        <div class="slider">
+          <mat-slider min="0.05"
+                      max="1"
+                      step="0.05"
+                      tickInterval="1"
+                      [displayWith]="getRoundedPercentage"
+          >
+            <input matSliderThumb [(value)]="settings.volume">
+          </mat-slider>
+          <span>100%</span>
+        </div>
+      </div>
+    </div>
+    <div class="col-3" style="align-self: flex-end; text-align: right;">
+      <button mat-raised-button (click)="onPlayOrStopAudioClick()">
+        {{ 'settings.audio.' + (audioData?.isPlaying ? 'stop' : 'play') | translate }}
+      </button>
+    </div>
+  </div>
+</mat-card>

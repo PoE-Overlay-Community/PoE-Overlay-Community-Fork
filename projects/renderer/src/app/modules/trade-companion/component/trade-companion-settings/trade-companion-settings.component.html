@@ -1,0 +1,307 @@
+<app-card [title]="'trade-companion.general' | translate">
+  <div class="row">
+    <div class="col-3">
+      <mat-slide-toggle [checked]="settings.tradeCompanionEnabled" (change)="settings.tradeCompanionEnabled = $event.checked">
+        {{ 'trade-companion.enabled' | translate }}
+      </mat-slide-toggle>
+    </div>
+    <div class="col-3" style="font-size: 12px;">
+      {{ 'trade-companion.window-bounds' | translate }}:
+      <ng-container *ngIf="settings.tradeCompanionBounds; else unsetBoundsTemplate">
+        {{ settings.tradeCompanionBounds.x }}, {{ settings.tradeCompanionBounds.y }} ({{ settings.tradeCompanionBounds.width }}x{{ settings.tradeCompanionBounds.height }})
+      </ng-container>
+      <ng-template #unsetBoundsTemplate>
+        <i>{{ 'trade-companion.unset' | translate }}</i>
+      </ng-template>
+      <br />
+      <button mat-raised-button (click)="onResetTradeCompanionBoundsClick()">
+        {{ 'trade-companion.reset' | translate }}
+      </button>
+    </div>
+    <div class="col-6">
+      <div class="value-range">
+        <label class="label">
+          {{ 'settings.dialog-opacity' | translate }}:
+          {{ getRoundedPercentage(settings.tradeCompanionOpacity) }}
+        </label>
+        <div class="slider">
+          <mat-slider min="0.05"
+                      max="1"
+                      step="0.05"
+                      tickInterval="1"
+                      [displayWith]="getRoundedPercentage"
+          >
+            <input matSliderThumb [(value)]="settings.tradeCompanionOpacity">
+          </mat-slider>
+          <span>100%</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</app-card>
+<app-card [title]="'stash-grid.grid-overlay' | translate">
+  <div class="row">
+    <div class="col-3">
+      <mat-slide-toggle [checked]="settings.showStashGridOnInvite" (change)="settings.showStashGridOnInvite = $event.checked" matTooltip="{{ 'trade-companion.show-and-highlight-item-description' | translate }}">
+        {{ 'trade-companion.show-and-highlight-item' | translate }}
+      </mat-slide-toggle>
+    </div>
+    <div class="col-3">
+      <mat-slide-toggle [checked]="settings.hideStashGridOnTrade" (change)="settings.hideStashGridOnTrade = $event.checked" matTooltip="{{ 'trade-companion.hide-highlight-on-trade-description' | translate }}">
+        {{ 'trade-companion.hide-highlight-on-trade' | translate }}
+      </mat-slide-toggle>
+    </div>
+  </div>
+</app-card>
+<app-card [title]="'trade-companion.general-trade-options' | translate">
+  <div class="row">
+    <div class="col-2">
+      <mat-form-field>
+        <mat-label>{{ 'trade-companion.max-visible-notifications' | translate }}</mat-label>
+        <mat-select [(value)]="settings.maxVisibileTradeNotifications">
+          <mat-option *ngFor="
+              let value of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 30, 35, 40, 45, 50]
+            " [value]="value">
+            {{ value }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-4">
+      <mat-slide-toggle [checked]="settings.reversedNotificationHorizontalAlignment" (change)="settings.reversedNotificationHorizontalAlignment = $event.checked" matTooltip="{{ 'trade-companion.reversed-notification-h-alignment-description' | translate }}">
+        {{ 'trade-companion.reversed-notification-h-alignment' | translate }}
+      </mat-slide-toggle>
+      <mat-slide-toggle [checked]="settings.reversedNotificationDirection" (change)="settings.reversedNotificationDirection = $event.checked" matTooltip="{{ 'trade-companion.reversed-notification-direction-description' | translate }}">
+        {{ 'trade-companion.reversed-notification-direction' | translate }}
+      </mat-slide-toggle>
+    </div>
+    <div class="col-2">
+      <span matTooltip="{{ 'trade-companion.active-notification-border-color-description' | translate }}">
+        <app-color-picker-settings side="right" [label]="'trade-companion.active-notification-border-color'" [color]="settings.activeTradeNotificationBorderColor"></app-color-picker-settings>
+      </span>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-4">
+      <app-accelerator [label]="'trade-companion.trade-notification.keybindings.activate-next' | translate"
+                       [(value)]="settings.tradeNotificationKeybindings.activateNextTradeNotification"
+                       matTooltip="{{ 'trade-companion.trade-notification.keybindings.activate-next-description' | translate }}">
+      </app-accelerator>
+    </div>
+    <div class="col-4">
+      <app-accelerator [label]="'trade-companion.trade-notification.keybindings.activate-previous' | translate"
+                       [(value)]="settings.tradeNotificationKeybindings.activatePreviousTradeNotification"
+                       matTooltip="{{ 'trade-companion.trade-notification.keybindings.activate-previous-description' | translate }}">
+      </app-accelerator>
+    </div>
+    <div class="col-4">
+      <app-accelerator [label]="'trade-companion.trade-notification.keybindings.dismiss' | translate"
+                       [(value)]="settings.tradeNotificationKeybindings.dismiss"
+                       matTooltip="{{ 'trade-companion.trade-notification.keybindings.dismiss-description' | translate }}">
+      </app-accelerator>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-4">
+      <app-accelerator [label]="'trade-companion.trade-notification.keybindings.collapse' | translate"
+                       [(value)]="settings.tradeNotificationKeybindings.collapse"
+                       matTooltip="{{ 'trade-companion.trade-notification.keybindings.collapse-description' | translate }}">
+      </app-accelerator>
+    </div>
+    <div class="col-4">
+      <app-accelerator [label]="'trade-companion.trade-notification.keybindings.offer-trade' | translate"
+                       [(value)]="settings.tradeNotificationKeybindings.offerTrade"
+                       matTooltip="{{ 'trade-companion.trade-notification.keybindings.offer-trade-description' | translate }}">
+      </app-accelerator>
+    </div>
+    <div class="col-4">
+      <app-accelerator [label]="'trade-companion.trade-notification.keybindings.whisper' | translate"
+                       [(value)]="settings.tradeNotificationKeybindings.whisper"
+                       matTooltip="{{ 'trade-companion.trade-notification.keybindings.whisper-description' | translate }}">
+      </app-accelerator>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-2" *ngFor="let exampleNotificationType of exampleNotificationTypes.keys">
+      <button mat-raised-button (click)="onAddExampleTradeNotificationClick(exampleNotificationType)">
+        {{ 'trade-companion.example-trade-notification.' + (exampleNotificationTypes.values[exampleNotificationType] | lowercase) | translate }}
+      </button>
+    </div>
+  </div>
+</app-card>
+<app-card [title]="'trade-companion.incoming-trade-options' | translate">
+  <div class="row">
+    <div class="col-4">
+      <app-accelerator [label]="'trade-companion.trade-notification.keybindings.invite-to-party' | translate"
+                       [(value)]="settings.tradeNotificationKeybindings.inviteToParty"
+                       matTooltip="{{ 'trade-companion.trade-notification.keybindings.invite-to-party-description' | translate }}">
+      </app-accelerator>
+    </div>
+    <div class="col-4">
+      <app-accelerator [label]="'trade-companion.trade-notification.keybindings.kick-from-party' | translate"
+                       [(value)]="settings.tradeNotificationKeybindings.kickFromParty"
+                       matTooltip="{{ 'trade-companion.trade-notification.keybindings.kick-from-party-description' | translate }}">
+      </app-accelerator>
+    </div>
+    <div class="col-4">
+      <app-accelerator [label]="'trade-companion.trade-notification.keybindings.ask-still-interested' | translate"
+                       [(value)]="settings.tradeNotificationKeybindings.askStillInterested"
+                       matTooltip="{{ 'trade-companion.trade-notification.keybindings.ask-still-interested-description' | translate }}">
+      </app-accelerator>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-2">
+      <mat-form-field>
+        <mat-label>{{ 'trade-companion.notification-collapsing' | translate }}</mat-label>
+        <mat-select [(value)]="settings.autoCollapseIncomingTradeNotifications">
+          <mat-option *ngFor="let collapseType of autoCollapseTypes.keys" [value]="collapseType" matTooltip="{{ ('trade-companion.auto-collapse.' + (autoCollapseTypes.values[collapseType] | lowercase) + '-description') | translate }}">
+            {{ 'trade-companion.auto-collapse.' + (autoCollapseTypes.values[collapseType] | lowercase) | translate }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-6">
+      <mat-form-field matTooltip="{{ 'trade-companion.ask-if-still-interested-message-description' | translate }}"
+                      matTooltipClass="mat-tooltip width-600">
+        <mat-label>{{ 'trade-companion.ask-if-still-interested-message' | translate }}</mat-label>
+        <input matInput [(ngModel)]="settings.askIfStillInterestedMessage" />
+      </mat-form-field>
+    </div>
+    <div class="col-1">
+      <button mat-raised-button (click)="onResetAreYouStillInterestedMessageClick()"
+              matTooltip="{{ 'trade-companion.ask-if-still-interested-message-reset-description' | translate }}">
+        {{ 'trade-companion.reset' | translate }}
+      </button>
+    </div>
+  </div>
+  <ng-container *ngTemplateOutlet="
+    tradeOptionsTemplate;
+    context: {
+      kickOrLeaveKey: 'kick',
+      tradeOptions: settings.incomingTradeOptions,
+      addClick: onAddIncomingTradeOptionClick.bind(this),
+      removeClick: onRemoveIncomingTradeOptionClick.bind(this)
+    }
+  ">
+  </ng-container>
+</app-card>
+<app-card [title]="'trade-companion.outgoing-trade-options' | translate">
+  <div class="row">
+    <div class="col-4">
+      <app-accelerator [label]="'trade-companion.trade-notification.keybindings.join-hideout' | translate"
+                       [(value)]="settings.tradeNotificationKeybindings.joinHideout"
+                       matTooltip="{{ 'trade-companion.trade-notification.keybindings.join-hideout-description' | translate }}">
+      </app-accelerator>
+    </div>
+    <div class="col-4">
+      <app-accelerator [label]="'trade-companion.trade-notification.keybindings.leave-party' | translate"
+                       [(value)]="settings.tradeNotificationKeybindings.leaveParty"
+                       matTooltip="{{ 'trade-companion.trade-notification.keybindings.leave-party-description' | translate }}">
+      </app-accelerator>
+    </div>
+    <div class="col-4">
+      <app-accelerator [label]="'trade-companion.trade-notification.keybindings.whois' | translate"
+                       [(value)]="settings.tradeNotificationKeybindings.whois"
+                       matTooltip="{{ 'trade-companion.trade-notification.keybindings.whois-description' | translate }}">
+      </app-accelerator>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-4">
+      <app-accelerator [label]="'trade-companion.trade-notification.keybindings.repeat-whisper' | translate"
+                       [(value)]="settings.tradeNotificationKeybindings.repeatWhisper"
+                       matTooltip="{{ 'trade-companion.trade-notification.keybindings.repeat-whisper-description' | translate }}">
+      </app-accelerator>
+    </div>
+    <div class="col-2">
+      <mat-form-field>
+        <mat-label>{{ 'trade-companion.notification-collapsing' | translate }}</mat-label>
+        <mat-select [(value)]="settings.autoCollapseOutgoingTradeNotifications">
+          <mat-option *ngFor="let collapseType of autoCollapseTypes.keys" [value]="collapseType" matTooltip="{{ ('trade-companion.auto-collapse.' + (autoCollapseTypes.values[collapseType] | lowercase) + '-description') | translate }}">
+            {{ 'trade-companion.auto-collapse.' + (autoCollapseTypes.values[collapseType] | lowercase) | translate }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+  <ng-container *ngTemplateOutlet="
+    tradeOptionsTemplate;
+    context: {
+      kickOrLeaveKey: 'leave',
+      tradeOptions: settings.outgoingTradeOptions,
+      addClick: onAddOutgoingTradeOptionClick.bind(this),
+      removeClick: onRemoveOutgoingTradeOptionClick.bind(this)
+    }
+  ">
+  </ng-container>
+</app-card>
+<app-card [title]="'settings.audio-options' | translate">
+  <div class="row">
+    <app-audio-clip-settings class="col-md-6" [settings]="settings.buttonClickAudio" [title]="'trade-companion.audio.button-click' | translate"></app-audio-clip-settings>
+    <app-audio-clip-settings class="col-md-6" [settings]="settings.incomingTradeMessageAudio" [title]="'trade-companion.audio.incoming-trade' | translate"></app-audio-clip-settings>
+  </div>
+</app-card>
+
+<!-- Templates -->
+<ng-template #tradeOptionsTemplate let-kickOrLeaveKey="kickOrLeaveKey" let-tradeOptions="tradeOptions" let-addClick="addClick" let-removeClick="removeClick">
+  <div class="row">
+    <div class="col-md-6 col-lg-4" *ngFor="let tradeOption of tradeOptions; let index = index">
+      <mat-card class="card">
+        <button class="remove" mat-icon-button (click)="removeClick(index)">
+          <mat-icon>close</mat-icon>
+        </button>
+        <div class="row">
+          <div class="col">
+            <mat-form-field>
+              <mat-label>{{ 'trade-companion.trade-option.button' | translate }}</mat-label>
+              <input matInput [(ngModel)]="tradeOption.buttonLabel" />
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <mat-form-field>
+              <mat-label>{{ 'trade-companion.trade-option.whisper' | translate }}</mat-label>
+              <input matInput [(ngModel)]="tradeOption.whisperMessage" />
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <app-accelerator [label]="'trade-companion.trade-option.shortcut' | translate"
+                             [(value)]="tradeOption.keybinding"
+                             matTooltip="{{ 'trade-companion.trade-option.shortcut-description' | translate }}">
+            </app-accelerator>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-4">
+            <mat-slide-toggle [checked]="tradeOption.kickAfterWhisper" (change)="tradeOption.kickAfterWhisper = $event.checked">
+              {{ 'trade-companion.trade-option.' + kickOrLeaveKey | translate }}
+            </mat-slide-toggle>
+          </div>
+          <div class="col-8 text-right">
+            <mat-slide-toggle [checked]="tradeOption.dismissNotification" (change)="tradeOption.dismissNotification = $event.checked">
+              {{ 'trade-companion.trade-option.dismiss' | translate }}
+            </mat-slide-toggle>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-4">
+            <mat-slide-toggle [checked]="tradeOption.collapseNotification" (change)="tradeOption.collapseNotification = $event.checked">
+              {{ 'trade-companion.trade-option.collapse' | translate }}
+            </mat-slide-toggle>
+          </div>
+          <div class="col-8 text-right">
+          </div>
+        </div>
+      </mat-card>
+    </div>
+    <div class="col-md-6 col-lg-4">
+      <button mat-raised-button (click)="addClick()" class="card-button">
+        {{ 'trade-companion.trade-option.add' | translate }}
+      </button>
+    </div>
+  </div>
+</ng-template>

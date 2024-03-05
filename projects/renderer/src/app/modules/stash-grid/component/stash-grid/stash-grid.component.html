@@ -1,0 +1,80 @@
+<ng-container *ngIf="(stashGridOptions$ | async) as options">
+  <ng-container *ngIf="visible">
+    <div class="gridContainer"
+         appResizeDrag
+         [ardBounds]="gridBounds"
+         [ardAppliedBounds.height]="false"
+         [ardExtendDragArea]="true"
+         [ardInteractionsDisabled]="options.gridMode !== StashGridMode.Edit"
+         [ardAllowResize]="options.gridMode === StashGridMode.Edit"
+         (ardResizeDrag)="onResizeDrag($event)">
+      <div class="grid"
+           [style.height.px]="gridBounds.height"
+           [class.interactable]="options.gridMode === StashGridMode.Edit"
+           [class.editMode]="options.gridMode === StashGridMode.Edit"
+           [style.outline-color]="ColorUtils.toRGBA(settings.stashGridColors.gridOutline)">
+        <div class="gridRow" *ngFor="let row of cellArray; let rowIndex = index">
+          <div class="gridCol" *ngFor="let col of cellArray; let colIndex = index">
+            <ng-container *ngTemplateOutlet="
+                    gridCell;
+                    context: {
+                      cellData: this.cellData[row][col],
+                      colIndex: colIndex,
+                      rowIndex: rowIndex
+                    }
+                    ">
+            </ng-container>
+          </div>
+        </div>
+      </div>
+      <div class="gridControls" [ngSwitch]="options.gridMode">
+        <ng-container *ngSwitchCase="StashGridMode.Normal">
+          <div class="gridControl clickable" (click)="toggleStashGrid()">
+            {{ 'stash-grid.toggle' | translate }} <mat-icon>grid_on</mat-icon>
+          </div>
+          <div class="gridControl interactable tabName" *ngIf="options.highlightLocation" matTooltip="{{ 'stash-grid.tab' | translate }}: {{ options.highlightLocation.tabName }}">
+            {{ options.highlightLocation.tabName }}
+          </div>
+          <div class="gridControl clickable" (click)="cancelChanges()">
+            {{ 'stash-grid.close' | translate }}
+          </div>
+        </ng-container>
+        <ng-container *ngSwitchCase="StashGridMode.Edit">
+          <div class="gridControl clickable" (click)="saveChanges()">
+            {{ 'stash-grid.save' | translate }}
+          </div>
+          <div class="gridControl clickable" (click)="cancelChanges()">
+            {{ 'stash-grid.cancel' | translate }}
+          </div>
+        </ng-container>
+        <ng-container *ngSwitchCase="StashGridMode.Preview">
+          <div class="gridControl interactable" matTooltip="{{ 'stash-grid.disabled' | translate }}">
+            {{ 'stash-grid.toggle' | translate }} <mat-icon>grid_on</mat-icon>
+          </div>
+          <div class="gridControl interactable tabName" *ngIf="options.highlightLocation" matTooltip="{{ 'stash-grid.tab' | translate }}: {{ options.highlightLocation.tabName }}">
+            {{ options.highlightLocation.tabName }}
+          </div>
+          <div class="gridControl clickable" (click)="cancelChanges()">
+            {{ 'stash-grid.close' | translate }}
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </ng-container>
+  <ng-template #gridCell let-cellData="cellData" let-colIndex="colIndex" let-rowIndex="rowIndex">
+    <div class="gridCell"
+         [class.editMode]="options.gridMode === StashGridMode.Edit"
+         [style.background-color]="cellData.bgColor"
+         [style.border-color]="cellData.lineColor"
+         [class.clickable]="cellData.marked"
+         (click)="gridCellClick($event, colIndex, rowIndex)"
+         (contextmenu)="gridCellRightClick($event, colIndex, rowIndex)"
+         >
+      <span *ngIf="cellData.marked" class="marked"
+            [style.font-size]="(fontRatio * 100) + '%'"
+            [style.color]="cellData.markedTextColor"
+            >
+      </span>
+    </div>
+  </ng-template>
+</ng-container>

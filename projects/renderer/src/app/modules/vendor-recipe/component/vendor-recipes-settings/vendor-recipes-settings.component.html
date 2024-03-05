@@ -1,0 +1,65 @@
+<app-card [title]="'vendor-recipe.panel.name' | translate">
+  <div class="row">
+    <div class="col-3">
+      <mat-slide-toggle [checked]="settings.vendorRecipePanelSettings.enabled" (change)="settings.vendorRecipePanelSettings.enabled = $event.checked">
+        {{ 'enabled' | translate }}
+      </mat-slide-toggle>
+    </div>
+    <div class="col-3" style="font-size: 12px;">
+      {{ 'vendor-recipe.panel.window-bounds' | translate }}:
+      <ng-container *ngIf="settings.vendorRecipePanelSettings.bounds; else unsetBoundsTemplate">
+        {{ settings.vendorRecipePanelSettings.bounds.x }}, {{ settings.vendorRecipePanelSettings.bounds.y }} ({{ settings.vendorRecipePanelSettings.bounds.width }}x{{ settings.vendorRecipePanelSettings.bounds.height }})
+      </ng-container>
+      <ng-template #unsetBoundsTemplate>
+        <i>{{ 'vendor-recipe.panel.unset' | translate }}</i>
+      </ng-template>
+      <br />
+      <button mat-raised-button (click)="onResetPanelBoundsClick()">
+        {{ 'vendor-recipe.panel.reset' | translate }}
+      </button>
+    </div>
+    <div class="col-6">
+      <div class="value-range">
+        <label class="label">
+          {{ 'vendor-recipe.panel.background-opacity' | translate }}:
+          {{ getRoundedPercentage(settings.vendorRecipePanelSettings.backgroundOpacity) }}
+        </label>
+        <div class="slider">
+          <mat-slider min="0.05"
+                      max="1"
+                      step="0.05"
+                      tickInterval="1"
+                      [displayWith]="getRoundedPercentage"
+          >
+            <input matSliderThumb [(value)]="settings.vendorRecipePanelSettings.backgroundOpacity">
+          </mat-slider>
+          <span>100%</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</app-card>
+<div cdkDropList (cdkDropListDropped)="onVendorRecipeSettingsDrop($event)">
+  <app-vendor-recipe-settings *ngFor="let vendorRecipeSettings of settings.vendorRecipeSettings; let index = index"
+                                  [globalSettings]="settings"
+                                  [identifier]="index"
+                                  [settings]="vendorRecipeSettings"
+                                  [defaultSettings]="getDefaultRecipeSettings(vendorRecipeSettings.type)"
+                                  (resetToDefault)="onResetRecipeSettingsToDefaultClick(index)"
+                                  (remove)="onRemoveRecipeSettingsClick(index)"
+                                  class="draggable"
+                                  cdkDrag>
+    <div slot="drag-handle" class="col-5 drag-handle" cdkDragHandle>&nbsp;</div>
+    <mat-card *cdkDragPreview>{{ (index + 1) }}. {{ 'vendor-recipe.settings.title.' + (vendorRecipeTypes.values[vendorRecipeSettings.type] | lowercase) | translate }}</mat-card>
+    <mat-card class="placeholder" *cdkDragPlaceholder></mat-card>
+  </app-vendor-recipe-settings>
+</div>
+<app-card [title]="'vendor-recipe.create-new-settings' | translate">
+  <div class="row">
+    <div class="col-3" style="padding: 6px;" *ngFor="let vendorRecipeType of vendorRecipeTypes.keys">
+      <button mat-raised-button (click)="onAddVendorRecipeSettings(vendorRecipeType)">
+        {{ 'vendor-recipe.settings.title.' + (vendorRecipeTypes.values[vendorRecipeType] | lowercase) | translate }}
+      </button>
+    </div>
+  </div>
+</app-card>

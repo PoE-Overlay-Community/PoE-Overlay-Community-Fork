@@ -1,0 +1,31 @@
+.panel {
+  position: absolute;
+  display: inline-flex;
+  flex-direction: column;
+
+  .header > * {
+    display: flex;
+  }
+
+  .header {
+    color: #F0F0F0;
+    background-color: #3C3C3C;
+    padding: 4px;
+    border: 1px solid #000;
+    display: flex;
+    align-items: center;
+
+    .mat-icon {
+      margin-right: 10px;
+    }
+
+    :last-child {
+      margin-left: auto;
+      margin-right: 0px;
+    }
+
+    .movable {
+      cursor: move;
+    }
+  }
+}

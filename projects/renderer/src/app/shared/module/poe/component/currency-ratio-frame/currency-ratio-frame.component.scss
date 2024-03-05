@@ -1,0 +1,29 @@
+@import './../../../../../../styles/variables';
+
+.content {
+  display: inline-flex;
+  justify-content: center;
+  line-height: 32px;
+  height: 32px;
+
+  .amount {
+    line-height: 15px;
+
+    .fraction {
+      color: $light-grey;
+      font-size: 14px;
+    }
+
+    .decimal {
+      font-size: 12px;
+    }
+  }
+
+  img {
+    height: 32px;
+  }
+
+  .currency {
+    display: inline-flex;
+  }
+}

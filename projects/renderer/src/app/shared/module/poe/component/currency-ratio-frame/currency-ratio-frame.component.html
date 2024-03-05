@@ -1,0 +1,13 @@
+<div class="content">
+  <span class="amount" [title]="amount">
+    <span class="fraction">
+      <sup>{{ numerator | number: '1.0' }}</sup>&#8260;<sub>{{ denominator | number: '1.0' }}</sub>
+    </span>
+    <span class="decimal">
+      ({{ amount | number: '1.3-' + significantDecimalCount }})
+    </span>
+  </span>
+  <span class="currency" *ngIf="currency">
+    <img [src]="'https://web.poecdn.com' + currency.image" />
+  </span>
+</div>

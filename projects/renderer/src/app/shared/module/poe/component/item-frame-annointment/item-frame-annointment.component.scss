@@ -1,0 +1,64 @@
+.annointment {
+  position: relative;
+  margin: 0 auto;
+
+  .oil {
+    width: 30px;
+    height: 30px;
+    display: inline-flex;
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    &.Mushrune1 {
+      background-image: url(../../../../../../assets/poe/item/oil/clear-oil.png);
+    }
+
+    &.Mushrune2 {
+      background-image: url(../../../../../../assets/poe/item/oil/sepia-oil.png);
+    }
+
+    &.Mushrune3 {
+      background-image: url(../../../../../../assets/poe/item/oil/amber-oil.png);
+    }
+
+    &.Mushrune4 {
+      background-image: url(../../../../../../assets/poe/item/oil/verdant-oil.png);
+    }
+
+    &.Mushrune5 {
+      background-image: url(../../../../../../assets/poe/item/oil/teal-oil.png);
+    }
+
+    &.Mushrune6 {
+      background-image: url(../../../../../../assets/poe/item/oil/azure-oil.png);
+    }
+
+    &.Mushrune6b {
+      background-image: url(../../../../../../assets/poe/item/oil/indigo-oil.png);
+    }
+
+    &.Mushrune7 {
+      background-image: url(../../../../../../assets/poe/item/oil/violet-oil.png);
+    }
+
+    &.Mushrune8 {
+      background-image: url(../../../../../../assets/poe/item/oil/crimson-oil.png);
+    }
+
+    &.Mushrune9 {
+      background-image: url(../../../../../../assets/poe/item/oil/black-oil.png);
+    }
+
+    &.Mushrune10 {
+      background-image: url(../../../../../../assets/poe/item/oil/opalescent-oil.png);
+    }
+
+    &.Mushrune11 {
+      background-image: url(../../../../../../assets/poe/item/oil/silver-oil.png);
+    }
+
+    &.Mushrune12 {
+      background-image: url(../../../../../../assets/poe/item/oil/golden-oil.png);
+    }
+  }
+}

@@ -1,0 +1,69 @@
+@import './../../../../../../styles/variables';
+
+.purpel {
+  color: $purple;
+}
+
+.blue {
+  color: $blue;
+}
+
+.fractured {
+  color: $fractured;
+}
+
+.scourge {
+  color: $scourge;
+}
+
+.crucible {
+  color: $crucible;
+}
+
+::ng-deep {
+  app-item-frame-stats {
+    .cold {
+      .value,
+      .value.changed {
+        color: $aqua;
+
+        .text {
+          color: $aqua !important;
+        }
+      }
+    }
+
+    .lightning {
+      .value,
+      .value.changed {
+        color: $yellow;
+
+        .text {
+          color: $yellow !important;
+        }
+      }
+    }
+
+    .chaos {
+      .value,
+      .value.changed {
+        color: $pink;
+
+        .text {
+          color: $pink !important;
+        }
+      }
+    }
+
+    .fire {
+      .value,
+      .value.changed {
+        color: $red;
+
+        .text {
+          color: $red !important;
+        }
+      }
+    }
+  }
+}
