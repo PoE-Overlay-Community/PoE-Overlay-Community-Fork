@@ -1,0 +1,32 @@
+::ng-deep {
+  .container-after-titlebar {
+    background: #1c1c1c;
+    bottom: 36px !important;
+  }
+}
+
+.content {
+  .tab-content {
+    padding: 12px 12px 0px 12px;
+  }
+}
+
+.action-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0 16px;
+  z-index: 1;
+  background: #232323;
+  color: rgba(200, 200, 200, 0.87);
+  border-top: 1px solid rgba(200, 200, 200, 0.12);
+}
+
+.loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgba(200, 200, 200, 0.87);
+}

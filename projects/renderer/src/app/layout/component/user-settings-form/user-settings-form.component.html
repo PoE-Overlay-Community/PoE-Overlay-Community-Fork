@@ -1,0 +1,306 @@
+<ng-container *ngIf="(account$ | async) as account">
+  <app-card [title]="'settings.poe-account' | translate">
+    <ng-container *ngIf="account.loggedIn; else login">
+      <div class="row">
+        <div class="col-md-4">
+          <mat-card class="card">
+            <div class="row">
+              <div class="col-12">
+                <mat-form-field matTooltip="{{ 'app.web-language-tooltip' | translate }}">
+                  <mat-label>{{ 'app.web-language' | translate }}</mat-label>
+                  <mat-select [(value)]="settings.language" (valueChange)="onLanguageChange()">
+                    <mat-option *ngFor="let language of languages.keys" [value]="language">
+                      {{ 'settings.languages.' + (languages.values[language] | lowercase) | translate }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-9">
+                <mat-form-field>
+                  <mat-label>{{ 'settings.account.name' | translate }}</mat-label>
+                  <input matInput [ngModel]="account.name" readonly />
+                </mat-form-field>
+              </div>
+              <div class="col-3">
+                <button mat-raised-button (click)="onLogoutClick()">
+                  {{ 'settings.account.logout' | translate }}
+                </button>
+              </div>
+            </div>
+          </mat-card>
+        </div>
+        <div class="col-md-4">
+          <mat-card class="card">
+            <div class="row">
+              <div class="col-9">
+                <mat-form-field floatLabel="always">
+                  <mat-label>{{ 'settings.character-update-interval' | translate }}</mat-label>
+                  <mat-select [(value)]="settings.charactersCacheExpiration" placeholder="{{ getDefaultIntervalLabel(defaultCharacterUpdateInterval) }}">
+                    <mat-option>{{ getDefaultIntervalLabel(defaultCharacterUpdateInterval) }}</mat-option>
+                    <mat-option *ngFor="let intervals of updateIntervals" [value]="intervals.value">
+                      {{ 'settings.update-intervals.' + intervals.name | translate }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+              <div class="col-3">
+                <button mat-raised-button (click)="onForceRefreshCharactersClick()">
+                  {{ 'settings.refresh' | translate }}
+                </button>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <mat-form-field floatLabel="always">
+                  <mat-label>
+                    {{ 'settings.active-character' | translate }}
+                    <span *ngIf="!settings.activeCharacterName">
+                      ({{ 'settings.auto' | translate }})
+                    </span>
+                  </mat-label>
+                  <mat-select [(value)]="settings.activeCharacterName" placeholder="({{ (activeCharacter$ | async).name }})" matTooltip="{{ settings.activeCharacterName ? '' : 'settings.auto-selected-desc' | translate }}">
+                    <mat-option [matTooltip]="getCharacterSelectLabel(activeCharacter$.value)" matTooltipClass="mat-tooltip-lighter" matTooltipPosition="right">{{ 'settings.auto-select' | translate }}</mat-option>
+                    <mat-optgroup *ngFor="let leagueId of characterLeagues$ | async" label="{{ leagueId }} {{ 'settings.league' | translate }}">
+                      <mat-option *ngFor="let character of getCharacterInLeague(account.characters, leagueId)" [value]="character.name" [matTooltip]="getCharacterSelectLabel(character)" matTooltipClass="mat-tooltip-lighter" matTooltipPosition="right">
+                        {{ getCharacterSelectLabel(character) }}
+                      </mat-option>
+                    </mat-optgroup>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="row warning" *ngIf="getActiveCharacter()?.leagueId !== settings.leagueId">
+              {{ 'settings.character-league-mismatch' | translate }}
+            </div>
+          </mat-card>
+        </div>
+        <div class="col-md-4">
+          <mat-card class="card">
+            <div class="row">
+              <div class="col-9">
+                <mat-form-field floatLabel="always">
+                  <mat-label>{{ 'settings.stash-tabs-update-interval' | translate }}</mat-label>
+                  <mat-select [(value)]="settings.stashTabInfoCacheExpiration" placeholder="{{ getDefaultIntervalLabel(defaultStashTabInfoUpdateInterval) }}">
+                    <mat-option>{{ getDefaultIntervalLabel(defaultStashTabInfoUpdateInterval) }}</mat-option>
+                    <mat-option *ngFor="let intervals of updateIntervals" [value]="intervals.value">
+                      {{ 'settings.update-intervals.' + intervals.name | translate }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+              <div class="col-3">
+                <button mat-raised-button (click)="onForceRefreshStashInfoClick()">
+                  {{ 'settings.refresh' | translate }}
+                </button>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-9">
+                <mat-form-field floatLabel="always">
+                  <mat-label>{{ 'settings.stash-contents-update-interval' | translate }}</mat-label>
+                  <mat-select [(value)]="settings.stashTabContentCacheExpiration" placeholder="{{ getDefaultIntervalLabel(defaultStashTabContentUpdateInterval) }}">
+                    <mat-option>{{ getDefaultIntervalLabel(defaultStashTabContentUpdateInterval) }}</mat-option>
+                    <mat-option *ngFor="let intervals of updateIntervals" [value]="intervals.value">
+                      {{ 'settings.update-intervals.' + intervals.name | translate }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+              <div class="col-3">
+                <button mat-raised-button (click)="onForceRefreshStashContentClick()">
+                  {{ 'settings.refresh' | translate }}
+                </button>
+              </div>
+            </div>
+          </mat-card>
+        </div>
+      </div>
+    </ng-container>
+    <ng-template #login>
+      <div class="row">
+        <div class="col-2">
+          <mat-form-field matTooltip="{{ 'app.web-language-tooltip' | translate }}">
+            <mat-label>{{ 'app.web-language' | translate }}</mat-label>
+            <mat-select [(value)]="settings.language">
+              <mat-option *ngFor="let language of languages.keys" [value]="language">
+                {{ 'settings.languages.' + (languages.values[language] | lowercase) | translate }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="col-10">
+          <button mat-raised-button (click)="onLoginClick()">
+            {{ 'settings.account.login' | translate }}
+          </button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <small>({{ 'settings.account.login-info' | translate }})</small>
+        </div>
+      </div>
+    </ng-template>
+  </app-card>
+  <app-card [title]="'settings.game-settings' | translate">
+    <div class="row">
+      <div class="col-md-6">
+        <mat-form-field>
+          <mat-label>{{ 'app.language' | translate }}</mat-label>
+          <mat-select [(value)]="settings.gameLanguage">
+            <mat-option *ngFor="let language of languages.keys" [value]="language">
+              {{ 'settings.languages.' + (languages.values[language] | lowercase) | translate }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="col-md-6">
+        <div class="row">
+          <div class="col-10">
+            <mat-form-field>
+              <mat-label>{{ 'settings.league' | translate }}</mat-label>
+              <mat-select [(value)]="settings.leagueId">
+                <mat-option *ngFor="let league of leagues$ | async" [value]="league.id">
+                  {{ league.text }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="col-2">
+            <button mat-raised-button (click)="onForceRefreshLeaguesClick()">
+              {{ 'settings.refresh' | translate }}
+            </button>
+          </div>
+        </div>
+        <div class="row" *ngIf="!account.loggedIn">
+          <div class="col-12">
+            <small>({{ 'settings.private-league-info' | translate }})</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </app-card>
+  <app-card [title]="'settings.dialog' | translate">
+    <div class="row">
+      <div class="col-md-6">
+        <mat-form-field>
+          <mat-label>{{ 'settings.dialog-spawn-position-title' | translate }}</mat-label>
+          <mat-select [(value)]="settings.dialogSpawnPosition">
+            <mat-option [value]="1">
+              {{ 'settings.dialog-spawn-position.cursor' | translate }}
+            </mat-option>
+            <mat-option [value]="2">
+              {{ 'settings.dialog-spawn-position.center' | translate }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="col-md-6">
+        <div class="value-range">
+          <label class="label">
+            {{ 'settings.dialog-opacity' | translate }}:
+            {{ displayWithOpacity(settings.dialogOpacity) }}
+          </label>
+          <div class="slider">
+            <mat-slider min="0.6"
+                        max="1"
+                        step="0.1"
+                        tickInterval="1"
+                        [displayWith]="displayWithOpacity"
+            >
+              <input matSliderThumb [(value)]="settings.dialogOpacity">
+            </mat-slider>
+            <span>100%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </app-card>
+  <app-card [title]="'settings.app' | translate">
+    <div class="row">
+      <div class="col-md-6">
+        <mat-slide-toggle [checked]="settings.displayVersion"
+                          (change)="settings.displayVersion = $event.checked">
+          {{ 'settings.display-version' | translate }}
+        </mat-slide-toggle>
+      </div>
+      <div class="col-md-6">
+        <mat-slide-toggle [checked]="autoLaunchEnabled$ | async"
+                          (change)="onAutoLaunchChange($event.checked)">
+          {{ 'settings.auto-launch' | translate }}
+        </mat-slide-toggle>
+      </div>
+      <div class="col-md-6">
+        <mat-slide-toggle [checked]="settings.autoDownload"
+                          (change)="settings.autoDownload = $event.checked">
+          {{ 'settings.auto-download' | translate }}
+        </mat-slide-toggle>
+      </div>
+      <div class="col-md-6">
+        <mat-slide-toggle [title]="'settings.focusable-description' | translate"
+                          [checked]="settings.focusable"
+                          (change)="settings.focusable = $event.checked">
+          {{ 'settings.focusable' | translate }}
+        </mat-slide-toggle>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <mat-form-field>
+          <mat-label>{{ 'settings.ui-language' | translate }}</mat-label>
+          <mat-select [(value)]="settings.uiLanguage" (valueChange)="onUiLanguageChange()">
+            <mat-option *ngFor="let language of uiLanguages.keys" [value]="language">
+              {{ 'settings.languages.' + (uiLanguages.values[language] | lowercase) | translate }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="col-md-6">
+        <mat-form-field>
+          <mat-label>{{ 'settings.zoom' | translate }}</mat-label>
+          <mat-select [(value)]="settings.zoom" (valueChange)="onZoomChange()">
+            <mat-option *ngFor="
+              let value of [25, 33, 50, 67, 75, 80, 90, 100, 110, 125, 150, 175, 200, 250, 300]
+            "
+                        [value]="value">
+              {{ value }}%
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <app-accelerator [label]="'settings.open-settings' | translate"
+                         [(value)]="settings.openUserSettingsKeybinding">
+        </app-accelerator>
+      </div>
+      <div class="col-md-6">
+        <app-accelerator [label]="'settings.exit-app' | translate"
+                         [(value)]="settings.exitAppKeybinding">
+        </app-accelerator>
+      </div>
+    </div>
+  </app-card>
+  <app-card>
+    <div class="row">
+      <div class="col-md-4"></div>
+      <div class="col-md-2">
+        <div align="center">
+          <button mat-raised-button (click)="relaunchApp()">
+            {{ 'settings.relaunch-app' | translate }}
+          </button>
+        </div>
+      </div>
+      <div class="col-md-2">
+        <div align="center">
+          <button mat-raised-button (click)="exitApp()">
+            {{ 'settings.exit-app' | translate }}
+          </button>
+        </div>
+      </div>
+      <div class="col-md-4"></div>
+    </div>
+  </app-card>
+</ng-container>

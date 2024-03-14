@@ -1,0 +1,74 @@
+@import './../../../../../styles/variables';
+
+::ng-deep {
+  .map-frame {
+    .purpel,
+    .blue {
+      color: $red !important;
+    }
+  }
+
+  .mat-expansion-panel {
+    background: inherit;
+    color: inherit;
+  }
+
+  .mat-expansion-panel:not([class*=mat-elevation-z]) {
+    box-shadow: none;
+  }
+
+  .mat-expansion-panel-header {
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    justify-content: center;
+    color: inherit;
+    padding: 0px;
+
+    .mat-content {
+      flex: inherit;
+    }
+  }
+
+  .mat-expansion-panel-header-title {
+    color: $light-grey;
+  }
+
+  .mat-expansion-panel-header-description,
+  .mat-expansion-indicator::after {
+    color: $light-grey;
+  }
+
+  .mat-expansion-panel-content {
+    font: inherit;
+    letter-spacing: inherit;
+
+    .mat-expansion-panel-body {
+      padding: 0px;
+    }
+  }
+
+  .mat-tooltip {
+    white-space: pre-line;
+  }
+}
+
+.white {
+  color: $white;
+}
+
+.light-grey {
+  color: $light-grey;
+}
+
+.description {
+  max-width: 400px;
+  white-space: normal;
+
+  .bosses {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+  }
+}

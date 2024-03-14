@@ -1,0 +1,427 @@
+<div class="row">
+  <div class="col-md-6">
+    <app-card [title]="'evaluate.name' | translate">
+      <div class="row">
+        <div class="col-8">
+          <app-accelerator [label]="'app.shortcut' | translate"
+                           [(value)]="settings.evaluateKeybinding">
+          </app-accelerator>
+        </div>
+        <div class="col-4">
+          <label class="label" style="margin-bottom: 4px;">{{ 'evaluate.use-advanced-mods-copy' | translate }}</label>
+          <mat-slide-toggle [checked]="settings.evaluateCopyAdvancedItemText"
+                            (change)="settings.evaluateCopyAdvancedItemText = $event.checked">
+          </mat-slide-toggle>
+        </div>
+      </div>
+    </app-card>
+  </div>
+  <div class="col-md-6">
+    <app-card [title]="'evaluate.translate' | translate">
+      <div class="row">
+        <div class="col-md-6">
+          <mat-form-field>
+            <mat-label>{{ 'app.language' | translate }}</mat-label>
+            <mat-select [(value)]="settings.evaluateTranslatedItemLanguage">
+              <mat-option *ngFor="let language of languages.keys" [value]="language">
+                {{ 'settings.languages.' + (languages.values[language] | lowercase) | translate }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="col-md-6">
+          <app-accelerator
+            [label]="'app.shortcut' | translate"
+            [(value)]="settings.evaluateTranslatedKeybinding"
+          >
+          </app-accelerator>
+        </div>
+      </div>
+    </app-card>
+  </div>
+</div>
+
+<app-card [title]="'evaluate.currencies' | translate">
+  <div class="row">
+    <div class="col">
+      <mat-slide-toggle
+        [checked]="settings.evaluateCurrencyOriginal"
+        (change)="settings.evaluateCurrencyOriginal = $event.checked"
+      >
+        {{ 'evaluate.currency-listing' | translate }}
+      </mat-slide-toggle>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <mat-form-field>
+        <mat-label>{{ 'evaluate.currency' | translate }}</mat-label>
+        <mat-select
+          [(value)]="settings.evaluateCurrencyIds"
+          (valueChange)="onCurrenciesValueChange()"
+          multiple
+        >
+          <mat-option *ngFor="let currency of currencies$ | async" [value]="currency.id">
+            <span> {{ currency.nameType }} </span>
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+</app-card>
+
+<app-card [title]="'evaluate.layout' | translate">
+  <div class="row">
+    <div class="col-6">
+      <mat-form-field>
+        <mat-label>{{ 'evaluate.result-view' | translate }}</mat-label>
+        <mat-select [(value)]="settings.evaluateResultView">
+          <mat-option *ngFor="let view of views.keys" [value]="view">
+            {{ 'evaluate.result-views.' + (views.values[view] | lowercase) | translate }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="col-3">
+      <mat-slide-toggle [checked]="settings.evaluateShowPricePrediction"
+                        (change)="settings.evaluateShowPricePrediction = $event.checked"
+                        matTooltip="{{ 'evaluate.show-price-prediction-tooltip' | translate }}">
+        {{ 'evaluate.show-price-prediction' | translate }}
+      </mat-slide-toggle>
+    </div>
+    <div class="col-3">
+      <mat-slide-toggle [checked]="settings.evaluateShowExchangeRate"
+                        (change)="settings.evaluateShowExchangeRate = $event.checked"
+                        matTooltip="{{ 'evaluate.show-exchange-rate-tooltip' | translate }}">
+        {{ 'evaluate.show-exchange-rate' | translate }}
+      </mat-slide-toggle>
+    </div>
+  </div>
+</app-card>
+
+<app-card [title]="'evaluate.query' | translate">
+  <div class="row">
+    <div class="col-xs-12">
+      <mat-slide-toggle
+        [checked]="settings.evaluateQueryInitialSearch"
+        (change)="settings.evaluateQueryInitialSearch = $event.checked"
+      >
+        {{ 'evaluate.initial-search' | translate }}
+      </mat-slide-toggle>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="value-range">
+        <label class="label" [title]="'evaluate.debounce-description' | translate">
+          {{ 'evaluate.debounce-time' | translate }}:
+          {{ displayWithTime(settings.evaluateQueryDebounceTime) }}
+        </label>
+        <div class="slider">
+          <mat-slider
+            min="5"
+            [max]="debounceTimeMax"
+            step="5"
+            tickInterval="2"
+            [displayWith]="displayWithTime"
+          >
+            <input matSliderThumb [(value)]="settings.evaluateQueryDebounceTime">
+          </mat-slider>
+          <span>&nbsp;∞</span>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="value-range">
+        <label class="label">
+          {{ 'evaluate.fetch-count' | translate }}:
+          {{ displayWithCount(settings.evaluateQueryFetchCount) }}
+        </label>
+        <div class="slider">
+          <mat-slider
+            min="10"
+            [max]="fetchCountMax"
+            step="10"
+            tickInterval="1"
+            [displayWith]="displayWithCount"
+          >
+            <input matSliderThumb [(value)]="settings.evaluateQueryFetchCount">
+          </mat-slider>
+          <span>100</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</app-card>
+
+<app-card [title]="'evaluate.browser' | translate">
+  <div class="row">
+    <div class="col-xs-12">
+      <mat-slide-toggle
+        [checked]="settings.evaluateBrowserAlwaysExternal"
+        (change)="settings.evaluateBrowserAlwaysExternal = $event.checked"
+      >
+        {{ 'evaluate.disable-browser-overlay' | translate }}
+      </mat-slide-toggle>
+    </div>
+  </div>
+</app-card>
+
+<mat-card class="profiles">
+  <mat-label>{{ 'evaluate.profiles' | translate }}</mat-label>
+  <mat-tab-group>
+    <mat-tab [label]="'evaluate.profile.default' | translate">
+      <div class="profile">
+        <mat-card>
+          <mat-label>{{ 'evaluate.search.filter' | translate }}</mat-label>
+          <div class="toggle">
+            <mat-slide-toggle [checked]="settings.evaluateQueryOnline"
+                              (change)="settings.evaluateQueryOnline = $event.checked">
+              {{ 'evaluate.search.online-only' | translate }}
+            </mat-slide-toggle>
+          </div>
+          <mat-form-field>
+            <mat-label>{{ 'evaluate.search.max-age.title' | translate }}</mat-label>
+            <mat-select [(value)]="settings.evaluateQueryIndexedRange">
+              <mat-option value="any"> {{ 'evaluate.search.max-age.any' | translate }} </mat-option>
+              <mat-option value="1day">
+                {{ 'evaluate.search.max-age.day' | translate }}
+              </mat-option>
+              <mat-option value="3days">
+                {{ 'evaluate.search.max-age.days' | translate }}
+              </mat-option>
+              <mat-option value="1week">
+                {{ 'evaluate.search.max-age.week' | translate }}
+              </mat-option>
+              <mat-option value="2weeks">
+                {{ 'evaluate.search.max-age.weeks' | translate }}
+              </mat-option>
+              <mat-option value="1month">
+                {{ 'evaluate.search.max-age.month' | translate }}
+              </mat-option>
+              <mat-option value="2months">
+                {{ 'evaluate.search.max-age.months' | translate }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </mat-card>
+        <mat-card>
+          <mat-label> {{ 'evaluate.search.properties' | translate }} </mat-label>
+
+          <label class="label" [title]="'evaluate.property.range-description' | translate">
+            {{ 'evaluate.property.range' | translate }}
+          </label>
+          <div class="range">
+            <span class="preview">
+              - {{ displayWithStat(settings.evaluatePropertyMinRange) }}%
+              <span class="spacer">~</span>
+              + {{ displayWithStat(settings.evaluatePropertyMaxRange) }}%
+            </span>
+            <span>#</span>
+            <mat-slider min="0"
+                        max="50"
+                        step="1"
+                        tickInterval="10"
+                        invert
+                        [displayWith]="displayWithStat"
+            >
+              <input matSliderThumb [(value)]="settings.evaluatePropertyMinRange">
+            </mat-slider>
+            <mat-slider min="0"
+                        max="50"
+                        step="1"
+                        tickInterval="10"
+                        [displayWith]="displayWithStat"
+            >
+              <input matSliderThumb [(value)]="settings.evaluatePropertyMinRange">
+            </mat-slider>
+            <span>#</span>
+            <ng-template #single>
+              <div class="value">
+                <span>50</span>
+              </div>
+            </ng-template>
+          </div>
+
+          <div class="toggle">
+            <mat-slide-toggle [checked]="settings.evaluateQueryDefaultAttack"
+                              (change)="settings.evaluateQueryDefaultAttack = $event.checked">
+              {{ 'evaluate.search.attack' | translate }}
+            </mat-slide-toggle>
+            <mat-slide-toggle [checked]="settings.evaluateQueryDefaultDefense"
+                              (change)="settings.evaluateQueryDefaultDefense = $event.checked">
+              {{ 'evaluate.search.defense' | translate }}
+            </mat-slide-toggle>
+            <mat-slide-toggle [checked]="settings.evaluateQueryNormalizeQuality"
+                              (change)="settings.evaluateQueryNormalizeQuality = $event.checked">
+              {{ 'evaluate.search.normalize-quality' | translate }}
+            </mat-slide-toggle>
+          </div>
+          <div class="toggle">
+            <mat-slide-toggle [checked]="settings.evaluateQueryDefaultItemLevel"
+                              (change)="settings.evaluateQueryDefaultItemLevel = $event.checked">
+              {{ 'evaluate.search.item-level' | translate }}
+            </mat-slide-toggle>
+            <mat-slide-toggle [checked]="settings.evaluateQueryDefaultType"
+                              (change)="settings.evaluateQueryDefaultType = $event.checked">
+              {{ 'evaluate.search.item-type' | translate }}
+            </mat-slide-toggle>
+            <mat-slide-toggle [checked]="settings.evaluateQueryDefaultMiscs"
+                              (change)="settings.evaluateQueryDefaultMiscs = $event.checked">
+              {{ 'evaluate.search.gem' | translate }}
+            </mat-slide-toggle>
+          </div>
+
+          <div class="toggle">
+            <mat-form-field>
+              <mat-label>{{ 'evaluate.search.item-default-links' | translate }}</mat-label>
+              <mat-select [(value)]="settings.evaluateQueryDefaultLinks">
+                <mat-option [value]="0">
+                  {{ 'evaluate.search.item-links.always' | translate }}
+                </mat-option>
+                <mat-option [value]="5"> 5-6 </mat-option>
+                <mat-option [value]="6"> 6 </mat-option>
+                <mat-option [value]="999">
+                  {{ 'evaluate.search.item-links.never' | translate }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>{{ 'evaluate.search.item-default-sockets' | translate }}</mat-label>
+              <mat-select [(value)]="settings.evaluateQueryDefaultColors">
+                <mat-option [value]="0">
+                  {{ 'evaluate.search.item-sockets.always' | translate }}
+                </mat-option>
+                <mat-option [value]="5"> 5-6 </mat-option>
+                <mat-option [value]="6"> 6 </mat-option>
+                <mat-option [value]="999">
+                  {{ 'evaluate.search.item-sockets.never' | translate }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </mat-card>
+
+        <mat-card>
+          <mat-label>{{ 'evaluate.search.item-specific-properties' | translate }}</mat-label>
+
+          <label class="label">{{ 'evaluate.search.item-specific-property.heist' | translate }}</label>
+          <div class="toggle">
+            <mat-slide-toggle [checked]="settings.evaluateQueryDefaultHeistRequiredLevels"
+                              (change)="settings.evaluateQueryDefaultHeistRequiredLevels = $event.checked">
+              {{ 'evaluate.search.heist.req-lvls' | translate }}
+            </mat-slide-toggle>
+            <mat-slide-toggle [checked]="settings.evaluateQueryDefaultHeistContracts"
+                              (change)="settings.evaluateQueryDefaultHeistContracts = $event.checked">
+              {{ 'evaluate.search.heist.contract' | translate }}
+            </mat-slide-toggle>
+            <mat-slide-toggle [checked]="settings.evaluateQueryDefaultHeistBlueprints"
+                              (change)="settings.evaluateQueryDefaultHeistBlueprints = $event.checked">
+              {{ 'evaluate.search.heist.blueprint' | translate }}
+            </mat-slide-toggle>
+          </div>
+
+          <label class="label">{{ 'evaluate.search.item-specific-property.ultimatum' | translate }}</label>
+          <div class="toggle">
+            <mat-slide-toggle [checked]="settings.evaluateQueryDefaultUltimatum"
+                              (change)="settings.evaluateQueryDefaultUltimatum = $event.checked">
+              {{ 'evaluate.search.ultimatum' | translate }}
+            </mat-slide-toggle>
+          </div>
+        </mat-card>
+
+        <mat-card>
+          <mat-label> {{ 'evaluate.stats' | translate }} </mat-label>
+
+          <label class="label" [title]="'evaluate.property.range-description' | translate">
+            {{ 'evaluate.stats-range' | translate }}
+          </label>
+          <div class="range">
+            <span class="preview">
+              - {{ displayWithStat(settings.evaluateModifierMinRange) }}%
+              <span class="spacer">~</span>
+              + {{ displayWithStat(settings.evaluateModifierMaxRange) }}%
+            </span>
+            <span>#</span>
+            <mat-slider min="0"
+                        max="50"
+                        step="1"
+                        tickInterval="10"
+                        invert
+                        [displayWith]="displayWithStat"
+            >
+              <input matSliderThumb [(value)]="settings.evaluateModifierMinRange">
+            </mat-slider>
+            <mat-slider min="0"
+                        max="50"
+                        step="1"
+                        tickInterval="10"
+                        [displayWith]="displayWithStat"
+            >
+              <input matSliderThumb [(value)]="settings.evaluateModifierMinRange">
+            </mat-slider>
+            <span>#</span>
+            <ng-template #single>
+              <div class="value">
+                <span>50</span>
+              </div>
+            </ng-template>
+          </div>
+
+          <div class="toggle">
+            <mat-slide-toggle [checked]="settings.evaluateQueryDefaultStatsUnique"
+                              (change)="settings.evaluateQueryDefaultStatsUnique = $event.checked"
+                              matTooltip="{{ 'evaluate.stats-unique-check-all-tooltip' | translate }}">
+              {{ 'evaluate.stats-unique-check-all' | translate }}
+            </mat-slide-toggle>
+            <mat-slide-toggle [checked]="settings.evaluateQueryDefaultStatsEnchants"
+                              (change)="settings.evaluateQueryDefaultStatsEnchants = $event.checked"
+                              matTooltip="{{ 'evaluate.stats-enchants-check-all-tooltip' | translate }}">
+              {{ 'evaluate.stats-enchants-check-all' | translate }}
+            </mat-slide-toggle>
+            <mat-slide-toggle [checked]="settings.evaluateQueryDefaultStatsModIcon"
+                              (change)="settings.evaluateQueryDefaultStatsModIcon = $event.checked"
+                              matTooltip="{{ 'evaluate.stats-mod-icon-check-all-tooltip' | translate }}">
+              {{ 'evaluate.stats-mod-icon-check-all' | translate }}
+            </mat-slide-toggle>
+          </div>
+
+          <div class="toggle">
+            <mat-slide-toggle [checked]="settings.evaluateShowAnnointmentOils"
+                              (change)="settings.evaluateShowAnnointmentOils = $event.checked">
+              {{ 'evaluate.stats-show-annointment-oils' | translate }}
+            </mat-slide-toggle>
+            <mat-slide-toggle [checked]="settings.evaluateQueryPostProcessClusterJewels"
+                              (change)="settings.evaluateQueryPostProcessClusterJewels = $event.checked"
+                              matTooltip="{{ 'evaluate.stats-pp-cluster-jewels-tooltip' | translate }}">
+              {{ 'evaluate.stats-pp-cluster-jewels' | translate }}
+            </mat-slide-toggle>
+          </div>
+
+          <app-select-list [items]="stats$ | async" [itemFilter]="itemPredicate" (itemsChange)="onStatsChange($event)">
+            <ng-template let-item>
+              <span class="stat" [title]="item.text">
+                <span [class]="'type ' + item.type"> {{ item.type }} </span>
+                <span class="text"> {{ item.text }} </span>
+              </span>
+            </ng-template>
+          </app-select-list>
+          <div align="end">
+            <button mat-button (click)="onImportStats()">
+              {{ 'evaluate.stats-import' | translate }}
+            </button>
+            <button mat-button (click)="onExportStats()">
+              {{ 'evaluate.stats-export' | translate }}
+            </button>
+          </div>
+        </mat-card>
+      </div>
+    </mat-tab>
+
+    <mat-tab disabled>
+      <ng-template mat-tab-label>
+        <mat-icon>add</mat-icon>
+      </ng-template>
+    </mat-tab>
+  </mat-tab-group>
+</mat-card>

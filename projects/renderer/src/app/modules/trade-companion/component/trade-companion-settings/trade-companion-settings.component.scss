@@ -1,0 +1,66 @@
+@import './../../../../../styles/variables';
+
+app-card {
+  .card, button {
+    background-color: $settings-grey-one;
+  }
+
+  .card {
+    position: relative;
+
+    button {
+      background-color: $settings-grey-two;
+    }
+
+    .remove {
+      position: absolute;
+      top: 0;
+      right: 0;
+      z-index: 1;
+    }
+  }
+
+  .card-button {
+    padding: 16px;
+    width: 100%;
+  }
+}
+
+::ng-deep {
+  .mat-tooltip {
+    box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+  }
+
+  app-card {
+    .mat-form-field-prefix,
+    .mat-form-field-suffix {
+      align-self: flex-end;
+      position: absolute;
+      right: 4px;
+
+      .mat-icon {
+        font-size: 100%;
+        line-height: 1;
+      }
+    }
+  }
+}
+
+label {
+  display: block;
+  color: $label-color;
+  font-size: 12px;
+  transform: perspective(100px) translateZ(0.001px);
+}
+
+.value-range {
+  > .slider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .mat-slider {
+      width: 100%;
+    }
+  }
+}

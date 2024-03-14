@@ -1,0 +1,198 @@
+$broken-white: #F0F0F0;
+$light-grey: #4C4C4C;
+$grey: #3C3C3C;
+$dark-grey: #2C2C2C;
+$dark-golden-rod: #B8860B; // Brown-ish color
+$fire-brick: #B22222; // Red-ish color
+$lime-green: #32CD32; // Green-ish color
+$gold: #FFD700; // Yellow-ish color
+
+$icon-size: 22px;
+$icon-space: 0px;
+$text-space: 4px;
+$text-padding: 1px;
+
+.mat-icon:not(.collapse) {
+  font-size: $icon-size;
+}
+
+.clickable, div {
+  border: 1px solid transparent;
+}
+
+.clickable:hover {
+  border: 1px solid $broken-white;
+}
+
+.notifciation {
+  border: 1px solid #000;
+  width: 350px;
+  max-width: 350px;
+  line-height: 22px;
+
+  .header {
+    color: $broken-white;
+    background-color: $dark-grey;
+    display: flex;
+    padding: 4px;
+
+    > * {
+      margin-right: $icon-space;
+    }
+
+    :last-child {
+      margin-right: 0px;
+    }
+
+    .playerName + * {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .collapse {
+    }
+
+    .playerName {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      color: $gold;
+      padding-top: $text-padding;
+    }
+
+    .playerName.joinedHideout {
+      color: $lime-green;
+    }
+
+    .playerName.leftHideout {
+      color: #7C7C7C;
+    }
+
+    .incomingArrow {
+      color: $fire-brick;
+    }
+
+    .outgoingArrow {
+      transform: rotateZ(180deg);
+      color: $lime-green;
+    }
+
+    .elapsedTime {
+      margin-right: $text-space;
+      color: $dark-golden-rod;
+      font-size: 0.9em;
+    }
+
+    .inviteToParty {
+      color: $lime-green;
+    }
+
+    .requestTrade {
+      color: $gold;
+    }
+
+    .kickFromParty {
+      color: $fire-brick;
+    }
+
+    .visitPlayerHideout {
+      color: $lime-green;
+    }
+
+    .leaveParty {
+      color: $fire-brick;
+    }
+
+    .whisperPlayer {
+      color: #CCCCCC;
+    }
+
+    .dismiss {
+    }
+  }
+
+  .body {
+    color: $broken-white;
+    background-color: $grey;
+    padding: 4px;
+
+    .tradeItem {
+      display: flex;
+
+      > * {
+        margin-right: $icon-space;
+      }
+
+      :last-child {
+        margin-right: 0px;
+      }
+
+      .itemName + *,
+      .itemCurrency + * {
+        margin-left: auto;
+      }
+
+      .itemCurrency {
+        display: flex;
+        flex-grow: 100;
+      }
+
+      .itemName {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin-right: $text-space;
+        flex-grow: 100;
+        padding-top: $text-padding;
+        height: 24px;
+      }
+
+      .itemOffer {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin-right: $text-space;
+        padding-top: $text-padding;
+        height: 24px;
+      }
+
+      .askStillInterested {
+      }
+
+      .repeatTradeWhisper {
+      }
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      margin-top: 2px;
+
+      .button {
+        background-color: $light-grey;
+        border-radius: 8px;
+        border: 2px solid gray;
+        text-align: center;
+        padding: 4px;
+        margin: 0px 4px 0px 4px;
+      }
+
+      .button:hover {
+        border: 2px solid $broken-white;
+      }
+    }
+  }
+
+  .price {
+    white-space: nowrap;
+    margin-right: $text-space;
+    padding-top: $text-padding;
+
+    > img {
+      width: 22px;
+      height: 22px;
+      vertical-align: bottom;
+      margin-left: 2px;
+    }
+  }
+}

@@ -1,0 +1,8 @@
+<div class="annointment">
+  <ng-container *ngFor="let oilBaseItemType of getOils(); let index = index">
+    <div [class]="'oil ' + oilBaseItemType"
+         [title]="oilBaseItemType | baseItemType: language">
+    </div>
+  </ng-container>
+</div>
+<app-item-frame-separator [item]="item"></app-item-frame-separator>

@@ -1,0 +1,21 @@
+<div>
+  <app-item-frame-query [(property)]="queryItem.properties.ultimatum.challengeType" [value]="item.properties.ultimatum.challengeType">
+    <span>{{ 'UltimatumItemisedTrialEncounter' | clientString: language }}:&nbsp;</span>
+    <span class="white">{{ getChallengeTypeString() }}</span>
+  </app-item-frame-query>
+</div>
+<div *ngIf="item.properties.ultimatum.requiredItem">
+  <app-item-frame-query [(property)]="queryItem.properties.ultimatum.requiredItem" [value]="item.properties.ultimatum.requiredItem">
+    <span>{{ ('UltimatumItemisedTrialItemRequirement' | clientString: language).replace('{0}', '').trim() }}&nbsp;</span>
+    <span class="white">{{ getSacrificeString() }}</span>
+    <span class="purple" *ngIf="item.properties.ultimatum.requiredItemAmount">
+      {{ ('UltimatumItemisedTrialQuantityFormat' | clientString: language).replace('{0}', item.properties.ultimatum.requiredItemAmount.text) }}
+    </span>
+  </app-item-frame-query>
+</div>
+<div>
+  <app-item-frame-query [(property)]="queryItem.properties.ultimatum.rewardType" [value]="item.properties.ultimatum.rewardType">
+    <span>{{ ('UltimatumItemisedTrialReward' | clientString: language).replace('{0}', '').trim() }}&nbsp;</span>
+    <span class="white">{{ getRewardTypeString() }}</span>
+  </app-item-frame-query>
+</div>

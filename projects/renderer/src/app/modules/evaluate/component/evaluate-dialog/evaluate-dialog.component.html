@@ -1,0 +1,65 @@
+<div appDrag=".cdk-overlay-pane">
+  <app-item-frame
+    [item]="data.item"
+    [language]="data.language"
+    [queryItem]="queryItem"
+    (queryItemChange)="onQueryItemChange($event)"
+    [separator]="true"
+    [modifierMinRange]="data.settings.evaluateModifierMinRange / 100"
+    [modifierMaxRange]="data.settings.evaluateModifierMaxRange / 100"
+    [propertyMinRange]="data.settings.evaluatePropertyMinRange / 100"
+    [propertyMaxRange]="data.settings.evaluatePropertyMaxRange / 100"
+    [opacity]="data.settings.dialogOpacity"
+    [filterOptionsOpen]="filterOptionsOpen"
+    [showAnnointmentOils]="data.settings.evaluateShowAnnointmentOils"
+  >
+    <ng-container *ngIf="currencies$ | async as currencies; else loading">
+      <app-evaluate-options
+        [options]="options"
+        (optionsChange)="onOptionsChange($event)"
+        (resetTrigger)="onReset()"
+        (toggleOpen)="onToggleOpen($event)"
+      >
+      </app-evaluate-options>
+      <ng-container *ngIf="!(privateLeague$ | async)">
+        <ng-container *ngIf="rate$ | async; else prediction">
+          <ng-container *ngIf="data.settings.evaluateShowExchangeRate">
+            <app-evaluate-exchange-rate [options]="options"
+                                        [optionsChange]="optionsChange"
+                                        [item]="data.item"
+                                        [settings]="data.settings"
+                                        [currencies]="currencies"
+                                        (evaluateResult)="onEvaluateResult($event)">
+            </app-evaluate-exchange-rate>
+            <app-item-frame-separator [item]="data.item"></app-item-frame-separator>
+          </ng-container>
+        </ng-container>
+        <ng-template #prediction>
+          <ng-container *ngIf="data.settings.evaluateShowPricePrediction">
+            <app-evaluate-price-prediction [language]="data.settings.language"
+                                           [options]="options"
+                                           [optionsChange]="optionsChange"
+                                           [item]="data.item"
+                                           [currencies]="currencies">
+            </app-evaluate-price-prediction>
+            <app-item-frame-separator [item]="data.item"></app-item-frame-separator>
+          </ng-container>
+        </ng-template>
+      </ng-container>
+      <app-evaluate-search
+        *ngIf="init$ | async; else loading"
+        [options]="options"
+        [settings]="data.settings"
+        [queryItem]="queryItem"
+        [queryItemChange]="queryItemChange"
+        [currencies]="currencies"
+        (evaluateResult)="onEvaluateResult($event)"
+      >
+      </app-evaluate-search>
+    </ng-container>
+    <ng-template #loading>
+      <div>{{ 'evaluate.loading' | translate }}</div>
+      <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    </ng-template>
+  </app-item-frame>
+</div>

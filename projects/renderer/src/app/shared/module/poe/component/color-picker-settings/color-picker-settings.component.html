@@ -1,0 +1,29 @@
+<div class="row color-picker-settings">
+  <div class="col-9">
+    <mat-form-field [matTooltipDisabled]="!tooltip" [matTooltip]="tooltip">
+      <mat-label>{{ label | translate }}</mat-label>
+      <input matInput readonly
+             class="cp-input"
+             [colorPicker]="ColorUtils.toRGBA(color)"
+             (colorPickerChange)="ColorUtils.update(color, $event)"
+             [value]="ColorUtils.toRGBA(color)"
+             cpOutputFormat="rgba"
+             [cpPosition]="side"
+             [cpToggle]="true"
+             [cpSaveClickOutside]="false"
+             cpPositionOffset="-100%"
+             [cpOKButton]="true"
+             cpOKButtonText="{{ 'settings.ok' | translate }}"
+             cpOKButtonClass="mat-focus-indicator mat-raised-button mat-button-base"
+             [cpCancelButton]="true"
+             cpCancelButtonText="{{ 'settings.cancel' | translate }}"
+             cpCancelButtonClass="mat-focus-indicator mat-raised-button mat-button-base">
+      <mat-icon matSuffix>palette</mat-icon>
+    </mat-form-field>
+  </div>
+  <div class="col-3 text-right">
+    <button mat-raised-button (click)="onResetClick()" *ngIf="defaultColor">
+      {{ 'settings.reset' | translate }}
+    </button>
+  </div>
+</div>

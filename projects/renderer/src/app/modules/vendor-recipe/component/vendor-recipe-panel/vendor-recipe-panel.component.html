@@ -1,0 +1,37 @@
+<div class="vendor-recipe-panel">
+  <div class="vendor-recipe-icons">
+    <div class="recipe-count-large-icon" [style.background-image]="recipeCountLargeBGImage">
+      <div class="recipe-count-small-icon" [style.background-image]="recipeCountSmallBGImage"></div>
+      <div class="recipe-count-top" *ngIf="showRecipeCountScrollArrows">
+        <mat-icon>keyboard_arrow_up</mat-icon>
+      </div>
+      <div class="recipe-count-bottom" *ngIf="showRecipeCountScrollArrows">
+        <mat-icon>keyboard_arrow_down</mat-icon>
+      </div>
+      <div class="recipes-count clickable"
+           (click)="onRecipesCountClick()"
+           (mouseenter)="showRecipeCountScrollArrows = true"
+           (mouseleave)="showRecipeCountScrollArrows = false"
+           (wheel)="recipeTypeScroll.emit($event)">{{ vendorRecipeProcessResult?.recipes.length || 0 }}</div>
+    </div>
+    <ng-template ngFor let-itemGroup [ngForOf]="itemsGroups">
+      <div class="vendor-recipe-icon {{ itemGroup.itemGroupColorName }}"
+           [style.background-color]="ColorUtils.toRGBA(itemGroup.itemGroupColor.color)"
+           matTooltip="{{ itemGroup.itemGroupResult?.count || 0 }} {{ 'vendor-recipe.settings.recipe-item-group-names.' + itemGroup.itemGroupColorName | translate }}"
+           [appAlphaColor]="['background-color']"
+           [appAlphaColor.baseColors]="[ColorUtils.copy(itemGroup.itemGroupColor.color)]"
+           [appAlphaColor.alpha]="(itemGroup.itemGroupResult?.count || 0) >= itemGroup.itemThreshold ? 0.2 : 1">
+        <div class="vendor-recipe-icon-count">{{ itemGroup.itemGroupResult?.count || 0 }}</div>
+      </div>
+    </ng-template>
+    <ng-container *ngIf="qualityRecipeUserSettings && qualityRecipeUserSettings.calcEfficiency && qualityRecipeProcessResult">
+      <div class="efficiency">
+        <mat-icon>show_chart</mat-icon>
+        <div class="efficiency">{{ getRoundedPercentage(qualityRecipeProcessResult.efficiency) }}</div>
+      </div>
+    </ng-container>
+  </div>
+  <div class="refreshbar">
+    <div class="progress" [class.active]="stashTabContentPeriodicUpdateActiveChanged$ | async"></div>
+  </div>
+</div>

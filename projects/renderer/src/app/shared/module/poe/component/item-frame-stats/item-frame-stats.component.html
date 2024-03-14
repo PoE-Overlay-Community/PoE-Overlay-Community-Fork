@@ -1,0 +1,129 @@
+<ng-container *ngIf="item.stats | statGroup as groups">
+  <ng-container *ngIf="groups.enchant">
+    <ng-container *ngFor="let stat of groups.enchant; let last = last">
+      <div class="blue">
+        <ng-container *ngTemplateOutlet="statQuery; context: { stat: stat }"></ng-container>
+      </div>
+      <app-item-frame-annointment *ngIf="showAnnointmentOils && isAnnointmentStat(stat.id)" [item]="item" [itemStat]="stat" [language]="language">
+      </app-item-frame-annointment>
+      <app-item-frame-separator [item]="item"
+                                *ngIf="
+          last &&
+          (groups.scourge ||
+            groups.implicit ||
+            groups.fractured ||
+            groups.explicit ||
+            groups.monster ||
+            groups.ultimatum ||
+            groups.sanctum ||
+            groups.crafted)
+        ">
+      </app-item-frame-separator>
+    </ng-container>
+  </ng-container>
+  <ng-container *ngIf="groups.scourge">
+    <ng-container *ngFor="let stat of groups.scourge; let last = last">
+      <div class="scourge">
+        <ng-container *ngTemplateOutlet="statQuery; context: { stat: stat }"></ng-container>
+      </div>
+      <app-item-frame-separator [item]="item"
+                                *ngIf="last && (groups.implicit || groups.fractured || groups.explicit || groups.monster || groups.ultimatum || groups.sanctum || groups.crafted)">
+      </app-item-frame-separator>
+    </ng-container>
+  </ng-container>
+  <ng-container *ngIf="groups.implicit">
+    <ng-container *ngFor="let stat of groups.implicit">
+      <div class="purpel">
+        <ng-container *ngTemplateOutlet="statQuery; context: { stat: stat }"></ng-container>
+      </div>
+    </ng-container>
+    <app-item-frame-separator [item]="item" *ngIf="groups.fractured || groups.explicit || groups.monster || groups.ultimatum || groups.sanctum || groups.crafted || groups.pseudo">
+    </app-item-frame-separator>
+  </ng-container>
+  <ng-container *ngIf="groups.fractured">
+    <ng-container *ngFor="let stat of groups.fractured">
+      <div class="fractured">
+        <ng-container *ngTemplateOutlet="statQuery; context: { stat: stat }"></ng-container>
+      </div>
+    </ng-container>
+  </ng-container>
+  <ng-container *ngIf="groups.ultimatum">
+    <ng-container *ngFor="let stat of groups.ultimatum">
+      <div class="purpel">
+        <ng-container *ngTemplateOutlet="statQuery; context: { stat: stat }"></ng-container>
+      </div>
+    </ng-container>
+  </ng-container>
+  <ng-container *ngIf="groups.explicit">
+    <ng-container *ngFor="let stat of groups.explicit">
+      <div class="purpel">
+        <ng-container *ngTemplateOutlet="statQuery; context: { stat: stat }"></ng-container>
+      </div>
+    </ng-container>
+  </ng-container>
+  <ng-container *ngIf="groups.monster">
+    <ng-container *ngFor="let stat of groups.monster">
+      <div class="purpel">
+        <ng-container *ngTemplateOutlet="statQuery; context: { stat: stat }"></ng-container>
+      </div>
+    </ng-container>
+  </ng-container>
+  <ng-container *ngIf="groups.sanctum">
+    <ng-container *ngFor="let stat of groups.sanctum">
+      <div class="purpel">
+        <ng-container *ngTemplateOutlet="statQuery; context: { stat: stat }"></ng-container>
+      </div>
+    </ng-container>
+  </ng-container>
+  <ng-container *ngIf="groups.crafted">
+    <ng-container *ngFor="let stat of groups.crafted">
+      <div class="blue">
+        <ng-container *ngTemplateOutlet="statQuery; context: { stat: stat }"></ng-container>
+      </div>
+    </ng-container>
+  </ng-container>
+  <ng-container *ngIf="groups.fractured || groups.explicit || groups.monster || groups.ultimatum || groups.sanctum || groups.crafted">
+    <app-item-frame-separator [item]="item" *ngIf="groups.pseudo"></app-item-frame-separator>
+  </ng-container>
+  <ng-container *ngIf="groups.crucible">
+    <ng-container *ngFor="let stat of groups.crucible; let last = last">
+      <div class="crucible">
+        <ng-container *ngTemplateOutlet="statQuery; context: { stat: stat }"></ng-container>
+      </div>
+      <app-item-frame-separator [item]="item" *ngIf="last && groups.pseudo"></app-item-frame-separator>
+    </ng-container>
+  </ng-container>
+  <ng-container *ngIf="groups.pseudo">
+    <ng-container *ngFor="let stat of groups.pseudo">
+      <div>
+        <ng-container *ngTemplateOutlet="statQuery; context: { stat: stat }"></ng-container>
+      </div>
+    </ng-container>
+  </ng-container>
+</ng-container>
+
+<!-- template -->
+<ng-template #statQuery let-stat="stat">
+  <app-item-frame-query [(property)]="queryItem.stats[stat.index]" [value]="stat">
+    <ng-container *ngTemplateOutlet="modIcon; context: { modIcon: getModIcon(stat.modName) }"></ng-container>
+    <app-item-frame-value-group>
+      <ng-container *ngIf="stat | statTransform: language as parts">
+        <ng-container *ngFor="let part of parts; let index = index">
+          <span>{{ part }}</span>
+          <span [class]="getValueClass(stat.id)">
+            <app-item-frame-value *ngIf="stat.values[index]"
+                                  [(value)]="stat.values[index]"
+                                  [minRange]="modifierMinRange"
+                                  [maxRange]="modifierMaxRange">
+            </app-item-frame-value>
+          </span>
+        </ng-container>
+      </ng-container>
+    </app-item-frame-value-group>
+    <ng-container *ngTemplateOutlet="modIcon; context: { modIcon: getModIcon(stat.modName) }"></ng-container>
+  </app-item-frame-query>
+</ng-template>
+
+<ng-template #modIcon let-modIcon="modIcon">
+  <span *ngIf="modIcon" class="mod-icon {{ modIcon }}"></span>
+</ng-template>

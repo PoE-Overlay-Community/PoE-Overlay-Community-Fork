@@ -1,0 +1,36 @@
+<div class="panel interactable"
+     *ngIf="settings.tradeCompanionEnabled"
+     appResizeDrag
+     [ardBounds]="settings.tradeCompanionBounds || gameBounds"
+     [ardReversePosition.x]="settings.reversedNotificationHorizontalAlignment"
+     [ardReversePosition.y]="settings.reversedNotificationDirection"
+     [ardOffset.x]="calcOffsetX()"
+     [ardOffset.y]="calcOffsetY()"
+     [ardAppliedBounds.width]="false"
+     [ardAppliedBounds.height]="false"
+     [ardExtendDragArea]="true"
+     [ardInteractionsDisabled]="locked"
+     (ardResizeDragEnd)="onResizeDragEnd($event)"
+     [class.movable]="!locked"
+     [class.reversed-y]="settings.reversedNotificationDirection"
+     >
+  <div class="header" [appAlphaColor]="['background-color', 'border-color']" [appAlphaColor.alpha]="settings.tradeCompanionOpacity" #header>
+    <mat-icon class="clickable" (click)="locked = !locked" matTooltip="{{ 'panel-tooltips.' + (locked ? 'locked' : 'unlocked') | translate }}">{{ locked ? 'lock' : 'lock_open' }}</mat-icon>
+    <mat-icon [class.movable]="!locked" matTooltip="{{ 'panel-tooltips.' + (locked ? 'unlock-to-move' : 'drag-handle') | translate }}">open_with</mat-icon>
+    <mat-icon class="clickable" (click)="goToHideout()" matTooltip="{{ 'trade-companion.trade-notification-panel.hideout' | translate }}">home</mat-icon>
+    <mat-icon class="clickable" (click)="openSettings.emit()" matTooltip="{{ 'panel-tooltips.settings' | translate }}">settings</mat-icon>
+    <mat-icon class="clickable" (click)="close()" matTooltip="{{ 'panel-tooltips.disable' | translate }}">power_settings_new</mat-icon>
+  </div>
+  <div class="notifications">
+    <ng-container *ngFor="let notification of notifications; let index=index">
+      <app-trade-notification *ngIf="index < settings.maxVisibileTradeNotifications"
+                              [notification]="notification"
+                              [settings]="settings"
+                              [isActiveTradeNotification]="index == activeTradeNotificationIndex"
+                              (dismissNotification)="onDismissNotification($event)"
+                              (playerNameClick)="onPlayerNameClick($event)"
+                              (collapseClick)="onCollapseClick($event)">
+      </app-trade-notification>
+    </ng-container>
+  </div>
+</div>

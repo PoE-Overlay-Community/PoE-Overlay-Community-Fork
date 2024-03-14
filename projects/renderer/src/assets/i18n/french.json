@@ -1,0 +1,250 @@
+{
+  "app": {
+    "clickable": "'Clic' = navigateur en jeu, 'CTRL + Clic' navigateur par défaut",
+    "clickable-external-only": "'Clic' navigateur par défaut",
+    "language": "Langue",
+    "shortcut": "Raccourci",
+    "update": {
+      "available": "Une nouvelle mise à jour est disponible. Elle sera automatiquement téléchargée, sauf indication contraire.",
+      "downloaded": "La nouvelle mise à jour est maintenant prête à être installée. Veuillez relancer PoE Overlay."
+    }
+  },
+  "bookmark": {
+    "add": "Ajouter un signet",
+    "external": "Externe",
+    "name": "Signet",
+    "url": "URL"
+  },
+  "clipboard": {
+    "empty": "Le presse-papier était vide. Vous devrez peut-être démarrer PoE Overlay avec des droits privilégiés.",
+    "error": "Une erreur s'est produite lors de l'analyse de l'élément.",
+    "parser-error": "L'élément n'a pas pu être analysé. Assurez-vous d'avoir sélectionné la bonne langue."
+  },
+  "command": {
+    "add": "Ajouter une commande",
+    "name": "Commande",
+    "text": "Commande"
+  },
+  "evaluate": {
+    "age": "Âge",
+    "analyzing": "Analyse des données...",
+    "browser": "navigateur en jeu",
+    "cancel": "Annuler?",
+    "canceled": "Recherche annulée. Ouvrir dans le navigateur?",
+    "count": "Résultats",
+    "currencies": "Devise",
+    "currency": "Monnaie affichée",
+    "currency-listing": "Afficher la devise de l'annonce",
+    "days": "Les 7 derniers jours",
+    "debounce-time": "Délai entre chaque recherche",
+    "debounce-description": "Délai de recherche automatique",
+    "disable-browser-overlay": "Désactiver navigateur en jeu",
+    "empty": "Aucun résultat. Ouvrir dans le navigateur?",
+    "error": "Une erreur s'est produite.",
+    "errors": {
+      "http": "Impossible de communiquer avec le site web d'échange de GGG.\nAssurez-vous que le site web est accessible.",
+      "rate": "Limite atteinte. Veuillez réessayer plus tard.\nSi cela reproduit encore, essayer de réduire le nombre d'articles récupérés."
+    },
+    "fetch-count": "Nombre de recherches",
+    "initial-search": "Lancer la recherche initiale",
+    "layout": "Disposition",
+    "listings": "{{total}} trouvé(s). Récupération de {{count}} entrée(s)...",
+    "loading": "Chargement...",
+    "mean": "Moyenne",
+    "median": "Médiane",
+    "mode": "Mode",
+    "name": "Évaluer",
+    "not-found": "Aucune donnée disponible.",
+    "prediction": {
+      "confidence": "Confiance",
+      "error": "Une erreur s'est produite.",
+      "errors": {
+        "http": "Impossible de communiquer avec poeprices.info\nAssurez-vous que le site web est accessible."
+      },
+      "feedback": "Rétroaction",
+      "feedbacks": {
+        "fair": "équitable",
+        "high": "trop cher",
+        "low": "pas assez cher"
+      },
+      "language": "poeprices.info ne prend en charge que l'anglais comme langue pour le client.",
+      "sending": "Envoi",
+      "source": "Prédiction des prix basées sur poeprices.info",
+      "thanks": "Merci!"
+    },
+    "pricing": "Mise en vente",
+    "pricing-method": "Méthode",
+    "pricings": {
+      "clipboard": "Presse-papier",
+      "tagging": "Marquage"
+    },
+    "profile": {
+      "default": "Par défaut"
+    },
+    "profiles": "Profils présélectionnés",
+    "property": {
+      "range": "Gamme Min-Max",
+      "range-description": "Augmentation/diminution en pourcentage des valeurs actuelles de l'élément de recherche"
+    },
+    "query": "Requête",
+    "range": "Portée",
+    "result-view": "Affichage des résultats",
+    "result-views": {
+      "graph": "Graphique",
+      "list": "Liste"
+    },
+    "run-search": "Rechercher",
+    "search": {
+      "attack": "Attaque",
+      "defense": "Défense",
+      "filter": "Filtre",
+      "gem": "Niveau de la gemme, pallier de carte et leur qualité",
+      "item-default-links": "Lien d'item",
+      "item-level": "Niveau d'item",
+      "item-links": {
+        "always": "Toujours",
+        "never": "Jamais"
+      },
+      "item-sockets": "Châsses",
+      "item-type": "Type d'item",
+      "max-age": {
+        "any": "À tout moment",
+        "day": "Jusqu'à il y a un jour",
+        "days": "Jusqu'à il y a trois jours",
+        "month": "Jusqu'à il y a un mois",
+        "months": "Jusqu'à il y a deux mois",
+        "title": "Âge maximum des offres",
+        "week": "Jusqu'à il y a une semaine",
+        "weeks": "Jusqu'à il y a deux semaines"
+      },
+      "normalize-quality": "Normaliser la qualité",
+      "online-only": "En ligne seulement",
+      "properties": "Propriétés de base de l'item"
+    },
+    "searching": "Recherche...",
+    "seller": "Vendeur",
+    "settings": "Paramètres d'évaluation",
+    "stale": "Le filtre a été changé. Effectuer une recherche à nouveau ... - Maintenant?",
+    "stats": "Statistiques",
+    "stats-export": "Exporter les statistiques vers le presse-papier",
+    "stats-import": "Importer des statistiques depuis le presse-papier",
+    "stats-range": "Gamme Min-Max",
+    "stats-unique-check-all": "Cocher tous les Uniques",
+    "switch": "Inverser les montants",
+    "tag": {
+      "clipboard": "La note a été copiée dans le presse-papier.",
+      "note": "Seuls les éléments sans note existante peuvent être marqués. La note a été copiée à la place.",
+      "outside-stash": "Seuls les items à l'intérieur de la réserve peuvent être marqués. La note a été copiée à la place."
+    },
+    "translate": "Traduction de l'évaluation",
+    "translate-language": "Langue de l'item traduit",
+    "translate-settings": "Paramètres de la traduction de l'évaluation",
+    "value": "Valeur"
+  },
+  "help": {
+    "browser": "Maintenir CTRL tout en cliquant ouvrira le lien dans le navigateur par défaut.",
+    "browser-title": "Comment ouvrir la recherche dans mon navigateur par défaut?",
+    "bug": "Signaler un problème",
+    "bug-title": "Vous avez trouvé un bug? Vous avez une suggestion? Créer un nouveau ticket \"Problèmes\" sur GitHub",
+    "donate": "Faire un don via PayPal",
+    "donate-title": "Vous aimez le projet ? N'hésitez pas à faire un don. Merci pour votre aide!",
+    "dwm": "Cela est principalement dû au thème Aero / DWM qui est désactivé. Essayez d'activer cette fonctionnalité Windows.<br> Elle est requise pour créer des fenêtres transparentes.",
+    "dwm-title": "Pourquoi mon écran devient-il noir / blanc quand j'utilise une fonctionnalité?",
+    "faq": "FAQ",
+    "graph": "La barre indique la distribution des valeurs de l'item. Il regroupe essentiellement les valeurs similaires ensemble et en fait le décompte.<br> La barre la plus haute est le Mode. Aussi appelé «valeur la plus fréquente». La moyenne est la moyenne arithmétique. La médiane est la valeur centrée des valeurs.",
+    "graph-title": "Que représente le graphique? Qu'est-ce que le Mode / la moyenne / médiane?",
+    "graph-url": "Ouvrez «Comment lire un histogramme» par «fr.wikihow.com/lire-un-histogramme»",
+    "graphic": "Cela est principalement dû à des pilotes graphiques incompatibles pour la version actuelle de chromium.<br> Veuillez désactiver l'accélération matérielle dans le menu de la barre d'état.",
+    "graphic-title": "Les graphismes sont flous / bug graphique?",
+    "name": "Aidez-moi",
+    "patreon": "Soutenez-moi sur Patreon",
+    "wiki": "Ouvrir le Wiki du projet",
+    "wiki-title": "Voir le wiki du projet pour plus de documentation"
+  },
+  "map": {
+    "boss": "Bosse",
+    "boss-rating": "Évaluation du bosse",
+    "boss-rating-info": "5: Dégâts élevés et constants difficile à évités de manière efficace; évité par de nombreux joueurs.\n4: Dégâts élevés et constants pouvant être évités aisément, mais toujours très dangereux.\n3: Dégâts occasionnellement élevés qui peuvent être évités aisément.\n2: Dégâts modéré qui peut être facilement évités et / ou aisément atténué par la plupart des types de personnage.\n1: Une formalité pour la plupart des types de personnage.",
+    "bosses": "Bosse",
+    "info": "Information",
+    "layout-rating": "Disposition de la fenêtre d'évaluation",
+    "layout-rating-info": "A: La carte est linéaire et elle peut être complétée de manière efficace sans devoir revenir sur ses pas.\nB: La carte est ouverte avec peu d'obstacle ou n'a que des chemins alternatifs courts et bien connectés.\nC: La carte est ouverte avec de nombreux obstacles ou a de longs chemins alternatifs qui nécessitent de revenir sur ses pas.",
+    "name": "Carte",
+    "no-map": "L'item n'est pas une carte.",
+    "not-found": "Carte introuvable.",
+    "stats-warning": "Avertissements concernant les modificateurs",
+    "stats-warning-export": "Exporter les avertissements de modificateurs vers le presse-papier",
+    "stats-warning-import": "Importer les avertissements de modificateurs depuis le presse-papier"
+  },
+  "material": {
+    "accelerator": {
+      "any": "Appuyez sur une touche... ESC supprime le raccourci clavier.",
+      "unbound": "Aucun raccourci clavier",
+      "set-shortcut": "Définir le raccourci clavier",
+      "cancel-set": "Annuler le réglage de raccourci clavier"
+    },
+    "select-list": {
+      "add": "Ajouter à la sélection",
+      "remove": "Supprimer de la sélection",
+      "search": "Rechercher",
+      "selected": "Sélectionné",
+      "unselected": "Non séléctionné"
+    }
+  },
+  "misc": {
+    "highlight": "Surbrillance",
+    "name": "Divers",
+    "navigation": "Défilement",
+    "navigations": {
+      "disabled": "Désactivé",
+      "inverse": "Inversé",
+      "normal": "Par défaut"
+    },
+    "open-poedb": "Ouvrir PoE DB",
+    "open-poedb-external": "Ouvrir PoE DB dans une nouvelle fenêtre",
+    "open-wiki": "Ouvrir le wiki",
+    "open-wiki-external": "Ouvrir le wiki dans une nouvelle fenêtre",
+    "parser-error": "Le presse-papier n'a pas pu être analysé. Assurez-vous que vous avez nettoyé (ESC) la sélection précédente.",
+    "poedb": "PoE DB",
+    "stash": "Réserve",
+    "wiki": "Wiki"
+  },
+  "settings": {
+    "app": "Application",
+    "auto-download": "Télécharger les mises à jour automatiquement",
+    "auto-launch": "Démarrer automatiquement",
+    "cancel": "Annuler",
+    "dialog": "Boîte de dialogue",
+    "dialog-opacity": "Opacité de la boîte de dialogue",
+    "dialog-spawn-position": {
+      "center": "Centré",
+      "cursor": "Le curseur"
+    },
+    "dialog-spawn-position-title": "Position d'apparition de la boîte de dialogue",
+    "display-version": "Afficher la version",
+    "exit-app": "Quitter l'application",
+    "focusable": "Focalisable (prise en charge du clavier)",
+    "focusable-description": "Permet la navigation au clavier de l'overlay (TAB / FLÈCHES DU CLAVIER [←→↑↓])",
+    "game-settings": "Paramètres de jeu",
+    "general": "Général",
+    "languages": {
+      "english": "Anglais",
+      "french": "Français",
+      "german": "Allemand",
+      "korean": "Coréen",
+      "polish": "Polonais",
+      "portuguese": "Portugais",
+      "russian": "Russe",
+      "simplifiedchinese": "Chinois simplifié",
+      "spanish": "Espanol",
+      "thai": "Thaïlandais",
+      "traditionalchinese": "Chinois traditionnel"
+    },
+    "league": "Ligue",
+    "open-settings": "Ouvrir les paramètres",
+    "relaunch-app": "Relancer l'application",
+    "save": "Sauvegarder",
+    "ui-language": "Langue de l'interface utilisateur",
+    "zoom": "Zoom"
+  }
+}

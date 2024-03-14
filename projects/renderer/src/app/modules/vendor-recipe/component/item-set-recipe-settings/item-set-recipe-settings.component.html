@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="col-3" *ngIf="settings.type === VendorRecipeType.Chaos">
+    <mat-slide-toggle [checked]="levelBasedSettings.fillGreedy" (change)="levelBasedSettings.fillGreedy = $event.checked" matTooltip="{{ 'vendor-recipe.settings.item-set.fill-greedy-tooltip' | translate }}">
+      {{ 'vendor-recipe.settings.item-set.fill-greedy' | translate }}
+    </mat-slide-toggle>
+  </div>
+  <div class="col-3">
+    <mat-form-field>
+      <mat-label>{{ 'vendor-recipe.settings.item-set.identified-item-usage' | translate }}</mat-label>
+      <mat-select [(value)]="settings.identifiedItemUsage">
+        <mat-option *ngFor="let itemUsageType of itemUsageTypes.keys" [value]="itemUsageType" matTooltip="{{ 'vendor-recipe.settings.item-set.identified-item-usage-tooltips.' + (itemUsageTypes.values[itemUsageType] | lowercase) | translate }}" matTooltipClass="mat-tooltip-lighter" matTooltipPosition="left">
+          {{ 'vendor-recipe.settings.item-usage.' + (itemUsageTypes.values[itemUsageType] | lowercase) | translate }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div class="col-3">
+    <mat-form-field>
+      <mat-label>{{ 'vendor-recipe.settings.item-set.quality-item-usage' | translate }}</mat-label>
+      <mat-select [(value)]="settings.qualityItemUsage">
+        <mat-option *ngFor="let itemUsageType of itemUsageTypes.keys" [value]="itemUsageType" matTooltip="{{ 'vendor-recipe.settings.item-set.quality-item-usage-tooltips.' + (itemUsageTypes.values[itemUsageType] | lowercase) | translate }}" matTooltipClass="mat-tooltip-lighter" matTooltipPosition="left">
+          {{ 'vendor-recipe.settings.item-usage.' + (itemUsageTypes.values[itemUsageType] | lowercase) | translate }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+</div>

@@ -3,39 +3,44 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "poe-overlay": {
+    "renderer": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss"
         }
       },
-      "root": "",
-      "sourceRoot": "src",
+      "root": "projects/renderer",
+      "sourceRoot": "projects/renderer/src",
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist",
-            "index": "src/index.html",
-            "main": "src/main.ts",
-            "polyfills": "src/polyfills.ts",
-            "tsConfig": "tsconfig.app.json",
-            "aot": true,
+            "outputPath": "dist/renderer",
+            "index": "projects/renderer/src/index.html",
+            "browser": "projects/renderer/src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "projects/renderer/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
             "assets": [
-              "src/favicon.ico",
-              "src/favicon.png",
-              "src/favicon@2x.png",
-              "src/favicon@3x.png",
-              "src/favicon@4x.png",
-              "src/favicon256x256.png",
-              "src/assets/i18n"
+              "projects/renderer/src/favicon.ico",
+              "projects/renderer/src/favicon.png",
+              "projects/renderer/src/favicon@2x.png",
+              "projects/renderer/src/favicon@3x.png",
+              "projects/renderer/src/favicon@4x.png",
+              "projects/renderer/src/favicon256x256.png",
+              "projects/renderer/src/assets/i18n"
             ],
             "styles": [
-              "src/styles.scss",
-              "src/assets/icons/material-icons.css",
-              "src/assets/fonts/fonts.css"
+              "projects/renderer/src/styles.scss",
+              "projects/renderer/src/assets/icons/material-icons.css",
+              "projects/renderer/src/assets/fonts/fonts.css"
+            ],
+            "allowedCommonJsDependencies": [
+              "*"
             ],
             "scripts": []
           },
@@ -43,86 +48,75 @@
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
+                  "replace": "projects/renderer/src/environments/environment.ts",
+                  "with": "projects/renderer/src/environments/environment.prod.ts"
                 }
               ],
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
-              "extractLicenses": true,
-              "vendorChunk": false,
-              "buildOptimizer": true,
+              "extractLicenses": true,           
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "32mb",
-                  "maximumError": "64mb"
+                  "maximumWarning": "64mb",
+                  "maximumError": "128mb"
                 },
                 {
                   "type": "anyComponentStyle",
                   "maximumWarning": "6kb",
                   "maximumError": "10kb"
                 }
-              ]
+              ],
+              "baseHref": "./"
+            },
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
             }
-          }
+          },
+          "defaultConfiguration": "production"
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
-          "options": {
-            "browserTarget": "poe-overlay:build"
-          },
           "configurations": {
             "production": {
-              "browserTarget": "poe-overlay:build:production"
+              "buildTarget": "renderer:build:production"
+            },
+            "development": {
+              "buildTarget": "renderer:build:development"
             }
-          }
+          },
+          "defaultConfiguration": "development"
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "poe-overlay:build"
+            "buildTarget": "renderer:build"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "src/test.ts",
-            "polyfills": "src/polyfills.ts",
-            "tsConfig": "tsconfig.spec.json",
-            "karmaConfig": "karma.conf.js",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "projects/renderer/tsconfig.spec.json",
+            "inlineStyleLanguage": "scss",
             "assets": [
-              "src/favicon.ico",
-              "src/favicon.png",
-              "src/favicon@2x.png",
-              "src/favicon@3x.png",
-              "src/favicon@4x.png",
-              "src/assets/i18n"
+              "projects/renderer/src/favicon.ico",
+              "projects/renderer/src/assets"
             ],
             "styles": [
-              "src/styles.scss",
-              "src/assets/icons/material-icons.css",
-              "src/assets/fonts/fonts.css"
+              "projects/renderer/src/styles.scss"
             ],
             "scripts": []
           }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "tsconfig.app.json",
-              "tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
         }
       }
-    }},
-  "defaultProject": "poe-overlay"
+    }
+  }
 }

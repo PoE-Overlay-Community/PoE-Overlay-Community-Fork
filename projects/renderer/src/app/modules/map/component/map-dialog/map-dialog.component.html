@@ -1,0 +1,74 @@
+<div appDrag=".cdk-overlay-pane">
+  <app-item-frame
+    class="map-frame"
+    [item]="data.item"
+    [properties]="properties"
+    [separator]="true"
+    [opacity]="data.settings.dialogOpacity"
+  >
+    <ng-container ngProjectAs="properties">
+      <div matTooltip="{{ 'map.layout-rating-info' | translate }}">
+        {{ 'map.layout-rating' | translate }}:
+        <span class="white">{{ (map || {}).layoutRating || '-' }}</span>
+      </div>
+      <div matTooltip="{{ 'map.boss-rating-info' | translate }}">
+        {{ 'map.boss-rating' | translate }}:
+        <span class="white">{{ (map || {}).bossRating || '-' }}/5</span>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="!map">
+      <div>{{ 'map.not-found' | translate }}</div>
+    </ng-container>
+    <ng-container *ngIf="map">
+      <div class="description">
+        <ng-container *ngIf="map.layout">
+          <mat-expansion-panel>
+            <mat-expansion-panel-header expandedHeight="20px" collapsedHeight="20px">
+              <mat-panel-title>{{ 'map.map-layout' | translate }}</mat-panel-title>
+            </mat-expansion-panel-header>
+            <span [innerHtml]="nl2br(map.layout)"></span>
+          </mat-expansion-panel>
+          <app-item-frame-separator [item]="data.item"
+                                    *ngIf="map.bossCount || map.bosses?.length || map.encounter || map.items?.length || map.url">
+          </app-item-frame-separator>
+        </ng-container>
+        <ng-container *ngIf="map.bossCount || map.bosses?.length">
+          <div class="description">
+            <div class="light-grey" *ngIf="(map.bossCount || map.bosses.length) <= 1">{{ 'map.map-boss' | translate }}</div>
+            <div class="light-grey" *ngIf="(map.bossCount || map.bosses.length) > 1">{{ 'map.map-bosses' | translate }} ({{ map.bossCount }})</div>
+            <ul class="bosses" *ngIf="map.bosses?.length">
+              <li *ngFor="let boss of map.bosses">{{ boss }}</li>
+            </ul>
+            <app-item-frame-separator [item]="data.item"
+                                      *ngIf="map.encounter || map.items?.length || map.url">
+            </app-item-frame-separator>
+          </div>
+        </ng-container>
+        <ng-container *ngIf="map.encounter">
+          <mat-expansion-panel>
+            <mat-expansion-panel-header expandedHeight="20px" collapsedHeight="20px">
+              <mat-panel-title>{{ 'map.map-encounter' | translate }}</mat-panel-title>
+            </mat-expansion-panel-header>
+            <span [innerHtml]="nl2br(map.encounter)"></span>
+          </mat-expansion-panel>
+          <app-item-frame-separator [item]="data.item" *ngIf="map.items?.length || map.url">
+          </app-item-frame-separator>
+        </ng-container>
+        <ng-container *ngIf="map.items?.length">
+          <div>
+            <span *ngFor="let item of map.items; let last = last">
+              <span [class.light-grey]="(data.item.properties.areaLevel.value.value) > item.dropLevel">{{ item.item }} (Lv {{ item.dropLevel }})</span><span *ngIf="!last">, </span>
+            </span>
+          </div>
+          <app-item-frame-separator [item]="data.item" *ngIf="map.url">
+          </app-item-frame-separator>
+        </ng-container>
+        <ng-container *ngIf="map.url">
+          <div class="clickable" (click)="onMapClick($event)" matTooltip="{{ (data.settings.evaluateBrowserAlwaysExternal ? 'app.clickable-external-only' : 'app.clickable') | translate }}">
+            {{ 'map.open-wiki' | translate }}
+          </div>
+        </ng-container>
+      </div>
+    </ng-container>
+  </app-item-frame>
+</div>

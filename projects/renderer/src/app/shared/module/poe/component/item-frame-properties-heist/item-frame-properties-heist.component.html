@@ -1,0 +1,121 @@
+<div *ngIf="item.properties.heist.objectiveValue; else staticObjectiveName" class="firstLine">
+  <app-item-frame-query [(property)]="queryItem.properties.heist.objectiveValue" [value]="item.properties.heist.objectiveValue">
+    <app-item-frame-value-group>
+      <ng-container *ngFor="let part of getHeistObjectiveParts(); let index = index">
+        <ng-container [ngSwitch]="index">
+          <ng-container *ngSwitchCase="0">
+            <span>{{ part }}</span>
+            <span class="white">{{ item.properties.heist.objectiveName }}</span>
+          </ng-container>
+          <ng-container *ngSwitchCase="1">
+            <span>{{ part }}</span>
+            <span class="white">{{ 'HeistObjectiveValue' + item.properties.heist.objectiveValue | clientString: language }}</span>
+          </ng-container>
+          <ng-container *ngSwitchDefault>
+            <span>{{ part }}</span>
+          </ng-container>
+        </ng-container>
+      </ng-container>
+    </app-item-frame-value-group>
+  </app-item-frame-query>
+</div>
+<div *ngIf="item.properties.heist.wingsRevealed">
+  <ng-container *ngTemplateOutlet="
+                value;
+                context: {
+                  prop: item.properties.heist,
+                  name: 'wingsRevealed',
+                  key: 'ItemDisplayHeistBlueprintWings',
+                  range: true
+                }
+                ">
+  </ng-container>
+</div>
+<div *ngIf="item.properties.heist.escapeRoutes">
+  <ng-container *ngTemplateOutlet="
+                value;
+                context: {
+                  prop: item.properties.heist,
+                  name: 'escapeRoutes',
+                  key: 'ItemDisplayHeistBlueprintEscapeRooms',
+                  range: true
+                }
+                ">
+  </ng-container>
+</div>
+<div *ngIf="item.properties.heist.rewardRooms">
+  <ng-container *ngTemplateOutlet="
+                value;
+                context: {
+                  prop: item.properties.heist,
+                  name: 'rewardRooms',
+                  key: 'ItemDisplayHeistBlueprintRewardRooms',
+                  range: true
+                }
+                ">
+  </ng-container>
+</div>
+<div *ngFor="let requiredSkill of item.properties.heist.requiredSkills; let index = index">
+  <app-item-frame-query [(property)]="queryItem.properties.heist.requiredSkills[index]" [value]="requiredSkill">
+    <app-item-frame-value-group>
+      <ng-container *ngFor="let part of getHeistJobParts(); let partIndex = index">
+        <ng-container [ngSwitch]="partIndex">
+          <ng-container *ngSwitchCase="0">
+            <span>{{ part }}</span>
+            <span class="white">{{ 'HeistJob' + heistJobs.values[requiredSkill.job] | clientString: language }}</span>
+          </ng-container>
+          <ng-container *ngSwitchCase="1">
+            <span>{{ part }}</span>
+            <span class="white">
+              <app-item-frame-value [(value)]="requiredSkill.level"
+                                    [minRange]="minRange"
+                                    [maxRange]="maxRange">
+              </app-item-frame-value>
+            </span>
+          </ng-container>
+          <ng-container *ngSwitchDefault>
+            <span>{{ part }}</span>
+          </ng-container>
+        </ng-container>
+      </ng-container>
+    </app-item-frame-value-group>
+  </app-item-frame-query>
+</div>
+
+<!-- Templates -->
+<ng-template #staticObjectiveName>
+  <span>{{ ('ItemDisplayHeistContractObjective' | clientString: language).replace('{0}', '') }}</span>
+  <span class="white">{{ item.properties.heist.objectiveName }}</span>
+</ng-template>
+
+<ng-template #value
+             let-prop="prop"
+             let-name="name"
+             let-key="key"
+             let-range="range"
+             let-disabled="disabled">
+  <app-item-frame-query [(property)]="queryItem.properties.heist[name]"
+                        [value]="prop[name]"
+                        [disabled]="disabled">
+    <app-item-frame-value-group>
+      <span>{{ key | clientString: language }}:&nbsp;</span>
+      <span class="white">
+        <app-item-frame-value [(value)]="prop[name]"
+                              [minRange]="range ? minRange : 0"
+                              [maxRange]="range ? maxRange : 0.5">
+        </app-item-frame-value>
+      </span>
+    </app-item-frame-value-group>
+  </app-item-frame-query>
+</ng-template>
+
+<ng-template #queryRange let-prop="prop" let-name="name" let-key="key">
+  <app-item-frame-query [(property)]="queryItem.properties.heist[name]" [value]="prop">
+    <ng-container *ngTemplateOutlet="staticRange; context: { prop: prop, key: key }"></ng-container>
+  </app-item-frame-query>
+</ng-template>
+
+<ng-template #staticRange let-prop="prop" let-key="key">
+  <span>{{ key | clientString: language }}:&nbsp;</span>
+  <span class="white">{{ prop.text }}</span>
+</ng-template>

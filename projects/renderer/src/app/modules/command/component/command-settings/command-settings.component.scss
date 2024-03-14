@@ -1,0 +1,15 @@
+.card {
+  position: relative;
+
+  .remove {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+  }
+}
+
+.card-button {
+  padding: 16px;
+  width: 100%;
+}

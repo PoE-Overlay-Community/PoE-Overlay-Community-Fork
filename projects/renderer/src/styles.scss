@@ -1,0 +1,277 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$poe-overlay-primary: mat.define-palette(mat.$indigo-palette);
+$poe-overlay-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$poe-overlay-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$poe-overlay-theme: mat.define-light-theme((
+  color: (
+    primary: $poe-overlay-primary,
+    accent: $poe-overlay-accent,
+    warn: $poe-overlay-warn,
+  )
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($poe-overlay-theme);
+
+@import './styles/bootstrap';
+@import './styles/theme';
+@import './styles/scrollbar';
+@import './styles/variables';
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+  user-select: none;
+}
+
+.clickable {
+  cursor: pointer;
+  pointer-events: all;
+}
+
+.interactable {
+  pointer-events: all;
+}
+
+.mat-snack-bar-container.snack-bar-service {
+  min-width: 0;
+  border-radius: 2px;
+  background-color: rgb(35, 35, 35);
+
+  &.error {
+    background-color: $red;
+  }
+
+  &.warning {
+    background-color: $orange;
+  }
+
+  &.success {
+    background-color: $purple;
+  }
+}
+
+.mat-slide-toggle {
+  margin-bottom: 12px;
+}
+
+.backdrop-fullsize + .cdk-global-overlay-wrapper {
+  .mat-dialog-container {
+    border-radius: 2px;
+    padding: 0;
+    margin: 0;
+  }
+
+  .mat-dialog-content,
+  .mat-dialog-actions {
+    margin: 0;
+    padding: 0;
+  }
+
+  .mat-dialog-actions {
+    padding: 0 12px;
+  }
+}
+
+.cdk-overlay-dark-backdrop {
+  background: rgba(0, 0, 0, 0.01);
+
+  & + .cdk-global-overlay-wrapper {
+    .mat-dialog-container {
+      box-shadow: none;
+      background: none;
+      border-radius: 0;
+      padding: 0;
+    }
+  }
+}
+
+.mat-form-field {
+  width: 100%;
+}
+
+mat-label {
+  display: block;
+}
+
+mat-card {
+  margin-bottom: 12px;
+
+  > mat-label {
+    margin-bottom: 12px;
+  }
+}
+
+.tooltip-val {
+  padding: 2px !important;
+}
+
+.mat-progress-bar {
+  > .mat-progress-bar-background {
+    fill: none;
+  }
+
+  > .mat-progress-bar-buffer {
+    background: none;
+  }
+}
+
+.mat-tooltip {
+  background-color: rgb(35, 35, 35);
+  font-size: 14px;
+  white-space: pre-line;
+
+  &.width-400 {
+    max-width: 400px;
+  }
+
+  &.width-500 {
+    max-width: 500px;
+  }
+
+  &.width-600 {
+    max-width: 600px;
+  }
+}
+
+.mod-icon {
+  width: 16px;
+  height: 16px;
+  transform: translateY(3px);
+  display: inline-block;
+
+  &.shaper {
+    background-image: url('assets/poe/item/mod-icons/shaper-icon.png');
+    background-size: contain;
+  }
+
+  &.elder {
+    background-image: url('assets/poe/item/mod-icons/elder-icon.png');
+    background-size: contain;
+  }
+
+  &.crusader {
+    background-image: url('assets/poe/item/mod-icons/crusader-icon.png');
+    background-size: contain;
+  }
+
+  &.redeemer {
+    background-image: url('assets/poe/item/mod-icons/redeemer-icon.png');
+    background-size: contain;
+  }
+
+  &.hunter {
+    background-image: url('assets/poe/item/mod-icons/hunter-icon.png');
+    background-size: contain;
+  }
+
+  &.warlord {
+    background-image: url('assets/poe/item/mod-icons/warlord-icon.png');
+    background-size: contain;
+  }
+
+  &.delve {
+    background-image: url('assets/poe/item/mod-icons/minimap-icons.png');
+    background-position-x: -48px;
+    background-position-y: -48px;
+    background-size: 224px 704px;
+  }
+
+  &.incursion {
+    background-image: url('assets/poe/item/mod-icons/minimap-icons.png');
+    background-position-x: -208px;
+    background-position-y: -32px;
+    background-size: 224px 704px;
+  }
+
+  &.veiled {
+    background-image: url('assets/poe/item/mod-icons/veiled-icon.png');
+    background-size: contain;
+  }
+
+  &.essence {
+    background-image: url('assets/poe/item/mod-icons/minimap-icons.png');
+    background-position-x: -208px;
+    background-position-y: -16px;
+    background-size: 224px 704px;
+  }
+
+  &.bestiary {
+    background-image: url('assets/poe/item/mod-icons/minimap-icons.png');
+    background-position-x: -96px;
+    background-position-y: -32px;
+    background-size: 224px 704px;
+  }
+}
+  
+.vendor-recipe-icon {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 65%;
+  border-radius: 50%;
+
+  &.amulets {
+    background-image: url('assets/icons/VendorRecipes/amulet.png');
+  }
+
+  &.belts {
+    background-image: url('assets/icons/VendorRecipes/belt.png')
+  }
+
+  &.boots {
+    background-image: url('assets/icons/VendorRecipes/boots.png')
+  }
+
+  &.chests {
+    background-image: url('assets/icons/VendorRecipes/chest.png')
+  }
+
+  &.gloves {
+    background-image: url('assets/icons/VendorRecipes/gloves.png')
+  }
+
+  &.helmets {
+    background-image: url('assets/icons/VendorRecipes/helmet.png')
+  }
+
+  &.rings {
+    background-image: url('assets/icons/VendorRecipes/ring.png')
+  }
+
+  &.weapons, &.onehandedweapons, &.twohandedweapons {
+    background-image: url('assets/icons/VendorRecipes/weapons.png')
+  }
+
+  &.gems {
+    background-image: url('assets/icons/VendorRecipes/gems.png')
+  }
+
+  &.flasks {
+    background-image: url('assets/icons/VendorRecipes/flask.png')
+  }
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
