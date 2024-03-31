@@ -5,7 +5,7 @@ export const environment = {
     countryUrl: 'https://{country}.pathofexile.com/',
     koreanUrl: 'https://poe.game.daum.net/',
     simplifiedChineseUrl: 'https://poe.game.qq.com/',
-    traditionalChineseUrl: 'https://web.poe.garena.tw/',
+    traditionalChineseUrl: 'https://pathofexile.tw/',
   },
   wiki: {
     baseUrl: 'https://www.poewiki.net',
@@ -23,6 +23,6 @@ export const environment = {
     'https://*.pathofexile.com/*',
     'https://poe.game.daum.net/*',
     'https://poe.game.qq.com/*',
-    'https://web.poe.garena.tw/*',
+    'https://pathofexile.tw/*',
   ],
 }
