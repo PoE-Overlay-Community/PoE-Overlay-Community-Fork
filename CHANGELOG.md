@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.8.32 (2024-03-31)
+
+- Updated the PoE Assets using PoE Asset Updater (commit 2f173b0) and PoE Client v3.24.0 (hotfix 6)
+- Added support for 3.24 (necropolis league) price-checking and visuals for 'Allflames' and 'Filled Coffins'
+  - Mods on Coffins are auto-selected
+- Added support for price-checking voidstones
+- Added support to collapse trade notifications when clicking a trade button
+- Added support to show oils on ring annointments
+  - Replaced annointments.json with annointsments-v2.json
+- Updated the Traditional Chinese web URL
+- Fixed 3 missing quality types in the properties item section parser
+
 ## 0.8.31 (2023-12-23)
 
 - Fixed an issue when evaluating socketless items
