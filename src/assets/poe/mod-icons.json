@@ -251,10 +251,14 @@
 		"Essenciais": "essence",
 		"Essencial": "essence",
 		"Essências": "essence",
+		"da Fenumus": "bestiary",
 		"de Craiceann": "bestiary",
 		"de Farrul": "bestiary",
 		"de Fenumus": "bestiary",
-		"de Saqawal": "bestiary"
+		"de Saqawal": "bestiary",
+		"do Craiceann": "bestiary",
+		"do Farrul": "bestiary",
+		"do Saqawal": "bestiary"
 	},
 	"Russian": {
 		"Возвышенная созданная": "shaper",
@@ -703,7 +707,11 @@
 		"de Craïcéann": "bestiary",
 		"de Farrul": "bestiary",
 		"de Fénumus": "bestiary",
-		"de Saqawal": "bestiary"
+		"de Saqawal": "bestiary",
+		"of Craiceann": "bestiary",
+		"of Farrul": "bestiary",
+		"of Fenumus": "bestiary",
+		"of Saqawal": "bestiary"
 	},
 	"Spanish": {
 		"de Creación elevada": "shaper",

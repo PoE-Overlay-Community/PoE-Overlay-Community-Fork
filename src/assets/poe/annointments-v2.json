@@ -2419,7 +2419,7 @@
 			"Mushrune10",
 			"Mushrune11"
 		],
-		"blight_shocknova_tower_shock_repeats_with_area_effect_+%": [
+		"blight_shocknova_tower_shock_repeats_with_area_effect_+% blight_shocknova_tower_shock_additional_repeats": [
 			"Mushrune9",
 			"Mushrune12"
 		],
@@ -2427,7 +2427,7 @@
 			"Mushrune11",
 			"Mushrune11"
 		],
-		"blight_fireball_tower_additional_projectiles_+": [
+		"blight_fireball_tower_additional_projectiles_+ blight_fireball_tower_projectiles_nova": [
 			"Mushrune10",
 			"Mushrune12"
 		],
