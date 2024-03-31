@@ -143,7 +143,7 @@ export class ItemSectionPropertiesParserService implements ItemSectionParserServ
       phraseIdx++//16
       props.mapPacksize = this.parseValueProperty(line, phrases[phraseIdx], props.mapPacksize)
       phraseIdx++//17
-      for (let quality = 0; quality < 8; quality++, phraseIdx++) {
+      for (let quality = 0; quality < 11; quality++, phraseIdx++) {//18-28
         const old = props.quality
         props.quality = this.parseValueProperty(line, phrases[phraseIdx], old)
         if (props.quality !== old) {
@@ -151,7 +151,7 @@ export class ItemSectionPropertiesParserService implements ItemSectionParserServ
         }
       }
       props.durability = this.parseValueProperty(line, phrases[phraseIdx], props.durability)
-      phraseIdx++//26
+      phraseIdx++//29
       props.storedExperience = this.parseValueProperty(line, phrases[phraseIdx], props.storedExperience)
     }
 
@@ -250,8 +250,11 @@ export class ItemSectionPropertiesParserService implements ItemSectionParserServ
       `${this.clientString.translate('Quality5')}: `,//22
       `${this.clientString.translate('Quality6')}: `,//23
       `${this.clientString.translate('Quality7')}: `,//24
-      `${this.clientString.translate('ItemDisplayHarvestBoosterUses')}: `,//25
-      `${this.clientString.translate('ItemDisplayStoredExperience')}: `,//26
+      `${this.clientString.translate('Quality8')}: `,//25
+      `${this.clientString.translate('Quality9')}: `,//26
+      `${this.clientString.translate('Quality10')}: `,//27
+      `${this.clientString.translate('ItemDisplayHarvestBoosterUses')}: `,//28
+      `${this.clientString.translate('ItemDisplayStoredExperience')}: `,//29
     ]
   }
 }
