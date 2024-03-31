@@ -28,41 +28,69 @@ export class ItemSectionRarityParserService implements ItemSectionParserService 
   public section = ItemSection.Rartiy
 
   public parse(item: ExportedItem, target: Item): Section {
-    const phrase = `${this.clientString.translate('ItemDisplayStringClass')}: `
+    const itemClassPhrase = `${this.clientString.translate('ItemDisplayStringClass')}: `
 
-    const raritySection = item.sections.find((x) => x.content.indexOf(phrase) === 0)
+    const raritySection = item.sections.find((x) => x.content.indexOf(itemClassPhrase) === 0)
     if (!raritySection) {
       console.warn('[ItemRarityParser] Failed to find Item Class.')
       return null
     }
 
     const lines = raritySection.lines
-    const rarityPhrase = `${this.clientString.translate('ItemDisplayStringRarity')}: `
+    let lineIdx: number = 0
 
-    const rarities = this.getRarities()
-    const rarityValue = lines[1].slice(rarityPhrase.length).trim()
+    // Lookup rarity based on item class
+    const itemClassRarities = this.getItemClassRarities()
+    const itemClassValue = lines[lineIdx].slice(itemClassPhrase.length).trim()
+    const itemClassRarity = itemClassRarities.find((x) => x.key === itemClassValue)
 
-    const rarity = rarities.find((x) => x.key === rarityValue)
-    if (!rarity) {
-      console.warn(`[ItemRarityParser] Failed to find Item Rarity for '${rarityValue}'.`)
-      return null
+    if (itemClassRarity) {
+      target.rarity = itemClassRarity.value
     }
 
-    target.rarity = rarity.value
+    lineIdx++
 
-    switch (lines.length) {
-      case 3:
-        target.type = lines[2].replace(/<<[^>>]*>>/g, '')
+    // Looks up rarity based on
+    if (!target.rarity) {
+      const rarityPhrase = `${this.clientString.translate('ItemDisplayStringRarity')}: `
+      const rarityLine = lines[lineIdx]
+
+      if (!rarityLine.startsWith(rarityPhrase)) {
+        console.warn(`[ItemRarityParser] Failed to find Item Rarity for '${rarityLine}' with Item Class '${itemClassValue}'.`)
+        return null
+      }
+
+      const rarities = this.getRarities()
+      const rarityValue = rarityLine.slice(rarityPhrase.length).trim()
+
+      const rarity = rarities.find((x) => x.key === rarityValue)
+      if (!rarity) {
+        console.warn(`[ItemRarityParser] Failed to find Item Rarity for '${rarityValue}' and Item Class '${itemClassValue}'.`)
+        return null
+      }
+
+      target.rarity = rarity.value
+
+      lineIdx++
+    }
+
+    const linesRemaining = lines.length - lineIdx
+    switch (linesRemaining) {
+      case 1:
+        target.type = lines[lineIdx].replace(/<<[^>>]*>>/g, '')
         target.typeId = this.baseItemTypesService.searchId(target.type) || this.baseItemTypesService.searchId(target.type, Language.English)
+        lineIdx++
         break
-      case 4:
-        target.name = lines[2].replace(/<<[^>>]*>>/g, '')
+      case 2:
+        target.name = lines[lineIdx].replace(/<<[^>>]*>>/g, '')
         target.nameId = this.wordService.search(target.name) || this.wordService.search(target.name, Language.English)
-        target.type = lines[3].replace(/<<[^>>]*>>/g, '')
+        lineIdx++
+        target.type = lines[lineIdx].replace(/<<[^>>]*>>/g, '')
         target.typeId = this.baseItemTypesService.searchId(target.type) || this.baseItemTypesService.searchId(target.type, Language.English)
+        lineIdx++
         break
       default:
-        console.warn(`[ItemRarityParser] Incorrect line count for this section. Expected 3~4, found ${lines.length}`)
+        console.warn(`[ItemRarityParser] Incorrect line count for this section. Expected 1~2, found ${lines.length}`)
         return null
     }
 
@@ -175,6 +203,18 @@ export class ItemSectionRarityParserService implements ItemSectionParserService 
     }
 
     return raritySection
+  }
+
+  private getItemClassRarities(): {
+    key: string
+    value: ItemRarity
+  }[] {
+    return [
+      {
+        key: this.clientString.translate('ItemClassNecropolisPack'),
+        value: ItemRarity.Necropolis,
+      },
+    ]
   }
 
   private getRarities(): {

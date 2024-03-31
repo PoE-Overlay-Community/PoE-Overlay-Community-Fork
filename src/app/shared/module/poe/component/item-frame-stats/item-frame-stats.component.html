@@ -11,6 +11,7 @@
           last &&
           (groups.scourge ||
             groups.implicit ||
+            groups.necropolis ||
             groups.fractured ||
             groups.explicit ||
             groups.monster ||
@@ -27,16 +28,23 @@
         <ng-container *ngTemplateOutlet="statQuery; context: { stat: stat }"></ng-container>
       </div>
       <app-item-frame-separator [item]="item"
-                                *ngIf="last && (groups.implicit || groups.fractured || groups.explicit || groups.monster || groups.ultimatum || groups.sanctum || groups.crafted)">
+                                *ngIf="last && (groups.implicit || groups.necropolis || groups.fractured || groups.explicit || groups.monster || groups.ultimatum || groups.sanctum || groups.crafted)">
       </app-item-frame-separator>
     </ng-container>
   </ng-container>
-  <ng-container *ngIf="groups.implicit">
-    <ng-container *ngFor="let stat of groups.implicit">
+  <ng-container *ngFor="let stat of groups.implicit">
+    <div class="purpel">
+      <ng-container *ngTemplateOutlet="statQuery; context: { stat: stat }"></ng-container>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="groups.necropolis">
+    <ng-container *ngFor="let stat of groups.necropolis">
       <div class="purpel">
         <ng-container *ngTemplateOutlet="statQuery; context: { stat: stat }"></ng-container>
       </div>
     </ng-container>
+  </ng-container>
+  <ng-container *ngIf="groups.implicit || groups.necropolis">
     <app-item-frame-separator [item]="item" *ngIf="groups.fractured || groups.explicit || groups.monster || groups.ultimatum || groups.sanctum || groups.crafted || groups.pseudo">
     </app-item-frame-separator>
   </ng-container>

@@ -215,6 +215,7 @@ export class EvaluateSettingsComponent implements UserSettingsComponent {
       StatType.Scourge,
       StatType.Crucible,
       StatType.Sanctum,
+      StatType.Necropolis,
     ]
     types.forEach((type) => {
       const stats = this.statsProvider.provide(type)

@@ -186,6 +186,8 @@ export class ItemSearchFiltersTypeService implements ItemSearchFiltersService {
       case ItemCategory.AzmeriTincture:
       case ItemCategory.AzmeriCharm:
       case ItemCategory.AzmeriTincture:
+      // necropolis
+      case ItemCategory.NecropolisPack:
         query.filters.type_filters.filters.category = {
           option: item.category,
         }

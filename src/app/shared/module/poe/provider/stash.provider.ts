@@ -41,6 +41,7 @@ const ITEM_FRAME_TO_RARITY_MAPPING = {
   //7 = Quest
   //8 = Prophecy
   [9]: ItemRarity.UniqueRelic,
+  [11]: ItemRarity.Necropolis,
 }
 
 @Injectable({

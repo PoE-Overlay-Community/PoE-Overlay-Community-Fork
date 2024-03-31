@@ -12,7 +12,10 @@
   >
   </app-item-frame-header>
 
-  <div class="detail" [class.popover-open]="filterOptionsOpen">
+  <div
+    class="detail"
+    [class.popover-open]="filterOptionsOpen"
+  >
     <!-- properties -->
     <ng-container *ngIf="item.properties">
       <app-item-frame-properties

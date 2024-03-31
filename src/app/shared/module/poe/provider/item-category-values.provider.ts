@@ -103,7 +103,19 @@ export class ItemCategoryValuesProvider {
       }
       case ItemCategory.MapFragment: {
         const key = `${leagueId}_${ItemCategory.MapFragment}`
-        return this.fetch(key, () => this.fetchCurrency(leagueId, CurrencyOverviewType.Fragment))
+        return forkJoin([
+          this.fetch(key, () => this.fetchCurrency(leagueId, CurrencyOverviewType.Fragment)),
+          this.fetch(`${leagueId}_${ItemCategory.Currency}`, () => this.fetchCurrency(leagueId, CurrencyOverviewType.Currency)),
+        ]).pipe(
+          map(([fragments, currencies]) => {
+            return {
+              values: [
+                ...fragments.values,
+                ...currencies.values,
+              ],
+            }
+          })
+        )
       }
       case ItemCategory.MapInvitation: {
         const key = `${leagueId}_${ItemCategory.MapInvitation}`

@@ -193,9 +193,10 @@ export class EvaluateQueryItemProvider {
         queryItem.stats = item.stats.map((stat) => (item.corrupted || item.mirrored || item.unmodifiable || !this.isRelatedToAnImplicitStat(stat)) ? stat : undefined)
       } else {
         queryItem.stats = item.stats.map((stat) => {
-          // Auto-select enchanted stats or stats with a mod icon
+          // Auto-select enchanted stats, stats with a mod icon or necropolis stats
           if ((stat.type === StatType.Enchant && settings.evaluateQueryDefaultStatsEnchants) ||
-            (settings.evaluateQueryDefaultStatsModIcon && this.modIconService.get(stat.modName))) {
+            (settings.evaluateQueryDefaultStatsModIcon && this.modIconService.get(stat.modName)) ||
+            item.properties?.necropolis) {
             return stat
           }
           const key = `${stat.type}.${stat.tradeId}`

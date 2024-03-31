@@ -112,6 +112,7 @@ export enum TradeStatsResultLabel {
   Scourge = 'Scourge',
   Crucible = 'Crucible',
   Sanctum = 'Sanctum',
+  Necropolis = 'Necropolis',
 }
 
 export interface TradeStatsResultResultEntry {
