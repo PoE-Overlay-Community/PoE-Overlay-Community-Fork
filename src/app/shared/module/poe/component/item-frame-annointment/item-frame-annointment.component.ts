@@ -21,6 +21,6 @@ export class ItemFrameAnnointmentComponent {
   constructor(private readonly annointmentsService: AnnointmentsService) {}
 
   public getOils(): string[] {
-    return this.annointmentsService.get(this.itemStat.id, this.itemStat.predicate)
+    return this.annointmentsService.get(this.item, this.itemStat.id, this.itemStat.predicate)
   }
 }

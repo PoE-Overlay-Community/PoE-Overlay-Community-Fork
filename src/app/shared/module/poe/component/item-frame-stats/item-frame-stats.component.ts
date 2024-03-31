@@ -55,7 +55,7 @@ export class ItemFrameStatsComponent {
   }
 
   public isAnnointmentStat(id: string): boolean {
-    return this.annointmentService.isAnnointmentStat(id)
+    return this.annointmentService.isAnnointmentStat(this.item, id)
   }
 
   public getModIcon(modName: string): string {
