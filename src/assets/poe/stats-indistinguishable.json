@@ -20,18 +20,6 @@
 			"stat_2543977012": [
 				"stat_1535626285"
 			],
-			"stat_4237190083": [
-				"stat_1269219558"
-			],
-			"stat_1269219558": [
-				"stat_4237190083"
-			],
-			"stat_57434274": [
-				"stat_3666934677"
-			],
-			"stat_3666934677": [
-				"stat_57434274"
-			],
 			"stat_561307714": [
 				"stat_2881111359",
 				"stat_19803471"
@@ -74,11 +62,23 @@
 			"stat_751813227": [
 				"stat_2023107756"
 			],
+			"stat_4237190083": [
+				"stat_1269219558"
+			],
+			"stat_1269219558": [
+				"stat_4237190083"
+			],
 			"stat_2530372417": [
 				"stat_1702195217"
 			],
 			"stat_1702195217": [
 				"stat_2530372417"
+			],
+			"stat_57434274": [
+				"stat_3666934677"
+			],
+			"stat_3666934677": [
+				"stat_57434274"
 			],
 			"stat_818778753": [
 				"stat_3301510262"
@@ -120,12 +120,6 @@
 				"stat_665823128",
 				"stat_3023957681"
 			],
-			"stat_928701213": [
-				"indexable_support_86"
-			],
-			"indexable_support_86": [
-				"stat_928701213"
-			],
 			"stat_1122134690": [
 				"indexable_support_8"
 			],
@@ -138,23 +132,17 @@
 			"indexable_support_54": [
 				"stat_228165595"
 			],
-			"stat_2457517302": [
-				"stat_1934713036"
-			],
-			"stat_1934713036": [
-				"stat_2457517302"
-			],
 			"stat_2406605753": [
 				"stat_1699499433"
 			],
 			"stat_1699499433": [
 				"stat_2406605753"
 			],
-			"stat_1211769158": [
-				"stat_3417711605"
+			"stat_928701213": [
+				"indexable_support_86"
 			],
-			"stat_3417711605": [
-				"stat_1211769158"
+			"indexable_support_86": [
+				"stat_928701213"
 			],
 			"stat_2962840349": [
 				"indexable_support_15"
@@ -167,12 +155,6 @@
 			],
 			"stat_3640956958": [
 				"stat_2067062068"
-			],
-			"stat_3720936304": [
-				"indexable_support_69"
-			],
-			"indexable_support_69": [
-				"stat_3720936304"
 			],
 			"stat_2378288719": [
 				"stat_660313500"
@@ -216,23 +198,11 @@
 			"stat_1330109706": [
 				"stat_2561836520"
 			],
-			"stat_411460446": [
-				"indexable_support_128"
-			],
-			"indexable_support_128": [
-				"stat_411460446"
-			],
 			"stat_3235814433": [
 				"indexable_skill_29"
 			],
 			"indexable_skill_29": [
 				"stat_3235814433"
-			],
-			"stat_338121249": [
-				"stat_654274615"
-			],
-			"stat_654274615": [
-				"stat_338121249"
 			],
 			"stat_1001829678": [
 				"stat_1778298516"
@@ -246,17 +216,17 @@
 			"stat_18234720": [
 				"stat_2153364323"
 			],
-			"stat_1053326368": [
-				"stat_1619168299"
-			],
-			"stat_1619168299": [
-				"stat_1053326368"
-			],
 			"stat_2872815301": [
 				"stat_475518267"
 			],
 			"stat_475518267": [
 				"stat_2872815301"
+			],
+			"stat_3720936304": [
+				"indexable_support_69"
+			],
+			"indexable_support_69": [
+				"stat_3720936304"
 			],
 			"stat_1002855537": [
 				"indexable_support_3"
@@ -276,6 +246,18 @@
 			"indexable_support_77": [
 				"stat_2593773031"
 			],
+			"stat_338121249": [
+				"stat_654274615"
+			],
+			"stat_654274615": [
+				"stat_338121249"
+			],
+			"stat_411460446": [
+				"indexable_support_128"
+			],
+			"indexable_support_128": [
+				"stat_411460446"
+			],
 			"stat_3274973940": [
 				"indexable_support_142"
 			],
@@ -293,12 +275,6 @@
 			],
 			"indexable_support_33": [
 				"stat_254728692"
-			],
-			"stat_2653955271": [
-				"stat_1123291426"
-			],
-			"stat_1123291426": [
-				"stat_2653955271"
 			],
 			"stat_13669281": [
 				"indexable_support_74"
@@ -330,18 +306,6 @@
 			"stat_3549040753": [
 				"stat_2894297982"
 			],
-			"stat_808939569": [
-				"indexable_support_64"
-			],
-			"indexable_support_64": [
-				"stat_808939569"
-			],
-			"stat_2985291457": [
-				"indexable_support_46"
-			],
-			"indexable_support_46": [
-				"stat_2985291457"
-			],
 			"stat_550444281": [
 				"indexable_support_99"
 			],
@@ -353,6 +317,12 @@
 			],
 			"stat_2362265695": [
 				"stat_4212255859"
+			],
+			"stat_2653955271": [
+				"stat_1123291426"
+			],
+			"stat_1123291426": [
+				"stat_2653955271"
 			],
 			"stat_1384629003": [
 				"indexable_support_73"
@@ -366,17 +336,17 @@
 			"indexable_support_63": [
 				"stat_1337327984"
 			],
-			"stat_2259700079": [
-				"indexable_support_66"
-			],
-			"indexable_support_66": [
-				"stat_2259700079"
-			],
 			"stat_2572192375": [
 				"indexable_support_126"
 			],
 			"indexable_support_126": [
 				"stat_2572192375"
+			],
+			"stat_2259700079": [
+				"indexable_support_66"
+			],
+			"indexable_support_66": [
+				"stat_2259700079"
 			],
 			"stat_2680613507": [
 				"indexable_support_68"
@@ -384,11 +354,11 @@
 			"indexable_support_68": [
 				"stat_2680613507"
 			],
-			"stat_4066711249": [
-				"indexable_support_56"
+			"stat_2985291457": [
+				"indexable_support_46"
 			],
-			"indexable_support_56": [
-				"stat_4066711249"
+			"indexable_support_46": [
+				"stat_2985291457"
 			],
 			"stat_749770518": [
 				"stat_1866911844",
@@ -425,6 +395,12 @@
 			],
 			"stat_308396001": [
 				"stat_1177358866"
+			],
+			"stat_808939569": [
+				"indexable_support_64"
+			],
+			"indexable_support_64": [
+				"stat_808939569"
 			],
 			"stat_2420410470": [
 				"indexable_support_71"
@@ -468,23 +444,11 @@
 			"stat_435737693": [
 				"stat_3881647885"
 			],
-			"stat_4270096386": [
-				"stat_165218607"
-			],
-			"stat_165218607": [
-				"stat_4270096386"
-			],
 			"stat_2500442851": [
 				"stat_3819451758"
 			],
 			"stat_3819451758": [
 				"stat_2500442851"
-			],
-			"stat_3817220109": [
-				"stat_3959101898"
-			],
-			"stat_3959101898": [
-				"stat_3817220109"
 			],
 			"stat_1390285657": [
 				"indexable_support_18"
@@ -492,17 +456,17 @@
 			"indexable_support_18": [
 				"stat_1390285657"
 			],
+			"stat_1053326368": [
+				"stat_1619168299"
+			],
+			"stat_1619168299": [
+				"stat_1053326368"
+			],
 			"stat_3826977109": [
 				"indexable_support_50"
 			],
 			"indexable_support_50": [
 				"stat_3826977109"
-			],
-			"stat_1710508327": [
-				"indexable_support_23"
-			],
-			"indexable_support_23": [
-				"stat_1710508327"
 			],
 			"stat_4020144606": [
 				"indexable_support_127"
@@ -510,17 +474,23 @@
 			"indexable_support_127": [
 				"stat_4020144606"
 			],
-			"stat_2253286128": [
-				"stat_4070519133"
+			"stat_1710508327": [
+				"indexable_support_23"
 			],
-			"stat_4070519133": [
-				"stat_2253286128"
+			"indexable_support_23": [
+				"stat_1710508327"
 			],
-			"stat_2608615082": [
-				"indexable_support_49"
+			"stat_2457517302": [
+				"stat_1934713036"
 			],
-			"indexable_support_49": [
-				"stat_2608615082"
+			"stat_1934713036": [
+				"stat_2457517302"
+			],
+			"stat_4066711249": [
+				"indexable_support_56"
+			],
+			"indexable_support_56": [
+				"stat_4066711249"
 			],
 			"stat_3265951306": [
 				"stat_1979658770",
@@ -540,11 +510,29 @@
 			"stat_1291925008": [
 				"stat_3859865977"
 			],
-			"stat_503990161": [
-				"indexable_support_17"
+			"stat_2608615082": [
+				"indexable_support_49"
 			],
-			"indexable_support_17": [
-				"stat_503990161"
+			"indexable_support_49": [
+				"stat_2608615082"
+			],
+			"stat_2253286128": [
+				"stat_4070519133"
+			],
+			"stat_4070519133": [
+				"stat_2253286128"
+			],
+			"stat_4270096386": [
+				"stat_165218607"
+			],
+			"stat_165218607": [
+				"stat_4270096386"
+			],
+			"stat_3817220109": [
+				"stat_3959101898"
+			],
+			"stat_3959101898": [
+				"stat_3817220109"
 			],
 			"stat_438778966": [
 				"stat_913919528",
@@ -582,6 +570,12 @@
 			"indexable_support_125": [
 				"stat_1647529598"
 			],
+			"stat_1079239905": [
+				"indexable_support_137"
+			],
+			"indexable_support_137": [
+				"stat_1079239905"
+			],
 			"stat_3967845372": [
 				"stat_2213584313"
 			],
@@ -612,11 +606,11 @@
 			"indexable_support_115": [
 				"stat_1859244771"
 			],
-			"stat_1079239905": [
-				"indexable_support_137"
+			"stat_3417711605": [
+				"stat_1211769158"
 			],
-			"indexable_support_137": [
-				"stat_1079239905"
+			"stat_1211769158": [
+				"stat_3417711605"
 			],
 			"stat_4291066912": [
 				"stat_156080652"
@@ -624,17 +618,23 @@
 			"stat_156080652": [
 				"stat_4291066912"
 			],
+			"stat_503990161": [
+				"indexable_support_17"
+			],
+			"indexable_support_17": [
+				"stat_503990161"
+			],
 			"stat_906997920": [
 				"indexable_support_58"
 			],
 			"indexable_support_58": [
 				"stat_906997920"
 			],
-			"stat_715256302": [
-				"indexable_support_114"
+			"stat_3030692053": [
+				"indexable_support_27"
 			],
-			"indexable_support_114": [
-				"stat_715256302"
+			"indexable_support_27": [
+				"stat_3030692053"
 			],
 			"stat_3587013273": [
 				"indexable_support_57"
@@ -648,12 +648,6 @@
 			"indexable_support_65": [
 				"stat_407317553"
 			],
-			"stat_3030692053": [
-				"indexable_support_27"
-			],
-			"indexable_support_27": [
-				"stat_3030692053"
-			],
 			"stat_3718597497": [
 				"stat_3425526049",
 				"indexable_support_97"
@@ -665,6 +659,12 @@
 			"indexable_support_97": [
 				"stat_3718597497",
 				"stat_3425526049"
+			],
+			"stat_715256302": [
+				"indexable_support_114"
+			],
+			"indexable_support_114": [
+				"stat_715256302"
 			],
 			"stat_3036440332": [
 				"indexable_support_112"
@@ -702,12 +702,6 @@
 			"stat_992435560": [
 				"stat_3896241826"
 			],
-			"stat_2696557965": [
-				"indexable_support_36"
-			],
-			"indexable_support_36": [
-				"stat_2696557965"
-			],
 			"stat_4118987751": [
 				"stat_2916634441"
 			],
@@ -732,12 +726,6 @@
 			"indexable_support_75": [
 				"stat_2223565123"
 			],
-			"stat_3354027870": [
-				"indexable_support_51"
-			],
-			"indexable_support_51": [
-				"stat_3354027870"
-			],
 			"stat_3205239847": [
 				"stat_1029319062"
 			],
@@ -750,17 +738,17 @@
 			"stat_740728913": [
 				"stat_3430523735"
 			],
-			"stat_3237923082": [
-				"indexable_support_37"
-			],
-			"indexable_support_37": [
-				"stat_3237923082"
-			],
 			"stat_3375208082": [
 				"indexable_support_88"
 			],
 			"indexable_support_88": [
 				"stat_3375208082"
+			],
+			"stat_2696557965": [
+				"indexable_support_36"
+			],
+			"indexable_support_36": [
+				"stat_2696557965"
 			],
 			"stat_3593797653": [
 				"indexable_support_72"
@@ -768,17 +756,23 @@
 			"indexable_support_72": [
 				"stat_3593797653"
 			],
-			"stat_1331336999": [
-				"indexable_support_121"
+			"stat_3354027870": [
+				"indexable_support_51"
 			],
-			"indexable_support_121": [
-				"stat_1331336999"
+			"indexable_support_51": [
+				"stat_3354027870"
 			],
 			"stat_2287264161": [
 				"indexable_support_123"
 			],
 			"indexable_support_123": [
 				"stat_2287264161"
+			],
+			"stat_3237923082": [
+				"indexable_support_37"
+			],
+			"indexable_support_37": [
+				"stat_3237923082"
 			],
 			"stat_3573591118": [
 				"stat_1888494262"
@@ -804,17 +798,17 @@
 			"stat_3484910620": [
 				"stat_3993865658"
 			],
-			"stat_2228279620": [
-				"indexable_support_31"
-			],
-			"indexable_support_31": [
-				"stat_2228279620"
-			],
 			"stat_1169422227": [
 				"indexable_support_90"
 			],
 			"indexable_support_90": [
 				"stat_1169422227"
+			],
+			"stat_1331336999": [
+				"indexable_support_121"
+			],
+			"indexable_support_121": [
+				"stat_1331336999"
 			],
 			"stat_3383226338": [
 				"stat_3266567165"
@@ -839,6 +833,12 @@
 			],
 			"stat_624257168": [
 				"stat_3790386828"
+			],
+			"stat_2228279620": [
+				"indexable_support_31"
+			],
+			"indexable_support_31": [
+				"stat_2228279620"
 			],
 			"stat_28821524": [
 				"stat_3561676020",
@@ -968,11 +968,11 @@
 			"indexable_support_62": [
 				"stat_995332031"
 			],
-			"stat_369650395": [
-				"indexable_support_28"
-			],
 			"indexable_support_28": [
 				"stat_369650395"
+			],
+			"stat_369650395": [
+				"indexable_support_28"
 			],
 			"indexable_support_134": [
 				"stat_3111091501"
@@ -1003,12 +1003,6 @@
 			],
 			"stat_3239503729": [
 				"indexable_support_43"
-			],
-			"indexable_support_38": [
-				"stat_2861649515"
-			],
-			"stat_2861649515": [
-				"indexable_support_38"
 			],
 			"indexable_support_22": [
 				"stat_2116100988"
@@ -1058,12 +1052,6 @@
 			"stat_3754129682": [
 				"indexable_support_32"
 			],
-			"indexable_support_95": [
-				"stat_2697741965"
-			],
-			"stat_2697741965": [
-				"indexable_support_95"
-			],
 			"indexable_support_87": [
 				"stat_799443127"
 			],
@@ -1094,12 +1082,6 @@
 			"stat_2805586447": [
 				"indexable_support_44"
 			],
-			"indexable_support_13": [
-				"stat_4048257027"
-			],
-			"stat_4048257027": [
-				"indexable_support_13"
-			],
 			"indexable_support_136": [
 				"stat_1679136"
 			],
@@ -1118,18 +1100,6 @@
 			"stat_3016436615": [
 				"indexable_support_39"
 			],
-			"indexable_support_116": [
-				"stat_3922006600"
-			],
-			"stat_3922006600": [
-				"indexable_support_116"
-			],
-			"indexable_support_93": [
-				"stat_4082662318"
-			],
-			"stat_4082662318": [
-				"indexable_support_93"
-			],
 			"indexable_support_92": [
 				"stat_388696990"
 			],
@@ -1142,18 +1112,6 @@
 			"stat_1365328494": [
 				"indexable_support_103"
 			],
-			"indexable_support_138": [
-				"stat_921536976"
-			],
-			"stat_921536976": [
-				"indexable_support_138"
-			],
-			"indexable_support_130": [
-				"stat_2127532091"
-			],
-			"stat_2127532091": [
-				"indexable_support_130"
-			],
 			"indexable_support_149": [
 				"stat_52197415"
 			],
@@ -1165,12 +1123,6 @@
 			],
 			"stat_3462081007": [
 				"indexable_support_144"
-			],
-			"indexable_support_78": [
-				"stat_479453859"
-			],
-			"stat_479453859": [
-				"indexable_support_78"
 			],
 			"indexable_support_131": [
 				"stat_1485525812"
@@ -1214,12 +1166,6 @@
 			"stat_940684417": [
 				"indexable_support_139"
 			],
-			"indexable_support_143": [
-				"stat_3062849155"
-			],
-			"stat_3062849155": [
-				"indexable_support_143"
-			],
 			"indexable_support_96": [
 				"stat_1135493957"
 			],
@@ -1250,12 +1196,6 @@
 			"stat_3434296257": [
 				"indexable_support_157"
 			],
-			"indexable_support_152": [
-				"stat_2820883532"
-			],
-			"stat_2820883532": [
-				"indexable_support_152"
-			],
 			"indexable_support_150": [
 				"stat_1715139253"
 			],
@@ -1268,11 +1208,35 @@
 			"indexable_support_1": [
 				"stat_359450079"
 			],
+			"indexable_support_38": [
+				"stat_2861649515"
+			],
+			"stat_2861649515": [
+				"indexable_support_38"
+			],
 			"indexable_support_70": [
 				"stat_1900098804"
 			],
 			"stat_1900098804": [
 				"indexable_support_70"
+			],
+			"indexable_support_78": [
+				"stat_479453859"
+			],
+			"stat_479453859": [
+				"indexable_support_78"
+			],
+			"indexable_support_116": [
+				"stat_3922006600"
+			],
+			"stat_3922006600": [
+				"indexable_support_116"
+			],
+			"indexable_support_95": [
+				"stat_2697741965"
+			],
+			"stat_2697741965": [
+				"indexable_support_95"
 			],
 			"indexable_support_2": [
 				"stat_1866583932"
@@ -1280,11 +1244,47 @@
 			"stat_1866583932": [
 				"indexable_support_2"
 			],
+			"indexable_support_130": [
+				"stat_2127532091"
+			],
+			"stat_2127532091": [
+				"indexable_support_130"
+			],
+			"indexable_support_93": [
+				"stat_4082662318"
+			],
+			"stat_4082662318": [
+				"indexable_support_93"
+			],
+			"indexable_support_143": [
+				"stat_3062849155"
+			],
+			"stat_3062849155": [
+				"indexable_support_143"
+			],
+			"indexable_support_13": [
+				"stat_4048257027"
+			],
+			"stat_4048257027": [
+				"indexable_support_13"
+			],
+			"indexable_support_138": [
+				"stat_921536976"
+			],
+			"stat_921536976": [
+				"indexable_support_138"
+			],
 			"indexable_support_148": [
 				"stat_2910545715"
 			],
 			"stat_2910545715": [
 				"indexable_support_148"
+			],
+			"indexable_support_152": [
+				"stat_2820883532"
+			],
+			"stat_2820883532": [
+				"indexable_support_152"
 			],
 			"indexable_support_154": [
 				"stat_285773939"
@@ -1318,17 +1318,17 @@
 			"stat_492027537": [
 				"stat_3680664274"
 			],
-			"stat_2587176568": [
-				"stat_4202507508"
-			],
-			"stat_4202507508": [
-				"stat_2587176568"
-			],
 			"stat_3417711605": [
 				"stat_1211769158"
 			],
 			"stat_1211769158": [
 				"stat_3417711605"
+			],
+			"stat_2587176568": [
+				"stat_4202507508"
+			],
+			"stat_4202507508": [
+				"stat_2587176568"
 			],
 			"stat_2653955271": [
 				"stat_1123291426"
@@ -1354,23 +1354,17 @@
 			"stat_1702195217": [
 				"stat_2530372417"
 			],
-			"stat_3848282610": [
-				"stat_1743742391"
-			],
-			"stat_1743742391": [
-				"stat_3848282610"
-			],
 			"stat_80079005": [
 				"stat_2696663331"
 			],
 			"stat_2696663331": [
 				"stat_80079005"
 			],
-			"stat_561307714": [
-				"stat_2881111359"
+			"stat_3848282610": [
+				"stat_1743742391"
 			],
-			"stat_2881111359": [
-				"stat_561307714"
+			"stat_1743742391": [
+				"stat_3848282610"
 			],
 			"stat_3999401129": [
 				"stat_2459451600"
@@ -1378,17 +1372,17 @@
 			"stat_2459451600": [
 				"stat_3999401129"
 			],
+			"stat_561307714": [
+				"stat_2881111359"
+			],
+			"stat_2881111359": [
+				"stat_561307714"
+			],
 			"stat_4237190083": [
 				"stat_1269219558"
 			],
 			"stat_1269219558": [
 				"stat_4237190083"
-			],
-			"stat_3764265320": [
-				"stat_2508100173"
-			],
-			"stat_2508100173": [
-				"stat_3764265320"
 			],
 			"stat_744082851": [
 				"stat_2238792070"
@@ -1414,17 +1408,17 @@
 			"stat_1135152940": [
 				"stat_3003688066"
 			],
-			"stat_139925400": [
-				"stat_2665518524"
-			],
-			"stat_2665518524": [
-				"stat_139925400"
-			],
 			"stat_3411256933": [
 				"stat_1450978702"
 			],
 			"stat_1450978702": [
 				"stat_3411256933"
+			],
+			"stat_3764265320": [
+				"stat_2508100173"
+			],
+			"stat_2508100173": [
+				"stat_3764265320"
 			],
 			"stat_3972739758": [
 				"stat_1233806203"
@@ -1437,6 +1431,12 @@
 			],
 			"stat_1803598623": [
 				"stat_900639351"
+			],
+			"stat_139925400": [
+				"stat_2665518524"
+			],
+			"stat_2665518524": [
+				"stat_139925400"
 			]
 		},
 		"fractured": {
@@ -1452,11 +1452,11 @@
 			"stat_1269219558": [
 				"stat_4237190083"
 			],
-			"stat_1526933524": [
-				"stat_2503377690"
-			],
 			"stat_2503377690": [
 				"stat_1526933524"
+			],
+			"stat_1526933524": [
+				"stat_2503377690"
 			],
 			"stat_2351239732": [
 				"stat_2605040931"
