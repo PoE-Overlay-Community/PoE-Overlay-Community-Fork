@@ -82,9 +82,7 @@ export class ItemSearchService {
       case ItemCategory.MapFragment:
       case ItemCategory.MapScarab:
       case ItemCategory.Card:
-        if (currency &&
-          !requestedItem.properties?.storedExperience && requestedItem.stats?.length === 0 &&
-          requestedItem.typeId !== 'CurrencyItemisedNecropolisCorpse') {
+        if (currency && !requestedItem.properties?.storedExperience && requestedItem.stats?.length === 0) {
           return this.exchange(requestedItem, options, currency)
         }
         break

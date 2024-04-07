@@ -8,13 +8,14 @@ import { ItemOverviewResponse } from '../schema/item-overview'
 
 export enum ItemOverviewType {
   // General
+  Coffin = 'Coffin',
+  Tattoo = 'Tattoo',
+  Omen = 'Omen',
   DivinationCard = 'DivinationCard',
   Artifact = 'Artifact',
   Prophecy = 'Prophecy',
   Oil = 'Oil',
   Incubator = 'Incubator',
-  Tattoo = 'Tattoo',
-  Omen = 'Omen',
   // Equipment & Gems
   UniqueWeapon = 'UniqueWeapon',
   UniqueArmour = 'UniqueArmour',

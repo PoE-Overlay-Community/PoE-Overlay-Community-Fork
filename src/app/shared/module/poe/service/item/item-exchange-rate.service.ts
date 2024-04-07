@@ -2,15 +2,16 @@ import { Injectable } from '@angular/core'
 import { forkJoin, iif, Observable, of } from 'rxjs'
 import { flatMap, map } from 'rxjs/operators'
 import {
-  ItemCategoryValue,
-  ItemCategoryValuesProvider,
+    ItemCategoryValue,
+    ItemCategoryValuesProvider
 } from '../../provider/item-category-values.provider'
-import { Currency, Item, Language, ItemCategory, ItemGemQualityType } from '../../type'
+import { Currency, Item, ItemCategory, Language, StatType } from '../../type'
 import { BaseItemTypesService } from '../base-item-types/base-item-types.service'
 import { ClientStringService } from '../client-string/client-string.service'
 import { ContextService } from '../context.service'
 import { CurrencyConverterService } from '../currency/currency-converter.service'
 import { CurrencySelectService, CurrencySelectStrategy } from '../currency/currency-select.service'
+import { StatsService } from '../stats/stats.service'
 import { WordService } from '../word/word.service'
 import { ItemSocketService } from './item-socket.service'
 
@@ -36,7 +37,8 @@ export class ItemExchangeRateService {
     private readonly currencySelectService: CurrencySelectService,
     private readonly baseItemTypesService: BaseItemTypesService,
     private readonly wordService: WordService,
-    private readonly clientString: ClientStringService
+    private readonly clientString: ClientStringService,
+    private readonly statService: StatsService,
   ) {}
 
   public get(
@@ -200,6 +202,15 @@ export class ItemExchangeRateService {
               .replace('{0}', name)
           }
           break
+
+        case ItemCategory.Currency:
+          if (item.typeId === 'CurrencyItemisedNecropolisCorpse') {
+            const coffinStat = item.stats.find(x => x.type === StatType.Necropolis)
+            if (coffinStat) {
+              name = this.statService.transform(coffinStat, Language.English).join(coffinStat.values[0].text)
+            }
+          }
+          break
       }
       return x.name === name
     }
@@ -216,7 +227,7 @@ export class ItemExchangeRateService {
       }
     }
 
-    return this.valuesProvider.provide(leagueId, item.rarity, item.category).pipe(
+    return this.valuesProvider.provide(leagueId, item.rarity, item.category, item.typeId).pipe(
       map((response) => {
         const type = this.baseItemTypesService.translate(item.typeId, Language.English)
         const name = this.wordService.translate(item.nameId, Language.English)

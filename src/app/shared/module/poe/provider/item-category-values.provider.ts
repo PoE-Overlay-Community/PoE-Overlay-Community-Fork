@@ -44,7 +44,8 @@ export class ItemCategoryValuesProvider {
   public provide(
     leagueId: string,
     rarity: ItemRarity,
-    category: ItemCategory
+    category: ItemCategory,
+    typeId: string,
   ): Observable<ItemCategoryValues> {
     switch (category) {
       case ItemCategory.Map: {
@@ -76,30 +77,35 @@ export class ItemCategoryValuesProvider {
         return this.fetch(key, () => this.fetchItem(leagueId, ItemOverviewType.DivinationCard))
       }
       case ItemCategory.Currency: {
-        const key = `${leagueId}_${ItemCategory.Currency}`
-        return forkJoin([
-          this.fetch(key, () => this.fetchCurrency(leagueId, CurrencyOverviewType.Currency)),
-          this.fetch(`${key}_essence`, () => this.fetchItem(leagueId, ItemOverviewType.Essence)),
-          this.fetch(`${key}_oil`, () => this.fetchItem(leagueId, ItemOverviewType.Oil)),
-          this.fetch(`${key}_vial`, () => this.fetchItem(leagueId, ItemOverviewType.Vial)),
-          this.fetch(`${key}_deliriumOrb`, () => this.fetchItem(leagueId, ItemOverviewType.DeliriumOrb)),
-          this.fetch(`${key}_artifact`, () => this.fetchItem(leagueId, ItemOverviewType.Artifact)),
-          this.fetch(`${leagueId}_${ItemCategory.MapFragment}`, () => this.fetchCurrency(leagueId, CurrencyOverviewType.Fragment)),
-        ]).pipe(
-          map(([currencies, essences, oil, vial, deliriumOrb, artifacts, fragments]) => {
-            return {
-              values: [
-                ...currencies.values,
-                ...essences.values,
-                ...oil.values,
-                ...vial.values,
-                ...deliriumOrb.values,
-                ...artifacts.values,
-                ...fragments.values,
-              ],
-            }
-          })
-        )
+        if (typeId === 'CurrencyItemisedNecropolisCorpse') {
+          const key = `${leagueId}_${ItemOverviewType.Coffin}`
+          return this.fetch(key, () => this.fetchItem(leagueId, ItemOverviewType.Coffin))
+        } else {
+          const key = `${leagueId}_${ItemCategory.Currency}`
+          return forkJoin([
+            this.fetch(key, () => this.fetchCurrency(leagueId, CurrencyOverviewType.Currency)),
+            this.fetch(`${key}_essence`, () => this.fetchItem(leagueId, ItemOverviewType.Essence)),
+            this.fetch(`${key}_oil`, () => this.fetchItem(leagueId, ItemOverviewType.Oil)),
+            this.fetch(`${key}_vial`, () => this.fetchItem(leagueId, ItemOverviewType.Vial)),
+            this.fetch(`${key}_deliriumOrb`, () => this.fetchItem(leagueId, ItemOverviewType.DeliriumOrb)),
+            this.fetch(`${key}_artifact`, () => this.fetchItem(leagueId, ItemOverviewType.Artifact)),
+            this.fetch(`${leagueId}_${ItemCategory.MapFragment}`, () => this.fetchCurrency(leagueId, CurrencyOverviewType.Fragment)),
+          ]).pipe(
+            map(([currencies, essences, oil, vial, deliriumOrb, artifacts, fragments]) => {
+              return {
+                values: [
+                  ...currencies.values,
+                  ...essences.values,
+                  ...oil.values,
+                  ...vial.values,
+                  ...deliriumOrb.values,
+                  ...artifacts.values,
+                  ...fragments.values,
+                ],
+              }
+            })
+          )
+        }
       }
       case ItemCategory.MapFragment: {
         const key = `${leagueId}_${ItemCategory.MapFragment}`
