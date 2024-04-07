@@ -58,6 +58,7 @@
     "mode": "Mode",
     "name": "Evaluate",
     "not-found": "No data found.",
+    "open-in-browser": "Open in browser?",
     "prediction": {
       "confidence": "Confidence",
       "error": "An error occured during price prediction.",

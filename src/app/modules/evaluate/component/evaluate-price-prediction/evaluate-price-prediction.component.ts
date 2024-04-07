@@ -110,16 +110,22 @@ export class EvaluatePricePredictionComponent implements OnInit {
   }
 
   private handleError(error: any): void {
-    this.clear()
-    this.logger.warn(error)
-    if (typeof error === 'string') {
-      this.error$.next(error)
-    } else if (error && error.status) {
+    const handleHttpError = (error: any) => {
       switch (error.status) {
         default:
           this.error$.next('evaluate.prediction.errors.http')
           break
       }
+    }
+
+    this.clear()
+    this.logger.warn(error)
+    if (typeof error === 'string') {
+      this.error$.next(error)
+    } else if (error && error.status) {
+      handleHttpError(error)
+    } else if (error && error.response && error.response.status) {
+      handleHttpError(error.response)
     } else {
       this.error$.next('evaluate.prediction.error')
     }

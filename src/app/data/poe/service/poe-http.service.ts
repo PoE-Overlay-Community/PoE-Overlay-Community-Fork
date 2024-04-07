@@ -160,7 +160,8 @@ export class PoEHttpService {
     searchType: TradeSearchType
   ): Observable<TSearchResponse> {
     const url = this.getTradeApiUrl(`${searchType}/${encodeURIComponent(leagueId)}`, language)
-    this.logger.debug(LogTag, `Contacting ${url}?q=${encodeURIComponent(JSON.stringify(request))}`)
+    const browserUrl = `${url.replace('/api', '')}?q=${encodeURIComponent(JSON.stringify(request))}`
+    this.logger.debug(LogTag, `Contacting ${browserUrl}`)
     return this.limit
       .throttle(searchType, () =>
         this.http.post<TSearchResponse>(url, request, {
@@ -170,7 +171,7 @@ export class PoEHttpService {
       )
       .pipe(
         retryWhen((errors) =>
-          errors.pipe(flatMap((response, count) => this.handleError(url, response, count)))
+          errors.pipe(flatMap((response, count) => this.handleError(url, response, count, browserUrl)))
         ),
         map((response) => {
           response.url = `${url.replace('/api', '')}/${encodeURIComponent(response.id)}`
@@ -191,7 +192,7 @@ export class PoEHttpService {
         })
       ).pipe(
         retryWhen((errors) =>
-          errors.pipe(flatMap((response, count) => this.handleError(url, response, count, observer)))
+          errors.pipe(flatMap((response, count) => this.handleError(url, response, count, null, observer)))
         )
       ).subscribe(
         response => observer.next(response),
@@ -268,19 +269,29 @@ export class PoEHttpService {
     return `${baseUrl}${postfix}`
   }
 
-  private handleError(url: string, response: HttpErrorResponse, count: number, observer: Subscriber<string> = undefined): Observable <any> {
-    if (count >= RETRY_COUNT) {
-      return throwError(response)
+  private handleError(url: string, response: HttpErrorResponse, count: number, browserUrl: string = undefined, observer: Subscriber<string> = undefined): Observable<any> {
+    const throwCustomError = (response: any, browserUrl: string) => {
+      if (browserUrl) {
+        return throwError({
+          response,
+          browserUrl
+        })
+      } else {
+        return throwError(response)
+      }
     }
 
+    if (count >= RETRY_COUNT) {
+      return throwCustomError(response, browserUrl)
+    }
     switch (response.status) {
       case 400:
         try {
           const message = response?.error?.error?.message || 'no message'
           const code = response?.error?.error?.code || '-'
-          return throwError(`${code}: ${message}`)
+          return throwCustomError(`${code}: ${message}`, browserUrl)
         } catch {
-          return throwError(response.error)
+          return throwCustomError(response.error, browserUrl)
         }
       case 401: // Unauthorized
         observer?.next(response.error)
@@ -288,11 +299,11 @@ export class PoEHttpService {
         return of() // End the retry-chain
       case 403:
         if (count >= RETRY_LIMIT_COUNT) {
-          return throwError(response)
+          return throwCustomError(response, browserUrl)
         }
         return this.browser.retrieve(url).pipe(delay(RETRY_DELAY))
       case 429:
-        return throwError(response)
+        return throwCustomError(response, browserUrl)
       default:
         return of(response).pipe(delay(RETRY_DELAY))
     }

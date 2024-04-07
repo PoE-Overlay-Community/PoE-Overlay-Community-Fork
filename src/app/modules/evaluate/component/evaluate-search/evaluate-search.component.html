@@ -135,7 +135,20 @@
     <ng-template #error>
       <div>{{ error$ | async | translate }}</div>
       &nbsp;
-      <div class="clickable" (click)="onRetryClick()">{{ 'evaluate.try-again' | translate }}</div>
+      <span class="clickable" (click)="onRetryClick()">{{ 'evaluate.try-again' | translate }}</span>
+      <ng-container *ngIf="canOpenInBrowser()">
+        &nbsp;
+        <span class="clickable"
+              (click)="onCurrencyClick($event)"
+              [title]="
+              (settings.evaluateBrowserAlwaysExternal
+                ? 'app.clickable-external-only'
+                : 'app.clickable'
+              ) | translate
+            ">
+          {{ 'evaluate.open-in-browser' | translate }}
+        </span>
+      </ng-container>
     </ng-template>
   </ng-template>
 </ng-template>

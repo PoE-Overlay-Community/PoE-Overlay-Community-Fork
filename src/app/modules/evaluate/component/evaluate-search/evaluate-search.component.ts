@@ -41,6 +41,7 @@ export class EvaluateSearchComponent implements OnInit, OnDestroy {
   private searchSubscription: Subscription
   private listSubscription: Subscription
   private analyzeSubscription: Subscription
+  private lastError: any
 
   public graph: boolean
 
@@ -107,6 +108,11 @@ export class EvaluateSearchComponent implements OnInit, OnDestroy {
         search.url,
         this.settings.evaluateBrowserAlwaysExternal ? true : event.ctrlKey
       )
+    } else if (this.lastError?.browserUrl?.length) {
+      this.browser.open(
+        this.lastError.browserUrl,
+        this.settings.evaluateBrowserAlwaysExternal ? true : event.ctrlKey
+      )
     }
   }
 
@@ -147,6 +153,10 @@ export class EvaluateSearchComponent implements OnInit, OnDestroy {
   public onAmountSelect(amount: number, currency?: Currency): void {
     currency = currency || this.result$.value.currency
     this.evaluateResult.next({ amount, currency })
+  }
+
+  public canOpenInBrowser(): boolean {
+    return this.search$.value?.url?.length > 0 || this.lastError?.browserUrl?.length > 0
   }
 
   public useWideViewport(): boolean {
@@ -228,7 +238,16 @@ export class EvaluateSearchComponent implements OnInit, OnDestroy {
             this.analyze(listings, currency)
           }
         },
-        (error) => this.handleError(error)
+        (error) => {
+          if (!error.browserUrl) {
+            this.handleError({
+              response: error,
+              browserUrl: search.url,
+            })
+          } else {
+            this.handleError(error)
+          }
+        }
       )
   }
 
@@ -243,7 +262,16 @@ export class EvaluateSearchComponent implements OnInit, OnDestroy {
             this.analyze(listings, currency)
           }
         },
-        (error) => this.handleError(error)
+        (error) => {
+          if (!error.browserUrl) {
+            this.handleError({
+              response: error,
+              browserUrl: search.url,
+            })
+          } else {
+            this.handleError(error)
+          }
+        }
       )
   }
 
@@ -259,6 +287,7 @@ export class EvaluateSearchComponent implements OnInit, OnDestroy {
   }
 
   private clear(): void {
+    this.lastError = null
     this.error$.next(undefined)
     this.search$.next(null)
     this.listings$.next(null)
@@ -267,14 +296,7 @@ export class EvaluateSearchComponent implements OnInit, OnDestroy {
   }
 
   private handleError(error: any): void {
-    this.clear()
-    if (!environment.production) {
-      console.log(error)
-    }
-    this.logger.warn(error)
-    if (typeof error === 'string') {
-      this.error$.next(error)
-    } else if (error && error.status) {
+    const handleHttpError = (error: any) => {
       switch (error.status) {
         case 429:
           this.error$.next('evaluate.errors.rate')
@@ -283,6 +305,20 @@ export class EvaluateSearchComponent implements OnInit, OnDestroy {
           this.error$.next('evaluate.errors.http')
           break
       }
+    }
+
+    this.clear()
+    if (!environment.production) {
+      console.log(error)
+    }
+    this.lastError = error
+    this.logger.warn(error)
+    if (typeof error === 'string') {
+      this.error$.next(error)
+    } else if (error && error.status) {
+      handleHttpError(error)
+    } else if (error && error.response && error.response.status) {
+      handleHttpError(error.response)
     } else {
       this.error$.next('evaluate.error')
     }
