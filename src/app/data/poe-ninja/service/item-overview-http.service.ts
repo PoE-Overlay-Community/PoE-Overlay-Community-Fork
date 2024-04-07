@@ -9,11 +9,11 @@ import { ItemOverviewResponse } from '../schema/item-overview'
 export enum ItemOverviewType {
   // General
   Coffin = 'Coffin',
+  AllflameEmber = 'AllflameEmber',
   Tattoo = 'Tattoo',
   Omen = 'Omen',
   DivinationCard = 'DivinationCard',
   Artifact = 'Artifact',
-  Prophecy = 'Prophecy',
   Oil = 'Oil',
   Incubator = 'Incubator',
   // Equipment & Gems
@@ -38,18 +38,20 @@ export enum ItemOverviewType {
   Essence = 'Essence',
   Vial = 'Vial',
   // Deprecated (Harvest League)
+  Prophecy = 'Prophecy',
   Seed = 'Seed',
 }
 
 const PATH_TYPE_MAP = {
   // General
-  [ItemOverviewType.DivinationCard]: 'divinationcards',
-  [ItemOverviewType.Artifact]: 'artifacts',
-  [ItemOverviewType.Prophecy]: 'prophecies',
-  [ItemOverviewType.Oil]: 'oils',
-  [ItemOverviewType.Incubator]: 'incubators',
+  [ItemOverviewType.Coffin]: 'coffins',
+  [ItemOverviewType.AllflameEmber]: 'allflame-embers',
   [ItemOverviewType.Tattoo]: 'tattoo',
   [ItemOverviewType.Omen]: 'omen',
+  [ItemOverviewType.DivinationCard]: 'divinationcards',
+  [ItemOverviewType.Artifact]: 'artifacts',
+  [ItemOverviewType.Oil]: 'oils',
+  [ItemOverviewType.Incubator]: 'incubators',
   // Equipment & Gems
   [ItemOverviewType.UniqueWeapon]: 'unique-weapons',
   [ItemOverviewType.UniqueArmour]: 'unique-armours',
@@ -72,6 +74,7 @@ const PATH_TYPE_MAP = {
   [ItemOverviewType.Essence]: 'essences',
   [ItemOverviewType.Vial]: 'vials',
   // Deprecated (Harvest League)
+  [ItemOverviewType.Prophecy]: 'prophecies',
   [ItemOverviewType.Seed]: 'seeds',
 }
 

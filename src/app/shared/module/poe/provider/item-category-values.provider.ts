@@ -151,6 +151,10 @@ export class ItemCategoryValuesProvider {
         const key = `${leagueId}_${ItemCategory.CurrencyOmen}`
         return this.fetch(key, () => this.fetchItem(leagueId, ItemOverviewType.Omen))
       }
+      case ItemCategory.NecropolisPack: {
+        const key = `${leagueId}_${ItemCategory.NecropolisPack}`
+        return this.fetch(key, () => this.fetchItem(leagueId, ItemOverviewType.AllflameEmber))
+      }
       case ItemCategory.MonsterBeast: {
         const key = `${leagueId}_${ItemCategory.MonsterBeast}`
         return this.fetch(key, () => this.fetchItem(leagueId, ItemOverviewType.Beast))
