@@ -190,7 +190,7 @@ export class EvaluateQueryItemProvider {
         settings.evaluateQueryDefaultStatsUnique
       ) {
         // Select all stats if it's corrupted, mirrored or unmodifiable, otherwise exclude implicit stats
-        queryItem.stats = item.stats.map((stat) => (item.corrupted || item.mirrored || item.unmodifiable || !this.isRelatedToAnImplicitStat(stat)) ? stat : undefined)
+        queryItem.stats = item.stats.map((stat) => (!this.isExcludedUniqueStat(stat) && (item.corrupted || item.mirrored || item.unmodifiable || !this.isRelatedToAnImplicitStat(stat))) ? stat : undefined)
       } else {
         queryItem.stats = item.stats.map((stat) => {
           // Auto-select enchanted stats, stats with a mod icon or necropolis stats
@@ -217,5 +217,9 @@ export class EvaluateQueryItemProvider {
 
   private isRelatedToAnImplicitStat(stat: ItemStat): boolean {
     return stat.type === StatType.Implicit || (stat.relatedStats?.some(s => this.isRelatedToAnImplicitStat(s)) ?? false)
+  }
+
+  private isExcludedUniqueStat(stat: ItemStat): boolean {
+    return stat.tradeId === 'stat_284496119' // "^Monster Level: (\\S+)$"
   }
 }
