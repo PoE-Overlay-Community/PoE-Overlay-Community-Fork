@@ -204,7 +204,7 @@ export class ItemExchangeRateService {
           break
 
         case ItemCategory.Currency:
-          if (item.typeId === 'CurrencyItemisedNecropolisCorpse') {
+          if (item.necropolisCoffin) {
             const coffinStat = item.stats.find(x => x.type === StatType.Necropolis)
             if (coffinStat) {
               name = this.statService.transform(coffinStat, Language.English).join(coffinStat.values[0].text)
@@ -221,10 +221,15 @@ export class ItemExchangeRateService {
         case ItemCategory.CurrencyWildSeed:
         case ItemCategory.CurrencyVividSeed:
         case ItemCategory.CurrencyPrimalSeed:
+        case ItemCategory.NecropolisPack:
           return b.levelRequired - a.levelRequired
         default:
-          return 0
+          break
       }
+      if (item.necropolisCoffin) {
+        return b.levelRequired - a.levelRequired
+      }
+      return 0
     }
 
     return this.valuesProvider.provide(leagueId, item.rarity, item.category, item.typeId).pipe(

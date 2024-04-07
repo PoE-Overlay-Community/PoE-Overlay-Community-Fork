@@ -46,11 +46,15 @@ export class ItemSectionNecropolisParserService implements ItemSectionParserServ
     // Monster Category
     const monsterCategoryPhrase = `${this.clientString.translate('ItemDisplayCorpseType')}: `
 
+    const corpseLevelText = lines[1].slice(corpseLevelPhrase.length).trim()
+
     target.properties.necropolis = {
       monster: lines[0].slice(monsterNamePhrase.length).trim(),
-      corpseLevel: ItemParserUtils.parseNumber(lines[1].slice(corpseLevelPhrase.length).trim()),
+      corpseLevel: ItemParserUtils.parseNumber(corpseLevelText),
       monsterCategory: lines[2].slice(monsterCategoryPhrase.length).trim(),
     }
+
+    target.level = ItemParserUtils.parseItemValue(corpseLevelText, 0)
 
     return necropolisSection
   }

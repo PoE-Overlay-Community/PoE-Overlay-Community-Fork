@@ -110,6 +110,11 @@ export class ItemSectionRarityParserService implements ItemSectionParserService 
       return null
     }
 
+    // Check for necropolis coffin
+    if (target.typeId === 'CurrencyItemisedNecropolisCorpse') {
+      target.necropolisCoffin = true
+    }
+
     // Check for blighted map
     const blightedMapItemNameDisplay = this.clientString
       .translate('InfectedMap')

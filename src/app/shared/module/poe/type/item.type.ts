@@ -19,6 +19,7 @@ export interface Item {
   blighted?: boolean
   blightRavaged?: boolean
   relic?: boolean
+  necropolisCoffin?: boolean
   damage?: ItemWeaponDamage
   sockets?: ItemSocket[]
   properties?: ItemProperties

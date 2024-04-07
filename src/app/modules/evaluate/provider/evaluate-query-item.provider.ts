@@ -42,6 +42,7 @@ export class EvaluateQueryItemProvider {
       blighted: item.blighted,
       blightRavaged: item.blightRavaged,
       relic: item.relic,
+      necropolisCoffin: item.necropolisCoffin,
       influences: item.influences || {},
       damage: {},
       stats: [],

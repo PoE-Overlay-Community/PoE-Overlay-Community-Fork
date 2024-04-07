@@ -53,7 +53,7 @@ export class ItemSectionStatsParserService implements ItemSectionParserService {
     const options: StatsSearchOptions = {
       ultimatum: item.typeId === 'ItemisedTrial' || item.typeId === 'MapWorldsTrialmaster',
       sanctum: item.category === ItemCategory.SanctumRelic || item.category === ItemCategory.SanctumResearch,
-      necropolis: item.category === ItemCategory.NecropolisPack || item.typeId === 'CurrencyItemisedNecropolisCorpse',
+      necropolis: item.category === ItemCategory.NecropolisPack || item.necropolisCoffin,
       map: item.category === ItemCategory.Map,
       critical_strike_chance___: true,
     }
