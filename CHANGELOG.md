@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.8.33 (2024-04-08)
+
+- Updated the PoE Assets using PoE Asset Updater (commit 2f173b0) and PoE Client v3.24.0c (hotfix 1)
+- Added item exchange rate lookup support for 'Coffins' and 'Allflame Embers'
+- Added the option to 'open in browser' when certain errors occur (e.g. reaching the rate limit when evaluating items)
+- Explicitly excluded 'monster level' from the auto-stat-selection for unique items
+
 ## 0.8.32 (2024-03-31)
 
 - Updated the PoE Assets using PoE Asset Updater (commit 2f173b0) and PoE Client v3.24.0 (hotfix 6)
