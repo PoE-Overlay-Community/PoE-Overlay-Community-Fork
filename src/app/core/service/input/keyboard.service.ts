@@ -3,14 +3,14 @@ import { ElectronProvider } from '@app/provider'
 import { IpcRenderer } from 'electron'
 
 export enum KeyCode {
-  VK_KEY_C = 0x43,
-  VK_KEY_F = 0x46,
-  VK_KEY_V = 0x56,
-  VK_RETURN = 0x0d,
-  VK_LMENU = 0xa4,
-  VK_RMENU = 0xa5,
-  VK_LEFT = 0x25,
-  VK_RIGHT = 0x27,
+  VK_KEY_C = 'c',
+  VK_KEY_F = 'f',
+  VK_KEY_V = 'v',
+  VK_RETURN = 'enter',
+  VK_LMENU = 'alt',
+  VK_RMENU = 'right_alt',
+  VK_LEFT = 'left',
+  VK_RIGHT = 'right',
 }
 
 @Injectable({
