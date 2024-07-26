@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.8.34 (2024-07-26)
+
+- Updated the PoE Assets using PoE Asset Updater (commit 6cc908a) and PoE Client v3.25.0
+- Removed Necropolis league specific parts since it got removed in Settlers league (as it didn't go core either)
+
 ## 0.8.33 (2024-04-08)
 
 - Updated the PoE Assets using PoE Asset Updater (commit 2f173b0) and PoE Client v3.24.0c (hotfix 1)
