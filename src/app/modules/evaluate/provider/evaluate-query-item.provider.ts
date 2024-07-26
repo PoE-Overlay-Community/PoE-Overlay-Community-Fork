@@ -42,7 +42,6 @@ export class EvaluateQueryItemProvider {
       blighted: item.blighted,
       blightRavaged: item.blightRavaged,
       relic: item.relic,
-      necropolisCoffin: item.necropolisCoffin,
       influences: item.influences || {},
       damage: {},
       stats: [],
@@ -194,10 +193,9 @@ export class EvaluateQueryItemProvider {
         queryItem.stats = item.stats.map((stat) => (!this.isExcludedUniqueStat(stat) && (item.corrupted || item.mirrored || item.unmodifiable || !this.isRelatedToAnImplicitStat(stat))) ? stat : undefined)
       } else {
         queryItem.stats = item.stats.map((stat) => {
-          // Auto-select enchanted stats, stats with a mod icon or necropolis stats
+          // Auto-select enchanted stats or stats with a mod icon
           if ((stat.type === StatType.Enchant && settings.evaluateQueryDefaultStatsEnchants) ||
-            (settings.evaluateQueryDefaultStatsModIcon && this.modIconService.get(stat.modName)) ||
-            item.properties?.necropolis) {
+            (settings.evaluateQueryDefaultStatsModIcon && this.modIconService.get(stat.modName))) {
             return stat
           }
           const key = `${stat.type}.${stat.tradeId}`

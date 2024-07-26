@@ -50,7 +50,7 @@ export class ItemSectionRarityParserService implements ItemSectionParserService 
 
     lineIdx++
 
-    // Looks up rarity based on
+    // Looks up rarity based on the item description
     if (!target.rarity) {
       const rarityPhrase = `${this.clientString.translate('ItemDisplayStringRarity')}: `
       const rarityLine = lines[lineIdx]
@@ -108,11 +108,6 @@ export class ItemSectionRarityParserService implements ItemSectionParserService 
     if (!target.typeId) {
       console.warn(`[ItemRarityParser] Failed to find Base Item Type for '${target.type}'`)
       return null
-    }
-
-    // Check for necropolis coffin
-    if (target.typeId === 'CurrencyItemisedNecropolisCorpse') {
-      target.necropolisCoffin = true
     }
 
     // Check for blighted map
@@ -215,10 +210,6 @@ export class ItemSectionRarityParserService implements ItemSectionParserService 
     value: ItemRarity
   }[] {
     return [
-      {
-        key: this.clientString.translate('ItemClassNecropolisPack'),
-        value: ItemRarity.Necropolis,
-      },
     ]
   }
 

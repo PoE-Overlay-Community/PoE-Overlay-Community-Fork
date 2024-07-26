@@ -10,7 +10,6 @@ export enum StatType {
   Scourge = 'scourge',
   Crucible = 'crucible',
   Sanctum = 'sanctum',
-  Necropolis = 'necropolis',
 }
 
 export interface Stat {

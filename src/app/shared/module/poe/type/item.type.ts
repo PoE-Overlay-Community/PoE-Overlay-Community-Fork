@@ -19,7 +19,6 @@ export interface Item {
   blighted?: boolean
   blightRavaged?: boolean
   relic?: boolean
-  necropolisCoffin?: boolean
   damage?: ItemWeaponDamage
   sockets?: ItemSocket[]
   properties?: ItemProperties
@@ -53,7 +52,6 @@ export enum ItemRarity {
   DivinationCard = 'divinationcard',
   NonUnique = 'nonunique',
   Quest = 'quest',
-  Necropolis = 'necropolis',
 }
 
 export enum ItemCategory {
@@ -121,7 +119,6 @@ export enum ItemCategory {
   AzmeriTincture = "azmeri.tincture",
   AzmeriCharm = "azmeri.charm",
   AzmeriCorpse = "azmeri.corpse",
-  NecropolisPack = "necropolis.pack",
   Currency = 'currency',
   CurrencyPiece = 'currency.piece',
   CurrencyResonator = 'currency.resonator',
@@ -132,6 +129,7 @@ export enum ItemCategory {
   CurrencyTattoo = 'currency.tattoo',
 
   // Deprecated (due to previous league mechanics not going core or being removed)
+  NecropolisPack = "necropolis.pack",
   CurrencySeed = 'currency.seed',
   CurrencyWildSeed = 'currency.wildseed',
   CurrencyVividSeed = 'currency.vividseed',
@@ -199,7 +197,6 @@ export interface ItemProperties {
   ultimatum?: ItemPropertiesUltimatum
   incursion?: ItemPropertiesIncursion
   heist?: ItemPropertiesHeist
-  necropolis?: ItemPropertiesNecropolis
 }
 
 export interface ItemProperty {
@@ -345,12 +342,6 @@ export interface HeistSkillLevel {
   level: ItemValue
 }
 
-export interface ItemPropertiesNecropolis {
-  monster: string
-  corpseLevel: number
-  monsterCategory: string
-}
-
 export interface ExportedItem {
   sections: Section[]
 }
@@ -380,7 +371,6 @@ export enum ItemSection {
   Relic,
   Incursion,
   Heist,
-  Necropolis,
 }
 
 export interface ItemSectionParserService {

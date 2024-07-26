@@ -14,7 +14,6 @@ export interface StatsSearchResult {
 export interface StatsSearchOptions {
   ultimatum?: boolean
   sanctum?: boolean
-  necropolis?: boolean
   map?: boolean
   // The options below must match the ones used in stats-local.json
   local_poison_on_hit__?: boolean
@@ -469,9 +468,6 @@ export class StatsService {
     const implicitsSearch: StatsSectionsSearch = {
       types: [StatType.Implicit],
       sections: [],
-    }
-    if (options.necropolis) {
-      implicitsSearch.types.push(StatType.Necropolis)
     }
     const scourgePhrase = ` (${StatType.Scourge})`
     const scourgedSearch: StatsSectionsSearch = {

@@ -131,19 +131,4 @@
       color: $indigo;
     }
   }
-
-  &.necropolis {
-    background: url(../../../../../../assets/poe/item/header-necropolis-left.png) top left no-repeat,
-      url(../../../../../../assets/poe/item/header-necropolis-right.png) top right no-repeat;
-    height: 45px;
-
-    .center-bg {
-      background: url(../../../../../../assets/poe/item/header-necropolis-middle.png) top center repeat-x;
-    }
-
-    .name {
-      color: $light-yellow;
-      padding: 12.73428px 10px;
-    }
-  }
 }

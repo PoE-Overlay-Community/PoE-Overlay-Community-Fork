@@ -117,9 +117,6 @@ export class EvaluateDialogService {
                   height += DIALOG_LINE_HEIGHT
                 }
                 break
-              case 'necropolis':
-                height += DIALOG_LINE_HEIGHT * 3
-                break
               default:
                 height += DIALOG_LINE_HEIGHT
                 break
@@ -169,8 +166,7 @@ export class EvaluateDialogService {
         height += DIALOG_DIVIDER_HEIGHT
       }
       if (
-        unique[StatType.Implicit] ||
-        unique[StatType.Necropolis]) {
+        unique[StatType.Implicit]) {
         height += DIALOG_DIVIDER_HEIGHT
       }
       if (

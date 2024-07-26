@@ -202,15 +202,6 @@ export class ItemExchangeRateService {
               .replace('{0}', name)
           }
           break
-
-        case ItemCategory.Currency:
-          if (item.necropolisCoffin) {
-            const coffinStat = item.stats.find(x => x.type === StatType.Necropolis)
-            if (coffinStat) {
-              name = this.statService.transform(coffinStat, Language.English).join(coffinStat.values[0].text)
-            }
-          }
-          break
       }
       return x.name === name
     }
@@ -225,9 +216,6 @@ export class ItemExchangeRateService {
           return b.levelRequired - a.levelRequired
         default:
           break
-      }
-      if (item.necropolisCoffin) {
-        return b.levelRequired - a.levelRequired
       }
       return 0
     }

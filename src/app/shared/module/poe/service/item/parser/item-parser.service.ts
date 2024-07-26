@@ -8,7 +8,6 @@ import { ItemSectionIncursionParserService } from './item-section-incursion-pars
 import { ItemSectionInfluencesParserService } from './item-section-influences-parser.service'
 import { ItemSectionItemLevelParserService } from './item-section-item-level-parser.service'
 import { ItemSectionMirroredParserService } from './item-section-mirrored-parser.service'
-import { ItemSectionNecropolisParserService } from './item-section-necropolis-parser.service'
 import { ItemSectionNoteParserService } from './item-section-note-parser.service'
 import { ItemSectionPropertiesParserService } from './item-section-properties-parser.service'
 import { ItemSectionProphecyParserService } from './item-section-prophecy-parser.service'
@@ -49,7 +48,6 @@ export class ItemParserService {
     itemSectionIncursionParserService: ItemSectionIncursionParserService,
     itemSectionHeistParserService: ItemSectionHeistParserService,
     itemSectionSpecialStatsParserService: ItemSectionSpecialStatsParserService,
-    itemSectionNecropolisParserService: ItemSectionNecropolisParserService,
   ) {
     this.parsers = [
       itemSectionRarityParser,
@@ -61,7 +59,6 @@ export class ItemParserService {
       itemSectionRelicParserService, // Parse prior to Properties
       itemSectionIncursionParserService, // Parse prior to Properties
       itemSectionHeistParserService, // Parse prior to Properties
-      itemSectionNecropolisParserService, // Parse prior to Properties
       itemSectionPropertiesParserService,
       itemSectionFlaskParserService, // Properties have to be parsed first in case the Flask Parser contains Quality.
       itemSectionProphecyParserService, // Properties have to be parsed first in case the Prophecy Parser needs to adjust some properties.

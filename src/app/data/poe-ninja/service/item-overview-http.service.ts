@@ -8,7 +8,6 @@ import { ItemOverviewResponse } from '../schema/item-overview'
 
 export enum ItemOverviewType {
   // General
-  Coffin = 'Coffin',
   AllflameEmber = 'AllflameEmber',
   Tattoo = 'Tattoo',
   Omen = 'Omen',
@@ -44,8 +43,6 @@ export enum ItemOverviewType {
 
 const PATH_TYPE_MAP = {
   // General
-  [ItemOverviewType.Coffin]: 'coffins',
-  [ItemOverviewType.AllflameEmber]: 'allflame-embers',
   [ItemOverviewType.Tattoo]: 'tattoo',
   [ItemOverviewType.Omen]: 'omen',
   [ItemOverviewType.DivinationCard]: 'divinationcards',
