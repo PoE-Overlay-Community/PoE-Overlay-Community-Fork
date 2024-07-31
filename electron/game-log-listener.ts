@@ -6,7 +6,7 @@ export type OnLogLineAddedFunc = (logLine: string) => void
 export class GameLogListener {
   private onLogLineAdded: OnLogLineAddedFunc
   private clientLogFilePath: string
-  private lastFilePostion: number = 0
+  private lastFilePosition: number = 0
 
   constructor(onLogLineAdded: OnLogLineAddedFunc) {
     this.onLogLineAdded = onLogLineAdded
@@ -33,7 +33,7 @@ export class GameLogListener {
         return
       }
 
-      this.lastFilePostion = infos.size
+      this.lastFilePosition = infos.size
 
       watchFile(this.clientLogFilePath, {
         persistent: true,
@@ -48,16 +48,25 @@ export class GameLogListener {
         this.logError('Failed to open Client.txt', err)
         return
       }
+	  
+      const newSize = current.size
+      let diff = newSize - this.lastFilePosition
+      if (diff < 0) {
+        this.lastFilePosition = 0
+        return
+      } else if (diff == 0) {
+        return
+      }
 
-      const buffer: Buffer = Buffer.alloc(current.size - this.lastFilePostion)
+      const buffer: Buffer = Buffer.alloc(diff)
 
-      read(fd, buffer, 0, buffer.length, this.lastFilePostion, (err, bytesRead, buffer) => {
+      read(fd, buffer, 0, buffer.length, this.lastFilePosition, (err, bytesRead, buffer) => {
         if (err) {
           this.logError('Failed to read Client.txt', err)
           return
         }
 
-        this.lastFilePostion = current.size
+        this.lastFilePosition = newSize
         buffer.toString().split(EOL).forEach(line => {
           if (line) {
             this.onLogLineAdded(line)
