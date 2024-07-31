@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.8.35 (2024-07-31)
+
+- Updated the PoE Assets using PoE Asset Updater (commit 6cc908a) and PoE Client v3.25.0b (hotfix 2)
+- Fixed an issue with the game log listener when the log file is cleared/truncated while poe-overlay is active/running.
+
 ## 0.8.34 (2024-07-26)
 
 - Updated the PoE Assets using PoE Asset Updater (commit 6cc908a) and PoE Client v3.25.0
