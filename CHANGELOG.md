@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.8.36 (2024-08-01)
+
+- Updated the PoE Assets using PoE Asset Updater (commit ecb9186) and PoE Client v3.25.0c
+- Updated the item categories for tinctures and corpses
+
 ## 0.8.35 (2024-07-31)
 
 - Updated the PoE Assets using PoE Asset Updater (commit 6cc908a) and PoE Client v3.25.0b (hotfix 2)
