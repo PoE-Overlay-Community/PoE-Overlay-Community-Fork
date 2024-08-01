@@ -116,9 +116,8 @@ export enum ItemCategory {
   ExpeditionLogbook = 'logbook',
   SanctumResearch = 'sanctum.research',
   SanctumRelic = 'sanctum.relic',
-  AzmeriTincture = "azmeri.tincture",
-  AzmeriCharm = "azmeri.charm",
-  AzmeriCorpse = "azmeri.corpse",
+  Tincture = "tincture",
+  Corpse = "corpse",
   Currency = 'currency',
   CurrencyPiece = 'currency.piece',
   CurrencyResonator = 'currency.resonator',
@@ -130,6 +129,9 @@ export enum ItemCategory {
 
   // Deprecated (due to previous league mechanics not going core or being removed)
   NecropolisPack = "necropolis.pack",
+  AzmeriTincture = "azmeri.tincture",
+  AzmeriCharm = "azmeri.charm",
+  AzmeriCorpse = "azmeri.corpse",
   CurrencySeed = 'currency.seed',
   CurrencyWildSeed = 'currency.wildseed',
   CurrencyVividSeed = 'currency.vividseed',

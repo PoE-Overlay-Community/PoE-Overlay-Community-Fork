@@ -185,9 +185,12 @@ export class ItemSearchFiltersTypeService implements ItemSearchFiltersService {
       // affliction (azmeri)
       case ItemCategory.AzmeriTincture:
       case ItemCategory.AzmeriCharm:
-      case ItemCategory.AzmeriTincture:
+      case ItemCategory.AzmeriCorpse:
       // necropolis
       case ItemCategory.NecropolisPack:
+      // settlers
+      case ItemCategory.Tincture:
+      case ItemCategory.Corpse:
         query.filters.type_filters.filters.category = {
           option: item.category,
         }
