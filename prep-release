@@ -9,6 +9,8 @@ FILENAME=$(basename -- ${FILENAME}) #"poe-overlay-Setup-${VERSION}.exe"
 FILEPATH="${FOLDER}/${FILENAME}"
 VERSION=$(echo "${FILENAME}" | grep -Po '(?<=Setup-)[0-9]+([.][0-9]+)+')
 
+echo "Preparing release for '$FILEPATH'"
+
 SHA512=$(openssl dgst -sha512 -binary $FILEPATH | openssl enc -base64 | tr -d '\r' | tr -d '\n')
 FILESIZE=$(stat -c%s $FILEPATH)
 RELEASEDATE=$(date -u +"%Y-%m-%dT%H:%M:%S.%3NZ")
