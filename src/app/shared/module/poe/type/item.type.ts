@@ -118,6 +118,7 @@ export enum ItemCategory {
   SanctumRelic = 'sanctum.relic',
   Tincture = "tincture",
   Corpse = "corpse",
+  Idol = "idol",
   Currency = 'currency',
   CurrencyPiece = 'currency.piece',
   CurrencyResonator = 'currency.resonator',
