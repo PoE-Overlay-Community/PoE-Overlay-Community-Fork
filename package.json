@@ -7,7 +7,7 @@
   "scripts": {
     "build:dev": "npm run build",
     "build:prod": "npm run build -- -c production",
-    "build": "npm run electron:serve-tsc && ng build",
+    "build": "set NODE_OPTIONS=--max-old-space-size=7168 && npm run electron:serve-tsc && ng build",
     "electron:build": "npm run build:prod && electron-builder build --linux --windows",
     "electron:deploy": "npm run build:prod && electron-builder build --win --publish always",
     "electron:deps": "electron-builder install-app-deps",
@@ -18,6 +18,7 @@
     "electron:serve": "wait-on http-get://localhost:4200/ && npm run electron:serve-tsc && electron . --serve",
     "electron:version": "electron -v && electron -a",
     "electron:windows": "npm run build:prod && electron-builder build --windows",
+    "electron:windows-dev": "npm run build && electron-builder build --windows",
     "format": "npm run ng:lint && prettier \"src/**/*.{js,ts,json,html,scss}\" --write --list-different --ignore-path .gitignore",
     "ng:cc": "ngcc --properties esm5 browser module main --first-only --create-ivy-entry-points",
     "ng:lint": "ng lint --fix",
