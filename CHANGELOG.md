@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.8.37 (2025-02-21)
+
+- Added support for Idols
+- Updated the PoE Assets using PoE Asset Updater (commit 03504a3) and PoE Client v3.25.0d (hotfix 2)
+- Fixed an issue with the private league retrieval causing all league retrieval to fail
+
 ## 0.8.36 (2024-08-01)
 
 - Updated the PoE Assets using PoE Asset Updater (commit ecb9186) and PoE Client v3.25.0c
