@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core'
 import { Observable, of, throwError } from 'rxjs'
 import { catchError, flatMap, map, shareReplay, tap } from 'rxjs/operators'
-import { environment } from '@env/environment'
 import { ofType } from '../function'
 import { LoggerService } from './logger.service'
 import { StorageService } from './storage.service'

@@ -245,6 +245,8 @@ export class ItemCategoryValuesProvider {
       case ItemCategory.AzmeriTincture:
       case ItemCategory.AzmeriCharm:
       case ItemCategory.AzmeriCorpse:
+      case ItemCategory.Tincture:
+      case ItemCategory.Corpse:
         return of({ values: [] })
       default:
         console.warn(`Missing ItemCategory case for '${category}'`)
