@@ -15,6 +15,7 @@ import { ColorUtils } from '@app/class'
 import { AppTranslateService } from '@app/service'
 import { CommandService } from '@modules/command/service/command.service'
 import { SnackBarService } from '@shared/module/material/service'
+import { StashService } from '@shared/module/poe/service'
 import { PoEAccountService } from '@shared/module/poe/service/account/account.service'
 import { StashGridService } from '@shared/module/poe/service/stash-grid/stash-grid.service'
 import { StashGridMode } from '@shared/module/poe/type/stash-grid.type'
@@ -85,6 +86,7 @@ export class TradeNotificationComponent implements OnInit, OnDestroy, OnChanges 
     private readonly ref: ChangeDetectorRef,
     private readonly translate: AppTranslateService,
     private readonly accountService: PoEAccountService,
+    private readonly stashService: StashService,
   ) {}
 
   public ngOnInit(): void {
@@ -192,6 +194,11 @@ export class TradeNotificationComponent implements OnInit, OnDestroy, OnChanges 
     }
   }
 
+  public highlightClick(): void {
+    this.buttonClickAudioClip?.play()
+    this.highlight()
+  }
+
   public kickFromPartyClick(): void {
     this.buttonClickAudioClip?.play()
     this.kickFromParty()
@@ -289,6 +296,26 @@ export class TradeNotificationComponent implements OnInit, OnDestroy, OnChanges 
   private kickFromParty(): void {
     this.commandService.command(`/kick ${this.notification.playerName}`, this.settings)
     this.dismiss()
+  }
+
+  private highlight(): void {
+    if (this.notification.itemLocation != null) {
+      this.stashService.highlight(`pos:${this.notification.itemLocation.bounds.x},${this.notification.itemLocation.bounds.y}`).subscribe()
+    } else {
+      let highlightText = this.notification.item
+      if (typeof highlightText === 'object') {
+        highlightText = highlightText.currency.nameType
+      }
+
+      // Is the item a map?  If so, parse the tier out and use it to constrain the highlight
+      const mapRegex = /^(?<item>.*) \(T(?<tier>\d+)\)?/;
+      if (mapRegex.test(highlightText)) {
+        let match = mapRegex.exec(highlightText)
+        this.stashService.highlight(match.groups.item, `tier:${match.groups.tier}`).subscribe()
+      } else {
+        this.stashService.highlight(highlightText).subscribe()
+      }
+    }
   }
 
   private toggleItemHighlight(): void {

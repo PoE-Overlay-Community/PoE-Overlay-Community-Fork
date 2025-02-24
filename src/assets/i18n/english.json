@@ -421,6 +421,7 @@
       "elapsed-seconds": "{{seconds}}s",
       "expand": "Expand",
       "go-to-player-hideout": "Go to Player Hideout",
+      "highlight": "Highlight item in the stash",
       "incoming-trade": "Incoming Trade",
       "invite-to-party": "Invite to Party",
       "keybindings": {
