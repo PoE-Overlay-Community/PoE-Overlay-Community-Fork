@@ -85,7 +85,8 @@ export class ItemFrameComponent implements OnInit {
       this.item.unmodifiable !== undefined ||
       this.item.veiled !== undefined ||
       this.item.unidentified !== undefined ||
-      this.item.relic !== undefined
+      this.item.relic !== undefined ||
+      this.item.foulborn !== undefined
     )
     this.influences = !!this.item.influences
 

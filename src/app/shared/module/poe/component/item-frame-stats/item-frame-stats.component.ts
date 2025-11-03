@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core'
 import { ModIconsService } from '@shared/module/poe/service/mod-icons/mod-icons.service'
 import { AnnointmentsService } from '../../service/annointments/annointments.service'
-import { Item, Language } from '../../type'
+import { Item, ItemStat, Language, Stat } from '../../type'
 
 @Component({
   selector: 'app-item-frame-stats',
@@ -60,5 +60,12 @@ export class ItemFrameStatsComponent {
 
   public getModIcon(modName: string): string {
     return this.modIconsService.get(modName, this.language)
+  }
+
+  public getStatClass(stat: ItemStat): string {
+    if (stat.modName === 'foulborn') {
+      return 'mutated'
+    }
+    return 'purpel'
   }
 }

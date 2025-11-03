@@ -248,6 +248,8 @@ export class ItemCategoryValuesProvider {
       case ItemCategory.Tincture:
       case ItemCategory.Corpse:
       case ItemCategory.Idol:
+      case ItemCategory.Graft:
+      case ItemCategory.Wombgift:
         return of({ values: [] })
       default:
         console.warn(`Missing ItemCategory case for '${category}'`)

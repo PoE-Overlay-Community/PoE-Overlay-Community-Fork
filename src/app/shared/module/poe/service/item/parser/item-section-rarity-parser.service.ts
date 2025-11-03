@@ -126,6 +126,14 @@ export class ItemSectionRarityParserService implements ItemSectionParserService 
       target.blightRavaged = true
     }
 
+    // Check for foulborn naming
+    const [mutatedNameId, mutatedName] = this.wordService.searchAll(t => this.clientString.translate('MutatedUniqueName').replace('{0}', t) === target.name) || this.wordService.searchAll(t => this.clientString.translate('MutatedUniqueName').replace('{0}', t) === target.name, Language.English)
+    if (mutatedNameId !== '' && mutatedName !== '') {
+      target.name = mutatedName
+      target.nameId = mutatedNameId
+      target.foulborn = true
+    }
+
     // Check for metamorph samples
     const metamorphSamplePhrase = this.clientString.translate('MetamorphosisItemisedMapBoss')
 

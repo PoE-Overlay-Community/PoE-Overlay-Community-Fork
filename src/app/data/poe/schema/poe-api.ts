@@ -429,6 +429,7 @@ export interface MiscFilters {
   gem_alternate_quality?: FilterOption
   fractured_item?: FilterOption
   synthesised_item?: FilterOption
+  foulborn_item?: FilterOption
   alternate_art?: FilterOption
   identified?: FilterOption
   corrupted?: FilterOption

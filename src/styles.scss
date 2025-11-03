@@ -157,6 +157,11 @@ mat-card {
     background-size: contain;
   }
 
+  &.foulborn {
+    background-image: url('assets/poe/item/mod-icons/foulborn-icon.png');
+    background-size: contain;
+  }
+
   &.delve {
     background-image: url('assets/poe/item/mod-icons/minimap-icons.png');
     background-position-x: -48px;

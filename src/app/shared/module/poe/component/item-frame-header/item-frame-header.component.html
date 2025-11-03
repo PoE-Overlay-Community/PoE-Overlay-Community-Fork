@@ -2,7 +2,10 @@
   <div class="center-bg">
     <div class="name" *ngIf="item.name">
       <app-item-frame-query [(property)]="queryItem.name" [value]="item.name" [disabled]="!queryable">
-        <span> {{ item.name }}</span>
+        <ng-container [ngSwitch]="getNameLabelName(item)">
+          <span *ngSwitchCase="1">{{ ('MutatedUniqueName' | clientString: language).replace('{0}', item.name) }}</span>
+          <span *ngSwitchDefault>{{ item.name }}</span>
+        </ng-container>
       </app-item-frame-query>
     </div>
     <div class="name" *ngIf="item.typeId">

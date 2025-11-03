@@ -25,4 +25,17 @@ export class WordService {
     const map = this.wordProvider.provide(language)
     return map[text]
   }
+
+  public searchAll(predicate: (text: string) => boolean, language?: Language): [string, string] {
+    language = language || this.context.get().gameLanguage || this.context.get().language
+
+    const map = this.wordProvider.provide(language)
+    for (const id in map) {
+      const text = map[id]
+      if (predicate(text)) {
+        return [id, text]
+      }
+    }
+    return ['', '']
+  }
 }

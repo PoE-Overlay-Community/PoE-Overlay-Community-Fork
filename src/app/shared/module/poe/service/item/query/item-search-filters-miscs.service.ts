@@ -44,6 +44,12 @@ export class ItemSearchFiltersMiscsService implements ItemSearchFiltersService {
       option: `${!!item.veiled}`,
     }
 
+    if (item.foulborn) {
+      query.filters.misc_filters.filters.foulborn_item = {
+        option: `${!!item.foulborn}`,
+      }
+    }
+
     this.mapInfluences(item, query)
 
     if (!item.properties) {

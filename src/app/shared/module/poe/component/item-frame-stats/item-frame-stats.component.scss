@@ -20,6 +20,10 @@
   color: $crucible;
 }
 
+.mutated {
+  color: $mutated;
+}
+
 ::ng-deep {
   app-item-frame-stats {
     .cold {

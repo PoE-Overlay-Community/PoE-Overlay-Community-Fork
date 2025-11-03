@@ -193,6 +193,9 @@ export class ItemSearchFiltersTypeService implements ItemSearchFiltersService {
       case ItemCategory.Corpse:
       // settlers (Phrecia race event)
       case ItemCategory.Idol:
+      // keepers of the flame
+      case ItemCategory.Graft:
+      case ItemCategory.Wombgift:
         query.filters.type_filters.filters.category = {
           option: item.category,
         }

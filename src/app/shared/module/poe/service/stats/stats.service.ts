@@ -54,9 +54,9 @@ interface StatMatch {
 
 const REVERSE_REGEX = /\\[.*+?^${}()|[\]\\]/g
 const VALUE_PLACEHOLDER = '(\\S+)'
-const TYPE_PLACEHOLDER_REGEX = / \(implicit\)| \(fractured\)| \(crafted\)| \(enchant\)| \(scourge\)| \(crucible\)/
+const TYPE_PLACEHOLDER_REGEX = / \(implicit\)| \(fractured\)| \(crafted\)| \(enchant\)| \(scourge\)| \(crucible\)| \(mutated\) /
 const SCOURGE_PLACEHOLDER_REGEX = / \(scourge\)$/
-const CRUCIBLE_PLACEHOLDER_REGEX = / \(crucible\)$/
+const MUTATED_PLACEHOLDER_REGEX = / \(mutated\)$/
 
 @Injectable({
   providedIn: 'root',
@@ -261,6 +261,7 @@ export class StatsService {
     const craftedPrefixRegex = `^\{ ${this.clientStringService.translate('ModDescriptionLineCraftedPrefix', language).replace('{0}', '.*')}`
     const suffixRegex = `^\{ ${this.clientStringService.translate('ModDescriptionLineSuffix', language).replace('{0}', '.*')}`
     const craftedSuffixRegex = `^\{ ${this.clientStringService.translate('ModDescriptionLineCraftedSuffix', language).replace('{0}', '.*')}`
+    const foulbornRegex = `^\{ ${this.clientStringService.translate('ModDescriptionLineBrequelMutated', language).replace('{0}', '.*')}`
 
     // Perform the search
     for (const type of search.types) {
@@ -407,6 +408,8 @@ export class StatsService {
             const modNameSplit = prevLine.split("\"")
             if (modNameSplit.length >= 3) {
               modName = modNameSplit[1]
+            } else if (prevLine.match(foulbornRegex)) {
+              modName = "foulborn"
             }
 
             // Found the info -> break out of the loop
@@ -508,7 +511,7 @@ export class StatsService {
       } else {
         const section: StatsSectionText = {
           index,
-          text,
+          text: text.split('\n').map(x => x.replace(MUTATED_PLACEHOLDER_REGEX, '')).join('\n'),
         }
         if (text.indexOf(implicitPhrase) !== -1) {
           // implicits have there own section

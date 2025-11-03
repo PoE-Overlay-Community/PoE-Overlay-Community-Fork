@@ -19,6 +19,7 @@ export interface Item {
   blighted?: boolean
   blightRavaged?: boolean
   relic?: boolean
+  foulborn?: boolean
   damage?: ItemWeaponDamage
   sockets?: ItemSocket[]
   properties?: ItemProperties
@@ -119,6 +120,8 @@ export enum ItemCategory {
   Tincture = "tincture",
   Corpse = "corpse",
   Idol = "idol",
+  Graft = "graft",
+  Wombgift = "wombgift",
   Currency = 'currency',
   CurrencyPiece = 'currency.piece',
   CurrencyResonator = 'currency.resonator',

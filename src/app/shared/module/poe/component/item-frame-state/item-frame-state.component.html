@@ -28,3 +28,8 @@
     <div class="relic">{{ 'ItemPopupRelicUnique' | clientString: language }}</div>
   </app-item-frame-query>
 </ng-container>
+<ng-container *ngIf="item.foulborn !== undefined">
+  <app-item-frame-query [(property)]="queryItem.foulborn" [value]="item.foulborn" class="item-frame-state">
+    <div class="mutated">{{ ('MutatedUniqueName' | clientString: language).replace('{0}', '') }}</div>
+  </app-item-frame-query>
+</ng-container>

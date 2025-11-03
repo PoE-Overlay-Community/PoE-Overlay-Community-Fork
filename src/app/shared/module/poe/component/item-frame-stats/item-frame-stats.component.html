@@ -56,7 +56,7 @@
   </ng-container>
   <ng-container *ngIf="groups.explicit">
     <ng-container *ngFor="let stat of groups.explicit">
-      <div class="purpel">
+      <div [class]="getStatClass(stat)">
         <ng-container *ngTemplateOutlet="statQuery; context: { stat: stat }"></ng-container>
       </div>
     </ng-container>

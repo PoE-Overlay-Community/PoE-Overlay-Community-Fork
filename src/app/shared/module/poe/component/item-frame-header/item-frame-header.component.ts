@@ -36,16 +36,23 @@ export class ItemFrameHeaderComponent {
           switch (item.rarity) {
             case ItemRarity.Quest:
               headerClasses.push(ItemRarity.Normal)
-              break;
+              break
             default:
               headerClasses.push(item.rarity)
-              break;
+              break
           }
         }
         break
     }
 
     return headerClasses.join(' ')
+  }
+
+  public getNameLabelName(item: Item): number {
+    if (item.foulborn) {
+      return 1;
+    }
+    return 0;
   }
 
   public getNameLabelType(item: Item): number {

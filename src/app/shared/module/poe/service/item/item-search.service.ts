@@ -11,7 +11,7 @@ import { Currency, Item, ItemCategory, Language } from '@shared/module/poe/type'
 import moment from 'moment'
 import { forkJoin, from, Observable, of } from 'rxjs'
 import { catchError, flatMap, map, toArray } from 'rxjs/operators'
-import { ItemSearchIndexed, ItemSearchOptions } from '../../type/search.type'
+import { ItemSearchIndexed, ItemSearchOptions, ItemSearchStatus } from '../../type/search.type'
 import { BaseItemTypesService } from '../base-item-types/base-item-types.service'
 import { ContextService } from '../context.service'
 import { CurrencyService } from '../currency/currency.service'
@@ -211,7 +211,7 @@ export class ItemSearchService {
       },
       query: {
         status: {
-          option: options.online ? 'online' : 'any',
+          option: options.online ? ItemSearchStatus.Available : ItemSearchStatus.Any,
         },
         filters: {
           trade_filters: {
