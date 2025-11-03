@@ -65,11 +65,13 @@
 		"of Craiceann": "bestiary",
 		"of Farrul": "bestiary",
 		"of Fenumus": "bestiary",
-		"of Saqawal": "bestiary"
+		"of Saqawal": "bestiary",
+		"foulborn": "foulborn"
 	},
 	"Portuguese": {
 		"da Criação": "shaper",
 		"da Criação Elevada": "shaper",
+		"da Formação": "shaper",
 		"da Modelação": "shaper",
 		"da Remodelação": "shaper",
 		"do Criador": "shaper",
@@ -188,7 +190,8 @@
 		"de Saqawal": "bestiary",
 		"do Craiceann": "bestiary",
 		"do Farrul": "bestiary",
-		"do Saqawal": "bestiary"
+		"do Saqawal": "bestiary",
+		"foulborn": "foulborn"
 	},
 	"Russian": {
 		"Возвышенная созданная": "shaper",
@@ -364,7 +367,8 @@
 		"Краценна": "bestiary",
 		"Сакаваля": "bestiary",
 		"Фаррул": "bestiary",
-		"Фенумы": "bestiary"
+		"Фенумы": "bestiary",
+		"foulborn": "foulborn"
 	},
 	"Thai": {
 		"Elevated Shaper's": "shaper",
@@ -432,7 +436,8 @@
 		"of Craiceann": "bestiary",
 		"of Farrul": "bestiary",
 		"of Fenumus": "bestiary",
-		"of Saqawal": "bestiary"
+		"of Saqawal": "bestiary",
+		"foulborn": "foulborn"
 	},
 	"German": {
 		"der erhabenen Verformung": "shaper",
@@ -534,7 +539,8 @@
 		"von Craiceann": "bestiary",
 		"von Farrul": "bestiary",
 		"von Fenumus": "bestiary",
-		"von Saqawal": "bestiary"
+		"von Saqawal": "bestiary",
+		"foulborn": "foulborn"
 	},
 	"French": {
 		"du Façonnage élevé": "shaper",
@@ -637,7 +643,8 @@
 		"de Craïcéann": "bestiary",
 		"de Farrul": "bestiary",
 		"de Fénumus": "bestiary",
-		"de Saqawal": "bestiary"
+		"de Saqawal": "bestiary",
+		"foulborn": "foulborn"
 	},
 	"Spanish": {
 		"de Creación elevada": "shaper",
@@ -722,7 +729,8 @@
 		"de Craiceann": "bestiary",
 		"de Farrul": "bestiary",
 		"de Fenumus": "bestiary",
-		"de Saqawal": "bestiary"
+		"de Saqawal": "bestiary",
+		"foulborn": "foulborn"
 	},
 	"Korean": {
 		"- 고양된 형성": "shaper",
@@ -755,7 +763,7 @@
 		"- 마타틀": "incursion",
 		"- 시타콰로틀": "incursion",
 		"- 타카티": "incursion",
-		"- 푸후아테": "incursion",
+		"- 푸후알테": "incursion",
 		"과텔리치의": "incursion",
 		"마타틀의": "incursion",
 		"시타콰로틀의": "incursion",
@@ -790,34 +798,39 @@
 		"- 사카왈": "bestiary",
 		"- 크라칸": "bestiary",
 		"- 페누무스": "bestiary",
-		"- 페룰": "bestiary"
+		"- 페룰": "bestiary",
+		"foulborn": "foulborn"
 	},
-	"SimplifiedChinese": {},
-	"TraditionalChinese": {},
+	"SimplifiedChinese": {
+		"foulborn": "foulborn"
+	},
+	"TraditionalChinese": {
+		"foulborn": "foulborn"
+	},
 	"Japanese": {
+		"シェイパーによる": "shaper",
 		"シェイパーの": "shaper",
-		"形成の": "shaper",
+		"高位のシェイパーによる": "shaper",
 		"高位のシェイパーの": "shaper",
-		"高位の形成の": "shaper",
+		"エルダーによる": "elder",
 		"エルダーの": "elder",
-		"エルドリッチ": "elder",
-		"高位のエルダーの": "elder",
-		"聖戦の": "crusader",
-		"聖戦士の": "crusader",
-		"高位の聖戦の": "crusader",
-		"高位の聖戦士の": "crusader",
-		"贖いの": "redeemer",
-		"贖い主の": "redeemer",
-		"高位の贖いの": "redeemer",
-		"高位の贖い主の": "redeemer",
+		"高位のエルダーによる": "elder",
+		"クルセーダーによる": "crusader",
+		"クルセーダーの": "crusader",
+		"高位のクルセーダーによる": "crusader",
+		"高位のクルセーダーの": "crusader",
+		"レディーマーによる": "redeemer",
+		"レディーマーの": "redeemer",
+		"高位のレディーマーによる": "redeemer",
+		"高位のレディーマーの": "redeemer",
+		"ハンターによる": "hunter",
 		"ハンターの": "hunter",
-		"狩猟の": "hunter",
+		"高位のハンターによる": "hunter",
 		"高位のハンターの": "hunter",
-		"高位の狩猟の": "hunter",
-		"大将軍の": "warlord",
-		"征伐の": "warlord",
-		"高位の大将軍の": "warlord",
-		"高位の征伐の": "warlord",
+		"ウォーロードによる": "warlord",
+		"ウォーロードの": "warlord",
+		"高位のウォーロードによる": "warlord",
+		"高位のウォーロードの": "warlord",
 		"地下の": "delve",
 		"地中の": "delve",
 		"グアテリッツィの": "incursion",
@@ -856,6 +869,7 @@
 		"クレイシアンの": "bestiary",
 		"サカワルの": "bestiary",
 		"ファルルの": "bestiary",
-		"フィヌムスの": "bestiary"
+		"フィヌムスの": "bestiary",
+		"foulborn": "foulborn"
 	}
 }
