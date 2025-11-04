@@ -15,6 +15,9 @@ const POE_NAMES = [
   'pathofexilesteam.exe',
   'pathofexile_x64steam',
   'pathofexilesteam',
+  // Steam "Remote Play"
+  'streaming_client',
+  'streaming_client.exe',
 
   // Standalone
   'pathofexile_x64.exe',
@@ -36,7 +39,7 @@ const POE_KOREAN_NAMES = [
 
 const POE_TITLES = ['Path of Exile']
 
-const POE_ALTERNATIVE_TITLES = ['Path of Exile <---> ']
+const POE_ALTERNATIVE_TITLES = ['Path of Exile <---> ', 'Path of Exile [']
 
 export class Game {
   private window: Window
