@@ -24,5 +24,9 @@ export const environment = {
     'https://poe.game.daum.net/*',
     'https://poe.game.qq.com/*',
     'https://pathofexile.tw/*',
+    'http://*.pathofexile.com/*',
+    'http://poe.game.daum.net/*',
+    'http://poe.game.qq.com/*',
+    'http://pathofexile.tw/*',
   ],
 }
