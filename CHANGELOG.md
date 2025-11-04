@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.8.38 (2025-11-04)
+
+- Updated the PoE Assets using PoE Asset Updater (commir a25d8a4) and PoE Client v3.27.0 (hotfix 7)
+- Added support for Graft, Wombgifts and Foulborn items
+- Updated the trade searching to search both in-person and instant buyout sales
+  - Added trade type (whisper/instantbuyout) icon next to trade listings
+- Added poe http urls to the list of cookie sharing urls
+- Added steam 'remote play' and alternative poe client titles
+
 ## 0.8.37 (2025-02-21)
 
 - Added support for Idols
