@@ -45,6 +45,7 @@ describe('ItemSearchAnalyzeService', () => {
       age: '4 days ago',
       priceNumerator: 1,
       priceDenominator: 1,
+      instantBuyout: false,
     },
     {
       seller: 'Lord_Mohamed',
@@ -59,6 +60,7 @@ describe('ItemSearchAnalyzeService', () => {
       age: '3 days ago',
       priceNumerator: 1,
       priceDenominator: 1,
+      instantBuyout: false,
     },
   ]
 

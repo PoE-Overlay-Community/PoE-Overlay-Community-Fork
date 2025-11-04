@@ -29,6 +29,7 @@ export interface ItemSearchListing {
   amount: number
   priceNumerator: number
   priceDenominator: number
+  instantBuyout: boolean
 }
 
 export interface SearchResult {
@@ -372,6 +373,7 @@ export class ItemSearchService {
           age: indexed.fromNow(),
           priceNumerator,
           priceDenominator,
+          instantBuyout: listing.fee !== undefined
         }
         return result
       })
@@ -437,6 +439,7 @@ export class ItemSearchService {
           age: indexed.fromNow(),
           priceNumerator,
           priceDenominator,
+          instantBuyout: false,
         }
         return result
       })

@@ -11,6 +11,7 @@ interface Row {
   count: number
   seller: string
   age: string
+  tradetype: string
 }
 
 interface SelectEvent {
@@ -48,6 +49,7 @@ export class EvaluateSearchTableComponent {
           originalCurrency: item.original,
           seller: item.seller,
           age: item.age,
+          tradetype: item.instantBuyout ? 'instantbuyout' : 'whisper',
         }
         const key = keyFn(next)
         if (map[key]) {

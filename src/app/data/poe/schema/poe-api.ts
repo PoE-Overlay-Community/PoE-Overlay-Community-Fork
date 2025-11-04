@@ -535,6 +535,7 @@ export interface TradeFetchResultListing {
   indexed: string
   price: TradeFetchResultPrice
   account: TradeFetchResultAccount
+  fee?: number
 }
 
 interface TradeFetchResultItem {

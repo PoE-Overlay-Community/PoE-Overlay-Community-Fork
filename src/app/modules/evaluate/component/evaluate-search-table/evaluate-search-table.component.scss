@@ -22,7 +22,7 @@ table {
 
   .amount {
     min-width: 70px;
-    text-align:right;
+    text-align: right;
 
     .value {
       color: $light-grey;
@@ -35,5 +35,21 @@ table {
 
   .fixer {
     color: $red;
+  }
+
+  .tradetype {
+    width: 16px;
+    height: 16px;
+    display: inline-flex;
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    &.instantbuyout {
+      background-image: url(../../../../../assets/poe/item/instantbuyout.png);
+    }
+
+    &.whisper {
+      background-image: url(../../../../../assets/poe/item/whisper.png);
+    }
   }
 }
