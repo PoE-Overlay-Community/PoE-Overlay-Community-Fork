@@ -97,6 +97,13 @@ export class ItemSearchFiltersMiscsService implements ItemSearchFiltersService {
         max: prop.storedExperience.value.max,
       }
     }
+
+    if (prop.memoryStrands) {
+      query.filters.misc_filters.filters.memory_level = {
+        min: prop.memoryStrands.value.min,
+        max: prop.memoryStrands.value.max,
+      };
+    }
   }
 
   private mapQuality(prop: ItemProperties, query: Query): void {

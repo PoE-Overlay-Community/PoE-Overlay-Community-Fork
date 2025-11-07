@@ -200,6 +200,7 @@ export interface ItemProperties {
   prophecyText?: string
   durability?: ItemValueProperty
   storedExperience?: ItemValueProperty
+  memoryStrands?: ItemValueProperty
   ultimatum?: ItemPropertiesUltimatum
   incursion?: ItemPropertiesIncursion
   heist?: ItemPropertiesHeist

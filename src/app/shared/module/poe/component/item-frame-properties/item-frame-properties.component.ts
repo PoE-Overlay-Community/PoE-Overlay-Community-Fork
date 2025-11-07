@@ -50,6 +50,7 @@ export class ItemFramePropertiesComponent implements OnInit {
       'prophecyText',
       'durability',
       'storedExperience',
+      'memoryStrands',
       'gemQualityType',
       'areaLevel',
       'ultimatum',

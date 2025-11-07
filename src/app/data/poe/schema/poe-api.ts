@@ -441,6 +441,7 @@ export interface MiscFilters {
   stored_experience?: FilterValueOption
   stack_size?: FilterValueOption
   durability?: FilterValueOption
+  memory_level?: FilterValueOption
 }
 
 export interface TradeFilters {

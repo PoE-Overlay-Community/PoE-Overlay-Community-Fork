@@ -1,5 +1,9 @@
 # Changelog
 
+## Next Release
+
+- Added support for 'Memory Strands' when price-checking items
+
 ## 0.8.38 (2025-11-04)
 
 - Updated the PoE Assets using PoE Asset Updater (commir a25d8a4) and PoE Client v3.27.0 (hotfix 7)

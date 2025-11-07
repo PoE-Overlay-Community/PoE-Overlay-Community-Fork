@@ -153,6 +153,8 @@ export class ItemSectionPropertiesParserService implements ItemSectionParserServ
       props.durability = this.parseValueProperty(line, phrases[phraseIdx], props.durability)
       phraseIdx++//29
       props.storedExperience = this.parseValueProperty(line, phrases[phraseIdx], props.storedExperience)
+      phraseIdx++//30
+      props.memoryStrands = this.parseValueProperty(line, phrases[phraseIdx], props.memoryStrands)
     }
 
     return propertiesSection
@@ -255,6 +257,7 @@ export class ItemSectionPropertiesParserService implements ItemSectionParserServ
       `${this.clientString.translate('Quality10')}: `,//27
       `${this.clientString.translate('ItemDisplayHarvestBoosterUses')}: `,//28
       `${this.clientString.translate('ItemDisplayStoredExperience')}: `,//29
+      `${this.clientString.translate('ZanaInfluencedItem')}: `,//30
     ]
   }
 }

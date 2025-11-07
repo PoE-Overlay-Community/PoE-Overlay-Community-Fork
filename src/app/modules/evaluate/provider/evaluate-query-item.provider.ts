@@ -48,6 +48,7 @@ export class EvaluateQueryItemProvider {
       stats: [],
       properties: {
         qualityType: (item.properties || {}).qualityType,
+        memoryStrands: item.properties?.memoryStrands,
         ultimatum: {},
         heist: {
           requiredSkills: [],

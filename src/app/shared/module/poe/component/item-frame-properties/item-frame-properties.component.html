@@ -199,6 +199,13 @@
         ">
       </ng-container>
     </ng-container>
+    <ng-container *ngSwitchCase="'memoryStrands'">
+      <ng-container *ngTemplateOutlet="
+          value;
+          context: { prop: prop, name: property, key: 'ZanaInfluencedItem', range: true }
+        ">
+      </ng-container>
+    </ng-container>
     <ng-container *ngSwitchCase="'ultimatum'">
       <app-item-frame-properties-ultimatum [item]="item" [queryItem]="queryItem" [language]="language"></app-item-frame-properties-ultimatum>
     </ng-container>
