@@ -2,6 +2,7 @@
 
 ## Next Release
 
+- Updated the PoE Assets using PoE Asset Updater (commit a25d8a4) and PoE Client v3.27.0b (hotfix 3)
 - Added support for 'Memory Strands' when price-checking items
 - Updated the pseudo mods config so it can recognize 'str and int' stats and add them as pseudo mods
 - Added support for 'More Maps', 'More Scarabs' and 'More Currency' mods when price-checking maps
@@ -9,7 +10,7 @@
 
 ## 0.8.38 (2025-11-04)
 
-- Updated the PoE Assets using PoE Asset Updater (commir a25d8a4) and PoE Client v3.27.0 (hotfix 7)
+- Updated the PoE Assets using PoE Asset Updater (commit a25d8a4) and PoE Client v3.27.0 (hotfix 7)
 - Added support for Graft, Wombgifts and Foulborn items
 - Updated the trade searching to search both in-person and instant buyout sales
   - Added trade type (whisper/instantbuyout) icon next to trade listings
