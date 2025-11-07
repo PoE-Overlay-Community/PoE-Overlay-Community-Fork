@@ -3,6 +3,7 @@
 ## Next Release
 
 - Added support for 'Memory Strands' when price-checking items
+- Updated the pseudo mods config so it can recognize 'str and int' stats and add them as pseudo mods
 
 ## 0.8.38 (2025-11-04)
 

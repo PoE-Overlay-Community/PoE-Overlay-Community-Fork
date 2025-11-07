@@ -70,6 +70,7 @@ export const PSEUDO_MODIFIERS: {
       { id: 'additional_strength', type: ModifierType.Addition },
       { id: 'additional_strength_and_dexterity', type: ModifierType.Addition },
       { id: 'additional_strength_and_intelligence', type: ModifierType.Addition },
+      { id: 'base_strength_and_intelligence', type: ModifierType.Addition },
       { id: 'additional_all_attributes', type: ModifierType.Addition },
     ],
   },
@@ -85,6 +86,7 @@ export const PSEUDO_MODIFIERS: {
     mods: [
       { id: 'additional_intelligence', type: ModifierType.Addition },
       { id: 'additional_strength_and_intelligence', type: ModifierType.Addition },
+      { id: 'base_strength_and_intelligence', type: ModifierType.Addition },
       { id: 'additional_dexterity_and_intelligence', type: ModifierType.Addition },
       { id: 'additional_all_attributes', type: ModifierType.Addition },
     ],
