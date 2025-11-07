@@ -154,7 +154,13 @@ export class ItemSectionPropertiesParserService implements ItemSectionParserServ
       phraseIdx++//29
       props.storedExperience = this.parseValueProperty(line, phrases[phraseIdx], props.storedExperience)
       phraseIdx++//30
-      props.memoryStrands = this.parseValueProperty(line, phrases[phraseIdx], props.memoryStrands)
+      props.memoryStrands = this.parseValueProperty(line, phrases[phraseIdx], props.memoryStrands);
+      phraseIdx++;//31
+      props.mapMoreMaps = this.parseValueProperty(line, phrases[phraseIdx], props.mapMoreMaps);
+      phraseIdx++;//32
+      props.mapMoreScarabs = this.parseValueProperty(line, phrases[phraseIdx], props.mapMoreScarabs);
+      phraseIdx++;//33
+      props.mapMoreCurrency = this.parseValueProperty(line, phrases[phraseIdx], props.mapMoreCurrency)
     }
 
     return propertiesSection
@@ -258,6 +264,9 @@ export class ItemSectionPropertiesParserService implements ItemSectionParserServ
       `${this.clientString.translate('ItemDisplayHarvestBoosterUses')}: `,//28
       `${this.clientString.translate('ItemDisplayStoredExperience')}: `,//29
       `${this.clientString.translate('ZanaInfluencedItem')}: `,//30
+      `${this.clientString.translate('ItemDisplayMapMapDropBonus')}: `,//31
+      `${this.clientString.translate('ItemDisplayMapScarabDropBonus')}: `,//32
+      `${this.clientString.translate('ItemDisplayMapCurrencyDropBonus')}: `,//33
     ]
   }
 }

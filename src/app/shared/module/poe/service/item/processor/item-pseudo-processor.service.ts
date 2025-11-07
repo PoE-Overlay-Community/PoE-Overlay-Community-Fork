@@ -22,6 +22,8 @@ export class ItemPseudoProcessorService {
       emptyAndCraftedPseudoMods.push(...this.addPseudoCraftedModifiers(item))
     }
 
+    this.convertPropertiesToPseudoMods(item)
+
     this.groupPseudoMods(item)
 
     this.groupIdenticalMods(item)
@@ -143,6 +145,26 @@ export class ItemPseudoProcessorService {
     return itemStat
   }
 
+  private convertPropertiesToPseudoMods(item: Item): void {
+    if (!item.properties) {
+      return
+    }
+
+    const { mapMoreMaps, mapMoreScarabs, mapMoreCurrency } = item.properties
+
+    if (mapMoreMaps && mapMoreMaps.value) {
+      item.stats.push(this.createPseudoMod('pseudo_map_more_map_drops', [mapMoreMaps.value.value]))
+    }
+
+    if (mapMoreScarabs && mapMoreScarabs.value) {
+      item.stats.push(this.createPseudoMod('pseudo_map_more_scarab_drops', [mapMoreScarabs.value.value]));
+    }
+
+    if (mapMoreCurrency && mapMoreCurrency.value) {
+      item.stats.push(this.createPseudoMod('pseudo_map_more_currency_drops', [mapMoreCurrency.value.value]));
+    }
+  }
+
   private groupPseudoMods(item: Item): void {
     const itemStats = [...item.stats]
     Object.getOwnPropertyNames(PSEUDO_MODIFIERS).forEach((id) => {
@@ -168,7 +190,6 @@ export class ItemPseudoProcessorService {
           if (mod.count && (!minCount || mod.count > minCount)) {
             minCount = mod.count
           }
-
 
           stats.forEach((stat) => {
             count++

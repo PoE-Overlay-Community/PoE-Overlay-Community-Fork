@@ -197,6 +197,9 @@ export interface ItemProperties {
   mapQuantity?: ItemValueProperty
   mapRarity?: ItemValueProperty
   mapPacksize?: ItemValueProperty
+  mapMoreMaps?: ItemValueProperty
+  mapMoreScarabs?: ItemValueProperty
+  mapMoreCurrency?: ItemValueProperty
   prophecyText?: string
   durability?: ItemValueProperty
   storedExperience?: ItemValueProperty

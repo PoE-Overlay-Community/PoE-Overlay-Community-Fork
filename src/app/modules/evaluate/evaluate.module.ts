@@ -66,6 +66,9 @@ export class EvaluateModule implements FeatureModule {
         'pseudo.pseudo_total_energy_shield': true,
         'pseudo.pseudo_increased_energy_shield': true,
         'pseduo.pseudo_increased_movement_speed': true,
+        'pseudo.pseudo_map_more_map_drops': true,
+        'pseudo.pseudo_map_more_scarab_drops': true,
+        'pseudo.pseudo_map_more_currency_drops': true,
         'explicit.stat_1479533453': true, // Sextant Uses
         'enchant.stat_290368246': true, // Sextant Uses
         'implicit.stat_299373046': true, // Blighted

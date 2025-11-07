@@ -4,6 +4,7 @@
 
 - Added support for 'Memory Strands' when price-checking items
 - Updated the pseudo mods config so it can recognize 'str and int' stats and add them as pseudo mods
+- Added support for 'More Maps', 'More Scarabs' and 'More Currency' mods when price-checking maps
 
 ## 0.8.38 (2025-11-04)
 
