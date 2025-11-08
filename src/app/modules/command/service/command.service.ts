@@ -12,6 +12,10 @@ interface Command {
   send: boolean
 }
 
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 @Injectable({
   providedIn: 'root',
 })
@@ -42,20 +46,22 @@ export class CommandService {
     this.command$
       .pipe(
         throttleTime(350),
-        map((command) => {
+        map(async (command) => {
           const text = this.clipboard.readText()
           this.clipboard.writeText(command.text)
+          await sleep(75)
           this.keyboard.setKeyboardDelay(5)
           this.keyboard.keyTap(KeyCode.VK_RETURN)
           this.keyboard.keyTap(KeyCode.VK_KEY_V, ['control'])
           if (command.send) {
+            await sleep(75)
             this.keyboard.keyTap(KeyCode.VK_RETURN)
           }
           return text
         }),
         delay(200),
-        tap((text) => {
-          this.clipboard.writeText(text)
+        tap(async (text) => {
+          this.clipboard.writeText(await text)
         })
       )
       .subscribe()
