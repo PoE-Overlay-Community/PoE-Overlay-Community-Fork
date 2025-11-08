@@ -1,11 +1,12 @@
 version: 1.0.{build}
 image:
-  - Visual Studio 2017
+  - Visual Studio 2019
 platform:
   - x64
 environment:
   NODE_OPTIONS: --max-old-space-size=7168
   NODE_ENV: development
+  DOCKER_BUILDKIT: 1
 branches:
   only:
     - master
@@ -27,6 +28,8 @@ build_script:
   - node_modules/.bin/tsc -p tsconfig.serve.json
   - node_modules/.bin/ng build -c production
   - node_modules/.bin/electron-builder build --windows --publish never
+  - docker build -o release .
+  - ps: Remove-Item -Path release/linux-unpacked
   - ps: Compress-Archive -Path release -DestinationPath publish.zip
 artifacts:
   - path: 'release\*.*'
