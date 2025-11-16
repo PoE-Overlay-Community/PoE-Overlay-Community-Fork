@@ -16,6 +16,8 @@ interface Row {
 
 interface SelectEvent {
   amount: number
+  numerator: number
+  denominator: number
   currency?: Currency
 }
 
@@ -80,6 +82,8 @@ export class EvaluateSearchTableComponent {
 
     this.amountSelect.next({
       amount: this.original ? row.originalAmount : row.amount,
+      numerator: row.priceNumerator,
+      denominator: row.priceDenominator,
       currency: this.original ? row.originalCurrency : undefined,
     })
   }
