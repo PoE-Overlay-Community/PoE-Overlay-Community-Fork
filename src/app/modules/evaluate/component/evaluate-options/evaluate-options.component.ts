@@ -8,12 +8,12 @@ import {
 } from '@angular/core'
 import { LeaguesService } from '@shared/module/poe/service'
 import { League } from '@shared/module/poe/type'
-import { ItemSearchIndexed } from '@shared/module/poe/type/search.type'
+import { ItemSearchIndexed, ItemSearchStatus } from '@shared/module/poe/type/search.type'
 import { BehaviorSubject, Observable } from 'rxjs'
 import { map } from 'rxjs/operators'
 
 export interface EvaluateOptions {
-  online: boolean
+  status: ItemSearchStatus
   indexed: ItemSearchIndexed
   leagueId: string
   fetchCount: number
@@ -45,7 +45,7 @@ export class EvaluateOptionsComponent implements OnInit {
   public leagues$: Observable<LeagueMap>
   public isOpen = false
 
-  constructor(private readonly leagues: LeaguesService) {}
+  constructor(private readonly leagues: LeaguesService) { }
 
   public ngOnInit(): void {
     this.leagues$ = this.leagues.getLeagues().pipe(
@@ -92,6 +92,12 @@ export class EvaluateOptionsComponent implements OnInit {
     this.changeIndex(factor)
   }
 
+  public onStatusWheel(event: WheelEvent): void {
+    const factor = event.deltaY > 0 ? -1 : 1
+
+    this.changeStatus(factor)
+  }
+
   public changeIndex(factor: number): void {
     const keys = Object.getOwnPropertyNames(ItemSearchIndexed)
 
@@ -106,6 +112,23 @@ export class EvaluateOptionsComponent implements OnInit {
 
     const key = keys[index]
     this.options.indexed = ItemSearchIndexed[key]
+    this.optionsChange.emit(this.options)
+  }
+
+  public changeStatus(factor: number): void {
+    // Given the index of the enum, just go up or down by factor
+    const keys = Object.getOwnPropertyNames(ItemSearchStatus)
+    let index = keys.findIndex((x) => ItemSearchStatus[x] === this.options.status)
+    index += factor
+
+    if (index >= keys.length) {
+      index = 0
+    } else if (index < 0) {
+      index = keys.length - 1
+    }
+
+    const key = keys[index]
+    this.options.status = ItemSearchStatus[key]
     this.optionsChange.emit(this.options)
   }
 
@@ -135,6 +158,10 @@ export class EvaluateOptionsComponent implements OnInit {
 
   public getIndexedText(): string {
     return this.options.indexed.replace(/\d/, '')
+  }
+
+  getStatusText(): string {
+    return this.options.status
   }
 
   public openClose(): void {

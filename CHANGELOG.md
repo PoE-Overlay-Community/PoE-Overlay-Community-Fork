@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.8.40 (2025-11-24)
+
+- Added support to evaluate items using Instant Buyout only.
+
 ## 0.8.39 (2025-11-07)
 
 - Updated the PoE Assets using PoE Asset Updater (commit a25d8a4) and PoE Client v3.27.0b (hotfix 3)
@@ -71,10 +75,8 @@
   - Splitted the item links & socket count default/auto selection setting when evaluating
   - When sockets are auto evaluated (based on the sockets evaluation setting), only the number of sockets are evaluated;  
     Unless any of the following conditions are met:
-    - The item is corrupted -> all socket colors are taken into account
-	- The socket is a white socket -> the color for this specific socket is taken into account
-	- The item has any of the pre-determined stats that have special interactions with sockets -> all socket colors are taken into account  
-	  (Pre-determined stats are related to specific uniques such as "Dialla's Malefaction", "Skin of the Lords/Loyal", "Prismatic Eclipse", "Triad Grip", "Scaeva", "The Pariah" and "Crown of the Tyrant")
+    - The item is corrupted -> all socket colors are taken into account - The socket is a white socket -> the color for this specific socket is taken into account - The item has any of the pre-determined stats that have special interactions with sockets -> all socket colors are taken into account  
+       (Pre-determined stats are related to specific uniques such as "Dialla's Malefaction", "Skin of the Lords/Loyal", "Prismatic Eclipse", "Triad Grip", "Scaeva", "The Pariah" and "Crown of the Tyrant")
 
 ## 0.8.29 (2023-12-09)
 

@@ -10,16 +10,17 @@ export enum ItemSearchIndexed {
   UpTo2MonthsAgo = '2months',
 }
 
-export interface ItemSearchOptions {
-  online?: boolean
-  indexed?: ItemSearchIndexed
-  leagueId?: string
-  language?: Language
-}
-
 export enum ItemSearchStatus {
   Online = 'online',//In person Trade Only
   Securable = 'securable',//Instant Buyout Only
   Available = 'available',//In Person Trade & Instant Buyout
   Any = 'any',
 }
+
+export interface ItemSearchOptions {
+  status?: ItemSearchStatus
+  indexed?: ItemSearchIndexed
+  leagueId?: string
+  language?: Language
+}
+

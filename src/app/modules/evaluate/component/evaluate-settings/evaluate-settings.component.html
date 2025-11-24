@@ -174,12 +174,15 @@
       <div class="profile">
         <mat-card>
           <mat-label>{{ 'evaluate.search.filter' | translate }}</mat-label>
-          <div class="toggle">
-            <mat-slide-toggle [checked]="settings.evaluateQueryOnline"
-                              (change)="settings.evaluateQueryOnline = $event.checked">
-              {{ 'evaluate.search.online-only' | translate }}
-            </mat-slide-toggle>
-          </div>
+          <mat-form-field>
+            <mat-label>{{ 'evaluate.search.trade-type' | translate }}</mat-label>
+            <mat-select [(value)]="settings.evaluateQueryTradeType">
+              <mat-option value="any"> {{ 'evaluate.search.status.any' | translate }} </mat-option>
+              <mat-option value="available"> {{ 'evaluate.search.status.available' | translate }} </mat-option>
+              <mat-option value="online"> {{ 'evaluate.search.status.online' | translate }} </mat-option>
+              <mat-option value="securable"> {{ 'evaluate.search.status.securable' | translate }} </mat-option>
+            </mat-select>
+          </mat-form-field>
           <mat-form-field>
             <mat-label>{{ 'evaluate.search.max-age.title' | translate }}</mat-label>
             <mat-select [(value)]="settings.evaluateQueryIndexedRange">

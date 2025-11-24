@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core'
 import { FEATURE_MODULES } from '@app/token'
 import { Feature, FeatureModule } from '@app/type'
 import { Language } from '@shared/module/poe/type'
-import { ItemSearchIndexed } from '@shared/module/poe/type/search.type'
+import { ItemSearchIndexed, ItemSearchStatus } from '@shared/module/poe/type/search.type'
 import { SharedModule } from '@shared/shared.module'
 import { UserSettingsFeature } from 'src/app/layout/type'
 import { EvaluateDialogComponent } from './component/evaluate-dialog/evaluate-dialog.component'
@@ -37,7 +37,7 @@ import { EvaluatePricePredictionComponent } from './component/evaluate-price-pre
   imports: [SharedModule],
 })
 export class EvaluateModule implements FeatureModule {
-  constructor(private readonly evaluateService: EvaluateService) {}
+  constructor(private readonly evaluateService: EvaluateService) { }
 
   public getSettings(): UserSettingsFeature {
     const defaultSettings: EvaluateUserSettings = {
@@ -80,7 +80,7 @@ export class EvaluateModule implements FeatureModule {
       evaluateQueryDefaultStatsModIcon: true,
       evaluateQueryPostProcessClusterJewels: true,
       evaluateQueryIndexedRange: ItemSearchIndexed.UpTo3DaysAgo,
-      evaluateQueryOnline: true,
+      evaluateQueryTradeType: ItemSearchStatus.Securable,
       evaluateQueryDebounceTime: 10,
       evaluateQueryFetchCount: 30,
       evaluateModifierMinRange: 10,
