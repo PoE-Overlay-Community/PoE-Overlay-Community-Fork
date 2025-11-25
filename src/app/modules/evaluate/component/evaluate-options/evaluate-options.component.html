@@ -19,14 +19,19 @@
       <span class="divider"></span>
     </ng-container>
 
-    <!-- online -->
-    <mat-slide-toggle
-      [(ngModel)]="options.online"
-      (ngModelChange)="onToggleOnlineClick()"
-      labelPosition="before"
-    >
-      {{ 'evaluate.search.online-only' | translate }}</mat-slide-toggle
-    >
+    <!-- status -->
+    <div class="row">
+        <button mat-icon-button (click)="changeStatus(-1)">
+          <mat-icon>keyboard_arrow_left</mat-icon>
+        </button>
+        <span class="option" (wheel)="onStatusWheel($event)">
+          {{ 'evaluate.search.status.' + getStatusText() | translate }}
+        </span>
+        <button mat-icon-button (click)="changeStatus(1)">
+          <mat-icon>keyboard_arrow_right</mat-icon>
+        </button>
+      </div>
+    
     <!-- indexed -->
     <ng-container *ngIf="options.indexed">
       <div class="row">

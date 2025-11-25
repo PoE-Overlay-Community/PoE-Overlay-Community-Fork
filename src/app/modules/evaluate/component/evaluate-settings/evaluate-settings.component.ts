@@ -8,7 +8,7 @@ import { StatsProvider } from '@shared/module/poe/provider/stats.provider'
 import { StatsService } from '@shared/module/poe/service'
 import { CurrencyService } from '@shared/module/poe/service/currency/currency.service'
 import { Currency, Language, StatType } from '@shared/module/poe/type'
-import { ItemSearchIndexed } from '@shared/module/poe/type/search.type'
+import { ItemSearchIndexed, ItemSearchStatus } from '@shared/module/poe/type/search.type'
 import { BehaviorSubject } from 'rxjs'
 import { UserSettings, UserSettingsComponent } from 'src/app/layout/type'
 
@@ -47,7 +47,7 @@ export interface EvaluateUserSettings extends UserSettings {
   evaluateQueryDefaultStatsEnchants: boolean
   evaluateQueryDefaultStatsModIcon: boolean
   evaluateQueryPostProcessClusterJewels: boolean
-  evaluateQueryOnline: boolean
+  evaluateQueryTradeType: ItemSearchStatus
   evaluateQueryIndexedRange: ItemSearchIndexed
   evaluateModifierMinRange: number
   evaluateModifierMaxRange: number
@@ -79,6 +79,7 @@ export class EvaluateSettingsComponent implements UserSettingsComponent {
   public languages = new EnumValues(Language)
   public views = new EnumValues(EvaluateResultView)
   public pricings = new EnumValues(EvaluatePricing)
+  public stasuses = Object.values(ItemSearchStatus)
 
   @Input()
   public settings: EvaluateUserSettings
@@ -97,13 +98,14 @@ export class EvaluateSettingsComponent implements UserSettingsComponent {
   public displayWithCount = (value: number) => `${value} items`
   public displayWithStat = (value: number) => (value === 50 ? '#' : value)
 
+
   constructor(
     private readonly currencyService: CurrencyService,
     private readonly statsProvider: StatsProvider,
     private readonly statsService: StatsService,
     private readonly clipboard: ClipboardService,
     private readonly snackbar: SnackBarService
-  ) {}
+  ) { }
 
   public load(): void {
     if (this.settings.language) {

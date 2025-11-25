@@ -145,6 +145,13 @@
         "empowerment": "Sentinel Empowerment",
         "enemies-empowered": "Sentinel Enemies Empowered"
       },
+      "trade-type": "Trade Type",
+      "status": {
+        "any": "Any",
+        "available": "Available",
+        "online": "Online",
+        "securable": "Instant Buyout"
+      },
       "ultimatum": "Ultimatum Challenge/Input/Output"
     },
     "searching": "Searching...",

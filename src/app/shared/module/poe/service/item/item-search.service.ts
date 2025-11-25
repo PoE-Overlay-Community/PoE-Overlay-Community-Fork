@@ -212,7 +212,7 @@ export class ItemSearchService {
       },
       query: {
         status: {
-          option: options.online ? ItemSearchStatus.Available : ItemSearchStatus.Any,
+          option: options.status,
         },
         filters: {
           trade_filters: {
@@ -258,7 +258,7 @@ export class ItemSearchService {
     options: ItemSearchOptions,
     currency: Currency
   ): Observable<ItemSearchResult> {
-    const { online, language, leagueId } = options
+    const { status, language, leagueId } = options
 
     return this.currencyService
       .searchByNameType(
@@ -276,7 +276,7 @@ export class ItemSearchService {
             engine: ExchangeEngine.New,
             exchange: {
               status: {
-                option: online ? 'online' : 'any',
+                option: status,
               },
               want: [requestedCurrency.id],
               have: [currency.id],

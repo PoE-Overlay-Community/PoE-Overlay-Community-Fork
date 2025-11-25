@@ -56,13 +56,13 @@ export class EvaluateDialogComponent implements OnInit, AfterViewInit, OnDestroy
     private readonly evaluateQueryItemProvider: EvaluateQueryItemProvider,
     private readonly currencyService: CurrencyService,
     private readonly leagueService: LeaguesService,
-  ) {}
+  ) { }
 
   public ngOnInit(): void {
     const { settings, item } = this.data
     this.options = {
       indexed: settings.evaluateQueryIndexedRange,
-      online: settings.evaluateQueryOnline,
+      status: settings.evaluateQueryTradeType,
       leagueId: settings.leagueId,
       fetchCount: settings.evaluateQueryFetchCount,
     }
