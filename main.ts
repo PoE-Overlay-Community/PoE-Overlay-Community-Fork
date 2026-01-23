@@ -1,13 +1,16 @@
 import {
   app,
   BrowserWindow,
+  clipboard,
   dialog,
+  globalShortcut,
   ipcMain,
   Menu,
   MenuItem,
   MenuItemConstructorOptions,
   screen,
   session,
+  shell,
   systemPreferences,
   Tray,
   Rectangle,
@@ -33,8 +36,6 @@ if (process.platform === 'win32' && !systemPreferences.isAeroGlassEnabled()) {
   )
   app.exit()
 }
-
-app.allowRendererProcessReuse = false
 
 app.commandLine.appendSwitch('high-dpi-support', 'true')
 app.commandLine.appendSwitch('force-device-scale-factor', '1')
@@ -178,8 +179,8 @@ hook.register(
   (event) => send(event),
   () => {
     dialog.showErrorBox(
-      'Iohook is required to run PoE Overlay',
-      'Iohook could not be loaded. Please make sure you have vc_redist installed and try again.'
+      'Input hook is required to run PoE Overlay',
+      'uiohook-napi could not be loaded. Please make sure you have vc_redist installed and try again.'
     )
     app.quit()
   }
@@ -194,6 +195,289 @@ ipcMain.on('app-version', (event) => {
 ipcMain.on('main-window-bounds', (event) => {
   const windowBounds = win.getBounds()
   event.returnValue = [windowBounds, poeBounds || windowBounds]
+})
+
+/* App controls */
+
+ipcMain.on('app-exit', () => {
+  app.exit()
+})
+
+ipcMain.on('app-relaunch-now', () => {
+  app.relaunch()
+  app.exit()
+})
+
+/* Clipboard operations */
+
+ipcMain.on('clipboard-read-text', (event) => {
+  event.returnValue = clipboard.readText()
+})
+
+ipcMain.on('clipboard-write-text', (_, text: string) => {
+  clipboard.writeText(text)
+})
+
+/* Shell operations */
+
+ipcMain.on('shell-open-external', (_, url: string) => {
+  shell.openExternal(url)
+})
+
+/* Screen operations */
+
+ipcMain.on('get-cursor-screen-point', (event) => {
+  event.returnValue = screen.getCursorScreenPoint()
+})
+
+/* Window management operations */
+
+ipcMain.on('get-current-window-bounds', (event) => {
+  const webContents = event.sender
+  const browserWindow = BrowserWindow.fromWebContents(webContents)
+  event.returnValue = browserWindow?.getBounds() ?? { x: 0, y: 0, width: 0, height: 0 }
+})
+
+ipcMain.on('set-ignore-mouse-events', (event, ignore: boolean, options?: { forward: boolean }) => {
+  const webContents = event.sender
+  const browserWindow = BrowserWindow.fromWebContents(webContents)
+  if (browserWindow) {
+    browserWindow.setIgnoreMouseEvents(ignore, options)
+  }
+})
+
+ipcMain.on('window-show', (event) => {
+  const webContents = event.sender
+  const browserWindow = BrowserWindow.fromWebContents(webContents)
+  browserWindow?.show()
+})
+
+ipcMain.on('window-hide', (event) => {
+  const webContents = event.sender
+  const browserWindow = BrowserWindow.fromWebContents(webContents)
+  browserWindow?.hide()
+})
+
+ipcMain.on('window-focus', (event) => {
+  const webContents = event.sender
+  const browserWindow = BrowserWindow.fromWebContents(webContents)
+  browserWindow?.focus()
+})
+
+ipcMain.on('window-blur', (event) => {
+  const webContents = event.sender
+  const browserWindow = BrowserWindow.fromWebContents(webContents)
+  browserWindow?.blur()
+})
+
+ipcMain.on('window-minimize', (event) => {
+  const webContents = event.sender
+  const browserWindow = BrowserWindow.fromWebContents(webContents)
+  browserWindow?.minimize()
+})
+
+ipcMain.on('window-restore', (event) => {
+  const webContents = event.sender
+  const browserWindow = BrowserWindow.fromWebContents(webContents)
+  browserWindow?.restore()
+})
+
+ipcMain.on('window-close', (event) => {
+  const webContents = event.sender
+  const browserWindow = BrowserWindow.fromWebContents(webContents)
+  browserWindow?.close()
+})
+
+ipcMain.on('window-set-focusable', (event, focusable: boolean) => {
+  const webContents = event.sender
+  const browserWindow = BrowserWindow.fromWebContents(webContents)
+  browserWindow?.setFocusable(focusable)
+})
+
+ipcMain.on('window-set-skip-taskbar', (event, skip: boolean) => {
+  const webContents = event.sender
+  const browserWindow = BrowserWindow.fromWebContents(webContents)
+  browserWindow?.setSkipTaskbar(skip)
+})
+
+ipcMain.on('window-move-top', (event) => {
+  const webContents = event.sender
+  const browserWindow = BrowserWindow.fromWebContents(webContents)
+  browserWindow?.moveTop()
+})
+
+ipcMain.on('window-set-enabled', (event, enabled: boolean) => {
+  const webContents = event.sender
+  const browserWindow = BrowserWindow.fromWebContents(webContents)
+  browserWindow?.setEnabled(enabled)
+})
+
+ipcMain.on('window-set-size', (event, width: number, height: number) => {
+  const webContents = event.sender
+  const browserWindow = BrowserWindow.fromWebContents(webContents)
+  browserWindow?.setSize(width, height)
+})
+
+ipcMain.on('window-get-size', (event) => {
+  const webContents = event.sender
+  const browserWindow = BrowserWindow.fromWebContents(webContents)
+  event.returnValue = browserWindow?.getSize() ?? [0, 0]
+})
+
+ipcMain.on('window-get-content-bounds', (event) => {
+  const webContents = event.sender
+  const browserWindow = BrowserWindow.fromWebContents(webContents)
+  event.returnValue = browserWindow?.getContentBounds() ?? { x: 0, y: 0, width: 0, height: 0 }
+})
+
+ipcMain.on('get-zoom-factor', (event) => {
+  const webContents = event.sender
+  event.returnValue = webContents.zoomFactor
+})
+
+ipcMain.on('set-zoom-factor', (event, factor: number) => {
+  const webContents = event.sender
+  webContents.zoomFactor = factor
+})
+
+ipcMain.on('window-set-always-on-top', (event, flag: boolean, level?: string, relativeLevel?: number) => {
+  const webContents = event.sender
+  const browserWindow = BrowserWindow.fromWebContents(webContents)
+  if (browserWindow) {
+    browserWindow.setAlwaysOnTop(flag, level as any, relativeLevel)
+  }
+})
+
+ipcMain.on('window-set-visible-all-workspaces', (event, visible: boolean) => {
+  const webContents = event.sender
+  const browserWindow = BrowserWindow.fromWebContents(webContents)
+  if (browserWindow) {
+    browserWindow.setVisibleOnAllWorkspaces(visible)
+  }
+})
+
+/* Global shortcuts */
+
+ipcMain.on('register-shortcut', (event, accelerator: string) => {
+  try {
+    const result = globalShortcut.register(accelerator, () => {
+      event.sender.send(`shortcut-${accelerator}`)
+    })
+    event.returnValue = result
+  } catch (error) {
+    console.error(`Failed to register shortcut: ${accelerator}`, error)
+    event.returnValue = false
+  }
+})
+
+ipcMain.on('unregister-shortcut', (event, accelerator: string) => {
+  try {
+    globalShortcut.unregister(accelerator)
+  } catch (error) {
+    console.error(`Failed to unregister shortcut: ${accelerator}`, error)
+  }
+  event.returnValue = undefined
+})
+
+/* Browser window management for BrowserService */
+
+const browserWindows: Map<number, BrowserWindow> = new Map()
+let browserWindowIdCounter = 0
+
+ipcMain.on('create-browser-window', (event, options: any) => {
+  const parentWebContents = event.sender
+  const parent = BrowserWindow.fromWebContents(parentWebContents)
+
+  const browserWindow = new BrowserWindow({
+    ...options,
+    parent: options.useParent ? parent : undefined,
+    webPreferences: {
+      ...options.webPreferences,
+      webSecurity: false,
+    },
+  })
+
+  const id = ++browserWindowIdCounter
+  browserWindows.set(id, browserWindow)
+
+  browserWindow.once('closed', () => {
+    browserWindows.delete(id)
+    parentWebContents.send('browser-window-closed', id)
+  })
+
+  browserWindow.once('ready-to-show', () => {
+    parentWebContents.send('browser-window-ready', id)
+  })
+
+  browserWindow.webContents.once('did-finish-load', () => {
+    parentWebContents.send('browser-window-did-finish-load', id)
+  })
+
+  event.returnValue = id
+})
+
+ipcMain.on('close-browser-window', (_, id: number) => {
+  const browserWindow = browserWindows.get(id)
+  if (browserWindow) {
+    browserWindow.close()
+  }
+})
+
+ipcMain.on('load-url-browser-window', (_, id: number, urlToLoad: string) => {
+  const browserWindow = browserWindows.get(id)
+  if (browserWindow) {
+    browserWindow.loadURL(urlToLoad)
+  }
+})
+
+ipcMain.on('show-browser-window', (_, id: number) => {
+  const browserWindow = browserWindows.get(id)
+  browserWindow?.show()
+})
+
+ipcMain.on('set-browser-window-zoom', (_, id: number, zoomFactor: number) => {
+  const browserWindow = browserWindows.get(id)
+  if (browserWindow) {
+    browserWindow.webContents.zoomFactor = zoomFactor
+  }
+})
+
+/* Cross-window IPC forwarding for trade companion and stash grid */
+
+// Forward trade notification example requests from settings window to main window
+ipcMain.on('trade-notification-add-example', (event, exampleNotificationType: any) => {
+  // Forward to main window
+  if (win) {
+    win.webContents.send('trade-notification-add-example', exampleNotificationType)
+  }
+})
+
+// Forward stash grid options from settings window to main window
+ipcMain.on('stash-grid-options', (event, stashGridOptions: any) => {
+  const senderWindow = BrowserWindow.fromWebContents(event.sender)
+  // Store the sender for reply
+  const stashGridSender = senderWindow
+  // Forward to main window
+  if (win && senderWindow !== win) {
+    win.webContents.send('stash-grid-options', stashGridOptions, event.sender.id)
+  } else if (win && senderWindow === win) {
+    // Main window is handling it locally - no need to forward
+    win.webContents.send('stash-grid-options-local', stashGridOptions)
+  }
+})
+
+// Handle stash grid reply from main window to settings window
+ipcMain.on('stash-grid-options-reply', (event, stashGridBounds: any, originalSenderId?: number) => {
+  // Find the original sender and reply to them
+  if (originalSenderId) {
+    const allWindows = BrowserWindow.getAllWindows()
+    for (const browserWindow of allWindows) {
+      if (browserWindow.webContents.id === originalSenderId) {
+        browserWindow.webContents.send('stash-grid-options-reply', stashGridBounds)
+        break
+      }
+    }
+  }
 })
 
 /* changelog */
@@ -225,9 +509,12 @@ function createWindow(): BrowserWindow {
     resizable: false,
     movable: false,
     webPreferences: {
-      nodeIntegration: true,
+      nodeIntegration: false,
+      contextIsolation: true,
+      preload: path.join(__dirname, serve ? 'electron/preload.js' : 'preload.js'),
       allowRunningInsecureContent: serve,
       webSecurity: false,
+      sandbox: false,
     },
     focusable: process.platform !== 'linux' ? false : true,
     skipTaskbar: true,
@@ -278,9 +565,12 @@ ipcMain.on('open-route', (event, route: string) => {
         resizable: true,
         movable: true,
         webPreferences: {
-          nodeIntegration: true,
+          nodeIntegration: false,
+          contextIsolation: true,
+          preload: path.join(__dirname, serve ? 'electron/preload.js' : 'preload.js'),
           allowRunningInsecureContent: serve,
           webSecurity: false,
+          sandbox: false,
         },
         center: true,
         transparent: true,

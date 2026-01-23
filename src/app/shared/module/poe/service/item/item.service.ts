@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core'
-import { Point } from 'electron'
 import { ItemCategory, Language } from '../../type'
 import { BaseItemTypesService } from '../base-item-types/base-item-types.service'
 import { ContextService } from '../context.service'

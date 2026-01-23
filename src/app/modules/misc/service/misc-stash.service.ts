@@ -8,7 +8,7 @@ import {
 } from '@shared/module/poe/service'
 import { ItemSection } from '@shared/module/poe/type'
 import { Subject } from 'rxjs'
-import { filter, flatMap, map, throttleTime } from 'rxjs/operators'
+import { filter, mergeMap, map, throttleTime } from 'rxjs/operators'
 
 @Injectable({
   providedIn: 'root',
@@ -42,7 +42,7 @@ export class MiscStashService {
     this.highlightCommandQueue$
       .pipe(
         throttleTime(500),
-        flatMap(() =>
+        mergeMap(() =>
           this.itemClipboard.copy(false, {
             [ItemSection.Rartiy]: true,
           })
@@ -60,7 +60,7 @@ export class MiscStashService {
           return null
         }),
         filter((value) => (value || '').length > 0),
-        flatMap((value) => this.stash.highlight(value))
+        mergeMap((value) => this.stash.highlight(value))
       )
       .subscribe()
   }

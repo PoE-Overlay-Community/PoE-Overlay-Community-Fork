@@ -8,14 +8,15 @@
     "downlevelIteration": true,
     "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
-    "module": "esnext",
-    "target": "es5",
-    "moduleResolution": "node",
+    "module": "ES2022",
+    "target": "ES2022",
+    "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "importHelpers": true,
+    "useDefineForClassFields": false,
     "typeRoots": ["node_modules/@types"],
-    "lib": ["es2018", "dom"],
+    "lib": ["ES2022", "dom"],
     "paths": {
       "@app/*": ["src/app/core/*"],
       "@shared/*": ["src/app/shared/*"],
@@ -26,7 +27,8 @@
     }
   },
   "angularCompilerOptions": {
-    "fullTemplateTypeCheck": true,
-    "strictInjectionParameters": true
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": true
   }
 }

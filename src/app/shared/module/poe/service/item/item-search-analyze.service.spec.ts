@@ -4,7 +4,7 @@ import { Item, Language } from '@shared/module/poe/type'
 import { SharedModule } from '@shared/shared.module'
 import moment from 'moment'
 import { forkJoin, of } from 'rxjs'
-import { flatMap } from 'rxjs/operators'
+import { mergeMap } from 'rxjs/operators'
 import { BaseItemTypesService } from '../base-item-types/base-item-types.service'
 import { ContextService } from '../context.service'
 import { CurrencyService } from '../currency/currency.service'
@@ -100,7 +100,7 @@ describe('ItemSearchAnalyzeService', () => {
     forkJoin([
       searchService
         .searchOrExchange(requestedItem)
-        .pipe(flatMap((result) => searchService.listTradeSearch(result as TradeSearchResult, 10))),
+        .pipe(mergeMap((result) => searchService.listTradeSearch(result as TradeSearchResult, 10))),
       currencyService.searchById('chaos'),
     ]).subscribe(
       (results) => {

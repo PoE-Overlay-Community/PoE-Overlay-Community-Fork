@@ -8,7 +8,7 @@ import {
 } from '@shared/module/poe/service'
 import { ItemSection } from '@shared/module/poe/type'
 import { Observable, of, throwError } from 'rxjs'
-import { catchError, flatMap } from 'rxjs/operators'
+import { catchError, mergeMap } from 'rxjs/operators'
 
 @Injectable({
   providedIn: 'root',
@@ -27,7 +27,7 @@ export class MiscWikiService {
         [ItemSection.Rartiy]: true,
       })
       .pipe(
-        flatMap(({ code, item }) => {
+        mergeMap(({ code, item }) => {
           switch (code) {
             case ItemClipboardResultCode.Success:
               const url = this.itemExternalService.getWikiUrl(item)

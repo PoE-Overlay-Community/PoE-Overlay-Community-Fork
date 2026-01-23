@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core'
 import { ElectronService } from '@app/service'
 import { UserSettings } from '@layout/type'
 import { BehaviorSubject, Observable, of, Subscription } from 'rxjs'
-import { flatMap, map, tap } from 'rxjs/operators'
+import { mergeMap, map, tap } from 'rxjs/operators'
 import { PoEAccountProvider } from '../../provider/account.provider'
 import { PoECharacterProvider } from '../../provider/character.provider'
 import { CacheExpirationType, Language, PoEAccount, PoECharacter } from '../../type'
@@ -49,7 +49,7 @@ export class PoEAccountThreadService {
   private updateAccountAndCharacters(): Observable<PoEAccount> {
     const language = this.context.get().language
     const oldAccount = { ...this.get() }
-    return this.accountProvider.provide(language).pipe(flatMap((account) => {
+    return this.accountProvider.provide(language).pipe(mergeMap((account) => {
       return this.getCharacters(account, language, this.settings.charactersCacheExpiration).pipe(map(() => {
         if (oldAccount !== account) {
           this.updateAccount(account)

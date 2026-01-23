@@ -1,79 +1,81 @@
 import { Injectable, NgZone } from '@angular/core'
 import { ElectronProvider } from '@app/provider'
-import { IpcMain, IpcMainEvent, IpcRenderer, IpcRendererEvent } from 'electron'
+import { ElectronAPI } from '@app/type/electron-api.type'
 import { from, Observable } from 'rxjs'
 import { LoggerService } from './logger.service'
 
-interface ScopedListener<T> {
+interface ScopedListener {
   channel: string
-  listener: (event: T, ...args: any[]) => void
-  scopedListener: (event: T, ...args: any[]) => void
+  listener: (event: any, ...args: any[]) => void
+  scopedListener: (event: any, ...args: any[]) => void
 }
 
 @Injectable({
   providedIn: 'root',
 })
 export class ElectronService {
-  private readonly ipcMain: IpcMain
-  private readonly ipcRenderer: IpcRenderer
+  private readonly electronAPI: ElectronAPI
 
-  private readonly mainListeners: ScopedListener<IpcMainEvent>[] = []
-  private readonly rendererListeners: ScopedListener<IpcRendererEvent>[] = []
+  private readonly listeners: ScopedListener[] = []
 
   constructor(
     private readonly ngZone: NgZone,
     private readonly logger: LoggerService,
     electronProvider: ElectronProvider
   ) {
-    this.ipcMain = electronProvider.provideIpcMain()
-    this.ipcRenderer = electronProvider.provideIpcRenderer()
+    this.electronAPI = electronProvider.provideElectronAPI()
   }
 
-  public onMain(channel: string, listener: (event: IpcMainEvent, ...args: any[]) => void): void {
-    const scopedListener = (event: IpcMainEvent, ...args: any[]): void => {
+  /**
+   * Listen for IPC events from the main process.
+   * Note: In the new context-isolated architecture, we use ipcRenderer.on for all IPC listening.
+   * The 'onMain' naming is kept for backwards compatibility.
+   */
+  public onMain(channel: string, listener: (event: any, ...args: any[]) => void): void {
+    const scopedListener = (event: any, ...args: any[]): void => {
       this.logger.log('electronService', `onMain(${channel})`)
       this.ngZone.run(() => listener(event, ...args))
     }
-    this.mainListeners.push({ channel, listener, scopedListener })
-    this.ipcMain.on(channel, scopedListener)
+    this.listeners.push({ channel, listener, scopedListener })
+    this.electronAPI.on(channel, scopedListener)
   }
 
-  public removeMainListener(channel: string, listener: (event: IpcMainEvent, ...args: any[]) => void): void {
-    const index = this.mainListeners.findIndex(x => x.channel === channel && x.listener === listener)
+  public removeMainListener(channel: string, listener: (event: any, ...args: any[]) => void): void {
+    const index = this.listeners.findIndex(x => x.channel === channel && x.listener === listener)
     if (index !== -1) {
       this.logger.log('electronService', `removeMainListener(${channel})`)
-      const removedListener = this.mainListeners.splice(index, 1)[0]
-      this.ipcMain.removeListener(channel, removedListener.scopedListener)
+      const removedListener = this.listeners.splice(index, 1)[0]
+      this.electronAPI.removeListener(channel, removedListener.scopedListener)
     }
   }
 
-  public on(channel: string, listener: (event: IpcRendererEvent, ...args: any[]) => void): void {
-    const scopedListener = (event: IpcRendererEvent, ...args: any[]): void => {
+  public on(channel: string, listener: (event: any, ...args: any[]) => void): void {
+    const scopedListener = (event: any, ...args: any[]): void => {
       this.logger.log('electronService', `on(${channel})`)
       this.ngZone.run(() => listener(event, ...args))
     }
-    this.rendererListeners.push({ channel, listener, scopedListener })
-    this.ipcRenderer.on(channel, scopedListener)
+    this.listeners.push({ channel, listener, scopedListener })
+    this.electronAPI.on(channel, scopedListener)
   }
 
-  public removeListener(channel: string, listener: (event: IpcRendererEvent, ...args: any[]) => void): void {
-    const index = this.rendererListeners.findIndex(x => x.channel === channel && x.listener === listener)
+  public removeListener(channel: string, listener: (event: any, ...args: any[]) => void): void {
+    const index = this.listeners.findIndex(x => x.channel === channel && x.listener === listener)
     if (index !== -1) {
       this.logger.log('electronService', `removeListener(${channel})`)
-      const removedListener = this.rendererListeners.splice(index, 1)[0]
-      this.ipcRenderer.removeListener(channel, removedListener.scopedListener)
+      const removedListener = this.listeners.splice(index, 1)[0]
+      this.electronAPI.removeListener(channel, removedListener.scopedListener)
     }
   }
 
   public restore(route: string): void {
-    this.ipcRenderer.send('open-route', route)
+    this.electronAPI.openRoute(route)
   }
 
   public open(route: string): Observable<void> {
     const promise = new Promise<void>((resolve, reject) => {
-      this.ipcRenderer.send('open-route', route)
+      this.electronAPI.openRoute(route)
 
-      this.ipcRenderer.once('open-route-reply', (_, result) => {
+      this.electronAPI.once('open-route-reply', (_, result) => {
         if (result === 'close' || result === 'hide') {
           resolve()
         } else {
@@ -91,6 +93,6 @@ export class ElectronService {
    */
   public send(channel: string, ...args: any[]): void {
     this.logger.log('electronService', `send(${channel})`)
-    this.ipcRenderer.send(channel, ...args)
+    this.electronAPI.send(channel, ...args)
   }
 }

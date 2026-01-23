@@ -3,7 +3,7 @@ import { BrowserService, ElectronService } from '@app/service'
 import { PoEHttpService } from '@data/poe'
 import { UserSettings } from '@layout/type'
 import { BehaviorSubject, Observable, of, Subscription } from 'rxjs'
-import { flatMap, map, tap } from 'rxjs/operators'
+import { mergeMap, map, tap } from 'rxjs/operators'
 import { PoEAccountProvider } from '../../provider/account.provider'
 import { PoECharacterProvider } from '../../provider/character.provider'
 import { CacheExpirationType, Language, PoEAccount, PoECharacter } from '../../type'
@@ -67,7 +67,7 @@ export class PoEAccountService {
   public getAsync(language?: Language): Observable<PoEAccount> {
     language = language || this.context.get().language
     const oldAccount = { ...this.get() }
-    return this.accountProvider.provide(language).pipe(flatMap((account) => {
+    return this.accountProvider.provide(language).pipe(mergeMap((account) => {
       return this.getCharacters(account, language).pipe(map(() => {
         if (oldAccount !== account) {
           this.accountSubject.next(account)
@@ -83,8 +83,8 @@ export class PoEAccountService {
 
   public login(language?: Language): Observable<PoEAccount> {
     language = language || this.context.get().language
-    return this.browser.openAndWait(this.poeHttpService.getLoginUrl(language)).pipe(flatMap(() => {
-      return this.accountProvider.provide(language, CacheExpirationType.Instant).pipe(flatMap((account) => {
+    return this.browser.openAndWait(this.poeHttpService.getLoginUrl(language)).pipe(mergeMap(() => {
+      return this.accountProvider.provide(language, CacheExpirationType.Instant).pipe(mergeMap((account) => {
         if (account.loggedIn) {
           return this.characterProvider.provide(account.name, language, CacheExpirationType.Instant).pipe(map((characters) => {
             account.characters = characters
@@ -101,7 +101,7 @@ export class PoEAccountService {
   public logout(language?: Language): Observable<PoEAccount> {
     language = language || this.context.get().language
     return this.browser.retrieve(this.poeHttpService.getLogoutUrl(language)).pipe(
-      flatMap(() => 
+      mergeMap(() => 
         this.accountProvider.update({
           loggedIn: false,
         }, language)

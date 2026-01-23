@@ -1,7 +1,7 @@
 import { Injectable, NgZone } from '@angular/core'
 import { ElectronProvider } from '@app/provider'
-import { Rectangle } from '@app/type'
-import { BrowserWindow, Point, IpcRenderer, Remote } from 'electron'
+import { Rectangle, Point } from '@app/type'
+import { ElectronAPI } from '@app/type/electron-api.type'
 import { Observable, Subject, BehaviorSubject } from 'rxjs'
 import { TransparencyMouseFix } from '../../transparency-mouse-fix'
 
@@ -14,62 +14,59 @@ export class WindowService {
   // Don't remove this. We need to keep the instance, but don't actually use it (because all magic happens inside)
   private transparencyMouseFix: TransparencyMouseFix
 
-  private readonly electronRemote: Remote
-  private readonly ipcRenderer: IpcRenderer
-  private readonly window: BrowserWindow
+  private readonly electronAPI: ElectronAPI
 
   constructor(private readonly ngZone: NgZone, electronProvider: ElectronProvider) {
-    this.ipcRenderer = electronProvider.provideIpcRenderer()
-    this.electronRemote = electronProvider.provideRemote()
-    this.window = this.electronRemote.getCurrentWindow()
+    this.electronAPI = electronProvider.provideElectronAPI()
     this.gameBounds = new BehaviorSubject<Rectangle>(
-      this.window?.getBounds() ?? { x: 0, y: 0, width: 0, height: 0 }
+      this.electronAPI?.getCurrentWindowBounds() ?? { x: 0, y: 0, width: 0, height: 0 }
     )
   }
 
   public registerEvents(): void {
-    this.ipcRenderer.on('game-bounds-change', (_, bounds: Rectangle) => {
+    this.electronAPI.on('game-bounds-change', (_, bounds: Rectangle) => {
       this.gameBounds.next(bounds)
     })
   }
 
   public enableTransparencyMouseFix(): void {
-    this.transparencyMouseFix = new TransparencyMouseFix(this.electronRemote)
+    this.transparencyMouseFix = new TransparencyMouseFix(this.electronAPI)
   }
 
   public disableTransparencyMouseFix(ignoreMouse = false): void {
     this.transparencyMouseFix?.dispose()
     this.transparencyMouseFix = null
 
-    this.window.setIgnoreMouseEvents(ignoreMouse, { forward: ignoreMouse })
+    this.electronAPI.setIgnoreMouseEvents(ignoreMouse, { forward: ignoreMouse })
   }
 
-  public on(event: any): Observable<void> {
+  public on(event: string): Observable<void> {
     const callback = new Subject<void>()
-    this.window.on(event, () => {
+    this.electronAPI.on(event, () => {
       this.ngZone.run(() => callback.next())
     })
     return callback
   }
 
   public removeAllListeners(): void {
-    this.window.removeAllListeners()
+    // Note: In the new architecture, we can't remove all listeners on the window
+    // We would need to track specific listeners and remove them individually
+    console.warn('removeAllListeners is no longer supported in context-isolated mode')
   }
 
   public getMainWindowBounds(): [Rectangle, Rectangle] {
-    return this.ipcRenderer.sendSync('main-window-bounds')
+    return this.electronAPI.getMainWindowBounds()
   }
 
   public getWindowBounds(): Rectangle {
-    const bounds = this.window.getBounds()
-    return bounds
+    return this.electronAPI.getCurrentWindowBounds()
   }
 
   public getOffsettedGameBounds(useLocalBounds = true): Rectangle {
     let bounds: Rectangle
     let poeBounds: Rectangle
     if (useLocalBounds) {
-      bounds = this.window.getBounds()
+      bounds = this.electronAPI.getCurrentWindowBounds()
       poeBounds = this.gameBounds.value
     } else {
       const remoteBounds = this.getMainWindowBounds()
@@ -85,64 +82,64 @@ export class WindowService {
   }
 
   public hide(): void {
-    this.window.hide()
+    this.electronAPI.windowHide()
   }
 
   public show(): void {
-    this.window.show()
+    this.electronAPI.windowShow()
   }
 
   public focus(): void {
-    this.window.focus()
+    this.electronAPI.windowFocus()
   }
 
   public minimize(): void {
-    this.window.minimize()
+    this.electronAPI.windowMinimize()
   }
 
   public restore(): void {
-    this.window.restore()
+    this.electronAPI.windowRestore()
   }
 
   public close(): void {
-    this.window.close()
+    this.electronAPI.windowClose()
   }
 
   public getZoom(): number {
-    return this.window.webContents.zoomFactor
+    return this.electronAPI.getZoomFactor()
   }
 
   public setZoom(zoom: number): void {
-    this.window.webContents.zoomFactor = zoom
+    this.electronAPI.setZoomFactor(zoom)
   }
 
   public setSize(width: number, height: number): void {
-    this.window.setSize(width, height)
+    this.electronAPI.windowSetSize(width, height)
   }
 
   public disableInput(focusable: boolean): void {
     if (focusable) {
-      this.window.blur()
+      this.electronAPI.windowBlur()
     }
-    this.window.setIgnoreMouseEvents(true, { forward: true })
+    this.electronAPI.setIgnoreMouseEvents(true, { forward: true })
     if (focusable) {
-      this.window.setFocusable(false)
+      this.electronAPI.windowSetFocusable(false)
     }
   }
 
   public enableInput(focusable: boolean): void {
     if (focusable) {
-      this.window.setFocusable(true)
-      this.window.setSkipTaskbar(true)
+      this.electronAPI.windowSetFocusable(true)
+      this.electronAPI.windowSetSkipTaskbar(true)
     }
-    this.window.setIgnoreMouseEvents(false)
+    this.electronAPI.setIgnoreMouseEvents(false)
     if (focusable) {
-      this.window.focus()
+      this.electronAPI.windowFocus()
     }
   }
 
   public convertToLocal(point: Point): Point {
-    const winBounds = this.window.getBounds()
+    const winBounds = this.electronAPI.getCurrentWindowBounds()
     const poeBounds = this.gameBounds.value
     const local = {
       ...point,
@@ -159,7 +156,7 @@ export class WindowService {
       ...local,
     }
 
-    const { zoomFactor } = this.window.webContents
+    const zoomFactor = this.electronAPI.getZoomFactor()
     point.x *= 1 / zoomFactor
     point.y *= 1 / zoomFactor
     return point

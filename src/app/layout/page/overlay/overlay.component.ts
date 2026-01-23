@@ -16,7 +16,7 @@ import { ContextService, StashService } from '@shared/module/poe/service'
 import { StashGridService } from '@shared/module/poe/service/stash-grid/stash-grid.service'
 import { Context } from '@shared/module/poe/type'
 import { BehaviorSubject, EMPTY, forkJoin, Observable, throwError, timer } from 'rxjs'
-import { catchError, debounce, distinctUntilChanged, flatMap, map, tap } from 'rxjs/operators'
+import { catchError, debounce, distinctUntilChanged, mergeMap, map, tap } from 'rxjs/operators'
 import { PoEAccountService } from '../../../shared/module/poe/service/account/account.service'
 import { TradeNotificationsService } from '../../../shared/module/poe/service/trade-companion/trade-notifications.service'
 import { VendorRecipeService } from '../../../shared/module/poe/service/vendor-recipe/vendor-recipe.service'
@@ -88,7 +88,7 @@ export class OverlayComponent implements OnInit, OnDestroy {
   public openUserSettings(): void {
     if (!this.userSettingsOpen) {
       this.userSettingsOpen = this.electronService.open('user-settings')
-      this.userSettingsOpen.pipe(flatMap(() => this.userSettingsService.get())).subscribe(
+      this.userSettingsOpen.pipe(mergeMap(() => this.userSettingsService.get())).subscribe(
         (settings) => {
           this.userSettingsOpen = null
 

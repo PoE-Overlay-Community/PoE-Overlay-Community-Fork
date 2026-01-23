@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core'
 import { MatSnackBar } from '@angular/material/snack-bar'
 import { TranslateService } from '@ngx-translate/core'
 import { forkJoin, from, Observable, of } from 'rxjs'
-import { flatMap } from 'rxjs/operators'
+import { mergeMap } from 'rxjs/operators'
 
 @Injectable({
   providedIn: 'root',
@@ -33,7 +33,7 @@ export class SnackBarService {
     return from(
       forkJoin([this.translate.get(message), action ? this.translate.get(action) : of(undefined)])
         .pipe(
-          flatMap(([translatedMessage, translatedAction]) => {
+          mergeMap(([translatedMessage, translatedAction]) => {
             const snackBar = this.matSnackBar.open(translatedMessage, translatedAction, {
               duration: 5 * 1000,
               verticalPosition: 'bottom',

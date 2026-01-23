@@ -1,10 +1,9 @@
 import { IpcMain } from 'electron'
-import * as robot from 'robotjs'
+import * as robot from '@jitsi/robotjs'
 
 export function register(ipcMain: IpcMain): void {
   ipcMain.on('click-at', (event, button, position) => {
     if (position) {
-      robot.updateScreenMetrics()
       robot.moveMouse(position.x, position.y)
     }
     robot.mouseClick(button, false)
@@ -12,7 +11,6 @@ export function register(ipcMain: IpcMain): void {
   })
 
   ipcMain.on('move-to', (event, position) => {
-    robot.updateScreenMetrics()
     robot.moveMouse(position.x, position.y)
     event.returnValue = true
   })

@@ -10,7 +10,7 @@ import {
 import { Point } from '@app/type'
 import { UserSettings } from '@layout/type'
 import { BehaviorSubject, forkJoin, Observable, of, Subject } from 'rxjs'
-import { concatAll, delay, flatMap, map, tap } from 'rxjs/operators'
+import { concatAll, delay, mergeMap, map, tap } from 'rxjs/operators'
 import { StashProvider } from '../../provider/stash.provider'
 import { CacheExpirationType, Currency } from '../../type'
 import { StashGridType, StashGridUserSettings } from '../../type/stash-grid.type'
@@ -159,7 +159,7 @@ export class StashService {
           of(stashTab).pipe(
             // Delay each stash tab to ensure we don't hit rate limits
             delay(50 * i),
-            flatMap(stashTab => this.stashProvider.provideTabsContent(stashTab, account.name, context.leagueId, context.language, cacheExpiration || this.settings?.stashTabContentCacheExpiration))
+            mergeMap(stashTab => this.stashProvider.provideTabsContent(stashTab, account.name, context.leagueId, context.language, cacheExpiration || this.settings?.stashTabContentCacheExpiration))
           )
         )
       ).pipe(
@@ -242,7 +242,7 @@ export class StashService {
       const providers = this.stashTabProviders.map((provider) => provider.getStashTabsToSearch())
       forkJoin(providers).pipe(
         concatAll(),
-        flatMap((stashTabs) => this.getStashTabContents(stashTabs, cacheExpiration))
+        mergeMap((stashTabs) => this.getStashTabContents(stashTabs, cacheExpiration))
       ).subscribe(null, null, () => {
         this.stashTabContentUpdated$.next()
         this.stashTabContentPeriodicUpdateActiveChanged$.next(false)
