@@ -35,6 +35,6 @@
     <button mat-raised-button (click)="onAddFileClick()" class="card-button">
       {{ 'bookmark.add-file' | translate }}
     </button>
-    <input style="display: none;" #ghostInput type="file" (change)="onFileSelected($event)"/>
+    <input style="display: none;" #ghostInput type="file" (change)="onFileSelected($any($event))"/>
   </div>
 </div>

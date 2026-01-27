@@ -70,7 +70,7 @@ export class ItemExternalService {
     if (rarity === ItemRarity.Rare) {
       let tags = undefined
 
-      if (!!cn) {
+      if (cn) {
         const base = category.split('.')[0]
         if (typeId.includes('StrDexInt')) {
           tags = `str_dex_int_${base}`

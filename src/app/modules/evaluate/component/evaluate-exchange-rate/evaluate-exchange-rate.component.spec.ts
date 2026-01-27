@@ -7,11 +7,11 @@ import { EvaluateExchangeRateComponent } from './evaluate-exchange-rate.componen
 import { Subject } from 'rxjs'
 
 class ElectronProviderFake {
-  public provideRemote(): Electron.Remote {
+  public provideRemote(): any {
     return null
   }
 
-  public provideIpcRenderer(): Electron.IpcRenderer {
+  public provideIpcRenderer(): any {
     return null
   }
 }

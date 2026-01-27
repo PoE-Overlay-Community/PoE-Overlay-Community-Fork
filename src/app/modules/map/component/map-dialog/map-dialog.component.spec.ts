@@ -6,11 +6,11 @@ import { SharedModule } from '@shared/shared.module'
 import { MapDialogComponent } from './map-dialog.component'
 
 class ElectronProviderFake {
-  public provideRemote(): Electron.Remote {
+  public provideRemote(): any {
     return null
   }
 
-  public provideIpcRenderer(): Electron.IpcRenderer {
+  public provideIpcRenderer(): any {
     return null
   }
 }

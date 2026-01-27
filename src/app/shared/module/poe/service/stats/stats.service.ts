@@ -314,7 +314,7 @@ export class StatsService {
               const isLocalStat = stat.mod === 'local'
               const isLocalOption = locals[localKey].startsWith('local_')
               const localOptId = isLocalOption ? optId : locals[optId]
-              let globalOptId = locals[localOptId]
+              const globalOptId = locals[localOptId]
 
               // Global vs Local stat approach:
               //   All stats are considered global, unless marked as local in the options and the global isn't present or marked false

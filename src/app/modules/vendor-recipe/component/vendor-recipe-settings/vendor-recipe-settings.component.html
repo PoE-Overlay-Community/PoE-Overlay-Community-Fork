@@ -123,29 +123,29 @@
   <div class="row" [class.hidden]="collapsed || !settings.enabled" [ngSwitch]="settings.type">
     <ng-container *ngSwitchCase="VendorRecipeType.Chaos">
       <app-vendor-recipe-item-set-settings [globalSettings]="globalSettings"
-                                           [settings]="settings"
-                                           [defaultSettings]="defaultSettings"
+                                           [settings]="$any(settings)"
+                                           [defaultSettings]="$any(defaultSettings)"
                                            class="col">
       </app-vendor-recipe-item-set-settings>
     </ng-container>
     <ng-container *ngSwitchCase="VendorRecipeType.ExaltedShard">
       <app-vendor-recipe-item-set-settings [globalSettings]="globalSettings"
-                                           [settings]="settings"
-                                           [defaultSettings]="defaultSettings"
+                                           [settings]="$any(settings)"
+                                           [defaultSettings]="$any(defaultSettings)"
                                            class="col">
       </app-vendor-recipe-item-set-settings>
     </ng-container>
     <ng-container *ngSwitchCase="VendorRecipeType.Gemcutter">
       <app-vendor-recipe-quality-settings [globalSettings]="globalSettings"
-                                          [settings]="settings"
-                                          [defaultSettings]="defaultSettings"
+                                          [settings]="$any(settings)"
+                                          [defaultSettings]="$any(defaultSettings)"
                                           class="col">
       </app-vendor-recipe-quality-settings>
     </ng-container>
     <ng-container *ngSwitchCase="VendorRecipeType.GlassblowerBauble">
       <app-vendor-recipe-quality-settings [globalSettings]="globalSettings"
-                                          [settings]="settings"
-                                          [defaultSettings]="defaultSettings"
+                                          [settings]="$any(settings)"
+                                          [defaultSettings]="$any(defaultSettings)"
                                           class="col">
       </app-vendor-recipe-quality-settings>
     </ng-container>

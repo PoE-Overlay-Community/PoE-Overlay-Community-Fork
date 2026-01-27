@@ -5,11 +5,11 @@ import { SharedModule } from '@shared/shared.module'
 import { MapSettingsComponent } from './map-settings.component'
 
 class ElectronProviderFake {
-  public provideRemote(): Electron.Remote {
+  public provideRemote(): any {
     return null
   }
 
-  public provideIpcRenderer(): Electron.IpcRenderer {
+  public provideIpcRenderer(): any {
     return null
   }
 }

@@ -13,11 +13,11 @@ import { EvaluateSearchComponent } from '../evaluate-search/evaluate-search.comp
 import { EvaluateDialogComponent } from './evaluate-dialog.component'
 
 class ElectronProviderFake {
-  public provideRemote(): Electron.Remote {
+  public provideRemote(): any {
     return null
   }
 
-  public provideIpcRenderer(): Electron.IpcRenderer {
+  public provideIpcRenderer(): any {
     return null
   }
 }

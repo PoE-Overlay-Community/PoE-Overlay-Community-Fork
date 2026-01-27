@@ -118,5 +118,8 @@
         }
       }
     }},
-  "defaultProject": "poe-overlay"
+  "defaultProject": "poe-overlay",
+  "cli": {
+    "analytics": false
+  }
 }

@@ -1,17 +1,5 @@
 import { Injectable } from '@angular/core'
-import {
-  crafted,
-  enchant,
-  explicit,
-  fractured,
-  implicit,
-  pseudo,
-  veiled,
-  ultimatum,
-  scourge,
-  crucible,
-  sanctum,
-} from '../../../../../assets/poe/stats-local.json'
+import statsLocalData from '../../../../../assets/poe/stats-local.json'
 import { StatLocalMap, StatType } from '../type'
 
 @Injectable({
@@ -21,27 +9,27 @@ export class StatsLocalProvider {
   public provide(group: StatType): StatLocalMap {
     switch (group) {
       case StatType.Pseudo:
-        return pseudo
+        return statsLocalData.pseudo
       case StatType.Explicit:
-        return explicit
+        return statsLocalData.explicit
       case StatType.Implicit:
-        return implicit
+        return statsLocalData.implicit
       case StatType.Crafted:
-        return crafted
+        return statsLocalData.crafted
       case StatType.Fractured:
-        return fractured
+        return statsLocalData.fractured
       case StatType.Enchant:
-        return enchant
+        return statsLocalData.enchant
       case StatType.Veiled:
-        return veiled
+        return statsLocalData.veiled
       case StatType.Ultimatum:
-        return ultimatum
+        return statsLocalData.ultimatum
       case StatType.Scourge:
-        return scourge
+        return statsLocalData.scourge
       case StatType.Crucible:
-        return crucible
+        return statsLocalData.crucible
       case StatType.Sanctum:
-        return sanctum
+        return statsLocalData.sanctum
     }
   }
 }

@@ -59,7 +59,7 @@ export class VendorRecipesPanelComponent implements OnInit, OnChanges, OnDestroy
   private vendorRecipeSub: Subscription
 
   private readonly boundsUpdate$ = new Subject<Rectangle>()
-  private readonly closeClick$ = new Subject()
+  private readonly closeClick$ = new Subject<void>()
 
   private audioClips: HTMLAudioElement[] = []
 

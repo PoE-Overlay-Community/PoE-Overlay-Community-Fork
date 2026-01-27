@@ -28,13 +28,13 @@
   </div>
   <div class="row">
     <div class="col-auto" *ngFor="let stashGridBound of settings.stashGridBounds | keyvalue">
-      <button mat-raised-button (click)="onEditStashGridClick(stashGridBound.key)">
+      <button mat-raised-button (click)="onEditStashGridClick($any(stashGridBound.key))">
         {{ 'stash-grid.edit.' + (stashGridTypes.values[stashGridBound.key] | lowercase) | translate }}
       </button>
     </div>
     <div class="col-1"></div>
     <div class="col-auto" *ngFor="let stashGridBound of settings.stashGridBounds | keyvalue">
-      <button mat-raised-button (click)="onPreviewStashGridClick(stashGridBound.key)">
+      <button mat-raised-button (click)="onPreviewStashGridClick($any(stashGridBound.key))">
         {{ 'stash-grid.preview.' + (stashGridTypes.values[stashGridBound.key] | lowercase) | translate }}
       </button>
     </div>

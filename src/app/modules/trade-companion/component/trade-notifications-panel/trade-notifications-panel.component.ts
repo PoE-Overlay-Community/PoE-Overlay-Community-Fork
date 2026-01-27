@@ -72,7 +72,7 @@ export class TradeNotificationPanelComponent implements OnInit, AfterViewInit, O
   private logLineAddedSub: Subscription
 
   private boundsUpdate$ = new Subject<Rectangle>()
-  private closeClick$ = new Subject()
+  private closeClick$ = new Subject<void>()
 
   private notificationAudioClip: HTMLAudioElement
 

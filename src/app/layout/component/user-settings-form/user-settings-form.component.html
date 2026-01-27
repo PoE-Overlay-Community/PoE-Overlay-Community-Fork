@@ -203,12 +203,8 @@
             {{ displayWithOpacity(settings.dialogOpacity) }}
           </label>
           <div class="slider">
-            <mat-slider min="0.6"
-                        max="1"
-                        step="0.1"
-                        tickInterval="1"
-                        [displayWith]="displayWithOpacity"
-                        [(value)]="settings.dialogOpacity">
+            <mat-slider min="0.6" max="1" step="0.1" discrete>
+              <input matSliderThumb [(ngModel)]="settings.dialogOpacity">
             </mat-slider>
             <span>100%</span>
           </div>

@@ -5,17 +5,17 @@ import { SharedModule } from '@shared/shared.module'
 import { UserSettingsFormComponent } from './user-settings-form.component'
 
 class ElectronProviderFake {
-  public provideRemote(): Electron.Remote {
-    return ({
+  public provideRemote(): any {
+    return {
       getCurrentWindow: () => null,
-    } as any) as Electron.Remote
+    }
   }
 
-  public provideIpcRenderer(): Electron.IpcRenderer {
-    return ({
+  public provideIpcRenderer(): any {
+    return {
       once: () => null,
       send: () => null,
-    } as any) as Electron.IpcRenderer
+    }
   }
 }
 

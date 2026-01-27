@@ -19,12 +19,8 @@
           {{ getRoundedPercentage(settings.volume) }}
         </label>
         <div class="slider">
-          <mat-slider min="0.05"
-                      max="1"
-                      step="0.05"
-                      tickInterval="1"
-                      [displayWith]="getRoundedPercentage"
-                      [(value)]="settings.volume">
+          <mat-slider min="0.05" max="1" step="0.05" discrete>
+            <input matSliderThumb [(ngModel)]="settings.volume">
           </mat-slider>
           <span>100%</span>
         </div>
