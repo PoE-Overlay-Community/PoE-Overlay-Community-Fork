@@ -107,9 +107,12 @@ function getBounds(): Rectangle {
 
 function send(channel: string, ...additionalArgs: any[]): void {
   try {
+    if (channel === 'game-active-change') {
+      console.log(`[Main] send('game-active-change', ${JSON.stringify(additionalArgs)})`)
+    }
     win.webContents.send(channel, ...additionalArgs)
   } catch (error) {
-    console.error(`could not send to '${channel}' with args '${JSON.stringify(args)}`)
+    console.error(`could not send to '${channel}' with args '${JSON.stringify(additionalArgs)}'`)
   }
 }
 
@@ -150,6 +153,7 @@ update.register(ipcMain, (event, autoDownload) => {
 robot.register(ipcMain)
 
 game.register(ipcMain, (poe) => {
+  console.log(`[Main] game onUpdate: active=${poe.active}, bounds=${JSON.stringify(poe.bounds)}`)
   send('game-active-change', serve ? true : poe.active)
   // send('game-active-change', poe.active);
 
@@ -249,12 +253,14 @@ ipcMain.on('set-ignore-mouse-events', (event, ignore: boolean, options?: { forwa
 })
 
 ipcMain.on('window-show', (event) => {
+  console.log('[Main] window-show')
   const webContents = event.sender
   const browserWindow = BrowserWindow.fromWebContents(webContents)
   browserWindow?.show()
 })
 
 ipcMain.on('window-hide', (event) => {
+  console.log('[Main] window-hide')
   const webContents = event.sender
   const browserWindow = BrowserWindow.fromWebContents(webContents)
   browserWindow?.hide()
@@ -367,8 +373,10 @@ ipcMain.on('window-set-visible-all-workspaces', (event, visible: boolean) => {
 ipcMain.on('register-shortcut', (event, accelerator: string) => {
   try {
     const result = globalShortcut.register(accelerator, () => {
+      console.log(`[Main] shortcut triggered: ${accelerator}`)
       event.sender.send(`shortcut-${accelerator}`)
     })
+    console.log(`[Main] register-shortcut: ${accelerator} => ${result}`)
     event.returnValue = result
   } catch (error) {
     console.error(`Failed to register shortcut: ${accelerator}`, error)
@@ -378,6 +386,7 @@ ipcMain.on('register-shortcut', (event, accelerator: string) => {
 
 ipcMain.on('unregister-shortcut', (event, accelerator: string) => {
   try {
+    console.log(`[Main] unregister-shortcut: ${accelerator}`)
     globalShortcut.unregister(accelerator)
   } catch (error) {
     console.error(`Failed to unregister shortcut: ${accelerator}`, error)

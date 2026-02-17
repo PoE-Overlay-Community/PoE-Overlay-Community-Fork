@@ -15,7 +15,7 @@ import { SnackBarService } from '@shared/module/material/service'
 import { ContextService, StashService } from '@shared/module/poe/service'
 import { StashGridService } from '@shared/module/poe/service/stash-grid/stash-grid.service'
 import { Context } from '@shared/module/poe/type'
-import { BehaviorSubject, EMPTY, forkJoin, Observable, throwError, timer } from 'rxjs'
+import { BehaviorSubject, forkJoin, Observable, throwError, timer } from 'rxjs'
 import { catchError, debounce, distinctUntilChanged, mergeMap, map, tap } from 'rxjs/operators'
 import { PoEAccountService } from '../../../shared/module/poe/service/account/account.service'
 import { TradeNotificationsService } from '../../../shared/module/poe/service/trade-companion/trade-notifications.service'
@@ -164,7 +164,7 @@ export class OverlayComponent implements OnInit, OnDestroy {
       .pipe(
         tap((flag) => this.shortcut.check(flag)),
         map((flag) => flag !== VisibleFlag.None),
-        debounce((show) => (show ? EMPTY : timer(1500))),
+        debounce((show) => (show ? timer(0) : timer(1500))),
         distinctUntilChanged()
       )
       .subscribe((show) => {
