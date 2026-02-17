@@ -154,8 +154,7 @@ robot.register(ipcMain)
 
 game.register(ipcMain, (poe) => {
   console.log(`[Main] game onUpdate: active=${poe.active}, bounds=${JSON.stringify(poe.bounds)}`)
-  send('game-active-change', serve ? true : poe.active)
-  // send('game-active-change', poe.active);
+  send('game-active-change', serve ? true : !!poe.active)
 
   if (win) {
     if (poe.active) {
@@ -256,7 +255,9 @@ ipcMain.on('window-show', (event) => {
   console.log('[Main] window-show')
   const webContents = event.sender
   const browserWindow = BrowserWindow.fromWebContents(webContents)
-  browserWindow?.show()
+  if (browserWindow) {
+    browserWindow.showInactive()
+  }
 })
 
 ipcMain.on('window-hide', (event) => {
