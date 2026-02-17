@@ -100,7 +100,7 @@ export class TradeRateLimitService {
           case TradeRateThrottle.Reached:
           case TradeRateThrottle.Stale:
             return throwError('waiting')
-          default:
+          default: {
             const request = this.createRequest(resource)
             return of(null).pipe(
               mergeMap(() => getRequest().pipe(finalize(() => (request.finished = Date.now())))),
@@ -117,6 +117,7 @@ export class TradeRateLimitService {
                 return throwError(response)
               })
             )
+          }
         }
       }),
       retryWhen((errors) =>

@@ -19,6 +19,7 @@
     "lib": ["ES2022", "dom"],
     "paths": {
       "@app/*": ["src/app/core/*"],
+      "@app/testing": ["src/app/core/testing"],
       "@shared/*": ["src/app/shared/*"],
       "@modules/*": ["src/app/modules/*"],
       "@env/*": ["src/environments/*"],

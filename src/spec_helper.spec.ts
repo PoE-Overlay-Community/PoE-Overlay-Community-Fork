@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 import { TestBed } from '@angular/core/testing'
 import { CacheService } from '@app/service/cache.service'
 import { forkJoin } from 'rxjs'

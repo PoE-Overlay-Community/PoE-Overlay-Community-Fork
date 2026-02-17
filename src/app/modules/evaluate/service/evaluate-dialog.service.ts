@@ -93,7 +93,7 @@ export class EvaluateDialogService {
                   height += DIALOG_LINE_HEIGHT
                 }
                 break
-              case 'incursion':
+              case 'incursion': {
                 const incursion = item.properties.incursion
                 height +=
                   DIALOG_LINE_HEIGHT * (incursion.openRooms.length + incursion.closedRooms.length)
@@ -101,7 +101,8 @@ export class EvaluateDialogService {
                   height += DIALOG_DIVIDER_HEIGHT
                 }
                 break
-              case 'heist':
+              }
+              case 'heist': {
                 const heist = item.properties.heist
                 height += DIALOG_LINE_HEIGHT * heist.requiredSkills.length
                 if (heist.objectiveName) {
@@ -117,6 +118,7 @@ export class EvaluateDialogService {
                   height += DIALOG_LINE_HEIGHT
                 }
                 break
+              }
               default:
                 height += DIALOG_LINE_HEIGHT
                 break

@@ -357,7 +357,7 @@ export class TradeNotificationsService {
       return baseItemType.image
     }
     switch (baseItemType.category) {
-      case ItemCategory.Map:
+      case ItemCategory.Map: {
         // Check for map tier
         const tierRegex = MAP_TIER_REGEXES.find((x) => x.language === language)?.regex
         const tierMatch = tierRegex?.exec(item)
@@ -384,6 +384,7 @@ export class TradeNotificationsService {
         }
 
         return `/image/${baseItemType.image}.png?w=1&h=1&scale=1&mn=${MAP_GENERATION_ID}&mt=${tier}${suffix}`
+      }
     }
     return null
   }

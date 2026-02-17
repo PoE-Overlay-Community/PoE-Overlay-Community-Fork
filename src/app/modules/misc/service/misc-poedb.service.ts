@@ -26,10 +26,11 @@ export class MiscPoedbService {
       .pipe(
         mergeMap(({ code, item }) => {
           switch (code) {
-            case ItemClipboardResultCode.Success:
+            case ItemClipboardResultCode.Success: {
               const url = this.itemExternalService.getDbUrl(item)
               this.browser.open(url, external)
               return of(null)
+            }
             case ItemClipboardResultCode.Empty:
               return this.snackbar.warning('clipboard.empty')
             case ItemClipboardResultCode.ParserError:
