@@ -160,6 +160,11 @@ const electronAPI = {
       'stash-periodic-update-active-changed',
       'vendor-recipes',
       'log',
+      // Cross-window IPC for periodic update thread
+      'thread-pause',
+      'thread-available',
+      'settings-changed',
+      'get-vendor-recipes',
       // Cross-window IPC for trade companion and stash grid
       'trade-notification-add-example',
       'stash-grid-options',

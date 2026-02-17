@@ -1,7 +1,43 @@
-::ng-deep {
-  .container-after-titlebar {
-    background: #1c1c1c;
-    bottom: 36px !important;
+:host {
+  display: block;
+  background: #1c1c1c;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.titlebar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 30px;
+  background: #2d2d2d;
+  color: rgba(200, 200, 200, 0.87);
+  padding: 0 4px 0 12px;
+  -webkit-app-region: drag;
+  user-select: none;
+  font-size: 12px;
+}
+
+.titlebar-title {
+  font-weight: 400;
+}
+
+.titlebar-close {
+  -webkit-app-region: no-drag;
+  background: none;
+  border: none;
+  color: rgba(200, 200, 200, 0.87);
+  font-size: 18px;
+  width: 46px;
+  height: 30px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    background: #e81123;
+    color: white;
   }
 }
 

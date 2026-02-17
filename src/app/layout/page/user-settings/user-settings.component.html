@@ -1,3 +1,7 @@
+<div class="titlebar">
+  <span class="titlebar-title">PoE Overlay - Settings</span>
+  <button class="titlebar-close" (click)="onClose()">&times;</button>
+</div>
 <ng-container *ngIf="init$ | async; else loading">
   <div class="content">
     <mat-tab-group mat-stretch-tabs

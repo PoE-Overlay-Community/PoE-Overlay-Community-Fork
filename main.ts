@@ -442,6 +442,33 @@ ipcMain.on('set-browser-window-zoom', (_, id: number, zoomFactor: number) => {
   }
 })
 
+/* Cross-window IPC forwarding for periodic update thread */
+
+// Forward thread control messages between main window and periodic-update-thread
+const crossWindowChannels = [
+  'thread-pause',
+  'thread-available',
+  'settings-changed',
+  'poe-account-updated',
+  'stash-tab-info-changed',
+  'stash-periodic-update-active-changed',
+  'get-vendor-recipes',
+  'vendor-recipes',
+]
+
+crossWindowChannels.forEach((channel) => {
+  ipcMain.on(channel, (event, ...forwardArgs) => {
+    const senderWindow = BrowserWindow.fromWebContents(event.sender)
+    // Forward to all other windows
+    const allWindows = BrowserWindow.getAllWindows()
+    for (const browserWindow of allWindows) {
+      if (browserWindow !== senderWindow && !browserWindow.isDestroyed()) {
+        browserWindow.webContents.send(channel, ...forwardArgs)
+      }
+    }
+  })
+})
+
 /* Cross-window IPC forwarding for trade companion and stash grid */
 
 // Forward trade notification example requests from settings window to main window
@@ -511,7 +538,7 @@ function createWindow(): BrowserWindow {
     webPreferences: {
       nodeIntegration: false,
       contextIsolation: true,
-      preload: path.join(__dirname, serve ? 'electron/preload.js' : 'preload.js'),
+      preload: path.join(__dirname, 'electron/preload.js'),
       allowRunningInsecureContent: serve,
       webSecurity: false,
       sandbox: false,
@@ -567,7 +594,7 @@ ipcMain.on('open-route', (event, route: string) => {
         webPreferences: {
           nodeIntegration: false,
           contextIsolation: true,
-          preload: path.join(__dirname, serve ? 'electron/preload.js' : 'preload.js'),
+          preload: path.join(__dirname, 'electron/preload.js'),
           allowRunningInsecureContent: serve,
           webSecurity: false,
           sandbox: false,
