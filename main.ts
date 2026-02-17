@@ -221,7 +221,9 @@ ipcMain.on('clipboard-write-text', (_, text: string) => {
 /* Shell operations */
 
 ipcMain.on('shell-open-external', (_, url: string) => {
-  shell.openExternal(url)
+  if (typeof url === 'string') {
+    shell.openExternal(url)
+  }
 })
 
 /* Screen operations */
@@ -344,7 +346,11 @@ ipcMain.on('window-set-always-on-top', (event, flag: boolean, level?: string, re
   const webContents = event.sender
   const browserWindow = BrowserWindow.fromWebContents(webContents)
   if (browserWindow) {
-    browserWindow.setAlwaysOnTop(flag, level as any, relativeLevel)
+    if (level) {
+      browserWindow.setAlwaysOnTop(flag, level as any, relativeLevel)
+    } else {
+      browserWindow.setAlwaysOnTop(flag)
+    }
   }
 })
 
