@@ -78,7 +78,12 @@ const childs: {
 function setUserAgent(): void {
   const generatedUserAgent = `PoEOverlayCommunityFork/${app.getVersion()} (contact: p.overlay.c.f@gmail.com)`
   session.defaultSession.webRequest.onBeforeSendHeaders((details, callback) => {
-    details.requestHeaders['User-Agent'] = generatedUserAgent
+    // Only override UA for API requests; let page loads use the default Chromium UA
+    // so Cloudflare doesn't block them
+    const isApiRequest = details.url.includes('/api/') || details.resourceType === 'xhr'
+    if (isApiRequest) {
+      details.requestHeaders['User-Agent'] = generatedUserAgent
+    }
     callback({ cancel: false, requestHeaders: details.requestHeaders })
   })
 }
