@@ -424,6 +424,13 @@ ipcMain.on('create-browser-window', (event, options: any) => {
     },
   })
 
+  // Strip "Electron" and app name from the user agent so Cloudflare
+  // doesn't flag this as a bot (its JS challenge checks navigator.userAgent)
+  const cleanUA = browserWindow.webContents.getUserAgent()
+    .replace(/\s*Electron\/[\S]+/i, '')
+    .replace(/\s*poe-overlay\/[\S]+/i, '')
+  browserWindow.webContents.setUserAgent(cleanUA)
+
   const id = ++browserWindowIdCounter
   browserWindows.set(id, browserWindow)
 
