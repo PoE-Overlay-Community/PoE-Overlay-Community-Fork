@@ -9,7 +9,9 @@ export enum AutoUpdaterEvent {
 }
 
 export function download(): void {
-  autoUpdater.downloadUpdate()
+  autoUpdater.downloadUpdate().catch((err) => {
+    console.warn('Auto-updater download failed:', err?.message || err)
+  })
 }
 
 export function register(
@@ -30,9 +32,13 @@ export function register(
 
   ipcMain.on('app-download-init', (event, autoDownload) => {
     autoUpdater.autoDownload = autoDownload
-    autoUpdater.checkForUpdates()
+    autoUpdater.checkForUpdates().catch((err) => {
+      console.warn('Auto-updater check failed:', err?.message || err)
+    })
     checkForUpdatesHandle = setInterval(() => {
-      autoUpdater.checkForUpdates()
+      autoUpdater.checkForUpdates().catch((err) => {
+        console.warn('Auto-updater check failed:', err?.message || err)
+      })
     }, 1000 * 60 * 5)
     event.returnValue = true
   })
@@ -43,7 +49,9 @@ export function register(
   })
 
   ipcMain.on('app-download-update', (event) => {
-    autoUpdater.downloadUpdate()
+    autoUpdater.downloadUpdate().catch((err) => {
+      console.warn('Auto-updater download failed:', err?.message || err)
+    })
     event.returnValue = true
   })
 

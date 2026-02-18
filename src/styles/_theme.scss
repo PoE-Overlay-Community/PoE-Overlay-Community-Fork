@@ -134,16 +134,15 @@ body {
 }
 
 // Specific component overrides
-.mat-raised-button,
-.mat-stroked-button,
-.mat-flat-button {
+.mat-mdc-raised-button,
+.mat-mdc-outlined-button,
+.mat-mdc-flat-button {
   padding: 0 1.15em;
   margin: 0 0.65em;
   min-width: 3em;
-  line-height: 36.4px;
 }
 
-.mat-standard-chip {
+.mat-mdc-chip {
   padding: 0.5em 0.85em;
   min-height: 2.5em;
 }

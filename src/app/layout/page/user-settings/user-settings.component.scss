@@ -42,6 +42,21 @@
 }
 
 .content {
+  height: calc(100vh - 30px - 49px);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+
+  ::ng-deep .mat-mdc-tab-body-wrapper {
+    flex: 1;
+    overflow: hidden;
+  }
+
+  ::ng-deep .mat-mdc-tab-body-content {
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
   .tab-content {
     padding: 12px 12px 0px 12px;
   }

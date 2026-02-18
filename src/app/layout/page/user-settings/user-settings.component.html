@@ -4,7 +4,7 @@
 </div>
 <ng-container *ngIf="init$ | async; else loading">
   <div class="content">
-    <mat-tab-group mat-stretch-tabs
+    <mat-tab-group [mat-stretch-tabs]="true"
                    animationDuration="0ms"
                    (selectedIndexChange)="onSelectedIndexChange($event)">
       <mat-tab [label]="'settings.general' | translate">

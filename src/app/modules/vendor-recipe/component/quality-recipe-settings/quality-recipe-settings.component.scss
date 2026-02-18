@@ -93,7 +93,7 @@ app-card {
     }
   }
 
-  .mat-tooltip-lighter {
+  .mat-tooltip-lighter .mdc-tooltip__surface {
     background-color: $settings-grey-two;
   }
 }

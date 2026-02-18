@@ -42,6 +42,10 @@ app.commandLine.appendSwitch('force-device-scale-factor', '1')
 
 log.register(ipcMain)
 
+process.on('unhandledRejection', (reason) => {
+  console.warn('Unhandled promise rejection:', reason)
+})
+
 // tslint:disable-next-line:no-console
 console.info('App starting...')
 
@@ -223,9 +227,11 @@ ipcMain.on('clipboard-write-text', (_, text: string) => {
 
 /* Shell operations */
 
-ipcMain.on('shell-open-external', (_, url: string) => {
-  if (typeof url === 'string') {
-    shell.openExternal(url)
+ipcMain.on('shell-open-external', (_, externalUrl: string) => {
+  if (typeof externalUrl === 'string') {
+    shell.openExternal(externalUrl).catch((err) => {
+      console.warn('Failed to open external URL:', err?.message || err)
+    })
   }
 })
 
@@ -442,7 +448,9 @@ ipcMain.on('close-browser-window', (_, id: number) => {
 ipcMain.on('load-url-browser-window', (_, id: number, urlToLoad: string) => {
   const browserWindow = browserWindows.get(id)
   if (browserWindow) {
-    browserWindow.loadURL(urlToLoad)
+    browserWindow.loadURL(urlToLoad).catch((err) => {
+      console.warn('Failed to load URL in browser window:', err?.message || err)
+    })
   }
 })
 
@@ -533,7 +541,9 @@ function showChangelog(): void {
   changelog.removeMenu()
   changelog.loadURL(
     'https://github.com/PoE-Overlay-Community/PoE-Overlay-Community-Fork/blob/master/CHANGELOG.md#Changelog'
-  )
+  ).catch((err) => {
+    console.warn('Failed to load changelog:', err?.message || err)
+  })
 }
 
 /* main window */
@@ -627,13 +637,17 @@ ipcMain.on('open-route', (event, route: string) => {
 
       childs[route].once('closed', () => {
         childs[route] = null
-        win.moveTop()
-        event.reply('open-route-reply', 'close')
+        try {
+          win?.moveTop()
+          event.reply('open-route-reply', 'close')
+        } catch (err) {
+          // sender webContents may be destroyed
+        }
       })
 
       loadApp(childs[route], `#/${route}`)
     } else if (!isThread) {
-      if (childs[route].isMinimized) {
+      if (childs[route].isMinimized()) {
         childs[route].restore()
       }
       childs[route].show()
@@ -648,7 +662,9 @@ function loadApp(self: BrowserWindow, route: string = ''): void {
     require('electron-reload')(__dirname, {
       electron: require(`${__dirname}/node_modules/electron`),
     })
-    self.loadURL('http://localhost:4200' + route)
+    self.loadURL('http://localhost:4200' + route).catch((err) => {
+      console.warn('Failed to load dev URL:', err?.message || err)
+    })
     self.webContents.openDevTools({ mode: 'undocked' })
   } else {
     const appUrl = url.format({
@@ -656,7 +672,9 @@ function loadApp(self: BrowserWindow, route: string = ''): void {
       protocol: 'file:',
       slashes: true,
     })
-    self.loadURL(appUrl + route)
+    self.loadURL(appUrl + route).catch((err) => {
+      console.warn('Failed to load app URL:', err?.message || err)
+    })
   }
 }
 
@@ -737,7 +755,7 @@ function createTray(): Tray {
   menu = Menu.buildFromTemplate(items)
   tray.setToolTip(`PoE Overlay: ${app.getVersion()}`)
   tray.setContextMenu(menu)
-  tray.on('double-click', () => win.webContents.send('show-user-settings'))
+  tray.on('double-click', () => send('show-user-settings'))
   return tray
 }
 

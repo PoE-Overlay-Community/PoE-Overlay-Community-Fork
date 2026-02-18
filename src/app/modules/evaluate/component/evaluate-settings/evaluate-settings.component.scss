@@ -21,7 +21,7 @@
   .profile {
     padding: 12px 12px 0px 12px;
 
-    .mat-card {
+    .mat-mdc-card {
       background-color: #2a2a2a;
     }
   }
@@ -101,7 +101,7 @@ label {
     align-items: center;
     justify-content: center;
 
-    .mat-slider {
+    .mat-mdc-slider {
       width: 100%;
     }
   }
@@ -124,7 +124,7 @@ label {
     }
   }
 
-  .mat-slider {
+  .mat-mdc-slider {
     flex: 1;
   }
 
