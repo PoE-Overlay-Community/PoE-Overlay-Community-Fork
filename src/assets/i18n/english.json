@@ -264,7 +264,8 @@
     "abbr-level": "Lv",
     "account": {
       "login": "Login",
-      "login-info": "To login a new window will be opened, once logged at the PoE website you should close the window.",
+      "login-info": "Log in at the PoE website, then copy your POESESSID cookie value and paste it below.",
+      "open-login": "Open Login Page",
       "logout": "Logout",
       "name": "Account Name"
     },

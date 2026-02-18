@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core'
+import { ElectronProvider } from '@app/provider'
 import { BrowserService, ElectronService } from '@app/service'
+import { ElectronAPI } from '@app/type/electron-api.type'
 import { PoEHttpService } from '@data/poe'
 import { UserSettings } from '@layout/type'
-import { BehaviorSubject, Observable, of, Subscription } from 'rxjs'
+import { BehaviorSubject, from, Observable, of, Subscription } from 'rxjs'
 import { mergeMap, map, tap } from 'rxjs/operators'
 import { PoEAccountProvider } from '../../provider/account.provider'
 import { PoECharacterProvider } from '../../provider/character.provider'
@@ -24,6 +26,8 @@ export class PoEAccountService {
 
   private scopedAccountUpdatedEventHandler
 
+  private readonly electronAPI: ElectronAPI
+
   constructor(
     private readonly electronService: ElectronService,
     private readonly context: ContextService,
@@ -31,7 +35,10 @@ export class PoEAccountService {
     private readonly browser: BrowserService,
     private readonly poeHttpService: PoEHttpService,
     private readonly characterProvider: PoECharacterProvider,
-  ) { }
+    electronProvider: ElectronProvider,
+  ) {
+    this.electronAPI = electronProvider.provideElectronAPI()
+  }
 
   public register(settings: UserSettings): Observable<PoEAccount> {
     this.settings = settings
@@ -81,21 +88,30 @@ export class PoEAccountService {
     this.updateCharacters(CacheExpirationType.FiveSeconds)
   }
 
-  public login(language?: Language): Observable<PoEAccount> {
+  public openLoginPage(language?: Language): void {
     language = language || this.context.get().language
-    return this.browser.openAndWait(this.poeHttpService.getLoginUrl(language)).pipe(mergeMap(() => {
-      return this.accountProvider.provide(language, CacheExpirationType.Instant).pipe(mergeMap((account) => {
-        if (account.loggedIn) {
-          return this.characterProvider.provide(account.name, language, CacheExpirationType.Instant).pipe(map((characters) => {
-            account.characters = characters
-            this.accountSubject.next(account)
-            return account
-          }))
-        } else {
-          return of(account)
-        }
-      }))
-    }))
+    const loginUrl = this.poeHttpService.getLoginUrl(language)
+    this.electronAPI.shellOpenExternal(loginUrl)
+  }
+
+  public loginWithSessionId(poesessid: string, language?: Language): Observable<PoEAccount> {
+    language = language || this.context.get().language
+    const cookieUrl = this.poeHttpService.getBaseUrl(language)
+    return from(this.electronAPI.setSessionCookie(cookieUrl, 'POESESSID', poesessid)).pipe(
+      mergeMap(() => {
+        return this.accountProvider.provide(language, CacheExpirationType.Instant).pipe(mergeMap((account) => {
+          if (account.loggedIn) {
+            return this.characterProvider.provide(account.name, language, CacheExpirationType.Instant).pipe(map((characters) => {
+              account.characters = characters
+              this.accountSubject.next(account)
+              return account
+            }))
+          } else {
+            return of(account)
+          }
+        }))
+      })
+    )
   }
 
   public logout(language?: Language): Observable<PoEAccount> {

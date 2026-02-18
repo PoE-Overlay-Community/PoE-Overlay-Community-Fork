@@ -89,6 +89,7 @@ export class UserSettingsFormComponent implements OnInit, OnDestroy {
   @Input()
   public settings: UserSettings
 
+  public poesessid = ''
   public displayWithOpacity = (value: number) => `${Math.round(value * 100)}%`
 
   private accountSub: Subscription
@@ -148,10 +149,14 @@ export class UserSettingsFormComponent implements OnInit, OnDestroy {
     this.app.quit()
   }
 
+  public onOpenLoginPage(): void {
+    this.accountService.openLoginPage(this.settings.language)
+  }
+
   public onLoginClick(): void {
-    this.accountService.login(this.settings.language).subscribe((account) => {
+    this.accountService.loginWithSessionId(this.poesessid, this.settings.language).subscribe((account) => {
+      this.poesessid = ''
       this.onAccountChanged(account, true)
-      this.window.focus()
     })
   }
 

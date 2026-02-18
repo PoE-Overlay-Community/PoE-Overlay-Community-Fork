@@ -39,6 +39,9 @@ if (process.platform === 'win32' && !systemPreferences.isAeroGlassEnabled()) {
 
 app.commandLine.appendSwitch('high-dpi-support', 'true')
 app.commandLine.appendSwitch('force-device-scale-factor', '1')
+// Prevent Cloudflare from detecting Electron as an automated browser
+// This removes navigator.webdriver and other Blink automation signals
+app.commandLine.appendSwitch('disable-blink-features', 'AutomationControlled')
 
 log.register(ipcMain)
 
@@ -228,6 +231,34 @@ ipcMain.on('clipboard-read-text', (event) => {
 
 ipcMain.on('clipboard-write-text', (_, text: string) => {
   clipboard.writeText(text)
+})
+
+/* Session cookie operations */
+
+ipcMain.handle('set-session-cookie', async (_, cookieUrl: string, cookieName: string, cookieValue: string) => {
+  try {
+    await session.defaultSession.cookies.set({
+      url: cookieUrl,
+      name: cookieName,
+      value: cookieValue,
+      httpOnly: true,
+      secure: true,
+    })
+    return true
+  } catch (err) {
+    console.warn('Failed to set cookie:', err?.message || err)
+    return false
+  }
+})
+
+ipcMain.handle('get-session-cookie', async (_, cookieUrl: string, cookieName: string) => {
+  try {
+    const cookies = await session.defaultSession.cookies.get({ url: cookieUrl, name: cookieName })
+    return cookies.length > 0 ? cookies[0].value : null
+  } catch (err) {
+    console.warn('Failed to get cookie:', err?.message || err)
+    return null
+  }
 })
 
 /* Shell operations */
