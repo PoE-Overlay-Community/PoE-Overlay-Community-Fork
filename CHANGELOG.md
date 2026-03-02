@@ -1,5 +1,21 @@
 # Changelog
 
+## 0.9.0 (2026-03-03)
+
+### Major Dependency Upgrade
+
+- Upgraded Electron 8.3.1 → 28.3.3
+- Upgraded Angular 9.1.3 → 17.3.12 (with Angular Material 17 MDC migration)
+- Upgraded TypeScript 3.8.3 → 5.3.3 and RxJS 6.5.5 → 7.8.0
+- Replaced `iohook` with `uiohook-napi` 1.5.0 (Electron 28 compatible global hooks)
+- Replaced `active-win` with `node-window-manager` 2.2.2 (ESM compatibility)
+- Replaced `custom-electron-titlebar` with a custom HTML/CSS titlebar (Electron 28 context isolation compatibility)
+- Added `electron/preload.ts` context bridge — all renderer ↔ main IPC now goes through `window.electronAPI`
+- Replaced in-app login browser with external browser + POESESSID cookie import (Cloudflare bypass)
+- Fixed RxJS 7 `debounce(() => EMPTY)` breaking change that prevented the overlay from becoming visible
+- Fixed Angular Material MDC CSS class names across 14 SCSS files
+- Migrated TSLint → ESLint
+
 ## 0.8.39 (2025-11-07)
 
 - Updated the PoE Assets using PoE Asset Updater (commit a25d8a4) and PoE Client v3.27.0b (hotfix 3)
