@@ -185,7 +185,7 @@ Due to the scope of changes, manual testing is critical:
 - [x] Clipboard operations work (copy item text)
 
 ### Account & Login
-- [x] PoE login page loads (Cloudflare doesn't block it)
+- [ ] PoE login page loads (Cloudflare doesn't block it)
 - [ ] Account authentication completes successfully
 - [ ] Characters and leagues populate after login
 
