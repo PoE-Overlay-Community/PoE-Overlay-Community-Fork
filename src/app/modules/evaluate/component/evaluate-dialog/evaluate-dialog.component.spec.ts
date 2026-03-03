@@ -13,11 +13,7 @@ import { EvaluateSearchComponent } from '../evaluate-search/evaluate-search.comp
 import { EvaluateDialogComponent } from './evaluate-dialog.component'
 
 class ElectronProviderFake {
-  public provideRemote(): any {
-    return null
-  }
-
-  public provideIpcRenderer(): any {
+  public provideElectronAPI(): any {
     return null
   }
 }
@@ -58,7 +54,7 @@ describe('EvaluateDialogComponent', () => {
           },
         },
         { provide: ElectronProvider, useClass: ElectronProviderFake },
-        { provide: MatDialogRef, useValue: null },
+        { provide: MatDialogRef, useValue: { close: () => {} } },
       ],
     }).compileComponents()
 

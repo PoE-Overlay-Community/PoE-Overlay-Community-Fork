@@ -10,6 +10,7 @@ describe('WindowService', () => {
   let mockAPI: MockElectronAPI
 
   beforeEach(() => {
+    TestBed.resetTestingModule()
     mockProvider = new MockElectronProvider()
     mockAPI = mockProvider.getMockAPI()
 

@@ -31,7 +31,13 @@ module.exports = function(config) {
     customLaunchers: {
       ChromeWithoutSecurity: {
         base: 'Chrome',
-        flags: ['--disable-web-security']
+        flags: [
+          '--disable-web-security',
+          '--headless=new',
+          '--no-sandbox',
+          '--disable-gpu',
+          '--disable-dev-shm-usage',
+        ]
       }
     }
   }

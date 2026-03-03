@@ -82,6 +82,7 @@ describe('ItemSearchAnalyzeService', () => {
     contextService
       .init({
         language: Language.English,
+        leagueId: 'Delirium',
       })
       .subscribe(() => done())
 

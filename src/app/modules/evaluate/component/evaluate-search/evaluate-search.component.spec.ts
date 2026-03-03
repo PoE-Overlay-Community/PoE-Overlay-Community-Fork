@@ -10,11 +10,7 @@ import { EvaluateSearchTableComponent } from '../evaluate-search-table/evaluate-
 import { EvaluateSearchComponent } from './evaluate-search.component'
 
 class ElectronProviderFake {
-  public provideRemote(): any {
-    return null
-  }
-
-  public provideIpcRenderer(): any {
+  public provideElectronAPI(): any {
     return null
   }
 }

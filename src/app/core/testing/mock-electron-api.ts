@@ -76,6 +76,14 @@ export function createMockElectronAPI(overrides: MockElectronAPIOverrides = {}):
     clipboardReadText: jasmine.createSpy('clipboardReadText').and.returnValue(''),
     clipboardWriteText: jasmine.createSpy('clipboardWriteText'),
 
+    // Session cookies
+    setSessionCookie: jasmine
+      .createSpy('setSessionCookie')
+      .and.returnValue(Promise.resolve(true)),
+    getSessionCookie: jasmine
+      .createSpy('getSessionCookie')
+      .and.returnValue(Promise.resolve(null)),
+
     // Shell
     shellOpenExternal: jasmine.createSpy('shellOpenExternal'),
 
