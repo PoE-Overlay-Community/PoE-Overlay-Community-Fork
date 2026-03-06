@@ -3,7 +3,7 @@ import { GameService } from '@app/service'
 import { ClipboardService, KeyboardService, KeyCode, MouseService } from '@app/service/input'
 import { Point } from '@app/type'
 import { iif, Observable, of, throwError } from 'rxjs'
-import { catchError, concatMap, delay, flatMap, map, retryWhen, tap } from 'rxjs/operators'
+import { catchError, concatMap, delay, mergeMap, map, retryWhen, tap } from 'rxjs/operators'
 import { Item } from '../../type'
 import { ItemParserService } from './parser/item-parser.service'
 
@@ -40,9 +40,9 @@ export class ItemClipboardService {
         this.keyboard.keyToggle(KeyCode.VK_RMENU, false)
       }),
       tap(() => this.game.focus()),
-      flatMap((point) => {
+      mergeMap((point) => {
         return of(null).pipe(
-          flatMap(() => {
+          mergeMap(() => {
             const oldText = this.clipboard.readText()
 
             this.keyboard.setKeyboardDelay(25)

@@ -4,7 +4,7 @@ import { BrowserService, LoggerService } from '@app/service'
 import { environment } from '@env/environment'
 import { Language } from '@shared/module/poe/type'
 import { Observable, of, Subscriber, throwError } from 'rxjs'
-import { delay, flatMap, map, retryWhen } from 'rxjs/operators'
+import { delay, mergeMap, map, retryWhen } from 'rxjs/operators'
 import {
     ApiCharacterResponse,
     ApiErrorResponse,
@@ -82,10 +82,12 @@ export class PoEHttpService {
     return this.getAndParse('data-stats', url)
   }
 
+  public getBaseUrl(language: Language): string {
+    return this.getPoEUrl('', language)
+  }
+
   public getLoginUrl(language: Language): string {
-    // PoE 3.21: Redirecting to 'trade/search' instead of 'login' due to GET/POST issues causing an infinite cloudflare loop.
-    // PoE 3.21.X/3.22: Redirecting to the 'no script login' due to the normal login using 'object.hasOwn' which is not supported by Electron 8.X
-    return this.getPoEUrl('login?no-script', language)
+    return this.getPoEUrl('login', language)
   }
 
   public getLogoutUrl(language: Language): string {
@@ -148,7 +150,7 @@ export class PoEHttpService {
       )
       .pipe(
         retryWhen((errors) =>
-          errors.pipe(flatMap((response, count) => this.handleError(url, response, count)))
+          errors.pipe(mergeMap((response, count) => this.handleError(url, response, count)))
         )
       )
   }
@@ -171,7 +173,7 @@ export class PoEHttpService {
       )
       .pipe(
         retryWhen((errors) =>
-          errors.pipe(flatMap((response, count) => this.handleError(url, response, count, browserUrl)))
+          errors.pipe(mergeMap((response, count) => this.handleError(url, response, count, browserUrl)))
         ),
         map((response) => {
           response.url = `${url.replace('/api', '')}/${encodeURIComponent(response.id)}`
@@ -192,7 +194,7 @@ export class PoEHttpService {
         })
       ).pipe(
         retryWhen((errors) =>
-          errors.pipe(flatMap((response, count) => this.handleError(url, response, count, null, observer)))
+          errors.pipe(mergeMap((response, count) => this.handleError(url, response, count, null, observer)))
         )
       ).subscribe(
         response => observer.next(response),

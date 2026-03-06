@@ -2,7 +2,7 @@
   <app-item-frame
     class="map-frame"
     [item]="data.item"
-    [properties]="properties"
+    [properties]="$any(properties)"
     [separator]="true"
     [opacity]="data.settings.dialogOpacity"
   >

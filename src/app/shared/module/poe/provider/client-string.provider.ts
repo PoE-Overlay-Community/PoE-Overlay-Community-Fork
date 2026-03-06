@@ -1,17 +1,5 @@
 import { Injectable } from '@angular/core'
-import {
-  English,
-  French,
-  German,
-  Korean,
-  Portuguese,
-  Russian,
-  SimplifiedChinese,
-  Spanish,
-  Thai,
-  TraditionalChinese,
-  Japanese,
-} from '../../../../../assets/poe/client-strings.json'
+import clientStringsData from '../../../../../assets/poe/client-strings.json'
 import { ClientStringMap, Language } from '../type'
 
 @Injectable({
@@ -21,27 +9,27 @@ export class ClientStringProvider {
   public provide(language: Language): ClientStringMap {
     switch (language) {
       case Language.English:
-        return English
+        return clientStringsData.English
       case Language.Portuguese:
-        return Portuguese
+        return clientStringsData.Portuguese
       case Language.Russian:
-        return Russian
+        return clientStringsData.Russian
       case Language.Thai:
-        return Thai
+        return clientStringsData.Thai
       case Language.German:
-        return German
+        return clientStringsData.German
       case Language.French:
-        return French
+        return clientStringsData.French
       case Language.Spanish:
-        return Spanish
+        return clientStringsData.Spanish
       case Language.Korean:
-        return Korean
+        return clientStringsData.Korean
       // case Language.SimplifiedChinese:
-      //     return SimplifiedChinese;
+      //     return clientStringsData.SimplifiedChinese;
       case Language.TraditionalChinese:
-        return TraditionalChinese
+        return clientStringsData.TraditionalChinese
       case Language.Japanese:
-        return Japanese
+        return clientStringsData.Japanese
       default:
         throw new Error(`Could not map clientstrings to language: '${Language[language]}'.`)
     }

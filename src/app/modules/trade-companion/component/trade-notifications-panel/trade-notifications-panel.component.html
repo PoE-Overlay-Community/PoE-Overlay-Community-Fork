@@ -26,7 +26,7 @@
       <app-trade-notification *ngIf="index < settings.maxVisibileTradeNotifications"
                               [notification]="notification"
                               [settings]="settings"
-                              [isActiveTradeNotification]="index == activeTradeNotificationIndex"
+                              [isActiveTradeNotification]="index === activeTradeNotificationIndex"
                               (dismissNotification)="onDismissNotification($event)"
                               (playerNameClick)="onPlayerNameClick($event)"
                               (collapseClick)="onCollapseClick($event)">

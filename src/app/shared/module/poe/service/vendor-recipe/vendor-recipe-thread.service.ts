@@ -5,7 +5,7 @@ import { PoEAccountService } from '@shared/module/poe/service/account/account.se
 import { StashThreadService } from '@shared/module/poe/service/stash/stash-thread.service'
 import { PoEAccount, PoEStashTab, RecipeUserSettings, StashTabSearchMode, StashTabsToSearch, VendorRecipeProcessResult, VendorRecipeType, VendorRecipeUserSettings } from '@shared/module/poe/type'
 import { forkJoin, Observable, of, Subscription } from 'rxjs'
-import { concatAll, flatMap, map } from 'rxjs/operators'
+import { concatAll, mergeMap, map } from 'rxjs/operators'
 import { PoEAccountThreadService } from '../account/account-thread.service'
 import { ChanceRecipeProcessorService } from './processors/chance-recipe-processor.service'
 import { ChaosRecipeProcessorService } from './processors/chaos-recipe-processor.service'
@@ -131,7 +131,7 @@ export class VendorRecipeThreadService implements StashTabsToSearch {
     const recipeProcessor = this.recipeProcessors[settings.type]
     return this.getItemSetStashTabsToSearch(identifier, settings)
       .pipe(
-        flatMap((stashTabs) => this.stashThreadService.getStashTabContents(stashTabs)
+        mergeMap((stashTabs) => this.stashThreadService.getStashTabContents(stashTabs)
           .pipe(
             map((stashItems) => {
               return recipeProcessor.process(identifier, stashItems, settings, processedRecipes)

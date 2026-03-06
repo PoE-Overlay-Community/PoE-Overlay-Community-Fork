@@ -1,22 +1,22 @@
 import { Injectable } from '@angular/core'
 import { ElectronProvider } from '@app/provider'
-import { Remote } from 'electron'
+import { ElectronAPI } from '@app/type/electron-api.type'
 
 @Injectable({
   providedIn: 'root',
 })
 export class ClipboardService {
-  private readonly electron: Remote
+  private readonly electronAPI: ElectronAPI
 
   constructor(electronProvider: ElectronProvider) {
-    this.electron = electronProvider.provideRemote()
+    this.electronAPI = electronProvider.provideElectronAPI()
   }
 
   public readText(): string {
-    return this.electron.clipboard.readText()
+    return this.electronAPI.clipboardReadText()
   }
 
   public writeText(text: string): void {
-    return this.electron.clipboard.writeText(text)
+    return this.electronAPI.clipboardWriteText(text)
   }
 }

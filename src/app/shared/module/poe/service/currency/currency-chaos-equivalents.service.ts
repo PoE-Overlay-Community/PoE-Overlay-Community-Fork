@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core'
 import { Observable, of } from 'rxjs'
-import { flatMap, map } from 'rxjs/operators'
+import { mergeMap, map } from 'rxjs/operators'
 import { CurrencyChaosEquivalentsProvider } from '../../provider'
 import { Currency, Language } from '../../type'
 import { ContextService } from '../context.service'
@@ -24,7 +24,7 @@ export class CurrencyChaosEquivalentsService {
     leagueId = leagueId || this.context.get().leagueId
 
     return this.currencyService.searchById(currencyId, Language.English).pipe(
-      flatMap((englishCurrency) => {
+      mergeMap((englishCurrency) => {
         if (!englishCurrency) {
           return of(undefined)
         }

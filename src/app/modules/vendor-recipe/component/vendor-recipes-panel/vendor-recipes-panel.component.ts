@@ -7,11 +7,11 @@ import {
     OnInit, Output
 } from '@angular/core'
 import { WindowService } from '@app/service'
+import { Rectangle } from '@app/type'
 import { UserSettingsService } from '@layout/service'
 import { StashService } from '@shared/module/poe/service'
 import { VendorRecipeService } from '@shared/module/poe/service/vendor-recipe/vendor-recipe.service'
 import { AudioClipSettings, RecipeUserSettings, VendorRecipeProcessResult, VendorRecipeType, VendorRecipeUserSettings } from '@shared/module/poe/type'
-import { Rectangle } from 'electron'
 import { BehaviorSubject, Subject, Subscription } from 'rxjs'
 import { debounceTime, map } from 'rxjs/operators'
 
@@ -59,7 +59,7 @@ export class VendorRecipesPanelComponent implements OnInit, OnChanges, OnDestroy
   private vendorRecipeSub: Subscription
 
   private readonly boundsUpdate$ = new Subject<Rectangle>()
-  private readonly closeClick$ = new Subject()
+  private readonly closeClick$ = new Subject<void>()
 
   private audioClips: HTMLAudioElement[] = []
 

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core'
 import { ItemPricePredictionHttpService } from '@data/poe-prices'
 import { forkJoin, Observable } from 'rxjs'
-import { flatMap, map } from 'rxjs/operators'
+import { mergeMap, map } from 'rxjs/operators'
 import { ItemPricePredictionProvider } from '../../provider'
 import { Currency, Item } from '../../type'
 import { ContextService } from '../context.service'
@@ -52,7 +52,7 @@ export class ItemPricePredictionService {
     // TODO: translate item source
     const { source } = item
     return this.prediction.provide(leagueId, source).pipe(
-      flatMap((prediction) =>
+      mergeMap((prediction) =>
         forkJoin(
           currencies.map((currency) =>
             this.currencyConverter.convert(prediction.currencyId, currency.id)

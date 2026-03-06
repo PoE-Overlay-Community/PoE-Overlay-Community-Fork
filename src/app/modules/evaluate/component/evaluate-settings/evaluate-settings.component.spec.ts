@@ -5,11 +5,7 @@ import { SharedModule } from '@shared/shared.module'
 import { EvaluateSettingsComponent } from './evaluate-settings.component'
 
 class ElectronProviderFake {
-  public provideRemote(): Electron.Remote {
-    return null
-  }
-
-  public provideIpcRenderer(): Electron.IpcRenderer {
+  public provideElectronAPI(): any {
     return null
   }
 }

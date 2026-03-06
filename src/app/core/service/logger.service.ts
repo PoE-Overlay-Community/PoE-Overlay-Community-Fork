@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core'
 import { ElectronProvider } from '@app/provider/electron.provider'
+import { ElectronAPI } from '@app/type/electron-api.type'
 import { environment } from '@env/environment'
-import { IpcRenderer } from 'electron'
 
 interface LogTags {
   cacheService?: boolean
@@ -21,10 +21,10 @@ export class LoggerService {
     electronService: true,
   }
 
-  private readonly ipcRenderer: IpcRenderer
+  private readonly electronAPI: ElectronAPI
 
   constructor(electronProvider: ElectronProvider) {
-    this.ipcRenderer = electronProvider.provideIpcRenderer()
+    this.electronAPI = electronProvider.provideElectronAPI()
   }
 
   public isLogTagEnabled(tag: string): boolean {
@@ -59,7 +59,7 @@ export class LoggerService {
       message = `[${tag}] ${message}`
     }
     if (environment.production) {
-      this.ipcRenderer?.sendSync('log', level, message, ...args)
+      this.electronAPI?.log(level, message, ...args)
     } else {
       console.log(message)
       args.forEach(arg => console.log(arg))

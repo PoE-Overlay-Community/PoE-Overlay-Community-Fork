@@ -20,42 +20,45 @@ body {
   pointer-events: all;
 }
 
-.mat-snack-bar-container.snack-bar-service {
+.mat-mdc-snack-bar-container.snack-bar-service {
   min-width: 0;
   border-radius: 2px;
-  background-color: rgb(35, 35, 35);
 
-  &.error {
-    background-color: $red;
+  .mdc-snackbar__surface {
+    background-color: rgb(35, 35, 35) !important;
   }
 
-  &.warning {
-    background-color: $orange;
+  &.error .mdc-snackbar__surface {
+    background-color: $red !important;
   }
 
-  &.success {
-    background-color: $purple;
+  &.warning .mdc-snackbar__surface {
+    background-color: $orange !important;
+  }
+
+  &.success .mdc-snackbar__surface {
+    background-color: $purple !important;
   }
 }
 
-.mat-slide-toggle {
+.mat-mdc-slide-toggle {
   margin-bottom: 12px;
 }
 
 .backdrop-fullsize + .cdk-global-overlay-wrapper {
-  .mat-dialog-container {
+  .mat-mdc-dialog-container {
     border-radius: 2px;
     padding: 0;
     margin: 0;
   }
 
-  .mat-dialog-content,
-  .mat-dialog-actions {
+  .mat-mdc-dialog-content,
+  .mat-mdc-dialog-actions {
     margin: 0;
     padding: 0;
   }
 
-  .mat-dialog-actions {
+  .mat-mdc-dialog-actions {
     padding: 0 12px;
   }
 }
@@ -64,7 +67,7 @@ body {
   background: rgba(0, 0, 0, 0.01);
 
   & + .cdk-global-overlay-wrapper {
-    .mat-dialog-container {
+    .mat-mdc-dialog-container {
       box-shadow: none;
       background: none;
       border-radius: 0;
@@ -73,7 +76,7 @@ body {
   }
 }
 
-.mat-form-field {
+.mat-mdc-form-field {
   width: 100%;
 }
 
@@ -93,32 +96,28 @@ mat-card {
   padding: 2px !important;
 }
 
-.mat-progress-bar {
-  > .mat-progress-bar-background {
-    fill: none;
-  }
-
-  > .mat-progress-bar-buffer {
-    background: none;
+.mat-mdc-progress-bar {
+  .mdc-linear-progress__buffer-bar {
+    background-color: transparent;
   }
 }
 
-.mat-tooltip {
+.mat-mdc-tooltip .mdc-tooltip__surface {
   background-color: rgb(35, 35, 35);
   font-size: 14px;
   white-space: pre-line;
+}
 
-  &.width-400 {
-    max-width: 400px;
-  }
+.mat-mdc-tooltip.width-400 .mdc-tooltip__surface {
+  max-width: 400px;
+}
 
-  &.width-500 {
-    max-width: 500px;
-  }
+.mat-mdc-tooltip.width-500 .mdc-tooltip__surface {
+  max-width: 500px;
+}
 
-  &.width-600 {
-    max-width: 600px;
-  }
+.mat-mdc-tooltip.width-600 .mdc-tooltip__surface {
+  max-width: 600px;
 }
 
 .mod-icon {
@@ -195,7 +194,7 @@ mat-card {
     background-size: 224px 704px;
   }
 }
-  
+
 .vendor-recipe-icon {
   background-position: center;
   background-repeat: no-repeat;

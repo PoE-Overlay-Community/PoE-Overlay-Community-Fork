@@ -111,7 +111,7 @@ export class ItemParserService {
           continue
         }
       }
-      ;[].concat(sectionOrSections).forEach((section) => {
+      [].concat(sectionOrSections).forEach((section) => {
         exportedItem.sections.splice(exportedItem.sections.indexOf(section), 1)
       })
     }

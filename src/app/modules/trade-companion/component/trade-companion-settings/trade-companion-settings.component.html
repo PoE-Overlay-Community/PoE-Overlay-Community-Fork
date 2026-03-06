@@ -25,12 +25,8 @@
           {{ getRoundedPercentage(settings.tradeCompanionOpacity) }}
         </label>
         <div class="slider">
-          <mat-slider min="0.05"
-                      max="1"
-                      step="0.05"
-                      tickInterval="1"
-                      [displayWith]="getRoundedPercentage"
-                      [(value)]="settings.tradeCompanionOpacity">
+          <mat-slider min="0.05" max="1" step="0.05" discrete>
+            <input matSliderThumb [(ngModel)]="settings.tradeCompanionOpacity">
           </mat-slider>
           <span>100%</span>
         </div>

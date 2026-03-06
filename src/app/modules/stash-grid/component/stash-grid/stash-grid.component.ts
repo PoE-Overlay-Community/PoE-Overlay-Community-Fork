@@ -36,7 +36,7 @@ interface CellData {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class StashGridComponent implements OnInit, OnDestroy, OnChanges {
-  // tslint:disable-next-line:no-input-rename
+  // eslint-disable-next-line @angular-eslint/no-input-rename
   @Input('settings')
   public globalSettings: StashGridUserSettings
 

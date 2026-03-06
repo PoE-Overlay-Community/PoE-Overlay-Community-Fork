@@ -28,7 +28,7 @@ export class ItemDamageProcessorService {
       dps.tier = { min: 0, max: 0 }
     }
 
-    ;[pdps, edps, cdps].forEach((range) => {
+    [pdps, edps, cdps].forEach((range) => {
       if (!range) {
         return
       }

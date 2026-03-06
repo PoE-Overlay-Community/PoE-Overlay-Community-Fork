@@ -11,7 +11,13 @@ export interface Window {
 }
 
 // macos only - probably not needed for now
-windowManager.requestAccessibility()
+try {
+  windowManager.requestAccessibility()
+} catch (err) {
+  console.warn('requestAccessibility() failed (expected on non-macOS):', err)
+}
+
+let platformLogged = false
 
 export async function getActiveWindow(): Promise<Window> {
   try {
@@ -22,6 +28,11 @@ export async function getActiveWindow(): Promise<Window> {
     let title: () => string
     let bringToTop: any
     const isLinux = process.platform !== ('win32' || 'darwin')
+
+    if (!platformLogged) {
+      console.log(`[Window] platform=${process.platform}, isLinux=${isLinux}`)
+      platformLogged = true
+    }
 
     if (isLinux) {
       active = await activeWin()
@@ -47,6 +58,7 @@ export async function getActiveWindow(): Promise<Window> {
       bounds = () => addon.getWindowBounds(active.id)
       title = () => active.getTitle()
       bringToTop = () => active.bringToTop()
+      // Debug logging moved to game.ts (throttled)
     }
 
     return {

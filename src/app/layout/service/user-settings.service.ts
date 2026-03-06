@@ -3,7 +3,7 @@ import { ObjectUtils } from '@app/class'
 import { FeatureModule, UiLanguage } from '@app/type'
 import { Language } from '@shared/module/poe/type'
 import { Observable } from 'rxjs'
-import { flatMap, map } from 'rxjs/operators'
+import { mergeMap, map } from 'rxjs/operators'
 import { DialogSpawnPosition, UserSettings, UserSettingsFeature } from '../type'
 import { UserSettingsFeatureService } from './user-settings-feature.service'
 import { UserSettingsStorageService } from './user-settings-storage.service'
@@ -31,7 +31,7 @@ export class UserSettingsService {
 
   public init(modules: FeatureModule[]): Observable<UserSettings> {
     return this.get().pipe(
-      flatMap((savedSettings) => {
+      mergeMap((savedSettings) => {
         let mergedSettings: UserSettings = {
           openUserSettingsKeybinding: 'F7',
           exitAppKeybinding: 'F8',
@@ -63,7 +63,7 @@ export class UserSettingsService {
     updateFn: (settings: TUserSettings) => UserSettings
   ): Observable<TUserSettings> {
     return this.userSettingsStorageService.get().pipe(
-      flatMap((settings) =>
+      mergeMap((settings) =>
         this.userSettingsStorageService.save(updateFn(settings as TUserSettings))
       ),
       map((settings) => settings as TUserSettings)

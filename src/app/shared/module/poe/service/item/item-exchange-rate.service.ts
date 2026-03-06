@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core'
 import { forkJoin, iif, Observable, of } from 'rxjs'
-import { flatMap, map } from 'rxjs/operators'
+import { mergeMap, map } from 'rxjs/operators'
 import {
     ItemCategoryValue,
     ItemCategoryValuesProvider
@@ -49,7 +49,7 @@ export class ItemExchangeRateService {
     leagueId = leagueId || this.context.get().leagueId
 
     return this.getValue(leagueId, item).pipe(
-      flatMap((value) =>
+      mergeMap((value) =>
         iif(
           () => !value,
           of(undefined),

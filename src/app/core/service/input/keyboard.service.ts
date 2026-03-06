@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core'
 import { ElectronProvider } from '@app/provider'
-import { IpcRenderer } from 'electron'
+import { ElectronAPI } from '@app/type/electron-api.type'
 
 export enum KeyCode {
   VK_KEY_C = 0x43,
@@ -17,21 +17,21 @@ export enum KeyCode {
   providedIn: 'root',
 })
 export class KeyboardService {
-  private readonly ipcRenderer: IpcRenderer
+  private readonly electronAPI: ElectronAPI
 
   constructor(electronProvider: ElectronProvider) {
-    this.ipcRenderer = electronProvider.provideIpcRenderer()
+    this.electronAPI = electronProvider.provideElectronAPI()
   }
 
   public setKeyboardDelay(delay: number): void {
-    this.ipcRenderer.sendSync('set-keyboard-delay', delay)
+    this.electronAPI.setKeyboardDelay(delay)
   }
 
   public keyTap(code: KeyCode, modifiers: string[] = []): void {
-    this.ipcRenderer.sendSync('key-tap', code, modifiers)
+    this.electronAPI.keyTap(code, modifiers)
   }
 
   public keyToggle(code: KeyCode, down: boolean, modifiers: string[] = []): void {
-    this.ipcRenderer.sendSync('key-toggle', code, down ? 'down' : 'up', modifiers)
+    this.electronAPI.keyToggle(code, down ? 'down' : 'up', modifiers)
   }
 }

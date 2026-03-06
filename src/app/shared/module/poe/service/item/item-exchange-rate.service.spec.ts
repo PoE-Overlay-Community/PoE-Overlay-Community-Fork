@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing'
 import { SharedModule } from '@shared/shared.module'
-import { flatMap } from 'rxjs/operators'
+import { mergeMap } from 'rxjs/operators'
 import { ContextService } from '..'
 import { Item, ItemCategory, ItemRarity, Language } from '../../type'
 import { CurrencyService } from '../currency/currency.service'
@@ -36,7 +36,7 @@ describe('ItemExchangeRateService', () => {
 
     currencyService
       .searchById('chaos')
-      .pipe(flatMap((chaos) => sut.get(item, [chaos])))
+      .pipe(mergeMap((chaos) => sut.get(item, [chaos])))
       .subscribe(
         (result) => {
           expect(result).toBeTruthy()

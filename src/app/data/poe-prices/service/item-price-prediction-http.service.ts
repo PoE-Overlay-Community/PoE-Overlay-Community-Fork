@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core'
 import { BrowserService } from '@app/service'
 import { environment } from '@env/environment'
 import { Observable, of, throwError } from 'rxjs'
-import { delay, flatMap, retryWhen } from 'rxjs/operators'
+import { delay, mergeMap, retryWhen } from 'rxjs/operators'
 import { ItemPricePredictionResponse } from '../schema/item-price-prediction'
 
 const RETRY_COUNT = 3
@@ -25,9 +25,9 @@ export class ItemPricePredictionHttpService {
     const url = `${environment.poePrices.baseUrl}/api?l=${encodedLeagueId}&i=${encodedItem}&s=${SOURCE}`
     return this.http.get<ItemPricePredictionResponse>(url).pipe(
       retryWhen((errors) =>
-        errors.pipe(flatMap((response, count) => this.handleError(url, response, count)))
+        errors.pipe(mergeMap((response, count) => this.handleError(url, response, count)))
       ),
-      flatMap((response) => {
+      mergeMap((response) => {
         if (response.error_msg && response.error_msg.length > 0) {
           return throwError(response.error_msg)
         }
@@ -59,7 +59,7 @@ export class ItemPricePredictionHttpService {
       .post<string>(url, form)
       .pipe(
         retryWhen((errors) =>
-          errors.pipe(flatMap((response, count) => this.handleError(url, response, count)))
+          errors.pipe(mergeMap((response, count) => this.handleError(url, response, count)))
         )
       )
   }

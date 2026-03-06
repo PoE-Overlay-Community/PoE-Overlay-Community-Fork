@@ -15,6 +15,8 @@ import {
     ViewChild,
     ViewChildren
 } from '@angular/core'
+import { WindowService } from '@app/service'
+import { Rectangle } from '@app/type'
 import { TradeNotificationsService } from '@shared/module/poe/service/trade-companion/trade-notifications.service'
 import {
     TradeCompanionUserSettings,
@@ -23,10 +25,8 @@ import {
     TradeNotificationPanelShortcutRef,
     TradeNotificationType
 } from '@shared/module/poe/type/trade-companion.type'
-import { Rectangle } from 'electron'
 import { Subject, Subscription } from 'rxjs'
 import { debounceTime, map } from 'rxjs/operators'
-import { WindowService } from '@app/service'
 import { ShortcutService } from '@app/service/input'
 import { VisibleFlag } from '@app/type'
 import { UserSettingsService } from '../../../../layout/service'
@@ -72,7 +72,7 @@ export class TradeNotificationPanelComponent implements OnInit, AfterViewInit, O
   private logLineAddedSub: Subscription
 
   private boundsUpdate$ = new Subject<Rectangle>()
-  private closeClick$ = new Subject()
+  private closeClick$ = new Subject<void>()
 
   private notificationAudioClip: HTMLAudioElement
 

@@ -21,7 +21,7 @@
         (toggleOpen)="onToggleOpen($event)"
       >
       </app-evaluate-options>
-      <ng-container *ngIf="!(privateLeague$ | async)">
+      <ng-container *ngIf="(privateLeague$ | async) === false">
         <ng-container *ngIf="rate$ | async; else prediction">
           <ng-container *ngIf="data.settings.evaluateShowExchangeRate">
             <app-evaluate-exchange-rate [options]="options"

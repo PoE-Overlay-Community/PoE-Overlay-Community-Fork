@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core'
 import { FormsModule } from '@angular/forms'
-import { BrowserModule } from '@angular/platform-browser'
+import { CommonModule } from '@angular/common'
 import { TranslateModule } from '@ngx-translate/core'
 import { MaterialModule } from '../material/material.module'
 import { AudioClipSettingsComponent } from './component/audio-clip-settings/audio-clip-settings.component'
@@ -62,7 +62,7 @@ import { WordPipe } from './pipe/word.pipe'
     ColorPickerSettingsComponent,
   ],
   imports: [
-    BrowserModule,
+    CommonModule,
     MaterialModule,
     FormsModule,
     TranslateModule,

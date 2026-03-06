@@ -19,7 +19,7 @@ describe('ItemPricePredictionService', () => {
       min: 1,
       max: 2,
       currency: 'exalt',
-      currencyId: 'exalted',
+      currencyId: 'exa',
       score: 1,
     }
     const mockObservable = from(Promise.resolve(result))
@@ -41,6 +41,7 @@ describe('ItemPricePredictionService', () => {
     contextService
       .init({
         language: Language.English,
+        leagueId: 'Delirium',
       })
       .subscribe(() => done())
 

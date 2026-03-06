@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core'
 import { ElectronService } from '@app/service'
 import { UserSettings } from '@layout/type'
 import { forkJoin, Observable, of, Subject, Subscription } from 'rxjs'
-import { concatAll, delay, flatMap, map } from 'rxjs/operators'
+import { concatAll, delay, mergeMap, map } from 'rxjs/operators'
 import { StashProvider } from '../../provider/stash.provider'
 import { CacheExpirationType, PoEAccount } from '../../type'
 import { StashGridUserSettings } from '../../type/stash-grid.type'
@@ -99,7 +99,7 @@ export class StashThreadService {
           of(stashTab).pipe(
             // Delay each stash tab to ensure we don't hit rate limits
             delay(50 * i),
-            flatMap(stashTab => this.stashProvider.provideTabsContent(stashTab, account.name, context.leagueId, context.language, cacheExpiration || this.settings?.stashTabContentCacheExpiration))
+            mergeMap(stashTab => this.stashProvider.provideTabsContent(stashTab, account.name, context.leagueId, context.language, cacheExpiration || this.settings?.stashTabContentCacheExpiration))
           )
         )
       ).pipe(
@@ -130,7 +130,7 @@ export class StashThreadService {
       const providers = this.stashTabProviders.map((provider) => provider.getStashTabsToSearch())
       forkJoin(providers).pipe(
         concatAll(),
-        flatMap((stashTabs) => this.getStashTabContents(stashTabs, cacheExpiration))
+        mergeMap((stashTabs) => this.getStashTabContents(stashTabs, cacheExpiration))
       ).subscribe(null, null, () => {
         this.stashTabContentUpdated$.next()
         this.electronService.send(STASH_PERIODIC_UPDATE_ACTIVE_CHANGED, false)

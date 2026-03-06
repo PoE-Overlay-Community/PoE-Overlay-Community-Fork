@@ -1,13 +1,16 @@
 import {
   app,
   BrowserWindow,
+  clipboard,
   dialog,
+  globalShortcut,
   ipcMain,
   Menu,
   MenuItem,
   MenuItemConstructorOptions,
   screen,
   session,
+  shell,
   systemPreferences,
   Tray,
   Rectangle,
@@ -34,12 +37,17 @@ if (process.platform === 'win32' && !systemPreferences.isAeroGlassEnabled()) {
   app.exit()
 }
 
-app.allowRendererProcessReuse = false
-
 app.commandLine.appendSwitch('high-dpi-support', 'true')
 app.commandLine.appendSwitch('force-device-scale-factor', '1')
+// Prevent Cloudflare from detecting Electron as an automated browser
+// This removes navigator.webdriver and other Blink automation signals
+app.commandLine.appendSwitch('disable-blink-features', 'AutomationControlled')
 
 log.register(ipcMain)
+
+process.on('unhandledRejection', (reason) => {
+  console.warn('Unhandled promise rejection:', reason)
+})
 
 // tslint:disable-next-line:no-console
 console.info('App starting...')
@@ -73,7 +81,12 @@ const childs: {
 function setUserAgent(): void {
   const generatedUserAgent = `PoEOverlayCommunityFork/${app.getVersion()} (contact: p.overlay.c.f@gmail.com)`
   session.defaultSession.webRequest.onBeforeSendHeaders((details, callback) => {
-    details.requestHeaders['User-Agent'] = generatedUserAgent
+    // Only override UA for API requests; let page loads use the default Chromium UA
+    // so Cloudflare doesn't block them
+    const isApiRequest = details.url.includes('/api/') || details.resourceType === 'xhr'
+    if (isApiRequest) {
+      details.requestHeaders['User-Agent'] = generatedUserAgent
+    }
     callback({ cancel: false, requestHeaders: details.requestHeaders })
   })
 }
@@ -106,9 +119,12 @@ function getBounds(): Rectangle {
 
 function send(channel: string, ...additionalArgs: any[]): void {
   try {
+    if (channel === 'game-active-change') {
+      console.log(`[Main] send('game-active-change', ${JSON.stringify(additionalArgs)})`)
+    }
     win.webContents.send(channel, ...additionalArgs)
   } catch (error) {
-    console.error(`could not send to '${channel}' with args '${JSON.stringify(args)}`)
+    console.error(`could not send to '${channel}' with args '${JSON.stringify(additionalArgs)}'`)
   }
 }
 
@@ -149,8 +165,8 @@ update.register(ipcMain, (event, autoDownload) => {
 robot.register(ipcMain)
 
 game.register(ipcMain, (poe) => {
-  send('game-active-change', serve ? true : poe.active)
-  // send('game-active-change', poe.active);
+  console.log(`[Main] game onUpdate: active=${poe.active}, bounds=${JSON.stringify(poe.bounds)}`)
+  send('game-active-change', serve ? true : !!poe.active)
 
   if (win) {
     if (poe.active) {
@@ -178,8 +194,8 @@ hook.register(
   (event) => send(event),
   () => {
     dialog.showErrorBox(
-      'Iohook is required to run PoE Overlay',
-      'Iohook could not be loaded. Please make sure you have vc_redist installed and try again.'
+      'Input hook is required to run PoE Overlay',
+      'uiohook-napi could not be loaded. Please make sure you have vc_redist installed and try again.'
     )
     app.quit()
   }
@@ -196,6 +212,368 @@ ipcMain.on('main-window-bounds', (event) => {
   event.returnValue = [windowBounds, poeBounds || windowBounds]
 })
 
+/* App controls */
+
+ipcMain.on('app-exit', () => {
+  app.exit()
+})
+
+ipcMain.on('app-relaunch-now', () => {
+  app.relaunch()
+  app.exit()
+})
+
+/* Clipboard operations */
+
+ipcMain.on('clipboard-read-text', (event) => {
+  event.returnValue = clipboard.readText()
+})
+
+ipcMain.on('clipboard-write-text', (_, text: string) => {
+  clipboard.writeText(text)
+})
+
+/* Session cookie operations */
+
+ipcMain.handle('set-session-cookie', async (_, cookieUrl: string, cookieName: string, cookieValue: string) => {
+  try {
+    await session.defaultSession.cookies.set({
+      url: cookieUrl,
+      name: cookieName,
+      value: cookieValue,
+      httpOnly: true,
+      secure: true,
+    })
+    return true
+  } catch (err) {
+    console.warn('Failed to set cookie:', err?.message || err)
+    return false
+  }
+})
+
+ipcMain.handle('get-session-cookie', async (_, cookieUrl: string, cookieName: string) => {
+  try {
+    const cookies = await session.defaultSession.cookies.get({ url: cookieUrl, name: cookieName })
+    return cookies.length > 0 ? cookies[0].value : null
+  } catch (err) {
+    console.warn('Failed to get cookie:', err?.message || err)
+    return null
+  }
+})
+
+/* Shell operations */
+
+ipcMain.on('shell-open-external', (_, externalUrl: string) => {
+  if (typeof externalUrl === 'string') {
+    shell.openExternal(externalUrl).catch((err) => {
+      console.warn('Failed to open external URL:', err?.message || err)
+    })
+  }
+})
+
+/* Screen operations */
+
+ipcMain.on('get-cursor-screen-point', (event) => {
+  event.returnValue = screen.getCursorScreenPoint()
+})
+
+/* Window management operations */
+
+ipcMain.on('get-current-window-bounds', (event) => {
+  const webContents = event.sender
+  const browserWindow = BrowserWindow.fromWebContents(webContents)
+  event.returnValue = browserWindow?.getBounds() ?? { x: 0, y: 0, width: 0, height: 0 }
+})
+
+ipcMain.on('set-ignore-mouse-events', (event, ignore: boolean, options?: { forward: boolean }) => {
+  const webContents = event.sender
+  const browserWindow = BrowserWindow.fromWebContents(webContents)
+  if (browserWindow) {
+    browserWindow.setIgnoreMouseEvents(ignore, options)
+  }
+})
+
+ipcMain.on('window-show', (event) => {
+  console.log('[Main] window-show')
+  const webContents = event.sender
+  const browserWindow = BrowserWindow.fromWebContents(webContents)
+  if (browserWindow) {
+    browserWindow.showInactive()
+  }
+})
+
+ipcMain.on('window-hide', (event) => {
+  console.log('[Main] window-hide')
+  const webContents = event.sender
+  const browserWindow = BrowserWindow.fromWebContents(webContents)
+  browserWindow?.hide()
+})
+
+ipcMain.on('window-focus', (event) => {
+  const webContents = event.sender
+  const browserWindow = BrowserWindow.fromWebContents(webContents)
+  browserWindow?.focus()
+})
+
+ipcMain.on('window-blur', (event) => {
+  const webContents = event.sender
+  const browserWindow = BrowserWindow.fromWebContents(webContents)
+  browserWindow?.blur()
+})
+
+ipcMain.on('window-minimize', (event) => {
+  const webContents = event.sender
+  const browserWindow = BrowserWindow.fromWebContents(webContents)
+  browserWindow?.minimize()
+})
+
+ipcMain.on('window-restore', (event) => {
+  const webContents = event.sender
+  const browserWindow = BrowserWindow.fromWebContents(webContents)
+  browserWindow?.restore()
+})
+
+ipcMain.on('window-close', (event) => {
+  const webContents = event.sender
+  const browserWindow = BrowserWindow.fromWebContents(webContents)
+  browserWindow?.close()
+})
+
+ipcMain.on('window-set-focusable', (event, focusable: boolean) => {
+  const webContents = event.sender
+  const browserWindow = BrowserWindow.fromWebContents(webContents)
+  browserWindow?.setFocusable(focusable)
+})
+
+ipcMain.on('window-set-skip-taskbar', (event, skip: boolean) => {
+  const webContents = event.sender
+  const browserWindow = BrowserWindow.fromWebContents(webContents)
+  browserWindow?.setSkipTaskbar(skip)
+})
+
+ipcMain.on('window-move-top', (event) => {
+  const webContents = event.sender
+  const browserWindow = BrowserWindow.fromWebContents(webContents)
+  browserWindow?.moveTop()
+})
+
+ipcMain.on('window-set-enabled', (event, enabled: boolean) => {
+  const webContents = event.sender
+  const browserWindow = BrowserWindow.fromWebContents(webContents)
+  browserWindow?.setEnabled(enabled)
+})
+
+ipcMain.on('window-set-size', (event, width: number, height: number) => {
+  const webContents = event.sender
+  const browserWindow = BrowserWindow.fromWebContents(webContents)
+  browserWindow?.setSize(width, height)
+})
+
+ipcMain.on('window-get-size', (event) => {
+  const webContents = event.sender
+  const browserWindow = BrowserWindow.fromWebContents(webContents)
+  event.returnValue = browserWindow?.getSize() ?? [0, 0]
+})
+
+ipcMain.on('window-get-content-bounds', (event) => {
+  const webContents = event.sender
+  const browserWindow = BrowserWindow.fromWebContents(webContents)
+  event.returnValue = browserWindow?.getContentBounds() ?? { x: 0, y: 0, width: 0, height: 0 }
+})
+
+ipcMain.on('get-zoom-factor', (event) => {
+  const webContents = event.sender
+  event.returnValue = webContents.zoomFactor
+})
+
+ipcMain.on('set-zoom-factor', (event, factor: number) => {
+  const webContents = event.sender
+  webContents.zoomFactor = factor
+})
+
+ipcMain.on('window-set-always-on-top', (event, flag: boolean, level?: string, relativeLevel?: number) => {
+  const webContents = event.sender
+  const browserWindow = BrowserWindow.fromWebContents(webContents)
+  if (browserWindow) {
+    if (level) {
+      browserWindow.setAlwaysOnTop(flag, level as any, relativeLevel)
+    } else {
+      browserWindow.setAlwaysOnTop(flag)
+    }
+  }
+})
+
+ipcMain.on('window-set-visible-all-workspaces', (event, visible: boolean) => {
+  const webContents = event.sender
+  const browserWindow = BrowserWindow.fromWebContents(webContents)
+  if (browserWindow) {
+    browserWindow.setVisibleOnAllWorkspaces(visible)
+  }
+})
+
+/* Global shortcuts */
+
+ipcMain.on('register-shortcut', (event, accelerator: string) => {
+  try {
+    const result = globalShortcut.register(accelerator, () => {
+      console.log(`[Main] shortcut triggered: ${accelerator}`)
+      event.sender.send(`shortcut-${accelerator}`)
+    })
+    console.log(`[Main] register-shortcut: ${accelerator} => ${result}`)
+    event.returnValue = result
+  } catch (error) {
+    console.error(`Failed to register shortcut: ${accelerator}`, error)
+    event.returnValue = false
+  }
+})
+
+ipcMain.on('unregister-shortcut', (event, accelerator: string) => {
+  try {
+    console.log(`[Main] unregister-shortcut: ${accelerator}`)
+    globalShortcut.unregister(accelerator)
+  } catch (error) {
+    console.error(`Failed to unregister shortcut: ${accelerator}`, error)
+  }
+  event.returnValue = undefined
+})
+
+/* Browser window management for BrowserService */
+
+const browserWindows: Map<number, BrowserWindow> = new Map()
+let browserWindowIdCounter = 0
+
+ipcMain.on('create-browser-window', (event, options: any) => {
+  const parentWebContents = event.sender
+  const parent = BrowserWindow.fromWebContents(parentWebContents)
+
+  const browserWindow = new BrowserWindow({
+    ...options,
+    parent: options.useParent ? parent : undefined,
+    webPreferences: {
+      ...options.webPreferences,
+      webSecurity: false,
+    },
+  })
+
+  // Strip "Electron" and app name from the user agent so Cloudflare
+  // doesn't flag this as a bot (its JS challenge checks navigator.userAgent)
+  const cleanUA = browserWindow.webContents.getUserAgent()
+    .replace(/\s*Electron\/[\S]+/i, '')
+    .replace(/\s*poe-overlay\/[\S]+/i, '')
+  browserWindow.webContents.setUserAgent(cleanUA)
+
+  const id = ++browserWindowIdCounter
+  browserWindows.set(id, browserWindow)
+
+  browserWindow.once('closed', () => {
+    browserWindows.delete(id)
+    parentWebContents.send('browser-window-closed', id)
+  })
+
+  browserWindow.once('ready-to-show', () => {
+    parentWebContents.send('browser-window-ready', id)
+  })
+
+  browserWindow.webContents.once('did-finish-load', () => {
+    parentWebContents.send('browser-window-did-finish-load', id)
+  })
+
+  event.returnValue = id
+})
+
+ipcMain.on('close-browser-window', (_, id: number) => {
+  const browserWindow = browserWindows.get(id)
+  if (browserWindow) {
+    browserWindow.close()
+  }
+})
+
+ipcMain.on('load-url-browser-window', (_, id: number, urlToLoad: string) => {
+  const browserWindow = browserWindows.get(id)
+  if (browserWindow) {
+    browserWindow.loadURL(urlToLoad).catch((err) => {
+      console.warn('Failed to load URL in browser window:', err?.message || err)
+    })
+  }
+})
+
+ipcMain.on('show-browser-window', (_, id: number) => {
+  const browserWindow = browserWindows.get(id)
+  browserWindow?.show()
+})
+
+ipcMain.on('set-browser-window-zoom', (_, id: number, zoomFactor: number) => {
+  const browserWindow = browserWindows.get(id)
+  if (browserWindow) {
+    browserWindow.webContents.zoomFactor = zoomFactor
+  }
+})
+
+/* Cross-window IPC forwarding for periodic update thread */
+
+// Forward thread control messages between main window and periodic-update-thread
+const crossWindowChannels = [
+  'thread-pause',
+  'thread-available',
+  'settings-changed',
+  'poe-account-updated',
+  'stash-tab-info-changed',
+  'stash-periodic-update-active-changed',
+  'get-vendor-recipes',
+  'vendor-recipes',
+]
+
+crossWindowChannels.forEach((channel) => {
+  ipcMain.on(channel, (event, ...forwardArgs) => {
+    const senderWindow = BrowserWindow.fromWebContents(event.sender)
+    // Forward to all other windows
+    const allWindows = BrowserWindow.getAllWindows()
+    for (const browserWindow of allWindows) {
+      if (browserWindow !== senderWindow && !browserWindow.isDestroyed()) {
+        browserWindow.webContents.send(channel, ...forwardArgs)
+      }
+    }
+  })
+})
+
+/* Cross-window IPC forwarding for trade companion and stash grid */
+
+// Forward trade notification example requests from settings window to main window
+ipcMain.on('trade-notification-add-example', (event, exampleNotificationType: any) => {
+  // Forward to main window
+  if (win) {
+    win.webContents.send('trade-notification-add-example', exampleNotificationType)
+  }
+})
+
+// Forward stash grid options from settings window to main window
+ipcMain.on('stash-grid-options', (event, stashGridOptions: any) => {
+  const senderWindow = BrowserWindow.fromWebContents(event.sender)
+  // Store the sender for reply
+  const stashGridSender = senderWindow
+  // Forward to main window
+  if (win && senderWindow !== win) {
+    win.webContents.send('stash-grid-options', stashGridOptions, event.sender.id)
+  } else if (win && senderWindow === win) {
+    // Main window is handling it locally - no need to forward
+    win.webContents.send('stash-grid-options-local', stashGridOptions)
+  }
+})
+
+// Handle stash grid reply from main window to settings window
+ipcMain.on('stash-grid-options-reply', (event, stashGridBounds: any, originalSenderId?: number) => {
+  // Find the original sender and reply to them
+  if (originalSenderId) {
+    const allWindows = BrowserWindow.getAllWindows()
+    for (const browserWindow of allWindows) {
+      if (browserWindow.webContents.id === originalSenderId) {
+        browserWindow.webContents.send('stash-grid-options-reply', stashGridBounds)
+        break
+      }
+    }
+  }
+})
+
 /* changelog */
 
 function showChangelog(): void {
@@ -206,7 +584,9 @@ function showChangelog(): void {
   changelog.removeMenu()
   changelog.loadURL(
     'https://github.com/PoE-Overlay-Community/PoE-Overlay-Community-Fork/blob/master/CHANGELOG.md#Changelog'
-  )
+  ).catch((err) => {
+    console.warn('Failed to load changelog:', err?.message || err)
+  })
 }
 
 /* main window */
@@ -225,9 +605,12 @@ function createWindow(): BrowserWindow {
     resizable: false,
     movable: false,
     webPreferences: {
-      nodeIntegration: true,
+      nodeIntegration: false,
+      contextIsolation: true,
+      preload: path.join(__dirname, 'electron/preload.js'),
       allowRunningInsecureContent: serve,
       webSecurity: false,
+      sandbox: false,
     },
     focusable: process.platform !== 'linux' ? false : true,
     skipTaskbar: true,
@@ -278,9 +661,12 @@ ipcMain.on('open-route', (event, route: string) => {
         resizable: true,
         movable: true,
         webPreferences: {
-          nodeIntegration: true,
+          nodeIntegration: false,
+          contextIsolation: true,
+          preload: path.join(__dirname, 'electron/preload.js'),
           allowRunningInsecureContent: serve,
           webSecurity: false,
+          sandbox: false,
         },
         center: true,
         transparent: true,
@@ -294,13 +680,17 @@ ipcMain.on('open-route', (event, route: string) => {
 
       childs[route].once('closed', () => {
         childs[route] = null
-        win.moveTop()
-        event.reply('open-route-reply', 'close')
+        try {
+          win?.moveTop()
+          event.reply('open-route-reply', 'close')
+        } catch (err) {
+          // sender webContents may be destroyed
+        }
       })
 
       loadApp(childs[route], `#/${route}`)
     } else if (!isThread) {
-      if (childs[route].isMinimized) {
+      if (childs[route].isMinimized()) {
         childs[route].restore()
       }
       childs[route].show()
@@ -315,7 +705,9 @@ function loadApp(self: BrowserWindow, route: string = ''): void {
     require('electron-reload')(__dirname, {
       electron: require(`${__dirname}/node_modules/electron`),
     })
-    self.loadURL('http://localhost:4200' + route)
+    self.loadURL('http://localhost:4200' + route).catch((err) => {
+      console.warn('Failed to load dev URL:', err?.message || err)
+    })
     self.webContents.openDevTools({ mode: 'undocked' })
   } else {
     const appUrl = url.format({
@@ -323,7 +715,9 @@ function loadApp(self: BrowserWindow, route: string = ''): void {
       protocol: 'file:',
       slashes: true,
     })
-    self.loadURL(appUrl + route)
+    self.loadURL(appUrl + route).catch((err) => {
+      console.warn('Failed to load app URL:', err?.message || err)
+    })
   }
 }
 
@@ -404,7 +798,7 @@ function createTray(): Tray {
   menu = Menu.buildFromTemplate(items)
   tray.setToolTip(`PoE Overlay: ${app.getVersion()}`)
   tray.setContextMenu(menu)
-  tray.on('double-click', () => win.webContents.send('show-user-settings'))
+  tray.on('double-click', () => send('show-user-settings'))
   return tray
 }
 

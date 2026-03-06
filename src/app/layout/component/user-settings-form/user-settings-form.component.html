@@ -130,8 +130,19 @@
             </mat-select>
           </mat-form-field>
         </div>
-        <div class="col-10">
-          <button mat-raised-button (click)="onLoginClick()">
+        <div class="col-4">
+          <button mat-raised-button (click)="onOpenLoginPage()">
+            {{ 'settings.account.open-login' | translate }}
+          </button>
+        </div>
+        <div class="col-4">
+          <mat-form-field>
+            <mat-label>POESESSID</mat-label>
+            <input matInput [(ngModel)]="poesessid" type="password" />
+          </mat-form-field>
+        </div>
+        <div class="col-2">
+          <button mat-raised-button (click)="onLoginClick()" [disabled]="!poesessid">
             {{ 'settings.account.login' | translate }}
           </button>
         </div>
@@ -203,12 +214,8 @@
             {{ displayWithOpacity(settings.dialogOpacity) }}
           </label>
           <div class="slider">
-            <mat-slider min="0.6"
-                        max="1"
-                        step="0.1"
-                        tickInterval="1"
-                        [displayWith]="displayWithOpacity"
-                        [(value)]="settings.dialogOpacity">
+            <mat-slider min="0.6" max="1" step="0.1" discrete>
+              <input matSliderThumb [(ngModel)]="settings.dialogOpacity">
             </mat-slider>
             <span>100%</span>
           </div>

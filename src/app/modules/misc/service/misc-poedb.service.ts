@@ -5,7 +5,7 @@ import { ItemClipboardResultCode, ItemClipboardService } from '@shared/module/po
 import { ItemExternalService } from '@shared/module/poe/service/item/item-external.service'
 import { ItemSection, Language } from '@shared/module/poe/type'
 import { Observable, of, throwError } from 'rxjs'
-import { catchError, flatMap } from 'rxjs/operators'
+import { catchError, mergeMap } from 'rxjs/operators'
 
 @Injectable({
   providedIn: 'root',
@@ -24,12 +24,13 @@ export class MiscPoedbService {
         [ItemSection.Rartiy]: true,
       })
       .pipe(
-        flatMap(({ code, item }) => {
+        mergeMap(({ code, item }) => {
           switch (code) {
-            case ItemClipboardResultCode.Success:
+            case ItemClipboardResultCode.Success: {
               const url = this.itemExternalService.getDbUrl(item)
               this.browser.open(url, external)
               return of(null)
+            }
             case ItemClipboardResultCode.Empty:
               return this.snackbar.warning('clipboard.empty')
             case ItemClipboardResultCode.ParserError:
