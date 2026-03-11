@@ -153,7 +153,7 @@ export class StatsService {
     language = language || this.context.get().gameLanguage || this.context.get().language
     options = options || {}
 
-    const { scourgedSearch, implicitsSearch, explicitsSearch, crucibleSearch } = this.buildSearch(texts, options)
+    const { scourgedSearch, implicitsSearch, explicitsSearch, crucibleSearch } = this.buildSearch(texts, options, language)
 
     const results: StatsSearchResult[] = []
     if (scourgedSearch.sections.length > 0) {
@@ -257,10 +257,20 @@ export class StatsService {
     }
 
     // Compose Stat Gen Type Regexes
-    const prefixRegex = `^\{ ${this.clientStringService.translate('ModDescriptionLinePrefix', language).replace('{0}', '.*')}`
-    const craftedPrefixRegex = `^\{ ${this.clientStringService.translate('ModDescriptionLineCraftedPrefix', language).replace('{0}', '.*')}`
-    const suffixRegex = `^\{ ${this.clientStringService.translate('ModDescriptionLineSuffix', language).replace('{0}', '.*')}`
-    const craftedSuffixRegex = `^\{ ${this.clientStringService.translate('ModDescriptionLineCraftedSuffix', language).replace('{0}', '.*')}`
+    const craftedLine = this.clientStringService.translate('ModDescriptionLineCrafted', language)
+    const fracturedLine = this.clientStringService.translate('ModDescriptionLineFractured', language)
+    const prefixBaseRegex = this.clientStringService.translate('ModDescriptionLinePrefix', language).replace('{0}', '.*')
+    const prefixRegexes = [
+      `^\{ ${prefixBaseRegex}`,
+      `^\{ ${craftedLine.replace('{0}', prefixBaseRegex)}`,
+      `^\{ ${fracturedLine.replace('{0}', prefixBaseRegex)}`,
+    ]
+    const suffixBaseRegex = this.clientStringService.translate('ModDescriptionLineSuffix', language).replace('{0}', '.*')
+    const suffixRegexes = [
+      `^\{ ${suffixBaseRegex}`,
+      `^\{ ${craftedLine.replace('{0}', suffixBaseRegex)}`,
+      `^\{ ${fracturedLine.replace('{0}', suffixBaseRegex)}`,
+    ]
     const foulbornRegex = `^\{ ${this.clientStringService.translate('ModDescriptionLineBrequelMutated', language).replace('{0}', '.*')}`
 
     // Perform the search
@@ -398,9 +408,9 @@ export class StatsService {
             }
 
             // Determine the Stat Gen Type
-            if (prevLine.match(prefixRegex) || prevLine.match(craftedPrefixRegex)) {
+            if (prefixRegexes.some(prefixRegex => prevLine.match(prefixRegex))) {
               genType = StatGenType.Prefix
-            } else if (prevLine.match(suffixRegex) || prevLine.match(craftedSuffixRegex)) {
+            } else if (suffixRegexes.some(suffixRegex => prevLine.match(suffixRegex))) {
               genType = StatGenType.Suffix
             }
 
@@ -460,26 +470,53 @@ export class StatsService {
 
   private buildSearch(
     texts: string[],
-    options?: StatsSearchOptions
+    options?: StatsSearchOptions,
+    language?: Language
   ): {
     scourgedSearch: StatsSectionsSearch
     implicitsSearch: StatsSectionsSearch
     explicitsSearch: StatsSectionsSearch
     crucibleSearch: StatsSectionsSearch
   } {
-    const implicitPhrase = ` (${StatType.Implicit})`
+    const implicitSuffix = ` (${StatType.Implicit})`
+    const implicitPhrases = [
+      ` \\(${StatType.Implicit}\\)$`,
+      `^\{ ${this.clientStringService.translate('ModDescriptionLineImplicit', language)}`,
+      `^\{ ${this.clientStringService.translate('ModDescriptionLineCorruptedImplicit', language)}`,
+      `^\{ ${this.clientStringService.translate('ModDescriptionLineGreatTangleImplicit', language).replace('{0}', '.*')}`,
+      `^\{ ${this.clientStringService.translate('ModDescriptionLineCleansingFireImplicit', language).replace('{0}', '.*')}`,
+    ]
+    const scourgePhrases = [
+      ` \\(${StatType.Scourge}\\)$`,
+      `^\{ ${this.clientStringService.translate('ModDescriptionLineHellscape', language)}`,
+    ]
+    const enchantSuffix = ` (${StatType.Enchant})`
+    const enchantPhrases = [
+      ` \\(${StatType.Enchant}\\)$`,
+      `^\{ ${this.clientStringService.translate('ModDescriptionLineEnchantmentImplicit', language)}`
+    ];
+    const craftedSuffix = ` (${StatType.Crafted})`
+    const craftedPhrases = [
+      ` \\(${StatType.Crafted}\\)$`,
+      `^\{ ${this.clientStringService.translate('ModDescriptionLineCrafted', language).replace('{0}', '.*')}`
+    ]
+    const fracturedSuffix = ` (${StatType.Fractured})`
+    const fracturedPhrases = [
+      ` \\(${StatType.Fractured}\\)$`,
+      `^\{ ${this.clientStringService.translate('ModDescriptionLineFractured', language).replace('{0}', '.*')}`
+    ]
+    const cruciblePhrases = [
+      ` \\(${StatType.Crucible}\\)$`,
+      `^\{ ${this.clientStringService.translate('ModDescriptionLineWeaponPassiveTreeAllocated', language)}`
+    ]
     const implicitsSearch: StatsSectionsSearch = {
       types: [StatType.Implicit],
       sections: [],
     }
-    const scourgePhrase = ` (${StatType.Scourge})`
     const scourgedSearch: StatsSectionsSearch = {
       types: [StatType.Scourge],
       sections: [],
     }
-    const enchantPhrase = ` (${StatType.Enchant})`
-    const craftedPhrase = ` (${StatType.Crafted})`
-    const fracturedPhrase = ` (${StatType.Fractured})`
     const explicitsSearch: StatsSectionsSearch = {
       types: [StatType.Explicit],
       sections: [],
@@ -490,19 +527,18 @@ export class StatsService {
     if (options.sanctum) {
       explicitsSearch.types.push(StatType.Sanctum)
     }
-    const cruciblePhrase = ` (${StatType.Crucible})`
     const crucibleSearch: StatsSectionsSearch = {
       types: [StatType.Crucible],
       sections: [],
     }
     texts.forEach((text, index) => {
-      if (text.indexOf(scourgePhrase) !== -1) {
+      if (this.regexMatchAnyLine(text, scourgePhrases)) {
         // scourge stats have their own section
         scourgedSearch.sections.push({
           index,
           text: text.split('\n').map(x => x.replace(SCOURGE_PLACEHOLDER_REGEX, '')).join('\n')
         })
-      } else if (text.indexOf(cruciblePhrase) !== -1) {
+      } else if (this.regexMatchAnyLine(text, cruciblePhrases)) {
         // crucible stats have their own section
         crucibleSearch.sections.push({
           index,
@@ -513,35 +549,75 @@ export class StatsService {
           index,
           text: text.split('\n').map(x => x.replace(MUTATED_PLACEHOLDER_REGEX, '')).join('\n'),
         }
-        if (text.indexOf(implicitPhrase) !== -1) {
-          // implicits have there own section
+        if (this.regexMatchAnyLine(text, implicitPhrases)) {
+          let lines = text.split('\n')
+          for (let i = 0; i < lines.length; i++) {
+            const line = lines[i]
+            if (implicitPhrases.some(phrase => line.match(phrase))) {
+              for (let j = i + 1; j < lines.length; j++) {
+                const line2 = lines[j]
+                if (line2.startsWith('{')) break
+                if (!line2.endsWith(implicitSuffix)) {
+                  lines[j] = `${line2}${implicitSuffix}`
+                }
+              }
+            }
+          }
+          section.text = lines.join('\n')
+
+          // implicits have their own section
           implicitsSearch.sections.push(section)
         } else {
-          const hasEnchants = text.indexOf(enchantPhrase) !== -1
-          if (hasEnchants) {
-            if (explicitsSearch.types.indexOf(StatType.Enchant) === -1) {
-              explicitsSearch.types.push(StatType.Enchant)
+          let lines = text.split('\n')
+          for (let i = 0; i < lines.length; i++) {
+            const line = lines[i]
+            if (enchantPhrases.some(phrase => line.match(phrase))) {
+              if (explicitsSearch.types.indexOf(StatType.Enchant) === -1) {
+                explicitsSearch.types.push(StatType.Enchant)
+              }
+              for (let j = i + 1; j < lines.length; j++) {
+                const line2 = lines[j]
+                if (line2.startsWith('{')) break
+                if (!line2.endsWith(enchantSuffix)) {
+                  lines[j] = `${line2}${enchantSuffix}`
+                }
+              }
+            } else if (craftedPhrases.some(phrase => line.match(phrase))) {
+              if (explicitsSearch.types.indexOf(StatType.Crafted) === -1) {
+                explicitsSearch.types.push(StatType.Crafted)
+              }
+              for (let j = i + 1; j < lines.length; j++) {
+                const line2 = lines[j]
+                if (line2.startsWith('{')) break
+                if (!line2.endsWith(craftedSuffix)) {
+                  lines[j] = `${line2}${craftedSuffix}`
+                }
+              }
+            } else if (fracturedPhrases.some(phrase => line.match(phrase))) {
+              if (explicitsSearch.types.indexOf(StatType.Fractured) === -1) {
+                explicitsSearch.types.push(StatType.Fractured)
+              }
+              for (let j = i + 1; j < lines.length; j++) {
+                const line2 = lines[j]
+                if (line2.startsWith('{')) break
+                if (!line2.endsWith(fracturedSuffix)) {
+                  lines[j] = `${line2}${fracturedSuffix}`
+                }
+              }
             }
           }
-
-          const hasCrafted = text.indexOf(craftedPhrase) !== -1
-          if (hasCrafted) {
-            if (explicitsSearch.types.indexOf(StatType.Crafted) === -1) {
-              explicitsSearch.types.push(StatType.Crafted)
-            }
-          }
-
-          const hasFractured = text.indexOf(fracturedPhrase) !== -1
-          if (hasFractured) {
-            if (explicitsSearch.types.indexOf(StatType.Fractured) === -1) {
-              explicitsSearch.types.push(StatType.Fractured)
-            }
-          }
+          section.text = lines.join('\n')
 
           explicitsSearch.sections.push(section)
         }
       }
     })
     return { scourgedSearch, implicitsSearch, explicitsSearch, crucibleSearch }
+  }
+
+  private regexMatchAnyLine(text: string, phrases: string[]): boolean {
+    return text.split('\n').some(line => {
+      return phrases.some(phrase => line.match(phrase))
+    })
   }
 }
