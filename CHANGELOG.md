@@ -1,5 +1,11 @@
 # Changelog
 
+## TBD
+
+- Updated the PoE Assets using PoE Asset Updater (commit 20bb7b5) and PoE Client v3.28.0b
+  - This adds initial support for Mirage league
+  - This fixes the stat distinguishing issue with the Dark Monarch helmet
+
 ## 0.8.39 (2025-11-07)
 
 - Updated the PoE Assets using PoE Asset Updater (commit a25d8a4) and PoE Client v3.27.0b (hotfix 3)
