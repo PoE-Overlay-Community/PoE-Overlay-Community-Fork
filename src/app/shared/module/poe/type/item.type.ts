@@ -20,6 +20,7 @@ export interface Item {
   blightRavaged?: boolean
   relic?: boolean
   foulborn?: boolean
+  imbued?: boolean
   damage?: ItemWeaponDamage
   sockets?: ItemSocket[]
   properties?: ItemProperties
@@ -381,6 +382,7 @@ export enum ItemSection {
   Relic,
   Incursion,
   Heist,
+  Imbued,
 }
 
 export interface ItemSectionParserService {

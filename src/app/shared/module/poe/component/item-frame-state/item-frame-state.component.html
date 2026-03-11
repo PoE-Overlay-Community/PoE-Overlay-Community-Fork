@@ -33,3 +33,8 @@
     <div class="mutated">{{ ('MutatedUniqueName' | clientString: language).replace('{0}', '') }}</div>
   </app-item-frame-query>
 </ng-container>
+<ng-container *ngIf="item.imbued !== undefined">
+  <app-item-frame-query [(property)]="queryItem.imbued" [value]="item.imbued" class="item-frame-state">
+    <div class="imbued">{{ 'ItemPopupImbued' | clientString: language }}</div>
+  </app-item-frame-query>
+</ng-container>

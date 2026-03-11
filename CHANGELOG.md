@@ -2,6 +2,7 @@
 
 ## TBD
 
+- Added support for the 'Imbued' items when evaluating items
 - Updated the Stats Service (used for price checking) so it can handle the new 3.28 advanced item copy text
 - Updated the PoE Assets using PoE Asset Updater (commit 20bb7b5) and PoE Client v3.28.0b
   - This adds initial support for Mirage league

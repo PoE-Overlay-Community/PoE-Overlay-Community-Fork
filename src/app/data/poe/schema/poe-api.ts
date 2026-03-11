@@ -427,6 +427,7 @@ export interface MiscFilters {
   gem_level?: FilterValueOption
   gem_level_progress?: FilterValueOption
   gem_alternate_quality?: FilterOption
+  gem_imbued?: FilterOption
   fractured_item?: FilterOption
   synthesised_item?: FilterOption
   foulborn_item?: FilterOption

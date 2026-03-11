@@ -4,6 +4,7 @@ import { ItemSectionCorruptedParserService } from './item-section-corrupted-pars
 import { ItemSectionFlaskParserService } from './item-section-flask-parser.service'
 import { ItemSectionGemExperienceParserService } from './item-section-gem-experience-parser.service'
 import { ItemSectionHeistParserService } from './item-section-heist-parser.service'
+import { ItemSectionImbuedParserService } from './item-section-imbued-parser.service'
 import { ItemSectionIncursionParserService } from './item-section-incursion-parser.service'
 import { ItemSectionInfluencesParserService } from './item-section-influences-parser.service'
 import { ItemSectionItemLevelParserService } from './item-section-item-level-parser.service'
@@ -36,6 +37,7 @@ export class ItemParserService {
     itemSectionPropertiesParserService: ItemSectionPropertiesParserService,
     itemSectionCorruptedParserService: ItemSectionCorruptedParserService,
     itemSectionMirroredParserService: ItemSectionMirroredParserService,
+    itemSectionImbuedParserService: ItemSectionImbuedParserService,
     itemSectionInfluencesParserService: ItemSectionInfluencesParserService,
     itemSectionVeiledParserService: ItemSectionVeiledParserService,
     itemSectionStatsParserService: ItemSectionStatsParserService,
@@ -69,6 +71,7 @@ export class ItemParserService {
       itemSectionVeiledParserService,
       itemSectionInfluencesParserService,
       itemSectionUnidentifiedParserService,
+      itemSectionImbuedParserService,
       itemSectionStatsParserService,
       itemSectionSpecialStatsParserService, // Parse after Stats
     ]

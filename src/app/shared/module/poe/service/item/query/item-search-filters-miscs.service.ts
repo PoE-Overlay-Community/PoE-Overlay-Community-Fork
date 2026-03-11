@@ -50,6 +50,12 @@ export class ItemSearchFiltersMiscsService implements ItemSearchFiltersService {
       }
     }
 
+    if (item.imbued) {
+      query.filters.misc_filters.filters.gem_imbued = {
+        option: `${!!item.imbued}`,
+      };
+    }
+
     this.mapInfluences(item, query)
 
     if (!item.properties) {

@@ -14,6 +14,7 @@ export interface StatsSearchResult {
 export interface StatsSearchOptions {
   ultimatum?: boolean
   sanctum?: boolean
+  imbued?: boolean
   map?: boolean
   // The options below must match the ones used in stats-local.json
   local_poison_on_hit__?: boolean
@@ -509,6 +510,9 @@ export class StatsService {
       ` \\(${StatType.Crucible}\\)$`,
       `^\{ ${this.clientStringService.translate('ModDescriptionLineWeaponPassiveTreeAllocated', language)}`
     ]
+    const imbuedPhrases = [
+      `^${this.clientStringService.translate('ItemDisplayBuiltInSupport', language).replace('{0}', '.*') }`
+    ]
     const implicitsSearch: StatsSectionsSearch = {
       types: [StatType.Implicit],
       sections: [],
@@ -541,6 +545,15 @@ export class StatsService {
       } else if (this.regexMatchAnyLine(text, cruciblePhrases)) {
         // crucible stats have their own section
         crucibleSearch.sections.push({
+          index,
+          text,
+        });
+      } else if (this.regexMatchAnyLine(text, imbuedPhrases)) {
+        // imbued stats have their own section
+        if (implicitsSearch.types.indexOf(StatType.Imbued) === -1) {
+          implicitsSearch.types.push(StatType.Imbued)
+        }
+        implicitsSearch.sections.push({
           index,
           text,
         })
