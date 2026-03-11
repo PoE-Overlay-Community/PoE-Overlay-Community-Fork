@@ -38,12 +38,6 @@
 			"stat_3187151138": [
 				"stat_1566972708"
 			],
-			"stat_3350803563": [
-				"stat_394639761"
-			],
-			"stat_394639761": [
-				"stat_3350803563"
-			],
 			"stat_527292219": [
 				"stat_3187151138"
 			],
@@ -76,6 +70,12 @@
 			],
 			"stat_2543977012": [
 				"stat_1535626285"
+			],
+			"stat_3350803563": [
+				"stat_394639761"
+			],
+			"stat_394639761": [
+				"stat_3350803563"
 			],
 			"stat_2587176568": [
 				"stat_4202507508"
@@ -213,29 +213,11 @@
 			"indexable_support_128": [
 				"stat_411460446"
 			],
-			"stat_338121249": [
-				"stat_654274615"
-			],
-			"stat_654274615": [
-				"stat_338121249"
-			],
-			"stat_2457517302": [
-				"stat_1934713036"
-			],
-			"stat_1934713036": [
-				"stat_2457517302"
-			],
 			"stat_3134632618": [
 				"stat_3408601861"
 			],
 			"stat_3408601861": [
 				"stat_3134632618"
-			],
-			"stat_2378288719": [
-				"stat_660313500"
-			],
-			"stat_660313500": [
-				"stat_2378288719"
 			],
 			"stat_1002855537": [
 				"indexable_support_3"
@@ -261,6 +243,12 @@
 			"stat_1291925008": [
 				"stat_3859865977"
 			],
+			"stat_338121249": [
+				"stat_654274615"
+			],
+			"stat_654274615": [
+				"stat_338121249"
+			],
 			"stat_13669281": [
 				"indexable_support_74"
 			],
@@ -278,6 +266,12 @@
 			],
 			"stat_18234720": [
 				"stat_2153364323"
+			],
+			"stat_2378288719": [
+				"stat_660313500"
+			],
+			"stat_660313500": [
+				"stat_2378288719"
 			],
 			"stat_2593773031": [
 				"indexable_support_77"
@@ -356,6 +350,12 @@
 			],
 			"indexable_support_46": [
 				"stat_2985291457"
+			],
+			"stat_2457517302": [
+				"stat_1934713036"
+			],
+			"stat_1934713036": [
+				"stat_2457517302"
 			],
 			"stat_2105048696": [
 				"stat_4209631466"
@@ -543,6 +543,12 @@
 			"stat_2804300445": [
 				"stat_4190580879"
 			],
+			"stat_2435922859": [
+				"stat_4004160031"
+			],
+			"stat_4004160031": [
+				"stat_2435922859"
+			],
 			"stat_2608615082": [
 				"indexable_support_49"
 			],
@@ -566,12 +572,6 @@
 			],
 			"indexable_support_57": [
 				"stat_3587013273"
-			],
-			"stat_2435922859": [
-				"stat_4004160031"
-			],
-			"stat_4004160031": [
-				"stat_2435922859"
 			],
 			"stat_1582162479": [
 				"stat_3249943883"
@@ -941,12 +941,6 @@
 			"indexable_support_4": [
 				"stat_3356013982"
 			],
-			"stat_776258428": [
-				"stat_1051510395"
-			],
-			"stat_1051510395": [
-				"stat_776258428"
-			],
 			"stat_28821524": [
 				"stat_3561676020",
 				"indexable_support_16",
@@ -982,6 +976,12 @@
 			],
 			"indexable_support_40": [
 				"stat_807186595"
+			],
+			"stat_776258428": [
+				"stat_1051510395"
+			],
+			"stat_1051510395": [
+				"stat_776258428"
 			],
 			"stat_3039589351": [
 				"stat_2355741828"
@@ -1114,12 +1114,6 @@
 			],
 			"stat_3827538724": [
 				"indexable_support_120"
-			],
-			"indexable_support_134": [
-				"stat_3111091501"
-			],
-			"stat_3111091501": [
-				"indexable_support_134"
 			],
 			"indexable_support_136": [
 				"stat_1679136"
@@ -1265,23 +1259,11 @@
 			"stat_3062849155": [
 				"indexable_support_143"
 			],
-			"indexable_support_131": [
-				"stat_1485525812"
-			],
-			"stat_1485525812": [
-				"indexable_support_131"
-			],
 			"indexable_support_145": [
 				"stat_3998071134"
 			],
 			"stat_3998071134": [
 				"indexable_support_145"
-			],
-			"indexable_support_152": [
-				"stat_2820883532"
-			],
-			"stat_2820883532": [
-				"indexable_support_152"
 			],
 			"indexable_support_96": [
 				"stat_1135493957"
@@ -1289,11 +1271,23 @@
 			"stat_1135493957": [
 				"indexable_support_96"
 			],
+			"indexable_support_152": [
+				"stat_2820883532"
+			],
+			"stat_2820883532": [
+				"indexable_support_152"
+			],
 			"indexable_support_159": [
 				"stat_3031999964"
 			],
 			"stat_3031999964": [
 				"indexable_support_159"
+			],
+			"indexable_support_134": [
+				"stat_3111091501"
+			],
+			"stat_3111091501": [
+				"indexable_support_134"
 			],
 			"indexable_support_153": [
 				"stat_3713917371"
@@ -1301,17 +1295,23 @@
 			"stat_3713917371": [
 				"indexable_support_153"
 			],
-			"indexable_support_102": [
-				"stat_694651314"
-			],
-			"stat_694651314": [
-				"indexable_support_102"
-			],
 			"indexable_support_38": [
 				"stat_2861649515"
 			],
 			"stat_2861649515": [
 				"indexable_support_38"
+			],
+			"indexable_support_92": [
+				"stat_388696990"
+			],
+			"stat_388696990": [
+				"indexable_support_92"
+			],
+			"indexable_support_102": [
+				"stat_694651314"
+			],
+			"stat_694651314": [
+				"indexable_support_102"
 			],
 			"indexable_support_107": [
 				"stat_2643665787"
@@ -1336,12 +1336,6 @@
 			],
 			"stat_1636220212": [
 				"indexable_support_26"
-			],
-			"indexable_support_92": [
-				"stat_388696990"
-			],
-			"stat_388696990": [
-				"indexable_support_92"
 			],
 			"indexable_support_87": [
 				"stat_799443127"
@@ -1373,12 +1367,6 @@
 			"stat_4048257027": [
 				"indexable_support_13"
 			],
-			"stat_443165947": [
-				"stat_714566414"
-			],
-			"stat_714566414": [
-				"stat_443165947"
-			],
 			"indexable_support_78": [
 				"stat_479453859"
 			],
@@ -1391,6 +1379,12 @@
 			"stat_1019145105": [
 				"indexable_support_140"
 			],
+			"indexable_support_131": [
+				"stat_1485525812"
+			],
+			"stat_1485525812": [
+				"indexable_support_131"
+			],
 			"indexable_support_130": [
 				"stat_2127532091"
 			],
@@ -1402,6 +1396,12 @@
 			],
 			"stat_3485498591": [
 				"indexable_support_141"
+			],
+			"stat_443165947": [
+				"stat_714566414"
+			],
+			"stat_714566414": [
+				"stat_443165947"
 			],
 			"indexable_support_142": [
 				"stat_970734352"
@@ -1862,25 +1862,25 @@
 			"stat_253956903": [
 				"stat_3664950032"
 			],
+			"stat_1669553893": [
+				"stat_1207515735",
+				"stat_1080470148",
+				"stat_4019701925"
+			],
+			"stat_1207515735": [
+				"stat_1669553893",
+				"stat_1080470148",
+				"stat_4019701925"
+			],
+			"stat_1080470148": [
+				"stat_1669553893",
+				"stat_1207515735",
+				"stat_4019701925"
+			],
 			"stat_4019701925": [
 				"stat_1669553893",
 				"stat_1207515735",
 				"stat_1080470148"
-			],
-			"stat_1669553893": [
-				"stat_4019701925",
-				"stat_1207515735",
-				"stat_1080470148"
-			],
-			"stat_1207515735": [
-				"stat_4019701925",
-				"stat_1669553893",
-				"stat_1080470148"
-			],
-			"stat_1080470148": [
-				"stat_4019701925",
-				"stat_1669553893",
-				"stat_1207515735"
 			]
 		},
 		"scourge": {
