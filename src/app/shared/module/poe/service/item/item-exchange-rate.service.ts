@@ -38,17 +38,17 @@ export class ItemExchangeRateService {
     private readonly baseItemTypesService: BaseItemTypesService,
     private readonly wordService: WordService,
     private readonly clientString: ClientStringService,
-    private readonly statService: StatsService,
   ) {}
 
   public get(
     item: Item,
     currencies: Currency[],
+    useCurrencyExchangeData: boolean,
     leagueId?: string
   ): Observable<ItemExchangeRateResult> {
     leagueId = leagueId || this.context.get().leagueId
 
-    return this.getValue(leagueId, item).pipe(
+    return this.getValue(leagueId, item, useCurrencyExchangeData).pipe(
       flatMap((value) =>
         iif(
           () => !value,
@@ -82,7 +82,7 @@ export class ItemExchangeRateService {
     )
   }
 
-  private getValue(leagueId: string, item: Item): Observable<ItemCategoryValue> {
+  private getValue(leagueId: string, item: Item, useCurrencyExchangeData: boolean): Observable<ItemCategoryValue> {
     const links = this.socket.getLinkCount(item.sockets)
     const filterLinks = (x: ItemCategoryValue) => {
       if (x.links === undefined) {
@@ -220,7 +220,7 @@ export class ItemExchangeRateService {
       return 0
     }
 
-    return this.valuesProvider.provide(leagueId, item.rarity, item.category, item.typeId).pipe(
+    return this.valuesProvider.provide(leagueId, item.rarity, item.category, useCurrencyExchangeData).pipe(
       map((response) => {
         const type = this.baseItemTypesService.translate(item.typeId, Language.English)
         const name = this.wordService.translate(item.nameId, Language.English)

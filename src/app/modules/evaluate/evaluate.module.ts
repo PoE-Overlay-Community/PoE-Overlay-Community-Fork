@@ -95,6 +95,7 @@ export class EvaluateModule implements FeatureModule {
       evaluateCopyAdvancedItemText: true,
       evaluateShowPricePrediction: true,
       evaluateShowExchangeRate: true,
+      evaluateUseCurrencyExchangeData: true,
     }
     return {
       name: 'evaluate.name',

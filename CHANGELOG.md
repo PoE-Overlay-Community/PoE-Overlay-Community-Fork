@@ -2,6 +2,8 @@
 
 ## TBD
 
+- Added the option (default on) to use the currency exchange data (instead of stash data) when obtaining exchange rates
+- Added a bunch of (missing) categories to the exchange rate service
 - Changed the Settings Menu Login url from '/login?no-script' to '/login/email' due to the no-script version no longer working
 - Added support for the 'Imbued' items when evaluating items
 - Updated the Stats Service (used for price checking) so it can handle the new 3.28 advanced item copy text

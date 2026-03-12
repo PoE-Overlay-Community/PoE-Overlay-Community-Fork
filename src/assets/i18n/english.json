@@ -179,6 +179,8 @@
     "translate-settings": "Evaluate Translate Settings",
     "try-again": "Try again?",
     "use-advanced-mods-copy": "Use Advanced Mods Copy",
+    "use-currency-exchange-data": "Use Currency Exchange Data (if applicable)",
+    "use-currency-exchange-data-tooltip": "Use Currency Exchange Rate Data (instead of stash/in-person trade data) when showing Exchange Rates provided by poe.ninja",
     "value": "Value"
   },
   "help": {

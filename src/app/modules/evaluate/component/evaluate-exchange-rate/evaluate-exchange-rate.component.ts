@@ -112,7 +112,7 @@ export class EvaluateExchangeRateComponent implements OnInit {
 
   private evaluate(item: Item, currency?: Currency): void {
     this.exchangeRate
-      .get(item, currency ? [currency] : this.currencies, this.options.leagueId)
+      .get(item, currency ? [currency] : this.currencies, this.settings.evaluateUseCurrencyExchangeData, this.options.leagueId)
       .subscribe(
         (result) => {
           if (result) {

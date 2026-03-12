@@ -4,23 +4,8 @@ import { BrowserService, LoggerService } from '@app/service'
 import { environment } from '@env/environment'
 import { Observable, of, throwError } from 'rxjs'
 import { delay, flatMap, retryWhen } from 'rxjs/operators'
-import { CurrencyOverviewResponse } from '../schema/currency-overview'
-import { ItemOverviewType } from '@data/poe-ninja/schema/item-overview'
-
-export enum CurrencyOverviewType {
-  Currency = 'Currency',
-  Fragment = 'Fragment',
-}
-
-export const CURRENCY_TO_ITEM_OVERVIEW_MAP = {
-  [CurrencyOverviewType.Currency]: ItemOverviewType.Currency,
-  [CurrencyOverviewType.Fragment]: ItemOverviewType.Fragment,
-}
-
-const PATH_TYPE_MAP = {
-  [CurrencyOverviewType.Currency]: 'currency',
-  [CurrencyOverviewType.Fragment]: 'fragments',
-}
+import { ExchangeOverviewResponse } from '@data/poe-ninja/schema/exchange-overview'
+import { ItemOverviewType, PATH_TYPE_MAP } from '@data/poe-ninja/schema/item-overview'
 
 const RETRY_COUNT = 3
 const RETRY_DELAY = 100
@@ -28,7 +13,7 @@ const RETRY_DELAY = 100
 @Injectable({
   providedIn: 'root',
 })
-export class CurrencyOverviewHttpService {
+export class ExchangeOverviewHttpService {
   private readonly baseUrl: string
 
   constructor(
@@ -36,12 +21,12 @@ export class CurrencyOverviewHttpService {
     private readonly browser: BrowserService,
     private readonly logger: LoggerService
   ) {
-    this.baseUrl = `${environment.poeNinja.baseUrl}/poe1/api/economy/stash/current/currency/overview`
+    this.baseUrl = `${environment.poeNinja.baseUrl}/poe1/api/economy/exchange/current/overview`
   }
 
-  public get(leagueId: string, type: CurrencyOverviewType): Observable<CurrencyOverviewResponse> {
+  public get(leagueId: string, type: ItemOverviewType): Observable<ExchangeOverviewResponse> {
     const url = this.getUrl(leagueId, type)
-    return this.httpClient.get<CurrencyOverviewResponse>(url).pipe(
+    return this.httpClient.get<ExchangeOverviewResponse>(url).pipe(
       retryWhen((errors) =>
         errors.pipe(flatMap((response, count) => this.handleError(url, response, count)))
       ),
@@ -58,8 +43,10 @@ export class CurrencyOverviewHttpService {
           return throwError(`Got empty result from '${url}'.`)
         }
 
-        const result: CurrencyOverviewResponse = {
+        const result: ExchangeOverviewResponse = {
+          core: response.core,
           lines: response.lines,
+          items: response.items,
           url: `${environment.poeNinja.baseUrl}/challenge/${PATH_TYPE_MAP[type]}`,
         }
         return of(result)
@@ -80,7 +67,7 @@ export class CurrencyOverviewHttpService {
     }
   }
 
-  private getUrl(leagueId: string, type: CurrencyOverviewType): string {
+  private getUrl(leagueId: string, type: ItemOverviewType): string {
     return `${this.baseUrl}?league=${encodeURIComponent(leagueId)}&type=${encodeURIComponent(
       type
     )}&language=en`

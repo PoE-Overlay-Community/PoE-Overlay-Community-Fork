@@ -72,29 +72,38 @@
 
 <app-card [title]="'evaluate.layout' | translate">
   <div class="row">
-    <div class="col-6">
-      <mat-form-field>
-        <mat-label>{{ 'evaluate.result-view' | translate }}</mat-label>
-        <mat-select [(value)]="settings.evaluateResultView">
-          <mat-option *ngFor="let view of views.keys" [value]="view">
-            {{ 'evaluate.result-views.' + (views.values[view] | lowercase) | translate }}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-    </div>
-    <div class="col-3">
-      <mat-slide-toggle [checked]="settings.evaluateShowPricePrediction"
-                        (change)="settings.evaluateShowPricePrediction = $event.checked"
-                        matTooltip="{{ 'evaluate.show-price-prediction-tooltip' | translate }}">
-        {{ 'evaluate.show-price-prediction' | translate }}
-      </mat-slide-toggle>
-    </div>
-    <div class="col-3">
-      <mat-slide-toggle [checked]="settings.evaluateShowExchangeRate"
-                        (change)="settings.evaluateShowExchangeRate = $event.checked"
-                        matTooltip="{{ 'evaluate.show-exchange-rate-tooltip' | translate }}">
-        {{ 'evaluate.show-exchange-rate' | translate }}
-      </mat-slide-toggle>
+    <div class="row">
+      <div class="col-3">
+        <mat-slide-toggle [checked]="settings.evaluateShowPricePrediction"
+                          (change)="settings.evaluateShowPricePrediction = $event.checked"
+                          matTooltip="{{ 'evaluate.show-price-prediction-tooltip' | translate }}">
+          {{ 'evaluate.show-price-prediction' | translate }}
+        </mat-slide-toggle>
+      </div>
+      <div class="col-3">
+        <mat-slide-toggle [checked]="settings.evaluateShowExchangeRate"
+                          (change)="settings.evaluateShowExchangeRate = $event.checked"
+                          matTooltip="{{ 'evaluate.show-exchange-rate-tooltip' | translate }}">
+          {{ 'evaluate.show-exchange-rate' | translate }}
+        </mat-slide-toggle>
+      </div>
+      <div class="col-6">
+        <mat-slide-toggle [checked]="settings.evaluateUseCurrencyExchangeData"
+                          (change)="settings.evaluateUseCurrencyExchangeData = $event.checked"
+                          matTooltip="{{ 'evaluate.use-currency-exchange-data-tooltip' | translate }}">
+          {{ 'evaluate.use-currency-exchange-data' | translate }}
+        </mat-slide-toggle>
+      </div>
+      <div class="col">
+        <mat-form-field>
+          <mat-label>{{ 'evaluate.result-view' | translate }}</mat-label>
+          <mat-select [(value)]="settings.evaluateResultView">
+            <mat-option *ngFor="let view of views.keys" [value]="view">
+              {{ 'evaluate.result-views.' + (views.values[view] | lowercase) | translate }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
     </div>
   </div>
 </app-card>

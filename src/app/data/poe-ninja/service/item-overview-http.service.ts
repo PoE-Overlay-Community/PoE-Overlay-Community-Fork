@@ -1,79 +1,10 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http'
 import { Injectable } from '@angular/core'
 import { BrowserService, LoggerService } from '@app/service'
+import { ItemOverviewResponse, ItemOverviewType, PATH_TYPE_MAP } from '@data/poe-ninja/schema/item-overview'
 import { environment } from '@env/environment'
 import { Observable, of, throwError } from 'rxjs'
 import { delay, flatMap, retryWhen } from 'rxjs/operators'
-import { ItemOverviewResponse } from '../schema/item-overview'
-
-export enum ItemOverviewType {
-  // General
-  AllflameEmber = 'AllflameEmber',
-  Tattoo = 'Tattoo',
-  Omen = 'Omen',
-  DivinationCard = 'DivinationCard',
-  Artifact = 'Artifact',
-  Oil = 'Oil',
-  Incubator = 'Incubator',
-  // Equipment & Gems
-  UniqueWeapon = 'UniqueWeapon',
-  UniqueArmour = 'UniqueArmour',
-  UniqueAccessory = 'UniqueAccessory',
-  UniqueFlask = 'UniqueFlask',
-  UniqueJewel = 'UniqueJewel',
-  SkillGem = 'SkillGem',
-  // Atlas
-  Map = 'Map',
-  BlightedMap = 'BlightedMap',
-  UniqueMap = 'UniqueMap',
-  DeliriumOrb = 'DeliriumOrb',
-  Invitation = 'Invitation',
-  Scarab = 'Scarab',
-  Watchstone = 'Watchstone',
-  // Crafting
-  Fossil = 'Fossil',
-  Resonator = 'Resonator',
-  Beast = 'Beast',
-  Essence = 'Essence',
-  Vial = 'Vial',
-  // Deprecated (Harvest League)
-  Prophecy = 'Prophecy',
-  Seed = 'Seed',
-}
-
-const PATH_TYPE_MAP = {
-  // General
-  [ItemOverviewType.Tattoo]: 'tattoo',
-  [ItemOverviewType.Omen]: 'omen',
-  [ItemOverviewType.DivinationCard]: 'divinationcards',
-  [ItemOverviewType.Artifact]: 'artifacts',
-  [ItemOverviewType.Oil]: 'oils',
-  [ItemOverviewType.Incubator]: 'incubators',
-  // Equipment & Gems
-  [ItemOverviewType.UniqueWeapon]: 'unique-weapons',
-  [ItemOverviewType.UniqueArmour]: 'unique-armours',
-  [ItemOverviewType.UniqueAccessory]: 'unique-accessories',
-  [ItemOverviewType.UniqueFlask]: 'unique-flaks',
-  [ItemOverviewType.UniqueJewel]: 'unique-jewels',
-  [ItemOverviewType.SkillGem]: 'skill-gems',
-  // Atlas
-  [ItemOverviewType.Map]: 'maps',
-  [ItemOverviewType.BlightedMap]: 'blighted-maps',
-  [ItemOverviewType.UniqueMap]: 'unique-maps',
-  [ItemOverviewType.DeliriumOrb]: 'delirium-orbs',
-  [ItemOverviewType.Invitation]: 'invitations',
-  [ItemOverviewType.Scarab]: 'scarabs',
-  [ItemOverviewType.Watchstone]: 'watchstones',
-  // Crafting
-  [ItemOverviewType.Fossil]: 'fossils',
-  [ItemOverviewType.Resonator]: 'resonators',
-  [ItemOverviewType.Beast]: 'beats',
-  [ItemOverviewType.Essence]: 'essences',
-  [ItemOverviewType.Vial]: 'vials',
-  // Deprecated (Harvest League)
-  [ItemOverviewType.Prophecy]: 'prophecies',
-  [ItemOverviewType.Seed]: 'seeds',
-}
 
 const RETRY_COUNT = 3
 const RETRY_DELAY = 100
@@ -89,7 +20,7 @@ export class ItemOverviewHttpService {
     private readonly browser: BrowserService,
     private readonly logger: LoggerService
   ) {
-    this.baseUrl = `${environment.poeNinja.baseUrl}/api/data/itemoverview`
+    this.baseUrl = `${environment.poeNinja.baseUrl}/poe1/api/economy/stash/current/item/overview`
   }
 
   public get(leagueId: string, type: ItemOverviewType): Observable<ItemOverviewResponse> {

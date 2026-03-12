@@ -36,7 +36,7 @@ describe('ItemExchangeRateService', () => {
 
     currencyService
       .searchById('chaos')
-      .pipe(flatMap((chaos) => sut.get(item, [chaos])))
+      .pipe(flatMap((chaos) => sut.get(item, [chaos], false)))
       .subscribe(
         (result) => {
           expect(result).toBeTruthy()

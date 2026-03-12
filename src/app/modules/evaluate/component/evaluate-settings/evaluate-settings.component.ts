@@ -60,6 +60,7 @@ export interface EvaluateUserSettings extends UserSettings {
   evaluateCopyAdvancedItemText: boolean
   evaluateShowPricePrediction: boolean
   evaluateShowExchangeRate: boolean
+  evaluateUseCurrencyExchangeData: boolean
 }
 
 export const EVALUATE_QUERY_DEBOUNCE_TIME_MAX = 100
