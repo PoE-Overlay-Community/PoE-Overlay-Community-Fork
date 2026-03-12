@@ -2,6 +2,7 @@
 
 ## TBD
 
+- Changed the Settings Menu Login url from '/login?no-script' to '/login/email' due to the no-script version no longer working
 - Added support for the 'Imbued' items when evaluating items
 - Updated the Stats Service (used for price checking) so it can handle the new 3.28 advanced item copy text
 - Updated the PoE Assets using PoE Asset Updater (commit 1088d9a) and PoE Client v3.28.0b
