@@ -1,6 +1,6 @@
 # Changelog
 
-## TBD
+## 0.8.40 (2026-03-13)
 
 - Added the option (default on) to use the currency exchange data (instead of stash data) when obtaining exchange rates
 - Added a bunch of (missing) categories to the exchange rate service

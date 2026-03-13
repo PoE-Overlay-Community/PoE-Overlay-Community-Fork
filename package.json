@@ -1,13 +1,13 @@
 {
   "name": "poe-overlay",
-  "version": "0.8.39",
+  "version": "0.8.40",
   "private": true,
   "description": "An Overlay for Path of Exile. Built with Electron and Angular.",
   "main": "main.js",
   "scripts": {
     "build:dev": "npm run build",
     "build:prod": "npm run build -- -c production",
-    "build": "set NODE_OPTIONS=--max-old-space-size=7168 && npm run electron:serve-tsc && ng build",
+    "build": "set NODE_OPTIONS=--max-old-space-size=14336 && npm run electron:serve-tsc && ng build",
     "electron:build": "npm run build:prod && electron-builder build --linux --windows",
     "electron:deploy": "npm run build:prod && electron-builder build --win --publish always",
     "electron:deps": "electron-builder install-app-deps",
@@ -24,9 +24,9 @@
     "ng:lint": "ng lint --fix",
     "ng:serve": "ng serve",
     "ng:test": "ng test",
-    "ng:test:ci": "set NODE_OPTIONS=--max-old-space-size=7168 && ng test --karma-config=karma-ci.conf.js",
+    "ng:test:ci": "set NODE_OPTIONS=--max-old-space-size=14336 && ng test --karma-config=karma-ci.conf.js",
     "postinstall": "npm run ng:cc && npm run electron:deps",
-    "start": "set NODE_OPTIONS=--max-old-space-size=7168 && npm-run-all -p ng:serve electron:serve"
+    "start": "set NODE_OPTIONS=--max-old-space-size=14336 && npm-run-all -p ng:serve electron:serve"
   },
   "repository": {
     "type": "git",
