@@ -1,5 +1,9 @@
 # Changelog
 
+## TBD
+
+- Added the (missing) 'prismatic oil' icon
+
 ## 0.8.40 (2026-03-13)
 
 - Added the option (default on) to use the currency exchange data (instead of stash data) when obtaining exchange rates
