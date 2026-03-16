@@ -130,6 +130,9 @@
         "any": "Any Time",
         "day": "Up to a day ago",
         "days": "Up to 3 days ago",
+        "halfday": "Up to 12 hours ago",
+        "hour": "Up to an hour ago",
+        "hours": "Up to 3 hours ago",
         "month": "Up to 1 month ago",
         "months": "Up to 2 months ago",
         "title": "Listing Max Age",
@@ -137,13 +140,20 @@
         "weeks": "Up to 2 weeks ago"
       },
       "normalize-quality": "Normalize Quality",
-      "online-only": "Online Only",
       "properties": "Base Item Properties",
       "sentinel": {
         "charges": "Sentinel Charges",
         "duration": "Sentinel Duration",
         "empowerment": "Sentinel Empowerment",
         "enemies-empowered": "Sentinel Enemies Empowered"
+      },
+      "status": {
+        "any": "Any",
+        "available": "Instant Buyout and In Person",
+        "online": "In Person (Online)",
+        "onlineleague": "In Person (Online in League)",
+        "securable": "Instant Buyout",
+        "title": "Status Filter"
       },
       "ultimatum": "Ultimatum Challenge/Input/Output"
     },

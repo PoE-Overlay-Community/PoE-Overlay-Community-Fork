@@ -61,8 +61,8 @@ export class EvaluateDialogComponent implements OnInit, AfterViewInit, OnDestroy
   public ngOnInit(): void {
     const { settings, item } = this.data
     this.options = {
+      status: settings.evaluateQueryStatus,
       indexed: settings.evaluateQueryIndexedRange,
-      online: settings.evaluateQueryOnline,
       leagueId: settings.leagueId,
       fetchCount: settings.evaluateQueryFetchCount,
     }

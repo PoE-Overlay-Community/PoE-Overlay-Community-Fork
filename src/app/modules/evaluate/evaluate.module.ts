@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core'
 import { FEATURE_MODULES } from '@app/token'
 import { Feature, FeatureModule } from '@app/type'
 import { Language } from '@shared/module/poe/type'
-import { ItemSearchIndexed } from '@shared/module/poe/type/search.type'
+import { ItemSearchIndexed, ItemSearchStatus } from '@shared/module/poe/type/search.type'
 import { SharedModule } from '@shared/shared.module'
 import { UserSettingsFeature } from 'src/app/layout/type'
 import { EvaluateDialogComponent } from './component/evaluate-dialog/evaluate-dialog.component'
@@ -79,8 +79,8 @@ export class EvaluateModule implements FeatureModule {
       evaluateQueryDefaultStatsEnchants: true,
       evaluateQueryDefaultStatsModIcon: true,
       evaluateQueryPostProcessClusterJewels: true,
+      evaluateQueryStatus: ItemSearchStatus.Available,
       evaluateQueryIndexedRange: ItemSearchIndexed.UpTo3DaysAgo,
-      evaluateQueryOnline: true,
       evaluateQueryDebounceTime: 10,
       evaluateQueryFetchCount: 30,
       evaluateModifierMinRange: 10,
