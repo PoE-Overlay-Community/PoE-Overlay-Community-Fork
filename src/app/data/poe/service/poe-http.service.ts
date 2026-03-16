@@ -85,8 +85,8 @@ export class PoEHttpService {
   public getLoginUrl(language: Language): string {
     // PoE 3.21: Redirecting to 'trade/search' instead of 'login' due to GET/POST issues causing an infinite cloudflare loop.
     // PoE 3.21.X/3.22: Redirecting to the 'no script login' due to the normal login using 'object.hasOwn' which is not supported by Electron 8.X
-    // PoE 3.27.X/3.28: Redirecting to the 'email login' due to normal login attemptign to show buttons, but failing to do so due old Electron 8.X issues with newer JavaScript code on the PoE website
-    return this.getPoEUrl('login/email', language)
+    // PoE 3.27.X/3.28: Redirecting to the regular 'login' page along with polyfill scripts to make the buttons show up properly
+    return this.getPoEUrl('login', language)
   }
 
   public getLogoutUrl(language: Language): string {

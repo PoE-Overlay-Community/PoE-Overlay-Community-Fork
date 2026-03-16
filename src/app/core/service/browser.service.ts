@@ -50,13 +50,38 @@ export class BrowserService {
 
     this.setupCookieSharing(win)
 
+    const domReadyFunc = () => {
+      win.webContents.executeJavaScript(`
+document.addEventListener("DOMContentLoaded",applyPolyfill);
+function applyPolyfill() {
+  if (!String.prototype.replaceAll) {
+    Object.assign(String.prototype, {
+      replaceAll(str, newStr) {
+		    // If a regex pattern
+		    if (Object.prototype.toString.call(str).toLowerCase() === '[object regexp]') {
+			    return this.replace(str, newStr);
+		    }
+
+		    // If a string
+		    return this.replace(new RegExp(str, 'g'), newStr);
+      }
+    });
+  }
+  console.log('Polyfilled!');
+}
+applyPolyfill();
+      `);
+    }
+
     parent.setEnabled(false)
     win.once('closed', () => {
+      win.webContents.removeListener('dom-ready', domReadyFunc)
       parent.setEnabled(true)
       parent.moveTop()
       subject.next()
       subject.complete()
     })
+    win.webContents.addListener('dom-ready', domReadyFunc)
     win.once('ready-to-show', () => {
       win.webContents.zoomFactor = parent.webContents.zoomFactor
       win.show()
