@@ -57,6 +57,9 @@ export class ItemCategoryValuesProvider {
         if (rarity === ItemRarity.Unique || rarity === ItemRarity.UniqueRelic) {
           const key = `${leagueId}_${ItemCategory.Map}_${ItemRarity.Unique}`
           return this.fetch(key, useCurrencyExchangeData, () => this.fetchItem(leagueId, useCurrencyExchangeData, ItemOverviewType.UniqueMap))
+        } else if (rarity === ItemRarity.Currency) {
+          const key = `${leagueId}_${ItemCategory.MapFragment}`
+          return this.fetch(key, useCurrencyExchangeData, () => this.fetchCurrency(leagueId, useCurrencyExchangeData, CurrencyOverviewType.Fragment))
         } else {
           const key = `${leagueId}_${ItemCategory.Map}`
           return forkJoin([
@@ -261,7 +264,7 @@ export class ItemCategoryValuesProvider {
       case ItemCategory.CurrencyWildSeed:
       case ItemCategory.CurrencyVividSeed:
       case ItemCategory.CurrencyPrimalSeed:
-        const seedKey = `${leagueId}_${ItemCategory.CurrencySeed}`;
+        const seedKey = `${leagueId}_${ItemCategory.CurrencySeed}`
         return this.fetch(seedKey, useCurrencyExchangeData, () => this.fetchItem(leagueId, useCurrencyExchangeData, ItemOverviewType.Seed))
       case ItemCategory.Leaguestone:
       case ItemCategory.MemoryLine:
