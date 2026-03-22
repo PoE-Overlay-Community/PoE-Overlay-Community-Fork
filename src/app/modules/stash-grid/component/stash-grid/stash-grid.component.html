@@ -8,25 +8,37 @@
          [ardInteractionsDisabled]="options.gridMode !== StashGridMode.Edit"
          [ardAllowResize]="options.gridMode === StashGridMode.Edit"
          (ardResizeDrag)="onResizeDrag($event)">
-      <div class="grid"
-           [style.height.px]="gridBounds.height"
-           [class.interactable]="options.gridMode === StashGridMode.Edit"
-           [class.editMode]="options.gridMode === StashGridMode.Edit"
-           [style.outline-color]="ColorUtils.toRGBA(settings.stashGridColors.gridOutline)">
-        <div class="gridRow" *ngFor="let row of cellArray; let rowIndex = index">
-          <div class="gridCol" *ngFor="let col of cellArray; let colIndex = index">
-            <ng-container *ngTemplateOutlet="
-                    gridCell;
-                    context: {
-                      cellData: this.cellData[row][col],
-                      colIndex: colIndex,
-                      rowIndex: rowIndex
-                    }
-                    ">
-            </ng-container>
+      <ng-container [ngSwitch]="options.gridType">
+        <ng-container *ngSwitchCase="StashGridType.Normal">
+          <ng-container *ngTemplateOutlet="gridRegular"></ng-container>
+        </ng-container>
+        <ng-container *ngSwitchCase="StashGridType.Quad">
+          <ng-container *ngTemplateOutlet="gridRegular"></ng-container>
+        </ng-container>
+        <ng-container *ngSwitchDefault>
+          <div class="grid"
+               [style.height.px]="gridBounds.height"
+               [class.interactable]="options.gridMode === StashGridMode.Edit"
+               [class.editMode]="options.gridMode === StashGridMode.Edit"
+               [style.outline-color]="ColorUtils.toRGBA(settings.stashGridColors.gridOutline)">
+            <div class="gridCell staticGridCell"
+                 *ngFor="let col of cellArray; let colIndex = index"
+                 [style.left]="cellData[0][col].static.xOffset + 'px'"
+                 [style.top]="cellData[0][col].static.yOffset + 'px'"
+                 [style.width]="cellData[0][col].static.width + 'px'"
+                 [style.height]="cellData[0][col].static.height + 'px'"
+                 [style.transform]="'scale(' + cellScale + ')'">
+              <span
+                    *ngIf="cellData[0][col].static.priceValue"
+                    class="price"
+                    [style.background]="'rgba(0,0,0,' + settings.dialogOpacity + ')'">
+                <span *ngIf="!cellData[0][col].static.priceCurrency.image">&nbsp;???</span><img *ngIf="cellData[0][col].static.priceCurrency.image" [src]="'https://web.poecdn.com' + cellData[0][col].static.priceCurrency.image" class="currencyImage" />
+                <span>{{ cellData[0][col].static.priceValue | number: '1.0-2' }}</span>
+              </span>
+            </div>
           </div>
-        </div>
-      </div>
+        </ng-container>
+      </ng-container>
       <div class="gridControls" [ngSwitch]="options.gridMode">
         <ng-container *ngSwitchCase="StashGridMode.Normal">
           <div class="gridControl clickable" (click)="toggleStashGrid()">
@@ -75,6 +87,27 @@
             [style.color]="cellData.markedTextColor"
             >
       </span>
+    </div>
+  </ng-template>
+  <ng-template #gridRegular>
+    <div class="grid"
+         [style.height.px]="gridBounds.height"
+         [class.interactable]="options.gridMode === StashGridMode.Edit"
+         [class.editMode]="options.gridMode === StashGridMode.Edit"
+         [style.outline-color]="ColorUtils.toRGBA(settings.stashGridColors.gridOutline)">
+      <div class="gridRow" *ngFor="let row of cellArray; let rowIndex = index">
+        <div class="gridCol" *ngFor="let col of cellArray; let colIndex = index">
+          <ng-container *ngTemplateOutlet="
+                        gridCell;
+                        context: {
+                          cellData: this.cellData[row][col].regular,
+                          colIndex: colIndex,
+                          rowIndex: rowIndex
+                        }
+                        ">
+          </ng-container>
+        </div>
+      </div>
     </div>
   </ng-template>
 </ng-container>

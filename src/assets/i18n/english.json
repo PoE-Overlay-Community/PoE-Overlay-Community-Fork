@@ -360,10 +360,7 @@
     "cancel": "Cancel",
     "close": "Close",
     "disabled": "Disabled",
-    "edit": {
-      "normal": "Edit Normal stash grid",
-      "quad": "Edit Quad stash grid"
-    },
+    "edit-stash-grids": "Edit stash grids",
     "grid-background-color": "Grid Background Color",
     "grid-line-color": "Grid Line Color",
     "grid-outline-color": "Grid Outline Color",
@@ -374,11 +371,22 @@
     "highlight-text-color": "Highlight Text Color",
     "name": "Stash Grid",
     "ok": "Ok",
-    "preview": {
-      "normal": "Preview Normal stash grid",
-      "quad": "Preview Quad stash grid"
-    },
+    "preview-stash-grids": "Preview stash grids",
     "save": "Save",
+    "stash-grid-name": {
+      "blight": "Blight",
+      "currencygeneral": "General Currency",
+      "currencyexotic": "Exotic Currency",
+      "delirium": "Delirium",
+      "delve": "Delve",
+      "essence": "Essences",
+      "fragmentgeneral": "General Fragments",
+      "fragmentbreach": "Breach Fragments",
+      "fragmentscarab": "Scarab Fragments",
+      "metamorph": "Catalyst",
+      "normal": "Normal",
+      "quad": "Quad"
+    },
     "tab": "Tab",
     "toggle": "Toggle"
   },

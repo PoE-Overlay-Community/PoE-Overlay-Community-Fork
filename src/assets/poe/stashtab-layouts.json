@@ -1,0 +1,4084 @@
+{
+	"layouts": {
+		"currency-general": {
+			"CurrencyWeaponQuality": {
+				"xOffset": 591,
+				"yOffset": 79,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyIdentification": {
+				"xOffset": 113,
+				"yOffset": 79,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyRerollRare": {
+				"xOffset": 760,
+				"yOffset": 179,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyArmourQuality": {
+				"xOffset": 676,
+				"yOffset": 78,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyDuplicate": {
+				"xOffset": 478,
+				"yOffset": 179,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyUpgradeToRare": {
+				"xOffset": 676,
+				"yOffset": 179,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyUpgradeRandomly": {
+				"xOffset": 282,
+				"yOffset": 179,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyPassiveRefund": {
+				"xOffset": 591,
+				"yOffset": 450,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyUpgradeToMagic": {
+				"xOffset": 27,
+				"yOffset": 179,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyRerollMagic": {
+				"xOffset": 112,
+				"yOffset": 179,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyConvertToNormal": {
+				"xOffset": 591,
+				"yOffset": 366,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyAddModToRare": {
+				"xOffset": 393,
+				"yOffset": 180,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyUpgradeMagicToRare": {
+				"xOffset": 591,
+				"yOffset": 179,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyAddModToMagic": {
+				"xOffset": 282,
+				"yOffset": 265,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyPortal": {
+				"xOffset": 197,
+				"yOffset": 78,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyFlaskQuality": {
+				"xOffset": 760,
+				"yOffset": 79,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyGemQuality": {
+				"xOffset": 845,
+				"yOffset": 79,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyRerollSocketColours": {
+				"xOffset": 281,
+				"yOffset": 366,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyRerollSocketLinks": {
+				"xOffset": 196,
+				"yOffset": 366,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyRerollSocketNumbers": {
+				"xOffset": 113,
+				"yOffset": 366,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyModValues": {
+				"xOffset": 845,
+				"yOffset": 265,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyRerollImplicit": {
+				"xOffset": 845,
+				"yOffset": 179,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyIdentificationShard": {
+				"xOffset": 28,
+				"yOffset": 78,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyUpgradeToMagicShard": {
+				"xOffset": 28,
+				"yOffset": 265,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyRerollMagicShard": {
+				"xOffset": 113,
+				"yOffset": 265,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyUpgradeToRareShard": {
+				"xOffset": 675,
+				"yOffset": 265,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyCorrupt": {
+				"xOffset": 845,
+				"yOffset": 366,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyAddAtlasMod": {
+				"xOffset": 351,
+				"yOffset": 860,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"CurrencyAddAtlasModMid": {
+				"xOffset": 437,
+				"yOffset": 860,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"CurrencyAddAtlasModHigh": {
+				"xOffset": 591,
+				"yOffset": 860,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"CurrencyRerollRareShard": {
+				"xOffset": 760,
+				"yOffset": 265,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyDuplicateShard": {
+				"xOffset": 478,
+				"yOffset": 265,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyAddModToRareShard": {
+				"xOffset": 393,
+				"yOffset": 264,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyUpgradeMagicToRareShard": {
+				"xOffset": 591,
+				"yOffset": 265,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyRemoveModShard": {
+				"xOffset": 196,
+				"yOffset": 265,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyRemoveMod": {
+				"xOffset": 197,
+				"yOffset": 180,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyRerollUnique": {
+				"xOffset": 111,
+				"yOffset": 450,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyUpgradeToRareAndSetSockets": {
+				"xOffset": 196,
+				"yOffset": 450,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyRerollUniqueShard": {
+				"xOffset": 0,
+				"yOffset": 0,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"CurrencyUpgradeToRareAndSetSocketsShard": {
+				"xOffset": 0,
+				"yOffset": 0,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"CurrencyAtlasPassiveRefund": {
+				"xOffset": 676,
+				"yOffset": 450,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyAddAtlasModMaven": {
+				"xOffset": 591,
+				"yOffset": 367,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"CurrencyEnkindlingOrb": {
+				"xOffset": 393,
+				"yOffset": 78,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyInstillingOrb": {
+				"xOffset": 478,
+				"yOffset": 78,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyRerollRareVeiled": {
+				"xOffset": 760,
+				"yOffset": 450,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyRerollDefences": {
+				"xOffset": 676,
+				"yOffset": 366,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyFractureRare": {
+				"xOffset": 27,
+				"yOffset": 366,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyFractureRareShard": {
+				"xOffset": 27,
+				"yOffset": 450,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyHinekorasLock": {
+				"xOffset": 281,
+				"yOffset": 450,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"DivinationCardDeck": {
+				"xOffset": 761,
+				"yOffset": 366,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyRerollRareVeiledChaos": {
+				"xOffset": 845,
+				"yOffset": 450,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyStackedScarab": {
+				"xOffset": 266,
+				"yOffset": 860,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			}
+		},
+		"currency-exotic": {
+			"CurrencyMapQuality": {
+				"xOffset": 846,
+				"yOffset": 860,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"CurrencyRerollMapType": {
+				"xOffset": 266,
+				"yOffset": 860,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"CurrencyRerollMapTypeShard": {
+				"xOffset": 0,
+				"yOffset": 0,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"CurrencyUpgradeMapTier": {
+				"xOffset": 351,
+				"yOffset": 860,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"CurrencyStrongboxQuality": {
+				"xOffset": 437,
+				"yOffset": 860,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"ApplyInfluence": {
+				"xOffset": 760,
+				"yOffset": 248,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyUpgradeMapTierShard": {
+				"xOffset": 0,
+				"yOffset": 0,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"CurrencyStrongboxQualityShard": {
+				"xOffset": 0,
+				"yOffset": 0,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"AddModToRareCrusader": {
+				"xOffset": 719,
+				"yOffset": 78,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"AddModToRareRedeemer": {
+				"xOffset": 634,
+				"yOffset": 163,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"AddModToRareHunter": {
+				"xOffset": 634,
+				"yOffset": 78,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"AddModToRareWarlord": {
+				"xOffset": 719,
+				"yOffset": 163,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyUpgradeInfluenceMod": {
+				"xOffset": 676,
+				"yOffset": 248,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEldritchEmber1": {
+				"xOffset": 591,
+				"yOffset": 418,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEldritchEmber2": {
+				"xOffset": 676,
+				"yOffset": 418,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEldritchEmber3": {
+				"xOffset": 760,
+				"yOffset": 418,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEldritchEmber4": {
+				"xOffset": 845,
+				"yOffset": 418,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEldritchIchor1": {
+				"xOffset": 591,
+				"yOffset": 503,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEldritchIchor2": {
+				"xOffset": 676,
+				"yOffset": 503,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEldritchIchor3": {
+				"xOffset": 760,
+				"yOffset": 503,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEldritchIchor4": {
+				"xOffset": 845,
+				"yOffset": 503,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyConflictOrb": {
+				"xOffset": 845,
+				"yOffset": 333,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEldritchRerollRare": {
+				"xOffset": 591,
+				"yOffset": 333,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEldritchAddModToRare": {
+				"xOffset": 676,
+				"yOffset": 333,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEldritchRemoveMod": {
+				"xOffset": 760,
+				"yOffset": 333,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyMapQualityRarity": {
+				"xOffset": 393,
+				"yOffset": 78,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyMapQualityPackSize": {
+				"xOffset": 478,
+				"yOffset": 78,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyMapQualityScarabs": {
+				"xOffset": 393,
+				"yOffset": 163,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyMapQualityCurrency": {
+				"xOffset": 436,
+				"yOffset": 248,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyMapQualityDivinationCards": {
+				"xOffset": 478,
+				"yOffset": 163,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyAddZanaInfluence": {
+				"xOffset": 53,
+				"yOffset": 163,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyRemoveZanaInfluence": {
+				"xOffset": 239,
+				"yOffset": 163,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyMoreZanaInfluencedItems": {
+				"xOffset": 146,
+				"yOffset": 163,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyAddModToRareShaper": {
+				"xOffset": 803,
+				"yOffset": 78,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyAddModToRareElder": {
+				"xOffset": 803,
+				"yOffset": 163,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"FearMemoryThread": {
+				"xOffset": 146,
+				"yOffset": 79,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"BenevolenceMemoryThread": {
+				"xOffset": 239,
+				"yOffset": 79,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"IgnoranceMemoryThread": {
+				"xOffset": 53,
+				"yOffset": 79,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"AstrolabeGeneric": {
+				"xOffset": 146,
+				"yOffset": 248,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"AstrolabeHarvest": {
+				"xOffset": 239,
+				"yOffset": 418,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"AstrolabeAbyss": {
+				"xOffset": 146,
+				"yOffset": 333,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"AstrolabeBreach": {
+				"xOffset": 53,
+				"yOffset": 333,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"AstrolabeRitual": {
+				"xOffset": 53,
+				"yOffset": 503,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"AstrolabeBlight": {
+				"xOffset": 53,
+				"yOffset": 418,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"AstrolabeUltimatum": {
+				"xOffset": 146,
+				"yOffset": 503,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"AstrolabeDelirium": {
+				"xOffset": 146,
+				"yOffset": 418,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"AstrolabeLegion": {
+				"xOffset": 239,
+				"yOffset": 333,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"AstrolabeExpedition": {
+				"xOffset": 239,
+				"yOffset": 503,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			}
+		},
+		"essence": {
+			"CurrencyEssenceHatred1": {
+				"xOffset": 480,
+				"yOffset": 183,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceHatred2": {
+				"xOffset": 408,
+				"yOffset": 183,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceHatred3": {
+				"xOffset": 335,
+				"yOffset": 183,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceHatred4": {
+				"xOffset": 263,
+				"yOffset": 183,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceHatred5": {
+				"xOffset": 190,
+				"yOffset": 183,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceHatred6": {
+				"xOffset": 117,
+				"yOffset": 183,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceHatred7": {
+				"xOffset": 44,
+				"yOffset": 183,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceWoe1": {
+				"xOffset": 480,
+				"yOffset": 256,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceWoe2": {
+				"xOffset": 408,
+				"yOffset": 256,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceWoe3": {
+				"xOffset": 335,
+				"yOffset": 256,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceWoe4": {
+				"xOffset": 263,
+				"yOffset": 256,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceWoe5": {
+				"xOffset": 190,
+				"yOffset": 256,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceWoe6": {
+				"xOffset": 117,
+				"yOffset": 256,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceWoe7": {
+				"xOffset": 44,
+				"yOffset": 256,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceGreed1": {
+				"xOffset": 480,
+				"yOffset": 38,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceGreed2": {
+				"xOffset": 408,
+				"yOffset": 38,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceGreed3": {
+				"xOffset": 335,
+				"yOffset": 38,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceGreed4": {
+				"xOffset": 263,
+				"yOffset": 38,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceGreed5": {
+				"xOffset": 190,
+				"yOffset": 38,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceGreed6": {
+				"xOffset": 117,
+				"yOffset": 38,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceGreed7": {
+				"xOffset": 44,
+				"yOffset": 38,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceContempt1": {
+				"xOffset": 480,
+				"yOffset": 111,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceContempt2": {
+				"xOffset": 408,
+				"yOffset": 111,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceContempt3": {
+				"xOffset": 335,
+				"yOffset": 111,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceContempt4": {
+				"xOffset": 263,
+				"yOffset": 111,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceContempt5": {
+				"xOffset": 190,
+				"yOffset": 111,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceContempt6": {
+				"xOffset": 117,
+				"yOffset": 111,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceContempt7": {
+				"xOffset": 44,
+				"yOffset": 111,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceSorrow1": {
+				"xOffset": 408,
+				"yOffset": 547,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceSorrow2": {
+				"xOffset": 335,
+				"yOffset": 547,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceSorrow3": {
+				"xOffset": 263,
+				"yOffset": 547,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceSorrow4": {
+				"xOffset": 190,
+				"yOffset": 547,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceSorrow5": {
+				"xOffset": 117,
+				"yOffset": 547,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceSorrow6": {
+				"xOffset": 44,
+				"yOffset": 547,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceAnger1": {
+				"xOffset": 408,
+				"yOffset": 402,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceAnger2": {
+				"xOffset": 335,
+				"yOffset": 402,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceAnger3": {
+				"xOffset": 263,
+				"yOffset": 402,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceAnger4": {
+				"xOffset": 190,
+				"yOffset": 402,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceAnger5": {
+				"xOffset": 117,
+				"yOffset": 402,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceAnger6": {
+				"xOffset": 44,
+				"yOffset": 402,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceTorment1": {
+				"xOffset": 408,
+				"yOffset": 474,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceTorment2": {
+				"xOffset": 335,
+				"yOffset": 474,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceTorment3": {
+				"xOffset": 263,
+				"yOffset": 474,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceTorment4": {
+				"xOffset": 190,
+				"yOffset": 474,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceTorment5": {
+				"xOffset": 117,
+				"yOffset": 474,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceTorment6": {
+				"xOffset": 44,
+				"yOffset": 474,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceFear1": {
+				"xOffset": 408,
+				"yOffset": 329,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceFear2": {
+				"xOffset": 335,
+				"yOffset": 329,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceFear3": {
+				"xOffset": 263,
+				"yOffset": 329,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceFear4": {
+				"xOffset": 190,
+				"yOffset": 329,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceFear5": {
+				"xOffset": 117,
+				"yOffset": 329,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceFear6": {
+				"xOffset": 44,
+				"yOffset": 329,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceSuffering1": {
+				"xOffset": 335,
+				"yOffset": 692,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceSuffering2": {
+				"xOffset": 263,
+				"yOffset": 692,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceSuffering3": {
+				"xOffset": 190,
+				"yOffset": 692,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceSuffering4": {
+				"xOffset": 117,
+				"yOffset": 692,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceSuffering5": {
+				"xOffset": 44,
+				"yOffset": 692,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceRage1": {
+				"xOffset": 335,
+				"yOffset": 619,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceRage2": {
+				"xOffset": 263,
+				"yOffset": 619,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceRage3": {
+				"xOffset": 190,
+				"yOffset": 619,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceRage4": {
+				"xOffset": 117,
+				"yOffset": 619,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceRage5": {
+				"xOffset": 44,
+				"yOffset": 618,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceWrath1": {
+				"xOffset": 335,
+				"yOffset": 764,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceWrath2": {
+				"xOffset": 263,
+				"yOffset": 764,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceWrath3": {
+				"xOffset": 190,
+				"yOffset": 764,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceWrath4": {
+				"xOffset": 117,
+				"yOffset": 764,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceWrath5": {
+				"xOffset": 44,
+				"yOffset": 764,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceDoubt1": {
+				"xOffset": 335,
+				"yOffset": 837,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceDoubt2": {
+				"xOffset": 263,
+				"yOffset": 837,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceDoubt3": {
+				"xOffset": 190,
+				"yOffset": 837,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceDoubt4": {
+				"xOffset": 117,
+				"yOffset": 837,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceDoubt5": {
+				"xOffset": 44,
+				"yOffset": 837,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceAnguish1": {
+				"xOffset": 613,
+				"yOffset": 182,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceAnguish2": {
+				"xOffset": 685,
+				"yOffset": 182,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceAnguish3": {
+				"xOffset": 760,
+				"yOffset": 182,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceAnguish4": {
+				"xOffset": 833,
+				"yOffset": 182,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceLoathing1": {
+				"xOffset": 613,
+				"yOffset": 38,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceLoathing2": {
+				"xOffset": 685,
+				"yOffset": 38,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceLoathing3": {
+				"xOffset": 760,
+				"yOffset": 38,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceLoathing4": {
+				"xOffset": 833,
+				"yOffset": 38,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceSpite1": {
+				"xOffset": 613,
+				"yOffset": 256,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceSpite2": {
+				"xOffset": 686,
+				"yOffset": 256,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceSpite3": {
+				"xOffset": 760,
+				"yOffset": 256,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceSpite4": {
+				"xOffset": 833,
+				"yOffset": 256,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceZeal1": {
+				"xOffset": 613,
+				"yOffset": 111,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceZeal2": {
+				"xOffset": 686,
+				"yOffset": 111,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceZeal3": {
+				"xOffset": 760,
+				"yOffset": 111,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceZeal4": {
+				"xOffset": 833,
+				"yOffset": 111,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceMisery1": {
+				"xOffset": 686,
+				"yOffset": 474,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceMisery2": {
+				"xOffset": 760,
+				"yOffset": 474,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceMisery3": {
+				"xOffset": 833,
+				"yOffset": 474,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceDread1": {
+				"xOffset": 686,
+				"yOffset": 547,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceDread2": {
+				"xOffset": 760,
+				"yOffset": 547,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceDread3": {
+				"xOffset": 833,
+				"yOffset": 547,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceScorn1": {
+				"xOffset": 686,
+				"yOffset": 329,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceScorn2": {
+				"xOffset": 760,
+				"yOffset": 329,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceScorn3": {
+				"xOffset": 833,
+				"yOffset": 329,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceEnvy1": {
+				"xOffset": 686,
+				"yOffset": 402,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceEnvy2": {
+				"xOffset": 760,
+				"yOffset": 402,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceEnvy3": {
+				"xOffset": 833,
+				"yOffset": 402,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceHysteria1": {
+				"xOffset": 833,
+				"yOffset": 838,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceInsanity1": {
+				"xOffset": 833,
+				"yOffset": 620,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceHorror1": {
+				"xOffset": 833,
+				"yOffset": 693,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceDelirium1": {
+				"xOffset": 833,
+				"yOffset": 765,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			}
+		},
+		"fragment-general": {
+			"CurrencyVaalFragment1_1": {
+				"xOffset": 198,
+				"yOffset": 96,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyVaalFragment1_2": {
+				"xOffset": 198,
+				"yOffset": 186,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyVaalFragment1_3": {
+				"xOffset": 111,
+				"yOffset": 186,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyVaalFragment1_4": {
+				"xOffset": 111,
+				"yOffset": 96,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyVaalFragment2_1": {
+				"xOffset": 758,
+				"yOffset": 96,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyVaalFragment2_2": {
+				"xOffset": 758,
+				"yOffset": 186,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyVaalFragment2_3": {
+				"xOffset": 671,
+				"yOffset": 186,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyVaalFragment2_4": {
+				"xOffset": 671,
+				"yOffset": 96,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyProphecyFragment1": {
+				"xOffset": 482,
+				"yOffset": 96,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"CurrencyProphecyFragment2": {
+				"xOffset": 482,
+				"yOffset": 186,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"CurrencyProphecyFragment3": {
+				"xOffset": 391,
+				"yOffset": 186,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"CurrencyProphecyFragment4": {
+				"xOffset": 391,
+				"yOffset": 96,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"CurrencyShaperFragment1": {
+				"xOffset": 482,
+				"yOffset": 648,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyShaperFragment2": {
+				"xOffset": 482,
+				"yOffset": 736,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyShaperFragment3": {
+				"xOffset": 391,
+				"yOffset": 736,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyShaperFragment4": {
+				"xOffset": 391,
+				"yOffset": 648,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyFragmentPantheonFlask": {
+				"xOffset": 147,
+				"yOffset": 553,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyOfferingToTheGoddess": {
+				"xOffset": 482,
+				"yOffset": 96,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyLegionFragmentKarui": {
+				"xOffset": 345,
+				"yOffset": 368,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyLegionFragmentMaraketh": {
+				"xOffset": 617,
+				"yOffset": 368,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyLegionFragmentEternal": {
+				"xOffset": 254,
+				"yOffset": 368,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyLegionFragmentTemplar": {
+				"xOffset": 527,
+				"yOffset": 368,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyLegionFragmentVaal": {
+				"xOffset": 437,
+				"yOffset": 368,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyLegionKaruiShard": {
+				"xOffset": 345,
+				"yOffset": 281,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyLegionMarakethShard": {
+				"xOffset": 617,
+				"yOffset": 281,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyLegionEternalEmpireShard": {
+				"xOffset": 254,
+				"yOffset": 281,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyLegionTemplarShard": {
+				"xOffset": 527,
+				"yOffset": 281,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyLegionVaalShard": {
+				"xOffset": 437,
+				"yOffset": 281,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyElderFragment1": {
+				"xOffset": 237,
+				"yOffset": 648,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyElderFragment2": {
+				"xOffset": 237,
+				"yOffset": 736,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyElderFragment3": {
+				"xOffset": 147,
+				"yOffset": 736,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyElderFragment4": {
+				"xOffset": 147,
+				"yOffset": 648,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyUberElderFragment1": {
+				"xOffset": 725,
+				"yOffset": 648,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyUberElderFragment2": {
+				"xOffset": 725,
+				"yOffset": 736,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyUberElderFragment3": {
+				"xOffset": 634,
+				"yOffset": 736,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyUberElderFragment4": {
+				"xOffset": 634,
+				"yOffset": 648,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyMavenKey": {
+				"xOffset": 725,
+				"yOffset": 368,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyMavenKeyFragment": {
+				"xOffset": 725,
+				"yOffset": 281,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyOfferingToTheGoddessDedication": {
+				"xOffset": 572,
+				"yOffset": 96,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyOfferingToTheGoddessGift": {
+				"xOffset": 482,
+				"yOffset": 186,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyOfferingToTheGoddessTribute": {
+				"xOffset": 572,
+				"yOffset": 186,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyRitualSplinter": {
+				"xOffset": 147,
+				"yOffset": 281,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyRitualStone": {
+				"xOffset": 147,
+				"yOffset": 368,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyHarvestBossKey": {
+				"xOffset": 725,
+				"yOffset": 553,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyLegionFragmentEternalUber": {
+				"xOffset": 254,
+				"yOffset": 456,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyLegionFragmentKaruiUber": {
+				"xOffset": 345,
+				"yOffset": 456,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyLegionFragmentVaalUber": {
+				"xOffset": 437,
+				"yOffset": 456,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyLegionFragmentTemplarUber": {
+				"xOffset": 527,
+				"yOffset": 456,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyLegionFragmentMarakethUber": {
+				"xOffset": 617,
+				"yOffset": 456,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencySirusFragment1": {
+				"xOffset": 385,
+				"yOffset": 96,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencySirusFragment2": {
+				"xOffset": 385,
+				"yOffset": 186,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencySirusFragment3": {
+				"xOffset": 295,
+				"yOffset": 186,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencySirusFragment4": {
+				"xOffset": 295,
+				"yOffset": 96,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyUberBossKeySirus": {
+				"xOffset": 27,
+				"yOffset": 831,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyUberBossKeyShaper": {
+				"xOffset": 117,
+				"yOffset": 831,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyUberBossKeyExarch": {
+				"xOffset": 209,
+				"yOffset": 831,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyUberBossKeyMaven": {
+				"xOffset": 300,
+				"yOffset": 831,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyUberBossKeyUberElder": {
+				"xOffset": 390,
+				"yOffset": 831,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyUberBossKeyEater": {
+				"xOffset": 480,
+				"yOffset": 831,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyUberBossKeyCortex": {
+				"xOffset": 572,
+				"yOffset": 831,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"RitualBossFragment": {
+				"xOffset": 147,
+				"yOffset": 456,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyFearKey": {
+				"xOffset": 320,
+				"yOffset": 553,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyIgnoranceKey": {
+				"xOffset": 435,
+				"yOffset": 553,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyBenevolenceKey": {
+				"xOffset": 551,
+				"yOffset": 553,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyUberBossKeyBenevolence": {
+				"xOffset": 844,
+				"yOffset": 831,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyUberBossKeyAnger": {
+				"xOffset": 753,
+				"yOffset": 831,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyUberBossKeyIgnorance": {
+				"xOffset": 662,
+				"yOffset": 831,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyBrequelBossKey": {
+				"xOffset": 725,
+				"yOffset": 456,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			}
+		},
+		"fragment-breach": {
+			"CurrencyBreachFragmentFire": {
+				"xOffset": 228,
+				"yOffset": 315,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"CurrencyBreachFragmentCold": {
+				"xOffset": 329,
+				"yOffset": 315,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"CurrencyBreachFragmentLightning": {
+				"xOffset": 430,
+				"yOffset": 315,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"CurrencyBreachFragmentPhysical": {
+				"xOffset": 532,
+				"yOffset": 315,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"CurrencyBreachFragmentChaos": {
+				"xOffset": 633,
+				"yOffset": 315,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"CurrencyBreachFireShard": {
+				"xOffset": 228,
+				"yOffset": 197,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"CurrencyBreachColdShard": {
+				"xOffset": 329,
+				"yOffset": 197,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"CurrencyBreachLightningShard": {
+				"xOffset": 430,
+				"yOffset": 197,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"CurrencyBreachPhysicalShard": {
+				"xOffset": 532,
+				"yOffset": 197,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"CurrencyBreachChaosShard": {
+				"xOffset": 633,
+				"yOffset": 197,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"CurrencyBreachFragmentFire2": {
+				"xOffset": 228,
+				"yOffset": 433,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"CurrencyBreachFragmentFire3": {
+				"xOffset": 228,
+				"yOffset": 551,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"CurrencyBreachFragmentFire4": {
+				"xOffset": 228,
+				"yOffset": 668,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"CurrencyBreachFragmentCold2": {
+				"xOffset": 329,
+				"yOffset": 433,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"CurrencyBreachFragmentCold3": {
+				"xOffset": 329,
+				"yOffset": 551,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"CurrencyBreachFragmentCold4": {
+				"xOffset": 329,
+				"yOffset": 668,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"CurrencyBreachFragmentLightning2": {
+				"xOffset": 430,
+				"yOffset": 433,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"CurrencyBreachFragmentLightning3": {
+				"xOffset": 430,
+				"yOffset": 551,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"CurrencyBreachFragmentLightning4": {
+				"xOffset": 430,
+				"yOffset": 668,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"CurrencyBreachFragmentPhysical2": {
+				"xOffset": 532,
+				"yOffset": 433,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"CurrencyBreachFragmentPhysical3": {
+				"xOffset": 532,
+				"yOffset": 551,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"CurrencyBreachFragmentPhysical4": {
+				"xOffset": 532,
+				"yOffset": 668,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"CurrencyBreachFragmentChaos2": {
+				"xOffset": 633,
+				"yOffset": 433,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"CurrencyBreachFragmentChaos3": {
+				"xOffset": 633,
+				"yOffset": 551,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"CurrencyBreachFragmentChaos4": {
+				"xOffset": 633,
+				"yOffset": 668,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"CurrencyBreachUpgradeUniqueFire": {
+				"xOffset": 228,
+				"yOffset": 78,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"CurrencyBreachUpgradeUniqueCold": {
+				"xOffset": 329,
+				"yOffset": 78,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"CurrencyBreachUpgradeUniqueLightning": {
+				"xOffset": 430,
+				"yOffset": 78,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"CurrencyBreachUpgradeUniquePhysical": {
+				"xOffset": 532,
+				"yOffset": 78,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"CurrencyBreachUpgradeUniqueChaos": {
+				"xOffset": 633,
+				"yOffset": 78,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"CurrencyBreachFragmentFire5": {
+				"xOffset": 228,
+				"yOffset": 785,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"CurrencyBreachFragmentCold5": {
+				"xOffset": 329,
+				"yOffset": 785,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"CurrencyBreachFragmentLightning5": {
+				"xOffset": 430,
+				"yOffset": 785,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"CurrencyBreachFragmentPhysical5": {
+				"xOffset": 532,
+				"yOffset": 785,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"CurrencyBreachFragmentChaos5": {
+				"xOffset": 633,
+				"yOffset": 785,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			}
+		},
+		"fragment-scarab": {
+			"ScarabBreach1": {
+				"xOffset": 491,
+				"yOffset": 677,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"ScarabBreach2": {
+				"xOffset": 592,
+				"yOffset": 677,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"ScarabBreach3": {
+				"xOffset": 693,
+				"yOffset": 677,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"ScarabMaps1": {
+				"xOffset": 491,
+				"yOffset": 287,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"ScarabMaps2": {
+				"xOffset": 592,
+				"yOffset": 287,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"ScarabMaps3": {
+				"xOffset": 693,
+				"yOffset": 287,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"ScarabUniques1": {
+				"xOffset": 68,
+				"yOffset": 186,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"ScarabUniques2": {
+				"xOffset": 169,
+				"yOffset": 186,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"ScarabUniques3": {
+				"xOffset": 270,
+				"yOffset": 186,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"ScarabBeasts1": {
+				"xOffset": 68,
+				"yOffset": 89,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"ScarabBeasts2": {
+				"xOffset": 169,
+				"yOffset": 89,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"ScarabBeasts3": {
+				"xOffset": 270,
+				"yOffset": 89,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"ScarabShaperRares1": {
+				"xOffset": 491,
+				"yOffset": 89,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"ScarabShaperRares2": {
+				"xOffset": 592,
+				"yOffset": 89,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"ScarabShaperRares3": {
+				"xOffset": 693,
+				"yOffset": 89,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"ScarabElderRares1": {
+				"xOffset": 491,
+				"yOffset": 482,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"ScarabElderRares2": {
+				"xOffset": 592,
+				"yOffset": 482,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"ScarabElderRares3": {
+				"xOffset": 693,
+				"yOffset": 482,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"ScarabSulphite1": {
+				"xOffset": 68,
+				"yOffset": 382,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"ScarabSulphite2": {
+				"xOffset": 169,
+				"yOffset": 382,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"ScarabSulphite3": {
+				"xOffset": 270,
+				"yOffset": 382,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"ScarabDivinationCards1": {
+				"xOffset": 491,
+				"yOffset": 579,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"ScarabDivinationCards2": {
+				"xOffset": 592,
+				"yOffset": 579,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"ScarabDivinationCards3": {
+				"xOffset": 693,
+				"yOffset": 579,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"ScarabTorment1": {
+				"xOffset": 68,
+				"yOffset": 284,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"ScarabTorment2": {
+				"xOffset": 169,
+				"yOffset": 284,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"ScarabTorment3": {
+				"xOffset": 270,
+				"yOffset": 284,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"ScarabStrongbox1": {
+				"xOffset": 68,
+				"yOffset": 675,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"ScarabStrongbox2": {
+				"xOffset": 169,
+				"yOffset": 675,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"ScarabStrongbox3": {
+				"xOffset": 270,
+				"yOffset": 675,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"ScarabHarbinger1": {
+				"xOffset": 491,
+				"yOffset": 384,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"ScarabHarbinger2": {
+				"xOffset": 592,
+				"yOffset": 384,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"ScarabHarbinger3": {
+				"xOffset": 693,
+				"yOffset": 384,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"ScarabPerandus1": {
+				"xOffset": 491,
+				"yOffset": 189,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"ScarabPerandus2": {
+				"xOffset": 592,
+				"yOffset": 189,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"ScarabPerandus3": {
+				"xOffset": 693,
+				"yOffset": 189,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"ScarabLegion1": {
+				"xOffset": 68,
+				"yOffset": 577,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"ScarabLegion2": {
+				"xOffset": 169,
+				"yOffset": 577,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"ScarabLegion3": {
+				"xOffset": 270,
+				"yOffset": 577,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"ScarabMetamorph1": {
+				"xOffset": 68,
+				"yOffset": 479,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"ScarabMetamorph2": {
+				"xOffset": 169,
+				"yOffset": 479,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"ScarabMetamorph3": {
+				"xOffset": 270,
+				"yOffset": 479,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"ScarabBlight1": {
+				"xOffset": 68,
+				"yOffset": 774,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"ScarabBlight2": {
+				"xOffset": 169,
+				"yOffset": 774,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"ScarabBlight3": {
+				"xOffset": 270,
+				"yOffset": 774,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"ScarabBlight4": {
+				"xOffset": 370,
+				"yOffset": 774,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"ScarabBreach4": {
+				"xOffset": 793,
+				"yOffset": 677,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"ScarabMaps4": {
+				"xOffset": 793,
+				"yOffset": 287,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"ScarabUniques4": {
+				"xOffset": 370,
+				"yOffset": 186,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"ScarabBeasts4": {
+				"xOffset": 370,
+				"yOffset": 89,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"ScarabShaperRares4": {
+				"xOffset": 793,
+				"yOffset": 89,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"ScarabElderRares4": {
+				"xOffset": 793,
+				"yOffset": 482,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"ScarabSulphite4": {
+				"xOffset": 370,
+				"yOffset": 382,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"ScarabDivinationCards4": {
+				"xOffset": 793,
+				"yOffset": 579,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"ScarabTorment4": {
+				"xOffset": 370,
+				"yOffset": 284,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"ScarabStrongbox4": {
+				"xOffset": 370,
+				"yOffset": 675,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"ScarabHarbinger4": {
+				"xOffset": 793,
+				"yOffset": 384,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"ScarabPerandus4": {
+				"xOffset": 793,
+				"yOffset": 189,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"ScarabLegion4": {
+				"xOffset": 370,
+				"yOffset": 577,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"ScarabMetamorph4": {
+				"xOffset": 370,
+				"yOffset": 479,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"ScarabAbyss1": {
+				"xOffset": 491,
+				"yOffset": 774,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"ScarabAbyss2": {
+				"xOffset": 592,
+				"yOffset": 774,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"ScarabAbyss3": {
+				"xOffset": 693,
+				"yOffset": 774,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"ScarabAbyss4": {
+				"xOffset": 793,
+				"yOffset": 774,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"ScarabBreachNew1": {
+				"xOffset": 420,
+				"yOffset": 360,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabBreachNew2": {
+				"xOffset": 720,
+				"yOffset": 360,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"ScarabBreachNew3": {
+				"xOffset": 480,
+				"yOffset": 360,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabBreachNew4": {
+				"xOffset": 540,
+				"yOffset": 360,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabBreachNew5": {
+				"xOffset": 600,
+				"yOffset": 360,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabMapsNew1": {
+				"xOffset": 60,
+				"yOffset": 80,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabMapsNew2": {
+				"xOffset": 120,
+				"yOffset": 80,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabMapsNew3": {
+				"xOffset": 300,
+				"yOffset": 80,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"ScarabMapsNew4": {
+				"xOffset": 240,
+				"yOffset": 80,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabMapsNew5": {
+				"xOffset": 180,
+				"yOffset": 80,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabUniquesNew1": {
+				"xOffset": 420,
+				"yOffset": 150,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabUniquesNew2": {
+				"xOffset": 480,
+				"yOffset": 150,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabUniquesNew3": {
+				"xOffset": 540,
+				"yOffset": 150,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabBeastsNew1": {
+				"xOffset": 60,
+				"yOffset": 220,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabBeastsNew2": {
+				"xOffset": 120,
+				"yOffset": 220,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabBeastsNew3": {
+				"xOffset": 180,
+				"yOffset": 220,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabBeastsNew4": {
+				"xOffset": 240,
+				"yOffset": 220,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"ScarabInfluenceNew1": {
+				"xOffset": 420,
+				"yOffset": 80,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabInfluenceNew2": {
+				"xOffset": 480,
+				"yOffset": 80,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabInfluenceNew3": {
+				"xOffset": 540,
+				"yOffset": 80,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabInfluenceNew4": {
+				"xOffset": 600,
+				"yOffset": 80,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabSulphiteNew1": {
+				"xOffset": 60,
+				"yOffset": 430,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabSulphiteNew2": {
+				"xOffset": 180,
+				"yOffset": 430,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"ScarabSulphiteNew3": {
+				"xOffset": 120,
+				"yOffset": 430,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabDivinationCardsNew1": {
+				"xOffset": 60,
+				"yOffset": 150,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabDivinationCardsNew2": {
+				"xOffset": 120,
+				"yOffset": 150,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabDivinationCardsNew3": {
+				"xOffset": 180,
+				"yOffset": 150,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabTormentNew1": {
+				"xOffset": 60,
+				"yOffset": 850,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabTormentNew2": {
+				"xOffset": 120,
+				"yOffset": 850,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabTormentNew3": {
+				"xOffset": 240,
+				"yOffset": 850,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"ScarabStrongboxNew1": {
+				"xOffset": 60,
+				"yOffset": 500,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabStrongboxNew2": {
+				"xOffset": 120,
+				"yOffset": 500,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabStrongboxNew3": {
+				"xOffset": 180,
+				"yOffset": 500,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabStrongboxNew4": {
+				"xOffset": 240,
+				"yOffset": 500,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabStrongboxNew5": {
+				"xOffset": 300,
+				"yOffset": 500,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabHarbingerNew1": {
+				"xOffset": 628,
+				"yOffset": 237,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"ScarabHarbingerNew2": {
+				"xOffset": 685,
+				"yOffset": 237,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"ScarabHarbingerNew3": {
+				"xOffset": 742,
+				"yOffset": 237,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"ScarabHarbingerNew4": {
+				"xOffset": 799,
+				"yOffset": 237,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"ScarabExpedition1": {
+				"xOffset": 420,
+				"yOffset": 500,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabExpedition2": {
+				"xOffset": 480,
+				"yOffset": 500,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabExpedition3": {
+				"xOffset": 540,
+				"yOffset": 500,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabExpedition4": {
+				"xOffset": 600,
+				"yOffset": 500,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabExpedition5": {
+				"xOffset": 660,
+				"yOffset": 500,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabLegionNew1": {
+				"xOffset": 420,
+				"yOffset": 710,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabLegionNew2": {
+				"xOffset": 480,
+				"yOffset": 710,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabLegionNew3": {
+				"xOffset": 540,
+				"yOffset": 710,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabLegionNew4": {
+				"xOffset": 660,
+				"yOffset": 710,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"ScarabLegionNew5": {
+				"xOffset": 600,
+				"yOffset": 710,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabAbyssNew1": {
+				"xOffset": 420,
+				"yOffset": 220,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabAbyssNew2": {
+				"xOffset": 480,
+				"yOffset": 220,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabAbyssNew3": {
+				"xOffset": 600,
+				"yOffset": 220,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabAbyssNew4": {
+				"xOffset": 540,
+				"yOffset": 220,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabAnarchy1": {
+				"xOffset": 60,
+				"yOffset": 570,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabAnarchy2": {
+				"xOffset": 120,
+				"yOffset": 570,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabAnarchy3": {
+				"xOffset": 180,
+				"yOffset": 570,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabEssence1": {
+				"xOffset": 60,
+				"yOffset": 780,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabEssence2": {
+				"xOffset": 120,
+				"yOffset": 780,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabEssence3": {
+				"xOffset": 180,
+				"yOffset": 780,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabEssence4": {
+				"xOffset": 240,
+				"yOffset": 780,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabDomination1": {
+				"xOffset": 60,
+				"yOffset": 710,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabDomination2": {
+				"xOffset": 120,
+				"yOffset": 710,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabDomination3": {
+				"xOffset": 180,
+				"yOffset": 710,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabDomination4": {
+				"xOffset": 240,
+				"yOffset": 710,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabRitual1": {
+				"xOffset": 420,
+				"yOffset": 780,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabRitual2": {
+				"xOffset": 480,
+				"yOffset": 780,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabRitual3": {
+				"xOffset": 540,
+				"yOffset": 780,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabHarvest1": {
+				"xOffset": 420,
+				"yOffset": 570,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabHarvest2": {
+				"xOffset": 480,
+				"yOffset": 570,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabHarvest3": {
+				"xOffset": 540,
+				"yOffset": 570,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabIncursion1": {
+				"xOffset": 60,
+				"yOffset": 360,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabIncursion2": {
+				"xOffset": 120,
+				"yOffset": 360,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabIncursion3": {
+				"xOffset": 180,
+				"yOffset": 360,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabIncursion4": {
+				"xOffset": 240,
+				"yOffset": 360,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabBetrayal1": {
+				"xOffset": 60,
+				"yOffset": 290,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabBetrayal2": {
+				"xOffset": 120,
+				"yOffset": 290,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabBetrayal3": {
+				"xOffset": 180,
+				"yOffset": 290,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabBetrayal4": {
+				"xOffset": 240,
+				"yOffset": 290,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabBeyond1": {
+				"xOffset": 60,
+				"yOffset": 640,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabBeyond3": {
+				"xOffset": 120,
+				"yOffset": 640,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabBeyond2": {
+				"xOffset": 300,
+				"yOffset": 640,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"ScarabBeyond4": {
+				"xOffset": 180,
+				"yOffset": 640,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabBeyond5": {
+				"xOffset": 240,
+				"yOffset": 640,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabUltimatum1": {
+				"xOffset": 420,
+				"yOffset": 850,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabUltimatum2": {
+				"xOffset": 480,
+				"yOffset": 850,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabUltimatum3": {
+				"xOffset": 540,
+				"yOffset": 850,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabUltimatum4": {
+				"xOffset": 600,
+				"yOffset": 850,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabUltimatum5": {
+				"xOffset": 660,
+				"yOffset": 850,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabDelirium1": {
+				"xOffset": 420,
+				"yOffset": 430,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabDelirium2": {
+				"xOffset": 480,
+				"yOffset": 430,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabDelirium3": {
+				"xOffset": 540,
+				"yOffset": 430,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabDelirium4": {
+				"xOffset": 600,
+				"yOffset": 430,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabDelirium5": {
+				"xOffset": 660,
+				"yOffset": 430,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabBlightNew1": {
+				"xOffset": 420,
+				"yOffset": 290,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabBlightNew2": {
+				"xOffset": 540,
+				"yOffset": 290,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"ScarabBlightNew3": {
+				"xOffset": 480,
+				"yOffset": 290,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabBlightNew4": {
+				"xOffset": 540,
+				"yOffset": 290,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabMisc1": {
+				"xOffset": 776,
+				"yOffset": 255,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabMisc2": {
+				"xOffset": 776,
+				"yOffset": 315,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabMisc3": {
+				"xOffset": 776,
+				"yOffset": 375,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabMisc4": {
+				"xOffset": 776,
+				"yOffset": 435,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"ScarabMisc5": {
+				"xOffset": 776,
+				"yOffset": 675,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabUber1": {
+				"xOffset": 846,
+				"yOffset": 285,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabUber2": {
+				"xOffset": 846,
+				"yOffset": 345,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabUber3": {
+				"xOffset": 846,
+				"yOffset": 405,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabUber4": {
+				"xOffset": 846,
+				"yOffset": 465,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabUber5": {
+				"xOffset": 846,
+				"yOffset": 525,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabUber6": {
+				"xOffset": 846,
+				"yOffset": 585,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabUber7": {
+				"xOffset": 846,
+				"yOffset": 645,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabTormentNew4": {
+				"xOffset": 180,
+				"yOffset": 850,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabMisc8": {
+				"xOffset": 776,
+				"yOffset": 555,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabMisc11": {
+				"xOffset": 776,
+				"yOffset": 615,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabBlightNew5": {
+				"xOffset": 600,
+				"yOffset": 290,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabAbyssNew5": {
+				"xOffset": 660,
+				"yOffset": 220,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabEssence5": {
+				"xOffset": 300,
+				"yOffset": 780,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabBreachNew6": {
+				"xOffset": 660,
+				"yOffset": 360,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabMisc9": {
+				"xOffset": 776,
+				"yOffset": 495,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabSettlers1": {
+				"xOffset": 420,
+				"yOffset": 640,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabSettlers2": {
+				"xOffset": 480,
+				"yOffset": 640,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabSettlers3": {
+				"xOffset": 540,
+				"yOffset": 640,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabAnarchy4": {
+				"xOffset": 240,
+				"yOffset": 570,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabSettlers4": {
+				"xOffset": 600,
+				"yOffset": 640,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabRitual4": {
+				"xOffset": 600,
+				"yOffset": 780,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabMisc10": {
+				"xOffset": 776,
+				"yOffset": 435,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			}
+		},
+		"delve": {
+			"CurrencyDelveCraftingFire": {
+				"xOffset": 530,
+				"yOffset": 75,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyDelveCraftingCold": {
+				"xOffset": 334,
+				"yOffset": 75,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyDelveCraftingLightning": {
+				"xOffset": 629,
+				"yOffset": 75,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyDelveCraftingPhysical": {
+				"xOffset": 137,
+				"yOffset": 75,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyDelveCraftingChaos": {
+				"xOffset": 432,
+				"yOffset": 75,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyDelveCraftingLife": {
+				"xOffset": 727,
+				"yOffset": 75,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyDelveCraftingDefences": {
+				"xOffset": 235,
+				"yOffset": 75,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyDelveCraftingBleedPoison": {
+				"xOffset": 138,
+				"yOffset": 173,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyDelveCraftingElemental": {
+				"xOffset": 334,
+				"yOffset": 173,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyDelveCraftingCasterMods": {
+				"xOffset": 530,
+				"yOffset": 173,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyDelveCraftingAttackMods": {
+				"xOffset": 727,
+				"yOffset": 173,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyDelveCraftingMana": {
+				"xOffset": 629,
+				"yOffset": 173,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyDelveCraftingSpeed": {
+				"xOffset": 825,
+				"yOffset": 173,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyDelveCraftingMinionsAuras": {
+				"xOffset": 39,
+				"yOffset": 173,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyDelveCraftingQuality": {
+				"xOffset": 236,
+				"yOffset": 173,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyDelveCraftingEnchant": {
+				"xOffset": 432,
+				"yOffset": 173,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyDelveCraftingSockets": {
+				"xOffset": 432,
+				"yOffset": 271,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyDelveCraftingGemLevel": {
+				"xOffset": 727,
+				"yOffset": 369,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyDelveCraftingVaal": {
+				"xOffset": 185,
+				"yOffset": 271,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyDelveCraftingAbyss": {
+				"xOffset": 678,
+				"yOffset": 271,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyDelveCraftingMirror": {
+				"xOffset": 776,
+				"yOffset": 271,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyDelveCraftingCorruptEssence": {
+				"xOffset": 137,
+				"yOffset": 369,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyDelveCraftingRandom": {
+				"xOffset": 87,
+				"yOffset": 271,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyDelveCraftingLuckyModRolls": {
+				"xOffset": 530,
+				"yOffset": 271,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyDelveCraftingSellPrice": {
+				"xOffset": 333,
+				"yOffset": 271,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"DelveStackableSocketableCurrencyUpgrade1": {
+				"xOffset": 0,
+				"yOffset": 462,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"DelveStackableSocketableCurrencyUpgrade2": {
+				"xOffset": 0,
+				"yOffset": 576,
+				"width": 1,
+				"height": 2,
+				"showIfEmpty": false
+			},
+			"DelveStackableSocketableCurrencyUpgrade3": {
+				"xOffset": 108,
+				"yOffset": 500,
+				"width": 2,
+				"height": 2,
+				"showIfEmpty": false
+			},
+			"DelveStackableSocketableCurrencyUpgrade4": {
+				"xOffset": 640,
+				"yOffset": 500,
+				"width": 2,
+				"height": 2,
+				"showIfEmpty": false
+			},
+			"DelveStackableSocketableCurrencyReroll1": {
+				"xOffset": 223,
+				"yOffset": 746,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"DelveStackableSocketableCurrencyReroll2": {
+				"xOffset": 323,
+				"yOffset": 721,
+				"width": 1,
+				"height": 2,
+				"showIfEmpty": true
+			},
+			"DelveStackableSocketableCurrencyReroll3": {
+				"xOffset": 422,
+				"yOffset": 721,
+				"width": 2,
+				"height": 2,
+				"showIfEmpty": true
+			},
+			"DelveStackableSocketableCurrencyReroll4": {
+				"xOffset": 578,
+				"yOffset": 721,
+				"width": 2,
+				"height": 2,
+				"showIfEmpty": true
+			}
+		},
+		"blight": {
+			"Mushrune1": {
+				"xOffset": 50,
+				"yOffset": 45,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"Mushrune2": {
+				"xOffset": 140,
+				"yOffset": 45,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"Mushrune3": {
+				"xOffset": 234,
+				"yOffset": 45,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"Mushrune4": {
+				"xOffset": 327,
+				"yOffset": 45,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"Mushrune5": {
+				"xOffset": 419,
+				"yOffset": 45,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"Mushrune6": {
+				"xOffset": 511,
+				"yOffset": 45,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"Mushrune6b": {
+				"xOffset": 605,
+				"yOffset": 45,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"Mushrune7": {
+				"xOffset": 97,
+				"yOffset": 126,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"Mushrune8": {
+				"xOffset": 188,
+				"yOffset": 126,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"Mushrune9": {
+				"xOffset": 280,
+				"yOffset": 126,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"Mushrune10": {
+				"xOffset": 373,
+				"yOffset": 126,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"Mushrune11": {
+				"xOffset": 466,
+				"yOffset": 126,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"Mushrune12": {
+				"xOffset": 559,
+				"yOffset": 126,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"MushruneCorrupt": {
+				"xOffset": 732,
+				"yOffset": 45,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyExtractOil": {
+				"xOffset": 827,
+				"yOffset": 45,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"MushruneMirror": {
+				"xOffset": 732,
+				"yOffset": 130,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"MushruneUber": {
+				"xOffset": 827,
+				"yOffset": 130,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			}
+		},
+		"metamorph": {
+			"CurrencyJewelleryQualityAttack": {
+				"xOffset": 285,
+				"yOffset": 153,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyJewelleryQualityDefense": {
+				"xOffset": 383,
+				"yOffset": 153,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyJewelleryQualityResource": {
+				"xOffset": 481,
+				"yOffset": 153,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyJewelleryQualityElemental": {
+				"xOffset": 203,
+				"yOffset": 261,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyJewelleryQualityCaster": {
+				"xOffset": 302,
+				"yOffset": 261,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyJewelleryQualityResistance": {
+				"xOffset": 563,
+				"yOffset": 261,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyJewelleryQualityAttribute": {
+				"xOffset": 659,
+				"yOffset": 261,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyJewelleryQualityVaal": {
+				"xOffset": 433,
+				"yOffset": 52,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyJewelleryQualityCritical": {
+				"xOffset": 107,
+				"yOffset": 261,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyJewelleryQualitySpeed": {
+				"xOffset": 579,
+				"yOffset": 153,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyJewelleryQualityPhysicalChaos": {
+				"xOffset": 756,
+				"yOffset": 261,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			}
+		},
+		"delirium": {
+			"CurrencyAfflictionOrbCurrency": {
+				"xOffset": 59,
+				"yOffset": 44,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyAfflictionOrbUniques": {
+				"xOffset": 59,
+				"yOffset": 143,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyAfflictionOrbGems": {
+				"xOffset": 59,
+				"yOffset": 246,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyAfflictionOrbWeapons": {
+				"xOffset": 59,
+				"yOffset": 348,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyAfflictionOrbArmour": {
+				"xOffset": 806,
+				"yOffset": 143,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyAfflictionOrbMaps": {
+				"xOffset": 161,
+				"yOffset": 143,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyAfflictionOrbTrinkets": {
+				"xOffset": 161,
+				"yOffset": 246,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyAfflictionOrbAbyss": {
+				"xOffset": 161,
+				"yOffset": 348,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyAfflictionOrbPerandus": {
+				"xOffset": 161,
+				"yOffset": 450,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"CurrencyAfflictionOrbHarbinger": {
+				"xOffset": 262,
+				"yOffset": 450,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"CurrencyAfflictionOrbBreach": {
+				"xOffset": 605,
+				"yOffset": 450,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"CurrencyAfflictionShard": {
+				"xOffset": 306,
+				"yOffset": 67,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyAfflictionFragment": {
+				"xOffset": 561,
+				"yOffset": 67,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyAfflictionOrbEssences": {
+				"xOffset": 705,
+				"yOffset": 246,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyAfflictionOrbFragments": {
+				"xOffset": 262,
+				"yOffset": 246,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyAfflictionOrbScarabs": {
+				"xOffset": 705,
+				"yOffset": 143,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyAfflictionOrbFossils": {
+				"xOffset": 605,
+				"yOffset": 246,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"CurrencyAfflictionOrbProphecies": {
+				"xOffset": 705,
+				"yOffset": 450,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"CurrencyAfflictionOrbDivinationCards": {
+				"xOffset": 705,
+				"yOffset": 348,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyAfflictionOrbTalismans": {
+				"xOffset": 806,
+				"yOffset": 44,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyAfflictionOrbLabyrinth": {
+				"xOffset": 59,
+				"yOffset": 450,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"CurrencyAfflictionOrbIncubators": {
+				"xOffset": 806,
+				"yOffset": 246,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyAfflictionOrbMetamorphosis": {
+				"xOffset": 806,
+				"yOffset": 450,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"CurrencyAfflictionOrbBlight": {
+				"xOffset": 806,
+				"yOffset": 348,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			}
+		}
+	}
+}

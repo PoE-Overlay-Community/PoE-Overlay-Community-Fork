@@ -7,6 +7,7 @@
 - Replaced the 'online/offline' trade status option with more options related to 'instant buyout' and 'in person' trades
 - Fixed exchange rate retrieval for Reliquary Keys
 - Changed default value of 'is fractured' search to 'no' (instead of 'yes'), regardless of these being a fractured stat or not
+- Added additional stash grid overlays for specialized tabs which also show exchange rates
 
 ## 0.8.40 (2026-03-13)
 

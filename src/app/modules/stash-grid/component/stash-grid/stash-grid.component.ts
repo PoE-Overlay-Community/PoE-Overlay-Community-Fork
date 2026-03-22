@@ -12,21 +12,41 @@ import { ColorUtils, EnumValues } from '@app/class'
 import { MouseService, ShortcutService } from '@app/service/input'
 import { Rectangle, VisibleFlag } from '@app/type'
 import { environment } from '@env/environment'
+import { UserSettings } from '@layout/type'
+import { StashTabLayoutProvider } from '@shared/module/poe/provider/stash-tab-layout.provider'
+import { ItemExchangeRateService } from '@shared/module/poe/service'
+import { CurrencyService } from '@shared/module/poe/service/currency/currency.service'
 import { StashGridService } from '@shared/module/poe/service/stash-grid/stash-grid.service'
+import { Currency, ItemCategory } from '@shared/module/poe/type'
 import {
-    StashGridMode, StashGridOptions, StashGridType, StashGridUserSettings, STASH_TAB_CELL_COUNT_MAP
+    StashGridMode, StashGridOptions, StashGridType, StashGridUserSettings, STASH_GRID_TYPE_TO_ITEM_CATEGORY_MAP, STASH_TAB_CELL_COUNT_MAP
 } from '@shared/module/poe/type/stash-grid.type'
-import { BehaviorSubject, of, Subscription } from 'rxjs'
-import { delay, map, tap } from 'rxjs/operators'
+import { BehaviorSubject, forkJoin, of, Subscription } from 'rxjs'
+import { delay, map, switchMap, tap } from 'rxjs/operators'
+import { EvaluateUserSettings } from '../../../evaluate/component/evaluate-settings/evaluate-settings.component'
 
 const stashGridCompRef = 'stash-grid'
 
 interface CellData {
+  regular?: RegularCellData
+  static?: StaticCellData
+}
+
+interface RegularCellData {
   highlight: boolean
   marked: boolean
   bgColor: string
   lineColor: string
-  markedTextColor: string,
+  markedTextColor: string
+}
+
+interface StaticCellData {
+  xOffset: number
+  yOffset: number
+  width: number
+  height: number
+  priceCurrency?: Currency
+  priceValue?: number
 }
 
 @Component({
@@ -42,6 +62,7 @@ export class StashGridComponent implements OnInit, OnDestroy, OnChanges {
 
   public readonly ColorUtils = ColorUtils
   public readonly StashGridMode = StashGridMode
+  public readonly StashGridType = StashGridType
 
   public readonly stashGridOptions$ = new BehaviorSubject<StashGridOptions>(undefined)
 
@@ -49,6 +70,7 @@ export class StashGridComponent implements OnInit, OnDestroy, OnChanges {
   public gridBounds: Rectangle
   public cellArray: number[]
   public cellData: CellData[][]
+  public cellScale: number
   public fontRatio: number
 
   public get settings(): StashGridUserSettings {
@@ -66,8 +88,11 @@ export class StashGridComponent implements OnInit, OnDestroy, OnChanges {
   constructor(
     private readonly ref: ChangeDetectorRef,
     private readonly stashGridService: StashGridService,
+    private readonly stashGridLayoutProvider: StashTabLayoutProvider,
     private readonly shortcutService: ShortcutService,
     private readonly mouse: MouseService,
+    private readonly itemExchangeRateService: ItemExchangeRateService,
+    private readonly currencyService: CurrencyService,
   ) {
   }
 
@@ -242,11 +267,13 @@ export class StashGridComponent implements OnInit, OnDestroy, OnChanges {
         const colData: CellData[] = []
         for (let col = 0; col < cellCount; col++) {
           colData.push({
-            highlight: false,
-            marked: false,
-            bgColor: normalBGColor,
-            lineColor: normalLineColor,
-            markedTextColor: markedTextColor,
+            regular: {
+              highlight: false,
+              marked: false,
+              bgColor: normalBGColor,
+              lineColor: normalLineColor,
+              markedTextColor: markedTextColor,
+            },
           })
         }
         this.cellData.push(colData)
@@ -259,7 +286,7 @@ export class StashGridComponent implements OnInit, OnDestroy, OnChanges {
         const cellData = this.cellData[row][col]
         if (highlightLocations) {
           if (updateHighlighted) {
-            cellData.highlight = highlightLocations.bounds.some(bounds => {
+            cellData.regular.highlight = highlightLocations.bounds.some(bounds => {
               return (
                 colIndex >= bounds.x &&
                 colIndex < bounds.x + bounds.width &&
@@ -268,15 +295,15 @@ export class StashGridComponent implements OnInit, OnDestroy, OnChanges {
               )
             })
           }
-          cellData.marked = (
-            cellData.highlight &&
+          cellData.regular.marked = (
+            cellData.regular.highlight &&
             colIndex >= markedBounds.x &&
             colIndex < markedBounds.x + markedBounds.width &&
             rowIndex >= markedBounds.y &&
             rowIndex < markedBounds.y + markedBounds.height
           )
-          cellData.bgColor = cellData.highlight ? highlightBGColor : normalBGColor
-          cellData.lineColor = cellData.highlight ? highlightLineColor : normalLineColor
+          cellData.regular.bgColor = cellData.regular.highlight ? highlightBGColor : normalBGColor
+          cellData.regular.lineColor = cellData.regular.highlight ? highlightLineColor : normalLineColor
         }
       }
     }
@@ -286,16 +313,76 @@ export class StashGridComponent implements OnInit, OnDestroy, OnChanges {
     if (stashGridOptions) {
       this.visible = true
       this.markedBoundsIndex = 0
-      const cellCount = STASH_TAB_CELL_COUNT_MAP[stashGridOptions.gridType]
-      this.cellArray = this.createArray(cellCount)
-      this.updateCellData(stashGridOptions, true, true)
-      this.fontRatio = STASH_TAB_CELL_COUNT_MAP[StashGridType.Quad] / cellCount
-      this.gridBounds = stashGridOptions.gridBounds ||
-        (stashGridOptions.settings || this.globalSettings).stashGridBounds[stashGridOptions.gridType] || {
-        x: 16,
-        y: 134,
-        width: 624,
-        height: 624,
+      switch (stashGridOptions.gridType) {
+        case StashGridType.Normal:
+        case StashGridType.Quad:
+          const cellCount = STASH_TAB_CELL_COUNT_MAP[stashGridOptions.gridType]
+          this.cellArray = this.createArray(cellCount)
+          this.updateCellData(stashGridOptions, true, true)
+          this.fontRatio = STASH_TAB_CELL_COUNT_MAP[StashGridType.Quad] / cellCount
+          this.cellScale = 1
+          this.gridBounds = stashGridOptions.gridBounds ||
+            (stashGridOptions.settings || this.globalSettings).stashGridBounds[stashGridOptions.gridType] || {
+            x: 16,
+            y: 134,
+            width: 624,
+            height: 624,
+          }
+          break
+
+        default:
+          const stashTabLayoutMap = this.stashGridLayoutProvider.provide(stashGridOptions.gridType)
+          if (!stashTabLayoutMap) {
+            return
+          }
+          const baseItemTypeIds = Object.getOwnPropertyNames(stashTabLayoutMap).filter(x => stashTabLayoutMap[x].showIfEmpty)
+          this.cellArray = this.createArray(baseItemTypeIds.length)
+          this.cellData = []
+          this.cellData.push(baseItemTypeIds.map(baseItemTypeId => {
+            const layout = stashTabLayoutMap[baseItemTypeId]
+            let cellData: CellData = {
+              static: {
+                xOffset: layout.xOffset * 2 / 3,
+                yOffset: layout.yOffset * 2 / 3,
+                width: layout.width * 52,
+                height: layout.height * 52,
+              }
+            }
+            const evaluateSettings = (((stashGridOptions.settings || this.globalSettings) as UserSettings) as EvaluateUserSettings)
+            forkJoin(evaluateSettings.evaluateCurrencyIds.map((id) =>
+              this.currencyService.searchById(id)
+            )).pipe(switchMap(currencies => {
+              return this.itemExchangeRateService.get({
+                typeId: baseItemTypeId,
+                category: STASH_GRID_TYPE_TO_ITEM_CATEGORY_MAP[stashGridOptions.gridType],
+              }, currencies, evaluateSettings.evaluateUseCurrencyExchangeData, (stashGridOptions.settings || this.globalSettings).leagueId)
+            })).subscribe(exchangeRateResult => {
+              if (exchangeRateResult && exchangeRateResult.currency && exchangeRateResult.amount) {
+                cellData.static.priceCurrency = exchangeRateResult.currency
+                cellData.static.priceValue = exchangeRateResult.amount
+                this.ref.detectChanges()
+              }
+            })
+            return cellData
+          }))
+          switch (stashGridOptions.gridType) {
+            case StashGridType.FragmentScarab:
+              this.cellScale = 0.7
+              break
+
+            default:
+              this.cellScale = 1
+              break
+          }
+          this.fontRatio = 1
+          this.gridBounds = stashGridOptions.gridBounds ||
+            (stashGridOptions.settings || this.globalSettings).stashGridBounds[stashGridOptions.gridType] || {
+            x: 16,
+            y: 134,
+            width: 624,
+            height: 624,
+          }
+          break
       }
       this.enableShortcuts()
     } else {

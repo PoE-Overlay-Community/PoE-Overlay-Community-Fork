@@ -63,12 +63,23 @@ export class StashGridSettingsComponent implements UserSettingsComponent {
   }
 
   public onPreviewStashGridClick(gridType: StashGridType): void {
+    let tabName: string
+    switch (gridType) {
+      case StashGridType.Normal:
+      case StashGridType.Quad:
+        tabName = "[Tab Name]"
+        break
+      default:
+        tabName = this.translate.get("stash-grid.stash-grid-name." + StashGridType[gridType].toLowerCase())
+        break
+    }
+
     const options: StashGridOptions = {
       gridMode: StashGridMode.Preview,
       gridType,
       gridBounds: this.settings.stashGridBounds[gridType],
       highlightLocation: {
-        tabName: '[Tab Name]',
+        tabName,
         bounds: [{
           x: 6,
           y: 3,
