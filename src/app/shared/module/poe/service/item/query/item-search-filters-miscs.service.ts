@@ -124,11 +124,15 @@ export class ItemSearchFiltersMiscsService implements ItemSearchFiltersService {
   }
 
   private mapInfluences(item: Item, query: Query): void {
-    if (!item.influences) {
+    const influences = item?.influences;
+
+    query.filters.misc_filters.filters.fractured_item = {
+      option: `${!!influences?.fractured}`,
+    };
+
+    if (!influences) {
       return
     }
-
-    const influences = item.influences
 
     if (influences.shaper) {
       this.addPseudoStatToAndGroup(query, 'pseudo_has_shaper_influence')
@@ -149,11 +153,6 @@ export class ItemSearchFiltersMiscsService implements ItemSearchFiltersService {
       this.addPseudoStatToAndGroup(query, 'pseudo_has_warlord_influence')
     }
 
-    if (influences.fractured) {
-      query.filters.misc_filters.filters.fractured_item = {
-        option: `${influences.fractured}`,
-      }
-    }
     if (influences.synthesised) {
       query.filters.misc_filters.filters.synthesised_item = {
         option: `${influences.synthesised}`,
