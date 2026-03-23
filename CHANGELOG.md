@@ -1,6 +1,6 @@
 # Changelog
 
-## TBD
+## 0.8.41 (2026-03-23)
 
 - Added the (missing) 'prismatic oil' icon
 - Changed the Settings Menu Login url from '/login/email' to '/login' and added a custom polyfill to make the login page buttons work
