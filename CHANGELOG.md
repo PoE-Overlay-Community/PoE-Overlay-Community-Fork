@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.8.42 (2026-03-28)
+
+- Updated the PoE Assets using PoE Asset Updater (commit 1088d9a) and PoE Client v3.28.0e
+- Fixed a crash related to child browser windows (e.g. when logging in using the settings menu)
+- Fixed incorrect fractured price checking when selecting a fractured stats without selecting 'fractured item'
+
 ## 0.8.41 (2026-03-23)
 
 - Added the (missing) 'prismatic oil' icon
