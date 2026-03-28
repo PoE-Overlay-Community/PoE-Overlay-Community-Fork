@@ -74,8 +74,10 @@ applyPolyfill();
     }
 
     parent.setEnabled(false)
-    win.once('closed', () => {
+    win.once('close', () => {
       win.webContents.removeListener('dom-ready', domReadyFunc)
+    })
+    win.once('closed', () => {
       parent.setEnabled(true)
       parent.moveTop()
       subject.next()
