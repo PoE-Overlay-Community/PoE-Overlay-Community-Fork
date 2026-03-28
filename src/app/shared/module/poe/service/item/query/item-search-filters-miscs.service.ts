@@ -53,7 +53,7 @@ export class ItemSearchFiltersMiscsService implements ItemSearchFiltersService {
     if (item.imbued) {
       query.filters.misc_filters.filters.gem_imbued = {
         option: `${!!item.imbued}`,
-      };
+      }
     }
 
     this.mapInfluences(item, query)
@@ -108,7 +108,7 @@ export class ItemSearchFiltersMiscsService implements ItemSearchFiltersService {
       query.filters.misc_filters.filters.memory_level = {
         min: prop.memoryStrands.value.min,
         max: prop.memoryStrands.value.max,
-      };
+      }
     }
   }
 
@@ -124,11 +124,11 @@ export class ItemSearchFiltersMiscsService implements ItemSearchFiltersService {
   }
 
   private mapInfluences(item: Item, query: Query): void {
-    const influences = item?.influences;
+    const influences = item?.influences
 
     query.filters.misc_filters.filters.fractured_item = {
-      option: `${!!influences?.fractured}`,
-    };
+      option: `${!!influences?.fractured || item?.stats?.some(x => x.type === StatType.Fractured)}`,
+    }
 
     if (!influences) {
       return
