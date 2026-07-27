@@ -36,7 +36,7 @@ describe('ItemExchangeRateService', () => {
 
     currencyService
       .searchById('chaos')
-      .pipe(mergeMap((chaos) => sut.get(item, [chaos])))
+      .pipe(mergeMap((chaos) => sut.get(item, [chaos], false)))
       .subscribe(
         (result) => {
           expect(result).toBeTruthy()

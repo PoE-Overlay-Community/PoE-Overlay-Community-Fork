@@ -8,7 +8,7 @@ import { StatsProvider } from '@shared/module/poe/provider/stats.provider'
 import { StatsService } from '@shared/module/poe/service'
 import { CurrencyService } from '@shared/module/poe/service/currency/currency.service'
 import { Currency, Language, StatType } from '@shared/module/poe/type'
-import { ItemSearchIndexed } from '@shared/module/poe/type/search.type'
+import { ItemSearchIndexed, ItemSearchStatus } from '@shared/module/poe/type/search.type'
 import { BehaviorSubject } from 'rxjs'
 import { UserSettings, UserSettingsComponent } from 'src/app/layout/type'
 
@@ -47,7 +47,7 @@ export interface EvaluateUserSettings extends UserSettings {
   evaluateQueryDefaultStatsEnchants: boolean
   evaluateQueryDefaultStatsModIcon: boolean
   evaluateQueryPostProcessClusterJewels: boolean
-  evaluateQueryOnline: boolean
+  evaluateQueryStatus: ItemSearchStatus
   evaluateQueryIndexedRange: ItemSearchIndexed
   evaluateModifierMinRange: number
   evaluateModifierMaxRange: number
@@ -60,6 +60,7 @@ export interface EvaluateUserSettings extends UserSettings {
   evaluateCopyAdvancedItemText: boolean
   evaluateShowPricePrediction: boolean
   evaluateShowExchangeRate: boolean
+  evaluateUseCurrencyExchangeData: boolean
 }
 
 export const EVALUATE_QUERY_DEBOUNCE_TIME_MAX = 100
@@ -215,6 +216,7 @@ export class EvaluateSettingsComponent implements UserSettingsComponent {
       StatType.Scourge,
       StatType.Crucible,
       StatType.Sanctum,
+      StatType.Imbued,
     ]
     types.forEach((type) => {
       const stats = this.statsProvider.provide(type)

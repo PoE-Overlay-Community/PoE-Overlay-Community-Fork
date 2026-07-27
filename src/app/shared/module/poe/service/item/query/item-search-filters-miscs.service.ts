@@ -50,6 +50,12 @@ export class ItemSearchFiltersMiscsService implements ItemSearchFiltersService {
       }
     }
 
+    if (item.imbued) {
+      query.filters.misc_filters.filters.gem_imbued = {
+        option: `${!!item.imbued}`,
+      }
+    }
+
     this.mapInfluences(item, query)
 
     if (!item.properties) {
@@ -102,7 +108,7 @@ export class ItemSearchFiltersMiscsService implements ItemSearchFiltersService {
       query.filters.misc_filters.filters.memory_level = {
         min: prop.memoryStrands.value.min,
         max: prop.memoryStrands.value.max,
-      };
+      }
     }
   }
 
@@ -118,11 +124,15 @@ export class ItemSearchFiltersMiscsService implements ItemSearchFiltersService {
   }
 
   private mapInfluences(item: Item, query: Query): void {
-    if (!item.influences) {
-      return
+    const influences = item?.influences
+
+    query.filters.misc_filters.filters.fractured_item = {
+      option: `${!!influences?.fractured || item?.stats?.some(x => x?.type === StatType.Fractured)}`,
     }
 
-    const influences = item.influences
+    if (!influences) {
+      return
+    }
 
     if (influences.shaper) {
       this.addPseudoStatToAndGroup(query, 'pseudo_has_shaper_influence')
@@ -143,11 +153,6 @@ export class ItemSearchFiltersMiscsService implements ItemSearchFiltersService {
       this.addPseudoStatToAndGroup(query, 'pseudo_has_warlord_influence')
     }
 
-    if (influences.fractured) {
-      query.filters.misc_filters.filters.fractured_item = {
-        option: `${influences.fractured}`,
-      }
-    }
     if (influences.synthesised) {
       query.filters.misc_filters.filters.synthesised_item = {
         option: `${influences.synthesised}`,

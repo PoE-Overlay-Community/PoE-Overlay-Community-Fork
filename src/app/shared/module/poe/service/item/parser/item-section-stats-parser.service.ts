@@ -35,6 +35,11 @@ export class ItemSectionStatsParserService implements ItemSectionParserService {
           break
         }
         return null
+      case ItemRarity.Gem:
+        if (target.imbued) {
+          break
+        }
+        return null
       default:
         return null
     }
@@ -53,6 +58,7 @@ export class ItemSectionStatsParserService implements ItemSectionParserService {
     const options: StatsSearchOptions = {
       ultimatum: item.typeId === 'ItemisedTrial' || item.typeId === 'MapWorldsTrialmaster',
       sanctum: item.category === ItemCategory.SanctumRelic || item.category === ItemCategory.SanctumResearch,
+      imbued: item.imbued,
       map: item.category === ItemCategory.Map,
       critical_strike_chance___: true,
     }

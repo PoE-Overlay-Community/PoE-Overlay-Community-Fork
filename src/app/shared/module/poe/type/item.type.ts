@@ -20,6 +20,7 @@ export interface Item {
   blightRavaged?: boolean
   relic?: boolean
   foulborn?: boolean
+  imbued?: boolean
   damage?: ItemWeaponDamage
   sockets?: ItemSocket[]
   properties?: ItemProperties
@@ -119,6 +120,7 @@ export enum ItemCategory {
   SanctumRelic = 'sanctum.relic',
   Tincture = "tincture",
   Corpse = "corpse",
+  NecropolisPack = "necropolis.pack",
   Idol = "idol",
   Graft = "graft",
   Wombgift = "wombgift",
@@ -132,7 +134,6 @@ export enum ItemCategory {
   CurrencyTattoo = 'currency.tattoo',
 
   // Deprecated (due to previous league mechanics not going core or being removed)
-  NecropolisPack = "necropolis.pack",
   AzmeriTincture = "azmeri.tincture",
   AzmeriCharm = "azmeri.charm",
   AzmeriCorpse = "azmeri.corpse",
@@ -381,6 +382,7 @@ export enum ItemSection {
   Relic,
   Incursion,
   Heist,
+  Imbued,
 }
 
 export interface ItemSectionParserService {

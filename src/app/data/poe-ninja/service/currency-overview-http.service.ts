@@ -5,10 +5,16 @@ import { environment } from '@env/environment'
 import { Observable, of, throwError } from 'rxjs'
 import { delay, mergeMap, retryWhen } from 'rxjs/operators'
 import { CurrencyOverviewResponse } from '../schema/currency-overview'
+import { ItemOverviewType } from '@data/poe-ninja/schema/item-overview'
 
 export enum CurrencyOverviewType {
   Currency = 'Currency',
   Fragment = 'Fragment',
+}
+
+export const CURRENCY_TO_ITEM_OVERVIEW_MAP = {
+  [CurrencyOverviewType.Currency]: ItemOverviewType.Currency,
+  [CurrencyOverviewType.Fragment]: ItemOverviewType.Fragment,
 }
 
 const PATH_TYPE_MAP = {
@@ -30,7 +36,7 @@ export class CurrencyOverviewHttpService {
     private readonly browser: BrowserService,
     private readonly logger: LoggerService
   ) {
-    this.baseUrl = `${environment.poeNinja.baseUrl}/api/data/currencyoverview`
+    this.baseUrl = `${environment.poeNinja.baseUrl}/poe1/api/economy/stash/current/currency/overview`
   }
 
   public get(leagueId: string, type: CurrencyOverviewType): Observable<CurrencyOverviewResponse> {

@@ -8,12 +8,12 @@ import {
 } from '@angular/core'
 import { LeaguesService } from '@shared/module/poe/service'
 import { League } from '@shared/module/poe/type'
-import { ItemSearchIndexed } from '@shared/module/poe/type/search.type'
-import { BehaviorSubject, Observable } from 'rxjs'
+import { ItemSearchIndexed, ItemSearchStatus } from '@shared/module/poe/type/search.type'
+import { Observable } from 'rxjs'
 import { map } from 'rxjs/operators'
 
 export interface EvaluateOptions {
-  online: boolean
+  status: ItemSearchStatus
   indexed: ItemSearchIndexed
   leagueId: string
   fetchCount: number
@@ -86,6 +86,29 @@ export class EvaluateOptionsComponent implements OnInit {
     this.optionsChange.emit(this.options)
   }
 
+  public onStatusWheel(event: WheelEvent): void {
+    const factor = event.deltaY > 0 ? -1 : 1
+
+    this.changeStatus(factor)
+  }
+
+  public changeStatus(factor: number): void {
+    const keys = Object.getOwnPropertyNames(ItemSearchStatus)
+
+    let index = keys.findIndex((x) => ItemSearchStatus[x] === this.options.status)
+    index += factor
+
+    if (index >= keys.length) {
+      index = 0
+    } else if (index < 0) {
+      index = keys.length - 1
+    }
+
+    const key = keys[index]
+    this.options.status = ItemSearchStatus[key]
+    this.optionsChange.emit(this.options)
+  }
+
   public onIndexedWheel(event: WheelEvent): void {
     const factor = event.deltaY > 0 ? -1 : 1
 
@@ -133,7 +156,14 @@ export class EvaluateOptionsComponent implements OnInit {
     this.resetTrigger.next()
   }
 
+  public getStatusText(): string {
+    return this.options.status
+  }
+
   public getIndexedText(): string {
+    if (this.options.indexed === ItemSearchIndexed.UpTo12HoursAgo) {
+      return 'halfday'
+    }
     return this.options.indexed.replace(/\d/, '')
   }
 

@@ -43,6 +43,7 @@ export class EvaluateQueryItemProvider {
       blightRavaged: item.blightRavaged,
       relic: item.relic,
       foulborn: item.foulborn,
+      imbued: item.imbued,
       influences: item.influences || {},
       damage: {},
       stats: [],
@@ -195,8 +196,9 @@ export class EvaluateQueryItemProvider {
         queryItem.stats = item.stats.map((stat) => (!this.isExcludedUniqueStat(stat) && (item.corrupted || item.mirrored || item.unmodifiable || !this.isRelatedToAnImplicitStat(stat))) ? stat : undefined)
       } else {
         queryItem.stats = item.stats.map((stat) => {
-          // Auto-select enchanted stats or stats with a mod icon
+          // Auto-select enchanted stats, imbued stats or stats with a mod icon
           if ((stat.type === StatType.Enchant && settings.evaluateQueryDefaultStatsEnchants) ||
+            stat.type === StatType.Imbued ||
             (settings.evaluateQueryDefaultStatsModIcon && this.modIconService.get(stat.modName))) {
             return stat
           }

@@ -72,29 +72,38 @@
 
 <app-card [title]="'evaluate.layout' | translate">
   <div class="row">
-    <div class="col-6">
-      <mat-form-field>
-        <mat-label>{{ 'evaluate.result-view' | translate }}</mat-label>
-        <mat-select [(value)]="settings.evaluateResultView">
-          <mat-option *ngFor="let view of views.keys" [value]="view">
-            {{ 'evaluate.result-views.' + (views.values[view] | lowercase) | translate }}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-    </div>
-    <div class="col-3">
-      <mat-slide-toggle [checked]="settings.evaluateShowPricePrediction"
-                        (change)="settings.evaluateShowPricePrediction = $event.checked"
-                        matTooltip="{{ 'evaluate.show-price-prediction-tooltip' | translate }}">
-        {{ 'evaluate.show-price-prediction' | translate }}
-      </mat-slide-toggle>
-    </div>
-    <div class="col-3">
-      <mat-slide-toggle [checked]="settings.evaluateShowExchangeRate"
-                        (change)="settings.evaluateShowExchangeRate = $event.checked"
-                        matTooltip="{{ 'evaluate.show-exchange-rate-tooltip' | translate }}">
-        {{ 'evaluate.show-exchange-rate' | translate }}
-      </mat-slide-toggle>
+    <div class="row">
+      <div class="col-3">
+        <mat-slide-toggle [checked]="settings.evaluateShowPricePrediction"
+                          (change)="settings.evaluateShowPricePrediction = $event.checked"
+                          matTooltip="{{ 'evaluate.show-price-prediction-tooltip' | translate }}">
+          {{ 'evaluate.show-price-prediction' | translate }}
+        </mat-slide-toggle>
+      </div>
+      <div class="col-3">
+        <mat-slide-toggle [checked]="settings.evaluateShowExchangeRate"
+                          (change)="settings.evaluateShowExchangeRate = $event.checked"
+                          matTooltip="{{ 'evaluate.show-exchange-rate-tooltip' | translate }}">
+          {{ 'evaluate.show-exchange-rate' | translate }}
+        </mat-slide-toggle>
+      </div>
+      <div class="col-6">
+        <mat-slide-toggle [checked]="settings.evaluateUseCurrencyExchangeData"
+                          (change)="settings.evaluateUseCurrencyExchangeData = $event.checked"
+                          matTooltip="{{ 'evaluate.use-currency-exchange-data-tooltip' | translate }}">
+          {{ 'evaluate.use-currency-exchange-data' | translate }}
+        </mat-slide-toggle>
+      </div>
+      <div class="col">
+        <mat-form-field>
+          <mat-label>{{ 'evaluate.result-view' | translate }}</mat-label>
+          <mat-select [(value)]="settings.evaluateResultView">
+            <mat-option *ngFor="let view of views.keys" [value]="view">
+              {{ 'evaluate.result-views.' + (views.values[view] | lowercase) | translate }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
     </div>
   </div>
 </app-card>
@@ -161,35 +170,29 @@
     <mat-tab [label]="'evaluate.profile.default' | translate">
       <div class="profile">
         <mat-card>
-          <mat-label>{{ 'evaluate.search.filter' | translate }}</mat-label>
-          <div class="toggle">
-            <mat-slide-toggle [checked]="settings.evaluateQueryOnline"
-                              (change)="settings.evaluateQueryOnline = $event.checked">
-              {{ 'evaluate.search.online-only' | translate }}
-            </mat-slide-toggle>
-          </div>
+          <mat-form-field>
+            <mat-label>{{ 'evaluate.search.status.title' | translate }}</mat-label>
+            <mat-select [(value)]="settings.evaluateQueryStatus">
+              <mat-option value="any"> {{ 'evaluate.search.status.any' | translate }} </mat-option>
+              <mat-option value="online">{{ 'evaluate.search.status.online' | translate }}</mat-option>
+              <mat-option value="onlineleague">{{ 'evaluate.search.status.onlineleague' | translate }}</mat-option>
+              <mat-option value="securable">{{ 'evaluate.search.status.securable' | translate }}</mat-option>
+              <mat-option value="available">{{ 'evaluate.search.status.available' | translate }}</mat-option>
+            </mat-select>
+          </mat-form-field>
           <mat-form-field>
             <mat-label>{{ 'evaluate.search.max-age.title' | translate }}</mat-label>
             <mat-select [(value)]="settings.evaluateQueryIndexedRange">
               <mat-option value="any"> {{ 'evaluate.search.max-age.any' | translate }} </mat-option>
-              <mat-option value="1day">
-                {{ 'evaluate.search.max-age.day' | translate }}
-              </mat-option>
-              <mat-option value="3days">
-                {{ 'evaluate.search.max-age.days' | translate }}
-              </mat-option>
-              <mat-option value="1week">
-                {{ 'evaluate.search.max-age.week' | translate }}
-              </mat-option>
-              <mat-option value="2weeks">
-                {{ 'evaluate.search.max-age.weeks' | translate }}
-              </mat-option>
-              <mat-option value="1month">
-                {{ 'evaluate.search.max-age.month' | translate }}
-              </mat-option>
-              <mat-option value="2months">
-                {{ 'evaluate.search.max-age.months' | translate }}
-              </mat-option>
+              <mat-option value="1hour">{{ 'evaluate.search.max-age.hour' | translate }}</mat-option>
+              <mat-option value="3hours">{{ 'evaluate.search.max-age.hours' | translate }}</mat-option>
+              <mat-option value="12hours">{{ 'evaluate.search.max-age.halfday' | translate }}</mat-option>
+              <mat-option value="1day">{{ 'evaluate.search.max-age.day' | translate }}</mat-option>
+              <mat-option value="3days">{{ 'evaluate.search.max-age.days' | translate }}</mat-option>
+              <mat-option value="1week">{{ 'evaluate.search.max-age.week' | translate }}</mat-option>
+              <mat-option value="2weeks">{{ 'evaluate.search.max-age.weeks' | translate }}</mat-option>
+              <mat-option value="1month">{{ 'evaluate.search.max-age.month' | translate }}</mat-option>
+              <mat-option value="2months">{{ 'evaluate.search.max-age.months' | translate }}</mat-option>
             </mat-select>
           </mat-form-field>
         </mat-card>

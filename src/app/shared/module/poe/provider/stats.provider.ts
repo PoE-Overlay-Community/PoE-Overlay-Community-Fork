@@ -30,6 +30,8 @@ export class StatsProvider {
         return statsData.crucible
       case StatType.Sanctum:
         return statsData.sanctum
+      case StatType.Imbued:
+        return statsData.imbued
     }
   }
 }

@@ -93,7 +93,7 @@ export class EvaluateDialogService {
                   height += DIALOG_LINE_HEIGHT
                 }
                 break
-              case 'incursion': {
+              case 'incursion':
                 const incursion = item.properties.incursion
                 height +=
                   DIALOG_LINE_HEIGHT * (incursion.openRooms.length + incursion.closedRooms.length)
@@ -101,8 +101,7 @@ export class EvaluateDialogService {
                   height += DIALOG_DIVIDER_HEIGHT
                 }
                 break
-              }
-              case 'heist': {
+              case 'heist':
                 const heist = item.properties.heist
                 height += DIALOG_LINE_HEIGHT * heist.requiredSkills.length
                 if (heist.objectiveName) {
@@ -118,7 +117,6 @@ export class EvaluateDialogService {
                   height += DIALOG_LINE_HEIGHT
                 }
                 break
-              }
               default:
                 height += DIALOG_LINE_HEIGHT
                 break
@@ -167,9 +165,11 @@ export class EvaluateDialogService {
       if (unique[StatType.Scourge]) {
         height += DIALOG_DIVIDER_HEIGHT
       }
-      if (
-        unique[StatType.Implicit]) {
+      if (unique[StatType.Implicit]) {
         height += DIALOG_DIVIDER_HEIGHT
+      }
+      if (unique[StatType.Imbued]) {
+        height += DIALOG_DIVIDER_HEIGHT;
       }
       if (
         unique[StatType.Explicit] ||
@@ -188,7 +188,7 @@ export class EvaluateDialogService {
       }
     }
 
-    if (item.veiled || item.corrupted || item.mirrored || item.unmodifiable || item.relic) {
+    if (item.veiled || item.corrupted || item.mirrored || item.unmodifiable || item.relic || item.imbued) {
       if (item.veiled) {
         height += DIALOG_LINE_HEIGHT
       }
@@ -197,6 +197,9 @@ export class EvaluateDialogService {
       }
       if (item.mirrored) {
         height += DIALOG_LINE_HEIGHT
+      }
+      if (item.imbued) {
+        height += DIALOG_LINE_HEIGHT;
       }
       if (item.relic) {
         height += DIALOG_LINE_HEIGHT

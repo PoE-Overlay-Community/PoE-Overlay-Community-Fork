@@ -30,6 +30,8 @@ export class StatsLocalProvider {
         return statsLocalData.crucible
       case StatType.Sanctum:
         return statsLocalData.sanctum
+      case StatType.Imbued:
+        return statsLocalData.imbued
     }
   }
 }

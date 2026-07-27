@@ -1,8 +1,12 @@
 # Changelog
 
-## 0.9.0 (2026-03-03)
+## 0.9.0
 
-### Major Dependency Upgrade
+- Changes made when maring master v0.8.42 into this branch (which originated from v0.8.39)
+  - Removed the polyfill workaround for poe login page
+  - Reverted/dropped login url changes made to fix the login issue
+
+### Major Dependency Upgrade (by Ezroar)
 
 - Upgraded Electron 8.3.1 → 28.3.3
 - Upgraded Angular 9.1.3 → 17.3.12 (with Angular Material 17 MDC migration)
@@ -15,6 +19,32 @@
 - Fixed RxJS 7 `debounce(() => EMPTY)` breaking change that prevented the overlay from becoming visible
 - Fixed Angular Material MDC CSS class names across 14 SCSS files
 - Migrated TSLint → ESLint
+
+## 0.8.42 (2026-03-28)
+
+- Updated the PoE Assets using PoE Asset Updater (commit 1088d9a) and PoE Client v3.28.0e
+- Fixed a crash related to child browser windows (e.g. when logging in using the settings menu)
+- Fixed incorrect fractured price checking when selecting a fractured stats without selecting 'fractured item'
+
+## 0.8.41 (2026-03-23)
+
+- Added the (missing) 'prismatic oil' icon
+- Changed the Settings Menu Login url from '/login/email' to '/login' and added a custom polyfill to make the login page buttons work
+- Replaced the 'online/offline' trade status option with more options related to 'instant buyout' and 'in person' trades
+- Fixed exchange rate retrieval for Reliquary Keys
+- Changed default value of 'is fractured' search to 'no' (instead of 'yes'), regardless of these being a fractured stat or not
+- Added additional stash grid overlays for specialized tabs which also show exchange rates
+
+## 0.8.40 (2026-03-13)
+
+- Added the option (default on) to use the currency exchange data (instead of stash data) when obtaining exchange rates
+- Added a bunch of (missing) categories to the exchange rate service
+- Changed the Settings Menu Login url from '/login?no-script' to '/login/email' due to the no-script version no longer working
+- Added support for the 'Imbued' items when evaluating items
+- Updated the Stats Service (used for price checking) so it can handle the new 3.28 advanced item copy text
+- Updated the PoE Assets using PoE Asset Updater (commit 1088d9a) and PoE Client v3.28.0b
+  - This adds initial support for Mirage league
+  - This fixes the stat distinguishing issue with the Dark Monarch helmet
 
 ## 0.8.39 (2025-11-07)
 
