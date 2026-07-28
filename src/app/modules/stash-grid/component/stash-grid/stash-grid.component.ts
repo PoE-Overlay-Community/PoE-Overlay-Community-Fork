@@ -340,7 +340,7 @@ export class StashGridComponent implements OnInit, OnDestroy, OnChanges {
           this.cellData = []
           this.cellData.push(baseItemTypeIds.map(baseItemTypeId => {
             const layout = stashTabLayoutMap[baseItemTypeId]
-            let cellData: CellData = {
+            const cellData: CellData = {
               static: {
                 xOffset: layout.xOffset * 2 / 3,
                 yOffset: layout.yOffset * 2 / 3,
