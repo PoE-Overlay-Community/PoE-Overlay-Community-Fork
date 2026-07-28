@@ -45,6 +45,8 @@ npm-debug.log
 yarn-error.log
 testem.log
 /typings
+.nx/
+.angular/
 
 # System Files
 .DS_Store
