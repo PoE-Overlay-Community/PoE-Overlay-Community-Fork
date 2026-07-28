@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core'
-import { layouts } from '../../../../../assets/poe/stashtab-layouts.json'
+import layouts from '../../../../../assets/poe/stashtab-layouts.json'
 import { StashTabLayoutMap, StashGridType, STASH_GRID_TYPE_MAP } from '../type'
 
 @Injectable({
