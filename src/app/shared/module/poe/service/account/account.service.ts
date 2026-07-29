@@ -94,14 +94,14 @@ export class PoEAccountService {
       return this.accountProvider.provide(language, CacheExpirationType.Instant).pipe(mergeMap((account) => {
         if (account.loggedIn) {
           return this.characterProvider.provide(account.name, language, CacheExpirationType.Instant).pipe(map((characters) => {
-            account.characters = characters;
-            this.accountSubject.next(account);
-            return account;
-          }));
+            account.characters = characters
+            this.accountSubject.next(account)
+            return account
+          }))
         } else {
-          return of(account);
+          return of(account)
         }
-      }));
+      }))
     }))
   }
 
