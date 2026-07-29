@@ -81,10 +81,6 @@ export class PoEHttpService {
     const url = this.getTradeApiUrl('data/stats', language)
     return this.getAndParse('data-stats', url)
   }
-  
-  public getBaseUrl(language: Language): string {
-    return this.getPoEUrl('', language)
-  }
 
   public getLoginUrl(language: Language): string {
     // PoE 3.21: Redirecting to 'trade/search' instead of 'login' due to GET/POST issues causing an infinite cloudflare loop.
