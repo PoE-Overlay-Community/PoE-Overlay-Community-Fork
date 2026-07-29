@@ -88,30 +88,21 @@ export class PoEAccountService {
     this.updateCharacters(CacheExpirationType.FiveSeconds)
   }
 
-  public openLoginPage(language?: Language): void {
+  public login(language?: Language): Observable<PoEAccount> {
     language = language || this.context.get().language
-    const loginUrl = this.poeHttpService.getLoginUrl(language)
-    this.electronAPI.shellOpenExternal(loginUrl)
-  }
-
-  public loginWithSessionId(poesessid: string, language?: Language): Observable<PoEAccount> {
-    language = language || this.context.get().language
-    const cookieUrl = this.poeHttpService.getBaseUrl(language)
-    return from(this.electronAPI.setSessionCookie(cookieUrl, 'POESESSID', poesessid)).pipe(
-      mergeMap(() => {
-        return this.accountProvider.provide(language, CacheExpirationType.Instant).pipe(mergeMap((account) => {
-          if (account.loggedIn) {
-            return this.characterProvider.provide(account.name, language, CacheExpirationType.Instant).pipe(map((characters) => {
-              account.characters = characters
-              this.accountSubject.next(account)
-              return account
-            }))
-          } else {
-            return of(account)
-          }
-        }))
-      })
-    )
+    return this.browser.openAndWait(this.poeHttpService.getLoginUrl(language)).pipe(mergeMap(() => {
+      return this.accountProvider.provide(language, CacheExpirationType.Instant).pipe(mergeMap((account) => {
+        if (account.loggedIn) {
+          return this.characterProvider.provide(account.name, language, CacheExpirationType.Instant).pipe(map((characters) => {
+            account.characters = characters;
+            this.accountSubject.next(account);
+            return account;
+          }));
+        } else {
+          return of(account);
+        }
+      }));
+    }))
   }
 
   public logout(language?: Language): Observable<PoEAccount> {

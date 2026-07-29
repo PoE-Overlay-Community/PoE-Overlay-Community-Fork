@@ -130,19 +130,8 @@
             </mat-select>
           </mat-form-field>
         </div>
-        <div class="col-4">
-          <button mat-raised-button (click)="onOpenLoginPage()">
-            {{ 'settings.account.open-login' | translate }}
-          </button>
-        </div>
-        <div class="col-4">
-          <mat-form-field>
-            <mat-label>POESESSID</mat-label>
-            <input matInput [(ngModel)]="poesessid" type="password" />
-          </mat-form-field>
-        </div>
-        <div class="col-2">
-          <button mat-raised-button (click)="onLoginClick()" [disabled]="!poesessid">
+        <div class="col-10">
+          <button mat-raised-button (click)="onLoginClick()">
             {{ 'settings.account.login' | translate }}
           </button>
         </div>

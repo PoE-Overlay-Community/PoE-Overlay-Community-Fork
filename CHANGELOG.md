@@ -15,7 +15,6 @@
 - Replaced `active-win` with `node-window-manager` 2.2.2 (ESM compatibility)
 - Replaced `custom-electron-titlebar` with a custom HTML/CSS titlebar (Electron 28 context isolation compatibility)
 - Added `electron/preload.ts` context bridge — all renderer ↔ main IPC now goes through `window.electronAPI`
-- Replaced in-app login browser with external browser + POESESSID cookie import (Cloudflare bypass)
 - Fixed RxJS 7 `debounce(() => EMPTY)` breaking change that prevented the overlay from becoming visible
 - Fixed Angular Material MDC CSS class names across 14 SCSS files
 - Migrated TSLint → ESLint
