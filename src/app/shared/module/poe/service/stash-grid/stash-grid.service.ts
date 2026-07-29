@@ -5,7 +5,7 @@ import { Rectangle } from '@app/type'
 import { ElectronAPI } from '@app/type/electron-api.type'
 import { StashGridOptions, StashGridType, STASH_TAB_CELL_COUNT_MAP, TradeItemLocation, TradeItemLocations } from '@shared/module/poe/type/stash-grid.type'
 import { Subject } from 'rxjs'
-import { BehaviorSubject, from, Observable, of, Subscription } from 'rxjs'
+import { BehaviorSubject, from, Observable, of } from 'rxjs'
 import { StashService } from '../stash/stash.service'
 
 const STASH_GRID_OPTIONS_KEY = 'stash-grid-options'
@@ -59,25 +59,23 @@ export class StashGridService {
    */
   public showStashGrid(...stashGridOptions: StashGridOptions[]): Observable<boolean> {
     const promise = new Promise<boolean>((resolve, reject) => {
-      let sub: Subscription
-      let sub2: Subscription
-      sub = this.stashGridOptions$.subscribe((stashGridOptions) => {
-        if (!sub || sub.closed || !sub2 || sub2.closed) {
+      const stashGridOptionsSub = this.stashGridOptions$.subscribe((stashGridOptions) => {
+        if (!stashGridOptionsSub || stashGridOptionsSub.closed || !cancelStashGridSequenceSub || cancelStashGridSequenceSub.closed) {
           return
         }
         if (!stashGridOptions) {
           resolve(true)
-          sub.unsubscribe()
-          sub2.unsubscribe()
+          stashGridOptionsSub.unsubscribe()
+          cancelStashGridSequenceSub.unsubscribe()
         }
       })
-      sub2 = this.cancelStashGridSequence$.subscribe(() => {
-        if (!sub || sub.closed || !sub2 || sub2.closed) {
+      const cancelStashGridSequenceSub = this.cancelStashGridSequence$.subscribe(() => {
+        if (!stashGridOptionsSub || stashGridOptionsSub.closed || !cancelStashGridSequenceSub || cancelStashGridSequenceSub.closed) {
           return
         }
         resolve(false)
-        sub.unsubscribe()
-        sub2.unsubscribe()
+        stashGridOptionsSub.unsubscribe()
+        cancelStashGridSequenceSub.unsubscribe()
       })
       this.enqueueStashGridOptions(stashGridOptions)
     })
