@@ -81,12 +81,7 @@ const childs: {
 function setUserAgent(): void {
   const generatedUserAgent = `PoEOverlayCommunityFork/${app.getVersion()} (contact: p.overlay.c.f@gmail.com)`
   session.defaultSession.webRequest.onBeforeSendHeaders((details, callback) => {
-    // Only override UA for API requests; let page loads use the default Chromium UA
-    // so Cloudflare doesn't block them
-    const isApiRequest = details.url.includes('/api/') || details.resourceType === 'xhr'
-    if (isApiRequest) {
-      details.requestHeaders['User-Agent'] = generatedUserAgent
-    }
+    details.requestHeaders['User-Agent'] = generatedUserAgent
     callback({ cancel: false, requestHeaders: details.requestHeaders })
   })
 }
@@ -454,13 +449,6 @@ ipcMain.on('create-browser-window', (event, options: any) => {
       webSecurity: false,
     },
   })
-
-  // Strip "Electron" and app name from the user agent so Cloudflare
-  // doesn't flag this as a bot (its JS challenge checks navigator.userAgent)
-  const cleanUA = browserWindow.webContents.getUserAgent()
-    .replace(/\s*Electron\/[\S]+/i, '')
-    .replace(/\s*poe-overlay\/[\S]+/i, '')
-  browserWindow.webContents.setUserAgent(cleanUA)
 
   const id = ++browserWindowIdCounter
   browserWindows.set(id, browserWindow)
