@@ -41,10 +41,6 @@ export interface ElectronAPI {
   clipboardReadText(): string
   clipboardWriteText(text: string): void
 
-  // Session cookies
-  setSessionCookie(url: string, name: string, value: string): Promise<boolean>
-  getSessionCookie(url: string, name: string): Promise<string | null>
-
   // Shell
   shellOpenExternal(url: string): void
 

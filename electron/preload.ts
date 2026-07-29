@@ -43,12 +43,6 @@ const electronAPI = {
   clipboardReadText: (): string => ipcRenderer.sendSync('clipboard-read-text'),
   clipboardWriteText: (text: string): void => ipcRenderer.send('clipboard-write-text', text),
 
-  // Session cookies
-  setSessionCookie: (url: string, name: string, value: string): Promise<boolean> =>
-    ipcRenderer.invoke('set-session-cookie', url, name, value),
-  getSessionCookie: (url: string, name: string): Promise<string | null> =>
-    ipcRenderer.invoke('get-session-cookie', url, name),
-
   // Shell
   shellOpenExternal: (url: string): void => ipcRenderer.send('shell-open-external', url),
 
