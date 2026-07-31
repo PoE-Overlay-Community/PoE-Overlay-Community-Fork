@@ -20,9 +20,6 @@ export class BrowserService {
     const windowId = this.electronAPI.createBrowserWindow({
       show: false,
       useParent: true,
-      webPreferences: {
-        webSecurity: false,
-      },
     })
 
     this.electronAPI.once('browser-window-did-finish-load', (_, id) => {
@@ -49,9 +46,6 @@ export class BrowserService {
       height: smallerWindow ? Math.round(height * 0.7) : height,
       backgroundColor: '#0F0F0F',
       show: false,
-      webPreferences: {
-        webSecurity: false,
-      },
     })
 
     this.electronAPI.windowSetEnabled(false)
@@ -91,9 +85,6 @@ export class BrowserService {
         height: Math.round(height * 0.7),
         backgroundColor: url.startsWith('file://') ? '#FCFCFC' : '#0F0F0F',
         show: false,
-        webPreferences: {
-          webSecurity: false,
-        },
       })
 
       const dialog: Dialog = {

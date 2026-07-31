@@ -42,6 +42,7 @@ app.commandLine.appendSwitch('force-device-scale-factor', '1')
 // Prevent Cloudflare from detecting Electron as an automated browser
 // This removes navigator.webdriver and other Blink automation signals
 app.commandLine.appendSwitch('disable-blink-features', 'AutomationControlled')
+app.commandLine.appendSwitch('disable-infobars')
 
 log.register(ipcMain)
 
@@ -81,8 +82,47 @@ const childs: {
 function setUserAgent(): void {
   const generatedUserAgent = `PoEOverlayCommunityFork/${app.getVersion()} (contact: p.overlay.c.f@gmail.com)`
   session.defaultSession.webRequest.onBeforeSendHeaders((details, callback) => {
-    details.requestHeaders['User-Agent'] = generatedUserAgent
+    const isApiRequest = details.url.includes('/api/')
+    let userAgent = details.requestHeaders['User-Agent'] || ''
+    userAgent = userAgent.replace(/\s*Electron\/[\S]+/i, '')
+    userAgent = userAgent.replace(/\s*poe-overlay\/[\S]+/i, '')
+    if (isApiRequest) {
+      userAgent = `${userAgent} ${generatedUserAgent}`
+    }
+    details.requestHeaders['User-Agent'] = userAgent
     callback({ cancel: false, requestHeaders: details.requestHeaders })
+  })
+}
+
+function setCookieSharing(): void {
+  session.defaultSession.webRequest.onHeadersReceived({
+    urls: [
+      'https://*.pathofexile.com/*',
+      'https://poe.game.daum.net/*',
+      'https://poe.game.qq.com/*',
+      'https://pathofexile.tw/*',
+      'http://*.pathofexile.com/*',
+      'http://poe.game.daum.net/*',
+      'http://poe.game.qq.com/*',
+      'http://pathofexile.tw/*',
+    ]
+  }, (details, next) => {
+    const cookies = details.responseHeaders?.['set-cookie']
+    if (cookies) {
+      details.responseHeaders['set-cookie'] = cookies.map(cookie => {
+        cookie = cookie
+          .split(';')
+          .map(x => x.trim())
+          .filter(x =>
+            !x.toLowerCase().startsWith('samesite') &&
+            !x.toLowerCase().startsWith('secure'))
+          .join('; ')
+
+        return `${cookie}; SameSite=None; Secure`
+      })
+    }
+
+    next({ cancel: false, responseHeaders: details.responseHeaders })
   })
 }
 
@@ -446,7 +486,6 @@ ipcMain.on('create-browser-window', (event, options: any) => {
     parent: options.useParent ? parent : undefined,
     webPreferences: {
       ...options.webPreferences,
-      webSecurity: false,
     },
   })
 
@@ -595,8 +634,8 @@ function createWindow(): BrowserWindow {
       contextIsolation: true,
       preload: path.join(__dirname, 'electron/preload.js'),
       allowRunningInsecureContent: serve,
-      webSecurity: false,
       sandbox: false,
+      webSecurity: false,// Disabled to prevent CORS issues
     },
     focusable: process.platform !== 'linux' ? false : true,
     skipTaskbar: true,
@@ -604,7 +643,7 @@ function createWindow(): BrowserWindow {
   })
   win.setSize(bounds.width, bounds.height)    // Explicitly set size after creating the window since some OS'es don't allow an initial size larger than the display's size.
   win.removeMenu()
-  win.setIgnoreMouseEvents(true, {forward: true})
+  win.setIgnoreMouseEvents(true, { forward: true })
 
   if (process.platform !== 'linux') {
     win.setAlwaysOnTop(true, 'pop-up-menu', 1)
@@ -651,8 +690,8 @@ ipcMain.on('open-route', (event, route: string) => {
           contextIsolation: true,
           preload: path.join(__dirname, 'electron/preload.js'),
           allowRunningInsecureContent: serve,
-          webSecurity: false,
           sandbox: false,
+          webSecurity: false, // Disabled to prevent CORS issues
         },
         center: true,
         transparent: true,
@@ -797,6 +836,7 @@ try {
       createTray()
     }, 300)
     setUserAgent()
+    setCookieSharing()
   })
 
   app.on('window-all-closed', () => {
