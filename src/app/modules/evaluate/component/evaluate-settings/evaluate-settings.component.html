@@ -127,7 +127,7 @@
           {{ displayWithTime(settings.evaluateQueryDebounceTime) }}
         </label>
         <div class="slider">
-          <mat-slider min="5" [max]="debounceTimeMax" step="5" discrete>
+          <mat-slider min="5" [max]="debounceTimeMax" step="5" [displayWith]="displayWithTime" discrete>
             <input matSliderThumb [(ngModel)]="settings.evaluateQueryDebounceTime">
           </mat-slider>
           <span>&nbsp;∞</span>
@@ -141,7 +141,7 @@
           {{ displayWithCount(settings.evaluateQueryFetchCount) }}
         </label>
         <div class="slider">
-          <mat-slider min="10" [max]="fetchCountMax" step="10" discrete>
+          <mat-slider min="10" [max]="fetchCountMax" step="10" [displayWith]="displayWithCount" discrete>
             <input matSliderThumb [(ngModel)]="settings.evaluateQueryFetchCount">
           </mat-slider>
           <span>100</span>
@@ -209,10 +209,10 @@
               + {{ displayWithStat(settings.evaluatePropertyMaxRange) }}%
             </span>
             <span>#</span>
-            <mat-slider min="0" max="50" step="1" discrete>
+            <mat-slider min="0" max="50" step="1" [displayWith]="displayWithStat" discrete>
               <input matSliderThumb [(ngModel)]="settings.evaluatePropertyMinRange">
             </mat-slider>
-            <mat-slider min="0" max="50" step="1" discrete>
+            <mat-slider min="0" max="50" step="1" [displayWith]="displayWithStat" discrete>
               <input matSliderThumb [(ngModel)]="settings.evaluatePropertyMaxRange">
             </mat-slider>
             <span>#</span>
@@ -323,10 +323,10 @@
               + {{ displayWithStat(settings.evaluateModifierMaxRange) }}%
             </span>
             <span>#</span>
-            <mat-slider min="0" max="50" step="1" discrete>
+            <mat-slider min="0" max="50" step="1" [displayWith]="displayWithStat" discrete>
               <input matSliderThumb [(ngModel)]="settings.evaluateModifierMinRange">
             </mat-slider>
-            <mat-slider min="0" max="50" step="1" discrete>
+            <mat-slider min="0" max="50" step="1" [displayWith]="displayWithStat" discrete>
               <input matSliderThumb [(ngModel)]="settings.evaluateModifierMaxRange">
             </mat-slider>
             <span>#</span>

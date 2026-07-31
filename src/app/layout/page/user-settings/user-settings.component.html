@@ -3,7 +3,7 @@
   <button class="titlebar-close" (click)="onClose()">&times;</button>
 </div>
 <ng-container *ngIf="init$ | async; else loading">
-  <div class="content">
+  <div class="content mat-app-background">
     <mat-tab-group [mat-stretch-tabs]="true"
                    animationDuration="0ms"
                    (selectedIndexChange)="onSelectedIndexChange($event)">

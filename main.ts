@@ -90,8 +90,8 @@ function setUserAgent(): void {
 
 function getBounds(): Rectangle {
   const displays = screen.getAllDisplays()
-  const primary = screen.getPrimaryDisplay();
-  let bounds = {
+  const primary = screen.getPrimaryDisplay()
+  const bounds = {
     x: primary.bounds.x,
     y: primary.bounds.y,
     width: primary.bounds.width,
@@ -108,7 +108,7 @@ function getBounds(): Rectangle {
         bounds.height += display.bounds.height
       }
     }
-  });
+  })
   return bounds
 }
 
@@ -537,8 +537,6 @@ ipcMain.on('trade-notification-add-example', (event, exampleNotificationType: an
 // Forward stash grid options from settings window to main window
 ipcMain.on('stash-grid-options', (event, stashGridOptions: any) => {
   const senderWindow = BrowserWindow.fromWebContents(event.sender)
-  // Store the sender for reply
-  const stashGridSender = senderWindow
   // Forward to main window
   if (win && senderWindow !== win) {
     win.webContents.send('stash-grid-options', stashGridOptions, event.sender.id)
@@ -690,6 +688,7 @@ ipcMain.on('open-route', (event, route: string) => {
 
 function loadApp(self: BrowserWindow, route: string = ''): void {
   if (serve) {
+    // eslint-disable-next-line @typescript-eslint/no-var-requires
     require('electron-reload')(__dirname, {
       electron: require(`${__dirname}/node_modules/electron`),
     })
@@ -814,5 +813,5 @@ try {
   })
 } catch (e) {
   // Catch Error
-  // throw e;
+  // throw e
 }

@@ -2,7 +2,7 @@
 
 ## 0.9.0
 
-- Changes made when maring master v0.8.42 into this branch (which originated from v0.8.39)
+- Changes made when mering master v0.8.42 into this branch (which originated from v0.8.39)
   - Removed the polyfill workaround for poe login page
   - Reverted/dropped login url changes made to fix the login issue
 
