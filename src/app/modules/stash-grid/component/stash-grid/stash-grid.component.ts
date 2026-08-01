@@ -337,6 +337,7 @@ export class StashGridComponent implements OnInit, OnDestroy, OnChanges {
           {
             const stashTabLayoutMap = this.stashGridLayoutProvider.provide(stashGridOptions.gridType)
             if (!stashTabLayoutMap) {
+              console.warn(`Couldn't find stashTabLayout for gridType ${stashGridOptions.gridType}`)
               return
             }
             const baseItemTypeIds = Object.getOwnPropertyNames(stashTabLayoutMap).filter(x => stashTabLayoutMap[x].showIfEmpty)
