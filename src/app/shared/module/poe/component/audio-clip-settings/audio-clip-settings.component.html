@@ -1,16 +1,12 @@
-<mat-card class="card">
+<!-- <mat-card class="card"> -->
   <mat-label>{{ title }}</mat-label>
-  <div class="row">
-    <mat-slide-toggle [checked]="settings.enabled" (change)="settings.enabled = $event.checked">
-      {{ 'settings.enabled' | translate }}
-    </mat-slide-toggle>
-  </div>
-  <div class="row">
-    <mat-form-field>
-      <mat-label>{{ 'settings.audio.source' | translate }}</mat-label>
-      <input matInput [(ngModel)]="settings.src" />
-    </mat-form-field>
-  </div>
+  <mat-slide-toggle [checked]="settings.enabled" (change)="settings.enabled = $event.checked">
+    {{ 'settings.enabled' | translate }}
+  </mat-slide-toggle>
+  <mat-form-field>
+    <mat-label>{{ 'settings.audio.source' | translate }}</mat-label>
+    <input matInput [(ngModel)]="settings.src" />
+  </mat-form-field>
   <div class="row">
     <div class="col-9">
       <div class="value-range">
@@ -32,4 +28,4 @@
       </button>
     </div>
   </div>
-</mat-card>
+<!-- </mat-card> -->

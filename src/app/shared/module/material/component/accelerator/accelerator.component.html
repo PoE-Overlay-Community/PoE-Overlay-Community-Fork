@@ -8,8 +8,8 @@
     #input
   />
   <button
-    matSuffix
-    mat-button
+    matIconSuffix
+    mat-icon-button
     (click)="onKeyboardClick(input)"
     [matTooltip]="'material.accelerator.set-shortcut' | translate"
     *ngIf="!recording; else cancel"
@@ -17,7 +17,7 @@
     <mat-icon>keyboard</mat-icon>
   </button>
   <ng-template #cancel>
-    <button matSuffix mat-button (click)="cancelSetShortcut()" [matTooltip]="'material.accelerator.cancel-set' | translate">
+    <button matIconSuffix mat-icon-button (click)="cancelSetShortcut()" [matTooltip]="'material.accelerator.cancel-set' | translate">
       <mat-icon>clear</mat-icon>
     </button>
   </ng-template>

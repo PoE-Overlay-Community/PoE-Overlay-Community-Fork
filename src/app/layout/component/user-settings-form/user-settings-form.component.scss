@@ -1,7 +1,7 @@
 @import './../../../../styles/variables';
 
 app-card {
-  .card, button {
+  button {
     background-color: $settings-grey-one;
   }
 
@@ -16,7 +16,6 @@ app-card {
 
 label {
   display: block;
-  color: $label-color;
   font-size: 12px;
   transform: perspective(100px) translateZ(0.001px);
 }
@@ -34,6 +33,7 @@ label {
 }
 
 .warning {
+  margin-left: 16px;
   color: $orange;
 }
 

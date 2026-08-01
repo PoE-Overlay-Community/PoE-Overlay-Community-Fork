@@ -1,23 +1,8 @@
 @import './../../../../../styles/variables';
 
 app-card {
-  .card, button {
+  .mat-mdc-raised-button {
     background-color: $settings-grey-one;
-  }
-
-  .card {
-    position: relative;
-
-    button {
-      background-color: $settings-grey-two;
-    }
-
-    .remove {
-      position: absolute;
-      top: 0;
-      right: 0;
-      z-index: 1;
-    }
   }
 
   .card-button {
@@ -46,9 +31,14 @@ app-card {
   }
 }
 
+.example-trade-notification {
+  white-space: no-wrap;
+  gap: 16px;
+}
+
 label {
   display: block;
-  color: $label-color;
+  // color: $label-color;
   font-size: 12px;
   transform: perspective(100px) translateZ(0.001px);
 }
