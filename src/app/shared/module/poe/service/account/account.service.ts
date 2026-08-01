@@ -1,16 +1,14 @@
 import { Injectable } from '@angular/core'
-import { ElectronProvider } from '@app/provider'
 import { BrowserService, ElectronService } from '@app/service'
-import { ElectronAPI } from '@app/type/electron-api.type'
 import { PoEHttpService } from '@data/poe'
 import { UserSettings } from '@layout/type'
-import { BehaviorSubject, from, Observable, of, Subscription } from 'rxjs'
-import { mergeMap, map, tap } from 'rxjs/operators'
+import { BehaviorSubject, Observable, Subscription, of } from 'rxjs'
+import { map, mergeMap, tap } from 'rxjs/operators'
 import { PoEAccountProvider } from '../../provider/account.provider'
 import { PoECharacterProvider } from '../../provider/character.provider'
 import { CacheExpirationType, Language, PoEAccount, PoECharacter } from '../../type'
 import { ContextService } from '../context.service'
-import { POE_ACCOUNT_UPDATED } from './account-thread.service'
+import { ACC_TAG, POE_ACCOUNT_UPDATED } from './account-thread.service'
 
 @Injectable({
   providedIn: 'root',
@@ -26,8 +24,6 @@ export class PoEAccountService {
 
   private scopedAccountUpdatedEventHandler
 
-  private readonly electronAPI: ElectronAPI
-
   constructor(
     private readonly electronService: ElectronService,
     private readonly context: ContextService,
@@ -35,9 +31,7 @@ export class PoEAccountService {
     private readonly browser: BrowserService,
     private readonly poeHttpService: PoEHttpService,
     private readonly characterProvider: PoECharacterProvider,
-    electronProvider: ElectronProvider,
   ) {
-    this.electronAPI = electronProvider.provideElectronAPI()
   }
 
   public register(settings: UserSettings): Observable<PoEAccount> {
@@ -46,7 +40,7 @@ export class PoEAccountService {
     if (!this.scopedAccountUpdatedEventHandler) {
       this.scopedAccountUpdatedEventHandler = () => this.updateCharacters()
 
-      this.electronService.onMain(POE_ACCOUNT_UPDATED, this.scopedAccountUpdatedEventHandler)
+      this.electronService.on(ACC_TAG, POE_ACCOUNT_UPDATED, this.scopedAccountUpdatedEventHandler)
     }
 
     return this.getAsync()
@@ -54,7 +48,7 @@ export class PoEAccountService {
 
   public unregister(): void {
     if (this.scopedAccountUpdatedEventHandler) {
-      this.electronService.removeMainListener(POE_ACCOUNT_UPDATED, this.scopedAccountUpdatedEventHandler)
+      this.electronService.removeListener(ACC_TAG, POE_ACCOUNT_UPDATED, this.scopedAccountUpdatedEventHandler)
       this.scopedAccountUpdatedEventHandler = null
     }
   }

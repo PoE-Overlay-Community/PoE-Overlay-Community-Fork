@@ -61,6 +61,7 @@ export interface ElectronAPI {
 
   // Logger
   log(level: string, message: string, ...args: any[]): void
+  isLogTagEnabled(tag: string): boolean
 
   // Keyboard
   setKeyboardDelay(delay: number): void

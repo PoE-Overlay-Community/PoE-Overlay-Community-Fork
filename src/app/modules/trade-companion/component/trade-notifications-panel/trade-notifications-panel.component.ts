@@ -339,7 +339,6 @@ export class TradeNotificationPanelComponent implements OnInit, AfterViewInit, O
         .add(
           keybind,
           TradeNotificationPanelShortcutRef,
-          false,
           VisibleFlag.Game,
           VisibleFlag.Overlay
         )

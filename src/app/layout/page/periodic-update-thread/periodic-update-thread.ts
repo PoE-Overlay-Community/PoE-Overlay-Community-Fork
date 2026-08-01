@@ -15,6 +15,7 @@ import { PoEAccountThreadService } from '@shared/module/poe/service/account/acco
 import { StashThreadService } from '@shared/module/poe/service/stash/stash-thread.service'
 import { VendorRecipeThreadService } from '@shared/module/poe/service/vendor-recipe/vendor-recipe-thread.service'
 
+export const THREAD_TAG = 'thread'
 export const THREAD_AVAILABLE = 'thread-available'
 export const THREAD_PAUSE = 'thread-pause'
 export const SETTINGS_CHANGED = 'settings-changed'
@@ -38,8 +39,8 @@ export class PeriodicUpdateThreadComponent implements OnInit, OnDestroy {
     private readonly electronService: ElectronService,
     private readonly window: WindowService,
   ) {
-    this.electronService.onMain(THREAD_PAUSE, () => this.reset())
-    this.electronService.onMain(SETTINGS_CHANGED, () => this.init())
+    this.electronService.on(THREAD_TAG, THREAD_PAUSE, () => this.reset())
+    this.electronService.on(THREAD_TAG, SETTINGS_CHANGED, () => this.init())
   }
 
   @HostListener('window:beforeunload', [])
@@ -68,7 +69,7 @@ export class PeriodicUpdateThreadComponent implements OnInit, OnDestroy {
           this.stashThreadService.register(settings)
           this.vendorRecipeThreadService.register(settings)
 
-          this.electronService.send(THREAD_AVAILABLE)
+          this.electronService.send(THREAD_TAG, THREAD_AVAILABLE)
         })
       })
     })

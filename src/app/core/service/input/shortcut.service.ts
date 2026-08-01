@@ -1,5 +1,6 @@
 import { Injectable, NgZone } from '@angular/core'
 import { ElectronProvider } from '@app/provider'
+import { ElectronService } from '@app/service'
 import { VisibleFlag } from '@app/type/app.type'
 import { ElectronAPI } from '@app/type/electron-api.type'
 import { Observable, Subject } from 'rxjs'
@@ -7,7 +8,6 @@ import { Observable, Subject } from 'rxjs'
 export interface Shortcut {
   accelerator: string
   ref: any
-  passive: boolean
   actives: VisibleFlag[]
   callback: Subject<void>
   disabled: boolean
@@ -27,14 +27,16 @@ export class ShortcutService {
 
   private lastFlag?: VisibleFlag
 
-  constructor(private readonly ngZone: NgZone, electronProvider: ElectronProvider) {
+  constructor(
+    private readonly ngZone: NgZone,
+    private readonly electronService: ElectronService,
+    electronProvider: ElectronProvider) {
     this.electronAPI = electronProvider.provideElectronAPI()
   }
 
   public add(
     accelerator: string,
     ref: any,
-    passive: boolean = false,
     ...actives: VisibleFlag[]
   ): Observable<void> {
     if (!this.shortcuts[accelerator]) {
@@ -44,7 +46,6 @@ export class ShortcutService {
     const shortcut: Shortcut = {
       accelerator,
       ref,
-      passive,
       actives,
       callback: new Subject<void>(),
       disabled: false,
@@ -191,22 +192,13 @@ export class ShortcutService {
 
   private registerShortcut(shortcut: Shortcut): void {
     shortcut.isActive = true
-    if (shortcut.passive) {
-      this.electronAPI.on(`shortcut-${shortcut.accelerator}`, () => {
-        this.ngZone.run(() => shortcut.callback.next())
-      })
-      this.electronAPI.registerGlobalShortcut(shortcut.accelerator)
-    } else {
-      this.electronAPI.registerGlobalShortcut(shortcut.accelerator)
-      this.electronAPI.on(`shortcut-${shortcut.accelerator}`, () => {
-        this.ngZone.run(() => shortcut.callback.next())
-      })
-    }
+    this.electronService.on('shortcut', `shortcut-${shortcut.accelerator}`, () => shortcut.callback.next())
+    this.electronAPI.registerGlobalShortcut(shortcut.accelerator)
   }
 
   private unregisterShortcut(shortcut: Shortcut): void {
     shortcut.isActive = false
-    this.electronAPI.removeAllListeners(`shortcut-${shortcut.accelerator}`)
+    this.electronService.removeAllListeners('shortcut', `shortcut-${shortcut.accelerator}`)
     this.electronAPI.unregisterGlobalShortcut(shortcut.accelerator)
   }
 }

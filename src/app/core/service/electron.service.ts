@@ -26,45 +26,44 @@ export class ElectronService {
     this.electronAPI = electronProvider.provideElectronAPI()
   }
 
-  /**
-   * Listen for IPC events from the main process.
-   * Note: In the new context-isolated architecture, we use ipcRenderer.on for all IPC listening.
-   * The 'onMain' naming is kept for backwards compatibility.
-   */
-  public onMain(channel: string, listener: (event: any, ...args: any[]) => void): void {
+  public on(tag: string, channel: string, listener: (event: any, ...args: any[]) => void): void {
+    this.logger.log(`electronService_${tag}`, `register on('${channel}')`)
     const scopedListener = (event: any, ...args: any[]): void => {
-      this.logger.log('electronService', `onMain(${channel})`)
+      this.logger.log(`electronService_${tag}`, `on('${channel}')`)
       this.ngZone.run(() => listener(event, ...args))
     }
     this.listeners.push({ channel, listener, scopedListener })
     this.electronAPI.on(channel, scopedListener)
   }
 
-  public removeMainListener(channel: string, listener: (event: any, ...args: any[]) => void): void {
-    const index = this.listeners.findIndex(x => x.channel === channel && x.listener === listener)
-    if (index !== -1) {
-      this.logger.log('electronService', `removeMainListener(${channel})`)
-      const removedListener = this.listeners.splice(index, 1)[0]
-      this.electronAPI.removeListener(channel, removedListener.scopedListener)
-    }
-  }
-
-  public on(channel: string, listener: (event: any, ...args: any[]) => void): void {
+  public once(tag: string, channel: string, listener: (event: any, ...args: any[]) => void): void {
+    this.logger.log(`electronService_${tag}`, `register once('${channel}')`)
     const scopedListener = (event: any, ...args: any[]): void => {
-      this.logger.log('electronService', `on(${channel})`)
+      this.logger.log(`electronService_${tag}`, `onnce('${channel}')`)
       this.ngZone.run(() => listener(event, ...args))
+      this.removeListener(tag, channel, listener)
     }
     this.listeners.push({ channel, listener, scopedListener })
-    this.electronAPI.on(channel, scopedListener)
+    this.electronAPI.once(channel, scopedListener)
   }
 
-  public removeListener(channel: string, listener: (event: any, ...args: any[]) => void): void {
+  public removeListener(tag: string, channel: string, listener: (event: any, ...args: any[]) => void): void {
     const index = this.listeners.findIndex(x => x.channel === channel && x.listener === listener)
     if (index !== -1) {
-      this.logger.log('electronService', `removeListener(${channel})`)
+      this.logger.log(`electronService_${tag}`, `removeListener('${channel}')`)
       const removedListener = this.listeners.splice(index, 1)[0]
       this.electronAPI.removeListener(channel, removedListener.scopedListener)
     }
+  }
+
+  public removeAllListeners(tag: string, channel: string): void {
+    this.logger.log(`electronService_${tag}`, `removeAllListeners('${channel}')`)
+    const allListeners = this.listeners.find(x => x.channel === channel)
+    for (const idx in allListeners) {
+      const index = this.listeners.indexOf(allListeners[idx])
+      this.listeners.splice(index, 1)[0]
+    }
+    this.electronAPI.removeAllListeners(channel)
   }
 
   public restore(route: string): void {
@@ -91,8 +90,8 @@ export class ElectronService {
    *
    * The main process handles it by listening for `channel` with the `ipcMain` module.
    */
-  public send(channel: string, ...args: any[]): void {
-    this.logger.log('electronService', `send(${channel})`)
+  public send(tag: string, channel: string, ...args: any[]): void {
+    this.logger.log(`electronService_${tag}`, `send('${channel}')`)
     this.electronAPI.send(channel, ...args)
   }
 }

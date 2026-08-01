@@ -67,12 +67,10 @@ export class MiscModule implements FeatureModule {
       features.push({
         name: !inverse ? 'stash-left' : 'stash-right',
         accelerator: `${settings.miscStashNavigationModifier} + MouseWheelUp`,
-        passive: true,
       })
       features.push({
         name: !inverse ? 'stash-right' : 'stash-left',
         accelerator: `${settings.miscStashNavigationModifier} + MouseWheelDown`,
-        passive: true,
       })
     }
 

@@ -15,18 +15,10 @@ describe('VendorRecipeService', () => {
       'on',
       'onMain',
       'removeListener',
-      'removeMainListener',
       'send',
     ])
 
-    electronServiceSpy.on.and.callFake((channel: string, callback: (event: any, ...args: any[]) => void) => {
-      if (!onCallbacks.has(channel)) {
-        onCallbacks.set(channel, [])
-      }
-      onCallbacks.get(channel)!.push(callback)
-    })
-
-    electronServiceSpy.onMain.and.callFake((channel: string, callback: (event: any, ...args: any[]) => void) => {
+    electronServiceSpy.on.and.callFake((_: string, channel: string, callback: (event: any, ...args: any[]) => void) => {
       if (!onCallbacks.has(channel)) {
         onCallbacks.set(channel, [])
       }
@@ -60,7 +52,6 @@ describe('VendorRecipeService', () => {
       service.register(settings as any)
 
       expect(electronServiceSpy.on).not.toHaveBeenCalled()
-      expect(electronServiceSpy.onMain).not.toHaveBeenCalled()
     })
 
     it('should register event listeners when enabled', () => {
@@ -70,8 +61,7 @@ describe('VendorRecipeService', () => {
 
       service.register(settings as any)
 
-      expect(electronServiceSpy.on).toHaveBeenCalledWith('vendor-recipes', jasmine.any(Function))
-      expect(electronServiceSpy.onMain).toHaveBeenCalled()
+      expect(electronServiceSpy.on).toHaveBeenCalledWith('vendorRecipes', 'vendor-recipes', jasmine.any(Function))
     })
 
     it('should not register duplicate event listeners', () => {
@@ -118,10 +108,10 @@ describe('VendorRecipeService', () => {
       service.unregister()
 
       expect(electronServiceSpy.removeListener).toHaveBeenCalledWith(
+        'vendorRecipes',
         'vendor-recipes',
         jasmine.any(Function)
       )
-      expect(electronServiceSpy.removeMainListener).toHaveBeenCalled()
     })
 
     it('should do nothing when not registered', () => {
@@ -135,13 +125,13 @@ describe('VendorRecipeService', () => {
     it('should send get-vendor-recipes event with forceUpdate=false', () => {
       service.updateVendorRecipes(false)
 
-      expect(electronServiceSpy.send).toHaveBeenCalledWith('get-vendor-recipes', false)
+      expect(electronServiceSpy.send).toHaveBeenCalledWith('vendorRecipes', 'get-vendor-recipes', false)
     })
 
     it('should send get-vendor-recipes event with forceUpdate=true', () => {
       service.updateVendorRecipes(true)
 
-      expect(electronServiceSpy.send).toHaveBeenCalledWith('get-vendor-recipes', true)
+      expect(electronServiceSpy.send).toHaveBeenCalledWith('vendorRecipes', 'get-vendor-recipes', true)
     })
   })
 })

@@ -1,8 +1,7 @@
 import { EventEmitter, Injectable } from '@angular/core'
 import { EnumValues, MathUtils } from '@app/class'
-import { ElectronProvider } from '@app/provider/electron.provider'
+import { ElectronService } from '@app/service'
 import { GameLogService } from '@app/service/game-log.service'
-import { ElectronAPI } from '@app/type/electron-api.type'
 import moment from 'moment'
 import { forkJoin } from 'rxjs'
 import { TradeRegexesProvider } from '../../provider/trade-regexes.provider'
@@ -20,6 +19,7 @@ import { CurrencyService } from '../currency/currency.service'
 const LOGLINE_DATE_FORMAT = 'YYYY/MM/DD HH:mm:ss'
 const FROM_TO_PLACEHOLDER = '{fromto}'
 
+const TC_TAG = 'tradeCompanion'
 const ADD_EXAMPLE_TRADE_NOTIFICATION_KEY = 'trade-notification-add-example'
 
 const MAP_GENERATION_ID = 10
@@ -62,21 +62,18 @@ export class TradeNotificationsService {
 
   private readonly languages = new EnumValues(Language)
 
-  private readonly electronAPI: ElectronAPI
-
   private notifications: TradeNotification[] = []
 
   private scopedAddExampleNotificationEvent: (event: any, exampleNotificationType: any) => void
 
   constructor(
-    electronProvider: ElectronProvider,
     tradeRegexesProvider: TradeRegexesProvider,
+    private readonly electronService: ElectronService,
     private readonly gameLogService: GameLogService,
     private readonly currencyService: CurrencyService,
     private readonly baseItemTypesService: BaseItemTypesService,
     private readonly clientString: ClientStringService
   ) {
-    this.electronAPI = electronProvider.provideElectronAPI()
     this.gameLogService.logLineAdded.subscribe((logLine: string) => this.onLogLineAdded(logLine))
 
     // Init regexes
@@ -125,7 +122,7 @@ export class TradeNotificationsService {
     if (!this.scopedAddExampleNotificationEvent) {
       this.scopedAddExampleNotificationEvent = (event: any, exampleNotificationType: any) =>
         this.onAddExampleNotification(exampleNotificationType)
-      this.electronAPI.on(ADD_EXAMPLE_TRADE_NOTIFICATION_KEY, this.scopedAddExampleNotificationEvent)
+      this.electronService.on(TC_TAG, ADD_EXAMPLE_TRADE_NOTIFICATION_KEY, this.scopedAddExampleNotificationEvent)
     }
   }
 
@@ -134,7 +131,8 @@ export class TradeNotificationsService {
    */
   public unregisterEvents(): void {
     if (this.scopedAddExampleNotificationEvent) {
-      this.electronAPI.removeListener(
+      this.electronService.removeListener(
+        TC_TAG,
         ADD_EXAMPLE_TRADE_NOTIFICATION_KEY,
         this.scopedAddExampleNotificationEvent
       )
@@ -145,7 +143,7 @@ export class TradeNotificationsService {
    * Call this method only from the settings window
    */
   public addExampleTradeNotification(exampleNotificationType: ExampleNotificationType): void {
-    this.electronAPI.send(ADD_EXAMPLE_TRADE_NOTIFICATION_KEY, exampleNotificationType)
+    this.electronService.send(TC_TAG, ADD_EXAMPLE_TRADE_NOTIFICATION_KEY, exampleNotificationType)
   }
 
   public dismissNotification(notification: TradeNotification): void {

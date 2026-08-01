@@ -41,7 +41,6 @@ export class DialogRefService {
         .add(
           'escape',
           dialogServiceRef,
-          false,
           VisibleFlag.Game | VisibleFlag.Dialog,
           VisibleFlag.Overlay | VisibleFlag.Dialog,
           VisibleFlag.Browser
@@ -59,7 +58,6 @@ export class DialogRefService {
         .add(
           'space',
           dialogServiceRef,
-          false,
           VisibleFlag.Game | VisibleFlag.Dialog,
           VisibleFlag.Overlay | VisibleFlag.Dialog
         )

@@ -44,25 +44,22 @@ app.commandLine.appendSwitch('force-device-scale-factor', '1')
 app.commandLine.appendSwitch('disable-blink-features', 'AutomationControlled')
 app.commandLine.appendSwitch('disable-infobars')
 
-log.register(ipcMain)
+const logger = new log.Logger(ipcMain)
 
 process.on('unhandledRejection', (reason) => {
-  console.warn('Unhandled promise rejection:', reason)
+  logger.warn('Unhandled promise rejection:', reason)
 })
 
-// tslint:disable-next-line:no-console
-console.info('App starting...')
+logger.info('App starting...')
 
 const state = new State(app.getPath('userData'))
 if (!state.hardwareAcceleration) {
   app.disableHardwareAcceleration()
-  // tslint:disable-next-line:no-console
-  console.info('App started with disabled hardware acceleration.')
+  logger.info('App started with disabled hardware acceleration.')
 }
 
 const args = process.argv.slice(1)
-// tslint:disable-next-line:no-console
-console.info('App args', args)
+logger.info('App args', args)
 
 const serve = args.some((val) => val === '--serve')
 const debug = args.some((val) => val === '--dev')
@@ -155,11 +152,11 @@ function getBounds(): Rectangle {
 function send(channel: string, ...additionalArgs: any[]): void {
   try {
     if (channel === 'game-active-change') {
-      console.log(`[Main] send('game-active-change', ${JSON.stringify(additionalArgs)})`)
+      logger.log('electronService_game', `send('game-active-change', ${JSON.stringify(additionalArgs)})`)
     }
     win.webContents.send(channel, ...additionalArgs)
   } catch (error) {
-    console.error(`could not send to '${channel}' with args '${JSON.stringify(additionalArgs)}'`)
+    logger.error(`could not send to '${channel}' with args '${JSON.stringify(additionalArgs)}'`)
   }
 }
 
@@ -200,7 +197,7 @@ update.register(ipcMain, (event, autoDownload) => {
 robot.register(ipcMain)
 
 game.register(ipcMain, (poe) => {
-  console.log(`[Main] game onUpdate: active=${poe.active}, bounds=${JSON.stringify(poe.bounds)}`)
+  logger.log('electronService_game', `send('game-active-change', active=${poe.active}, bounds=${JSON.stringify(poe.bounds)})`)
   send('game-active-change', serve ? true : !!poe.active)
 
   if (win) {
@@ -268,40 +265,12 @@ ipcMain.on('clipboard-write-text', (_, text: string) => {
   clipboard.writeText(text)
 })
 
-/* Session cookie operations */
-
-ipcMain.handle('set-session-cookie', async (_, cookieUrl: string, cookieName: string, cookieValue: string) => {
-  try {
-    await session.defaultSession.cookies.set({
-      url: cookieUrl,
-      name: cookieName,
-      value: cookieValue,
-      httpOnly: true,
-      secure: true,
-    })
-    return true
-  } catch (err) {
-    console.warn('Failed to set cookie:', err?.message || err)
-    return false
-  }
-})
-
-ipcMain.handle('get-session-cookie', async (_, cookieUrl: string, cookieName: string) => {
-  try {
-    const cookies = await session.defaultSession.cookies.get({ url: cookieUrl, name: cookieName })
-    return cookies.length > 0 ? cookies[0].value : null
-  } catch (err) {
-    console.warn('Failed to get cookie:', err?.message || err)
-    return null
-  }
-})
-
 /* Shell operations */
 
 ipcMain.on('shell-open-external', (_, externalUrl: string) => {
   if (typeof externalUrl === 'string') {
     shell.openExternal(externalUrl).catch((err) => {
-      console.warn('Failed to open external URL:', err?.message || err)
+      logger.warn('Failed to open external URL:', err?.message || err)
     })
   }
 })
@@ -315,118 +284,131 @@ ipcMain.on('get-cursor-screen-point', (event) => {
 /* Window management operations */
 
 ipcMain.on('get-current-window-bounds', (event) => {
+  logger.log('electronService_window', `on('get-current-window-bounds')`)
   const webContents = event.sender
   const browserWindow = BrowserWindow.fromWebContents(webContents)
   event.returnValue = browserWindow?.getBounds() ?? { x: 0, y: 0, width: 0, height: 0 }
 })
 
 ipcMain.on('set-ignore-mouse-events', (event, ignore: boolean, options?: { forward: boolean }) => {
+  logger.log('electronService_window', `on('set-ignore-mouse-events')`)
   const webContents = event.sender
   const browserWindow = BrowserWindow.fromWebContents(webContents)
-  if (browserWindow) {
-    browserWindow.setIgnoreMouseEvents(ignore, options)
-  }
+  browserWindow?.setIgnoreMouseEvents(ignore, options)
 })
 
 ipcMain.on('window-show', (event) => {
-  console.log('[Main] window-show')
+  logger.log('electronService_window', `on('window-show')`)
   const webContents = event.sender
   const browserWindow = BrowserWindow.fromWebContents(webContents)
-  if (browserWindow) {
-    browserWindow.showInactive()
-  }
+  browserWindow?.showInactive()
 })
 
 ipcMain.on('window-hide', (event) => {
-  console.log('[Main] window-hide')
+  logger.log('electronService_window', `on('window-hide')`)
   const webContents = event.sender
   const browserWindow = BrowserWindow.fromWebContents(webContents)
   browserWindow?.hide()
 })
 
 ipcMain.on('window-focus', (event) => {
+  logger.log('electronService_window', `on('window-focus')`)
   const webContents = event.sender
   const browserWindow = BrowserWindow.fromWebContents(webContents)
   browserWindow?.focus()
 })
 
 ipcMain.on('window-blur', (event) => {
+  logger.log('electronService_window', `on('window-blur')`)
   const webContents = event.sender
   const browserWindow = BrowserWindow.fromWebContents(webContents)
   browserWindow?.blur()
 })
 
 ipcMain.on('window-minimize', (event) => {
+  logger.log('electronService_window', `on('window-minimize')`)
   const webContents = event.sender
   const browserWindow = BrowserWindow.fromWebContents(webContents)
   browserWindow?.minimize()
 })
 
 ipcMain.on('window-restore', (event) => {
+  logger.log('electronService_window', `on('window-restore')`)
   const webContents = event.sender
   const browserWindow = BrowserWindow.fromWebContents(webContents)
   browserWindow?.restore()
 })
 
 ipcMain.on('window-close', (event) => {
+  logger.log('electronService_window', `on('window-close')`)
   const webContents = event.sender
   const browserWindow = BrowserWindow.fromWebContents(webContents)
   browserWindow?.close()
 })
 
 ipcMain.on('window-set-focusable', (event, focusable: boolean) => {
+  logger.log('electronService_window', `on('window-set-focusable')`)
   const webContents = event.sender
   const browserWindow = BrowserWindow.fromWebContents(webContents)
   browserWindow?.setFocusable(focusable)
 })
 
 ipcMain.on('window-set-skip-taskbar', (event, skip: boolean) => {
+  logger.log('electronService_window', `on('window-set-skip-taskbar')`)
   const webContents = event.sender
   const browserWindow = BrowserWindow.fromWebContents(webContents)
   browserWindow?.setSkipTaskbar(skip)
 })
 
 ipcMain.on('window-move-top', (event) => {
+  logger.log('electronService_window', `on('window-move-top')`)
   const webContents = event.sender
   const browserWindow = BrowserWindow.fromWebContents(webContents)
   browserWindow?.moveTop()
 })
 
 ipcMain.on('window-set-enabled', (event, enabled: boolean) => {
+  logger.log('electronService_window', `on('window-set-enabled')`)
   const webContents = event.sender
   const browserWindow = BrowserWindow.fromWebContents(webContents)
   browserWindow?.setEnabled(enabled)
 })
 
 ipcMain.on('window-set-size', (event, width: number, height: number) => {
+  logger.log('electronService_window', `on('window-set-size')`)
   const webContents = event.sender
   const browserWindow = BrowserWindow.fromWebContents(webContents)
   browserWindow?.setSize(width, height)
 })
 
 ipcMain.on('window-get-size', (event) => {
+  logger.log('electronService_window', `on('window-get-size')`)
   const webContents = event.sender
   const browserWindow = BrowserWindow.fromWebContents(webContents)
   event.returnValue = browserWindow?.getSize() ?? [0, 0]
 })
 
 ipcMain.on('window-get-content-bounds', (event) => {
+  logger.log('electronService_window', `on('window-get-content-bounds')`)
   const webContents = event.sender
   const browserWindow = BrowserWindow.fromWebContents(webContents)
   event.returnValue = browserWindow?.getContentBounds() ?? { x: 0, y: 0, width: 0, height: 0 }
 })
 
 ipcMain.on('get-zoom-factor', (event) => {
+  logger.log('electronService_window', `on('get-zoom-factor')`)
   const webContents = event.sender
   event.returnValue = webContents.zoomFactor
 })
 
 ipcMain.on('set-zoom-factor', (event, factor: number) => {
+  logger.log('electronService_window', `on('set-zoom-factor')`)
   const webContents = event.sender
   webContents.zoomFactor = factor
 })
 
 ipcMain.on('window-set-always-on-top', (event, flag: boolean, level?: string, relativeLevel?: number) => {
+  logger.log('electronService_window', `on('window-set-always-on-top')`)
   const webContents = event.sender
   const browserWindow = BrowserWindow.fromWebContents(webContents)
   if (browserWindow) {
@@ -439,6 +421,7 @@ ipcMain.on('window-set-always-on-top', (event, flag: boolean, level?: string, re
 })
 
 ipcMain.on('window-set-visible-all-workspaces', (event, visible: boolean) => {
+  logger.log('electronService_window', `on('window-set-visible-all-workspaces')`)
   const webContents = event.sender
   const browserWindow = BrowserWindow.fromWebContents(webContents)
   if (browserWindow) {
@@ -451,23 +434,23 @@ ipcMain.on('window-set-visible-all-workspaces', (event, visible: boolean) => {
 ipcMain.on('register-shortcut', (event, accelerator: string) => {
   try {
     const result = globalShortcut.register(accelerator, () => {
-      console.log(`[Main] shortcut triggered: ${accelerator}`)
+      logger.log('electronService_shortcut', `shortcut triggered: ${accelerator}`)
       event.sender.send(`shortcut-${accelerator}`)
     })
-    console.log(`[Main] register-shortcut: ${accelerator} => ${result}`)
+    logger.log('electronService_shortcut', `register-shortcut: ${accelerator} => ${result}`)
     event.returnValue = result
   } catch (error) {
-    console.error(`Failed to register shortcut: ${accelerator}`, error)
+    logger.error(`Failed to register shortcut: ${accelerator}`, error)
     event.returnValue = false
   }
 })
 
 ipcMain.on('unregister-shortcut', (event, accelerator: string) => {
   try {
-    console.log(`[Main] unregister-shortcut: ${accelerator}`)
+    logger.log('electronService_shortcut', `unregister-shortcut: ${accelerator}`)
     globalShortcut.unregister(accelerator)
   } catch (error) {
-    console.error(`Failed to unregister shortcut: ${accelerator}`, error)
+    logger.error(`Failed to unregister shortcut: ${accelerator}`, error)
   }
   event.returnValue = undefined
 })
@@ -478,6 +461,8 @@ const browserWindows: Map<number, BrowserWindow> = new Map()
 let browserWindowIdCounter = 0
 
 ipcMain.on('create-browser-window', (event, options: any) => {
+  logger.log('electronService_browserWindow', `on('create-browser-window')`)
+
   const parentWebContents = event.sender
   const parent = BrowserWindow.fromWebContents(parentWebContents)
 
@@ -509,27 +494,27 @@ ipcMain.on('create-browser-window', (event, options: any) => {
 })
 
 ipcMain.on('close-browser-window', (_, id: number) => {
+  logger.log('electronService_browserWindow', `on('close-browser-window')`)
   const browserWindow = browserWindows.get(id)
-  if (browserWindow) {
-    browserWindow.close()
-  }
+  browserWindow?.close()
 })
 
 ipcMain.on('load-url-browser-window', (_, id: number, urlToLoad: string) => {
+  logger.log('electronService_browserWindow', `on('load-url-browser-window')`)
   const browserWindow = browserWindows.get(id)
-  if (browserWindow) {
-    browserWindow.loadURL(urlToLoad).catch((err) => {
-      console.warn('Failed to load URL in browser window:', err?.message || err)
-    })
-  }
+  browserWindow?.loadURL(urlToLoad).catch((err) => {
+    logger.warn(`Failed to load URL in browser window ${id}:`, err?.message || err)
+  })
 })
 
 ipcMain.on('show-browser-window', (_, id: number) => {
+  logger.log('electronService_browserWindow', `on('show-browser-window')`)
   const browserWindow = browserWindows.get(id)
   browserWindow?.show()
 })
 
 ipcMain.on('set-browser-window-zoom', (_, id: number, zoomFactor: number) => {
+  logger.log('electronService_browserWindow', `on('set-browser-window-zoom')`)
   const browserWindow = browserWindows.get(id)
   if (browserWindow) {
     browserWindow.webContents.zoomFactor = zoomFactor
@@ -553,10 +538,12 @@ const crossWindowChannels = [
 crossWindowChannels.forEach((channel) => {
   ipcMain.on(channel, (event, ...forwardArgs) => {
     const senderWindow = BrowserWindow.fromWebContents(event.sender)
+    logger.log('electronService_thread', `on('${channel}', sender: ${senderWindow.id})`)
     // Forward to all other windows
     const allWindows = BrowserWindow.getAllWindows()
     for (const browserWindow of allWindows) {
-      if (browserWindow !== senderWindow && !browserWindow.isDestroyed()) {
+      if (browserWindow.id !== senderWindow.id && !browserWindow.isDestroyed()) {
+        logger.log('electronService_thread', `\tforward to ${browserWindow.id} on '${channel}'`)
         browserWindow.webContents.send(channel, ...forwardArgs)
       }
     }
@@ -567,35 +554,49 @@ crossWindowChannels.forEach((channel) => {
 
 // Forward trade notification example requests from settings window to main window
 ipcMain.on('trade-notification-add-example', (event, exampleNotificationType: any) => {
+  logger.log('electronService_tradeCompanion', `on('trade-notification-add-example')`)
   // Forward to main window
   if (win) {
     win.webContents.send('trade-notification-add-example', exampleNotificationType)
+  } else {
+    logger.warn(`Received 'trade-notification-add-example' while the main window no longer exists.`)
   }
 })
 
 // Forward stash grid options from settings window to main window
 ipcMain.on('stash-grid-options', (event, stashGridOptions: any) => {
+  logger.log('electronService_stashGrid', `on('stash-grid-options')`)
   const senderWindow = BrowserWindow.fromWebContents(event.sender)
-  // Forward to main window
-  if (win && senderWindow !== win) {
-    win.webContents.send('stash-grid-options', stashGridOptions, event.sender.id)
-  } else if (win && senderWindow === win) {
-    // Main window is handling it locally - no need to forward
-    win.webContents.send('stash-grid-options-local', stashGridOptions)
+  if (win) {
+    // Forward to main window
+    if (senderWindow.id !== win.id) {
+      logger.log('electronService_stashGrid', `\tforward 'stash-grid-options' to ${senderWindow.id} with ID ${event.sender.id}`)
+      win.webContents.send('stash-grid-options', stashGridOptions, event.sender.id)
+    } else {
+      logger.log('electronService_stashGrid', `\tforward 'stash-grid-options-local'`)
+      // Main window is handling it locally - no need to forward
+      win.webContents.send('stash-grid-options-local', stashGridOptions)
+    }
+  } else {
+    logger.warn(`Received 'stash-grid-options' while the main window no longer exists.`)
   }
 })
 
 // Handle stash grid reply from main window to settings window
 ipcMain.on('stash-grid-options-reply', (event, stashGridBounds: any, originalSenderId?: number) => {
+  logger.log('electronService_stashGrid', `on('stash-grid-options-reply')`)
   // Find the original sender and reply to them
   if (originalSenderId) {
     const allWindows = BrowserWindow.getAllWindows()
     for (const browserWindow of allWindows) {
       if (browserWindow.webContents.id === originalSenderId) {
+        logger.log('electronService_stashGrid', `\tforward ('stash-grid-options-reply' to ${originalSenderId}`)
         browserWindow.webContents.send('stash-grid-options-reply', stashGridBounds)
         break
       }
     }
+  } else {
+    logger.warn(`Could not forward 'stash-grid-options-reply': Missing SenderID`)
   }
 })
 
@@ -610,7 +611,7 @@ function showChangelog(): void {
   changelog.loadURL(
     'https://github.com/PoE-Overlay-Community/PoE-Overlay-Community-Fork/blob/master/CHANGELOG.md#Changelog'
   ).catch((err) => {
-    console.warn('Failed to load changelog:', err?.message || err)
+    logger.warn('Failed to load changelog:', err?.message || err)
   })
 }
 
@@ -641,6 +642,7 @@ function createWindow(): BrowserWindow {
     skipTaskbar: true,
     show: false,
   })
+  win.setTitle('Main Window')
   win.setSize(bounds.width, bounds.height)    // Explicitly set size after creating the window since some OS'es don't allow an initial size larger than the display's size.
   win.removeMenu()
   win.setIgnoreMouseEvents(true, { forward: true })
@@ -701,6 +703,7 @@ ipcMain.on('open-route', (event, route: string) => {
         closable: !isThread,
       })
 
+      childs[route].setTitle(`Child Window - ${route}`)
       childs[route].removeMenu()
 
       childs[route].once('closed', () => {
@@ -732,7 +735,7 @@ function loadApp(self: BrowserWindow, route: string = ''): void {
       electron: require(`${__dirname}/node_modules/electron`),
     })
     self.loadURL('http://localhost:4200' + route).catch((err) => {
-      console.warn('Failed to load dev URL:', err?.message || err)
+      logger.warn('Failed to load dev URL:', err?.message || err)
     })
     self.webContents.openDevTools({ mode: 'undocked' })
   } else {
@@ -742,7 +745,7 @@ function loadApp(self: BrowserWindow, route: string = ''): void {
       slashes: true,
     })
     self.loadURL(appUrl + route).catch((err) => {
-      console.warn('Failed to load app URL:', err?.message || err)
+      logger.warn('Failed to load app URL:', err?.message || err)
     })
   }
 }
@@ -822,7 +825,7 @@ function createTray(): Tray {
   }
 
   menu = Menu.buildFromTemplate(items)
-  tray.setToolTip(`PoE Overlay: ${app.getVersion()}`)
+  tray.setToolTip(`PoE Overlay - Community Fork: ${app.getVersion()}`)
   tray.setContextMenu(menu)
   tray.on('double-click', () => send('show-user-settings'))
   return tray

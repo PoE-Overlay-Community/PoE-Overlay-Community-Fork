@@ -1,8 +1,11 @@
 import { Injectable } from '@angular/core'
 import { ElectronProvider } from '@app/provider'
+import { ElectronService } from '@app/service'
 import { ElectronAPI } from '@app/type/electron-api.type'
 import { Observable, Subject } from 'rxjs'
 import { Dialog, DialogRefService, DialogType } from './dialog/dialog-ref.service'
+
+const BW_TAG = 'browserWindow'
 
 @Injectable({
   providedIn: 'root',
@@ -10,7 +13,11 @@ import { Dialog, DialogRefService, DialogType } from './dialog/dialog-ref.servic
 export class BrowserService {
   private readonly electronAPI: ElectronAPI
 
-  constructor(private readonly dialogRef: DialogRefService, electronProvider: ElectronProvider) {
+  constructor(
+    private readonly electronService: ElectronService,
+    private readonly dialogRef: DialogRefService,
+    electronProvider: ElectronProvider
+  ) {
     this.electronAPI = electronProvider.provideElectronAPI()
   }
 
@@ -22,7 +29,7 @@ export class BrowserService {
       useParent: true,
     })
 
-    this.electronAPI.once('browser-window-did-finish-load', (_, id) => {
+    this.electronService.once(BW_TAG, 'browser-window-did-finish-load', (_, id) => {
       if (id === windowId) {
         subject.next()
         subject.complete()
@@ -50,7 +57,7 @@ export class BrowserService {
 
     this.electronAPI.windowSetEnabled(false)
 
-    this.electronAPI.once('browser-window-closed', (_, id) => {
+    this.electronService.once(BW_TAG, 'browser-window-closed', (_, id) => {
       if (id === windowId) {
         this.electronAPI.windowSetEnabled(true)
         this.electronAPI.windowMoveTop()
@@ -59,11 +66,11 @@ export class BrowserService {
       }
     })
 
-    this.electronAPI.once('browser-window-ready', (_, id) => {
+    this.electronService.once(BW_TAG, 'browser-window-ready', (_, id) => {
       if (id === windowId) {
         const zoomFactor = this.electronAPI.getZoomFactor()
-        this.electronAPI.send('set-browser-window-zoom', windowId, zoomFactor)
-        this.electronAPI.send('show-browser-window', windowId)
+        this.electronService.send(BW_TAG, 'set-browser-window-zoom', windowId, zoomFactor)
+        this.electronService.send(BW_TAG, 'show-browser-window', windowId)
       }
     })
 
@@ -98,7 +105,7 @@ export class BrowserService {
       // Note: minimize, restore, maximize events are handled in the main process
       // For simplicity, we just handle the closed event here
 
-      this.electronAPI.once('browser-window-closed', (_, id) => {
+      this.electronService.once(BW_TAG, 'browser-window-closed', (_, id) => {
         if (id === windowId) {
           this.electronAPI.windowSetEnabled(true)
           this.dialogRef.remove(dialog)
@@ -106,11 +113,11 @@ export class BrowserService {
         }
       })
 
-      this.electronAPI.once('browser-window-ready', (_, id) => {
+      this.electronService.once(BW_TAG, 'browser-window-ready', (_, id) => {
         if (id === windowId) {
           const zoomFactor = this.electronAPI.getZoomFactor()
-          this.electronAPI.send('set-browser-window-zoom', windowId, zoomFactor)
-          this.electronAPI.send('show-browser-window', windowId)
+          this.electronService.send(BW_TAG, 'set-browser-window-zoom', windowId, zoomFactor)
+          this.electronService.send(BW_TAG, 'show-browser-window', windowId)
         }
       })
 

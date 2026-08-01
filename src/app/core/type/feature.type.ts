@@ -3,7 +3,6 @@ import { UserSettings, UserSettingsFeature } from 'src/app/layout/type'
 export interface Feature {
   name: string
   accelerator: string
-  passive?: boolean
 }
 
 export interface FeatureModule {

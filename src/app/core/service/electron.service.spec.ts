@@ -38,52 +38,11 @@ describe('ElectronService', () => {
     mockAPI._reset()
   })
 
-  describe('onMain', () => {
-    it('should register listener with electronAPI', () => {
-      const listener = jasmine.createSpy('listener')
-
-      service.onMain('test-channel', listener)
-
-      expect(mockAPI.on).toHaveBeenCalledWith('test-channel', jasmine.any(Function))
-    })
-
-    it('should call listener inside NgZone when event is triggered', fakeAsync(() => {
-      const listener = jasmine.createSpy('listener')
-      const ngZone = TestBed.inject(NgZone)
-      spyOn(ngZone, 'run').and.callThrough()
-
-      service.onMain('test-channel', listener)
-      mockAPI._triggerEvent('test-channel', 'arg1', 'arg2')
-
-      expect(ngZone.run).toHaveBeenCalled()
-      expect(listener).toHaveBeenCalledWith({}, 'arg1', 'arg2')
-    }))
-  })
-
-  describe('removeMainListener', () => {
-    it('should remove the registered listener', () => {
-      const listener = jasmine.createSpy('listener')
-
-      service.onMain('test-channel', listener)
-      service.removeMainListener('test-channel', listener)
-
-      expect(mockAPI.removeListener).toHaveBeenCalledWith('test-channel', jasmine.any(Function))
-    })
-
-    it('should not error when removing non-existent listener', () => {
-      const listener = jasmine.createSpy('listener')
-
-      expect(() => {
-        service.removeMainListener('non-existent-channel', listener)
-      }).not.toThrow()
-    })
-  })
-
   describe('on', () => {
     it('should register listener with electronAPI', () => {
       const listener = jasmine.createSpy('listener')
 
-      service.on('test-channel', listener)
+      service.on('test', 'test-channel', listener)
 
       expect(mockAPI.on).toHaveBeenCalledWith('test-channel', jasmine.any(Function))
     })
@@ -93,8 +52,8 @@ describe('ElectronService', () => {
     it('should remove the registered listener', () => {
       const listener = jasmine.createSpy('listener')
 
-      service.on('test-channel', listener)
-      service.removeListener('test-channel', listener)
+      service.on('test', 'test-channel', listener)
+      service.removeListener('test', 'test-channel', listener)
 
       expect(mockAPI.removeListener).toHaveBeenCalledWith('test-channel', jasmine.any(Function))
     })
@@ -102,7 +61,7 @@ describe('ElectronService', () => {
 
   describe('send', () => {
     it('should forward message to electronAPI', () => {
-      service.send('test-channel', 'arg1', 'arg2')
+      service.send('test', 'test-channel', 'arg1', 'arg2')
 
       expect(mockAPI.send).toHaveBeenCalledWith('test-channel', 'arg1', 'arg2')
     })

@@ -17,7 +17,7 @@ import { StashGridType, StashGridUserSettings } from '../../type/stash-grid.type
 import { PoEStashTab, PoEStashTabItem, StashTabsToSearch } from '../../type/stash.type'
 import { PoEAccountService } from '../account/account.service'
 import { ContextService } from '../context.service'
-import { STASH_PERIODIC_UPDATE_ACTIVE_CHANGED, STASH_TAB_INFO_CHANGED } from './stash-thread.service'
+import { SG_TAG, STASH_PERIODIC_UPDATE_ACTIVE_CHANGED, STASH_TAB_INFO_CHANGED } from './stash-thread.service'
 
 export enum StashNavigationDirection {
   Left,
@@ -80,12 +80,12 @@ export class StashService {
     if (!this.scopedStashTabInfoChangedEventHandler) {
       this.scopedStashTabInfoChangedEventHandler = () => this.updateStashTabInfo()
 
-      this.electronService.onMain(STASH_TAB_INFO_CHANGED, this.scopedStashTabInfoChangedEventHandler)
+      this.electronService.on(SG_TAG, STASH_TAB_INFO_CHANGED, this.scopedStashTabInfoChangedEventHandler)
     }
 
     // Start listening to 'stash periodic update active changed' updates from the stash thread
     if (!this.scopedStashPeriodicUpdateActiveChangedEventHandler) {
-      this.scopedStashPeriodicUpdateActiveChangedEventHandler = (_, periodicUpdateActive: boolean) => {
+      this.scopedStashPeriodicUpdateActiveChangedEventHandler = (_: any, periodicUpdateActive: boolean) => {
         this.stashTabContentPeriodicUpdateActiveChanged$.next(periodicUpdateActive)
         // The threaded update has finished -> update our local data
         if (!periodicUpdateActive) {
@@ -93,7 +93,7 @@ export class StashService {
         }
       }
 
-      this.electronService.onMain(STASH_PERIODIC_UPDATE_ACTIVE_CHANGED, this.scopedStashPeriodicUpdateActiveChangedEventHandler)
+      this.electronService.on(SG_TAG, STASH_PERIODIC_UPDATE_ACTIVE_CHANGED, this.scopedStashPeriodicUpdateActiveChangedEventHandler)
     }
 
     this.stashTabContentPeriodicUpdateActiveChanged$.next(true)
@@ -101,11 +101,11 @@ export class StashService {
 
   public unregister(): void {
     if (this.scopedStashTabInfoChangedEventHandler) {
-      this.electronService.removeMainListener(STASH_TAB_INFO_CHANGED, this.scopedStashTabInfoChangedEventHandler)
+      this.electronService.removeListener(SG_TAG, STASH_TAB_INFO_CHANGED, this.scopedStashTabInfoChangedEventHandler)
       this.scopedStashTabInfoChangedEventHandler = null
     }
     if (this.scopedStashPeriodicUpdateActiveChangedEventHandler) {
-      this.electronService.removeMainListener(STASH_PERIODIC_UPDATE_ACTIVE_CHANGED, this.scopedStashPeriodicUpdateActiveChangedEventHandler)
+      this.electronService.removeListener(SG_TAG, STASH_PERIODIC_UPDATE_ACTIVE_CHANGED, this.scopedStashPeriodicUpdateActiveChangedEventHandler)
       this.scopedStashPeriodicUpdateActiveChangedEventHandler = null
     }
 

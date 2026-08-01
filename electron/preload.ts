@@ -68,6 +68,8 @@ const electronAPI = {
   // Logger
   log: (level: string, message: string, ...args: any[]): void =>
     ipcRenderer.sendSync('log', level, message, ...args),
+  isLogTagEnabled: (tag: string): boolean =>
+    ipcRenderer.sendSync('is-log-tag-enabled', tag),
 
   // Keyboard
   setKeyboardDelay: (delay: number): void => ipcRenderer.sendSync('set-keyboard-delay', delay),
@@ -109,6 +111,7 @@ const electronAPI = {
       'reset-zoom',
       'open-route-reply',
       'shortcut-',
+      'show',
       'window-focus',
       'window-blur',
       'poe-account-updated',
@@ -116,6 +119,10 @@ const electronAPI = {
       'stash-periodic-update-active-changed',
       'vendor-recipes',
       'get-vendor-recipes',
+      // Cross-window IPC for periodic update thread
+      'thread-pause',
+      'thread-available',
+      'settings-changed',
       // Cross-window IPC for trade companion and stash grid
       'trade-notification-add-example',
       'stash-grid-options',
@@ -123,8 +130,10 @@ const electronAPI = {
       'closed',
     ]
     // Allow shortcut channels dynamically
-    if (validChannels.some((valid) => channel === valid || channel.startsWith('shortcut-'))) {
+    if (channel.startsWith('shortcut-') || validChannels.some((valid) => channel === valid)) {
       ipcRenderer.on(channel, callback)
+    } else {
+      console.warn(`[electronAPI-on()] '${channel}' is not in the list of valid channels`)
     }
   },
 
@@ -142,6 +151,8 @@ const electronAPI = {
     ]
     if (validChannels.includes(channel)) {
       ipcRenderer.once(channel, callback)
+    } else {
+      console.warn(`[electronAPI-once()] '${channel}' is not in the list of valid channels`)
     }
   },
 
@@ -174,13 +185,17 @@ const electronAPI = {
     ]
     if (validChannels.includes(channel)) {
       ipcRenderer.send(channel, ...args)
+    } else {
+      console.warn(`[electronAPI-send()] '${channel}' is not in the list of valid channels`)
     }
   },
 
   invoke: async (channel: string, ...args: any[]): Promise<any> => {
-    const validChannels = ['get-vendor-recipes', 'set-session-cookie', 'get-session-cookie']
+    const validChannels = ['get-vendor-recipes']
     if (validChannels.includes(channel)) {
       return ipcRenderer.invoke(channel, ...args)
+    } else {
+      console.warn(`[electronAPI-invoke()] '${channel}' is not in the list of valid channels`)
     }
     return undefined
   },

@@ -29,14 +29,14 @@ describe('ShortcutService', () => {
   describe('add', () => {
     it('should register a shortcut and return observable', () => {
       const ref = {}
-      const observable = service.add('Ctrl+D', ref, false, VisibleFlag.Game)
+      const observable = service.add('Ctrl+D', ref, VisibleFlag.Game)
 
       expect(observable).toBeDefined()
     })
 
     it('should register global shortcut when visibility matches', () => {
       const ref = {}
-      service.add('Ctrl+D', ref, false, VisibleFlag.Game)
+      service.add('Ctrl+D', ref, VisibleFlag.Game)
       service.check(VisibleFlag.Game)
 
       expect(mockAPI.registerGlobalShortcut).toHaveBeenCalledWith('Ctrl+D')
@@ -44,7 +44,7 @@ describe('ShortcutService', () => {
 
     it('should not register shortcut when visibility does not match', () => {
       const ref = {}
-      service.add('Ctrl+D', ref, false, VisibleFlag.Overlay)
+      service.add('Ctrl+D', ref, VisibleFlag.Overlay)
       service.check(VisibleFlag.Game)
 
       expect(mockAPI.registerGlobalShortcut).not.toHaveBeenCalled()
@@ -54,7 +54,7 @@ describe('ShortcutService', () => {
       const ref = {}
       let triggered = false
 
-      service.add('Ctrl+D', ref, false, VisibleFlag.Game).subscribe(() => {
+      service.add('Ctrl+D', ref, VisibleFlag.Game).subscribe(() => {
         triggered = true
       })
       service.check(VisibleFlag.Game)
@@ -71,7 +71,7 @@ describe('ShortcutService', () => {
       const ref = {}
       let completed = false
 
-      service.add('Ctrl+D', ref, false, VisibleFlag.Game).subscribe({
+      service.add('Ctrl+D', ref, VisibleFlag.Game).subscribe({
         complete: () => {
           completed = true
         },
@@ -98,12 +98,12 @@ describe('ShortcutService', () => {
       let completed1 = false
       let completed2 = false
 
-      service.add('Ctrl+D', ref, false, VisibleFlag.Game).subscribe({
+      service.add('Ctrl+D', ref, VisibleFlag.Game).subscribe({
         complete: () => {
           completed1 = true
         },
       })
-      service.add('Ctrl+F', ref, false, VisibleFlag.Game).subscribe({
+      service.add('Ctrl+F', ref, VisibleFlag.Game).subscribe({
         complete: () => {
           completed2 = true
         },
@@ -121,7 +121,7 @@ describe('ShortcutService', () => {
   describe('enable/disable', () => {
     it('should disable shortcut', () => {
       const ref = {}
-      service.add('Ctrl+D', ref, false, VisibleFlag.Game)
+      service.add('Ctrl+D', ref, VisibleFlag.Game)
       service.check(VisibleFlag.Game)
 
       service.disable('Ctrl+D', ref)
@@ -131,7 +131,7 @@ describe('ShortcutService', () => {
 
     it('should enable shortcut', () => {
       const ref = {}
-      service.add('Ctrl+D', ref, false, VisibleFlag.Game)
+      service.add('Ctrl+D', ref, VisibleFlag.Game)
       service.check(VisibleFlag.Game)
 
       service.disable('Ctrl+D', ref)
@@ -145,8 +145,8 @@ describe('ShortcutService', () => {
 
     it('should disable all shortcuts by ref', () => {
       const ref = {}
-      service.add('Ctrl+D', ref, false, VisibleFlag.Game)
-      service.add('Ctrl+F', ref, false, VisibleFlag.Game)
+      service.add('Ctrl+D', ref, VisibleFlag.Game)
+      service.add('Ctrl+F', ref, VisibleFlag.Game)
       service.check(VisibleFlag.Game)
 
       service.disableAllByRef(ref)
@@ -156,7 +156,7 @@ describe('ShortcutService', () => {
 
     it('should enable all shortcuts by ref', () => {
       const ref = {}
-      service.add('Ctrl+D', ref, false, VisibleFlag.Game)
+      service.add('Ctrl+D', ref, VisibleFlag.Game)
       service.check(VisibleFlag.Game)
 
       service.disableAllByRef(ref)
@@ -172,7 +172,7 @@ describe('ShortcutService', () => {
   describe('check', () => {
     it('should register shortcuts matching visibility flag', () => {
       const ref = {}
-      service.add('Ctrl+D', ref, false, VisibleFlag.Game)
+      service.add('Ctrl+D', ref, VisibleFlag.Game)
 
       service.check(VisibleFlag.Game)
 
@@ -181,7 +181,7 @@ describe('ShortcutService', () => {
 
     it('should unregister shortcuts not matching visibility flag', () => {
       const ref = {}
-      service.add('Ctrl+D', ref, false, VisibleFlag.Game)
+      service.add('Ctrl+D', ref, VisibleFlag.Game)
       service.check(VisibleFlag.Game)
 
       service.check(VisibleFlag.Overlay)
@@ -191,7 +191,7 @@ describe('ShortcutService', () => {
 
     it('should handle combined visibility flags', () => {
       const ref = {}
-      service.add('Ctrl+D', ref, false, VisibleFlag.Game, VisibleFlag.Overlay)
+      service.add('Ctrl+D', ref, VisibleFlag.Game, VisibleFlag.Overlay)
 
       service.check(VisibleFlag.Game | VisibleFlag.Overlay)
 
@@ -204,7 +204,7 @@ describe('ShortcutService', () => {
       const ref = {}
       let completed = false
 
-      service.add('Ctrl+D', ref, false, VisibleFlag.Game).subscribe({
+      service.add('Ctrl+D', ref, VisibleFlag.Game).subscribe({
         complete: () => {
           completed = true
         },

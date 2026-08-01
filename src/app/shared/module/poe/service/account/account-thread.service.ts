@@ -8,6 +8,7 @@ import { PoECharacterProvider } from '../../provider/character.provider'
 import { CacheExpirationType, Language, PoEAccount, PoECharacter } from '../../type'
 import { ContextService } from '../context.service'
 
+export const ACC_TAG = 'account'
 export const POE_ACCOUNT_UPDATED = 'poe-account-updated'
 
 @Injectable({
@@ -98,6 +99,6 @@ export class PoEAccountThreadService {
 
   private updateAccount(account: PoEAccount): void {
     this.accountSubject.next(account)
-    this.electronService.send(POE_ACCOUNT_UPDATED)
+    this.electronService.send(ACC_TAG, POE_ACCOUNT_UPDATED)
   }
 }

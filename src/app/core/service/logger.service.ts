@@ -3,24 +3,10 @@ import { ElectronProvider } from '@app/provider/electron.provider'
 import { ElectronAPI } from '@app/type/electron-api.type'
 import { environment } from '@env/environment'
 
-interface LogTags {
-  cacheService?: boolean
-  rateLimiter?: boolean
-  poeHttp?: boolean
-  electronService?: boolean
-}
-
 @Injectable({
   providedIn: 'root',
 })
 export class LoggerService {
-  private readonly enabledLogTags: LogTags = {
-    poeHttp: true,
-    cacheService: false,
-    rateLimiter: false,
-    electronService: true,
-  }
-
   private readonly electronAPI: ElectronAPI
 
   constructor(electronProvider: ElectronProvider) {
@@ -28,7 +14,7 @@ export class LoggerService {
   }
 
   public isLogTagEnabled(tag: string): boolean {
-    return tag.length === 0 || this.enabledLogTags[tag]
+    return tag.length === 0 || this.electronAPI.isLogTagEnabled(tag)
   }
 
   public debug(tag: string, message: string, ...args: any[]): void {
@@ -52,17 +38,21 @@ export class LoggerService {
   }
 
   private sendLog(level: string, tag: string, message: string, ...args: any[]): void {
-    if (tag.length > 0) {
-      if (!this.enabledLogTags[tag]) {
-        return
-      }
-      message = `[${tag}] ${message}`
-    }
     if (environment.production) {
-      this.electronAPI?.log(level, message, ...args)
-    } else {
-      console.log(message)
-      args.forEach(arg => console.log(arg))
+      if (this.electronAPI) {
+        this.electronAPI.log(level, tag, message, ...args)
+      } else {
+        console.warn(`[LoggerService] Failed to forward the log below to the ElectronAPI!`)
+        console.log(message)
+        args.forEach(arg => console.log(arg))
+      }
+    } else if (this.isLogTagEnabled(tag)) {
+      if (tag.length > 0) {
+        message = `[${tag}] ${message}`
+      }
+      message = `[PoE Overlay - CF] ${message}`
+      console[level](message)
+      args.forEach(arg => console[level](arg))
     }
   }
 }

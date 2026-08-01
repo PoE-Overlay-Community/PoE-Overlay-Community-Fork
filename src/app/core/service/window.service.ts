@@ -1,8 +1,9 @@
-import { Injectable, NgZone } from '@angular/core'
+import { Injectable } from '@angular/core'
 import { ElectronProvider } from '@app/provider'
-import { Rectangle, Point } from '@app/type'
+import { ElectronService } from '@app/service'
+import { Point, Rectangle } from '@app/type'
 import { ElectronAPI } from '@app/type/electron-api.type'
-import { Observable, Subject, BehaviorSubject } from 'rxjs'
+import { BehaviorSubject, Observable, Subject } from 'rxjs'
 import { TransparencyMouseFix } from '../../transparency-mouse-fix'
 
 @Injectable({
@@ -16,7 +17,9 @@ export class WindowService {
 
   private readonly electronAPI: ElectronAPI
 
-  constructor(private readonly ngZone: NgZone, electronProvider: ElectronProvider) {
+  constructor(
+    private readonly electronService: ElectronService,
+    electronProvider: ElectronProvider) {
     this.electronAPI = electronProvider.provideElectronAPI()
     this.gameBounds = new BehaviorSubject<Rectangle>(
       this.electronAPI?.getCurrentWindowBounds() ?? { x: 0, y: 0, width: 0, height: 0 }
@@ -24,7 +27,7 @@ export class WindowService {
   }
 
   public registerEvents(): void {
-    this.electronAPI.on('game-bounds-change', (_, bounds: Rectangle) => {
+    this.electronService.on('game', 'game-bounds-change', (_, bounds: Rectangle) => {
       this.gameBounds.next(bounds)
     })
   }
@@ -42,9 +45,7 @@ export class WindowService {
 
   public on(event: string): Observable<void> {
     const callback = new Subject<void>()
-    this.electronAPI.on(event, () => {
-      this.ngZone.run(() => callback.next())
-    })
+    this.electronService.on('window', event, () => callback.next())
     return callback
   }
 

@@ -1,8 +1,9 @@
 import { Injectable, NgZone } from '@angular/core'
 import { ElectronProvider } from '@app/provider'
+import { ElectronService } from '@app/service'
 import { AppUpdateState, VisibleFlag } from '@app/type/app.type'
 import { ElectronAPI } from '@app/type/electron-api.type'
-import { BehaviorSubject, combineLatest, Observable, Subject } from 'rxjs'
+import { BehaviorSubject, Observable, Subject, combineLatest } from 'rxjs'
 import { map } from 'rxjs/operators'
 import { DialogRefService, DialogType } from './dialog/dialog-ref.service'
 
@@ -20,24 +21,17 @@ export class AppService {
   constructor(
     private readonly ngZone: NgZone,
     private readonly dialogRef: DialogRefService,
+    private readonly electronService: ElectronService,
     electronProvider: ElectronProvider
   ) {
     this.electronAPI = electronProvider.provideElectronAPI()
   }
 
   public registerEvents(autoDownload: boolean): void {
-    this.electronAPI.on('app-update-available', () => {
-      this.ngZone.run(() => this.updateState$.next(AppUpdateState.Available))
-    })
-    this.electronAPI.on('app-update-downloaded', () => {
-      this.ngZone.run(() => this.updateState$.next(AppUpdateState.Downloaded))
-    })
-    this.electronAPI.on('app-relaunch', () => {
-      this.ngZone.run(() => this.relaunch())
-    })
-    this.electronAPI.on('app-quit', () => {
-      this.ngZone.run(() => this.quit())
-    })
+    this.electronService.on('app', 'app-update-available', () => this.updateState$.next(AppUpdateState.Available))
+    this.electronService.on('app', 'app-update-downloaded', () => this.updateState$.next(AppUpdateState.Downloaded))
+    this.electronService.on('app', 'app-relaunch', () => this.relaunch())
+    this.electronService.on('app', 'app-quit', () => this.quit())
     this.electronAPI.initDownload(autoDownload)
   }
 
@@ -50,13 +44,13 @@ export class AppService {
   }
 
   public visibleChange(): Observable<VisibleFlag> {
-    this.electronAPI.on('game-active-change', (_, arg) => {
+    this.electronService.on('game', 'game-active-change', (_, arg) => {
       this.ngZone.run(() => this.activeChange$.next(arg))
     })
     this.electronAPI.sendGameActiveChange()
 
-    this.electronAPI.on('window-focus', () => this.ngZone.run(() => this.focusChange$.next(true)))
-    this.electronAPI.on('window-blur', () => this.ngZone.run(() => this.focusChange$.next(false)))
+    this.electronService.on('window', 'window-focus', () => this.focusChange$.next(true))
+    this.electronService.on('window', 'window-blur', () => this.focusChange$.next(false))
 
     return combineLatest([
       this.activeChange$,
@@ -92,11 +86,9 @@ export class AppService {
 
   public isAutoLaunchEnabled(): Observable<boolean> {
     const subject = new Subject<boolean>()
-    this.electronAPI.once('app-auto-launch-enabled-result', (_, enabled) => {
-      this.ngZone.run(() => {
-        subject.next(enabled)
-        subject.complete()
-      })
+    this.electronService.once('app', 'app-auto-launch-enabled-result', (_, enabled) => {
+      subject.next(enabled)
+      subject.complete()
     })
     this.electronAPI.isAutoLaunchEnabled()
     return subject
@@ -104,11 +96,9 @@ export class AppService {
 
   public updateAutoLaunchEnabled(enabled: boolean): Observable<boolean> {
     const subject = new Subject<boolean>()
-    this.electronAPI.once('app-auto-launch-change-result', (_, success) => {
-      this.ngZone.run(() => {
-        subject.next(success)
-        subject.complete()
-      })
+    this.electronService.once('app', 'app-auto-launch-change-result', (_, success) => {
+      subject.next(success)
+      subject.complete()
     })
     this.electronAPI.setAutoLaunchEnabled(enabled)
     return subject
