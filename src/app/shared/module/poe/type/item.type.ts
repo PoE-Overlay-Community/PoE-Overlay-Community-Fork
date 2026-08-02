@@ -124,6 +124,8 @@ export enum ItemCategory {
   Idol = "idol",
   Graft = "graft",
   Wombgift = "wombgift",
+  Enshrouded = "enshrouded",
+  Chart = "chart",
   Currency = 'currency',
   CurrencyPiece = 'currency.piece',
   CurrencyResonator = 'currency.resonator',

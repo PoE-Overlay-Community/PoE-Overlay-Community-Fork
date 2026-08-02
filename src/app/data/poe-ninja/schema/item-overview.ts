@@ -33,6 +33,8 @@ export enum ItemOverviewType {
   Tattoo = 'Tattoo',
   Omen = 'Omen',
   DjinnCoin = 'DjinnCoin',
+  Ducat = 'Ducat',
+  EnshroudingCrystal = 'EnshroudingCrystal',
   DivinationCard = 'DivinationCard',
   Artifact = 'Artifact',
   Oil = 'Oil',

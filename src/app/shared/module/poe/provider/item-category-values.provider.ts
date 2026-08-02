@@ -96,6 +96,7 @@ export class ItemCategoryValuesProvider {
           this.fetch(`${key}_runegraft`, useCurrencyExchangeData, () => this.fetchItem(leagueId, useCurrencyExchangeData, ItemOverviewType.Runegraft)),
           this.fetch(`${key}_astrolabe`, useCurrencyExchangeData, () => this.fetchItem(leagueId, useCurrencyExchangeData, ItemOverviewType.Astrolabe)),
           this.fetch(`${key}_djinnCoin`, useCurrencyExchangeData, () => this.fetchItem(leagueId, useCurrencyExchangeData, ItemOverviewType.DjinnCoin)),
+          this.fetch(`${key}_ducat`, useCurrencyExchangeData, () => this.fetchItem(leagueId, useCurrencyExchangeData, ItemOverviewType.Ducat)),
           this.fetch(`${leagueId}_${ItemCategory.MapFragment}`, useCurrencyExchangeData, () => this.fetchCurrency(leagueId, useCurrencyExchangeData, CurrencyOverviewType.Fragment)),
         ]).pipe(
           map(([currencies, essences, oil, vial, deliriumOrb, artifacts, runegraft, astrolabe, djinnCoin, fragments]) => {
@@ -167,6 +168,10 @@ export class ItemCategoryValuesProvider {
       case ItemCategory.Wombgift: {
         const key = `${leagueId}_${ItemCategory.Wombgift}`
         return this.fetch(key, useCurrencyExchangeData, () => this.fetchItem(leagueId, useCurrencyExchangeData, ItemOverviewType.Wombgift))
+      }
+      case ItemCategory.Enshrouded: {
+        const key = `${leagueId}_${ItemCategory.Enshrouded}`
+        return this.fetch(key, useCurrencyExchangeData, () => this.fetchItem(leagueId, useCurrencyExchangeData, ItemOverviewType.EnshroudingCrystal))
       }
       case ItemCategory.MonsterBeast: {
         const key = `${leagueId}_${ItemCategory.MonsterBeast}`
@@ -258,14 +263,25 @@ export class ItemCategoryValuesProvider {
       case ItemCategory.GemActiveGem:
       case ItemCategory.GemSupportGem:
       case ItemCategory.GemSupportGemplus:
-        const gemKey = `${leagueId}_${ItemCategory.Gem}`
-        return this.fetch(gemKey, useCurrencyExchangeData, () => this.fetchItem(leagueId, useCurrencyExchangeData, ItemOverviewType.SkillGem))
+        {
+          const gemKey = `${leagueId}_${ItemCategory.Gem}`
+          return this.fetch(gemKey, useCurrencyExchangeData, () => this.fetchItem(leagueId, useCurrencyExchangeData, ItemOverviewType.SkillGem))
+        }
       case ItemCategory.CurrencySeed:
       case ItemCategory.CurrencyWildSeed:
       case ItemCategory.CurrencyVividSeed:
       case ItemCategory.CurrencyPrimalSeed:
-        const seedKey = `${leagueId}_${ItemCategory.CurrencySeed}`
-        return this.fetch(seedKey, useCurrencyExchangeData, () => this.fetchItem(leagueId, useCurrencyExchangeData, ItemOverviewType.Seed))
+        {
+          const seedKey = `${leagueId}_${ItemCategory.CurrencySeed}`
+          return this.fetch(seedKey, useCurrencyExchangeData, () => this.fetchItem(leagueId, useCurrencyExchangeData, ItemOverviewType.Seed))
+        }
+      case ItemCategory.SanctumRelic:
+        if (rarity === ItemRarity.Unique || rarity === ItemRarity.UniqueRelic) {
+          const key = `${leagueId}_${ItemCategory.SanctumRelic}`
+          return this.fetch(key, useCurrencyExchangeData, () => this.fetchItem(leagueId, useCurrencyExchangeData, ItemOverviewType.UniqueRelic))
+        }
+        return of({ values: [] })
+        break
       case ItemCategory.Leaguestone:
       case ItemCategory.MemoryLine:
       case ItemCategory.MonsterSample:
@@ -281,6 +297,7 @@ export class ItemCategoryValuesProvider {
       case ItemCategory.HeistMission:
       case ItemCategory.HeistContract:
       case ItemCategory.HeistBlueprint:
+      case ItemCategory.SanctumResearch:
       case ItemCategory.ExpeditionLogbook:
       case ItemCategory.AzmeriTincture:
       case ItemCategory.AzmeriCharm:
@@ -288,6 +305,7 @@ export class ItemCategoryValuesProvider {
       case ItemCategory.Corpse:
       case ItemCategory.Idol:
       case ItemCategory.Graft:
+      case ItemCategory.Chart:
         return of({ values: [] })
       default:
         console.warn(`Missing ItemCategory case for '${category}'`)
