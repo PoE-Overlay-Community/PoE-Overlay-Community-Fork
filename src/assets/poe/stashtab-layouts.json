@@ -1862,6 +1862,13 @@
 				"height": 1,
 				"showIfEmpty": true
 			},
+			"CurrencyMastermindsLair": {
+				"xOffset": 437,
+				"yOffset": 456,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
 			"CurrencyFearKey": {
 				"xOffset": 320,
 				"yOffset": 553,
@@ -2679,22 +2686,22 @@
 				"showIfEmpty": true
 			},
 			"ScarabUniquesNew1": {
-				"xOffset": 420,
-				"yOffset": 150,
+				"xOffset": 726,
+				"yOffset": 80,
 				"width": 1,
 				"height": 1,
 				"showIfEmpty": true
 			},
 			"ScarabUniquesNew2": {
-				"xOffset": 480,
-				"yOffset": 150,
+				"xOffset": 786,
+				"yOffset": 80,
 				"width": 1,
 				"height": 1,
 				"showIfEmpty": true
 			},
 			"ScarabUniquesNew3": {
-				"xOffset": 540,
-				"yOffset": 150,
+				"xOffset": 846,
+				"yOffset": 80,
 				"width": 1,
 				"height": 1,
 				"showIfEmpty": true
@@ -3475,6 +3482,34 @@
 				"width": 1,
 				"height": 1,
 				"showIfEmpty": true
+			},
+			"ScarabMercenaries1": {
+				"xOffset": 420,
+				"yOffset": 150,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabMercenaries2": {
+				"xOffset": 480,
+				"yOffset": 150,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabMercenaries3": {
+				"xOffset": 540,
+				"yOffset": 150,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"ScarabMercenaries4": {
+				"xOffset": 600,
+				"yOffset": 150,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
 			}
 		},
 		"delve": {
@@ -3912,8 +3947,8 @@
 		},
 		"delirium": {
 			"CurrencyAfflictionOrbCurrency": {
-				"xOffset": 59,
-				"yOffset": 44,
+				"xOffset": 161,
+				"yOffset": 348,
 				"width": 1,
 				"height": 1,
 				"showIfEmpty": true
@@ -3961,11 +3996,11 @@
 				"showIfEmpty": true
 			},
 			"CurrencyAfflictionOrbAbyss": {
-				"xOffset": 161,
+				"xOffset": 262,
 				"yOffset": 348,
 				"width": 1,
 				"height": 1,
-				"showIfEmpty": true
+				"showIfEmpty": false
 			},
 			"CurrencyAfflictionOrbPerandus": {
 				"xOffset": 161,
@@ -4010,7 +4045,7 @@
 				"showIfEmpty": true
 			},
 			"CurrencyAfflictionOrbFragments": {
-				"xOffset": 262,
+				"xOffset": 806,
 				"yOffset": 246,
 				"width": 1,
 				"height": 1,
@@ -4045,11 +4080,11 @@
 				"showIfEmpty": true
 			},
 			"CurrencyAfflictionOrbTalismans": {
-				"xOffset": 806,
-				"yOffset": 44,
+				"xOffset": 262,
+				"yOffset": 450,
 				"width": 1,
 				"height": 1,
-				"showIfEmpty": true
+				"showIfEmpty": false
 			},
 			"CurrencyAfflictionOrbLabyrinth": {
 				"xOffset": 59,
@@ -4059,11 +4094,11 @@
 				"showIfEmpty": false
 			},
 			"CurrencyAfflictionOrbIncubators": {
-				"xOffset": 806,
+				"xOffset": 262,
 				"yOffset": 246,
 				"width": 1,
 				"height": 1,
-				"showIfEmpty": true
+				"showIfEmpty": false
 			},
 			"CurrencyAfflictionOrbMetamorphosis": {
 				"xOffset": 806,

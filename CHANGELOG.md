@@ -7,6 +7,7 @@
 - Added support for 'Enshrouded' and 'Chart' item categories
 - Added 'Ducat' to the list of currencies to obtain from poe ninja
 - Added support for 'Sanctum Relics' and 'Enshrouded' exchange rates (obtained from poe ninja)
+- Updated the PoE Assets using PoE Asset Updater (commit 05a4327) and PoE Client v3.29.1 (Hotfix 1)
 
 ### Changes made when merging master v0.8.42 into this branch (which originated from v0.8.39)
 - Removed the polyfill workaround for poe login page
