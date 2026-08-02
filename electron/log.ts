@@ -34,6 +34,7 @@ export class Logger {
     electronService_settings: false,
     electronService_account: false,
     electronService_shortcut: false,
+    electronService_mouseKeyboard: false,
     electronService_stashGrid: false,
     electronService_tradeCompanion: false,
     electronService_thread: false,
