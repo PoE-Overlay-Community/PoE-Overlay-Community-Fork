@@ -1,10 +1,13 @@
 # Changelog
 
-## 0.9.0
+## 0.9.0-alpha.1
 
-- Changes made when mering master v0.8.42 into this branch (which originated from v0.8.39)
-  - Removed the polyfill workaround for poe login page
-  - Reverted/dropped login url changes made to fix the login issue
+### Other changes made
+- Removed the '/hideout' from the list of default commands (It can now be assigned a hotkey in-game instead)
+
+### Changes made when merging master v0.8.42 into this branch (which originated from v0.8.39)
+- Removed the polyfill workaround for poe login page
+- Reverted/dropped login url changes made to fix the login issue
 
 ### Major Dependency Upgrade (by Ezroar)
 
