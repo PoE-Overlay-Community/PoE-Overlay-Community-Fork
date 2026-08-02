@@ -9,6 +9,7 @@ environment:
 branches:
   only:
     - master
+    - test/dep-upgr-appvayor
 only_commits:
   message: /Updated the appveyor config/
 cache:
