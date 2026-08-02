@@ -194,7 +194,7 @@ update.register(ipcMain, (event, autoDownload) => {
   send(event)
 })
 
-robot.register(ipcMain)
+robot.register(ipcMain, logger)
 
 game.register(ipcMain, (poe) => {
   logger.log('electronService_game', `send('game-active-change', active=${poe.active}, bounds=${JSON.stringify(poe.bounds)})`)

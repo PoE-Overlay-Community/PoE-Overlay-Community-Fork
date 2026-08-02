@@ -83,7 +83,8 @@ const electronAPI = {
     ipcRenderer.sendSync('click-at', button, position),
   mouseMove: (position: { x: number; y: number }): void =>
     ipcRenderer.sendSync('move-to', position),
-  mousePosition: (): { x: number; y: number } => ipcRenderer.sendSync('mouse-pos'),
+  mousePosition: (): { x: number; y: number } =>
+    ipcRenderer.sendSync('mouse-pos'),
 
   // Routes/windows
   openRoute: (route: string): void => ipcRenderer.send('open-route', route),

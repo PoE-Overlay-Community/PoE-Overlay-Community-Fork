@@ -1,6 +1,6 @@
-import { Injectable, NgZone } from '@angular/core'
+import { Injectable } from '@angular/core'
 import { ElectronProvider } from '@app/provider'
-import { ElectronService } from '@app/service'
+import { ElectronService, LoggerService } from '@app/service'
 import { VisibleFlag } from '@app/type/app.type'
 import { ElectronAPI } from '@app/type/electron-api.type'
 import { Observable, Subject } from 'rxjs'
@@ -28,7 +28,7 @@ export class ShortcutService {
   private lastFlag?: VisibleFlag
 
   constructor(
-    private readonly ngZone: NgZone,
+    private readonly logger: LoggerService,
     private readonly electronService: ElectronService,
     electronProvider: ElectronProvider) {
     this.electronAPI = electronProvider.provideElectronAPI()
@@ -168,7 +168,7 @@ export class ShortcutService {
         this.unregisterShortcut(activeShortcut)
       }
       const nextShortcut = this.shortcuts[accelerator].find(
-        (x) => !x.disabled && x.actives.some((filter) => (flag & filter) === filter)
+        (x) => !x.disabled && !x.isActive && x.actives.some((filter) => (flag & filter) === filter)
       )
       if (nextShortcut) {
         this.registerShortcut(nextShortcut)
@@ -191,12 +191,20 @@ export class ShortcutService {
   }
 
   private registerShortcut(shortcut: Shortcut): void {
+    if (shortcut.isActive) {
+      this.logger.warn(`Shortcut '${shortcut.accelerator}' is already active! - Ignoring register call.`)
+      return
+    }
     shortcut.isActive = true
     this.electronService.on('shortcut', `shortcut-${shortcut.accelerator}`, () => shortcut.callback.next())
     this.electronAPI.registerGlobalShortcut(shortcut.accelerator)
   }
 
   private unregisterShortcut(shortcut: Shortcut): void {
+    if (!shortcut.isActive) {
+      this.logger.warn(`Shortcut '${shortcut.accelerator}' is inactive! - Ignoring unregister call.`)
+      return
+    }
     shortcut.isActive = false
     this.electronService.removeAllListeners('shortcut', `shortcut-${shortcut.accelerator}`)
     this.electronAPI.unregisterGlobalShortcut(shortcut.accelerator)

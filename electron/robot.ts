@@ -1,4 +1,5 @@
 import { IpcMain } from 'electron'
+import * as log from './log'
 import * as robot from '@jitsi/robotjs'
 
 // Map Windows virtual key codes to @jitsi/robotjs key names.
@@ -39,8 +40,11 @@ function toKeyName(key: number | string): string {
   return name
 }
 
-export function register(ipcMain: IpcMain): void {
+const MK_TAG = "electronService_mouseKeyboard"
+
+export function register(ipcMain: IpcMain, logger: log.Logger): void {
   ipcMain.on('click-at', (event, button, position) => {
+    logger.log(MK_TAG, `on('click-at')`)
     if (position) {
       robot.moveMouse(position.x, position.y)
     }
@@ -49,25 +53,30 @@ export function register(ipcMain: IpcMain): void {
   })
 
   ipcMain.on('move-to', (event, position) => {
+    logger.log(MK_TAG, `on('move-to')`)
     robot.moveMouse(position.x, position.y)
     event.returnValue = true
   })
 
   ipcMain.on('mouse-pos', (event) => {
+    logger.log(MK_TAG, `on('mouse-pos')`)
     event.returnValue = robot.getMousePos()
   })
 
   ipcMain.on('key-tap', (event, key, modifier) => {
+    logger.log(MK_TAG, `on('key-tap')`)
     robot.keyTap(toKeyName(key), modifier)
     event.returnValue = true
   })
 
   ipcMain.on('key-toggle', (event, key, down, modifier) => {
+    logger.log(MK_TAG, `on('key-toggle')`)
     robot.keyToggle(toKeyName(key), down, modifier)
     event.returnValue = true
   })
 
   ipcMain.on('set-keyboard-delay', (event, delay) => {
+    logger.log(MK_TAG, `on('set-keyboard-delay')`)
     robot.setKeyboardDelay(delay)
     event.returnValue = true
   })

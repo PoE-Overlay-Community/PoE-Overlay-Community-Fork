@@ -51,8 +51,26 @@ export class LoggerService {
         message = `[${tag}] ${message}`
       }
       message = `[PoE Overlay - CF] ${message}`
-      console[level](message)
-      args.forEach(arg => console[level](arg))
+      this.printLog(level, message)
+      args.forEach(arg => this.printLog(level, arg))
+    }
+  }
+
+  private printLog(level: string, message: string): void {
+    switch (level) {
+      case 'log':
+      default:
+        console.log(message)
+        break
+      case 'warn':
+        console.warn(message)
+        break
+      case 'error':
+        console.error(message)
+        break
+      case 'info':
+        console.info(message)
+        break
     }
   }
 }

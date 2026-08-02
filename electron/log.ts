@@ -13,6 +13,7 @@ interface LogTags {
   electronService_settings?: boolean
   electronService_account?: boolean
   electronService_shortcut?: boolean
+  electronService_mouseKeyboard?: boolean
   electronService_stashGrid?: boolean
   electronService_tradeCompanion?: boolean
   electronService_thread?: boolean
