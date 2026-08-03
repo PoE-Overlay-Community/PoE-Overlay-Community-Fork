@@ -12,16 +12,14 @@
 		"implicit": {},
 		"imbued": {},
 		"fractured": {},
-		"enchant": {
-			"delirium_reward_currency": [
-				"delirium_reward_harbinger"
-			],
-			"delirium_reward_harbinger": [
-				"delirium_reward_currency"
-			]
-		},
+		"enchant": {},
 		"scourge": {},
 		"crafted": {},
+		"mercenary": {},
+		"veiled": {},
+		"delve": {},
+		"ultimatum": {},
+		"sanctum": {},
 		"crucible": {
 			"mod_24366": [
 				"mod_47557"
@@ -39,10 +37,6 @@
 			"mod_28083": [
 				"mod_36288"
 			]
-		},
-		"veiled": {},
-		"delve": {},
-		"ultimatum": {},
-		"sanctum": {}
+		}
 	}
 }
