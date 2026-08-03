@@ -9,9 +9,9 @@ environment:
 branches:
   only:
     - master
-    - test/dep-upgr-appvayor
+    - feature/dependency-upgrade-by-ezroar-reviewed
 only_commits:
-  message: /Updated the appveyor config/
+  message: /Bumped version to v/
 cache:
   - node_modules
   - '%USERPROFILE%\.electron'
@@ -39,4 +39,4 @@ deploy:
   authorization:
     secure: RK6v3+1p1/SHMUeoEUevbNeO9NZ9pdwrZeH2kCvz35AmUxqp278eKGkcqYknAMYLog8Nd/2OzdFobuRo3d/GnA==
   on:
-    branch: master
+    branch: feature/dependency-upgrade-by-ezroar-reviewed
