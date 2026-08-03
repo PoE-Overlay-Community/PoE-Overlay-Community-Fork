@@ -29,10 +29,10 @@
     .cold {
       .value,
       .value.changed {
-        color: $aqua;
+        color: $damage-cold;
 
         .text {
-          color: $aqua !important;
+          color: $damage-cold !important;
         }
       }
     }
@@ -40,10 +40,10 @@
     .lightning {
       .value,
       .value.changed {
-        color: $yellow;
+        color: $damage-lightning;
 
         .text {
-          color: $yellow !important;
+          color: $damage-lightning !important;
         }
       }
     }
@@ -51,10 +51,10 @@
     .chaos {
       .value,
       .value.changed {
-        color: $pink;
+        color: $damage-chaos;
 
         .text {
-          color: $pink !important;
+          color: $damage-chaos !important;
         }
       }
     }
@@ -62,10 +62,10 @@
     .fire {
       .value,
       .value.changed {
-        color: $red;
+        color: $damage-fire;
 
         .text {
-          color: $red !important;
+          color: $damage-fire !important;
         }
       }
     }
