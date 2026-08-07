@@ -179,10 +179,6 @@ export class ItemSectionRarityParserService implements ItemSectionParserService 
           continue
         }
 
-        if (section.lines[0].length <= target.type.length) {
-          continue
-        }
-
         const type = section.lines[0]
         const id = this.baseItemTypesService.searchId(type)
         if (id === undefined || id.indexOf('Vaal') === -1) {
