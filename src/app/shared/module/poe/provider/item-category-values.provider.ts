@@ -96,7 +96,7 @@ export class ItemCategoryValuesProvider {
           this.fetch(`${key}_runegraft`, useCurrencyExchangeData, () => this.fetchItem(leagueId, useCurrencyExchangeData, ItemOverviewType.Runegraft)),
           this.fetch(`${key}_astrolabe`, useCurrencyExchangeData, () => this.fetchItem(leagueId, useCurrencyExchangeData, ItemOverviewType.Astrolabe)),
           this.fetch(`${key}_djinnCoin`, useCurrencyExchangeData, () => this.fetchItem(leagueId, useCurrencyExchangeData, ItemOverviewType.DjinnCoin)),
-          this.fetch(`${key}_ducat`, useCurrencyExchangeData, () => this.fetchItem(leagueId, useCurrencyExchangeData, ItemOverviewType.Ducat)),
+          this.fetch(`${key}_ducat`, true, () => this.fetchItem(leagueId, true, ItemOverviewType.Ducat)),
           this.fetch(`${leagueId}_${ItemCategory.MapFragment}`, useCurrencyExchangeData, () => this.fetchCurrency(leagueId, useCurrencyExchangeData, CurrencyOverviewType.Fragment)),
         ]).pipe(
           map(([currencies, essences, oil, vial, deliriumOrb, artifacts, runegraft, astrolabe, djinnCoin, fragments]) => {

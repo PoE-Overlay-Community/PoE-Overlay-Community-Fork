@@ -81,6 +81,7 @@ export const EXCHANGE_CATEGORIES = [
   ItemOverviewType.Tattoo,
   ItemOverviewType.Omen,
   ItemOverviewType.DjinnCoin,
+  ItemOverviewType.Ducat,
   ItemOverviewType.DivinationCard,
   ItemOverviewType.Artifact,
   ItemOverviewType.Oil,
