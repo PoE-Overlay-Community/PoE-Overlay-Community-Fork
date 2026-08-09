@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.9.0-alpha.2
+
+- Removed arbitrary length check when attempting to detect vaal gems (this fixes 'Vaal Domination' not being detected as vaal gem)
+- Fixed poe ninja currency exchange rates not being retrieved correctly causing an error message to be displayed
+- Updated the PoE Assets using PoE Asset Updater (commit bcaaf27) and PoE Client v3.29.2
+  - Fixed id conflict between base item types and monster varieties resulting in certain talismans not being evaluatable
+  - Fixed indexable skill and support gems not being exported properly resulting in stats with those gems not being recognized
+
 ## 0.9.0-alpha.1
 
 ### Other changes made
