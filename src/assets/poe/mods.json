@@ -343654,11 +343654,11 @@
 				}
 			]
 		},
-		"map_gold_found_+% map_ground_ice_base_magnitude map_ground_effect_patches_per_100_tiles map_ground_effect_radius": {
+		"map_item_drop_rarity_+% map_ground_ice_base_magnitude map_ground_effect_patches_per_100_tiles map_ground_effect_radius": {
 			"": [
 				{
-					"min": 50,
-					"max": 50
+					"min": 22,
+					"max": 22
 				},
 				{
 					"min": 10,
@@ -343674,11 +343674,11 @@
 				}
 			]
 		},
-		"map_gold_found_+% map_ground_lightning_base_magnitude map_ground_effect_patches_per_100_tiles map_ground_effect_radius": {
+		"map_item_drop_rarity_+% map_ground_lightning_base_magnitude map_ground_effect_patches_per_100_tiles map_ground_effect_radius": {
 			"": [
 				{
-					"min": 50,
-					"max": 50
+					"min": 22,
+					"max": 22
 				},
 				{
 					"min": 10,
@@ -343850,11 +343850,11 @@
 				}
 			]
 		},
-		"map_gold_found_+% map_monsters_add_frenzy_charge_on_hit_%": {
+		"map_item_drop_rarity_+% map_monsters_add_frenzy_charge_on_hit_%": {
 			"High": [
 				{
-					"min": 70,
-					"max": 70
+					"min": 30,
+					"max": 30
 				},
 				{
 					"min": 100,
@@ -343863,8 +343863,8 @@
 			],
 			"Med": [
 				{
-					"min": 50,
-					"max": 50
+					"min": 22,
+					"max": 22
 				},
 				{
 					"min": 50,
@@ -343872,11 +343872,11 @@
 				}
 			]
 		},
-		"map_gold_found_+% map_monsters_add_endurance_charge_on_hit_%": {
+		"map_item_drop_rarity_+% map_monsters_add_endurance_charge_on_hit_%": {
 			"High": [
 				{
-					"min": 70,
-					"max": 70
+					"min": 30,
+					"max": 30
 				},
 				{
 					"min": 100,
@@ -343885,8 +343885,8 @@
 			],
 			"Med": [
 				{
-					"min": 50,
-					"max": 50
+					"min": 22,
+					"max": 22
 				},
 				{
 					"min": 50,
@@ -343894,11 +343894,11 @@
 				}
 			]
 		},
-		"map_gold_found_+% map_monsters_add_power_charge_on_hit_%": {
+		"map_item_drop_rarity_+% map_monsters_add_power_charge_on_hit_%": {
 			"High": [
 				{
-					"min": 70,
-					"max": 70
+					"min": 30,
+					"max": 30
 				},
 				{
 					"min": 100,
@@ -343907,8 +343907,8 @@
 			],
 			"Med": [
 				{
-					"min": 50,
-					"max": 50
+					"min": 22,
+					"max": 22
 				},
 				{
 					"min": 50,
@@ -345917,8 +345917,8 @@
 					"max": 15
 				},
 				{
-					"min": 4,
-					"max": 4
+					"min": 10,
+					"max": 10
 				}
 			]
 		},
@@ -345937,8 +345937,8 @@
 					"max": 20
 				},
 				{
-					"min": 4,
-					"max": 4
+					"min": 10,
+					"max": 10
 				}
 			]
 		},
@@ -345961,8 +345961,8 @@
 					"max": 1
 				},
 				{
-					"min": 4,
-					"max": 4
+					"min": 10,
+					"max": 10
 				}
 			]
 		},
@@ -345977,8 +345977,8 @@
 					"max": 20
 				},
 				{
-					"min": 4,
-					"max": 4
+					"min": 10,
+					"max": 10
 				}
 			]
 		},
@@ -345993,8 +345993,8 @@
 					"max": 50
 				},
 				{
-					"min": 4,
-					"max": 4
+					"min": 10,
+					"max": 10
 				}
 			]
 		},
