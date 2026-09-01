@@ -196,9 +196,9 @@ export class StashService {
     return relativePointX >= 0 && relativePointX <= stashWidth
   }
 
-  public highlight(term: string): Observable<void> {
+  public highlight(term: string, unquotedTerm?: string): Observable<void> {
     const text = this.clipboard.readText()
-    this.clipboard.writeText(`"${term}"`)
+    this.clipboard.writeText(`"${term}"${(unquotedTerm) ? ` ${unquotedTerm}` : ``}`)
 
     this.keyboard.setKeyboardDelay(1)
     this.keyboard.keyToggle(KeyCode.VK_LMENU, false)
@@ -210,6 +210,7 @@ export class StashService {
       tap(() => this.keyboard.keyTap(KeyCode.VK_KEY_F, ['control'])),
       delay(175),
       tap(() => this.keyboard.keyTap(KeyCode.VK_KEY_V, ['control'])),
+      tap(() => this.keyboard.keyTap(KeyCode.VK_RETURN)),
       tap(() => this.shortcut.enableAllByAccelerator('CmdOrCtrl + F')),
       delay(75),
       tap(() => this.clipboard.writeText(text))
