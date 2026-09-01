@@ -78,7 +78,7 @@
                   [result]="result"
                   [original]="settings.evaluateCurrencyOriginal"
                   [wideViewport]="useWideViewport()"
-                  (amountSelect)="onAmountSelect($event.amount, $event.currency)"
+                  (amountSelect)="onAmountSelect($event.amount, $event.currency, $event.numerator, $event.denominator)"
                 >
                 </app-evaluate-search-table>
               </ng-container>

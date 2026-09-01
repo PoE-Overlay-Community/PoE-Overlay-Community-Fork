@@ -36,6 +36,8 @@ export interface StashPriceTag {
   currency: Currency
   type?: StashPriceTagType
   count?: number
+  numerator?: number
+  denominator?: number
 }
 
 @Injectable({
@@ -223,7 +225,7 @@ export class StashService {
 
   public copyPrice(tag: StashPriceTag): void {
     this.clipboard.writeText(
-      `${tag.type} ${tag.count ? `${tag.amount}/${tag.count}` : tag.amount} ${tag.currency.id}`
+      `${tag.type} ${tag.denominator > 1 ? `${tag.numerator}/${tag.denominator}` : tag.amount} ${tag.currency.id}`
     )
   }
 
