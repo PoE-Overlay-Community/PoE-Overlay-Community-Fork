@@ -9,7 +9,6 @@ environment:
 branches:
   only:
     - master
-    - feature/dependency-upgrade-by-ezroar-reviewed
 only_commits:
   message: /Bumped version to v/
 cache:
@@ -39,4 +38,4 @@ deploy:
   authorization:
     secure: RK6v3+1p1/SHMUeoEUevbNeO9NZ9pdwrZeH2kCvz35AmUxqp278eKGkcqYknAMYLog8Nd/2OzdFobuRo3d/GnA==
   on:
-    branch: feature/dependency-upgrade-by-ezroar-reviewed
+    branch: master
