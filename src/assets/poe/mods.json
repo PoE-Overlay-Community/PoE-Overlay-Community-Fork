@@ -344932,6 +344932,86 @@
 				}
 			]
 		},
+		"map_cursed_ducat_enabled map_monsters_area_of_effect_+% map_monsters_additional_number_of_projecitles": {
+			"MapDeepwaterCursedDucatImplicitMod1": [
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 40,
+					"max": 40
+				},
+				{
+					"min": 2,
+					"max": 2
+				}
+			]
+		},
+		"map_cursed_ducat_enabled map_monster_attack_cast_and_movement_speed_+%": {
+			"MapDeepwaterCursedDucatImplicitMod2": [
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 50,
+					"max": 50
+				}
+			]
+		},
+		"map_cursed_ducat_enabled map_monsters_damage_+%": {
+			"MapDeepwaterCursedDucatImplicitMod3": [
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 50,
+					"max": 50
+				}
+			]
+		},
+		"map_cursed_ducat_enabled map_monsters_penetrate_elemental_resistances_%": {
+			"MapDeepwaterCursedDucatImplicitMod4": [
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 10,
+					"max": 10
+				}
+			]
+		},
+		"map_cursed_ducat_enabled map_monsters_critical_strike_chance_+% map_monsters_critical_strike_multiplier_+": {
+			"MapDeepwaterCursedDucatImplicitMod5": [
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 500,
+					"max": 500
+				},
+				{
+					"min": 50,
+					"max": 50
+				}
+			]
+		},
+		"map_cursed_ducat_enabled map_monsters_physical_damage_%_to_add_as_random_element": {
+			"MapDeepwaterCursedDucatImplicitMod6": [
+				{
+					"min": 1,
+					"max": 1
+				},
+				{
+					"min": 100,
+					"max": 100
+				}
+			]
+		},
 		"local_unique_jewel_alternate_tree_version local_unique_jewel_alternate_tree_seed local_unique_jewel_alternate_tree_keystone local_unique_jewel_passive_tree_abyss_size local_is_alternate_tree_jewel local_unique_jewel_alternate_tree_internal_revision": {
 			"UniqueJewelAlternateTreeAbyssMurderous": [
 				{

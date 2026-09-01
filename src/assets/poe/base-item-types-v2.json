@@ -151200,7 +151200,7 @@
 		"width": 1,
 		"height": 1
 	},
-	"TalismanRhoa": {
+	"TalismanRhoa_Beast": {
 		"names": {
 			"1": "Unbound Rhoa",
 			"2": "Rhoa Liberto",
@@ -151216,7 +151216,7 @@
 		"width": 1,
 		"height": 1
 	},
-	"TalismanBeast": {
+	"TalismanBeast_Beast": {
 		"names": {
 			"1": "Unbound Beast",
 			"2": "Besta Liberta",
@@ -151264,7 +151264,7 @@
 		"width": 1,
 		"height": 1
 	},
-	"TalismanMonkey": {
+	"TalismanMonkey_Beast": {
 		"names": {
 			"1": "Unbound Primate",
 			"2": "Primata Liberto",
@@ -151296,7 +151296,7 @@
 		"width": 1,
 		"height": 1
 	},
-	"TalismanSpider": {
+	"TalismanSpider_Beast": {
 		"names": {
 			"1": "Unbound Arachnid",
 			"2": "Aranha Liberta",
@@ -151328,7 +151328,7 @@
 		"width": 1,
 		"height": 1
 	},
-	"TalismanFrog": {
+	"TalismanFrog_Beast": {
 		"names": {
 			"1": "Unbound Razormaw",
 			"2": "Bocavalha Liberto",
@@ -151344,7 +151344,7 @@
 		"width": 1,
 		"height": 1
 	},
-	"TalismanIguana": {
+	"TalismanIguana_Beast": {
 		"names": {
 			"1": "Unbound Chimeral",
 			"2": "Quimera Liberta",
@@ -151360,7 +151360,7 @@
 		"width": 1,
 		"height": 1
 	},
-	"TalismanKiweth": {
+	"TalismanKiweth_Beast": {
 		"names": {
 			"1": "Unbound Retch",
 			"2": "Ânsia Liberta",
@@ -151392,7 +151392,7 @@
 		"width": 1,
 		"height": 1
 	},
-	"TalismanSquid": {
+	"TalismanSquid_Beast": {
 		"names": {
 			"1": "Unbound Gazer",
 			"2": "Observador Liberto",
@@ -221270,7 +221270,7 @@
 			"2": "Acrobata Foice Negra Desenterrado",
 			"3": "Арбалетчик Чёрной косы",
 			"4": "Black Scythe Arbalist",
-			"5": "Arbalest der Schwarzen Sense",
+			"5": "Armbrustschütze der Schwarzen Sense",
 			"6": "Arbalétrier de la Faux noire",
 			"7": "Arbalestero de la Guadaña negra",
 			"8": "검은 낫 석궁병",
@@ -221286,7 +221286,7 @@
 			"2": "Acrobata Foice Negra Desenterrado",
 			"3": "Арбалетчик Чёрной косы",
 			"4": "Black Scythe Arbalist",
-			"5": "Arbalest der Schwarzen Sense",
+			"5": "Armbrustschütze der Schwarzen Sense",
 			"6": "Arbalétrier de la Faux noire",
 			"7": "Arbalestero de la Guadaña negra",
 			"8": "검은 낫 석궁병",
@@ -221302,7 +221302,7 @@
 			"2": "Acrobata Foice Negra Desenterrado",
 			"3": "Арбалетчик Чёрной косы",
 			"4": "Black Scythe Arbalist",
-			"5": "Arbalest der Schwarzen Sense",
+			"5": "Armbrustschütze der Schwarzen Sense",
 			"6": "Arbalétrier de la Faux noire",
 			"7": "Arbalestero de la Guadaña negra",
 			"8": "검은 낫 석궁병",
@@ -221318,7 +221318,7 @@
 			"2": "Acrobata Foice Negra Desenterrado",
 			"3": "Арбалетчик Чёрной косы",
 			"4": "Black Scythe Arbalist",
-			"5": "Arbalest der Schwarzen Sense",
+			"5": "Armbrustschütze der Schwarzen Sense",
 			"6": "Arbalétrier de la Faux noire",
 			"7": "Arbalestero de la Guadaña negra",
 			"8": "검은 낫 석궁병",
@@ -221766,7 +221766,7 @@
 			"2": "Acribata Convocado",
 			"3": "Призванный арбалетчик",
 			"4": "ทหารหน้าไม้อัญเชิญ",
-			"5": "Beschwörte Arbalest",
+			"5": "Beschworener Armbrustschütze",
 			"6": "Arbalétrier invoqué",
 			"7": "Arbalestero invocado",
 			"8": "소환된 석궁병",
@@ -227958,7 +227958,7 @@
 			"2": "Abalista da Foice Negra",
 			"3": "Арбалетчик Чёрной косы",
 			"4": "Black Scythe Arbalist",
-			"5": "Arbalest der Schwarzen Sense",
+			"5": "Armbrustschütze der Schwarzen Sense",
 			"6": "Arbalétrier de la Faux noire",
 			"7": "Arbalestero de la Guadaña negra",
 			"8": "검은 낫 석궁병",
@@ -241207,7 +241207,7 @@
 			"3": "Бессветное отродье",
 			"4": "Lightless Abomination",
 			"5": "Lichtlose Abscheulichkeit",
-			"6": "Abomionation sans-lumière",
+			"6": "Abomination sans-lumière",
 			"7": "Abominación oscura",
 			"8": "무광의 흉물",
 			"11": "光なきアボミネーション"
@@ -241223,7 +241223,7 @@
 			"3": "Бессветное отродье",
 			"4": "Lightless Abomination",
 			"5": "Lichtlose Abscheulichkeit",
-			"6": "Abomionation sans-lumière",
+			"6": "Abomination sans-lumière",
 			"7": "Abominación oscura",
 			"8": "무광의 흉물",
 			"11": "光なきアボミネーション"
