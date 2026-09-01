@@ -1,12 +1,8 @@
 <mat-card>
-  <div class="container-fluid">
-    <div class="row" *ngIf="title">
-      <div class="col">
-        <div class="title">
-          <mat-label>{{ title }}</mat-label>
-        </div>
-      </div>
-    </div>
+  <mat-card-header *ngIf="title">
+    <mat-card-title>{{ title }}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
     <ng-content></ng-content>
-  </div>
+  </mat-card-content>
 </mat-card>

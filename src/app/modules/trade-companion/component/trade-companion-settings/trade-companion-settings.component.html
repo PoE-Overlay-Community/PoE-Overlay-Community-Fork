@@ -25,12 +25,8 @@
           {{ getRoundedPercentage(settings.tradeCompanionOpacity) }}
         </label>
         <div class="slider">
-          <mat-slider min="0.05"
-                      max="1"
-                      step="0.05"
-                      tickInterval="1"
-                      [displayWith]="getRoundedPercentage"
-                      [(value)]="settings.tradeCompanionOpacity">
+          <mat-slider min="0.05" max="1" step="0.05" [displayWith]="getRoundedPercentage" discrete>
+            <input matSliderThumb [(ngModel)]="settings.tradeCompanionOpacity">
           </mat-slider>
           <span>100%</span>
         </div>
@@ -67,10 +63,10 @@
       </mat-form-field>
     </div>
     <div class="col-4">
-      <mat-slide-toggle [checked]="settings.reversedNotificationHorizontalAlignment" (change)="settings.reversedNotificationHorizontalAlignment = $event.checked" matTooltip="{{ 'trade-companion.reversed-notification-h-alignment-description' | translate }}">
+      <mat-slide-toggle class="col-6" [checked]="settings.reversedNotificationHorizontalAlignment" (change)="settings.reversedNotificationHorizontalAlignment = $event.checked" matTooltip="{{ 'trade-companion.reversed-notification-h-alignment-description' | translate }}">
         {{ 'trade-companion.reversed-notification-h-alignment' | translate }}
       </mat-slide-toggle>
-      <mat-slide-toggle [checked]="settings.reversedNotificationDirection" (change)="settings.reversedNotificationDirection = $event.checked" matTooltip="{{ 'trade-companion.reversed-notification-direction-description' | translate }}">
+      <mat-slide-toggle class="col-6" [checked]="settings.reversedNotificationDirection" (change)="settings.reversedNotificationDirection = $event.checked" matTooltip="{{ 'trade-companion.reversed-notification-direction-description' | translate }}">
         {{ 'trade-companion.reversed-notification-direction' | translate }}
       </mat-slide-toggle>
     </div>
@@ -120,8 +116,8 @@
       </app-accelerator>
     </div>
   </div>
-  <div class="row">
-    <div class="col-2" *ngFor="let exampleNotificationType of exampleNotificationTypes.keys">
+  <div class="row example-trade-notification">
+    <div *ngFor="let exampleNotificationType of exampleNotificationTypes.keys">
       <button mat-raised-button (click)="onAddExampleTradeNotificationClick(exampleNotificationType)">
         {{ 'trade-companion.example-trade-notification.' + (exampleNotificationTypes.values[exampleNotificationType] | lowercase) | translate }}
       </button>
@@ -237,8 +233,8 @@
 </app-card>
 <app-card [title]="'settings.audio-options' | translate">
   <div class="row">
-    <app-audio-clip-settings class="col-md-6" [settings]="settings.buttonClickAudio" [title]="'trade-companion.audio.button-click' | translate"></app-audio-clip-settings>
-    <app-audio-clip-settings class="col-md-6" [settings]="settings.incomingTradeMessageAudio" [title]="'trade-companion.audio.incoming-trade' | translate"></app-audio-clip-settings>
+    <app-audio-clip-settings class="col-6" [settings]="settings.buttonClickAudio" [title]="'trade-companion.audio.button-click' | translate"></app-audio-clip-settings>
+    <app-audio-clip-settings class="col-6" [settings]="settings.incomingTradeMessageAudio" [title]="'trade-companion.audio.incoming-trade' | translate"></app-audio-clip-settings>
   </div>
 </app-card>
 
@@ -246,15 +242,15 @@
 <ng-template #tradeOptionsTemplate let-kickOrLeaveKey="kickOrLeaveKey" let-tradeOptions="tradeOptions" let-addClick="addClick" let-removeClick="removeClick">
   <div class="row">
     <div class="col-md-6 col-lg-4" *ngFor="let tradeOption of tradeOptions; let index = index">
-      <mat-card class="card">
-        <button class="remove" mat-icon-button (click)="removeClick(index)">
-          <mat-icon>close</mat-icon>
-        </button>
+      <!-- <mat-card class="card"> -->
         <div class="row">
           <div class="col">
             <mat-form-field>
               <mat-label>{{ 'trade-companion.trade-option.button' | translate }}</mat-label>
               <input matInput [(ngModel)]="tradeOption.buttonLabel" />
+              <button mat-icon-button matIconSuffix (click)="removeClick(index)">
+                <mat-icon>close</mat-icon>
+              </button>
             </mat-form-field>
           </div>
         </div>
@@ -295,10 +291,10 @@
           <div class="col-8 text-right">
           </div>
         </div>
-      </mat-card>
+      <!-- </mat-card> -->
     </div>
     <div class="col-md-6 col-lg-4">
-      <button mat-raised-button (click)="addClick()" class="card-button">
+      <button mat-raised-button color="primary" (click)="addClick()" class="card-button">
         {{ 'trade-companion.trade-option.add' | translate }}
       </button>
     </div>

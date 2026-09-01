@@ -1,27 +1,27 @@
 import { Injectable } from '@angular/core'
 import { ElectronProvider } from '@app/provider'
 import { Point } from '@app/type'
-import { IpcRenderer } from 'electron'
+import { ElectronAPI } from '@app/type/electron-api.type'
 
 @Injectable({
   providedIn: 'root',
 })
 export class MouseService {
-  private readonly ipcRenderer: IpcRenderer
+  private readonly electronAPI: ElectronAPI
 
   constructor(electronProvider: ElectronProvider) {
-    this.ipcRenderer = electronProvider.provideIpcRenderer()
+    this.electronAPI = electronProvider.provideElectronAPI()
   }
 
   public click(button: 'left' | 'right' | 'middle', position?: Point): void {
-    this.ipcRenderer.sendSync('click-at', button, position)
+    this.electronAPI.mouseClick(button, position)
   }
 
   public move(position: Point): void {
-    this.ipcRenderer.sendSync('move-to', position)
+    this.electronAPI.mouseMove(position)
   }
 
   public position(): Point {
-    return this.ipcRenderer.sendSync('mouse-pos')
+    return this.electronAPI.mousePosition()
   }
 }

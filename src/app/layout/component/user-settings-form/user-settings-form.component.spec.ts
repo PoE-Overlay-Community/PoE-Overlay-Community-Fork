@@ -1,23 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing'
 import { ElectronProvider } from '@app/provider'
+import { MockElectronProvider } from '@app/testing'
 import { TranslateFakeLoader, TranslateLoader, TranslateModule } from '@ngx-translate/core'
 import { SharedModule } from '@shared/shared.module'
 import { UserSettingsFormComponent } from './user-settings-form.component'
-
-class ElectronProviderFake {
-  public provideRemote(): Electron.Remote {
-    return ({
-      getCurrentWindow: () => null,
-    } as any) as Electron.Remote
-  }
-
-  public provideIpcRenderer(): Electron.IpcRenderer {
-    return ({
-      once: () => null,
-      send: () => null,
-    } as any) as Electron.IpcRenderer
-  }
-}
 
 describe('UserSettingsFormComponent', () => {
   let component: UserSettingsFormComponent
@@ -35,7 +21,7 @@ describe('UserSettingsFormComponent', () => {
         }),
       ],
       declarations: [UserSettingsFormComponent],
-      providers: [{ provide: ElectronProvider, useClass: ElectronProviderFake }],
+      providers: [{ provide: ElectronProvider, useClass: MockElectronProvider }],
     }).compileComponents()
   }))
 

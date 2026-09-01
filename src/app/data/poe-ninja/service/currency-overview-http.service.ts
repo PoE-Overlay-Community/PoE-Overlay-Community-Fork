@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core'
 import { BrowserService, LoggerService } from '@app/service'
 import { environment } from '@env/environment'
 import { Observable, of, throwError } from 'rxjs'
-import { delay, flatMap, retryWhen } from 'rxjs/operators'
+import { delay, mergeMap, retryWhen } from 'rxjs/operators'
 import { CurrencyOverviewResponse } from '../schema/currency-overview'
 import { ItemOverviewType } from '@data/poe-ninja/schema/item-overview'
 
@@ -43,9 +43,9 @@ export class CurrencyOverviewHttpService {
     const url = this.getUrl(leagueId, type)
     return this.httpClient.get<CurrencyOverviewResponse>(url).pipe(
       retryWhen((errors) =>
-        errors.pipe(flatMap((response, count) => this.handleError(url, response, count)))
+        errors.pipe(mergeMap((response, count) => this.handleError(url, response, count)))
       ),
-      flatMap((response) => {
+      mergeMap((response) => {
         if (!response?.lines) {
           if (leagueId !== 'Standard') {
             this.logger.info(

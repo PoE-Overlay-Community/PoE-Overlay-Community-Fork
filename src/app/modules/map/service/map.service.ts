@@ -3,7 +3,7 @@ import { SnackBarService } from '@shared/module/material/service'
 import { ItemClipboardResultCode, ItemClipboardService } from '@shared/module/poe/service'
 import { ItemCategory, ItemSection } from '@shared/module/poe/type'
 import { Observable, throwError } from 'rxjs'
-import { catchError, flatMap } from 'rxjs/operators'
+import { catchError, mergeMap } from 'rxjs/operators'
 import { MapUserSettings } from '../component/map-settings/map-settings.component'
 import { MapDialogService } from './map-dialog.service'
 
@@ -26,7 +26,7 @@ export class MapService {
         [ItemSection.Stats]: true,
       })
       .pipe(
-        flatMap((result) => {
+        mergeMap((result) => {
           switch (result.code) {
             case ItemClipboardResultCode.Success:
               switch (result.item.category) {

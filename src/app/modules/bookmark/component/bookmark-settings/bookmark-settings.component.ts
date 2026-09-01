@@ -40,7 +40,8 @@ export class BookmarkSettingsComponent implements UserSettingsComponent {
   }
 
   public onFileSelected(event: InputEvent): void {
-    const path = (event.target as HTMLInputElement).files.item(0).path;
+    const file = (event.target as HTMLInputElement).files.item(0) as any
+    const path = file.path
     this.settings.bookmarks.push({
       url: `file:///${path}`,
       shortcut: undefined,

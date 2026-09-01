@@ -3,7 +3,7 @@ import { cyrb53 } from '@app/function'
 import { CacheService } from '@app/service'
 import { ItemPricePredictionHttpService } from '@data/poe-prices'
 import { Observable } from 'rxjs'
-import { flatMap, map } from 'rxjs/operators'
+import { mergeMap, map } from 'rxjs/operators'
 import { CacheExpirationType } from '@shared/module/poe/type'
 
 export interface ItemPricePrediction {
@@ -29,7 +29,7 @@ export class ItemPricePredictionProvider {
     const hash = cyrb53(stringifiedItem)
     const key = `${CACHE_PATH}${leagueId}_${hash}`
     return this.cache.prune(CACHE_PATH).pipe(
-      flatMap(() =>
+      mergeMap(() =>
         this.cache.proxy(
           key,
           () =>

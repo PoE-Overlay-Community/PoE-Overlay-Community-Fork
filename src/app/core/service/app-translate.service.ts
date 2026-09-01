@@ -11,7 +11,7 @@ export class AppTranslateService {
     this.translate.setDefaultLang(`${UiLanguage.English}`)
   }
 
-  public get(key: string, interpolateParams?: Object): string {
+  public get(key: string, interpolateParams?: object): string {
     return this.translate.instant(key, interpolateParams)
   }
 

@@ -1,4 +1,5 @@
 import { IpcMain } from 'electron'
+import { uIOhook, UiohookWheelEvent } from 'uiohook-napi'
 
 interface MouseWheelEvent {
   rotation: number
@@ -12,23 +13,36 @@ type MouseWheelFn = (event: MouseWheelEvent) => void
 class Hook {
   private active = false
   private callback: MouseWheelFn = undefined
+  private internalCallback: (event: UiohookWheelEvent) => void = undefined
 
   public enable(callback: MouseWheelFn): Promise<boolean> {
-    return new Promise(async (resolve, reject) => {
+    return new Promise((resolve, reject) => {
       if (this.active) {
         resolve(false)
       } else {
         try {
-          const iohook = (await import('iohook')).default
-          iohook.start()
-          iohook.on('mousewheel', callback)
+          // Create internal callback that converts uiohook-napi event to our format
+          this.internalCallback = (e: UiohookWheelEvent) => {
+            const event: MouseWheelEvent = {
+              // uiohook-napi: rotation > 0 = down, rotation < 0 = up
+              // iohook used: rotation = -1 for up, rotation = 1 for down
+              rotation: e.rotation > 0 ? 1 : -1,
+              ctrlKey: e.ctrlKey,
+              shiftKey: e.shiftKey,
+              altKey: e.altKey,
+            }
+            callback(event)
+          }
+
+          uIOhook.on('wheel', this.internalCallback)
+          uIOhook.start()
 
           this.active = true
           this.callback = callback
 
           resolve(true)
         } catch (error) {
-          console.error('An unexpected error occured while registering iohook', error)
+          console.error('An unexpected error occurred while registering uiohook-napi', error)
           reject(error)
         }
       }
@@ -36,24 +50,24 @@ class Hook {
   }
 
   public disable(): Promise<boolean> {
-    return new Promise(async (resolve, reject) => {
+    return new Promise((resolve, reject) => {
       if (!this.active) {
         resolve(false)
       } else {
         try {
-          const iohook = (await import('iohook')).default
-          if (this.callback) {
-            iohook.off('mousewheel', this.callback)
+          if (this.internalCallback) {
+            uIOhook.off('wheel', this.internalCallback)
           }
 
-          iohook.stop()
+          uIOhook.stop()
 
           this.callback = undefined
+          this.internalCallback = undefined
           this.active = false
 
           resolve(true)
         } catch (error) {
-          console.error('An unexpected error occured while unregistering iohook', error)
+          console.error('An unexpected error occurred while unregistering uiohook-napi', error)
           reject(error)
         }
       }

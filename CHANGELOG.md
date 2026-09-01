@@ -1,5 +1,39 @@
 # Changelog
 
+## 0.9.0-alpha.2
+
+- Removed arbitrary length check when attempting to detect vaal gems (this fixes 'Vaal Domination' not being detected as vaal gem)
+- Fixed poe ninja currency exchange rates not being retrieved correctly causing an error message to be displayed
+- Updated the PoE Assets using PoE Asset Updater (commit bcaaf27) and PoE Client v3.29.2
+  - Fixed id conflict between base item types and monster varieties resulting in certain talismans not being evaluatable
+  - Fixed indexable skill and support gems not being exported properly resulting in stats with those gems not being recognized
+
+## 0.9.0-alpha.1
+
+### Other changes made
+- Removed the '/hideout' from the list of default commands (It can now be assigned a hotkey in-game instead)
+- Added support for 'Enshrouded' and 'Chart' item categories
+- Added 'Ducat' to the list of currencies to obtain from poe ninja
+- Added support for 'Sanctum Relics' and 'Enshrouded' exchange rates (obtained from poe ninja)
+- Updated the PoE Assets using PoE Asset Updater (commit 594fd36) and PoE Client v3.29.1 (Hotfix 1)
+
+### Changes made when merging master v0.8.42 into this branch (which originated from v0.8.39)
+- Removed the polyfill workaround for poe login page
+- Reverted/dropped login url changes made to fix the login issue
+
+### Major Dependency Upgrade (by Ezroar)
+
+- Upgraded Electron 8.3.1 → 28.3.3
+- Upgraded Angular 9.1.3 → 17.3.12 (with Angular Material 17 MDC migration)
+- Upgraded TypeScript 3.8.3 → 5.3.3 and RxJS 6.5.5 → 7.8.0
+- Replaced `iohook` with `uiohook-napi` 1.5.0 (Electron 28 compatible global hooks)
+- Replaced `active-win` with `node-window-manager` 2.2.2 (ESM compatibility)
+- Replaced `custom-electron-titlebar` with a custom HTML/CSS titlebar (Electron 28 context isolation compatibility)
+- Added `electron/preload.ts` context bridge — all renderer ↔ main IPC now goes through `window.electronAPI`
+- Fixed RxJS 7 `debounce(() => EMPTY)` breaking change that prevented the overlay from becoming visible
+- Fixed Angular Material MDC CSS class names across 14 SCSS files
+- Migrated TSLint → ESLint
+
 ## 0.8.42 (2026-03-28)
 
 - Updated the PoE Assets using PoE Asset Updater (commit 1088d9a) and PoE Client v3.28.0e

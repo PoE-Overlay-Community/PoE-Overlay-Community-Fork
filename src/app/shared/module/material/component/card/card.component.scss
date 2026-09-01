@@ -1,11 +1,12 @@
 ::ng-deep {
   app-card {
-    > .mat-card {
+    > .mat-mdc-card {
       padding: 14px 10px;
     }
-  }
-}
 
-.title {
-  margin-bottom: 12px;
+    .mat-card-title {
+      font-size: 16px;
+      margin-bottom: 12px;
+    }
+  }
 }

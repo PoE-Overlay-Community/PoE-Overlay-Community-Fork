@@ -44,6 +44,7 @@ const POE_ALTERNATIVE_TITLES = ['Path of Exile <---> ', 'Path of Exile [']
 export class Game {
   private window: Window
   private gameLogListener: GameLogListener
+  private lastLoggedName: string
 
   public active?: boolean
   public bounds?: Rectangle
@@ -59,6 +60,10 @@ export class Game {
     if (window) {
       const windowPath = (window.path || '').toLowerCase()
       const name = path.basename(windowPath)
+      if (name !== this.lastLoggedName) {
+        console.log(`[Game] active window name="${name}", path="${windowPath}"`)
+        this.lastLoggedName = name
+      }
       if (POE_NAMES.includes(name)) {
         this.updateWindow(window, "Client.txt")
       } else if (POE_KOREAN_NAMES.includes(name)) {
@@ -67,6 +72,10 @@ export class Game {
         this.active = false
       }
     } else {
+      if (this.lastLoggedName !== '__none__') {
+        console.log('[Game] no active window returned')
+        this.lastLoggedName = '__none__'
+      }
       this.active = false
     }
     return old !== this.toString()

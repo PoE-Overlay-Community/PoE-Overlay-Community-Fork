@@ -1,7 +1,7 @@
 @import './../../../../styles/variables';
 
 app-card {
-  .card, button {
+  button {
     background-color: $settings-grey-one;
   }
 
@@ -16,7 +16,6 @@ app-card {
 
 label {
   display: block;
-  color: $label-color;
   font-size: 12px;
   transform: perspective(100px) translateZ(0.001px);
 }
@@ -27,18 +26,19 @@ label {
     align-items: center;
     justify-content: center;
 
-    .mat-slider {
+    .mat-mdc-slider {
       width: 100%;
     }
   }
 }
 
 .warning {
+  margin-left: 16px;
   color: $orange;
 }
 
 ::ng-deep {
-  .mat-tooltip-lighter {
+  .mat-tooltip-lighter .mdc-tooltip__surface {
     background-color: $settings-grey-two;
   }
 }

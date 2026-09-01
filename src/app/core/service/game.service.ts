@@ -1,28 +1,24 @@
 import { Injectable } from '@angular/core'
 import { ElectronProvider } from '@app/provider'
-import { BrowserWindow, IpcRenderer } from 'electron'
+import { ElectronAPI } from '@app/type/electron-api.type'
 
 @Injectable({
   providedIn: 'root',
 })
 export class GameService {
-  private readonly ipcRenderer: IpcRenderer
-  private readonly window: BrowserWindow
+  private readonly electronAPI: ElectronAPI
 
   constructor(electronProvider: ElectronProvider) {
-    this.ipcRenderer = electronProvider.provideIpcRenderer()
-
-    const electron = electronProvider.provideRemote()
-    this.window = electron.getCurrentWindow()
+    this.electronAPI = electronProvider.provideElectronAPI()
   }
 
   public focus(): void {
-    this.window.setAlwaysOnTop(false)
-    this.window.setVisibleOnAllWorkspaces(false)
+    this.electronAPI.windowSetAlwaysOnTop(false)
+    this.electronAPI.windowSetVisibleOnAllWorkspaces(false)
 
-    this.ipcRenderer.sendSync('game-focus')
+    this.electronAPI.gameFocus()
 
-    this.window.setAlwaysOnTop(true, 'pop-up-menu', 1)
-    this.window.setVisibleOnAllWorkspaces(true)
+    this.electronAPI.windowSetAlwaysOnTop(true, 'pop-up-menu', 1)
+    this.electronAPI.windowSetVisibleOnAllWorkspaces(true)
   }
 }

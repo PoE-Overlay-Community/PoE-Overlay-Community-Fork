@@ -4,7 +4,7 @@ import { BrowserService, LoggerService } from '@app/service'
 import { ItemOverviewResponse, ItemOverviewType, PATH_TYPE_MAP } from '@data/poe-ninja/schema/item-overview'
 import { environment } from '@env/environment'
 import { Observable, of, throwError } from 'rxjs'
-import { delay, flatMap, retryWhen } from 'rxjs/operators'
+import { delay, mergeMap, retryWhen } from 'rxjs/operators'
 
 const RETRY_COUNT = 3
 const RETRY_DELAY = 100
@@ -27,9 +27,9 @@ export class ItemOverviewHttpService {
     const url = this.getUrl(leagueId, type)
     return this.httpClient.get<ItemOverviewResponse>(url).pipe(
       retryWhen((errors) =>
-        errors.pipe(flatMap((response, count) => this.handleError(url, response, count)))
+        errors.pipe(mergeMap((response, count) => this.handleError(url, response, count)))
       ),
-      flatMap((response) => {
+      mergeMap((response) => {
         if (!response?.lines) {
           if (leagueId !== 'Standard') {
             this.logger.info(

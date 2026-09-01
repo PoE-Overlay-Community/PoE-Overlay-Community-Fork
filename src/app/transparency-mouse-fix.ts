@@ -1,4 +1,4 @@
-import { BrowserWindow, Remote } from 'electron'
+import { ElectronAPI, Rectangle } from '@app/type/electron-api.type'
 
 // This class makes it possible to make certain elements clickable and keeping others click-through.
 //
@@ -16,8 +16,7 @@ export class TransparencyMouseFix {
   private readonly SESSION_STORAGE_KEY = 'tmf-reloaded'
   private readonly SESSION_STORAGE_VALUE = 'true'
 
-  private readonly electron: Remote
-  private readonly electronWindow: BrowserWindow
+  private readonly electronAPI: ElectronAPI
   private readonly htmlWindow: Window
 
   private readonly scopedOnMouseEvent
@@ -27,9 +26,8 @@ export class TransparencyMouseFix {
   private fixPointerEvents = false
   private manualPollingInstanceCount = 0
 
-  constructor(electronRemote: Remote, private readonly log = false) {
-    this.electron = electronRemote
-    this.electronWindow = this.electron.getCurrentWindow()
+  constructor(electronAPI: ElectronAPI, private readonly log = false) {
+    this.electronAPI = electronAPI
     this.htmlWindow = window
 
     this.scopedOnMouseEvent = (event) => this.onMouseEvent(event)
@@ -63,7 +61,7 @@ export class TransparencyMouseFix {
 
     sessionStorage.setItem(this.SESSION_STORAGE_KEY, this.SESSION_STORAGE_VALUE)
 
-    this.electronWindow.setIgnoreMouseEvents(false)
+    this.electronAPI.setIgnoreMouseEvents(false)
   }
 
   private shouldIgnoreMouseEvents(element): boolean {
@@ -79,35 +77,34 @@ export class TransparencyMouseFix {
 
       if (this.fixPointerEvents) {
         // Circumvent forwarding of ignored mouse events
-        this.electronWindow.setIgnoreMouseEvents(true, { forward: false })
+        this.electronAPI.setIgnoreMouseEvents(true, { forward: false })
         this.manualMousePoll(true)
       } else {
         // Ignore mouse events with built-in forwarding
-        this.electronWindow.setIgnoreMouseEvents(true, { forward: true })
+        this.electronAPI.setIgnoreMouseEvents(true, { forward: true })
       }
     } else {
       if (!this.ignoreMouse) return
       this.ignoreMouse = false
 
       // Catch all mouse events
-      this.electronWindow.setIgnoreMouseEvents(false)
+      this.electronAPI.setIgnoreMouseEvents(false)
     }
   }
 
   private tryStartPolling(): void {
     this.fixPointerEvents = true
-    switch (process.platform) {
-      case 'win32':
-        // Only windows has this mouse issue after a reload, so check if polling has to occur.
-        if (sessionStorage.getItem(this.SESSION_STORAGE_KEY) !== this.SESSION_STORAGE_VALUE) {
-          this.fixPointerEvents = false
-        }
-        break
+    // Check platform - we need to determine this from the user agent since process is not available
+    const platform = navigator.platform.toLowerCase()
 
-      case 'darwin':
-        // MacOS doesn't have this mouse issue, so there's no need to start polling.
+    if (platform.includes('win')) {
+      // Only windows has this mouse issue after a reload, so check if polling has to occur.
+      if (sessionStorage.getItem(this.SESSION_STORAGE_KEY) !== this.SESSION_STORAGE_VALUE) {
         this.fixPointerEvents = false
-        break
+      }
+    } else if (platform.includes('mac')) {
+      // MacOS doesn't have this mouse issue, so there's no need to start polling.
+      this.fixPointerEvents = false
     }
 
     if (this.fixPointerEvents) {
@@ -132,8 +129,10 @@ export class TransparencyMouseFix {
 
     // If the cursor is within content bounds, check the element it's hovering,
     //   emulate a MouseMove event with the element as target
-    const { x, y } = this.electron.screen.getCursorScreenPoint()
-    const { x: left, y: top, width, height } = this.electronWindow.getContentBounds()
+    const cursorPoint = this.electronAPI.getCursorScreenPoint()
+    const contentBounds: Rectangle = this.electronAPI.windowGetContentBounds()
+    const { x, y } = cursorPoint
+    const { x: left, y: top, width, height } = contentBounds
     if (x >= left && x < left + width && y >= top && y < top + height) {
       const tgt = document.elementFromPoint(x - left, y - top)
       // HINT: update classList checks when expanding code

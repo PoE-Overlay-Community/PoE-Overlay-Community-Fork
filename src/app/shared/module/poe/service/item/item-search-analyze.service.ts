@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core'
 import { Currency } from '@shared/module/poe/type'
 import moment from 'moment'
 import { forkJoin, Observable } from 'rxjs'
-import { flatMap, map, tap } from 'rxjs/operators'
+import { mergeMap, map, tap } from 'rxjs/operators'
 import { CurrencyConverterService } from '../currency/currency-converter.service'
 import { CurrencySelectService, CurrencySelectStrategy } from '../currency/currency-select.service'
 import { ItemSearchListing } from './item-search.service'
@@ -157,7 +157,7 @@ export class ItemSearchAnalyzeService {
   ): Observable<SearchAnalyzeEntry[][]> {
     const result = currencies.map((currency) =>
       this.currencyConverterService.convert('chaos', currency).pipe(
-        flatMap((currencyChaosFactor) =>
+        mergeMap((currencyChaosFactor) =>
           forkJoin(
             listings.map((listing) =>
               forkJoin([

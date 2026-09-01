@@ -1,8 +1,7 @@
 import { EventEmitter, Injectable } from '@angular/core'
 import { EnumValues, MathUtils } from '@app/class'
-import { ElectronProvider } from '@app/provider/electron.provider'
+import { ElectronService } from '@app/service'
 import { GameLogService } from '@app/service/game-log.service'
-import { IpcMain, IpcMainEvent, IpcRenderer } from 'electron'
 import moment from 'moment'
 import { forkJoin } from 'rxjs'
 import { TradeRegexesProvider } from '../../provider/trade-regexes.provider'
@@ -20,6 +19,7 @@ import { CurrencyService } from '../currency/currency.service'
 const LOGLINE_DATE_FORMAT = 'YYYY/MM/DD HH:mm:ss'
 const FROM_TO_PLACEHOLDER = '{fromto}'
 
+const TC_TAG = 'tradeCompanion'
 const ADD_EXAMPLE_TRADE_NOTIFICATION_KEY = 'trade-notification-add-example'
 
 const MAP_GENERATION_ID = 10
@@ -62,23 +62,18 @@ export class TradeNotificationsService {
 
   private readonly languages = new EnumValues(Language)
 
-  private ipcMain: IpcMain
-  private ipcRenderer: IpcRenderer
-
   private notifications: TradeNotification[] = []
 
-  private scopedAddExampleNotificationEvent
+  private scopedAddExampleNotificationEvent: (event: any, exampleNotificationType: any) => void
 
   constructor(
-    electronProvider: ElectronProvider,
     tradeRegexesProvider: TradeRegexesProvider,
+    private readonly electronService: ElectronService,
     private readonly gameLogService: GameLogService,
     private readonly currencyService: CurrencyService,
     private readonly baseItemTypesService: BaseItemTypesService,
     private readonly clientString: ClientStringService
   ) {
-    this.ipcMain = electronProvider.provideIpcMain()
-    this.ipcRenderer = electronProvider.provideIpcRenderer()
     this.gameLogService.logLineAdded.subscribe((logLine: string) => this.onLogLineAdded(logLine))
 
     // Init regexes
@@ -125,9 +120,9 @@ export class TradeNotificationsService {
    */
   public registerEvents(): void {
     if (!this.scopedAddExampleNotificationEvent) {
-      this.scopedAddExampleNotificationEvent = (event, exampleNotificationType) =>
-        this.onAddExampleNotification(event, exampleNotificationType)
-      this.ipcMain.on(ADD_EXAMPLE_TRADE_NOTIFICATION_KEY, this.scopedAddExampleNotificationEvent)
+      this.scopedAddExampleNotificationEvent = (event: any, exampleNotificationType: any) =>
+        this.onAddExampleNotification(exampleNotificationType)
+      this.electronService.on(TC_TAG, ADD_EXAMPLE_TRADE_NOTIFICATION_KEY, this.scopedAddExampleNotificationEvent)
     }
   }
 
@@ -135,17 +130,20 @@ export class TradeNotificationsService {
    * Call this method only from the main window
    */
   public unregisterEvents(): void {
-    this.ipcMain.removeListener(
-      ADD_EXAMPLE_TRADE_NOTIFICATION_KEY,
-      this.scopedAddExampleNotificationEvent
-    )
+    if (this.scopedAddExampleNotificationEvent) {
+      this.electronService.removeListener(
+        TC_TAG,
+        ADD_EXAMPLE_TRADE_NOTIFICATION_KEY,
+        this.scopedAddExampleNotificationEvent
+      )
+    }
   }
 
   /**
    * Call this method only from the settings window
    */
   public addExampleTradeNotification(exampleNotificationType: ExampleNotificationType): void {
-    this.ipcRenderer.send(ADD_EXAMPLE_TRADE_NOTIFICATION_KEY, exampleNotificationType)
+    this.electronService.send(TC_TAG, ADD_EXAMPLE_TRADE_NOTIFICATION_KEY, exampleNotificationType)
   }
 
   public dismissNotification(notification: TradeNotification): void {
@@ -357,7 +355,7 @@ export class TradeNotificationsService {
       return baseItemType.image
     }
     switch (baseItemType.category) {
-      case ItemCategory.Map:
+      case ItemCategory.Map: {
         // Check for map tier
         const tierRegex = MAP_TIER_REGEXES.find((x) => x.language === language)?.regex
         const tierMatch = tierRegex?.exec(item)
@@ -384,12 +382,12 @@ export class TradeNotificationsService {
         }
 
         return `/image/${baseItemType.image}.png?w=1&h=1&scale=1&mn=${MAP_GENERATION_ID}&mt=${tier}${suffix}`
+      }
     }
     return null
   }
 
   private onAddExampleNotification(
-    event: IpcMainEvent,
     exampleNotificationType: ExampleNotificationType
   ): void {
     let logLine: string

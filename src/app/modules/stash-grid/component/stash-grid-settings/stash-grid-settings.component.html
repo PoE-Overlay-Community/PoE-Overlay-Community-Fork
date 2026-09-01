@@ -28,7 +28,7 @@
   </div>
 </app-card>
 <app-card [title]="'stash-grid.edit-stash-grids' | translate">
-  <div class="row">
+  <div class="row stash-grid">
     <div class="col-3" *ngFor="let stashGridType of stashGridTypes.keys">
       <button mat-raised-button (click)="onEditStashGridClick(stashGridType)">
         {{ 'stash-grid.stash-grid-name.' + (stashGridTypes.values[stashGridType] | lowercase) | translate }}
@@ -37,7 +37,7 @@
   </div>
 </app-card>
 <app-card [title]="'stash-grid.preview-stash-grids' | translate">
-  <div class="row">
+  <div class="row stash-grid">
     <div class="col-3" *ngFor="let stashGridType of stashGridTypes.keys">
       <button mat-raised-button (click)="onPreviewStashGridClick(stashGridType)">
         {{ 'stash-grid.stash-grid-name.' + (stashGridTypes.values[stashGridType] | lowercase) | translate }}

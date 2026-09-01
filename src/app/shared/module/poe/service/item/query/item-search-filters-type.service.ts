@@ -196,6 +196,9 @@ export class ItemSearchFiltersTypeService implements ItemSearchFiltersService {
       // keepers of the flame
       case ItemCategory.Graft:
       case ItemCategory.Wombgift:
+      // curse of the allflame
+      case ItemCategory.Enshrouded:
+      case ItemCategory.Chart:
         query.filters.type_filters.filters.category = {
           option: item.category,
         }

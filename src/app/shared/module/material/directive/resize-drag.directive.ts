@@ -9,8 +9,7 @@ import {
   Output,
   SimpleChanges,
 } from '@angular/core'
-import { Point } from '@app/type'
-import { Rectangle } from 'electron'
+import { Point, Rectangle } from '@app/type'
 import { DirectiveUtils } from './directive-utils.directive'
 
 enum Status {

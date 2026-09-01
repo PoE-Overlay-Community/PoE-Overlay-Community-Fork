@@ -45,7 +45,7 @@ export class EvaluateDialogComponent implements OnInit, AfterViewInit, OnDestroy
 
   public init$ = new BehaviorSubject<boolean>(false)
   public rate$ = new BehaviorSubject<boolean>(true)
-  public privateLeague$ = new BehaviorSubject<boolean>(true)
+  public privateLeague$ = new BehaviorSubject<boolean>(false)
 
   public filterOptionsOpen = false
 
@@ -129,11 +129,14 @@ export class EvaluateDialogComponent implements OnInit, AfterViewInit, OnDestroy
   }
 
   private checkPrivateLeague(): void {
-    this.leagueService.get(this.options.leagueId, this.data.language).subscribe((league) => {
-      if (league) {
-        this.privateLeague$.next(league.privateLeague)
+    this.leagueService.get(this.options.leagueId, this.data.language).subscribe(
+      (league) => {
+        this.privateLeague$.next(!!league?.privateLeague)
+      },
+      () => {
+        this.privateLeague$.next(false)
       }
-    })
+    )
   }
 
   private checkRate(): void {

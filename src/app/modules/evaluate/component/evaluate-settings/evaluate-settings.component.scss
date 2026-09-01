@@ -21,15 +21,15 @@
   .profile {
     padding: 12px 12px 0px 12px;
 
-    .mat-card {
-      background-color: #2a2a2a;
-    }
+    // .mat-mdc-card {
+    //   background-color: #2a2a2a;
+    // }
   }
 }
 
 label {
   display: block;
-  color: $label-color;
+  // color: $label-color;
   font-size: 12px;
   transform: perspective(100px) translateZ(0.001px);
 }
@@ -105,7 +105,7 @@ label {
     align-items: center;
     justify-content: center;
 
-    .mat-slider {
+    .mat-mdc-slider {
       width: 100%;
     }
   }
@@ -128,7 +128,7 @@ label {
     }
   }
 
-  .mat-slider {
+  .mat-mdc-slider {
     flex: 1;
   }
 

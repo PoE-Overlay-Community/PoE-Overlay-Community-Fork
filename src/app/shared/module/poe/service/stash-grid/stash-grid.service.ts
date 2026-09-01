@@ -1,12 +1,11 @@
 import { Injectable } from '@angular/core'
-import { ElectronProvider } from '@app/provider/electron.provider'
-import { GameService, WindowService } from '@app/service'
+import { ElectronService, GameService, WindowService } from '@app/service'
 import { Rectangle } from '@app/type'
-import { StashGridOptions, StashGridType, STASH_TAB_CELL_COUNT_MAP, TradeItemLocation, TradeItemLocations } from '@shared/module/poe/type/stash-grid.type'
-import { IpcMain, IpcMainEvent, IpcRenderer } from 'electron'
-import { Subject } from 'rxjs'
-import { BehaviorSubject, from, Observable, of } from 'rxjs'
+import { STASH_TAB_CELL_COUNT_MAP, StashGridOptions, StashGridType, TradeItemLocation, TradeItemLocations } from '@shared/module/poe/type/stash-grid.type'
+import { BehaviorSubject, Observable, Subject, from, of } from 'rxjs'
 import { StashService } from '../stash/stash.service'
+
+const SG_TAG = 'stashGrid'
 
 const STASH_GRID_OPTIONS_KEY = 'stash-grid-options'
 const STASH_GRID_OPTIONS_REPLY_KEY = 'stash-grid-options-reply'
@@ -18,23 +17,19 @@ const CLOSED_KEY = 'closed'
 export class StashGridService {
   public readonly stashGridOptions$ = new BehaviorSubject<StashGridOptions>(undefined)
 
-  private ipcMain: IpcMain
-  private ipcRenderer: IpcRenderer
-  private ipcMainEvent: IpcMainEvent
+  private originalSenderId: number | null = null
 
-  private scopedStashGridOptionsEvent
+  private scopedStashGridOptionsEvent: (event: any, stashGridOptions: any, senderId?: number) => void
 
   private stashGridOptionsQueue: StashGridOptions[] = []
   private readonly cancelStashGridSequence$ = new Subject<void>()
 
   constructor(
-    electronProvider: ElectronProvider,
+    private readonly electronService: ElectronService,
     private readonly window: WindowService,
     private readonly game: GameService,
     private readonly stashService: StashService,
   ) {
-    this.ipcMain = electronProvider.provideIpcMain()
-    this.ipcRenderer = electronProvider.provideIpcRenderer()
   }
 
   /**
@@ -42,8 +37,8 @@ export class StashGridService {
    */
   public registerEvents(): void {
     if (!this.scopedStashGridOptionsEvent) {
-      this.scopedStashGridOptionsEvent = (event, stashGridOptions) => this.onStashGridOptions(event, stashGridOptions)
-      this.ipcMain.on(STASH_GRID_OPTIONS_KEY, this.scopedStashGridOptionsEvent)
+      this.scopedStashGridOptionsEvent = (event: any, stashGridOptions: any, senderId?: number) => this.onStashGridOptions(stashGridOptions, senderId)
+      this.electronService.on(SG_TAG, STASH_GRID_OPTIONS_KEY, this.scopedStashGridOptionsEvent)
     }
   }
 
@@ -51,31 +46,33 @@ export class StashGridService {
    * Call this method only from the main window
    */
   public unregisterEvents(): void {
-    this.ipcMain.removeListener(STASH_GRID_OPTIONS_KEY, this.scopedStashGridOptionsEvent)
+    if (this.scopedStashGridOptionsEvent) {
+      this.electronService.removeListener(SG_TAG, STASH_GRID_OPTIONS_KEY, this.scopedStashGridOptionsEvent)
+    }
   }
 
   /**
    * Call this method only from the main window
    */
   public showStashGrid(...stashGridOptions: StashGridOptions[]): Observable<boolean> {
-    const promise = new Promise<boolean>((resolve, reject) => {
-      const sub = this.stashGridOptions$.subscribe((stashGridOptions) => {
-        if (!sub || sub.closed || !sub2 || sub2.closed) {
+    const promise = new Promise<boolean>((resolve) => {
+      const stashGridOptionsSub = this.stashGridOptions$.subscribe((stashGridOptions) => {
+        if (!stashGridOptionsSub || stashGridOptionsSub.closed || !cancelStashGridSequenceSub || cancelStashGridSequenceSub.closed) {
           return
         }
         if (!stashGridOptions) {
           resolve(true)
-          sub.unsubscribe()
-          sub2.unsubscribe()
+          stashGridOptionsSub.unsubscribe()
+          cancelStashGridSequenceSub.unsubscribe()
         }
       })
-      const sub2 = this.cancelStashGridSequence$.subscribe(() => {
-        if (!sub || sub.closed || !sub2 || sub2.closed) {
+      const cancelStashGridSequenceSub = this.cancelStashGridSequence$.subscribe(() => {
+        if (!stashGridOptionsSub || stashGridOptionsSub.closed || !cancelStashGridSequenceSub || cancelStashGridSequenceSub.closed) {
           return
         }
         resolve(false)
-        sub.unsubscribe()
-        sub2.unsubscribe()
+        stashGridOptionsSub.unsubscribe()
+        cancelStashGridSequenceSub.unsubscribe()
       })
       this.enqueueStashGridOptions(stashGridOptions)
     })
@@ -87,24 +84,24 @@ export class StashGridService {
    */
   public settingsShowStashGrid(...stashGridOptions: StashGridOptions[]): Observable<void> {
     const promise = new Promise<void>((resolve) => {
-      this.ipcRenderer.send(STASH_GRID_OPTIONS_KEY, stashGridOptions)
-      const scopedReplyEvent = (_, stashGridBounds: Rectangle) => {
-        this.ipcRenderer.removeListener(CLOSED_KEY, scopedClosedEvent)
+      this.electronService.send(SG_TAG, STASH_GRID_OPTIONS_KEY, stashGridOptions)
+      const scopedReplyEvent = (_: any) => {
+        this.electronService.removeListener(SG_TAG, CLOSED_KEY, scopedClosedEvent)
         resolve()
       }
       const scopedClosedEvent = () => {
-        this.ipcRenderer.removeListener(STASH_GRID_OPTIONS_REPLY_KEY, scopedReplyEvent)
+        this.electronService.removeListener(SG_TAG, STASH_GRID_OPTIONS_REPLY_KEY, scopedReplyEvent)
         resolve()
       }
-      this.ipcRenderer.once(STASH_GRID_OPTIONS_REPLY_KEY, scopedReplyEvent)
-      this.ipcRenderer.once(CLOSED_KEY, scopedClosedEvent)
+      this.electronService.once(SG_TAG, STASH_GRID_OPTIONS_REPLY_KEY, scopedReplyEvent)
+      this.electronService.once(SG_TAG, CLOSED_KEY, scopedClosedEvent)
     })
     return from(promise)
   }
 
   public hideStashGrid(): void {
-    if (this.ipcMainEvent) {
-      this.ipcRenderer.send(STASH_GRID_OPTIONS_KEY, null)
+    if (this.originalSenderId) {
+      this.electronService.send(SG_TAG, STASH_GRID_OPTIONS_KEY, null)
     } else {
       this.clearStashGridOptionsQueue()
       this.showNextStashGridOption()
@@ -116,17 +113,17 @@ export class StashGridService {
    */
   public settingsEditStashGrid(...stashGridOptions: StashGridOptions[]): Observable<Rectangle> {
     const promise = new Promise<Rectangle>((resolve) => {
-      this.ipcRenderer.send(STASH_GRID_OPTIONS_KEY, stashGridOptions)
-      const scopedReplyEvent = (_, stashGridBounds: Rectangle) => {
-        this.ipcRenderer.removeListener(CLOSED_KEY, scopedClosedEvent)
+      this.electronService.send(SG_TAG, STASH_GRID_OPTIONS_KEY, stashGridOptions)
+      const scopedReplyEvent = (_: any, stashGridBounds: Rectangle) => {
+        this.electronService.removeListener(SG_TAG, CLOSED_KEY, scopedClosedEvent)
         resolve(stashGridBounds)
       }
       const scopedClosedEvent = () => {
-        this.ipcRenderer.removeListener(STASH_GRID_OPTIONS_REPLY_KEY, scopedReplyEvent)
+        this.electronService.removeListener(SG_TAG, STASH_GRID_OPTIONS_REPLY_KEY, scopedReplyEvent)
         resolve(null)
       }
-      this.ipcRenderer.once(STASH_GRID_OPTIONS_REPLY_KEY, scopedReplyEvent)
-      this.ipcRenderer.once(CLOSED_KEY, scopedClosedEvent)
+      this.electronService.once(SG_TAG, STASH_GRID_OPTIONS_REPLY_KEY, scopedReplyEvent)
+      this.electronService.once(SG_TAG, CLOSED_KEY, scopedClosedEvent)
     })
     return from(promise)
   }
@@ -205,19 +202,20 @@ export class StashGridService {
   }
 
   private completeStashGridEditEvent(stashGridBounds?: Rectangle): void {
-    if (this.ipcMainEvent) {
-      this.ipcMainEvent.reply(STASH_GRID_OPTIONS_REPLY_KEY, stashGridBounds)
-      this.ipcMainEvent = null
+    if (this.originalSenderId) {
+      // Send reply via the main process which will forward to the original sender
+      this.electronService.send(SG_TAG, STASH_GRID_OPTIONS_REPLY_KEY, stashGridBounds, this.originalSenderId)
+      this.originalSenderId = null
     }
   }
 
   private onStashGridOptions(
-    event: IpcMainEvent,
-    stashGridOptions: StashGridOptions[]
+    stashGridOptions: StashGridOptions[],
+    senderId?: number
   ): void {
     this.completeStashGridEditEvent(null)
     this.clearStashGridOptionsQueue()
-    this.ipcMainEvent = event
+    this.originalSenderId = senderId || null
     if (stashGridOptions) {
       this.enqueueStashGridOptions(stashGridOptions)
     } else {

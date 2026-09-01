@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core'
 import { LocalForageProvider } from '@app/provider'
 import { forkJoin, from, Observable, of } from 'rxjs'
-import { flatMap, map } from 'rxjs/operators'
+import { mergeMap, map } from 'rxjs/operators'
 
 @Injectable({
   providedIn: 'root',
@@ -15,7 +15,7 @@ export class StorageService {
 
   public get<TData>(key: string, value?: TData): Observable<TData> {
     return from(this.db.getItem<TData>(key)).pipe(
-      flatMap((settings) => (settings || !value ? of(settings) : this.save(key, value)))
+      mergeMap((settings) => (settings || !value ? of(settings) : this.save(key, value)))
     )
   }
 
@@ -36,7 +36,7 @@ export class StorageService {
         }
       })
     ).pipe(
-      flatMap(() => {
+      mergeMap(() => {
         const tasks = toDelete.map((key) => from(this.db.removeItem(key)))
         if (tasks.length > 0) {
           return forkJoin(tasks).pipe(map(() => null))

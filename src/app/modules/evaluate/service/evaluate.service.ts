@@ -8,7 +8,7 @@ import {
 } from '@shared/module/poe/service'
 import { Language } from '@shared/module/poe/type'
 import { Observable, of, throwError } from 'rxjs'
-import { catchError, flatMap, tap } from 'rxjs/operators'
+import { catchError, mergeMap, tap } from 'rxjs/operators'
 import { EvaluateUserSettings } from '../component/evaluate-settings/evaluate-settings.component'
 import { EvaluateDialogService } from './evaluate-dialog.service'
 
@@ -32,11 +32,11 @@ export class EvaluateService {
           processClusterJewels: settings.evaluateQueryPostProcessClusterJewels,
         })
       ),
-      flatMap(({ code, point, item }) => {
+      mergeMap(({ code, point, item }) => {
         switch (code) {
           case ItemClipboardResultCode.Success:
             return this.evaluateDialog.open(point, item, settings, language, gameLanguage).pipe(
-              flatMap((result) => {
+              mergeMap((result) => {
                 if (!result) {
                   return of(null)
                 }

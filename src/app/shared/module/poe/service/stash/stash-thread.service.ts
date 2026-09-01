@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core'
 import { ElectronService } from '@app/service'
 import { UserSettings } from '@layout/type'
 import { forkJoin, Observable, of, Subject, Subscription } from 'rxjs'
-import { concatAll, delay, flatMap, map } from 'rxjs/operators'
+import { concatAll, delay, mergeMap, map } from 'rxjs/operators'
 import { StashProvider } from '../../provider/stash.provider'
 import { CacheExpirationType, PoEAccount } from '../../type'
 import { StashGridUserSettings } from '../../type/stash-grid.type'
@@ -10,6 +10,7 @@ import { PoEStashTab, PoEStashTabItem, StashTabsToSearch } from '../../type/stas
 import { PoEAccountThreadService } from '../account/account-thread.service'
 import { ContextService } from '../context.service'
 
+export const SG_TAG = 'stashGrid'
 export const STASH_TAB_INFO_CHANGED = 'stash-tab-info-changed'
 export const STASH_PERIODIC_UPDATE_ACTIVE_CHANGED = 'stash-periodic-update-active-changed'
 
@@ -99,7 +100,7 @@ export class StashThreadService {
           of(stashTab).pipe(
             // Delay each stash tab to ensure we don't hit rate limits
             delay(50 * i),
-            flatMap(stashTab => this.stashProvider.provideTabsContent(stashTab, account.name, context.leagueId, context.language, cacheExpiration || this.settings?.stashTabContentCacheExpiration))
+            mergeMap(stashTab => this.stashProvider.provideTabsContent(stashTab, account.name, context.leagueId, context.language, cacheExpiration || this.settings?.stashTabContentCacheExpiration))
           )
         )
       ).pipe(
@@ -117,27 +118,27 @@ export class StashThreadService {
       this.stashProvider.provideTabInfo(account.name, context.leagueId, context.language, cacheExpiration || this.settings?.stashTabInfoCacheExpiration).subscribe(
         null,
         (err) => console.error(err),
-        () => this.electronService.send(STASH_TAB_INFO_CHANGED)
+        () => this.electronService.send(SG_TAG, STASH_TAB_INFO_CHANGED)
       )
       this.tryStartPeriodicUpdate()
     }
   }
 
   private periodicStashContentUpdate(cacheExpiration?: CacheExpirationType): void {
-    this.electronService.send(STASH_PERIODIC_UPDATE_ACTIVE_CHANGED, true)
+    this.electronService.send(SG_TAG, STASH_PERIODIC_UPDATE_ACTIVE_CHANGED, true)
     const account = this.accountThreadService.get()
     if (account.loggedIn && this.stashTabProviders.length > 0) {
       const providers = this.stashTabProviders.map((provider) => provider.getStashTabsToSearch())
       forkJoin(providers).pipe(
         concatAll(),
-        flatMap((stashTabs) => this.getStashTabContents(stashTabs, cacheExpiration))
+        mergeMap((stashTabs) => this.getStashTabContents(stashTabs, cacheExpiration))
       ).subscribe(null, null, () => {
         this.stashTabContentUpdated$.next()
-        this.electronService.send(STASH_PERIODIC_UPDATE_ACTIVE_CHANGED, false)
+        this.electronService.send(SG_TAG, STASH_PERIODIC_UPDATE_ACTIVE_CHANGED, false)
       })
       this.tryStartPeriodicUpdate()
     } else {
-      this.electronService.send(STASH_PERIODIC_UPDATE_ACTIVE_CHANGED, false)
+      this.electronService.send(SG_TAG, STASH_PERIODIC_UPDATE_ACTIVE_CHANGED, false)
     }
   }
 

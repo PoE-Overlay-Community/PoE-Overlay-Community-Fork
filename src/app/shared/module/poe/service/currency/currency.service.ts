@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core'
 import { CurrenciesProvider } from '@shared/module/poe/provider'
 import { Currency, Language } from '@shared/module/poe/type'
 import { Observable } from 'rxjs'
-import { flatMap, map, shareReplay } from 'rxjs/operators'
+import { mergeMap, map, shareReplay } from 'rxjs/operators'
 import { TradeStaticResultId } from '../../../../../data/poe'
 import { ContextService } from '../context.service'
 
@@ -45,7 +45,7 @@ export class CurrencyService {
     if (searchLanguage === resultLanguage) {
       return result
     }
-    return result.pipe(flatMap((currency) => this.searchById(currency.id, resultLanguage)))
+    return result.pipe(mergeMap((currency) => this.searchById(currency.id, resultLanguage)))
   }
 
   public searchByNameType(
@@ -67,7 +67,7 @@ export class CurrencyService {
     if (searchLanguage === resultLanguage) {
       return result
     }
-    return result.pipe(flatMap((currency) => this.searchById(currency.id, resultLanguage)))
+    return result.pipe(mergeMap((currency) => this.searchById(currency.id, resultLanguage)))
   }
 
   private getCacheKey(id: string, language: Language): string {

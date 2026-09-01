@@ -325,7 +325,7 @@ export class StatsService {
               const isLocalStat = stat.mod === 'local'
               const isLocalOption = locals[localKey].startsWith('local_')
               const localOptId = isLocalOption ? optId : locals[optId]
-              let globalOptId = locals[localOptId]
+              const globalOptId = locals[localOptId]
 
               // Global vs Local stat approach:
               //   All stats are considered global, unless marked as local in the options and the global isn't present or marked false
@@ -563,7 +563,7 @@ export class StatsService {
           text: text.split('\n').map(x => x.replace(MUTATED_PLACEHOLDER_REGEX, '')).join('\n'),
         }
         if (this.regexMatchAnyLine(text, implicitPhrases)) {
-          let lines = text.split('\n')
+          const lines = text.split('\n')
           for (let i = 0; i < lines.length; i++) {
             const line = lines[i]
             if (implicitPhrases.some(phrase => line.match(phrase))) {
@@ -581,7 +581,7 @@ export class StatsService {
           // implicits have their own section
           implicitsSearch.sections.push(section)
         } else {
-          let lines = text.split('\n')
+          const lines = text.split('\n')
           for (let i = 0; i < lines.length; i++) {
             const line = lines[i]
             if (enchantPhrases.some(phrase => line.match(phrase))) {

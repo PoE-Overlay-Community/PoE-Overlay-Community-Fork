@@ -1,14 +1,15 @@
 version: 1.0.{build}
 image:
-  - Visual Studio 2017
+  - Visual Studio 2019
 platform:
   - x64
 environment:
-  NODE_OPTIONS: --max-old-space-size=7168
+  NODE_OPTIONS: --max-old-space-size=16384
   NODE_ENV: development
 branches:
   only:
     - master
+    - feature/dependency-upgrade-by-ezroar-reviewed
 only_commits:
   message: /Bumped version to v/
 cache:
@@ -18,7 +19,7 @@ init:
   - git config --global core.autocrlf input
 install:
   - echo "* Running Install..."
-  - ps: Install-Product node 12 x64
+  - ps: Install-Product node 18 x64
   - npm -v
   - npm install
   - npm run electron:rebuild
@@ -38,4 +39,4 @@ deploy:
   authorization:
     secure: RK6v3+1p1/SHMUeoEUevbNeO9NZ9pdwrZeH2kCvz35AmUxqp278eKGkcqYknAMYLog8Nd/2OzdFobuRo3d/GnA==
   on:
-    branch: master
+    branch: feature/dependency-upgrade-by-ezroar-reviewed

@@ -29,7 +29,7 @@
       url(../../../../../../assets/poe/item/header-normal-middle.png) top center repeat-x;
 
     .name {
-      color: $light-grey;
+      color: $rarity-normal;
     }
   }
 
@@ -39,7 +39,7 @@
       url(../../../../../../assets/poe/item/header-magic-middle.png) top center repeat-x;
 
     .name {
-      color: $purple;
+      color: $rarity-magic;
     }
   }
 
@@ -55,7 +55,7 @@
     }
 
     .name {
-      color: $yellow;
+      color: $rarity-rare;
     }
   }
 
@@ -72,7 +72,7 @@
     }
 
     .name {
-      color: $orange;
+      color: $rarity-unique;
     }
   }
 
@@ -88,7 +88,7 @@
     }
 
     .name {
-      color: $green;
+      color: $rarity-unique-foil;
     }
   }
 
@@ -98,7 +98,7 @@
       url(../../../../../../assets/poe/item/header-currency-middle.png) top center repeat-x;
 
     .name {
-      color: $light-orange;
+      color: $rarity-currency;
     }
   }
 
@@ -118,7 +118,7 @@
       url(../../../../../../assets/poe/item/header-gem-middle.png) top center repeat-x;
 
     .name {
-      color: $aqua;
+      color: $rarity-gem;
     }
   }
 

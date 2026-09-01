@@ -2,14 +2,8 @@
 
 $input-color: rgba(200, 200, 200, 0.87);
 
-app-card {
-  .cp-input {
-    padding-right: 20px;
-  }
-
-  button {
-    background-color: $settings-grey-two;
-  }
+button {
+  background-color: $settings-grey-two !important;
 }
 
 ::ng-deep {

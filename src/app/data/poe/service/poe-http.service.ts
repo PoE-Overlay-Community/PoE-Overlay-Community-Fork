@@ -4,7 +4,7 @@ import { BrowserService, LoggerService } from '@app/service'
 import { environment } from '@env/environment'
 import { Language } from '@shared/module/poe/type'
 import { Observable, of, Subscriber, throwError } from 'rxjs'
-import { delay, flatMap, map, retryWhen } from 'rxjs/operators'
+import { delay, mergeMap, map, retryWhen } from 'rxjs/operators'
 import {
     ApiCharacterResponse,
     ApiErrorResponse,
@@ -149,7 +149,7 @@ export class PoEHttpService {
       )
       .pipe(
         retryWhen((errors) =>
-          errors.pipe(flatMap((response, count) => this.handleError(url, response, count)))
+          errors.pipe(mergeMap((response, count) => this.handleError(url, response, count)))
         )
       )
   }
@@ -172,7 +172,7 @@ export class PoEHttpService {
       )
       .pipe(
         retryWhen((errors) =>
-          errors.pipe(flatMap((response, count) => this.handleError(url, response, count, browserUrl)))
+          errors.pipe(mergeMap((response, count) => this.handleError(url, response, count, browserUrl)))
         ),
         map((response) => {
           response.url = `${url.replace('/api', '')}/${encodeURIComponent(response.id)}`
@@ -193,7 +193,7 @@ export class PoEHttpService {
         })
       ).pipe(
         retryWhen((errors) =>
-          errors.pipe(flatMap((response, count) => this.handleError(url, response, count, null, observer)))
+          errors.pipe(mergeMap((response, count) => this.handleError(url, response, count, null, observer)))
         )
       ).subscribe(
         response => observer.next(response),

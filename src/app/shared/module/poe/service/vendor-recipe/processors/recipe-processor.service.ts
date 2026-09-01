@@ -54,7 +54,7 @@ const GlobalPerformanceTag = 'vendorRecipePerformance'
 
 export abstract class RecipeProcessorService {
   protected getLogTag(settings: RecipeUserSettings, suffix: string = ''): string {
-    let logTag = VendorRecipeType[settings.type]
+    const logTag = VendorRecipeType[settings.type]
     return logTag[0].toLowerCase() + logTag.substr(1) + 'Recipe' + suffix
   }
 

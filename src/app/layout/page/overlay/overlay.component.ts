@@ -1,10 +1,10 @@
 import {
-  ChangeDetectionStrategy,
-  Component,
-  HostListener,
-  Inject,
-  OnDestroy,
-  OnInit,
+    ChangeDetectionStrategy,
+    Component,
+    HostListener,
+    Inject,
+    OnDestroy,
+    OnInit,
 } from '@angular/core'
 import { AppService, AppTranslateService, ElectronService, WindowService } from '@app/service'
 import { DialogRefService } from '@app/service/dialog'
@@ -15,15 +15,15 @@ import { SnackBarService } from '@shared/module/material/service'
 import { ContextService, StashService } from '@shared/module/poe/service'
 import { StashGridService } from '@shared/module/poe/service/stash-grid/stash-grid.service'
 import { Context } from '@shared/module/poe/type'
-import { BehaviorSubject, EMPTY, forkJoin, Observable, throwError, timer } from 'rxjs'
-import { catchError, debounce, distinctUntilChanged, flatMap, map, tap } from 'rxjs/operators'
+import { BehaviorSubject, Observable, timer } from 'rxjs'
+import { debounce, distinctUntilChanged, map, mergeMap, tap } from 'rxjs/operators'
 import { PoEAccountService } from '../../../shared/module/poe/service/account/account.service'
 import { TradeNotificationsService } from '../../../shared/module/poe/service/trade-companion/trade-notifications.service'
 import { VendorRecipeService } from '../../../shared/module/poe/service/vendor-recipe/vendor-recipe.service'
 import { TradeNotificationPanelShortcutRef } from '../../../shared/module/poe/type/trade-companion.type'
 import { UserSettingsService } from '../../service'
 import { UserSettings } from '../../type'
-import { SETTINGS_CHANGED, THREAD_PAUSE } from '../periodic-update-thread/periodic-update-thread'
+import { SETTINGS_CHANGED, THREAD_PAUSE, THREAD_TAG } from '../periodic-update-thread/periodic-update-thread'
 
 const OverlayCompRef = 'overlay-component'
 
@@ -88,7 +88,7 @@ export class OverlayComponent implements OnInit, OnDestroy {
   public openUserSettings(): void {
     if (!this.userSettingsOpen) {
       this.userSettingsOpen = this.electronService.open('user-settings')
-      this.userSettingsOpen.pipe(flatMap(() => this.userSettingsService.get())).subscribe(
+      this.userSettingsOpen.pipe(mergeMap(() => this.userSettingsService.get())).subscribe(
         (settings) => {
           this.userSettingsOpen = null
 
@@ -104,7 +104,7 @@ export class OverlayComponent implements OnInit, OnDestroy {
         () => (this.userSettingsOpen = null)
       )
       this.reset()
-      this.electronService.send(THREAD_PAUSE)
+      this.electronService.send(THREAD_TAG, THREAD_PAUSE)
     } else {
       this.electronService.restore('user-settings')
     }
@@ -121,10 +121,10 @@ export class OverlayComponent implements OnInit, OnDestroy {
           this.register(settings)
           this.registerVisibleChange()
 
-          this.electronService.on('show-user-settings', () => {
+          this.electronService.on('settings', 'show-user-settings', () => {
             this.openUserSettings()
           })
-          this.electronService.on('reset-zoom', () => {
+          this.electronService.on('window', 'reset-zoom', () => {
             this.userSettingsService
               .update((x) => {
                 x.zoom = 100
@@ -164,7 +164,7 @@ export class OverlayComponent implements OnInit, OnDestroy {
       .pipe(
         tap((flag) => this.shortcut.check(flag)),
         map((flag) => flag !== VisibleFlag.None),
-        debounce((show) => (show ? EMPTY : timer(1500))),
+        debounce((show) => (show ? timer(0) : timer(1500))),
         distinctUntilChanged()
       )
       .subscribe((show) => {
@@ -194,7 +194,7 @@ export class OverlayComponent implements OnInit, OnDestroy {
     this.vendorRecipeService.register(settings)
 
     this.userSettings$.next(settings)
-    this.electronService.send(SETTINGS_CHANGED)
+    this.electronService.send(THREAD_TAG, SETTINGS_CHANGED)
 
     // Open/start the thread (= hidden browser window)
     this.electronService.restore('periodic-update-thread')
@@ -209,7 +209,6 @@ export class OverlayComponent implements OnInit, OnDestroy {
             .add(
               feature.accelerator,
               OverlayCompRef,
-              !!feature.passive,
               VisibleFlag.Game,
               VisibleFlag.Overlay
             )
@@ -227,7 +226,6 @@ export class OverlayComponent implements OnInit, OnDestroy {
         .add(
           settings.openUserSettingsKeybinding,
           OverlayCompRef,
-          false,
           VisibleFlag.Game,
           VisibleFlag.Overlay
         )
@@ -238,7 +236,6 @@ export class OverlayComponent implements OnInit, OnDestroy {
         .add(
           settings.exitAppKeybinding,
           OverlayCompRef,
-          false,
           VisibleFlag.Game,
           VisibleFlag.Overlay
         )

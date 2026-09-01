@@ -127,14 +127,8 @@
           {{ displayWithTime(settings.evaluateQueryDebounceTime) }}
         </label>
         <div class="slider">
-          <mat-slider
-            min="5"
-            [max]="debounceTimeMax"
-            step="5"
-            tickInterval="2"
-            [displayWith]="displayWithTime"
-            [(value)]="settings.evaluateQueryDebounceTime"
-          >
+          <mat-slider min="5" [max]="debounceTimeMax" step="5" [displayWith]="displayWithTime" discrete>
+            <input matSliderThumb [(ngModel)]="settings.evaluateQueryDebounceTime">
           </mat-slider>
           <span>&nbsp;∞</span>
         </div>
@@ -147,14 +141,8 @@
           {{ displayWithCount(settings.evaluateQueryFetchCount) }}
         </label>
         <div class="slider">
-          <mat-slider
-            min="10"
-            [max]="fetchCountMax"
-            step="10"
-            tickInterval="1"
-            [displayWith]="displayWithCount"
-            [(value)]="settings.evaluateQueryFetchCount"
-          >
+          <mat-slider min="10" [max]="fetchCountMax" step="10" [displayWith]="displayWithCount" discrete>
+            <input matSliderThumb [(ngModel)]="settings.evaluateQueryFetchCount">
           </mat-slider>
           <span>100</span>
         </div>
@@ -176,12 +164,11 @@
   </div>
 </app-card>
 
-<mat-card class="profiles">
-  <mat-label>{{ 'evaluate.profiles' | translate }}</mat-label>
+<app-card [title]="'evaluate.profiles' | translate" class="profiles">
   <mat-tab-group>
     <mat-tab [label]="'evaluate.profile.default' | translate">
       <div class="profile">
-        <mat-card>
+        <!-- <mat-card> -->
           <mat-form-field>
             <mat-label>{{ 'evaluate.search.status.title' | translate }}</mat-label>
             <mat-select [(value)]="settings.evaluateQueryStatus">
@@ -207,8 +194,8 @@
               <mat-option value="2months">{{ 'evaluate.search.max-age.months' | translate }}</mat-option>
             </mat-select>
           </mat-form-field>
-        </mat-card>
-        <mat-card>
+        <!-- </mat-card>
+        <mat-card> -->
           <mat-label> {{ 'evaluate.search.properties' | translate }} </mat-label>
 
           <label class="label" [title]="'evaluate.property.range-description' | translate">
@@ -221,20 +208,11 @@
               + {{ displayWithStat(settings.evaluatePropertyMaxRange) }}%
             </span>
             <span>#</span>
-            <mat-slider min="0"
-                        max="50"
-                        step="1"
-                        tickInterval="10"
-                        invert
-                        [displayWith]="displayWithStat"
-                        [(value)]="settings.evaluatePropertyMinRange">
+            <mat-slider min="0" max="50" step="1" [displayWith]="displayWithStat" discrete>
+              <input matSliderThumb [(ngModel)]="settings.evaluatePropertyMinRange">
             </mat-slider>
-            <mat-slider min="0"
-                        max="50"
-                        step="1"
-                        tickInterval="10"
-                        [displayWith]="displayWithStat"
-                        [(value)]="settings.evaluatePropertyMaxRange">
+            <mat-slider min="0" max="50" step="1" [displayWith]="displayWithStat" discrete>
+              <input matSliderThumb [(ngModel)]="settings.evaluatePropertyMaxRange">
             </mat-slider>
             <span>#</span>
             <ng-template #single>
@@ -301,9 +279,9 @@
               </mat-select>
             </mat-form-field>
           </div>
-        </mat-card>
+        <!-- </mat-card>
 
-        <mat-card>
+        <mat-card> -->
           <mat-label>{{ 'evaluate.search.item-specific-properties' | translate }}</mat-label>
 
           <label class="label">{{ 'evaluate.search.item-specific-property.heist' | translate }}</label>
@@ -329,9 +307,9 @@
               {{ 'evaluate.search.ultimatum' | translate }}
             </mat-slide-toggle>
           </div>
-        </mat-card>
+        <!-- </mat-card>
 
-        <mat-card>
+        <mat-card> -->
           <mat-label> {{ 'evaluate.stats' | translate }} </mat-label>
 
           <label class="label" [title]="'evaluate.property.range-description' | translate">
@@ -344,20 +322,11 @@
               + {{ displayWithStat(settings.evaluateModifierMaxRange) }}%
             </span>
             <span>#</span>
-            <mat-slider min="0"
-                        max="50"
-                        step="1"
-                        tickInterval="10"
-                        invert
-                        [displayWith]="displayWithStat"
-                        [(value)]="settings.evaluateModifierMinRange">
+            <mat-slider min="0" max="50" step="1" [displayWith]="displayWithStat" discrete>
+              <input matSliderThumb [(ngModel)]="settings.evaluateModifierMinRange">
             </mat-slider>
-            <mat-slider min="0"
-                        max="50"
-                        step="1"
-                        tickInterval="10"
-                        [displayWith]="displayWithStat"
-                        [(value)]="settings.evaluateModifierMaxRange">
+            <mat-slider min="0" max="50" step="1" [displayWith]="displayWithStat" discrete>
+              <input matSliderThumb [(ngModel)]="settings.evaluateModifierMaxRange">
             </mat-slider>
             <span>#</span>
             <ng-template #single>
@@ -397,7 +366,7 @@
             </mat-slide-toggle>
           </div>
 
-          <app-select-list [items]="stats$ | async" [itemFilter]="itemPredicate" (itemsChange)="onStatsChange($event)">
+          <app-select-list [items]="stats$ | async" [itemFilter]="itemPredicate" (itemsChange)="onStatsChange($any($event))">
             <ng-template let-item>
               <span class="stat" [title]="item.text">
                 <span [class]="'type ' + item.type"> {{ item.type }} </span>
@@ -413,7 +382,7 @@
               {{ 'evaluate.stats-export' | translate }}
             </button>
           </div>
-        </mat-card>
+        <!-- </mat-card> -->
       </div>
     </mat-tab>
 
@@ -423,4 +392,4 @@
       </ng-template>
     </mat-tab>
   </mat-tab-group>
-</mat-card>
+</app-card>

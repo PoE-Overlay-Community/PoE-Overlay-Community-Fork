@@ -10,7 +10,7 @@ import { environment } from '@env/environment'
 import { Currency, Item, ItemCategory, Language } from '@shared/module/poe/type'
 import moment from 'moment'
 import { forkJoin, from, Observable, of } from 'rxjs'
-import { catchError, flatMap, map, toArray } from 'rxjs/operators'
+import { catchError, mergeMap, map, toArray } from 'rxjs/operators'
 import { ItemSearchIndexed, ItemSearchOptions, ItemSearchStatus } from '../../type/search.type'
 import { BaseItemTypesService } from '../base-item-types/base-item-types.service'
 import { ContextService } from '../context.service'
@@ -112,8 +112,8 @@ export class ItemSearchService {
     })
 
     return this.cache.prune('item_listing_').pipe(
-      flatMap(() => forkJoin(retrievedHits$)),
-      flatMap((retrievedHits) => {
+      mergeMap(() => forkJoin(retrievedHits$)),
+      mergeMap((retrievedHits) => {
         const hitsChunked: string[][] = []
 
         const hitsMissing = retrievedHits.filter((x) => !x.value).map((x) => x.id)
@@ -129,9 +129,9 @@ export class ItemSearchService {
         }
 
         return from(hitsChunked).pipe(
-          flatMap((chunk) => this.poeHttpService.fetch(chunk, id, language)),
+          mergeMap((chunk) => this.poeHttpService.fetch(chunk, id, language)),
           toArray(),
-          flatMap((responses) => {
+          mergeMap((responses) => {
             const results: TradeFetchResult[] = responses
               .filter((x) => x.result && x.result.length)
               .reduce((a, b) => a.concat(b.result), hitsCached)
@@ -144,7 +144,7 @@ export class ItemSearchService {
               const key = `item_listing_${language}_${result.id}`
               return this.cache
                 .store(key, result, CACHE_EXPIRY, false)
-                .pipe(flatMap(() => this.mapTradeFetchResult(result)))
+                .pipe(mergeMap(() => this.mapTradeFetchResult(result)))
             })
 
             return forkJoin(listings$).pipe(
@@ -178,8 +178,8 @@ export class ItemSearchService {
     })
 
     return this.cache.prune('item_listing_').pipe(
-      flatMap(() => forkJoin(retrievedHits$)),
-      flatMap((retrievedHits) => {
+      mergeMap(() => forkJoin(retrievedHits$)),
+      mergeMap((retrievedHits) => {
         const hitsMissing = retrievedHits.filter((x) => !x.value)
         const hitsCached = retrievedHits.filter((x) => x.value)
 
@@ -195,7 +195,7 @@ export class ItemSearchService {
           }
           return this.cache
             .store(key, result.value, CACHE_EXPIRY, false)
-            .pipe(flatMap(() => this.mapExchangeFetchResult(result.value)))
+            .pipe(mergeMap(() => this.mapExchangeFetchResult(result.value)))
         })
 
         return forkJoin(listings$).pipe(
@@ -266,7 +266,7 @@ export class ItemSearchService {
         language
       )
       .pipe(
-        flatMap((requestedCurrency) => {
+        mergeMap((requestedCurrency) => {
           // Fall-back to normal search when the requested currency can't be found or is invalid
           if (!requestedCurrency) {
             return this.search(requestedItem, options)

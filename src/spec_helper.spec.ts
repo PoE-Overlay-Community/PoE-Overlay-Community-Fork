@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 import { TestBed } from '@angular/core/testing'
 import { CacheService } from '@app/service/cache.service'
 import { forkJoin } from 'rxjs'
@@ -8,6 +9,12 @@ const mockLeagues: any = require('doc/poe/api_trade_data_leagues.json')
 const mockStaticCurrencyData: any = require('doc/poe/mockCurrenciesCache.json')
 const mockExchangeRates: any = require('doc/poe-ninja/currencyoverviewcache.json')
 const mockItemCategoryDivinationCard: any = require('doc/poe-ninja/itemcategory_card.json')
+
+// After the beforeAll above instantiates the TestBed, Angular's own afterEach won't
+// have fired yet before the first test. Reset here so each spec's configureTestingModule works.
+beforeEach(() => {
+  TestBed.resetTestingModule()
+})
 
 beforeAll((done) => {
   cache = TestBed.inject<CacheService>(CacheService)

@@ -4,6 +4,10 @@
   display: none;
 }
 
+.item-group {
+  padding: 8px;
+}
+
 .title {
   margin-bottom: 12px;
   cursor: pointer;
@@ -61,39 +65,7 @@
 }
 
 app-card {
-  .card, button {
+  button:not(.mdc-icon-button) {
     background-color: $settings-grey-one;
-  }
-
-  .card {
-    position: relative;
-
-    .card, button {
-      background-color: $settings-grey-two;
-    }
-
-    .card {
-      position: relative;
-
-      .card, button {
-        background-color: $settings-grey-three;
-      }
-    }
-  }
-}
-
-::ng-deep {
-  .subcard {
-    .card {
-      background-color: $settings-grey-two;
-    }
-
-    button {
-      background-color: $settings-grey-three !important;
-    }
-  }
-
-  .mat-tooltip-lighter {
-    background-color: $settings-grey-two;
   }
 }

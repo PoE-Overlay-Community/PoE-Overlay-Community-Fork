@@ -5,7 +5,7 @@ import { PoEAccountService } from '@shared/module/poe/service/account/account.se
 import { StashThreadService } from '@shared/module/poe/service/stash/stash-thread.service'
 import { PoEAccount, PoEStashTab, RecipeUserSettings, StashTabSearchMode, StashTabsToSearch, VendorRecipeProcessResult, VendorRecipeType, VendorRecipeUserSettings } from '@shared/module/poe/type'
 import { forkJoin, Observable, of, Subscription } from 'rxjs'
-import { concatAll, flatMap, map } from 'rxjs/operators'
+import { concatAll, mergeMap, map } from 'rxjs/operators'
 import { PoEAccountThreadService } from '../account/account-thread.service'
 import { ChanceRecipeProcessorService } from './processors/chance-recipe-processor.service'
 import { ChaosRecipeProcessorService } from './processors/chaos-recipe-processor.service'
@@ -15,6 +15,7 @@ import { GlassblowerRecipeProcessorService } from './processors/glassblower-reci
 import { RecipeProcessorService } from './processors/recipe-processor.service'
 import { RegalRecipeProcessorService } from './processors/regal-recipe-processor.service'
 
+export const VR_TAG = 'vendorRecipes'
 export const VENDOR_RECIPES = 'vendor-recipes'
 export const GET_VENDOR_RECIPES = 'get-vendor-recipes'
 
@@ -72,12 +73,12 @@ export class VendorRecipeThreadService implements StashTabsToSearch {
 
     this.updateVendorRecipes()
 
-    this.electronService.onMain(GET_VENDOR_RECIPES, (event, forceUpdate: boolean) => {
+    this.electronService.on(VR_TAG, GET_VENDOR_RECIPES, (event, forceUpdate: boolean) => {
       if (forceUpdate) {
         // Force-updating the content will trigger a vendor recipe update too
         this.stashThreadService.forceUpdateTabContent()
       }
-      event.reply(VENDOR_RECIPES, this.vendorRecipes)
+      event.sender.send(VENDOR_RECIPES, this.vendorRecipes)
     })
   }
 
@@ -131,7 +132,7 @@ export class VendorRecipeThreadService implements StashTabsToSearch {
     const recipeProcessor = this.recipeProcessors[settings.type]
     return this.getItemSetStashTabsToSearch(identifier, settings)
       .pipe(
-        flatMap((stashTabs) => this.stashThreadService.getStashTabContents(stashTabs)
+        mergeMap((stashTabs) => this.stashThreadService.getStashTabContents(stashTabs)
           .pipe(
             map((stashItems) => {
               return recipeProcessor.process(identifier, stashItems, settings, processedRecipes)
@@ -168,7 +169,7 @@ export class VendorRecipeThreadService implements StashTabsToSearch {
       this.settings.vendorRecipeSettings.map((settings, index) => this.getVendorRecipes(index, settings, processedRecipes))
     ).subscribe(null, err => console.log(err), () => {
       this.vendorRecipes = processedRecipes
-      this.electronService.send(VENDOR_RECIPES, this.vendorRecipes)
+      this.electronService.send(VR_TAG, VENDOR_RECIPES, this.vendorRecipes)
     })
 
     this.trySubscribeStashContentUpdate()

@@ -1,31 +1,21 @@
 import { Injectable } from '@angular/core'
-import { IpcRenderer, Remote, IpcMain } from 'electron'
-
-type Electron = typeof Electron
+import { ElectronAPI } from '@app/type/electron-api.type'
 
 @Injectable({
   providedIn: 'root',
 })
 export class ElectronProvider {
-  private readonly electron: Electron
+  private readonly electronAPI: ElectronAPI
 
   constructor() {
-    if (window?.require) {
-      this.electron = window.require('electron') as Electron
+    if (window?.electronAPI) {
+      this.electronAPI = window.electronAPI
     } else {
-      console.warn('window.require not defined.')
+      console.warn('window.electronAPI not defined. Running outside of Electron?')
     }
   }
 
-  public provideRemote(): Remote {
-    return this.electron?.remote
-  }
-
-  public provideIpcRenderer(): IpcRenderer {
-    return this.electron?.ipcRenderer
-  }
-
-  public provideIpcMain(): IpcMain {
-    return this.provideRemote().ipcMain
+  public provideElectronAPI(): ElectronAPI {
+    return this.electronAPI
   }
 }

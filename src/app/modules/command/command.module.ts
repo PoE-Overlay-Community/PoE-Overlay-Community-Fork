@@ -18,10 +18,6 @@ export class CommandModule implements FeatureModule {
     const defaultSettings: CommandUserSettings = {
       commands: [
         {
-          text: '/hideout',
-          shortcut: 'F5',
-        },
-        {
           text: '/dnd',
           shortcut: 'F6',
         },

@@ -94,7 +94,7 @@
 			"6": "Ferraille d'armurier",
 			"7": "Restos de armaduras",
 			"8": "방어구 장인의 고철",
-			"11": "鎧鍛冶の端材"
+			"11": "鎧鍛冶のスクラップ"
 		},
 		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQ3VycmVuY3lBcm1vdXJRdWFsaXR5Iiwic2NhbGUiOjF9XQ/fc4e26afbc/CurrencyArmourQuality.png",
 		"category": "currency",
@@ -615,13 +615,46 @@
 			"1": "Albino Rhoa Feather",
 			"2": "Pena de Rhoa Albino",
 			"3": "Перо белого роа",
-			"4": "Albino Rhoa Feather",
+			"4": "ขนโรอ์เผือก",
 			"5": "Albino-Rhoa-Feder",
 			"6": "Plume de rhoa albinos",
 			"7": "Pluma de rhoa albino",
 			"8": "흰 로아 깃털",
 			"11": "アルビノロアの羽根"
 		},
+		"category": "currency",
+		"width": 1,
+		"height": 1
+	},
+	"CurrencyAlbinoCrabClaw": {
+		"names": {
+			"1": "Albino Crab Claw",
+			"2": "Garra de Caranguejo Albino",
+			"3": "Клешня белого краба",
+			"4": "ก้ามปูเผือก",
+			"5": "Albino-Krabbenklaue",
+			"6": "Pince de crabe albinos",
+			"7": "Pinza de cangrejo albino",
+			"8": "흰 게 집게",
+			"11": "アルビノクラブの爪"
+		},
+		"category": "currency",
+		"width": 2,
+		"height": 1
+	},
+	"CurrencyDuplicateShattered": {
+		"names": {
+			"1": "Broken Mirror of Kalandra",
+			"2": "Espelho de Kalandra Quebrado",
+			"3": "Разбитое зеркало Каландры",
+			"4": "Broken Mirror of Kalandra",
+			"5": "Zerbrochener Spiegel von Kalandra",
+			"6": "Miroir de Kalandra brisé",
+			"7": "Espejo de Kalandra roto",
+			"8": "깨진 칼란드라의 거울",
+			"11": "割れたカランドラの鏡"
+		},
+		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRGVlcHdhdGVyL0Jyb2tlbk1pcnJvcm9mS2FsYW5kcmEiLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MX1d/e6b944c65c/BrokenMirrorofKalandra.png",
 		"category": "currency",
 		"width": 1,
 		"height": 1
@@ -787,6 +820,23 @@
 			"11": "シルバーコイン"
 		},
 		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQW5jZXN0b3JzL05hdmFsaUNvaW4iLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MX1d/947d9b0b5b/NavaliCoin.png",
+		"category": "currency",
+		"width": 1,
+		"height": 1
+	},
+	"CurrencyScryingOrb": {
+		"names": {
+			"1": "Scrying Orb",
+			"2": "Orbe da Vidência",
+			"3": "Заговаривающая сфера",
+			"4": "ลูกแก้วส่งชะตา",
+			"5": "Tauschsphäre",
+			"6": "Orbe de scrutation",
+			"7": "Orbe de destino",
+			"8": "예지의 오브",
+			"11": "透視のオーブ"
+		},
+		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU2NyeWluZ09yYiIsInciOjEsImgiOjEsInNjYWxlIjoxfV0/045d452175/ScryingOrb.png",
 		"category": "currency",
 		"width": 1,
 		"height": 1
@@ -3816,7 +3866,7 @@
 			"3": "Вневременной осколок ваал",
 			"4": "สะเก็ดเหนือกาลเวลา วาล์",
 			"5": "Immerwährender Splitter der Vaal",
-			"6": "Esquille intemporelle des Vaals",
+			"6": "Esquille intemporelle des Vaal",
 			"7": "Fragmento atemporal vaal",
 			"8": "무궁한 바알 파편",
 			"11": "ヴァールのタイムレススプリンター"
@@ -8086,6 +8136,22 @@
 			"7": "Espada espiritual anárquica",
 			"8": "무질서한 정령의 칼",
 			"11": "無秩序な精霊の剣"
+		},
+		"category": "weapon.onesword",
+		"width": 2,
+		"height": 3
+	},
+	"OneHandSwordD1": {
+		"names": {
+			"1": "Ghostflame Blade",
+			"2": "Lâmina de Chama Espectral",
+			"3": "Клинок призрачного пламени",
+			"4": "Ghostflame Blade",
+			"5": "Geisterflammen-Klinge",
+			"6": "Lame de spectreflamme",
+			"7": "Hoja de llamas fantasmales",
+			"8": "유령불꽃 칼날",
+			"11": "ゴーストフレイムブレード"
 		},
 		"category": "weapon.onesword",
 		"width": 2,
@@ -12491,6 +12557,22 @@
 		"width": 1,
 		"height": 1
 	},
+	"Amulet13": {
+		"names": {
+			"1": "Pearlescent Amulet",
+			"2": "Amuleto Perolado",
+			"3": "Амулет с перламутром",
+			"4": "Pearlescent Amulet",
+			"5": "Perlmutt-Amulett",
+			"6": "Amulette nacrée",
+			"7": "Amuleto perlado",
+			"8": "진줏빛 목걸이",
+			"11": "真珠のアミュレット"
+		},
+		"category": "accessory.amulet",
+		"width": 1,
+		"height": 1
+	},
 	"AmuletE1": {
 		"names": {
 			"1": "Astrolabe Amulet",
@@ -13179,6 +13261,694 @@
 		"width": 1,
 		"height": 1
 	},
+	"TalismanChieftain": {
+		"names": {
+			"1": "Chieftain Talisman",
+			"2": "Talismã de Caudilho",
+			"3": "Талисман вожака",
+			"4": "Chieftain Talisman",
+			"5": "Stammesführer-Talisman",
+			"6": "Talisman de Chef de meute",
+			"7": "Talismán de cacique",
+			"8": "족장 부적",
+			"11": "チーフテンのタリスマン"
+		},
+		"category": "accessory.amulet",
+		"width": 1,
+		"height": 1
+	},
+	"TalismanBeast": {
+		"names": {
+			"1": "Gargantuan Talisman",
+			"2": "Talismã de Colosso",
+			"3": "Талисман громадины",
+			"4": "Gargantuan Talisman",
+			"5": "Gigant-Talisman",
+			"6": "Talisman de Mastodonte",
+			"7": "Talismán gigantesco",
+			"8": "가르강튀아 부적",
+			"11": "ガルガンチュアのタリスマン"
+		},
+		"category": "accessory.amulet",
+		"width": 1,
+		"height": 1
+	},
+	"TalismanSpiker": {
+		"names": {
+			"1": "Goliath Talisman",
+			"2": "Talismã de Golias",
+			"3": "Талисман исполина",
+			"4": "Goliath Talisman",
+			"5": "Goliath-Talisman",
+			"6": "Talisman de Goliath",
+			"7": "Talismán de Goliat",
+			"8": "골리앗 부적",
+			"11": "ゴリアスのタリスマン"
+		},
+		"category": "accessory.amulet",
+		"width": 1,
+		"height": 1
+	},
+	"TalismanRhoa": {
+		"names": {
+			"1": "Rhoa Talisman",
+			"2": "Talismã de Rhoa",
+			"3": "Талисман роа",
+			"4": "Rhoa Talisman",
+			"5": "Rhoa-Talisman",
+			"6": "Talisman de Rhoa",
+			"7": "Talismán de rhoa",
+			"8": "로아 부적",
+			"11": "ロアのタリスマン"
+		},
+		"category": "accessory.amulet",
+		"width": 1,
+		"height": 1
+	},
+	"TalismanSandSnake": {
+		"names": {
+			"1": "Blood Viper Talisman",
+			"2": "Talismã de Víbora de Sangue",
+			"3": "Талисман кровавой гадюки",
+			"4": "Blood Viper Talisman",
+			"5": "Blutviper-Talisman",
+			"6": "Talisman de Céraste",
+			"7": "Talismán de víbora de sangre",
+			"8": "피 독사 부적",
+			"11": "ブラッドヴァイパーのタリスマン"
+		},
+		"category": "accessory.amulet",
+		"width": 1,
+		"height": 1
+	},
+	"TalismanIguana": {
+		"names": {
+			"1": "Chimeral Talisman",
+			"2": "Talismã de Quimera",
+			"3": "Талисман ящера",
+			"4": "Chimeral Talisman",
+			"5": "Chimäre-Talisman",
+			"6": "Talisman de Chiméral",
+			"7": "Talismán de quimera",
+			"8": "키메랄 부적",
+			"11": "キメラルのタリスマン"
+		},
+		"category": "accessory.amulet",
+		"width": 1,
+		"height": 1
+	},
+	"TalismanSirenSpawn": {
+		"names": {
+			"1": "Squid Talisman",
+			"2": "Talismã de Lula",
+			"3": "Талисман кальмара",
+			"4": "Squid Talisman",
+			"5": "Tintenfisch-Talisman",
+			"6": "Talisman de Calamar",
+			"7": "Talismán de calamar",
+			"8": "오징어 부적",
+			"11": "イカのタリスマン"
+		},
+		"category": "accessory.amulet",
+		"width": 1,
+		"height": 1
+	},
+	"TalismanSandSpitter": {
+		"names": {
+			"1": "Sand Spitter Talisman",
+			"2": "Talismã de Cuspidor de Areia",
+			"3": "Талисман песчаного плевуна",
+			"4": "Sand Spitter Talisman",
+			"5": "Sandspucker-Talisman",
+			"6": "Talisman de Cracheur de sable",
+			"7": "Talismán de escupidor de arena",
+			"8": "모래 전갈 부적",
+			"11": "サンドスピッターのタリスマン"
+		},
+		"category": "accessory.amulet",
+		"width": 1,
+		"height": 1
+	},
+	"TalismanShieldCrab": {
+		"names": {
+			"1": "Shield Crab Talisman",
+			"2": "Talismã de Caranguejo-escudo",
+			"3": "Талисман крепкого краба",
+			"4": "Shield Crab Talisman",
+			"5": "Schildkrabbe-Talisman",
+			"6": "Talisman de Crabe-bouclier",
+			"7": "Talisman de cangrejo escudo",
+			"8": "방패게 부적",
+			"11": "シールドクラブのタリスマン"
+		},
+		"category": "accessory.amulet",
+		"width": 1,
+		"height": 1
+	},
+	"TalismanGoatman": {
+		"names": {
+			"1": "Goatman Talisman",
+			"2": "Talismã de Homem-cabra",
+			"3": "Талисман козерога",
+			"4": "Goatman Talisman",
+			"5": "Ziegenmensch-Talisman",
+			"6": "Talisman d'Homme-bouc",
+			"7": "Talismán de hombre cabra",
+			"8": "염소인간 부적",
+			"11": "ゴートマンのタリスマン"
+		},
+		"category": "accessory.amulet",
+		"width": 1,
+		"height": 1
+	},
+	"TalismanDevourer": {
+		"names": {
+			"1": "Devourer Talisman",
+			"2": "Talismã Devorador",
+			"3": "Талисман пожирателя",
+			"4": "Devourer Talisman",
+			"5": "Verschlinger-Talisman",
+			"6": "Talisman de Dévoreur",
+			"7": "Talismán de devorador",
+			"8": "포식자 부적",
+			"11": "デヴァウアーのタリスマン"
+		},
+		"category": "accessory.amulet",
+		"width": 1,
+		"height": 1
+	},
+	"TalismanPlagueSpider": {
+		"names": {
+			"1": "Plagued Arachnid Talisman",
+			"2": "Talismã de Aracnídeo Empestado",
+			"3": "Талисман чумного арахнида",
+			"4": "Plagued Arachnid Talisman",
+			"5": "Verseuchte-Arachnide-Talisman",
+			"6": "Talisman d'Arachnide pestiféré",
+			"7": "Talismán de Arácnido plagado",
+			"8": "역병 걸린 거미류 부적",
+			"11": "プレイグアラクニドのタリスマン"
+		},
+		"category": "accessory.amulet",
+		"width": 1,
+		"height": 1
+	},
+	"TalismanSquid": {
+		"names": {
+			"1": "Watcher Talisman",
+			"2": "Talismã de Vigilante",
+			"3": "Талисман смотрителя",
+			"4": "Watcher Talisman",
+			"5": "Wächter-Talisman",
+			"6": "Talisman de Veilleur",
+			"7": "Talismán de observador",
+			"8": "감시자 부적",
+			"11": "ウォッチャーのタリスマン"
+		},
+		"category": "accessory.amulet",
+		"width": 1,
+		"height": 1
+	},
+	"TalismanCrab": {
+		"names": {
+			"1": "Savage Crab Talisman",
+			"2": "Talismã de Caranguejo Selvagem",
+			"3": "Талисман свирепого краба",
+			"4": "Savage Crab Talisman",
+			"5": "Wilde-Krabbe-Talisman",
+			"6": "Talisman de Crabe sauvage",
+			"7": "Talismán de cangrejo salvaje",
+			"8": "사나운 게 부적",
+			"11": "サベージクラブのタリスマン"
+		},
+		"category": "accessory.amulet",
+		"width": 1,
+		"height": 1
+	},
+	"TalismanHellionFire": {
+		"names": {
+			"1": "Flame Hellion Talisman",
+			"2": "Talismã de Cão Infernal Ardente",
+			"3": "Талисман огненного адского льва",
+			"4": "Flame Hellion Talisman",
+			"5": "Flammenbiest-Talisman",
+			"6": "Talisman d'Infernaire igné",
+			"7": "Talismán de fiera de fuego",
+			"8": "화염 헬리온 부적",
+			"11": "フレイムヘリオンのタリスマン"
+		},
+		"category": "accessory.amulet",
+		"width": 1,
+		"height": 1
+	},
+	"TalismanHellionIce": {
+		"names": {
+			"1": "Frost Hellion Talisman",
+			"2": "Talismã de Cão Infernal do Gelo",
+			"3": "Талисман морозного адского льва",
+			"4": "Frost Hellion Talisman",
+			"5": "Frostbiest-Talisman",
+			"6": "Talisman d'Infernaire glacial",
+			"7": "Talismán de fiera de escarcha",
+			"8": "서리 헬리온 부적",
+			"11": "フロストヘリオンのタリスマン"
+		},
+		"category": "accessory.amulet",
+		"width": 1,
+		"height": 1
+	},
+	"TalismanLynx": {
+		"names": {
+			"1": "Lynx Talisman",
+			"2": "Talismã de Lince",
+			"3": "Талисман рыси",
+			"4": "Lynx Talisman",
+			"5": "Luchs-Talisman",
+			"6": "Talisman de Lynx",
+			"7": "Talismán de lince",
+			"8": "스라소니 부적",
+			"11": "リンクスのタリスマン"
+		},
+		"category": "accessory.amulet",
+		"width": 1,
+		"height": 1
+	},
+	"TalismanMonkey": {
+		"names": {
+			"1": "Ape Talisman",
+			"2": "Talismã de Símio",
+			"3": "Талисман примата",
+			"4": "Ape Talisman",
+			"5": "Affen-Talisman",
+			"6": "Talisman de Singe",
+			"7": "Talismán de simio",
+			"8": "유인원 부적",
+			"11": "エイプのタリスマン"
+		},
+		"category": "accessory.amulet",
+		"width": 1,
+		"height": 1
+	},
+	"TalismanWolf": {
+		"names": {
+			"1": "Wolf Alpha Talisman",
+			"2": "Talismã de Lobo Alfa",
+			"3": "Талисман волка-альфа",
+			"4": "Wolf Alpha Talisman",
+			"5": "Alpha-Wolf-Talisman",
+			"6": "Talisman de Loup alpha",
+			"7": "Talismán de lobo alfa",
+			"8": "늑대 우두머리 부적",
+			"11": "ウルフアルファのタリスマン"
+		},
+		"category": "accessory.amulet",
+		"width": 1,
+		"height": 1
+	},
+	"TalismanHound": {
+		"names": {
+			"1": "Magma Hound Talisman",
+			"2": "Talismã de Cão de Magma",
+			"3": "Талисман магмовой гончей",
+			"4": "Magma Hound Talisman",
+			"5": "Magmahund-Talisman",
+			"6": "Talisman de Dogue du magma",
+			"7": "Talismán de sabueso de magma",
+			"8": "마그마 사냥개 부적",
+			"11": "マグマハウンドのタリスマン"
+		},
+		"category": "accessory.amulet",
+		"width": 1,
+		"height": 1
+	},
+	"TalismanPitbull": {
+		"names": {
+			"1": "Pitbull Talisman",
+			"2": "Talismã de Touro do Fosso",
+			"3": "Талисман пса",
+			"4": "Pitbull Talisman",
+			"5": "Pitbull-Talisman",
+			"6": "Talisman de Pitbull",
+			"7": "Talismán de pitbull",
+			"8": "투견 부적",
+			"11": "ピットブルのタリスマン"
+		},
+		"category": "accessory.amulet",
+		"width": 1,
+		"height": 1
+	},
+	"TalismanUrsa": {
+		"names": {
+			"1": "Ursa Talisman",
+			"2": "Talismã de Marsupial",
+			"3": "Талисман медведя",
+			"4": "Ursa Talisman",
+			"5": "Ursa-Talisman",
+			"6": "Talisman d'Ursidé",
+			"7": "Talismán de ursa",
+			"8": "곰 부적",
+			"11": "ウルサのタリスマン"
+		},
+		"category": "accessory.amulet",
+		"width": 1,
+		"height": 1
+	},
+	"TalismanBull": {
+		"names": {
+			"1": "Taurus Talisman",
+			"2": "Talismã de Taurus",
+			"3": "Талисман тельца",
+			"4": "Taurus Talisman",
+			"5": "Stier-Talisman",
+			"6": "Talisman de Taurus",
+			"7": "Talismán de toro",
+			"8": "황소자리 부적",
+			"11": "タウラスのタリスマン"
+		},
+		"category": "accessory.amulet",
+		"width": 1,
+		"height": 1
+	},
+	"TalismanKiweth": {
+		"names": {
+			"1": "Retch Talisman",
+			"2": "Talismã de Esgurmito",
+			"3": "Талисман рыгателя",
+			"4": "Retch Talisman",
+			"5": "Würger-Talisman",
+			"6": "Talisman de Vomisseur",
+			"7": "Talismán de apestoso",
+			"8": "레치 부적",
+			"11": "レッチのタリスマン"
+		},
+		"category": "accessory.amulet",
+		"width": 1,
+		"height": 1
+	},
+	"TalismanForestSnake": {
+		"names": {
+			"1": "Cobra Talisman",
+			"2": "Talismã de Naja",
+			"3": "Талисман кобры",
+			"4": "Cobra Talisman",
+			"5": "Kobra-Talisman",
+			"6": "Talisman de Cobra",
+			"7": "Talismán de cobra",
+			"8": "코브라 부적",
+			"11": "コブラのタリスマン"
+		},
+		"category": "accessory.amulet",
+		"width": 1,
+		"height": 1
+	},
+	"TalismanCarrionQueen": {
+		"names": {
+			"1": "Carrion Queen Talisman",
+			"2": "Talismã de Rainha Carniceira",
+			"3": "Талисман матки трупоедов",
+			"4": "Carrion Queen Talisman",
+			"5": "Aas-Königin-Talisman",
+			"6": "Talisman de Reine charognarde",
+			"7": "Talismán de reina de carroña",
+			"8": "부패하는 여왕 부적",
+			"11": "キャリオンクイーンのタリスマン"
+		},
+		"category": "accessory.amulet",
+		"width": 1,
+		"height": 1
+	},
+	"TalismanSandLeaper": {
+		"names": {
+			"1": "Scrabbler Talisman",
+			"2": "Talismã Rabiscador",
+			"3": "Талисман норовика",
+			"4": "Scrabbler Talisman",
+			"5": "Wühler-Talisman",
+			"6": "Talisman de Crapahuteur",
+			"7": "Talismán de escarbador",
+			"8": "넝마주이 부적",
+			"11": "スクラブラーのタリスマン"
+		},
+		"category": "accessory.amulet",
+		"width": 1,
+		"height": 1
+	},
+	"TalismanSpider": {
+		"names": {
+			"1": "Black Widow Talisman",
+			"2": "Talismã de Viúva-negra",
+			"3": "Талисман чёрной вдовы",
+			"4": "Black Widow Talisman",
+			"5": "Schwarze-Witwe-Talisman",
+			"6": "Talisman de Veuve noire",
+			"7": "Talismán de viuda negra",
+			"8": "검은 과부 부적",
+			"11": "ブラックウィドウのタリスマン"
+		},
+		"category": "accessory.amulet",
+		"width": 1,
+		"height": 1
+	},
+	"TalismanScorpion": {
+		"names": {
+			"1": "Scorpion Talisman",
+			"2": "Talismã de Escorpião",
+			"3": "Талисман скорпиона",
+			"4": "Scorpion Talisman",
+			"5": "Skorpion-Talisman",
+			"6": "Talisman de Scorpion",
+			"7": "Talismán de escorpión",
+			"8": "전갈 부적",
+			"11": "スコーピオンのタリスマン"
+		},
+		"category": "accessory.amulet",
+		"width": 1,
+		"height": 1
+	},
+	"TalismanTiger": {
+		"names": {
+			"1": "Tiger Talisman",
+			"2": "Talismã de Tigre",
+			"3": "Талисман тигра",
+			"4": "Tiger Talisman",
+			"5": "Tiger-Talisman",
+			"6": "Talisman de Tigre",
+			"7": "Talismán de tigre",
+			"8": "호랑이 부적",
+			"11": "タイガーのタリスマン"
+		},
+		"category": "accessory.amulet",
+		"width": 1,
+		"height": 1
+	},
+	"TalismanVulture": {
+		"names": {
+			"1": "Vulture Talisman",
+			"2": "Talismã de Abutre",
+			"3": "Талисман стервятника",
+			"4": "Vulture Talisman",
+			"5": "Geier-Talisman",
+			"6": "Talisman de Vautour",
+			"7": "Talismán de buitre",
+			"8": "시체매 부적",
+			"11": "バルチャーのタリスマン"
+		},
+		"category": "accessory.amulet",
+		"width": 1,
+		"height": 1
+	},
+	"TalismanRhex": {
+		"names": {
+			"1": "Rhex Talisman",
+			"2": "Talismã de Rhex",
+			"3": "Талисман рекса",
+			"4": "Rhex Talisman",
+			"5": "Rhex-Talisman",
+			"6": "Talisman de Rhex",
+			"7": "Talismán de rhex",
+			"8": "렉스 부적",
+			"11": "レックスのタリスマン"
+		},
+		"category": "accessory.amulet",
+		"width": 1,
+		"height": 1
+	},
+	"TalismanPlatedSpider": {
+		"names": {
+			"1": "Hybrid Arachnid Talisman",
+			"2": "Talismã de Aracnídeo Híbrido",
+			"3": "Талисман гибридного арахнида",
+			"4": "Hybrid Arachnid Talisman",
+			"5": "Hybrid-Arachnide-Talisman",
+			"6": "Talisman d'Arachnide fénumal",
+			"7": "Talismán de arácnido híbrido",
+			"8": "잡종 거미류 부적",
+			"11": "ハイブリッドアラクニドのタリスマン"
+		},
+		"category": "accessory.amulet",
+		"width": 1,
+		"height": 1
+	},
+	"TalismanParasiticSquid": {
+		"names": {
+			"1": "Octopus Talisman",
+			"2": "Talismã de Polvo",
+			"3": "Талисман осьминога",
+			"4": "Octopus Talisman",
+			"5": "Krake-Talisman",
+			"6": "Talisman de Poulpe",
+			"7": "Talismán de pulpo",
+			"8": "문어 부적",
+			"11": "タコのタリスマン"
+		},
+		"category": "accessory.amulet",
+		"width": 1,
+		"height": 1
+	},
+	"TalismanCrab2": {
+		"names": {
+			"1": "Spider Crab Talisman",
+			"2": "Talismã de Caranguejo-aranha",
+			"3": "Талисман краба-паука",
+			"4": "Spider Crab Talisman",
+			"5": "Riesenkrabbe-Talisman",
+			"6": "Talisman de Crabe-araignée",
+			"7": "Talismán de cangrejo araña",
+			"8": "거미게 부적",
+			"11": "スパイダークラブのタリスマン"
+		},
+		"category": "accessory.amulet",
+		"width": 1,
+		"height": 1
+	},
+	"TalismanFrog": {
+		"names": {
+			"1": "Great Maw Talisman",
+			"2": "Talismã de Bocarra Grande",
+			"3": "Талисман громадной пасти",
+			"4": "Great Maw Talisman",
+			"5": "Großschlund-Talisman",
+			"6": "Talisman de Mâchoire gigantesque",
+			"7": "Talismán de fauces monstruosas",
+			"8": "거대 큰턱개구리 부적",
+			"11": "グレートモーのタリスマン"
+		},
+		"category": "accessory.amulet",
+		"width": 1,
+		"height": 1
+	},
+	"TalismanGemFrog": {
+		"names": {
+			"1": "Croaker Talisman",
+			"2": "Talismã de Crocitador",
+			"3": "Талисман квакуна",
+			"4": "Croaker Talisman",
+			"5": "Quaker-Talisman",
+			"6": "Talisman de Coasseuse",
+			"7": "Talismán de croadora",
+			"8": "물렁이 부적",
+			"11": "クローカーのタリスマン"
+		},
+		"category": "accessory.amulet",
+		"width": 1,
+		"height": 1
+	},
+	"TalismanBossCrab": {
+		"names": {
+			"1": "Craicic Talisman",
+			"2": "Talismã Craicic",
+			"3": "Талисман Краценна",
+			"4": "Craicic Talisman",
+			"5": "Craicischer Talisman",
+			"6": "Talisman craïcique",
+			"7": "Talismán cráicico",
+			"8": "크라칸 부적",
+			"11": "クライシアンのタリスマン"
+		},
+		"category": "accessory.amulet",
+		"width": 1,
+		"height": 1
+	},
+	"TalismanBossSpider": {
+		"names": {
+			"1": "Fenumal Talisman",
+			"2": "Talismã Fenumal",
+			"3": "Талисман Фенумы",
+			"4": "Fenumal Talisman",
+			"5": "Fenumaler Talisman",
+			"6": "Talisman fénumal",
+			"7": "Talismán fenumal",
+			"8": "페누무스 부적",
+			"11": "フェヌムスのタリスマン"
+		},
+		"category": "accessory.amulet",
+		"width": 1,
+		"height": 1
+	},
+	"TalismanBossBird": {
+		"names": {
+			"1": "Saqawine Talisman",
+			"2": "Talismã Saqawine",
+			"3": "Талисман Сакаваля",
+			"4": "Saqawine Talisman",
+			"5": "Saqawaler Talisman",
+			"6": "Talisman saqawien",
+			"7": "Talismán saqawino",
+			"8": "사카왈 부적",
+			"11": "サカワルのタリスマン"
+		},
+		"category": "accessory.amulet",
+		"width": 1,
+		"height": 1
+	},
+	"TalismanBossTiger": {
+		"names": {
+			"1": "Farric Talisman",
+			"2": "Talismã Farric",
+			"3": "Талисман Фаррул",
+			"4": "Farric Talisman",
+			"5": "Farrischer Talisman",
+			"6": "Talisman farrique",
+			"7": "Talismán fárrico",
+			"8": "페룰 부적",
+			"11": "ファルウルのタリスマン"
+		},
+		"category": "accessory.amulet",
+		"width": 1,
+		"height": 1
+	},
+	"TalismanGreatwolf": {
+		"names": {
+			"1": "Greatwolf Talisman",
+			"2": "Talismã do Grande Lobo",
+			"3": "Талисман Великого волка",
+			"4": "Greatwolf Talisman",
+			"5": "Großwolf-Talisman",
+			"6": "Talisman du Grand Loup",
+			"7": "Talismán del Gran lobo",
+			"8": "위대한 늑대 부적",
+			"11": "大狼のタリスマン"
+		},
+		"category": "accessory.amulet",
+		"width": 1,
+		"height": 1
+	},
+	"TalismanBlackMaw": {
+		"names": {
+			"1": "Black Maw Talisman",
+			"2": "Talismã da Bocarra Negra",
+			"3": "Талисман чёрной пасти",
+			"4": "Black Maw Talisman",
+			"5": "Schwarzschlund-Talisman",
+			"6": "Talisman de Gueule noire",
+			"7": "Talismán de fauces negras",
+			"8": "검은 턱 부적",
+			"11": "黒い口のタリスマン"
+		},
+		"category": "accessory.amulet",
+		"width": 1,
+		"height": 1
+	},
 	"Belt1": {
 		"names": {
 			"1": "Rustic Sash",
@@ -13381,7 +14151,7 @@
 			"6": "Carcan stygien",
 			"7": "Faja estigia",
 			"8": "명계의 조임쇠",
-			"11": "地獄の万力"
+			"11": "スティギアンバイス"
 		},
 		"category": "accessory.belt",
 		"width": 2,
@@ -24656,7 +25426,7 @@
 			"1": "Shockwave Totem",
 			"2": "Totem Sísmico",
 			"3": "Сотрясающий тотем",
-			"4": "โทเทมคลื่นสะท้อน \\(Shockwave Totem\\)",
+			"4": "โทเทมคลื่นกระแทก \\(Shockwave Totem\\)",
 			"5": "Schockwellen-Totem",
 			"6": "Totem sismique",
 			"7": "Tótem de onda sísmica",
@@ -25189,7 +25959,7 @@
 			"6": "Lien ardent",
 			"7": "Atadura abrasadora",
 			"8": "불타는 굴레",
-			"11": "シーリングボンド"
+			"11": "シアリングボンド"
 		},
 		"category": "gem.activegem",
 		"width": 1,
@@ -25317,7 +26087,7 @@
 			"6": "Soutien : Amélioration",
 			"7": "Asistencia de Empoderar",
 			"8": "강화 보조",
-			"11": "強化サポート"
+			"11": "エンパワーサポート"
 		},
 		"category": "gem.supportgem",
 		"width": 1,
@@ -27885,15 +28655,15 @@
 	},
 	"SkillGemDarkPact": {
 		"names": {
-			"1": "Dark Pact",
-			"2": "Pacto Sombrio",
-			"3": "Тёмный договор",
-			"4": "สัญญามืด \\(Dark Pact\\)",
-			"5": "Finsterer Pakt",
-			"6": "Sombre pacte",
-			"7": "Pacto oscuro",
-			"8": "어둠의 서약",
-			"11": "ダークパクト"
+			"1": "Dark Bargain",
+			"2": "Barganha Sombria",
+			"3": "Тёмная сделка",
+			"4": "คำมั่นมืด \\(Dark Bargain\\)",
+			"5": "Finstere Übereinkunft",
+			"6": "Sombre marché",
+			"7": "Trato oscuro",
+			"8": "어둠의 협상",
+			"11": "ダークバーゲン"
 		},
 		"category": "gem.activegem",
 		"width": 1,
@@ -28947,7 +29717,7 @@
 			"4": "หินเสริม Close Combat",
 			"5": "Unterstützung: Gefecht",
 			"6": "Soutien : Combat rapproché",
-			"7": "Asistencia de Combate cerrado",
+			"7": "Asistencia de Combate cercano",
 			"8": "근접 전투 보조",
 			"11": "近距離戦闘サポート"
 		},
@@ -33093,7 +33863,7 @@
 			"6": "Lien ardent",
 			"7": "Atadura abrasadora",
 			"8": "불타는 굴레",
-			"11": "シーリングボンド"
+			"11": "シアリングボンド"
 		},
 		"category": "gem.activegem",
 		"width": 1,
@@ -33104,7 +33874,7 @@
 			"1": "Shockwave Totem",
 			"2": "Totem Sísmico",
 			"3": "Сотрясающий тотем",
-			"4": "โทเทมคลื่นสะท้อน \\(Shockwave Totem\\)",
+			"4": "โทเทมคลื่นกระแทก \\(Shockwave Totem\\)",
 			"5": "Schockwellen-Totem",
 			"6": "Totem sismique",
 			"7": "Tótem de onda sísmica",
@@ -33293,15 +34063,15 @@
 	},
 	"SkillGemDarkPactRoyale": {
 		"names": {
-			"1": "Dark Pact",
-			"2": "Pacto Sombrio",
-			"3": "Тёмный договор",
-			"4": "สัญญามืด \\(Dark Pact\\)",
-			"5": "Finsterer Pakt",
-			"6": "Sombre pacte",
-			"7": "Pacto oscuro",
-			"8": "어둠의 서약",
-			"11": "ダークパクト"
+			"1": "Dark Bargain",
+			"2": "Barganha Sombria",
+			"3": "Тёмная сделка",
+			"4": "คำมั่นมืด \\(Dark Bargain\\)",
+			"5": "Finstere Übereinkunft",
+			"6": "Sombre marché",
+			"7": "Trato oscuro",
+			"8": "어둠의 협상",
+			"11": "ダークバーゲン"
 		},
 		"category": "gem.activegem",
 		"width": 1,
@@ -34603,6 +35373,22 @@
 		"width": 1,
 		"height": 1
 	},
+	"SkillGemManaInfusedStaff": {
+		"names": {
+			"1": "Mana-Infused Staff",
+			"2": "Cajado Impregnado de Mana",
+			"3": "Насыщенный маной посох",
+			"4": "ไม้พลองอาบมานา \\(Mana-Infused Staff\\)",
+			"5": "Manaverstärkter Stab",
+			"6": "Bâton imprégné de Mana",
+			"7": "Báculo infundido con maná",
+			"8": "마나 주입 지팡이",
+			"11": "マナインフューズスタッフ"
+		},
+		"category": "gem.activegem",
+		"width": 1,
+		"height": 1
+	},
 	"SupportGemSacredWisps": {
 		"names": {
 			"1": "Sacred Wisps Support",
@@ -35071,7 +35857,7 @@
 		"names": {
 			"1": "Edify Support",
 			"2": "Edificar \\(Reforço\\)",
-			"3": "Edify Support",
+			"3": "Поддержка: Назидание",
 			"4": "หินเสริม Edify",
 			"5": "Unterstützung: Erbauen",
 			"6": "Soutien : Édification",
@@ -35341,15 +36127,15 @@
 	},
 	"SupportGemMinionPact": {
 		"names": {
-			"1": "Minion Pact Support",
-			"2": "Pacto do Lacaio \\(Reforço\\)",
-			"3": "Поддержка: Договор служения",
-			"4": "หินเสริม Minion Pact",
-			"5": "Unterstützung: Kreaturenpakt",
-			"6": "Soutien : Pacte des créatures",
-			"7": "Asistencia de pacto con esbirros",
-			"8": "소환수 맹약 보조",
-			"11": "ミニオンパクトサポート"
+			"1": "Communion Support",
+			"2": "Comunhão \\(Reforço\\)",
+			"3": "Поддержка: Причастие",
+			"4": "หินเสริม Communion",
+			"5": "Unterstützung: Verbundenheit",
+			"6": "Soutien : Communion",
+			"7": "Asistencia de comunión",
+			"8": "교감 보조",
+			"11": "交感サポート"
 		},
 		"category": "gem.supportgem",
 		"width": 1,
@@ -35416,6 +36202,102 @@
 			"11": "輸血サポート"
 		},
 		"category": "gem.supportgem",
+		"width": 1,
+		"height": 1
+	},
+	"SupportGemCrustaceousGrasp": {
+		"names": {
+			"1": "Coursing Current Support",
+			"2": "Corrente Viva \\(Reforço\\)",
+			"3": "Поддержка: Скачущее напряжение",
+			"4": "หินเสริม Coursing Current",
+			"5": "Unterstützung: Rippströme",
+			"6": "Soutien : Courant conducteur",
+			"7": "Asistencia de flujo de corriente",
+			"8": "세차게 흐르는 전류 보조",
+			"11": "奔流サポート"
+		},
+		"category": "gem.supportgem",
+		"width": 1,
+		"height": 1
+	},
+	"SupportGemCrystalfall": {
+		"names": {
+			"1": "Crystalfall Support",
+			"2": "Cristal em Queda \\(Reforço\\)",
+			"3": "Поддержка: Кристальный обвал",
+			"4": "หินเสริม Crystalfall",
+			"5": "Unterstützung: Kristallfall",
+			"6": "Soutien : Écrasement cristallin",
+			"7": "Asistencia de caída cristalina",
+			"8": "수정 낙하 보조",
+			"11": "クリスタルフォールサポート"
+		},
+		"category": "gem.supportgem",
+		"width": 1,
+		"height": 1
+	},
+	"SkillGemPactOfBeidat": {
+		"names": {
+			"1": "Pact of Beidat",
+			"2": "Pacto de Beidat",
+			"3": "Пакт Беидата",
+			"4": "ปฏิญาณเบย์แดท \\(Pact of Beidat\\)",
+			"5": "Pakt von Beidat",
+			"6": "Pacte de Beidat",
+			"7": "Pacto de Beidat",
+			"8": "베이다트의 맹약",
+			"11": "ベイダットの契約"
+		},
+		"category": "gem.activegem",
+		"width": 1,
+		"height": 1
+	},
+	"SkillGemPactOfGhorr": {
+		"names": {
+			"1": "Pact of Ghorr",
+			"2": "Pacto de Ghorr",
+			"3": "Пакт Гхорра",
+			"4": "ปฏิญาณแด่กอร์ \\(Pact of Ghorr\\)",
+			"5": "Pakt von Ghorr",
+			"6": "Pacte de Ghorr",
+			"7": "Pacto de Ghorr",
+			"8": "고르의 맹약",
+			"11": "ゴールの契約"
+		},
+		"category": "gem.activegem",
+		"width": 1,
+		"height": 1
+	},
+	"SkillGemPactOfKtash": {
+		"names": {
+			"1": "Pact of K'Tash",
+			"2": "Pacto de K'tash",
+			"3": "Пакт К'Таш",
+			"4": "ปฏิญาณแด่เค'แทช \\(Pact of K'Tash\\)",
+			"5": "Pakt von K'Tash",
+			"6": "Pacte de K'Tash",
+			"7": "Pacto de K'Tash",
+			"8": "크타쉬의 맹약",
+			"11": "カタッシュの契約"
+		},
+		"category": "gem.activegem",
+		"width": 1,
+		"height": 1
+	},
+	"SkillGemPactOfLycia": {
+		"names": {
+			"1": "Pact of Lycia",
+			"2": "Pacto de Lycia",
+			"3": "Пакт Люции",
+			"4": "ปฏิญาณแด่ไลเซีย \\(Pact of Lycia\\)",
+			"5": "Pakt von Lycia",
+			"6": "Pacte de Lycia",
+			"7": "Pacto de Lycia",
+			"8": "리키아의 맹약",
+			"11": "リシアの契約"
+		},
+		"category": "gem.activegem",
 		"width": 1,
 		"height": 1
 	},
@@ -35595,6 +36477,22 @@
 		"width": 1,
 		"height": 1
 	},
+	"JewelAbyssConglomerate": {
+		"names": {
+			"1": "Assembled Eye Jewel",
+			"2": "Joia Ocular Montada",
+			"3": "Самоцвет сформированного глаза",
+			"4": "Assembled Eye Jewel",
+			"5": "Juwel der geballten Augen",
+			"6": "Joyau œil assemblé",
+			"7": "Joya del ojo ensamblado",
+			"8": "조립된 눈 주얼",
+			"11": "集合体の眼のジュエル"
+		},
+		"category": "jewel.abyss",
+		"width": 1,
+		"height": 1
+	},
 	"JewelTimeless": {
 		"names": {
 			"1": "Timeless Jewel",
@@ -35687,7 +36585,7 @@
 			"8": "태고의 유물",
 			"11": "原始のレムナント"
 		},
-		"category": "map.fragment",
+		"category": "map",
 		"width": 1,
 		"height": 1
 	},
@@ -37109,7 +38007,7 @@
 			"4": "ตราสัญลักษณ์เหนือกาลเวลา คารุย",
 			"5": "Immerwährendes Emblem der Karui",
 			"6": "Emblème intemporel des Karuis",
-			"7": "Emblema atemporal implacable karui",
+			"7": "Emblema atemporal karui",
 			"8": "무궁한 카루이 상징",
 			"11": "カルイのタイムレスエンブレム"
 		},
@@ -37198,7 +38096,7 @@
 			"8": "가차없는 무궁한 카루이 상징",
 			"11": "カルイの悠久のタイムレスエンブレム"
 		},
-		"image": "/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9UaW1lbGVzc0NvbmZsaWN0RXRlcm5hbCIsInNjYWxlIjoxfV0/f96320f889/TimelessConflictEternal.png",
+		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9UaW1lbGVzc0NvbmZsaWN0RXRlcm5hbCIsInciOjEsImgiOjEsInNjYWxlIjoxfV0/6a6e66a71c/TimelessConflictEternal.png",
 		"category": "map.fragment",
 		"width": 1,
 		"height": 1
@@ -37215,7 +38113,7 @@
 			"8": "가차없는 무궁한 마라케스 상징",
 			"11": "マラケスの悠久のタイムレスエンブレム"
 		},
-		"image": "/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9UaW1lbGVzc0NvbmZsaWN0TWFyYWtldGgiLCJzY2FsZSI6MX1d/8eca6f27b3/TimelessConflictMaraketh.png",
+		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9UaW1lbGVzc0NvbmZsaWN0TWFyYWtldGgiLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MX1d/31d3f4f939/TimelessConflictMaraketh.png",
 		"category": "map.fragment",
 		"width": 1,
 		"height": 1
@@ -37232,7 +38130,7 @@
 			"8": "가차없는 무궁한 영원의 상징",
 			"11": "エターナルの悠久のタイムレスエンブレム"
 		},
-		"image": "/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9UaW1lbGVzc0NvbmZsaWN0S2FydWkiLCJzY2FsZSI6MX1d/48dd647843/TimelessConflictKarui.png",
+		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9UaW1lbGVzc0NvbmZsaWN0S2FydWkiLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MX1d/d7f863e549/TimelessConflictKarui.png",
 		"category": "map.fragment",
 		"width": 1,
 		"height": 1
@@ -37249,7 +38147,7 @@
 			"8": "가차없는 무궁한 템플러 상징",
 			"11": "テンプラーの悠久のタイムレスエンブレム"
 		},
-		"image": "/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9UaW1lbGVzc0NvbmZsaWN0VGVtcGxhciIsInNjYWxlIjoxfV0/b0a76a5f78/TimelessConflictTemplar.png",
+		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9UaW1lbGVzc0NvbmZsaWN0VGVtcGxhciIsInciOjEsImgiOjEsInNjYWxlIjoxfV0/4e0d302db8/TimelessConflictTemplar.png",
 		"category": "map.fragment",
 		"width": 1,
 		"height": 1
@@ -37266,7 +38164,7 @@
 			"8": "가차없는 무궁한 바알 상징",
 			"11": "ヴァールの悠久のタイムレスエンブレム"
 		},
-		"image": "/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9UaW1lbGVzc0NvbmZsaWN0VmFhbCIsInNjYWxlIjoxfV0/895e0137f2/TimelessConflictVaal.png",
+		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9UaW1lbGVzc0NvbmZsaWN0VmFhbCIsInciOjEsImgiOjEsInNjYWxlIjoxfV0/2245d648ba/TimelessConflictVaal.png",
 		"category": "map.fragment",
 		"width": 1,
 		"height": 1
@@ -37839,7 +38737,7 @@
 			"4": "The Fiend",
 			"5": "Der Unhold",
 			"6": "Le Malin",
-			"7": "El demonio",
+			"7": "El diablo",
 			"8": "마귀",
 			"11": "悪霊"
 		},
@@ -41003,7 +41901,7 @@
 			"6": "La Mangeuse de Mondes",
 			"7": "El devorador del mundo",
 			"8": "세계를 먹는 자",
-			"11": "世界を喰らうもの"
+			"11": "イーター・オブ・ワールズ"
 		},
 		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvRGl2aW5hdGlvbi9JbnZlbnRvcnlJY29uIiwidyI6MSwiaCI6MSwic2NhbGUiOjF9XQ/f34bf8cbb5/InventoryIcon.png",
 		"category": "card",
@@ -45321,7 +46219,6 @@
 			"8": "속삭이는 인큐베이터",
 			"11": "囁きのインキュベーター"
 		},
-		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSW5jdWJhdGlvbi9JbmN1YmF0aW9uRXNzZW5jZSIsInNjYWxlIjoxfV0/839bf6cef9/IncubationEssence.png",
 		"category": "currency.incubator",
 		"width": 1,
 		"height": 1
@@ -45338,7 +46235,6 @@
 			"8": "양질의 인큐베이터",
 			"11": "上質なインキュベーター"
 		},
-		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSW5jdWJhdGlvbi9JbmN1YmF0aW9uQ3VycmVuY3kiLCJzY2FsZSI6MX1d/e8a6d32623/IncubationCurrency.png",
 		"category": "currency.incubator",
 		"width": 1,
 		"height": 1
@@ -45355,7 +46251,6 @@
 			"8": "비범한 인큐베이터",
 			"11": "特異なインキュベーター"
 		},
-		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSW5jdWJhdGlvbi9JbmN1YmF0aW9uVW5pcXVlcyIsInNjYWxlIjoxfV0/72b48d1f1b/IncubationUniques.png",
 		"category": "currency.incubator",
 		"width": 1,
 		"height": 1
@@ -45372,7 +46267,6 @@
 			"8": "지도제작자의 인큐베이터",
 			"11": "地図職人のインキュベーター"
 		},
-		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSW5jdWJhdGlvbi9JbmN1YmF0aW9uTWFwcyIsInNjYWxlIjoxfV0/3d07c20be0/IncubationMaps.png",
 		"category": "currency.incubator",
 		"width": 1,
 		"height": 1
@@ -45389,7 +46283,6 @@
 			"8": "이계의 인큐베이터",
 			"11": "異世界のインキュベーター"
 		},
-		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSW5jdWJhdGlvbi9JbmN1YmF0aW9uTWFwcyIsInNjYWxlIjoxfV0/3d07c20be0/IncubationMaps.png",
 		"category": "currency.incubator",
 		"width": 1,
 		"height": 1
@@ -45406,7 +46299,6 @@
 			"8": "심연의 인큐베이터",
 			"11": "アビスのインキュベーター"
 		},
-		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSW5jdWJhdGlvbi9JbmN1YmF0aW9uQWJ5c3MiLCJzY2FsZSI6MX1d/f3c36d1eb4/IncubationAbyss.png",
 		"category": "currency.incubator",
 		"width": 1,
 		"height": 1
@@ -45423,7 +46315,6 @@
 			"8": "조각난 인큐베이터",
 			"11": "断片化したインキュベーター"
 		},
-		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSW5jdWJhdGlvbi9JbmN1YmF0aW9uRnJhZ21lbnRzIiwic2NhbGUiOjF9XQ/a3cf9d4a10/IncubationFragments.png",
 		"category": "currency.incubator",
 		"width": 1,
 		"height": 1
@@ -45440,7 +46331,6 @@
 			"8": "달리는 인큐베이터",
 			"11": "這い回るインキュベーター"
 		},
-		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSW5jdWJhdGlvbi9JbmN1YmF0aW9uU2NhcmFicyIsInNjYWxlIjoxfV0/1627db84fb/IncubationScarabs.png",
 		"category": "currency.incubator",
 		"width": 1,
 		"height": 1
@@ -45457,7 +46347,6 @@
 			"8": "주입된 인큐베이터",
 			"11": "強化されたインキュベーター"
 		},
-		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSW5jdWJhdGlvbi9JbmN1YmF0aW9uRXNzZW5jZSIsInNjYWxlIjoxfV0/839bf6cef9/IncubationEssence.png",
 		"category": "currency.incubator",
 		"width": 1,
 		"height": 1
@@ -45474,7 +46363,6 @@
 			"8": "화석화된 인큐베이터",
 			"11": "化石のインキュベーター"
 		},
-		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSW5jdWJhdGlvbi9JbmN1YmF0aW9uRm9zc2lscyIsInNjYWxlIjoxfV0/bb7663432d/IncubationFossils.png",
 		"category": "currency.incubator",
 		"width": 1,
 		"height": 1
@@ -45491,7 +46379,6 @@
 			"8": "칼구르 인큐베이터",
 			"11": "カルグールのインキュベーター"
 		},
-		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSW5jdWJhdGlvbi9JbmN1YmF0aW9uRXhwZWRpdGlvbiIsInNjYWxlIjoxfV0/2916070090/IncubationExpedition.png",
 		"category": "currency.incubator",
 		"width": 1,
 		"height": 1
@@ -45508,7 +46395,6 @@
 			"8": "예언자의 인큐베이터",
 			"11": "占い師のインキュベーター"
 		},
-		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSW5jdWJhdGlvbi9JbmN1YmF0aW9uRGl2aW5hdGlvbkNhcmRzIiwic2NhbGUiOjF9XQ/e14c3ef7f9/IncubationDivinationCards.png",
 		"category": "currency.incubator",
 		"width": 1,
 		"height": 1
@@ -45525,7 +46411,6 @@
 			"8": "원시 인큐베이터",
 			"11": "原始のインキュベーター"
 		},
-		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSW5jdWJhdGlvbi9JbmN1YmF0aW9uVGFsaXNtYW5zIiwic2NhbGUiOjF9XQ/994245860e/IncubationTalismans.png",
 		"category": "currency.incubator",
 		"width": 1,
 		"height": 1
@@ -45542,7 +46427,6 @@
 			"8": "인챈트된 인큐베이터",
 			"11": "魅せられたインキュベーター"
 		},
-		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSW5jdWJhdGlvbi9JbmN1YmF0aW9uTGFieXJpbnRoIiwic2NhbGUiOjF9XQ/755a289f04/IncubationLabyrinth.png",
 		"category": "currency.incubator",
 		"width": 1,
 		"height": 1
@@ -45559,7 +46443,6 @@
 			"8": "대지술사의 인큐베이터",
 			"11": "風水師のインキュベーター"
 		},
-		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSW5jdWJhdGlvbi9JbmN1YmF0aW9uQXJtb3VyIiwic2NhbGUiOjF9XQ/8cd6cd0531/IncubationArmour.png",
 		"category": "currency.incubator",
 		"width": 1,
 		"height": 1
@@ -45576,7 +46459,6 @@
 			"8": "화려한 인큐베이터",
 			"11": "絢爛たるインキュベーター"
 		},
-		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSW5jdWJhdGlvbi9JbmN1YmF0aW9uQ3VycmVuY3kiLCJzY2FsZSI6MX1d/e8a6d32623/IncubationCurrency.png",
 		"category": "currency.incubator",
 		"width": 1,
 		"height": 1
@@ -45593,7 +46475,6 @@
 			"8": "오래된 인큐베이터",
 			"11": "失われたインキュベーター"
 		},
-		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSW5jdWJhdGlvbi9JbmN1YmF0aW9uVW5pcXVlcyIsInNjYWxlIjoxfV0/72b48d1f1b/IncubationUniques.png",
 		"category": "currency.incubator",
 		"width": 1,
 		"height": 1
@@ -45610,7 +46491,6 @@
 			"8": "천공의 갑옷제작자의 인큐베이터",
 			"11": "天上の鎧鍛冶のインキュベーター"
 		},
-		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSW5jdWJhdGlvbi9JbmN1YmF0aW9uQXJtb3VyIiwic2NhbGUiOjF9XQ/8cd6cd0531/IncubationArmour.png",
 		"category": "currency.incubator",
 		"width": 1,
 		"height": 1
@@ -45627,7 +46507,6 @@
 			"8": "천공의 대장장이의 인큐베이터",
 			"11": "天上の鍛冶屋のインキュベーター"
 		},
-		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSW5jdWJhdGlvbi9JbmN1YmF0aW9uV2VhcG9ucyIsInNjYWxlIjoxfV0/4c2bb7d249/IncubationWeapons.png",
 		"category": "currency.incubator",
 		"width": 1,
 		"height": 1
@@ -45644,7 +46523,6 @@
 			"8": "천공의 보석상의 인큐베이터",
 			"11": "天上の宝飾職人のインキュベーター"
 		},
-		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSW5jdWJhdGlvbi9JbmN1YmF0aW9uVHJpbmtldHMiLCJzY2FsZSI6MX1d/74b5811007/IncubationTrinkets.png",
 		"category": "currency.incubator",
 		"width": 1,
 		"height": 1
@@ -45661,7 +46539,6 @@
 			"8": "섬뜩한 인큐베이터",
 			"11": "不気味なインキュベーター"
 		},
-		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSW5jdWJhdGlvbi9JbmN1YmF0aW9uTWFwcyIsInNjYWxlIjoxfV0/3d07c20be0/IncubationMaps.png",
 		"category": "currency.incubator",
 		"width": 1,
 		"height": 1
@@ -45678,7 +46555,6 @@
 			"8": "가려진 인큐베이터",
 			"11": "不明瞭なインキュベーター"
 		},
-		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSW5jdWJhdGlvbi9JbmN1YmF0aW9uQnJlYWNoIiwic2NhbGUiOjF9XQ/e9b256aff0/IncubationBreach.png",
 		"category": "currency.incubator",
 		"width": 1,
 		"height": 1
@@ -45695,7 +46571,6 @@
 			"8": "불길한 인큐베이터",
 			"11": "凶兆のインキュベーター"
 		},
-		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSW5jdWJhdGlvbi9JbmN1YmF0aW9uSGFyYmluZ2VyIiwic2NhbGUiOjF9XQ/11f4bcf0ee/IncubationHarbinger.png",
 		"category": "currency.incubator",
 		"width": 1,
 		"height": 1
@@ -45712,7 +46587,6 @@
 			"8": "마석학자의 인큐베이터",
 			"11": "魔術師のインキュベーター"
 		},
-		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSW5jdWJhdGlvbi9JbmN1YmF0aW9uR2VtcyIsInNjYWxlIjoxfV0/7df785d740/IncubationGems.png",
 		"category": "currency.incubator",
 		"width": 1,
 		"height": 1
@@ -45729,7 +46603,6 @@
 			"8": "수수께끼의 인큐베이터",
 			"11": "謎めいたインキュベーター"
 		},
-		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSW5jdWJhdGlvbi9JbmN1YmF0aW9uR2VuZXJpYyIsInNjYWxlIjoxfV0/9476a818a5/IncubationGeneric.png",
 		"category": "currency.incubator",
 		"width": 1,
 		"height": 1
@@ -45746,7 +46619,6 @@
 			"8": "세공사의 인큐베이터",
 			"11": "宝石職人のインキュベーター"
 		},
-		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSW5jdWJhdGlvbi9JbmN1YmF0aW9uR2VtcyIsInNjYWxlIjoxfV0/7df785d740/IncubationGems.png",
 		"category": "currency.incubator",
 		"width": 1,
 		"height": 1
@@ -45763,7 +46635,6 @@
 			"8": "야생의 인큐베이터",
 			"11": "野生のインキュベーター"
 		},
-		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSW5jdWJhdGlvbi9JbmN1YmF0aW9uQmVzdGlhcnkiLCJzY2FsZSI6MX1d/7c98be601d/IncubationBestiary.png",
 		"category": "currency.incubator",
 		"width": 1,
 		"height": 1
@@ -45780,7 +46651,6 @@
 			"8": "역병 걸린 인큐베이터",
 			"11": "荒廃したインキュベーター"
 		},
-		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSW5jdWJhdGlvbi9JbmN1YmF0aW9uQmxpZ2h0Iiwic2NhbGUiOjF9XQ/0f1872598d/IncubationBlight.png",
 		"category": "currency.incubator",
 		"width": 1,
 		"height": 1
@@ -45797,7 +46667,6 @@
 			"8": "도전하는 인큐베이터",
 			"11": "挑戦のインキュベーター"
 		},
-		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSW5jdWJhdGlvbi9JbmN1YmF0aW9uVWx0aW1hdHVtIiwic2NhbGUiOjF9XQ/ea6dbbb27e/IncubationUltimatum.png",
 		"category": "currency.incubator",
 		"width": 1,
 		"height": 1
@@ -45814,7 +46683,6 @@
 			"8": "광기의 인큐베이터",
 			"11": "狂気のインキュベーター"
 		},
-		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSW5jdWJhdGlvbi9JbmN1YmF0aW9uRGVsaXJpdW0iLCJzY2FsZSI6MX1d/74f49a934c/IncubationDelirium.png",
 		"category": "currency.incubator",
 		"width": 1,
 		"height": 1
@@ -45831,7 +46699,6 @@
 			"8": "속삭이는 인큐베이터",
 			"11": "囁きのインキュベーター"
 		},
-		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSW5jdWJhdGlvbi9JbmN1YmF0aW9uRXNzZW5jZSIsInNjYWxlIjoxfV0/839bf6cef9/IncubationEssence.png",
 		"category": "currency.incubator",
 		"width": 1,
 		"height": 1
@@ -45848,7 +46715,6 @@
 			"8": "양질의 인큐베이터",
 			"11": "上質なインキュベーター"
 		},
-		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSW5jdWJhdGlvbi9JbmN1YmF0aW9uQ3VycmVuY3kiLCJzY2FsZSI6MX1d/e8a6d32623/IncubationCurrency.png",
 		"category": "currency.incubator",
 		"width": 1,
 		"height": 1
@@ -45865,7 +46731,6 @@
 			"8": "비범한 인큐베이터",
 			"11": "希少なインキュベーター"
 		},
-		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSW5jdWJhdGlvbi9JbmN1YmF0aW9uVW5pcXVlcyIsInNjYWxlIjoxfV0/72b48d1f1b/IncubationUniques.png",
 		"category": "currency.incubator",
 		"width": 1,
 		"height": 1
@@ -45882,7 +46747,6 @@
 			"8": "지도제작자의 인큐베이터",
 			"11": "地図職人のインキュベーター"
 		},
-		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSW5jdWJhdGlvbi9JbmN1YmF0aW9uTWFwcyIsInNjYWxlIjoxfV0/3d07c20be0/IncubationMaps.png",
 		"category": "currency.incubator",
 		"width": 1,
 		"height": 1
@@ -45899,7 +46763,6 @@
 			"8": "이계의 인큐베이터",
 			"11": "異世界のインキュベーター"
 		},
-		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSW5jdWJhdGlvbi9JbmN1YmF0aW9uTWFwcyIsInNjYWxlIjoxfV0/3d07c20be0/IncubationMaps.png",
 		"category": "currency.incubator",
 		"width": 1,
 		"height": 1
@@ -45916,7 +46779,6 @@
 			"8": "심연의 인큐베이터",
 			"11": "アビスのインキュベーター"
 		},
-		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSW5jdWJhdGlvbi9JbmN1YmF0aW9uQWJ5c3MiLCJzY2FsZSI6MX1d/f3c36d1eb4/IncubationAbyss.png",
 		"category": "currency.incubator",
 		"width": 1,
 		"height": 1
@@ -45933,7 +46795,6 @@
 			"8": "조각난 인큐베이터",
 			"11": "断片化したインキュベーター"
 		},
-		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSW5jdWJhdGlvbi9JbmN1YmF0aW9uRnJhZ21lbnRzIiwic2NhbGUiOjF9XQ/a3cf9d4a10/IncubationFragments.png",
 		"category": "currency.incubator",
 		"width": 1,
 		"height": 1
@@ -45950,7 +46811,6 @@
 			"8": "달리는 인큐베이터",
 			"11": "這い回るインキュベーター"
 		},
-		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSW5jdWJhdGlvbi9JbmN1YmF0aW9uU2NhcmFicyIsInNjYWxlIjoxfV0/1627db84fb/IncubationScarabs.png",
 		"category": "currency.incubator",
 		"width": 1,
 		"height": 1
@@ -45967,7 +46827,6 @@
 			"8": "주입된 인큐베이터",
 			"11": "強化されたインキュベーター"
 		},
-		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSW5jdWJhdGlvbi9JbmN1YmF0aW9uRXNzZW5jZSIsInNjYWxlIjoxfV0/839bf6cef9/IncubationEssence.png",
 		"category": "currency.incubator",
 		"width": 1,
 		"height": 1
@@ -45984,7 +46843,6 @@
 			"8": "화석화된 인큐베이터",
 			"11": "化石のインキュベーター"
 		},
-		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSW5jdWJhdGlvbi9JbmN1YmF0aW9uRm9zc2lscyIsInNjYWxlIjoxfV0/bb7663432d/IncubationFossils.png",
 		"category": "currency.incubator",
 		"width": 1,
 		"height": 1
@@ -46001,7 +46859,6 @@
 			"8": "칼구르 인큐베이터",
 			"11": "カルグールのインキュベーター"
 		},
-		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSW5jdWJhdGlvbi9JbmN1YmF0aW9uRXhwZWRpdGlvbiIsInNjYWxlIjoxfV0/2916070090/IncubationExpedition.png",
 		"category": "currency.incubator",
 		"width": 1,
 		"height": 1
@@ -46018,7 +46875,6 @@
 			"8": "예언자의 인큐베이터",
 			"11": "占い師のインキュベーター"
 		},
-		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSW5jdWJhdGlvbi9JbmN1YmF0aW9uRGl2aW5hdGlvbkNhcmRzIiwic2NhbGUiOjF9XQ/e14c3ef7f9/IncubationDivinationCards.png",
 		"category": "currency.incubator",
 		"width": 1,
 		"height": 1
@@ -46035,7 +46891,6 @@
 			"8": "원시 인큐베이터",
 			"11": "原始のインキュベーター"
 		},
-		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSW5jdWJhdGlvbi9JbmN1YmF0aW9uVGFsaXNtYW5zIiwic2NhbGUiOjF9XQ/994245860e/IncubationTalismans.png",
 		"category": "currency.incubator",
 		"width": 1,
 		"height": 1
@@ -46052,7 +46907,6 @@
 			"8": "인챈트된 인큐베이터",
 			"11": "魅せられたインキュベーター"
 		},
-		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSW5jdWJhdGlvbi9JbmN1YmF0aW9uTGFieXJpbnRoIiwic2NhbGUiOjF9XQ/755a289f04/IncubationLabyrinth.png",
 		"category": "currency.incubator",
 		"width": 1,
 		"height": 1
@@ -46069,7 +46923,6 @@
 			"8": "대지술사의 인큐베이터",
 			"11": "風水師のインキュベーター"
 		},
-		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSW5jdWJhdGlvbi9JbmN1YmF0aW9uQXJtb3VyIiwic2NhbGUiOjF9XQ/8cd6cd0531/IncubationArmour.png",
 		"category": "currency.incubator",
 		"width": 1,
 		"height": 1
@@ -46086,7 +46939,6 @@
 			"8": "화려한 인큐베이터",
 			"11": "絢爛たるインキュベーター"
 		},
-		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSW5jdWJhdGlvbi9JbmN1YmF0aW9uQ3VycmVuY3kiLCJzY2FsZSI6MX1d/e8a6d32623/IncubationCurrency.png",
 		"category": "currency.incubator",
 		"width": 1,
 		"height": 1
@@ -46103,7 +46955,6 @@
 			"8": "오래된 인큐베이터",
 			"11": "失われたインキュベーター"
 		},
-		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSW5jdWJhdGlvbi9JbmN1YmF0aW9uVW5pcXVlcyIsInNjYWxlIjoxfV0/72b48d1f1b/IncubationUniques.png",
 		"category": "currency.incubator",
 		"width": 1,
 		"height": 1
@@ -46120,7 +46971,6 @@
 			"8": "천공의 갑옷제작자의 인큐베이터",
 			"11": "天上の鎧鍛冶のインキュベーター"
 		},
-		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSW5jdWJhdGlvbi9JbmN1YmF0aW9uQXJtb3VyIiwic2NhbGUiOjF9XQ/8cd6cd0531/IncubationArmour.png",
 		"category": "currency.incubator",
 		"width": 1,
 		"height": 1
@@ -46137,7 +46987,6 @@
 			"8": "천공의 대장장이의 인큐베이터",
 			"11": "天上の鍛冶屋のインキュベーター"
 		},
-		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSW5jdWJhdGlvbi9JbmN1YmF0aW9uV2VhcG9ucyIsInNjYWxlIjoxfV0/4c2bb7d249/IncubationWeapons.png",
 		"category": "currency.incubator",
 		"width": 1,
 		"height": 1
@@ -46154,7 +47003,6 @@
 			"8": "천공의 보석상의 인큐베이터",
 			"11": "天上の宝飾職人のインキュベーター"
 		},
-		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSW5jdWJhdGlvbi9JbmN1YmF0aW9uVHJpbmtldHMiLCJzY2FsZSI6MX1d/74b5811007/IncubationTrinkets.png",
 		"category": "currency.incubator",
 		"width": 1,
 		"height": 1
@@ -46171,7 +47019,6 @@
 			"8": "섬뜩한 인큐베이터",
 			"11": "不気味なインキュベーター"
 		},
-		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSW5jdWJhdGlvbi9JbmN1YmF0aW9uTWFwcyIsInNjYWxlIjoxfV0/3d07c20be0/IncubationMaps.png",
 		"category": "currency.incubator",
 		"width": 1,
 		"height": 1
@@ -46188,7 +47035,6 @@
 			"8": "가려진 인큐베이터",
 			"11": "不明瞭なインキュベーター"
 		},
-		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSW5jdWJhdGlvbi9JbmN1YmF0aW9uQnJlYWNoIiwic2NhbGUiOjF9XQ/e9b256aff0/IncubationBreach.png",
 		"category": "currency.incubator",
 		"width": 1,
 		"height": 1
@@ -46205,7 +47051,6 @@
 			"8": "불길한 인큐베이터",
 			"11": "凶兆のインキュベーター"
 		},
-		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSW5jdWJhdGlvbi9JbmN1YmF0aW9uSGFyYmluZ2VyIiwic2NhbGUiOjF9XQ/11f4bcf0ee/IncubationHarbinger.png",
 		"category": "currency.incubator",
 		"width": 1,
 		"height": 1
@@ -46222,7 +47067,6 @@
 			"8": "마석학자의 인큐베이터",
 			"11": "魔術師のインキュベーター"
 		},
-		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSW5jdWJhdGlvbi9JbmN1YmF0aW9uR2VtcyIsInNjYWxlIjoxfV0/7df785d740/IncubationGems.png",
 		"category": "currency.incubator",
 		"width": 1,
 		"height": 1
@@ -46239,7 +47083,6 @@
 			"8": "수수께끼의 인큐베이터",
 			"11": "謎めいたインキュベーター"
 		},
-		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSW5jdWJhdGlvbi9JbmN1YmF0aW9uR2VuZXJpYyIsInNjYWxlIjoxfV0/9476a818a5/IncubationGeneric.png",
 		"category": "currency.incubator",
 		"width": 1,
 		"height": 1
@@ -46256,7 +47099,6 @@
 			"8": "세공사의 인큐베이터",
 			"11": "宝石職人のインキュベーター"
 		},
-		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSW5jdWJhdGlvbi9JbmN1YmF0aW9uR2VtcyIsInNjYWxlIjoxfV0/7df785d740/IncubationGems.png",
 		"category": "currency.incubator",
 		"width": 1,
 		"height": 1
@@ -46273,7 +47115,6 @@
 			"8": "야생의 인큐베이터",
 			"11": "野生のインキュベーター"
 		},
-		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSW5jdWJhdGlvbi9JbmN1YmF0aW9uQmVzdGlhcnkiLCJzY2FsZSI6MX1d/7c98be601d/IncubationBestiary.png",
 		"category": "currency.incubator",
 		"width": 1,
 		"height": 1
@@ -46290,7 +47131,6 @@
 			"8": "역병 걸린 인큐베이터",
 			"11": "荒廃したインキュベーター"
 		},
-		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSW5jdWJhdGlvbi9JbmN1YmF0aW9uQmxpZ2h0Iiwic2NhbGUiOjF9XQ/0f1872598d/IncubationBlight.png",
 		"category": "currency.incubator",
 		"width": 1,
 		"height": 1
@@ -46307,7 +47147,6 @@
 			"8": "도전하는 인큐베이터",
 			"11": "挑戦のインキュベーター"
 		},
-		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSW5jdWJhdGlvbi9JbmN1YmF0aW9uVWx0aW1hdHVtIiwic2NhbGUiOjF9XQ/ea6dbbb27e/IncubationUltimatum.png",
 		"category": "currency.incubator",
 		"width": 1,
 		"height": 1
@@ -46324,7 +47163,6 @@
 			"8": "광기의 인큐베이터",
 			"11": "狂気のインキュベーター"
 		},
-		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSW5jdWJhdGlvbi9JbmN1YmF0aW9uRGVsaXJpdW0iLCJzY2FsZSI6MX1d/74f49a934c/IncubationDelirium.png",
 		"category": "currency.incubator",
 		"width": 1,
 		"height": 1
@@ -46879,7 +47717,7 @@
 			"1": "Breach Scarab of the Dreamer",
 			"2": "Escaravelho da Fenda do Sonhador",
 			"3": "Скарабей Разлома Спящего",
-			"4": "สคารับบรีช นักฝัน",
+			"4": "สคารับบรีช ผู้ฝันใฝ่",
 			"5": "Riss-Skarabäus des Träumers",
 			"6": "Scarabée de Brèche du Rêveur",
 			"7": "Escarabajo de fisura del soñador",
@@ -47851,7 +48689,7 @@
 			"2": "Escaravelho Enferrujado do Tormento",
 			"3": "Ржавый скарабей Мучения",
 			"4": "สคารับผีตายโหงขึ้นสนิม",
-			"5": "Verrosteter Folter-Skarabäus",
+			"5": "Verrosteter Gequälter Skarabäus",
 			"6": "Scarabée rouillé du Tourment",
 			"7": "Escarabajo oxidado de tormento",
 			"8": "녹슨 고통 갑충석",
@@ -47867,7 +48705,7 @@
 			"2": "Escaravelho Polido do Tormento",
 			"3": "Гладкий скарабей Мучения",
 			"4": "สคารับผีตายโหงขึ้นเงา",
-			"5": "Glänzender Folter-Skarabäus",
+			"5": "Glänzender Gequälter Skarabäus",
 			"6": "Scarabée brillant du Tourment",
 			"7": "Escarabajo pulido de tormento",
 			"8": "광택 나는 고통 갑충석",
@@ -47883,7 +48721,7 @@
 			"2": "Escaravelho Dourado do Tormento",
 			"3": "Золочёный скарабей Мучения",
 			"4": "สคารับผีตายโหงเคลือบทอง",
-			"5": "Vergoldeter Folter-Skarabäus",
+			"5": "Vergoldeter Gequälter Skarabäus",
 			"6": "Scarabée doré du Tourment",
 			"7": "Escarabajo dorado de tormento",
 			"8": "도금된 고통 갑충석",
@@ -47899,7 +48737,7 @@
 			"2": "Escaravelho Alado do Tormento",
 			"3": "Крылатый скарабей Мучения",
 			"4": "สคารับผีตายโหงติดปีก",
-			"5": "Geflügelter Folter-Skarabäus",
+			"5": "Geflügelter Gequälter Skarabäus",
 			"6": "Scarabée ailé du Tourment",
 			"7": "Escarabajo alado de tormento",
 			"8": "날개 달린 고통 갑충석",
@@ -47915,7 +48753,7 @@
 			"2": "Escaravelho Atormentado",
 			"3": "Скарабей Мучения",
 			"4": "สคารับผีตายโหง",
-			"5": "Folter-Skarabäus",
+			"5": "Gequälter Skarabäus",
 			"6": "Scarabée du Tourment",
 			"7": "Escarabajo de tormento",
 			"8": "고통 갑충석",
@@ -47932,7 +48770,7 @@
 			"2": "Escaravelho Atormentado da Peculiaridade",
 			"3": "Скарабей Мучения своеобразия",
 			"4": "สคารับผีตายโหง ประหลาด",
-			"5": "Folter-Skarabäus der Absonderlichkeit",
+			"5": "Gequälter Skarabäus der Absonderlichkeit",
 			"6": "Scarabée du Tourment de la Particularité",
 			"7": "Escarabajo de tormento de peculiaridad",
 			"8": "기이함의 고통 갑충석",
@@ -47949,7 +48787,7 @@
 			"2": "Escaravelho Atormentado da Liberação",
 			"3": "Скарабей Мучения освобождения",
 			"4": "สคารับผีตายโหง ปลดปล่อย",
-			"5": "Folter-Skarabäus der Freilassung",
+			"5": "Gequälter Skarabäus der Freilassung",
 			"6": "Scarabée du Tourment de la Libération",
 			"7": "Escarabajo de tormento de liberación",
 			"8": "해방의 고통 갑충석",
@@ -47966,7 +48804,7 @@
 			"2": "Escaravelho Atormentado da Possessão",
 			"3": "Скарабей Мучения одержимости",
 			"4": "สคารับผีตายโหง เข้าสิง",
-			"5": "Folter-Skarabäus des Besitzes",
+			"5": "Gequälter Skarabäus des Besitzes",
 			"6": "Scarabée du Tourment de la Possession",
 			"7": "Escarabajo de tormento de posesión",
 			"8": "사로잡힘의 고통 갑충석",
@@ -48202,7 +49040,6 @@
 			"8": "선구자 갑충석",
 			"11": "ハービンジャースカラベ"
 		},
-		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU2NhcmFicy9MZXNzZXJTY2FyYWJIYXJiaW5nZXJzIiwic2NhbGUiOjF9XQ/cc33d9f639/LesserScarabHarbingers.png",
 		"category": "map.scarab",
 		"width": 1,
 		"height": 1
@@ -48219,7 +49056,6 @@
 			"8": "오벨리스크의 선구자 갑충석",
 			"11": "オベリスクのハービンジャースカラベ"
 		},
-		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU2NhcmFicy9Ob3JtYWxTY2FyYWJIYXJiaW5nZXJzIiwic2NhbGUiOjF9XQ/dc5f44e261/NormalScarabHarbingers.png",
 		"category": "map.scarab",
 		"width": 1,
 		"height": 1
@@ -48236,7 +49072,6 @@
 			"8": "섭정의 선구자 갑충석",
 			"11": "摂政のハービンジャースカラベ"
 		},
-		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU2NhcmFicy9HcmVhdGVyU2NhcmFiSGFyYmluZ2VycyIsInNjYWxlIjoxfV0/335df4321f/GreaterScarabHarbingers.png",
 		"category": "map.scarab",
 		"width": 1,
 		"height": 1
@@ -48253,7 +49088,6 @@
 			"8": "전쟁비축물의 선구자 갑충석",
 			"11": "ウォーホードのハービンジャースカラベ"
 		},
-		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU2NhcmFicy9UaWVyNFNjYXJhYkhhcmJpbmdlcnMiLCJzY2FsZSI6MX1d/58a4c0d3f8/Tier4ScarabHarbingers.png",
 		"category": "map.scarab",
 		"width": 1,
 		"height": 1
@@ -48784,15 +49618,15 @@
 	},
 	"ScarabAbyssNew4": {
 		"names": {
-			"1": "Abyss Scarab of Edifice",
-			"2": "Escaravelho do Abismo do Edifício",
-			"3": "Скарабей Бездны строений",
-			"4": "สคารับอะบิส สิ่งปลูกสร้าง",
-			"5": "Abgrund-Skarabäus des Bauwerks",
-			"6": "Scarabée d'Abysse de l'Édifice",
-			"7": "Escarabajo de abismo de edificio",
-			"8": "건축물의 심연 갑충석",
-			"11": "殿堂のアビススカラベ"
+			"1": "Abyss Scarab of Crystals",
+			"2": "Escaravelho do Abismo dos Cristais",
+			"3": "Скарабей Бездны кристаллов",
+			"4": "สคารับอะบิส คริสตัล",
+			"5": "Abgrund-Skarabäus der Kristalle",
+			"6": "Scarabée d'Abysse des Cristaux",
+			"7": "Escarabajo de abismo de cristales",
+			"8": "수정의 심연 갑충석",
+			"11": "結晶のアビススカラベ"
 		},
 		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU2NhcmFicy9HcmVhdGVyU2NhcmFiQWJ5c3MiLCJzY2FsZSI6MX1d/84851bd122/GreaterScarabAbyss.png",
 		"category": "map.scarab",
@@ -48818,15 +49652,15 @@
 	},
 	"ScarabAbyssNew5": {
 		"names": {
-			"1": "Abyss Scarab of Profound Depth",
-			"2": "Escaravelho Abissal das Profundezas",
-			"3": "Скарабей Бездны бездонности",
-			"4": "สคารับอะบิส ลึกเหนือพรรณนา",
-			"5": "Abgrund-Skarabäus der enormen Tiefe",
-			"6": "Scarabée d'Abysse des Profondeurs extrêmes",
-			"7": "Escarabajo de abismo de profundidad intensa",
-			"8": "심원한 깊이의 심연 갑충석",
-			"11": "いと深き深淵のアビススカラベ"
+			"1": "Abyss Scarab of the Consort",
+			"2": "Escaravelho do Abismo da Consorte",
+			"3": "Скарабей Бездны спутницы",
+			"4": "สคารับอะบิส คู่ครอง",
+			"5": "Abgrund-Skarabäus der Gemahlin",
+			"6": "Scarabée d'Abysse du Consort",
+			"7": "Escarabajo de abismo de la consorte",
+			"8": "배우자의 심연 갑충석",
+			"11": "コンソートのアビススカラベ"
 		},
 		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU2NhcmFicy9BbHRUaWVyNFNjYXJhYkFieXNzIiwic2NhbGUiOjF9XQ/b40fb2422b/AltTier4ScarabAbyss.png",
 		"category": "map.scarab",
@@ -49128,7 +49962,7 @@
 			"2": "Escaravelho da Colheita",
 			"3": "Скарабей Жатвы",
 			"4": "สคารับฮาร์เวสต์",
-			"5": "Hain-Skarabäus",
+			"5": "Ernte-Skarabäus",
 			"6": "Scarabée du Bosquet",
 			"7": "Escarabajo de cosecha",
 			"8": "수확 갑충석",
@@ -49145,7 +49979,7 @@
 			"2": "Escaravelho da Colheita da Duplicação",
 			"3": "Скарабей Жатвы удвоения",
 			"4": "สคารับฮาร์เวสต์ สองเท่า",
-			"5": "Hain-Skarabäus der Verdopplung",
+			"5": "Ernte-Skarabäus der Verdopplung",
 			"6": "Scarabée du Bosquet du Doublement",
 			"7": "Escarabajo de cosecha de duplicación",
 			"8": "복제의 수확 갑충석",
@@ -49162,7 +49996,7 @@
 			"2": "Escaravelho da Colheita da Cornucópia",
 			"3": "Скарабей Жатвы изобилия",
 			"4": "สคารับฮาร์เวสต์ อุดมสมบูรณ์",
-			"5": "Hain-Skarabäus der Fülle",
+			"5": "Ernte-Skarabäus der Fülle",
 			"6": "Scarabée du Bosquet de la Corne d'abondance",
 			"7": "Escarabajo de cosecha de cornucopia",
 			"8": "풍요의 뿔의 수확 갑충석",
@@ -49713,6 +50547,74 @@
 			"11": "富裕のカルグールスカラベ"
 		},
 		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU2NhcmFicy9UaWVyNFNjYXJhYlNldHRsZXJzIiwic2NhbGUiOjF9XQ/62d3e05936/Tier4ScarabSettlers.png",
+		"category": "map.scarab",
+		"width": 1,
+		"height": 1
+	},
+	"ScarabMercenaries1": {
+		"names": {
+			"1": "Trarthan Scarab",
+			"2": "Escaravelho Trarthano",
+			"3": "Тератский скарабей",
+			"4": "สคารับทาร์ทาน",
+			"5": "Trarthanischer Skarabäus",
+			"6": "Scarabée trarthien",
+			"7": "Escarabajo trarthano",
+			"8": "트라투스 갑충석",
+			"11": "トラーサススカラベ"
+		},
+		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU2NhcmFicy9MZXNzZXJTY2FyYWJNZXJjZW5hcmllcyIsInNjYWxlIjoxfV0/2d075bbafc/LesserScarabMercenaries.png",
+		"category": "map.scarab",
+		"width": 1,
+		"height": 1
+	},
+	"ScarabMercenaries2": {
+		"names": {
+			"1": "Trarthan Scarab of Infamy",
+			"2": "Escaravelho Trarthano da Infâmia",
+			"3": "Тератский скарабей бесчестия",
+			"4": "สคารับทาร์ทาน ชื่อกระฉ่อน",
+			"5": "Trarthanischer Skarabäus der Schande",
+			"6": "Scarabée trarthien de l'Infamie",
+			"7": "Escarabajo trarthano de infamia",
+			"8": "악명의 트라투스 갑충석",
+			"11": "悪名のトラーサススカラベ"
+		},
+		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU2NhcmFicy9Ob3JtYWxTY2FyYWJNZXJjZW5hcmllcyIsInNjYWxlIjoxfV0/f880a011d3/NormalScarabMercenaries.png",
+		"category": "map.scarab",
+		"width": 1,
+		"height": 1
+	},
+	"ScarabMercenaries3": {
+		"names": {
+			"1": "Trarthan Scarab of Renown",
+			"2": "Escaravelho Trarthano do Renome",
+			"3": "Тератский скарабей известности",
+			"4": "สคารับทาร์ทาน กิตติศัพท์",
+			"5": "Trarthanischer Skarabäus des Ruhms",
+			"6": "Scarabée trarthien du Renom",
+			"7": "Escarabajo trarthano de renombre",
+			"8": "명성의 트라투스 갑충석",
+			"11": "名声のトラーサススカラベ"
+		},
+		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU2NhcmFicy9HcmVhdGVyU2NhcmFiTWVyY2VuYXJpZXMiLCJzY2FsZSI6MX1d/552723764a/GreaterScarabMercenaries.png",
+		"category": "map.scarab",
+		"width": 1,
+		"height": 1
+	},
+	"ScarabMercenaries4": {
+		"names": {
+			"1": "Trarthan Scarab of Surprising Alliances",
+			"2": "Escaravelho Trarthano das Alianças Surpreendentes",
+			"3": "Тератский скарабей неожиданных союзов",
+			"4": "สคารับทาร์ทาน พันธมิตรพิศวง",
+			"5": "Trarthanischer Skarabäus der überraschenden Allianzen",
+			"6": "Scarabée trarthien des Alliances surprenantes",
+			"7": "Escarabajo trarthano de alianzas inesperadas",
+			"8": "의외의 동맹의 트라투스 갑충석",
+			"11": "意外な同盟のトラーサススカラベ"
+		},
+		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvU2NhcmFicy9UaWVyNFNjYXJhYk1lcmNlbmFyaWVzIiwic2NhbGUiOjF9XQ/ec12948f39/Tier4ScarabMercenaries.png",
 		"category": "map.scarab",
 		"width": 1,
 		"height": 1
@@ -51479,7 +52381,7 @@
 			"8": "찢어진 망토",
 			"11": "傷だらけのマント"
 		},
-		"category": "heistequipment",
+		"category": "heistequipment.heistutility",
 		"width": 2,
 		"height": 2
 	},
@@ -51495,7 +52397,7 @@
 			"8": "해진 망토",
 			"11": "ボロボロのマント"
 		},
-		"category": "heistequipment",
+		"category": "heistequipment.heistutility",
 		"width": 2,
 		"height": 2
 	},
@@ -51511,7 +52413,7 @@
 			"8": "두건 망토",
 			"11": "フード付きのマント"
 		},
-		"category": "heistequipment",
+		"category": "heistequipment.heistutility",
 		"width": 2,
 		"height": 2
 	},
@@ -51527,7 +52429,7 @@
 			"8": "속삭임 망토",
 			"11": "囁きを編み込んだマント"
 		},
-		"category": "heistequipment",
+		"category": "heistequipment.heistutility",
 		"width": 2,
 		"height": 2
 	},
@@ -51543,7 +52445,7 @@
 			"8": "은 브로치",
 			"11": "銀のブローチ"
 		},
-		"category": "heistequipment",
+		"category": "heistequipment.heistreward",
 		"width": 1,
 		"height": 1
 	},
@@ -51559,7 +52461,7 @@
 			"8": "황금 브로치",
 			"11": "金のブローチ"
 		},
-		"category": "heistequipment",
+		"category": "heistequipment.heistreward",
 		"width": 1,
 		"height": 1
 	},
@@ -51575,7 +52477,7 @@
 			"8": "유약 도색 브로치",
 			"11": "エナメルのブローチ"
 		},
-		"category": "heistequipment",
+		"category": "heistequipment.heistreward",
 		"width": 1,
 		"height": 1
 	},
@@ -51591,7 +52493,7 @@
 			"8": "잎사귀 브로치",
 			"11": "葉形のブローチ"
 		},
-		"category": "heistequipment",
+		"category": "heistequipment.heistreward",
 		"width": 1,
 		"height": 1
 	},
@@ -51607,7 +52509,7 @@
 			"8": "단순한 자물쇠 따개",
 			"11": "単純なロックピック"
 		},
-		"category": "heistequipment.heistreward",
+		"category": "heistequipment.heisttool",
 		"width": 2,
 		"height": 2
 	},
@@ -51623,7 +52525,7 @@
 			"8": "표준 자물쇠 따개",
 			"11": "標準的なロックピック"
 		},
-		"category": "heistequipment.heistreward",
+		"category": "heistequipment.heisttool",
 		"width": 2,
 		"height": 2
 	},
@@ -51639,7 +52541,7 @@
 			"8": "정교한 자물쇠 따개",
 			"11": "優れたロックピック"
 		},
-		"category": "heistequipment.heistreward",
+		"category": "heistequipment.heisttool",
 		"width": 2,
 		"height": 2
 	},
@@ -51655,7 +52557,7 @@
 			"8": "고급 자물쇠 따개",
 			"11": "マスターロックピック"
 		},
-		"category": "heistequipment.heistreward",
+		"category": "heistequipment.heisttool",
 		"width": 2,
 		"height": 2
 	},
@@ -51671,7 +52573,7 @@
 			"8": "가죽 팔보호구",
 			"11": "革の小手"
 		},
-		"category": "heistequipment.heistweapon",
+		"category": "heistequipment.heisttool",
 		"width": 2,
 		"height": 2
 	},
@@ -51687,7 +52589,7 @@
 			"8": "징 박힌 팔보호구",
 			"11": "鋲付き革の小手"
 		},
-		"category": "heistequipment.heistweapon",
+		"category": "heistequipment.heisttool",
 		"width": 2,
 		"height": 2
 	},
@@ -51703,7 +52605,7 @@
 			"8": "룬 문자 팔보호구",
 			"11": "ルーン文字の小手"
 		},
-		"category": "heistequipment.heistweapon",
+		"category": "heistequipment.heisttool",
 		"width": 2,
 		"height": 2
 	},
@@ -51719,7 +52621,7 @@
 			"8": "강철 팔보호구",
 			"11": "鋼鉄の小手"
 		},
-		"category": "heistequipment.heistweapon",
+		"category": "heistequipment.heisttool",
 		"width": 2,
 		"height": 2
 	},
@@ -51735,7 +52637,7 @@
 			"8": "조잡한 감지 부적",
 			"11": "粗雑な感応のお守り"
 		},
-		"category": "heistequipment",
+		"category": "heistequipment.heisttool",
 		"width": 2,
 		"height": 2
 	},
@@ -51751,7 +52653,7 @@
 			"8": "정교한 감지 부적",
 			"11": "優れた感応のお守り"
 		},
-		"category": "heistequipment",
+		"category": "heistequipment.heisttool",
 		"width": 2,
 		"height": 2
 	},
@@ -51767,7 +52669,7 @@
 			"8": "광택 나는 감지 부적",
 			"11": "光沢のある感応のお守り"
 		},
-		"category": "heistequipment",
+		"category": "heistequipment.heisttool",
 		"width": 2,
 		"height": 2
 	},
@@ -51783,7 +52685,7 @@
 			"8": "마석학 감지 부적",
 			"11": "魔術の感応のお守り"
 		},
-		"category": "heistequipment",
+		"category": "heistequipment.heisttool",
 		"width": 2,
 		"height": 2
 	},
@@ -51799,7 +52701,7 @@
 			"8": "전도성 섬광가루",
 			"11": "ボルタキシック爆薬"
 		},
-		"category": "heistequipment",
+		"category": "heistequipment.heisttool",
 		"width": 2,
 		"height": 2
 	},
@@ -51815,7 +52717,7 @@
 			"8": "트라탄 섬광가루",
 			"11": "トラーサスの爆薬"
 		},
-		"category": "heistequipment",
+		"category": "heistequipment.heisttool",
 		"width": 2,
 		"height": 2
 	},
@@ -51831,7 +52733,7 @@
 			"8": "남동석 섬광가루",
 			"11": "アズライトの爆薬"
 		},
-		"category": "heistequipment",
+		"category": "heistequipment.heisttool",
 		"width": 2,
 		"height": 2
 	},
@@ -51847,7 +52749,7 @@
 			"8": "마석 섬광가루",
 			"11": "魔術の爆薬"
 		},
-		"category": "heistequipment",
+		"category": "heistequipment.heisttool",
 		"width": 2,
 		"height": 2
 	},
@@ -51863,7 +52765,7 @@
 			"8": "조잡한 수호",
 			"11": "粗雑な魔除け"
 		},
-		"category": "heistequipment",
+		"category": "heistequipment.heisttool",
 		"width": 2,
 		"height": 2
 	},
@@ -51879,7 +52781,7 @@
 			"8": "빛나는 수호",
 			"11": "光沢の魔除け"
 		},
-		"category": "heistequipment",
+		"category": "heistequipment.heisttool",
 		"width": 2,
 		"height": 2
 	},
@@ -51895,7 +52797,7 @@
 			"8": "반짝이는 수호",
 			"11": "輝きの魔除け"
 		},
-		"category": "heistequipment",
+		"category": "heistequipment.heisttool",
 		"width": 2,
 		"height": 2
 	},
@@ -51911,7 +52813,7 @@
 			"8": "마석학 수호",
 			"11": "魔術の魔除け"
 		},
-		"category": "heistequipment",
+		"category": "heistequipment.heisttool",
 		"width": 2,
 		"height": 2
 	},
@@ -51927,7 +52829,7 @@
 			"8": "필수 열쇠고리",
 			"11": "基礎的なキーリング"
 		},
-		"category": "heistequipment",
+		"category": "heistequipment.heisttool",
 		"width": 2,
 		"height": 2
 	},
@@ -51943,7 +52845,7 @@
 			"8": "다용도 열쇠고리",
 			"11": "多様なキーリング"
 		},
-		"category": "heistequipment",
+		"category": "heistequipment.heisttool",
 		"width": 2,
 		"height": 2
 	},
@@ -51959,7 +52861,7 @@
 			"8": "해골 열쇠고리",
 			"11": "スケルトンキーリング"
 		},
-		"category": "heistequipment",
+		"category": "heistequipment.heisttool",
 		"width": 2,
 		"height": 2
 	},
@@ -51975,7 +52877,7 @@
 			"8": "명인 열쇠고리",
 			"11": "グランドマスターキーリング"
 		},
-		"category": "heistequipment",
+		"category": "heistequipment.heisttool",
 		"width": 2,
 		"height": 2
 	},
@@ -51991,7 +52893,7 @@
 			"8": "장어가죽 밑창",
 			"11": "鰻皮の靴底"
 		},
-		"category": "heistequipment",
+		"category": "heistequipment.heisttool",
 		"width": 2,
 		"height": 2
 	},
@@ -52007,7 +52909,7 @@
 			"8": "여우가죽 밑창",
 			"11": "狐皮の靴底"
 		},
-		"category": "heistequipment",
+		"category": "heistequipment.heisttool",
 		"width": 2,
 		"height": 2
 	},
@@ -52023,7 +52925,7 @@
 			"8": "날개 달린 밑창",
 			"11": "羽付きの靴底"
 		},
-		"category": "heistequipment",
+		"category": "heistequipment.heisttool",
 		"width": 2,
 		"height": 2
 	},
@@ -52039,7 +52941,7 @@
 			"8": "비단 직물 밑창",
 			"11": "シルク編みの靴底"
 		},
-		"category": "heistequipment",
+		"category": "heistequipment.heisttool",
 		"width": 2,
 		"height": 2
 	},
@@ -52055,7 +52957,7 @@
 			"8": "기본 변장 도구",
 			"11": "基本変装道具"
 		},
-		"category": "heistequipment",
+		"category": "heistequipment.heisttool",
 		"width": 2,
 		"height": 2
 	},
@@ -52071,7 +52973,7 @@
 			"8": "극장 변장 도구",
 			"11": "劇場の変装道具"
 		},
-		"category": "heistequipment",
+		"category": "heistequipment.heisttool",
 		"width": 2,
 		"height": 2
 	},
@@ -52087,7 +52989,7 @@
 			"8": "첩보 변장 도구",
 			"11": "スパイの変装道具"
 		},
-		"category": "heistequipment",
+		"category": "heistequipment.heisttool",
 		"width": 2,
 		"height": 2
 	},
@@ -52103,7 +53005,7 @@
 			"8": "왕 시해자 변장 도구",
 			"11": "国王殺しの変装道具"
 		},
-		"category": "heistequipment",
+		"category": "heistequipment.heisttool",
 		"width": 2,
 		"height": 2
 	},
@@ -52119,7 +53021,7 @@
 			"8": "강철 송곳",
 			"11": "鋼鉄のドリル"
 		},
-		"category": "heistequipment",
+		"category": "heistequipment.heisttool",
 		"width": 2,
 		"height": 2
 	},
@@ -52135,7 +53037,7 @@
 			"8": "테두리 송곳",
 			"11": "羽根付きのドリル"
 		},
-		"category": "heistequipment",
+		"category": "heistequipment.heisttool",
 		"width": 2,
 		"height": 2
 	},
@@ -52151,7 +53053,7 @@
 			"8": "유황 발염기",
 			"11": "サルファーのガスバーナー"
 		},
-		"category": "heistequipment",
+		"category": "heistequipment.heisttool",
 		"width": 2,
 		"height": 2
 	},
@@ -52167,7 +53069,7 @@
 			"8": "마석 발염기",
 			"11": "魔術のガスバーナー"
 		},
-		"category": "heistequipment",
+		"category": "heistequipment.heisttool",
 		"width": 2,
 		"height": 2
 	},
@@ -52183,7 +53085,7 @@
 			"8": "거친 숫돌",
 			"11": "粗雑な研ぎ石"
 		},
-		"category": "heistequipment.heistutility",
+		"category": "heistequipment.heistweapon",
 		"width": 2,
 		"height": 2
 	},
@@ -52199,7 +53101,7 @@
 			"8": "표준 숫돌",
 			"11": "標準的な研ぎ石"
 		},
-		"category": "heistequipment.heistutility",
+		"category": "heistequipment.heistweapon",
 		"width": 2,
 		"height": 2
 	},
@@ -52215,7 +53117,7 @@
 			"8": "정교한 숫돌",
 			"11": "優れた研ぎ石"
 		},
-		"category": "heistequipment.heistutility",
+		"category": "heistequipment.heistweapon",
 		"width": 2,
 		"height": 2
 	},
@@ -52231,7 +53133,7 @@
 			"8": "흑요석 숫돌",
 			"11": "オブシディアンの研ぎ石"
 		},
-		"category": "heistequipment.heistutility",
+		"category": "heistequipment.heistweapon",
 		"width": 2,
 		"height": 2
 	},
@@ -52247,7 +53149,7 @@
 			"8": "테두리 화살촉",
 			"11": "羽根付きの矢じり"
 		},
-		"category": "heistequipment.heistutility",
+		"category": "heistequipment.heistweapon",
 		"width": 2,
 		"height": 2
 	},
@@ -52263,7 +53165,7 @@
 			"8": "분열 화살촉",
 			"11": "分裂の矢じり"
 		},
-		"category": "heistequipment.heistutility",
+		"category": "heistequipment.heistweapon",
 		"width": 2,
 		"height": 2
 	},
@@ -52279,7 +53181,7 @@
 			"8": "중공 화살촉",
 			"11": "ホローポイントの矢じり"
 		},
-		"category": "heistequipment.heistutility",
+		"category": "heistequipment.heistweapon",
 		"width": 2,
 		"height": 2
 	},
@@ -52295,7 +53197,7 @@
 			"8": "정확한 화살촉",
 			"11": "精密な矢じり"
 		},
-		"category": "heistequipment.heistutility",
+		"category": "heistequipment.heistweapon",
 		"width": 2,
 		"height": 2
 	},
@@ -52311,7 +53213,7 @@
 			"8": "초점석",
 			"11": "集中の秘石"
 		},
-		"category": "heistequipment.heistutility",
+		"category": "heistequipment.heistweapon",
 		"width": 2,
 		"height": 2
 	},
@@ -52327,7 +53229,7 @@
 			"8": "관로",
 			"11": "伝導の数珠"
 		},
-		"category": "heistequipment.heistutility",
+		"category": "heistequipment.heistweapon",
 		"width": 2,
 		"height": 2
 	},
@@ -52343,7 +53245,7 @@
 			"8": "집합 부적",
 			"11": "集積のお守り"
 		},
-		"category": "heistequipment.heistutility",
+		"category": "heistequipment.heistweapon",
 		"width": 2,
 		"height": 2
 	},
@@ -52359,7 +53261,7 @@
 			"8": "격발 반지",
 			"11": "爆発の環"
 		},
-		"category": "heistequipment.heistutility",
+		"category": "heistequipment.heistweapon",
 		"width": 2,
 		"height": 2
 	},
@@ -53144,7 +54046,7 @@
 			"8": "메이븐의 초대: 형성된 영역",
 			"11": "メイヴェンの招待状: 形作られし者"
 		},
-		"category": "map.fragment",
+		"category": "map.invitation",
 		"width": 1,
 		"height": 1
 	},
@@ -53160,7 +54062,7 @@
 			"8": "메이븐의 초대: 뒤틀린 영역",
 			"11": "メイヴェンの招待状: 歪みし者"
 		},
-		"category": "map.fragment",
+		"category": "map.invitation",
 		"width": 1,
 		"height": 1
 	},
@@ -53176,7 +54078,7 @@
 			"8": "메이븐의 초대: 잊혀진 영역",
 			"11": "メイヴェンの招待状: 忘れ去られし者"
 		},
-		"category": "map.fragment",
+		"category": "map.invitation",
 		"width": 1,
 		"height": 1
 	},
@@ -53192,7 +54094,7 @@
 			"8": "메이븐의 초대: 숨겨진 영역",
 			"11": "メイヴェンの招待状: 隠されし者"
 		},
-		"category": "map.fragment",
+		"category": "map.invitation",
 		"width": 1,
 		"height": 1
 	},
@@ -53208,7 +54110,7 @@
 			"8": "메이븐의 초대: 끔찍한 영역",
 			"11": "メイヴェンの招待状: 恐れられし者"
 		},
-		"category": "map.invitation",
+		"category": "map.fragment",
 		"width": 1,
 		"height": 1
 	},
@@ -53224,7 +54126,7 @@
 			"8": "메이븐의 초대: 엘더슬레이어",
 			"11": "メイヴェンの招待状: エルダースレイヤー"
 		},
-		"category": "map.fragment",
+		"category": "map.invitation",
 		"width": 1,
 		"height": 1
 	},
@@ -53240,7 +54142,7 @@
 			"8": "메이븐의 초대: 형성된 영역",
 			"11": "メイヴェンの招待状: 形作られし者"
 		},
-		"category": "map.fragment",
+		"category": "map.invitation",
 		"width": 1,
 		"height": 1
 	},
@@ -53256,7 +54158,7 @@
 			"8": "메이븐의 초대: 뒤틀린 영역",
 			"11": "メイヴェンの招待状: 歪みし者"
 		},
-		"category": "map.fragment",
+		"category": "map.invitation",
 		"width": 1,
 		"height": 1
 	},
@@ -53272,7 +54174,7 @@
 			"8": "메이븐의 초대: 잊혀진 영역",
 			"11": "メイヴェンの招待状: 忘れ去られし者"
 		},
-		"category": "map.fragment",
+		"category": "map.invitation",
 		"width": 1,
 		"height": 1
 	},
@@ -53304,7 +54206,7 @@
 			"8": "메이븐의 초대: 끔찍한 영역",
 			"11": "メイヴェンの招待状: 恐れられし者"
 		},
-		"category": "map.invitation",
+		"category": "map.fragment",
 		"width": 1,
 		"height": 1
 	},
@@ -53320,7 +54222,7 @@
 			"8": "메이븐의 초대: 엘더슬레이어",
 			"11": "メイヴェンの招待状: エルダースレイヤー"
 		},
-		"category": "map.fragment",
+		"category": "map.invitation",
 		"width": 1,
 		"height": 1
 	},
@@ -54228,7 +55130,7 @@
 			"2": "Artefato do Círculo Quebrado Menor",
 			"3": "Мелкий артефакт Разомкнутого круга",
 			"4": "โบราณวัตถุสิ้นวัฏจักรชั้นต่ำ",
-			"5": "Kleines Artefakt des Gebrochenen Zirkels",
+			"5": "Kleines Artefakt des Zerbrochenen Kreises",
 			"6": "Artéfact mineur du Cercle brisé",
 			"7": "Artefacto menor del Círculo roto",
 			"8": "하급 끊어진 원 유물",
@@ -54244,7 +55146,7 @@
 			"2": "Artefato do Círculo Quebrado Maior",
 			"3": "Крупный артефакт Разомкнутого круга",
 			"4": "โบราณวัตถุสิ้นวัฏจักรชั้นสูง",
-			"5": "Größeres Artefakt des Gebrochenen Zirkels",
+			"5": "Größeres Artefakt des Zerbrochenen Kreises",
 			"6": "Artéfact majeur du Cercle brisé",
 			"7": "Artefacto mayor del Círculo roto",
 			"8": "상급 끊어진 원 유물",
@@ -54260,7 +55162,7 @@
 			"2": "Artefato do Círculo Quebrado Distinto",
 			"3": "Великий артефакт Разомкнутого круга",
 			"4": "โบราณวัตถุสิ้นวัฏจักรชั้นเลิศ",
-			"5": "Großes Artefakt des Gebrochenen Zirkels",
+			"5": "Großes Artefakt des Zerbrochenen Kreises",
 			"6": "Artéfact majestueux du Cercle brisé",
 			"7": "Artefacto grandioso del Círculo roto",
 			"8": "우수한 끊어진 원 유물",
@@ -54276,7 +55178,7 @@
 			"2": "Artefato do Círculo Quebrado Excepcional",
 			"3": "Превосходный артефакт Разомкнутого круга",
 			"4": "โบราณวัตถุสิ้นวัฏจักรชั้นยอด",
-			"5": "Bedeutendes Artefakt des Gebrochenen Zirkels",
+			"5": "Bedeutendes Artefakt des Zerbrochenen Kreises",
 			"6": "Artéfact exceptionnel du Cercle brisé",
 			"7": "Artefacto excepcional del Círculo roto",
 			"8": "특출난 끊어진 원 유물",
@@ -54590,7 +55492,7 @@
 			"6": "Ferraille d'armurier impure",
 			"7": "Restos de armaduras contaminados",
 			"8": "더럽혀진 방어구 장인의 고철",
-			"11": "汚染された鎧鍛冶の端材"
+			"11": "汚染された鎧鍛冶のスクラップ"
 		},
 		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvSGVsbHNjYXBlL0hlbGxzY2FwZUFybW91cmVyc1NjcmFwIiwic2NhbGUiOjF9XQ/9ee0a10625/HellscapeArmourersScrap.png",
 		"category": "currency",
@@ -54637,7 +55539,7 @@
 			"2": "Orbe Vaal Volátil",
 			"3": "Нестабильная сфера ваал",
 			"4": "Volatile Vaal Orb",
-			"5": "Explosive Vaal-Sphäre",
+			"5": "Explosive Vaalsphäre",
 			"6": "Orbe vaal instable",
 			"7": "Orbe vaal volátil",
 			"8": "폭발성 바알 오브",
@@ -63920,15 +64822,15 @@
 	},
 	"AncestralOmenOnChromaticAddWhiteSockets": {
 		"names": {
-			"1": "Omen of Blanching",
-			"2": "Presságio da Albificação",
-			"3": "Предсказание обеления",
-			"4": "ลางบอกเหตุล้างสี",
-			"5": "Omen des Bleichens",
-			"6": "Présage de blanchiment",
+			"1": "Omen of Trichromatism",
+			"2": "Presságio de Tricromatismo",
+			"3": "Предсказание трихроматизма",
+			"4": "ลางบอกเหตุสามสี",
+			"5": "Omen der Trichromasie",
+			"6": "Présage de trichromie",
 			"7": "Augurio de blanqueamiento",
-			"8": "표백의 징조",
-			"11": "白化のお告げ"
+			"8": "삼색성의 징조",
+			"11": "三色化のお告げ"
 		},
 		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQXptZXJpL1Zvb2Rvb09tZW5zNFB1cnBsZSIsInNjYWxlIjoxfV0/cc40d87dcb/VoodooOmens4Purple.png",
 		"category": "currency.omen",
@@ -64131,6 +65033,7 @@
 			"8": "카옴의 충성 문신",
 			"11": "カオムの忠誠のタトゥー"
 		},
+		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQW5jZXN0b3JzL1JhcmVTdHJUYXR0dG9vRXF1aXBtZW50Iiwic2NhbGUiOjF9XQ/f3c50304b2/RareStrTatttooEquipment.png",
 		"category": "currency.tattoo",
 		"width": 1,
 		"height": 1
@@ -64147,6 +65050,7 @@
 			"8": "나마후 마캉가의 문신",
 			"11": "ナマフのマカンガのタトゥー"
 		},
+		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQW5jZXN0b3JzL1JhcmVTdHJUYXR0dG9vRXF1aXBtZW50Iiwic2NhbGUiOjF9XQ/f3c50304b2/RareStrTatttooEquipment.png",
 		"category": "currency.tattoo",
 		"width": 1,
 		"height": 1
@@ -64248,6 +65152,7 @@
 			"8": "우툴라의 충성 문신",
 			"11": "ウトゥーラの忠誠のタトゥー"
 		},
+		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQW5jZXN0b3JzL1JhcmVTdHJUYXR0dG9vRXF1aXBtZW50Iiwic2NhbGUiOjF9XQ/f3c50304b2/RareStrTatttooEquipment.png",
 		"category": "currency.tattoo",
 		"width": 1,
 		"height": 1
@@ -64264,6 +65169,7 @@
 			"8": "키타바 마캉가의 문신",
 			"11": "キタヴァのマカンガのタトゥー"
 		},
+		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQW5jZXN0b3JzL1JhcmVTdHJUYXR0dG9vRXF1aXBtZW50Iiwic2NhbGUiOjF9XQ/f3c50304b2/RareStrTatttooEquipment.png",
 		"category": "currency.tattoo",
 		"width": 1,
 		"height": 1
@@ -64365,6 +65271,7 @@
 			"8": "아코야의 충성 문신",
 			"11": "アコヤの忠誠のタトゥー"
 		},
+		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQW5jZXN0b3JzL1JhcmVTdHJUYXR0dG9vRXF1aXBtZW50Iiwic2NhbGUiOjF9XQ/f3c50304b2/RareStrTatttooEquipment.png",
 		"category": "currency.tattoo",
 		"width": 1,
 		"height": 1
@@ -64381,6 +65288,7 @@
 			"8": "투코하마 마캉가의 문신",
 			"11": "トゥコハマのマカンガのタトゥー"
 		},
+		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQW5jZXN0b3JzL1JhcmVTdHJUYXR0dG9vRXF1aXBtZW50Iiwic2NhbGUiOjF9XQ/f3c50304b2/RareStrTatttooEquipment.png",
 		"category": "currency.tattoo",
 		"width": 1,
 		"height": 1
@@ -64482,6 +65390,7 @@
 			"8": "카후투로아의 충성 문신",
 			"11": "カフトゥロアの忠誠のタトゥー"
 		},
+		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQW5jZXN0b3JzL1JhcmVTdHJUYXR0dG9vRXF1aXBtZW50Iiwic2NhbGUiOjF9XQ/f3c50304b2/RareStrTatttooEquipment.png",
 		"category": "currency.tattoo",
 		"width": 1,
 		"height": 1
@@ -64498,6 +65407,7 @@
 			"8": "롱고쿠라이 마캉가의 문신",
 			"11": "ロンゴクライのマカンガのタトゥー"
 		},
+		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQW5jZXN0b3JzL1JhcmVTdHJUYXR0dG9vRXF1aXBtZW50Iiwic2NhbGUiOjF9XQ/f3c50304b2/RareStrTatttooEquipment.png",
 		"category": "currency.tattoo",
 		"width": 1,
 		"height": 1
@@ -64599,6 +65509,7 @@
 			"8": "라키아타의 충성 문신",
 			"11": "ラキアタの忠誠のタトゥー"
 		},
+		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQW5jZXN0b3JzL1JhcmVEZXhUYXR0dG9vRXF1aXBtZW50Iiwic2NhbGUiOjF9XQ/cf2f1e6bec/RareDexTatttooEquipment.png",
 		"category": "currency.tattoo",
 		"width": 1,
 		"height": 1
@@ -64615,6 +65526,7 @@
 			"8": "타살리오 마캉가의 문신",
 			"11": "タサリオのマカンガのタトゥー"
 		},
+		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQW5jZXN0b3JzL1JhcmVJbnRUYXR0dG9vRXF1aXBtZW50Iiwic2NhbGUiOjF9XQ/b52aab5148/RareIntTatttooEquipment.png",
 		"category": "currency.tattoo",
 		"width": 1,
 		"height": 1
@@ -64716,6 +65628,7 @@
 			"8": "이키아호의 충성 문신",
 			"11": "イキアホの忠誠のタトゥー"
 		},
+		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQW5jZXN0b3JzL1JhcmVEZXhUYXR0dG9vRXF1aXBtZW50Iiwic2NhbGUiOjF9XQ/cf2f1e6bec/RareDexTatttooEquipment.png",
 		"category": "currency.tattoo",
 		"width": 1,
 		"height": 1
@@ -64732,6 +65645,7 @@
 			"8": "아로호누이 마캉가의 문신",
 			"11": "アロホングイのマカンガのタトゥー"
 		},
+		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQW5jZXN0b3JzL1JhcmVEZXhUYXR0dG9vRXF1aXBtZW50Iiwic2NhbGUiOjF9XQ/cf2f1e6bec/RareDexTatttooEquipment.png",
 		"category": "currency.tattoo",
 		"width": 1,
 		"height": 1
@@ -64833,6 +65747,7 @@
 			"8": "아후아나의 충성 문신",
 			"11": "アフアナの忠誠のタトゥー"
 		},
+		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQW5jZXN0b3JzL1JhcmVEZXhUYXR0dG9vRXF1aXBtZW50Iiwic2NhbGUiOjF9XQ/cf2f1e6bec/RareDexTatttooEquipment.png",
 		"category": "currency.tattoo",
 		"width": 1,
 		"height": 1
@@ -64849,6 +65764,7 @@
 			"8": "라마코 마캉가의 문신",
 			"11": "ラマコのマカンガのタトゥー"
 		},
+		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQW5jZXN0b3JzL1JhcmVEZXhUYXR0dG9vRXF1aXBtZW50Iiwic2NhbGUiOjF9XQ/cf2f1e6bec/RareDexTatttooEquipment.png",
 		"category": "currency.tattoo",
 		"width": 1,
 		"height": 1
@@ -64950,6 +65866,7 @@
 			"8": "타하누쿠의 충성 문신",
 			"11": "タウハヌクの忠誠のタトゥー"
 		},
+		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQW5jZXN0b3JzL1JhcmVJbnRUYXR0dG9vRXF1aXBtZW50Iiwic2NhbGUiOjF9XQ/b52aab5148/RareIntTatttooEquipment.png",
 		"category": "currency.tattoo",
 		"width": 1,
 		"height": 1
@@ -64966,6 +65883,7 @@
 			"8": "히네코라 마캉가의 문신",
 			"11": "ヒネコラのマカンガのタトゥー"
 		},
+		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQW5jZXN0b3JzL1JhcmVJbnRUYXR0dG9vRXF1aXBtZW50Iiwic2NhbGUiOjF9XQ/b52aab5148/RareIntTatttooEquipment.png",
 		"category": "currency.tattoo",
 		"width": 1,
 		"height": 1
@@ -65067,6 +65985,7 @@
 			"8": "마아타의 충성 문신",
 			"11": "マアタの忠誠のタトゥー"
 		},
+		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQW5jZXN0b3JzL1JhcmVJbnRUYXR0dG9vRXF1aXBtZW50Iiwic2NhbGUiOjF9XQ/b52aab5148/RareIntTatttooEquipment.png",
 		"category": "currency.tattoo",
 		"width": 1,
 		"height": 1
@@ -65083,6 +66002,7 @@
 			"8": "타호아 마캉가의 문신",
 			"11": "タウホアのマカンガのタトゥー"
 		},
+		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQW5jZXN0b3JzL1JhcmVEZXhUYXR0dG9vRXF1aXBtZW50Iiwic2NhbGUiOjF9XQ/cf2f1e6bec/RareDexTatttooEquipment.png",
 		"category": "currency.tattoo",
 		"width": 1,
 		"height": 1
@@ -65184,6 +66104,7 @@
 			"8": "킬로아바의 충성 문신",
 			"11": "キロアヴァの忠誠のタトゥー"
 		},
+		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQW5jZXN0b3JzL1JhcmVJbnRUYXR0dG9vRXF1aXBtZW50Iiwic2NhbGUiOjF9XQ/b52aab5148/RareIntTatttooEquipment.png",
 		"category": "currency.tattoo",
 		"width": 1,
 		"height": 1
@@ -65200,6 +66121,7 @@
 			"8": "발라코 마캉가의 문신",
 			"11": "ヴァラコのマカンガのタトゥー"
 		},
+		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQW5jZXN0b3JzL1JhcmVJbnRUYXR0dG9vRXF1aXBtZW50Iiwic2NhbGUiOjF9XQ/b52aab5148/RareIntTatttooEquipment.png",
 		"category": "currency.tattoo",
 		"width": 1,
 		"height": 1
@@ -65216,6 +66138,7 @@
 			"8": "비둘기의 명예로운 문신",
 			"11": "鳩の誇り高きタトゥー"
 		},
+		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQW5jZXN0b3JzL0hpbmVrb3JhQ29tbW9uVGF0dHRvb0VxdWlwbWVudCIsInNjYWxlIjoxfV0/50b889262a/HinekoraCommonTatttooEquipment.png",
 		"category": "currency.tattoo",
 		"width": 1,
 		"height": 1
@@ -65232,6 +66155,7 @@
 			"8": "하늘의 명예로운 문신",
 			"11": "空の誇り高きタトゥー"
 		},
+		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQW5jZXN0b3JzL0hpbmVrb3JhQ29tbW9uVGF0dHRvb0VxdWlwbWVudCIsInNjYWxlIjoxfV0/50b889262a/HinekoraCommonTatttooEquipment.png",
 		"category": "currency.tattoo",
 		"width": 1,
 		"height": 1
@@ -65248,6 +66172,7 @@
 			"8": "투아타라의 명예로운 문신",
 			"11": "トゥアタラの誇り高きタトゥー"
 		},
+		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQW5jZXN0b3JzL0hpbmVrb3JhQ29tbW9uVGF0dHRvb0VxdWlwbWVudCIsInNjYWxlIjoxfV0/50b889262a/HinekoraCommonTatttooEquipment.png",
 		"category": "currency.tattoo",
 		"width": 1,
 		"height": 1
@@ -65264,6 +66189,7 @@
 			"8": "약탈꾼의 명예로운 문신",
 			"11": "略奪者の誇り高きタトゥー"
 		},
+		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQW5jZXN0b3JzL0hpbmVrb3JhQ29tbW9uVGF0dHRvb0VxdWlwbWVudCIsInNjYWxlIjoxfV0/50b889262a/HinekoraCommonTatttooEquipment.png",
 		"category": "currency.tattoo",
 		"width": 1,
 		"height": 1
@@ -65280,6 +66206,7 @@
 			"8": "거북이의 명예로운 문신",
 			"11": "亀の誇り高きタトゥー"
 		},
+		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQW5jZXN0b3JzL0hpbmVrb3JhQ29tbW9uVGF0dHRvb0VxdWlwbWVudCIsInNjYWxlIjoxfV0/50b889262a/HinekoraCommonTatttooEquipment.png",
 		"category": "currency.tattoo",
 		"width": 1,
 		"height": 1
@@ -65296,6 +66223,7 @@
 			"8": "참나무의 명예로운 문신",
 			"11": "樫の木の誇り高きタトゥー"
 		},
+		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQW5jZXN0b3JzL0hpbmVrb3JhQ29tbW9uVGF0dHRvb0VxdWlwbWVudCIsInNjYWxlIjoxfV0/50b889262a/HinekoraCommonTatttooEquipment.png",
 		"category": "currency.tattoo",
 		"width": 1,
 		"height": 1
@@ -65312,6 +66240,7 @@
 			"8": "하툰고의 명예로운 문신",
 			"11": "ハトゥンゴの誇り高きタトゥー"
 		},
+		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQW5jZXN0b3JzL0hpbmVrb3JhQ29tbW9uVGF0dHRvb0VxdWlwbWVudCIsInNjYWxlIjoxfV0/50b889262a/HinekoraCommonTatttooEquipment.png",
 		"category": "currency.tattoo",
 		"width": 1,
 		"height": 1
@@ -65328,6 +66257,7 @@
 			"8": "무리의 명예로운 문신",
 			"11": "群れの誇り高きタトゥー"
 		},
+		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQW5jZXN0b3JzL0hpbmVrb3JhQ29tbW9uVGF0dHRvb0VxdWlwbWVudCIsInNjYWxlIjoxfV0/50b889262a/HinekoraCommonTatttooEquipment.png",
 		"category": "currency.tattoo",
 		"width": 1,
 		"height": 1
@@ -65344,6 +66274,7 @@
 			"8": "전쟁군주의 명예로운 문신",
 			"11": "将軍の誇り高きタトゥー"
 		},
+		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQW5jZXN0b3JzL0hpbmVrb3JhUmFyZVN0clRhdHR0b29FcXVpcG1lbnQiLCJzY2FsZSI6MX1d/673c65c837/HinekoraRareStrTatttooEquipment.png",
 		"category": "currency.tattoo",
 		"width": 1,
 		"height": 1
@@ -65360,6 +66291,7 @@
 			"8": "산맥의 명예로운 문신",
 			"11": "山の誇り高きタトゥー"
 		},
+		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQW5jZXN0b3JzL0hpbmVrb3JhUmFyZVN0clRhdHR0b29FcXVpcG1lbnQiLCJzY2FsZSI6MX1d/673c65c837/HinekoraRareStrTatttooEquipment.png",
 		"category": "currency.tattoo",
 		"width": 1,
 		"height": 1
@@ -65376,6 +66308,7 @@
 			"8": "파의 명예로운 문신",
 			"11": "パの誇り高きタトゥー"
 		},
+		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQW5jZXN0b3JzL0hpbmVrb3JhUmFyZVN0clRhdHR0b29FcXVpcG1lbnQiLCJzY2FsZSI6MX1d/673c65c837/HinekoraRareStrTatttooEquipment.png",
 		"category": "currency.tattoo",
 		"width": 1,
 		"height": 1
@@ -65392,6 +66325,7 @@
 			"8": "사냥꾼의 명예로운 문신",
 			"11": "狩人の誇り高きタトゥー"
 		},
+		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQW5jZXN0b3JzL0hpbmVrb3JhUmFyZURleFRhdHR0b29FcXVpcG1lbnQiLCJzY2FsZSI6MX1d/ea1e7cbc6e/HinekoraRareDexTatttooEquipment.png",
 		"category": "currency.tattoo",
 		"width": 1,
 		"height": 1
@@ -65408,6 +66342,7 @@
 			"8": "야만인의 명예로운 문신",
 			"11": "蛮族の誇り高きタトゥー"
 		},
+		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQW5jZXN0b3JzL0hpbmVrb3JhUmFyZURleFRhdHR0b29FcXVpcG1lbnQiLCJzY2FsZSI6MX1d/ea1e7cbc6e/HinekoraRareDexTatttooEquipment.png",
 		"category": "currency.tattoo",
 		"width": 1,
 		"height": 1
@@ -65424,6 +66359,7 @@
 			"8": "광전사의 명예로운 문신",
 			"11": "狂人の誇り高きタトゥー"
 		},
+		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQW5jZXN0b3JzL0hpbmVrb3JhUmFyZURleFRhdHR0b29FcXVpcG1lbnQiLCJzY2FsZSI6MX1d/ea1e7cbc6e/HinekoraRareDexTatttooEquipment.png",
 		"category": "currency.tattoo",
 		"width": 1,
 		"height": 1
@@ -65440,6 +66376,7 @@
 			"8": "현명한 자의 명예로운 문신",
 			"11": "賢人の誇り高きタトゥー"
 		},
+		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQW5jZXN0b3JzL0hpbmVrb3JhUmFyZUludFRhdHR0b29FcXVpcG1lbnQiLCJzY2FsZSI6MX1d/361e241c29/HinekoraRareIntTatttooEquipment.png",
 		"category": "currency.tattoo",
 		"width": 1,
 		"height": 1
@@ -65456,6 +66393,7 @@
 			"8": "폭풍의 명예로운 문신",
 			"11": "嵐の誇り高きタトゥー"
 		},
+		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQW5jZXN0b3JzL0hpbmVrb3JhUmFyZUludFRhdHR0b29FcXVpcG1lbnQiLCJzY2FsZSI6MX1d/361e241c29/HinekoraRareIntTatttooEquipment.png",
 		"category": "currency.tattoo",
 		"width": 1,
 		"height": 1
@@ -65472,6 +66410,7 @@
 			"8": "홍수의 명예로운 문신",
 			"11": "洪水の誇り高きタトゥー"
 		},
+		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQW5jZXN0b3JzL0hpbmVrb3JhUmFyZUludFRhdHR0b29FcXVpcG1lbnQiLCJzY2FsZSI6MX1d/361e241c29/HinekoraRareIntTatttooEquipment.png",
 		"category": "currency.tattoo",
 		"width": 1,
 		"height": 1
@@ -65488,6 +66427,7 @@
 			"8": "혈맹의 선조 문신",
 			"11": "血統の先祖のタトゥー"
 		},
+		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQW5jZXN0b3JzL1VuaXF1ZTFUYXR0dG9vRXF1aXBtZW50Iiwic2NhbGUiOjF9XQ/b5b3a8e355/Unique1TatttooEquipment.png",
 		"category": "currency.tattoo",
 		"width": 1,
 		"height": 1
@@ -65504,6 +66444,7 @@
 			"8": "마캉가의 명예로운 문신",
 			"11": "マカンガの誇り高きタトゥー"
 		},
+		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQW5jZXN0b3JzL1VuaXF1ZTJUYXR0dG9vRXF1aXBtZW50Iiwic2NhbGUiOjF9XQ/49e02d09ba/Unique2TatttooEquipment.png",
 		"category": "currency.tattoo",
 		"width": 1,
 		"height": 1
@@ -65571,6 +66512,126 @@
 			"8": "마카누이의 여정 문신",
 			"11": "マカヌイの旅のタトゥー"
 		},
+		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQW5jZXN0b3JzL1VuaXF1ZTRUYXR0dG9vRXF1aXBtZW50Iiwic2NhbGUiOjF9XQ/100bb83615/Unique4TatttooEquipment.png",
+		"category": "currency.tattoo",
+		"width": 1,
+		"height": 1
+	},
+	"AncestralTattooSpecialUnique7Ranger": {
+		"names": {
+			"1": "Forbidden Tattoo of the Ranger",
+			"2": "Tatuagem Proibida da Patrulheira",
+			"3": "Запретная татуировка Охотницы",
+			"4": "ลายสักต้องห้าม Ranger",
+			"5": "Verbotene Tätowierung der Waldläuferin",
+			"6": "Tatouage interdit de la Rôdeuse",
+			"7": "Tatuaje prohibido de la Exploradora",
+			"8": "레인저의 금지된 문신",
+			"11": "レンジャーの禁断のタトゥー"
+		},
+		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQW5jZXN0b3JzL1JhbmRvbVJhbmdlclRhdHRvbyIsInNjYWxlIjoxfV0/fcbf65adc9/RandomRangerTattoo.png",
+		"category": "currency.tattoo",
+		"width": 1,
+		"height": 1
+	},
+	"AncestralTattooSpecialUnique7Duelist": {
+		"names": {
+			"1": "Forbidden Tattoo of the Duelist",
+			"2": "Tatuagem Proibida do Duelista",
+			"3": "Запретная татуировка Дуэлянта",
+			"4": "ลายสักต้องห้าม Duelist",
+			"5": "Verbotene Tätowierung des Duellanten",
+			"6": "Tatouage interdit du Duelliste",
+			"7": "Tatuaje prohibido del Duelista",
+			"8": "듀얼리스트의 금지된 문신",
+			"11": "デュエリストの禁断のタトゥー"
+		},
+		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQW5jZXN0b3JzL1JhbmRvbUR1ZWxpc3RUYXR0b28iLCJzY2FsZSI6MX1d/1e8f0b3ed4/RandomDuelistTattoo.png",
+		"category": "currency.tattoo",
+		"width": 1,
+		"height": 1
+	},
+	"AncestralTattooSpecialUnique7Marauder": {
+		"names": {
+			"1": "Forbidden Tattoo of the Marauder",
+			"2": "Tatuagem Proibida do Espoliador",
+			"3": "Запретная татуировка Дикаря",
+			"4": "ลายสักต้องห้าม Marauder",
+			"5": "Verbotene Tätowierung des Marodeurs",
+			"6": "Tatouage interdit du Maraudeur",
+			"7": "Tatuaje prohibido del Merodeador",
+			"8": "머라우더의 금지된 문신",
+			"11": "マローダーの禁断のタトゥー"
+		},
+		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQW5jZXN0b3JzL1JhbmRvbU1hcmF1ZGVyVGF0dG9vIiwic2NhbGUiOjF9XQ/e1540486ac/RandomMarauderTattoo.png",
+		"category": "currency.tattoo",
+		"width": 1,
+		"height": 1
+	},
+	"AncestralTattooSpecialUnique7Templar": {
+		"names": {
+			"1": "Forbidden Tattoo of the Templar",
+			"2": "Tatuagem Proibida do Templário",
+			"3": "Запретная татуировка Жреца",
+			"4": "ลายสักต้องห้าม Templar",
+			"5": "Verbotene Tätowierung des Templers",
+			"6": "Tatouage interdit du Templier",
+			"7": "Tatuaje prohibido del Templario",
+			"8": "템플러의 금지된 문신",
+			"11": "テンプラーの禁断のタトゥー"
+		},
+		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQW5jZXN0b3JzL1JhbmRvbVRlbXBsYXJUYXR0b28iLCJzY2FsZSI6MX1d/ecc2cc596f/RandomTemplarTattoo.png",
+		"category": "currency.tattoo",
+		"width": 1,
+		"height": 1
+	},
+	"AncestralTattooSpecialUnique7Witch": {
+		"names": {
+			"1": "Forbidden Tattoo of the Witch",
+			"2": "Tatuagem Proibida da Bruxa",
+			"3": "Запретная татуировка Ведьмы",
+			"4": "ลายสักต้องห้าม Witch",
+			"5": "Verbotene Tätowierung der Hexe",
+			"6": "Tatouage interdit de la Sorcière",
+			"7": "Tatuaje prohibido de la Bruja",
+			"8": "위치의 금지된 문신",
+			"11": "ウィッチの禁断のタトゥー"
+		},
+		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQW5jZXN0b3JzL1JhbmRvbVdpdGNoVGF0dG9vIiwic2NhbGUiOjF9XQ/52d65455ab/RandomWitchTattoo.png",
+		"category": "currency.tattoo",
+		"width": 1,
+		"height": 1
+	},
+	"AncestralTattooSpecialUnique7Shadow": {
+		"names": {
+			"1": "Forbidden Tattoo of the Shadow",
+			"2": "Tatuagem Proibida do Sombra",
+			"3": "Запретная татуировка Бандита",
+			"4": "ลายสักต้องห้าม Shadow",
+			"5": "Verbotene Tätowierung des Schattens",
+			"6": "Tatouage interdit de l'Ombre",
+			"7": "Tatuaje prohibido del Sombra",
+			"8": "쉐도우의 금지된 문신",
+			"11": "シャドウの禁断のタトゥー"
+		},
+		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQW5jZXN0b3JzL1JhbmRvbVNoYWRvd1RhdHRvbyIsInNjYWxlIjoxfV0/75a64cc2c8/RandomShadowTattoo.png",
+		"category": "currency.tattoo",
+		"width": 1,
+		"height": 1
+	},
+	"AncestralTattooSpecialUnique7Scion": {
+		"names": {
+			"1": "Forbidden Tattoo of the Scion",
+			"2": "Tatuagem Proibida da Herdeira",
+			"3": "Запретная татуировка Дворянки",
+			"4": "ลายสักต้องห้าม Scion",
+			"5": "Verbotene Tätowierung der Adelstochter",
+			"6": "Tatouage interdit de l'Héritière",
+			"7": "Tatuaje prohibido de la Heredera",
+			"8": "사이온의 금지된 문신",
+			"11": "サイオンの禁断のタトゥー"
+		},
+		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQW5jZXN0b3JzL1JhbmRvbVNjaW9uVGF0dG9vIiwic2NhbGUiOjF9XQ/cf717c8658/RandomScionTattoo.png",
 		"category": "currency.tattoo",
 		"width": 1,
 		"height": 1
@@ -68242,7 +69303,7 @@
 		"names": {
 			"1": "Allflame Ember of Ghorr",
 			"2": "Brasa da Omnichama de Ghorr",
-			"3": "Уголь Всепламени Гхорр",
+			"3": "Уголь Всепламени Гхорра",
 			"4": "ถ่านไฟออลเฟลม กอร์",
 			"5": "Allflamme-Glut von Ghorr",
 			"6": "Braise d'Omniflamme de Ghorr",
@@ -68256,12 +69317,12 @@
 	},
 	"ScourgeDemonNecropolisPack": {
 		"names": {
-			"1": "Allflame Ember of K'tash",
+			"1": "Allflame Ember of K'Tash",
 			"2": "Brasa da Omnichama de K'tash",
-			"3": "Уголь Всепламени К'таш",
+			"3": "Уголь Всепламени К'Таш",
 			"4": "ถ่านไฟออลเฟลม เค'แทช",
-			"5": "Allflamme-Glut von K'tash",
-			"6": "Braise d'Omniflamme de K'tash",
+			"5": "Allflamme-Glut von K'Tash",
+			"6": "Braise d'Omniflamme de K'Tash",
 			"7": "Brasa de la Llama eterna de K'tash",
 			"8": "크타쉬의 올플레임 잉걸불",
 			"11": "カタッシュのオールフレイムの残り火"
@@ -68356,7 +69417,7 @@
 			"2": "Brasa da Omnichama do Círculo Quebrado",
 			"3": "Уголь Всепламени Разомкнутого круга",
 			"4": "ถ่านไฟออลเฟลม สิ้นวัฏจักร",
-			"5": "Allflamme-Glut des Gebrochenen Zirkels",
+			"5": "Allflamme-Glut des Zerbrochenen Kreises",
 			"6": "Braise d'Omniflamme du Cercle brisé",
 			"7": "Brasa de la Llama eterna del Círculo roto",
 			"8": "끊어진 원의 올플레임 잉걸불",
@@ -68552,7 +69613,7 @@
 			"6": "Braise d'Omniflamme des Sectateurs de la Sylve",
 			"7": "Brasa de la Llama eterna de cultistas del bosque",
 			"8": "야생림 광신자의 올플레임 잉걸불",
-			"11": "原生林の崇拝者のオールフレイムの残り火"
+			"11": "ワイルドウッドの崇拝者のオールフレイムの残り火"
 		},
 		"category": "necropolis.pack",
 		"width": 1,
@@ -68568,7 +69629,7 @@
 			"6": "Braise d'Omniflamme des Tréants de la Sylve",
 			"7": "Brasa de la Llama eterna de treants del bosque",
 			"8": "야생림 나무인간의 올플레임 잉걸불",
-			"11": "原生林のトレントのオールフレイムの残り火"
+			"11": "ワイルドウッドのトレントのオールフレイムの残り火"
 		},
 		"category": "necropolis.pack",
 		"width": 1,
@@ -68584,7 +69645,7 @@
 			"6": "Braise d'Omniflamme des Bêtes de la Sylve",
 			"7": "Brasa de la Llama eterna de bestias del bosque",
 			"8": "야생림 야수의 올플레임 잉걸불",
-			"11": "原生林の獣のオールフレイムの残り火"
+			"11": "ワイルドウッドの獣のオールフレイムの残り火"
 		},
 		"category": "necropolis.pack",
 		"width": 1,
@@ -68792,7 +69853,7 @@
 			"6": "Braise flamboyante d'Omniflamme des Sectateurs de la Sylve",
 			"7": "Brasa ardiente de la Llama eterna del Bosque viridino",
 			"8": "야생림 광신자의 빛을 뿜는 올플레임 잉걸불",
-			"11": "原生林の崇拝者の燃え上がるオールフレイムの残り火"
+			"11": "ワイルドウッドの崇拝者の燃え上がるオールフレイムの残り火"
 		},
 		"category": "necropolis.pack",
 		"width": 1,
@@ -70018,7 +71079,7 @@
 			"6": "Braise d'Omniflamme de la Sylve",
 			"7": "Brasa de la Llama eterna del Bosque viridino",
 			"8": "야생림의 올플레임 잉걸불",
-			"11": "原生林のオールフレイムの残り火"
+			"11": "ワイルドウッドのオールフレイムの残り火"
 		},
 		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvTmVjcm9wb2xpcy9BbGxmbGFtZVdpbGR3b29kIiwic2NhbGUiOjF9XQ/5c1042cde7/AllflameWildwood.png",
 		"category": "map.fragment",
@@ -70088,7 +71149,6 @@
 			"8": "회복의 주화",
 			"11": "修復のコイン"
 		},
-		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRmFyaWR1bi9XaXNoQ3VycmVuY3lJdGVtIiwic2NhbGUiOjF9XQ/443f7ba4fb/WishCurrencyItem.png",
 		"category": "currency",
 		"width": 1,
 		"height": 1
@@ -70105,7 +71165,6 @@
 			"8": "모독의 주화",
 			"11": "冒涜のコイン"
 		},
-		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRmFyaWR1bi9Db3JydXB0ZWRXaXNoQ3VycmVuY3lJdGVtIiwic2NhbGUiOjF9XQ/553085c00a/CorruptedWishCurrencyItem.png",
 		"category": "currency",
 		"width": 1,
 		"height": 1
@@ -70122,7 +71181,6 @@
 			"8": "지식의 주화",
 			"11": "知識のコイン"
 		},
-		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQ3VycmVuY3lXaXNoU3VwcG9ydEdlbUJsdWUiLCJzY2FsZSI6MX1d/3125a8f477/CurrencyWishSupportGemBlue.png",
 		"category": "currency",
 		"width": 1,
 		"height": 1
@@ -70139,7 +71197,6 @@
 			"8": "힘의 주화",
 			"11": "力のコイン"
 		},
-		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQ3VycmVuY3lXaXNoU3VwcG9ydEdlbVJlZCIsInNjYWxlIjoxfV0/9b061d74ee/CurrencyWishSupportGemRed.png",
 		"category": "currency",
 		"width": 1,
 		"height": 1
@@ -70156,7 +71213,6 @@
 			"8": "기량의 주화",
 			"11": "技のコイン"
 		},
-		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQ3VycmVuY3lXaXNoU3VwcG9ydEdlbUdyZWVuIiwic2NhbGUiOjF9XQ/6c582a987f/CurrencyWishSupportGemGreen.png",
 		"category": "currency",
 		"width": 1,
 		"height": 1
@@ -71343,15 +72399,15 @@
 	},
 	"AstrolabeDelirium": {
 		"names": {
-			"1": "Enshrouded Astrolabe",
-			"2": "Astrolábio Encoberto",
-			"3": "Окутанная астролябия",
-			"4": "นาฬิกาดาวห่มหมอก",
-			"5": "Umhülltes Astrolabium",
-			"6": "Astrolabe embrumé",
-			"7": "Astrolabio oculto",
-			"8": "휩싸인 관측기",
-			"11": "霧に覆われたアストロラーベ"
+			"1": "Deceptive Astrolabe",
+			"2": "Astrolábio Enganoso",
+			"3": "Обманчивая астролябия",
+			"4": "นาฬิกาดาวลวงเล่ห์",
+			"5": "Trügerisches Astrolabium",
+			"6": "Astrolabe trompeur",
+			"7": "Astrolabio engañoso",
+			"8": "기만하는 관측기",
+			"11": "ペテンのアストロラーベ"
 		},
 		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvQXRsYXMvQXRsYXNNaXNzaW9uRGVsaXJpdW0iLCJzY2FsZSI6MX1d/5c0e278816/AtlasMissionDelirium.png",
 		"category": "currency",
@@ -71363,7 +72419,7 @@
 			"1": "Timeless Astrolabe",
 			"2": "Astrolábio Atemporal",
 			"3": "Вневременная астролябия",
-			"4": "นาฬิกาดาวไร้กาล",
+			"4": "นาฬิกาดาวเหนือกาลเวลา",
 			"5": "Immerwährendes Astrolabium",
 			"6": "Astrolabe intemporel",
 			"7": "Astrolabio atemporal",
@@ -71407,6 +72463,171 @@
 		"category": "currency",
 		"width": 1,
 		"height": 1
+	},
+	"LegionCocoonGloves": {
+		"names": {
+			"1": "Karui Enshrouding Crystal",
+			"2": "Cristal Envolvente Karui",
+			"3": "Затуманивающий кристалл каруи",
+			"4": "คริสตัลอำพราง คารุย",
+			"5": "Ummantelnder Kristall der Karui",
+			"6": "Cristal enveloppant karui",
+			"7": "Cristal envolvente karui",
+			"8": "카루이 휩싸는 수정",
+			"11": "カルイのエンシュラウドクリスタル"
+		},
+		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvTGVnaW9uL0thcnVpRW5zaHJvdWRpbmdDcnlzdGFsIiwic2NhbGUiOjF9XQ/38f2c4415b/KaruiEnshroudingCrystal.png",
+		"category": "currency",
+		"width": 1,
+		"height": 1
+	},
+	"LegionCocoonBoots": {
+		"names": {
+			"1": "Imperial Enshrouding Crystal",
+			"2": "Cristal Envolvente Imperial",
+			"3": "Затуманивающий кристалл Империи",
+			"4": "คริสตัลอำพราง จักรวรรดิ",
+			"5": "Ummantelnder Kristall der Kaiserlichen",
+			"6": "Cristal enveloppant impérial",
+			"7": "Cristal envolvente imperial",
+			"8": "제국 휩싸는 수정",
+			"11": "帝国のエンシュラウドクリスタル"
+		},
+		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvTGVnaW9uL0ltcGVyaWFsRW5zaHJvdWRpbmdDcnlzdGFsIiwic2NhbGUiOjF9XQ/4cff71674a/ImperialEnshroudingCrystal.png",
+		"category": "currency",
+		"width": 1,
+		"height": 1
+	},
+	"LegionCocoonHelmet": {
+		"names": {
+			"1": "Vaal Enshrouding Crystal",
+			"2": "Cristal Envolvente Vaal",
+			"3": "Затуманивающий кристалл ваал",
+			"4": "คริสตัลอำพราง วาล์",
+			"5": "Ummantelnder Kristall der Vaal",
+			"6": "Cristal enveloppant vaal",
+			"7": "Cristal envolvente vaal",
+			"8": "바알 휩싸는 수정",
+			"11": "ヴァールのエンシュラウドクリスタル"
+		},
+		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvTGVnaW9uL1ZhYWxFbnNocm91ZGluZ0NyeXN0YWwiLCJzY2FsZSI6MX1d/f720c31594/VaalEnshroudingCrystal.png",
+		"category": "currency",
+		"width": 1,
+		"height": 1
+	},
+	"LegionCocoonShield": {
+		"names": {
+			"1": "Templar Enshrouding Crystal",
+			"2": "Cristal Envolvente Templário",
+			"3": "Затуманивающий кристалл храмовников",
+			"4": "คริสตัลอำพราง เทมพลาร์",
+			"5": "Ummantelnder Kristall der Templer",
+			"6": "Cristal enveloppant templier",
+			"7": "Cristal envolvente templario",
+			"8": "템플러 휩싸는 수정",
+			"11": "テンプラーのエンシュラウドクリスタル"
+		},
+		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvTGVnaW9uL1RlbXBsYXJFbnNocm91ZGluZ0NyeXN0YWwiLCJzY2FsZSI6MX1d/bed89fe6b1/TemplarEnshroudingCrystal.png",
+		"category": "currency",
+		"width": 1,
+		"height": 1
+	},
+	"LegionCocoonBodyArmour": {
+		"names": {
+			"1": "Maraketh Enshrouding Crystal",
+			"2": "Cristal Envolvente Maraketh",
+			"3": "Затуманивающий кристалл маракетов",
+			"4": "คริสตัลอำพราง มาราเค็ท",
+			"5": "Ummantelnder Kristall der Maraketh",
+			"6": "Cristal enveloppant maraketh",
+			"7": "Cristal envolvente maraketh",
+			"8": "마라케스 휩싸는 수정",
+			"11": "マラケスのエンシュラウドクリスタル"
+		},
+		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvTGVnaW9uL01hcmFrZXRoRW5zaHJvdWRpbmdDcnlzdGFsIiwic2NhbGUiOjF9XQ/99a72ff6c4/MarakethEnshroudingCrystal.png",
+		"category": "currency",
+		"width": 1,
+		"height": 1
+	},
+	"CocoonedGloves": {
+		"names": {
+			"1": "Enshrouded Gloves",
+			"2": "Luvas Encobertas",
+			"3": "Затуманенные перчатки",
+			"4": "ถุงมืออำพราง",
+			"5": "Ummantelte Handschuhe",
+			"6": "Gants enveloppés",
+			"7": "Guantes envueltos",
+			"8": "휩싸인 장갑",
+			"11": "エンシュラウドグローブ"
+		},
+		"category": "enshrouded",
+		"width": 2,
+		"height": 2
+	},
+	"CocoonedBoots": {
+		"names": {
+			"1": "Enshrouded Boots",
+			"2": "Botas Encobertas",
+			"3": "Затуманенные сапоги",
+			"4": "รองเท้าอำพราง",
+			"5": "Ummantelte Stiefel",
+			"6": "Bottes enveloppées",
+			"7": "Botas envueltas",
+			"8": "휩싸인 장화",
+			"11": "エンシュラウドブーツ"
+		},
+		"category": "enshrouded",
+		"width": 2,
+		"height": 2
+	},
+	"CocoonedHelmet": {
+		"names": {
+			"1": "Enshrouded Helmet",
+			"2": "Elmo Encoberto",
+			"3": "Затуманенный шлем",
+			"4": "หมวกอำพราง",
+			"5": "Ummantelter Helm",
+			"6": "Casque enveloppé",
+			"7": "Casco envuelto",
+			"8": "휩싸인 투구",
+			"11": "エンシュラウドヘルメット"
+		},
+		"category": "enshrouded",
+		"width": 2,
+		"height": 2
+	},
+	"CocoonedShield": {
+		"names": {
+			"1": "Enshrouded Shield",
+			"2": "Escudo Encoberto",
+			"3": "Затуманенный щит",
+			"4": "โล่อำพราง",
+			"5": "Ummantelter Schild",
+			"6": "Bouclier enveloppé",
+			"7": "Escudo envuelto",
+			"8": "휩싸인 방패",
+			"11": "エンシュラウドシールド"
+		},
+		"category": "enshrouded",
+		"width": 2,
+		"height": 2
+	},
+	"CocoonedBodyArmour": {
+		"names": {
+			"1": "Enshrouded Body Armour",
+			"2": "Peitoral Encoberto",
+			"3": "Затуманенный нательный доспех",
+			"4": "เสื้อเกราะอำพราง",
+			"5": "Ummantelte Körperrüstung",
+			"6": "Armure enveloppée",
+			"7": "Armadura envuelta",
+			"8": "휩싸인 갑옷",
+			"11": "エンシュラウドアーマー"
+		},
+		"category": "enshrouded",
+		"width": 2,
+		"height": 3
 	},
 	"MicrotransactionTencentEventCoin4": {
 		"names": {
@@ -71554,6 +72775,441 @@
 			"7": "Reflejo del corazón",
 			"8": "심장의 투영",
 			"11": "心臓の鏡像"
+		},
+		"category": "card",
+		"width": 1,
+		"height": 1
+	},
+	"ChartSandy": {
+		"names": {
+			"1": "Sandy Seabed Chart",
+			"2": "Carta do Fundo do Mar Arenoso",
+			"3": "Морская карта песчаного дна",
+			"4": "ผังประดาน้ำ ทรายก้นทะเล",
+			"5": "'Sandiger Meeresboden'-Seekarte",
+			"6": "Carte maritime des Fonds sableux",
+			"7": "Carta de lecho marino arenoso",
+			"8": "모래 덮인 해저 해도",
+			"11": "砂の海底の海図"
+		},
+		"category": "chart",
+		"width": 1,
+		"height": 1
+	},
+	"ChartCoralForest": {
+		"names": {
+			"1": "Coral Forest Chart",
+			"2": "Carta da Floresta de Corais",
+			"3": "Морская карта кораллового леса",
+			"4": "ผังประดาน้ำ ป่าหินปะการัง",
+			"5": "'Korallenwald'-Seekarte",
+			"6": "Carte maritime de la Forêt corallienne",
+			"7": "Carta de bosque coralino",
+			"8": "산호 숲 해도",
+			"11": "サンゴの森の海図"
+		},
+		"category": "chart",
+		"width": 1,
+		"height": 1
+	},
+	"ChartCoralReef": {
+		"names": {
+			"1": "Coral Reef Chart",
+			"2": "Carta do Recife de Corais",
+			"3": "Морская карта кораллового рифа",
+			"4": "ผังประดาน้ำ แนวปะการัง",
+			"5": "'Korallenriff'-Seekarte",
+			"6": "Carte maritime du Récif corallien",
+			"7": "Carta de arrecife de coral",
+			"8": "산호 암초 해도",
+			"11": "サンゴ礁の海図"
+		},
+		"category": "chart",
+		"width": 1,
+		"height": 1
+	},
+	"ChartThermalVents": {
+		"names": {
+			"1": "Thermal Vents Chart",
+			"2": "Carta dos Respiradouros Termais",
+			"3": "Морская карта термальных источников",
+			"4": "ผังประดาน้ำ ปล่องลมร้อน",
+			"5": "'Hydrothermalquellen'-Seekarte",
+			"6": "Carte maritime des Sources hydrothermales",
+			"7": "Carta de fumarolas termales",
+			"8": "열수 분출구 해도",
+			"11": "熱水噴出孔の海図"
+		},
+		"category": "chart",
+		"width": 1,
+		"height": 1
+	},
+	"MercenaryWarrant": {
+		"names": {
+			"1": "Mercenary Warrant",
+			"2": "Autorização de Mercenário",
+			"3": "Наёмничья расписка",
+			"4": "หมายเรียกทหารรับจ้าง",
+			"5": "Söldnerhaftbefehl",
+			"6": "Mandat de Mercenaire",
+			"7": "Acuerdo de mercenario",
+			"8": "용병 소환장",
+			"11": "傭兵の召喚状"
+		},
+		"category": "map.fragment",
+		"width": 1,
+		"height": 1
+	},
+	"DeepwaterAbyssCurrency": {
+		"names": {
+			"1": "Merrick's Ducat",
+			"2": "Ducado de Merrick",
+			"3": "Дукат Меррика",
+			"4": "ดูคัตเมอร์ริค",
+			"5": "Merricks Dukate",
+			"6": "Ducat de Merrick",
+			"7": "Ducado de Merrick",
+			"8": "메릭의 두카트",
+			"11": "メリックのダカット"
+		},
+		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRGVlcHdhdGVyL0R1Y2F0QWJ5c3NhbCIsInNjYWxlIjoxfV0/fba53bdbf2/DucatAbyssal.png",
+		"category": "currency",
+		"width": 1,
+		"height": 1
+	},
+	"DeepwaterMercenaryCurrency": {
+		"names": {
+			"1": "Cyaxan's Ducat",
+			"2": "Ducado de Cyaxan",
+			"3": "Дукат Шиазана",
+			"4": "ดูคัตไคแย็กซัน",
+			"5": "Cyaxans Dukate",
+			"6": "Ducat cyaxien",
+			"7": "Ducado de Cyaxan",
+			"8": "사이악산의 두카트",
+			"11": "シアクサンのダカット"
+		},
+		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRGVlcHdhdGVyL0R1Y2F0VHJhcnRoYW4iLCJzY2FsZSI6MX1d/08f59a8203/DucatTrarthan.png",
+		"category": "currency",
+		"width": 1,
+		"height": 1
+	},
+	"DeepwaterAtlasEncounterCurrency": {
+		"names": {
+			"1": "\\[DNT\\] UNUSED",
+			"2": "\\[DNT\\] UNUSED",
+			"3": "\\[DNT\\] UNUSED",
+			"4": "\\[DNT\\] UNUSED",
+			"5": "\\[DNT\\] UNUSED",
+			"6": "\\[DNT\\] UNUSED",
+			"7": "\\[DNT\\] UNUSED",
+			"8": "\\[DNT\\] UNUSED",
+			"11": "\\[DNT\\] UNUSED"
+		},
+		"category": "currency",
+		"width": 1,
+		"height": 1
+	},
+	"CurrencyDeepwater": {
+		"names": {
+			"1": "Dead Man's Sulphur",
+			"2": "Enxofre do Homem Morto",
+			"3": "Мертвецкая сера",
+			"4": "ซัลเฟอร์คนตาย",
+			"5": "Totenschwefel",
+			"6": "Soufre des trépassés",
+			"7": "Azufre de los muertos",
+			"8": "망자의 유황",
+			"11": "死人の硫黄"
+		},
+		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRGVlcHdhdGVyL0RlZXB3YXRlckNvcmFsIiwic2NhbGUiOjF9XQ/2a07cdf853/DeepwaterCoral.png",
+		"category": "currency",
+		"width": 1,
+		"height": 1
+	},
+	"AbyssPinnacleKeyMurderous": {
+		"names": {
+			"1": "Zorath's Eye of Malevolence",
+			"2": "Olho da Malevolência de Zorath",
+			"3": "Глаз Зората злорадства",
+			"4": "เนตรมุ่งร้ายของโซแรธ",
+			"5": "Zoraths Auge der Niedertracht",
+			"6": "Œil de Zorath de la Malveillance",
+			"7": "Ojo de malevolencia de Zorath",
+			"8": "조라스의 악의의 눈",
+			"11": "悪意のゾラスの眼"
+		},
+		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvUXVlc3RJdGVtcy9Cb3NzRW50cmFuY2VLZXlNdXJkZXJvdXMiLCJzY2FsZSI6MX1d/8c71224880/BossEntranceKeyMurderous.png",
+		"category": "map.fragment",
+		"width": 1,
+		"height": 1
+	},
+	"AbyssPinnacleKeySearching": {
+		"names": {
+			"1": "Zorath's Eye of Authority",
+			"2": "Olho da Autoridade de Zorath",
+			"3": "Глаз Зората власти",
+			"4": "เนตรอำนาจของโซแรธ",
+			"5": "Zoraths Auge der Autorität",
+			"6": "Œil de Zorath de l'Autorité",
+			"7": "Ojo de autoridad de Zorath",
+			"8": "조라스의 권위의 눈",
+			"11": "権威のゾラスの眼"
+		},
+		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvUXVlc3RJdGVtcy9Cb3NzRW50cmFuY2VLZXlTZWFyY2hpbmciLCJzY2FsZSI6MX1d/73718f7538/BossEntranceKeySearching.png",
+		"category": "map.fragment",
+		"width": 1,
+		"height": 1
+	},
+	"AbyssPinnacleKeyHypnotic": {
+		"names": {
+			"1": "Zorath's Eye of the Inevitable",
+			"2": "Olho da Inevitabilidade de Zorath",
+			"3": "Глаз Зората неизбежности",
+			"4": "เนตรมิอาจเลี่ยงของโซแรธ",
+			"5": "Zoraths Auge des Unausweichlichen",
+			"6": "Œil de Zorath de l'Inévitable",
+			"7": "Ojo de inevitabilidad de Zorath",
+			"8": "조라스의 필연의 눈",
+			"11": "不可避のゾラスの眼"
+		},
+		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvUXVlc3RJdGVtcy9Cb3NzRW50cmFuY2VLZXlSaXZldGVkIiwic2NhbGUiOjF9XQ/4e4bf74ba9/BossEntranceKeyRiveted.png",
+		"category": "map.fragment",
+		"width": 1,
+		"height": 1
+	},
+	"AbyssPinnacleKeyGhastly": {
+		"names": {
+			"1": "Zorath's Eye of the Endless",
+			"2": "Olho do Infinito de Zorath",
+			"3": "Глаз Зората бесконечности",
+			"4": "เนตรอนันต์ของโซแรธ",
+			"5": "Zoraths Auge des Endlosen",
+			"6": "Œil de Zorath de l'Infini",
+			"7": "Ojo de infinidad de Zorath",
+			"8": "조라스의 무한의 눈",
+			"11": "無限のゾラスの眼"
+		},
+		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvUXVlc3RJdGVtcy9Cb3NzRW50cmFuY2VLZXlHaGFzdGx5Iiwic2NhbGUiOjF9XQ/11a33ce8d4/BossEntranceKeyGhastly.png",
+		"category": "map.fragment",
+		"width": 1,
+		"height": 1
+	},
+	"DeepwaterBottledItem": {
+		"names": {
+			"1": "Message in a Bottle",
+			"2": "Mensagem na Garrafa",
+			"3": "Послание в бутылке",
+			"4": "สารในขวดแก้ว",
+			"5": "Flaschenpost",
+			"6": "Message en bouteille",
+			"7": "Mensaje embotellado",
+			"8": "병 안의 서신",
+			"11": "瓶の中の手紙"
+		},
+		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRGVlcHdhdGVyL01lc3NhZ2VpbmFCb3R0bGVJdGVtIiwidyI6MiwiaCI6Miwic2NhbGUiOjF9XQ/1692fc27e3/MessageinaBottleItem.png",
+		"category": "currency",
+		"width": 2,
+		"height": 2
+	},
+	"DeepwaterBlankCurrency": {
+		"names": {
+			"1": "The Changeling's Ducat",
+			"2": "Ducado do Metamorfo",
+			"3": "Дукат подкидыша",
+			"4": "ดูคัตลูกจำแลง",
+			"5": "Dukate des Unentschlossenen",
+			"6": "Le Ducat du Changelin",
+			"7": "Ducado del cambiaformas",
+			"8": "체인질링의 두카트",
+			"11": "変身者のダカット"
+		},
+		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRGVlcHdhdGVyL0R1Y2F0TXlzdGVyaW91cyIsInNjYWxlIjoxfV0/6900b734c2/DucatMysterious.png",
+		"category": "currency",
+		"width": 1,
+		"height": 1
+	},
+	"DeepwaterAttributeSwap": {
+		"names": {
+			"1": "The Genteel's Ducat",
+			"2": "Ducado do Cavalheiro",
+			"3": "Дукат дворянина",
+			"4": "ดูคัตเจนทีล",
+			"5": "Dukate des Vornehmen",
+			"6": "Le Ducat du Distingué",
+			"7": "Ducado del noble",
+			"8": "고상한 자의 두카트",
+			"11": "ジェンティールのダカット"
+		},
+		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRGVlcHdhdGVyL0R1Y2F0QXR0cmlidXRlU3dhcCIsInNjYWxlIjoxfV0/716776d684/DucatAttributeSwap.png",
+		"category": "currency",
+		"width": 1,
+		"height": 1
+	},
+	"DeepwaterItemSplit": {
+		"names": {
+			"1": "Kishara's Ducat",
+			"2": "Ducado de Kishara",
+			"3": "Дукат Кишары",
+			"4": "ดูคัตคิชาร่า",
+			"5": "Kisharas Dukate",
+			"6": "Ducat de Kishara",
+			"7": "Ducado de Kishara",
+			"8": "키샤라의 두카트",
+			"11": "キシャラのダカット"
+		},
+		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRGVlcHdhdGVyL0R1Y2F0U3BsaXR0aW5nIiwic2NhbGUiOjF9XQ/d3ada0747b/DucatSplitting.png",
+		"category": "currency",
+		"width": 1,
+		"height": 1
+	},
+	"DeepwaterChartReroll": {
+		"names": {
+			"1": "Telesia's Ducat",
+			"2": "Ducado de Telesia",
+			"3": "Дукат Телесии",
+			"4": "ดูคัตเทเลเซีย",
+			"5": "Telesias Dukate",
+			"6": "Ducat de Télésia",
+			"7": "Ducado de Telesia",
+			"8": "텔레시아의 두카트",
+			"11": "テレシアのダカット"
+		},
+		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRGVlcHdhdGVyL0R1Y2F0Q2hhcnRSZXJvbGwiLCJzY2FsZSI6MX1d/9f995f7ad7/DucatChartReroll.png",
+		"category": "currency",
+		"width": 1,
+		"height": 1
+	},
+	"DeepwaterSaboteur": {
+		"names": {
+			"1": "Rotmother's Ducat",
+			"2": "Ducado da Mãe da Podridão",
+			"3": "Дукат Мамаши Гниль",
+			"4": "ดูคัตแม่เน่า",
+			"5": "Fäulnismutters Dukate",
+			"6": "Ducat de la Mère de la pourriture",
+			"7": "Ducado de la Madremuera",
+			"8": "부패모의 두카트",
+			"11": "ロットマザーのダカット"
+		},
+		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRGVlcHdhdGVyL0R1Y2F0U2Fib3RldXIiLCJzY2FsZSI6MX1d/76cccb3289/DucatSaboteur.png",
+		"category": "currency",
+		"width": 1,
+		"height": 1
+	},
+	"DeepwaterPantheon": {
+		"names": {
+			"1": "Brinehook's Ducat",
+			"2": "Ducado de Salmouranzol",
+			"3": "Дукат Морского Крюка",
+			"4": "ดูคัตไบรน์ฮุค",
+			"5": "Gischthakens Dukate",
+			"6": "Ducat de Crochembrun",
+			"7": "Ducado de Garfiosalino",
+			"8": "브라인훅의 두카트",
+			"11": "ブラインフックのダカット"
+		},
+		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRGVlcHdhdGVyL0R1Y2F0UGFudGhlb24iLCJzY2FsZSI6MX1d/98f288b9d4/DucatPantheon.png",
+		"category": "currency",
+		"width": 1,
+		"height": 1
+	},
+	"DeepwaterTatttoo": {
+		"names": {
+			"1": "Katakohi's Ducat",
+			"2": "Ducado de Katakohi",
+			"3": "Дукат Катакойи",
+			"4": "ดูคัตคาทาโคฮี",
+			"5": "Katakohis Dukate",
+			"6": "Ducat de Katakohi",
+			"7": "Ducado de Katakohi",
+			"8": "카타코히의 두카트",
+			"11": "カタコヒのダカット"
+		},
+		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRGVlcHdhdGVyL0R1Y2F0VGF0dG9vaWZpY2F0aW9uIiwic2NhbGUiOjF9XQ/f78b329b65/DucatTattooification.png",
+		"category": "currency",
+		"width": 1,
+		"height": 1
+	},
+	"DeepwaterGhostbuster": {
+		"names": {
+			"1": "Tzamoto's Ducat",
+			"2": "Ducado de Tzamoto",
+			"3": "Дукат Цамото",
+			"4": "ดูคัตซาโมโท",
+			"5": "Tzamotos Dukate",
+			"6": "Ducat de Tzamoto",
+			"7": "Ducado de Tzamoto",
+			"8": "자모토의 두카트",
+			"11": "ツァモトのダカット"
+		},
+		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRGVlcHdhdGVyL0R1Y2F0UmVkdWNpbmciLCJzY2FsZSI6MX1d/346f6e5138/DucatReducing.png",
+		"category": "currency",
+		"width": 1,
+		"height": 1
+	},
+	"DeepwaterEldritch": {
+		"names": {
+			"1": "Ukatoa's Ducat",
+			"2": "Ducado de Ukatoa",
+			"3": "Дукат Укатоа",
+			"4": "ดูคัตอูคาทัว",
+			"5": "Ukatoas Dukate",
+			"6": "Ducat d'Ukatoa",
+			"7": "Ducado de Ukatoa",
+			"8": "우카토아의 두카트",
+			"11": "ウカトアのダカット"
+		},
+		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvQ3VycmVuY3kvRGVlcHdhdGVyL0R1Y2F0RWxkcml0Y2giLCJzY2FsZSI6MX1d/2f8809ba8a/DucatEldritch.png",
+		"category": "currency",
+		"width": 1,
+		"height": 1
+	},
+	"DivinationCardPearlsBeforeSwine": {
+		"names": {
+			"1": "Pearls Before Swine",
+			"2": "Pérolas aos Porcos",
+			"3": "Бисер перед свиньями",
+			"4": "Pearls Before Swine",
+			"5": "Perlen vor die Säue",
+			"6": "Des perles aux pourceaux",
+			"7": "Las perlas delante de los cerdos",
+			"8": "돼지 목에 진주 목걸이",
+			"11": "豚に真珠"
+		},
+		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvRGl2aW5hdGlvbi9JbnZlbnRvcnlJY29uIiwidyI6MSwiaCI6MSwic2NhbGUiOjF9XQ/f34bf8cbb5/InventoryIcon.png",
+		"category": "card",
+		"width": 1,
+		"height": 1
+	},
+	"DivinationCardEnergySword": {
+		"names": {
+			"1": "Energy Sword",
+			"2": "Espada de Energia",
+			"3": "Меч из энергии",
+			"4": "Energy Sword",
+			"5": "Energieschwert",
+			"6": "Épée énergétique",
+			"7": "Espada de energía",
+			"8": "에너지 검",
+			"11": "エナジーソード"
+		},
+		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvRGl2aW5hdGlvbi9JbnZlbnRvcnlJY29uIiwidyI6MSwiaCI6MSwic2NhbGUiOjF9XQ/f34bf8cbb5/InventoryIcon.png",
+		"category": "card",
+		"width": 1,
+		"height": 1
+	},
+	"DivinationCardDivineShard": {
+		"names": {
+			"1": "Divine Shard",
+			"2": "Fragmento Divino",
+			"3": "Осколок Божественности",
+			"4": "Divine Shard",
+			"5": "Göttlicher Splitter",
+			"6": "Éclat divin",
+			"7": "Esquirla divina",
+			"8": "신성한 파편",
+			"11": "神性のかけら"
 		},
 		"image": "/gen/image/WzI1LDE0LHsiZiI6IjJESXRlbXMvRGl2aW5hdGlvbi9JbnZlbnRvcnlJY29uIiwidyI6MSwiaCI6MSwic2NhbGUiOjF9XQ/f34bf8cbb5/InventoryIcon.png",
 		"category": "card",
@@ -72909,7 +74565,7 @@
 			"1": "Ralakesh's Horn",
 			"2": "Chifre de Ralakesh",
 			"3": "Рог Ралакеша",
-			"4": "Greust's Horn",
+			"4": "Ralakesh's Horn",
 			"5": "Horn Ralakeshs",
 			"6": "Corne de Ralakesh",
 			"7": "Cuerno de Ralakesh",
@@ -80368,7 +82024,23 @@
 			"4": "กัปตันแฟร์เกรฟส์",
 			"5": "Kapitän Fairgraves",
 			"6": "Capitaine Fairgraves",
-			"7": "Capitán Fairgraves",
+			"7": "El Capitán Fairgraves",
+			"8": "페어그레이브즈 선장",
+			"11": "フェアグレーヴズ船長"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"SkeletonBossFairgravesDeepwater": {
+		"names": {
+			"1": "Captain Fairgraves",
+			"2": "Capitão Fairgraves",
+			"3": "Капитан Фейргрейвс",
+			"4": "กัปตันแฟร์เกรฟส์",
+			"5": "Kapitän Fairgraves",
+			"6": "Capitaine Fairgraves",
+			"7": "El Capitán Fairgraves",
 			"8": "페어그레이브즈 선장",
 			"11": "フェアグレーヴズ船長"
 		},
@@ -80384,7 +82056,7 @@
 			"4": "กัปตันแฟร์เกรฟส์",
 			"5": "Kapitän Fairgraves",
 			"6": "Capitaine Fairgraves",
-			"7": "Capitán Fairgraves",
+			"7": "El Capitán Fairgraves",
 			"8": "페어그레이브즈 선장",
 			"11": "フェアグレーヴズ船長"
 		},
@@ -84764,6 +86436,22 @@
 		"names": {
 			"1": "Fairgraves' Crewman",
 			"2": "Marujo do Fairgraves",
+			"3": "Моряк Фейргрейвса",
+			"4": "Fairgraves' Crewman",
+			"5": "Maat Fairgraves'",
+			"6": "Matelot de Fairgraves",
+			"7": "Tripulante de Fairgraves",
+			"8": "페어그레이브즈의 선원",
+			"11": "フェアグレーヴズのクルーマン"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"SkeletonMeleeFairgravesCrewStandardFastDeepwater": {
+		"names": {
+			"1": "Fairgraves' Crewman",
+			"2": "Tripulante de Fairgraves",
 			"3": "Моряк Фейргрейвса",
 			"4": "Fairgraves' Crewman",
 			"5": "Maat Fairgraves'",
@@ -94205,7 +95893,7 @@
 			"1": "Captain Arteri",
 			"2": "Capitão Arteri",
 			"3": "Трибун Артемий",
-			"4": "กัปตันอาร์เทรี",
+			"4": "กัปตันอาร์แทร์รี",
 			"5": "Hauptmann Arteri",
 			"6": "Capitaine Artéri",
 			"7": "Capitán Arteri",
@@ -94221,7 +95909,7 @@
 			"1": "Captain Arteri",
 			"2": "Capitão Arteri",
 			"3": "Трибун Артемий",
-			"4": "กัปตันอาร์เทรี",
+			"4": "กัปตันอาร์แทร์รี",
 			"5": "Hauptmann Arteri",
 			"6": "Capitaine Artéri",
 			"7": "Capitán Arteri",
@@ -96240,7 +97928,7 @@
 			"4": "Great Maw",
 			"5": "Großschlund",
 			"6": "Mâchoire gigantesque",
-			"7": "Gran fauces",
+			"7": "Fauces monstruosas",
 			"8": "거대 큰턱개구리",
 			"11": "大きな口"
 		},
@@ -96256,7 +97944,7 @@
 			"4": "Great Maw",
 			"5": "Großschlund",
 			"6": "Mâchoire gigantesque",
-			"7": "Gran fauces",
+			"7": "Fauces monstruosas",
 			"8": "거대 큰턱개구리",
 			"11": "大きな口"
 		},
@@ -98547,6 +100235,22 @@
 			"7": "Dóminus, Ascendente",
 			"8": "승천자 도미누스",
 			"11": "アセンダント、ドミナス"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"DominusdemonClone": {
+		"names": {
+			"1": "Dominus, Apparition",
+			"2": "Aparição de Dominus",
+			"3": "Владыка, Призрак",
+			"4": "โดมินัส ร่างเงา",
+			"5": "Dominus, Erscheinung",
+			"6": "Apparition de Dominus",
+			"7": "Dóminus, la Aparición",
+			"8": "유령 도미누스",
+			"11": "幻影、ドミナス"
 		},
 		"category": "monster.beast",
 		"width": 1,
@@ -109784,6 +111488,22 @@
 		"width": 1,
 		"height": 1
 	},
+	"CrabTotem": {
+		"names": {
+			"1": "Brinesoul Crustacean",
+			"2": "Crustáceo Salmalínico",
+			"3": "Просоленное ракообразное",
+			"4": "Brinesoul Crustacean",
+			"5": "Gischtseelen-Kruster",
+			"6": "Crustacé âmembrun",
+			"7": "Crustáceo de salmuera",
+			"8": "염수영혼 갑각류",
+			"11": "ブラインソウルの甲殻類"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
 	"SummonedSpawn": {
 		"names": {
 			"1": "Spawn",
@@ -110939,7 +112659,7 @@
 	"MapScavengerBossHailrake": {
 		"names": {
 			"1": "Glace",
-			"2": "Geleira",
+			"2": "Glace",
 			"3": "Ожеледь",
 			"4": "เกลซ",
 			"5": "Glace",
@@ -110955,7 +112675,7 @@
 	"MapScavengerBossHailrakeStandalone": {
 		"names": {
 			"1": "Glace",
-			"2": "Geleira",
+			"2": "Glace",
 			"3": "Ожеледь",
 			"4": "เกลซ",
 			"5": "Glace",
@@ -110971,7 +112691,7 @@
 	"MapScavengerBossHailrakeElder": {
 		"names": {
 			"1": "Glace",
-			"2": "Geleira",
+			"2": "Glace",
 			"3": "Ожеледь",
 			"4": "เกลซ",
 			"5": "Glace",
@@ -118243,6 +119963,70 @@
 			"7": "Demonio de Santuario",
 			"8": "성소의 다이몬",
 			"11": "シュライン・デーモン"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"ShrineDaemonDOTSwarmPlayer": {
+		"names": {
+			"1": "Shrine Daemon",
+			"2": "Altar Daímôn",
+			"3": "Демон алтаря",
+			"4": "ปีศาจแท่นบูชา",
+			"5": "Schreindämon",
+			"6": "Démon du sanctuaire",
+			"7": "Demonio de Santuario",
+			"8": "성소의 다이몬",
+			"11": "シュライン・デーモン"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"ShrineDaemonSummonedLocustSwarmPlayer": {
+		"names": {
+			"1": "Locust Swarm",
+			"2": "Enxame de Gafanhotos",
+			"3": "Рой саранчи",
+			"4": "ฝูงแมลง",
+			"5": "Heuschreckenschwarm",
+			"6": "Nuée de sauterelles",
+			"7": "Enjambre de langostas",
+			"8": "메뚜기 떼",
+			"11": "ローカスト・スウォーム"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"ShrineDaemonRatTornadoPlayer": {
+		"names": {
+			"1": "Shrine Daemon",
+			"2": "Altar Daímôn",
+			"3": "Демон алтаря",
+			"4": "ปีศาจแท่นบูชา",
+			"5": "Schreindämon",
+			"6": "Démon du sanctuaire",
+			"7": "Demonio de Santuario",
+			"8": "성소의 다이몬",
+			"11": "シュライン・デーモン"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"ShrineDaemonSummonedRatTornadoPlayer": {
+		"names": {
+			"1": "Rat Tornado",
+			"2": "Tornado de Ratos",
+			"3": "Крысиное торнадо",
+			"4": "พายุหนู",
+			"5": "Rattentornado",
+			"6": "Tornade de rats",
+			"7": "Tornado de ratas",
+			"8": "쥐 회오리",
+			"11": "ラット・トルネード"
 		},
 		"category": "monster.beast",
 		"width": 1,
@@ -128961,6 +130745,22 @@
 			"5": "Atziri, Königin der Vaal",
 			"6": "Atziri, Reine des Vaal",
 			"7": "Atziri, Reina de los Vaal",
+			"8": "바알의 여왕 앗지리",
+			"11": "ヴァールの女王、アッツィリ"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"Atziri2Gauntlet": {
+		"names": {
+			"1": "Atziri, Queen of the Vaal",
+			"2": "Atziri, Rainha dos Vaal",
+			"3": "Атзири, Царица ваал",
+			"4": "อัถสิริ ราชินีแห่งวาล์",
+			"5": "Atziri, Königin der Vaal",
+			"6": "Atziri, Reine des Vaal",
+			"7": "Atziri, Reina de los vaal",
 			"8": "바알의 여왕 앗지리",
 			"11": "ヴァールの女王、アッツィリ"
 		},
@@ -144125,7 +145925,7 @@
 			"1": "Lussi \"Rotmother\" Roth",
 			"2": "Lussi \"Mãe Podre\" Roth",
 			"3": "Лусина «Мамаша Гниль» Рот",
-			"4": "ลุสซี่ \"แม่เนื้อเน่า\" รอธ",
+			"4": "ลุสซี่ \"แม่เน่า\" รอธ",
 			"5": "Lussi \"Fäulnismutter\" Roth",
 			"6": "Lussi Roth, dite « la Mère de la pourriture »",
 			"7": "Lussi \"Madre Podrida\" Roth",
@@ -144141,7 +145941,7 @@
 			"1": "Lussi \"Rotmother\" Roth",
 			"2": "Lussi \"Mãe Podre\" Roth",
 			"3": "Лусина «Мамаша Гниль» Рот",
-			"4": "ลุสซี่ \"แม่เนื้อเน่า\" รอธ",
+			"4": "ลุสซี่ \"แม่เน่า\" รอธ",
 			"5": "Lussi \"Fäulnismutter\" Roth",
 			"6": "Lussi Roth, dite « la Mère de la pourriture »",
 			"7": "Lussi \"Madre Podrida\" Roth",
@@ -149567,7 +151367,7 @@
 			"3": "Свободный клюв",
 			"4": "Unbound Retch",
 			"5": "Entfesselter Würger",
-			"6": "Immondice libéré",
+			"6": "Vomisseur libéré",
 			"7": "Desdichado Desvinculado",
 			"8": "족쇄 풀린 레치",
 			"11": "解き放たれたレッチ"
@@ -158632,6 +160432,22 @@
 		"width": 1,
 		"height": 1
 	},
+	"AvariusCasticusWickermanGauntlet": {
+		"names": {
+			"1": "Avarius, Reassembled",
+			"2": "Avarius Remontado",
+			"3": "Аварий, Собранный",
+			"4": "อาวาริอุส ผู้ถูกประกอบร่าง",
+			"5": "Avarius der Wiederauferstandene",
+			"6": "Avarius, le Réassemblé",
+			"7": "Avarius, Reconstruido",
+			"8": "재조립된 아배리우스",
+			"11": "復活したアヴァリウス"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
 	"AvariusCasticusWickermanMap": {
 		"names": {
 			"1": "Woad, Mockery of Man",
@@ -162588,6 +164404,22 @@
 		"names": {
 			"1": "Unholy Aberration",
 			"2": "Aberração Pecaminosa",
+			"3": "Нечестивое порождение",
+			"4": "Unholy Aberration",
+			"5": "Unheilige Anomalie",
+			"6": "Aberration impie",
+			"7": "Aberración impía",
+			"8": "불경한 변이",
+			"11": "不道徳な異常者"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"SpiderPlatedUnholySpectre": {
+		"names": {
+			"1": "Unholy Aberration",
+			"2": "Aberração Sacrílega",
 			"3": "Нечестивое порождение",
 			"4": "Unholy Aberration",
 			"5": "Unheilige Anomalie",
@@ -167171,6 +169003,22 @@
 			"7": "Acechador de desperdicios",
 			"8": "황무지 러처",
 			"11": "ウェイストラーチャー"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"NessaCrabDeepwater": {
+		"names": {
+			"1": "Brinecrack",
+			"2": "Rachassal",
+			"3": "Морской щелкун",
+			"4": "ไบรน์แคร็ก",
+			"5": "Pökelknacker",
+			"6": "Craquembrun",
+			"7": "Fisura salina",
+			"8": "염수균열",
+			"11": "ブラインクラック"
 		},
 		"category": "monster.beast",
 		"width": 1,
@@ -173160,6 +175008,22 @@
 		"width": 1,
 		"height": 1
 	},
+	"TheElderGauntletWaveController": {
+		"names": {
+			"1": "Daemon",
+			"2": "Daímôn",
+			"3": "Демон",
+			"4": "ปีศาจ",
+			"5": "Dämon",
+			"6": "Démon",
+			"7": "Demonio",
+			"8": "다이몬",
+			"11": "デーモン"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
 	"TheElderUnstable": {
 		"names": {
 			"1": "The Elder",
@@ -177642,15 +179506,15 @@
 	},
 	"GemFrogBestiary": {
 		"names": {
-			"1": "Craicic Chimeral",
-			"2": "Quimera de Craicic",
-			"3": "Ящер Краценна",
-			"4": "ไคมีรัล วงศ์เครเชียนน์",
-			"5": "Craicische Chimäre",
-			"6": "Chimérale craïcique",
-			"7": "Quimerina cráicica",
-			"8": "크라칸의 키메랄",
-			"11": "クレイシアンのキメラル"
+			"1": "Craicic Croaker",
+			"2": "Crocitador Craicic",
+			"3": "Квакун Краценна",
+			"4": "เขียดยักษ์ วงศ์เครเชียนน์",
+			"5": "Craicischer Quaker",
+			"6": "Coasseuse craïcique",
+			"7": "Croadora cráicica",
+			"8": "크라칸 물렁이",
+			"11": "クレイシアンのクローカー"
 		},
 		"category": "monster.beast",
 		"width": 1,
@@ -177658,15 +179522,15 @@
 	},
 	"GemFrogBestiaryClone": {
 		"names": {
-			"1": "Craicic Chimeral",
-			"2": "Quimera de Craicic",
-			"3": "Ящер Краценна",
-			"4": "ไคมีรัล วงศ์เครเชียนน์",
-			"5": "Craicische Chimäre",
-			"6": "Chimérale craïcique",
-			"7": "Quimerina cráicica",
-			"8": "크라칸의 키메랄",
-			"11": "クレイシアンのキメラル"
+			"1": "Craicic Croaker",
+			"2": "Crocitador Craicic",
+			"3": "Квакун Краценна",
+			"4": "เขียดยักษ์ วงศ์เครเชียนน์",
+			"5": "Craicischer Quaker",
+			"6": "Coasseuse craïcique",
+			"7": "Croadora cráicica",
+			"8": "크라칸 물렁이",
+			"11": "クレイシアンのクローカー"
 		},
 		"category": "monster.beast",
 		"width": 1,
@@ -177962,15 +179826,15 @@
 	},
 	"GemFrogCrabSpiritBossMinion_": {
 		"names": {
-			"1": "Craicic Chimeral",
-			"2": "Quimera Craicic",
-			"3": "Ящер Краценна",
-			"4": "ไคมีรัลวงศ์เครเชียนน์",
-			"5": "Craicische Chimäre",
-			"6": "Chiméral craïcique",
-			"7": "Quimerina cráicica",
-			"8": "크라칸의 키메랄",
-			"11": "クレイシアンのキメラル"
+			"1": "Craicic Croaker",
+			"2": "Crocitador Craicic",
+			"3": "Квакун Краценна",
+			"4": "เขียดยักษ์ วงศ์เครเชียนน์",
+			"5": "Craicischer Quaker",
+			"6": "Coasseuse craïcique",
+			"7": "Croadora cráicica",
+			"8": "크라칸 물렁이",
+			"11": "クレイシアンのクローカー"
 		},
 		"category": "monster.beast",
 		"width": 1,
@@ -181085,7 +182949,7 @@
 			"1": "Ticaba, Architect of the Arena",
 			"2": "Ticaba, Arquiteto da Arena",
 			"3": "Тикаба, Архитектор арены",
-			"4": "ทีคาบา สถาปนิกแห่งลานประลอง",
+			"4": "ทีคาบา สถาปนิกแห่งสังเวียน",
 			"5": "Ticaba, Architekt der Arena",
 			"6": "Ticaba, Architecte de l'Arène",
 			"7": "Ticaba, Arquitecto de la Arena",
@@ -181645,7 +183509,7 @@
 			"1": "Ticaba, Architect of the Arena",
 			"2": "Ticaba, Arquiteto da Arena",
 			"3": "Тикаба, Архитектор арены",
-			"4": "ทีคาบา สถาปนิกแห่งลานประลอง",
+			"4": "ทีคาบา สถาปนิกแห่งสังเวียน",
 			"5": "Ticaba, Architekt der Arena",
 			"6": "Ticaba, Architecte de l'Arène",
 			"7": "Ticaba, Arquitecto de la Arena",
@@ -182077,7 +183941,7 @@
 			"1": "Ticaba, Architect of the Arena",
 			"2": "Ticaba, Arquiteto da Arena",
 			"3": "Тикаба, Архитектор арены",
-			"4": "ทีคาบา สถาปนิกแห่งลานประลอง",
+			"4": "ทีคาบา สถาปนิกแห่งสังเวียน",
 			"5": "Ticaba, Architekt der Arena",
 			"6": "Ticaba, Architecte de l'Arène",
 			"7": "Ticaba, Arquitecto de la Arena",
@@ -193135,7 +194999,7 @@
 			"3": "Слепой смотритель",
 			"4": "หมึกเฝ้ามองที่ตาบอด",
 			"5": "Blinder Beobachter",
-			"6": "Guetteur aveugle",
+			"6": "Veilleur aveugle",
 			"7": "Vigilante ciego",
 			"8": "눈먼 감시자",
 			"11": "盲目のウォッチャー"
@@ -197518,7 +199382,7 @@
 			"2": "Enxame de Gafanhotos",
 			"3": "Рой саранчи",
 			"4": "ฝูงตั๊กแตน",
-			"5": "Dämon",
+			"5": "Heuschreckenschwarm",
 			"6": "Nuée de locustes",
 			"7": "Enjambre de langostas",
 			"8": "메뚜기 떼",
@@ -201747,6 +203611,38 @@
 			"7": "Robot escurridizo electrocutante",
 			"8": "감전 원격 기폭 장치",
 			"11": "感電のスキッターボット"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"AbyssCurseBot": {
+		"names": {
+			"1": "Bone Feeder",
+			"2": "Devorador de Ossos",
+			"3": "Костяной едок",
+			"4": "ตัวกินกระดูก",
+			"5": "Knochenfresser",
+			"6": "Dévoreur d'os",
+			"7": "Devorahuesos",
+			"8": "뼈 포식자",
+			"11": "ボーンフィーダー"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"AbyssDebuffBot": {
+		"names": {
+			"1": "Bone Feeder",
+			"2": "Devorador de Ossos",
+			"3": "Костяной едок",
+			"4": "ตัวกินกระดูก",
+			"5": "Knochenfresser",
+			"6": "Dévoreur d'os",
+			"7": "Devorahuesos",
+			"8": "뼈 포식자",
+			"11": "ボーンフィーダー"
 		},
 		"category": "monster.beast",
 		"width": 1,
@@ -215864,6 +217760,54 @@
 		"width": 1,
 		"height": 1
 	},
+	"TrialMasterBossStandalone": {
+		"names": {
+			"1": "The Trialmaster",
+			"2": "O Mestre das Provações",
+			"3": "Мастер испытаний",
+			"4": "ผู้คุมบททดสอบ",
+			"5": "Der Prüfungsmeister",
+			"6": "Le Maître des Épreuves",
+			"7": "El Maestro de pruebas",
+			"8": "시련의 대가",
+			"11": "トライアルマスター"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"TrialMasterBossSlamApparition_": {
+		"names": {
+			"1": "The Trialmaster",
+			"2": "O Mestre das Provações",
+			"3": "Мастер испытаний",
+			"4": "ผู้คุมบททดสอบ",
+			"5": "Der Prüfungsmeister",
+			"6": "Le Maître des Épreuves",
+			"7": "El Maestro de pruebas",
+			"8": "시련의 대가",
+			"11": "トライアルマスター"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"TrialMasterBossProjectileApparition": {
+		"names": {
+			"1": "The Trialmaster",
+			"2": "O Mestre das Provações",
+			"3": "Мастер испытаний",
+			"4": "ผู้คุมบททดสอบ",
+			"5": "Der Prüfungsmeister",
+			"6": "Le Maître des Épreuves",
+			"7": "El Maestro de pruebas",
+			"8": "시련의 대가",
+			"11": "トライアルマスター"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
 	"GuardSpear_": {
 		"names": {
 			"1": "Trial Guard",
@@ -217363,6 +219307,22 @@
 			"7": "Serpiente salivadora",
 			"8": "뱉는 독사",
 			"11": "スピッティングサーペント"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"SnakeHeadProjectileGauntlet": {
+		"names": {
+			"1": "Spitting Serpent",
+			"2": "Serpente Cuspidora",
+			"3": "Плюющийся змей",
+			"4": "งูใหญ่พ่นพิษ",
+			"5": "Speiende Schlange",
+			"6": "Serpent cracheur",
+			"7": "Serpiente salivadora",
+			"8": "뱉는 독사",
+			"11": "毒を吐くヘビ"
 		},
 		"category": "monster.beast",
 		"width": 1,
@@ -219534,7 +221494,7 @@
 			"2": "Druida do Círculo Quebrado",
 			"3": "Друид Разомкнутого круга",
 			"4": "Druid of the Broken Circle",
-			"5": "Druide des Gebrochenen Zirkels",
+			"5": "Druide des Zerbrochenen Kreises",
 			"6": "Druide du Cercle brisé",
 			"7": "Druida del Círculo roto",
 			"8": "끊어진 원의 드루이드",
@@ -219550,7 +221510,7 @@
 			"2": "Druida do Círculo Quebrado",
 			"3": "Друид Разомкнутого круга",
 			"4": "Druid of the Broken Circle",
-			"5": "Druide des Gebrochenen Zirkels",
+			"5": "Druide des Zerbrochenen Kreises",
 			"6": "Druide du Cercle brisé",
 			"7": "Druida del Círculo roto",
 			"8": "끊어진 원의 드루이드",
@@ -219566,7 +221526,7 @@
 			"2": "Druida do Círculo Quebrado",
 			"3": "Друид Разомкнутого круга",
 			"4": "Druid of the Broken Circle",
-			"5": "Druide des Gebrochenen Zirkels",
+			"5": "Druide des Zerbrochenen Kreises",
 			"6": "Druide du Cercle brisé",
 			"7": "Druida del Círculo roto",
 			"8": "끊어진 원의 드루이드",
@@ -219854,7 +221814,7 @@
 			"2": "Clérigo do Círculo Quebrado",
 			"3": "Клирик Разомкнутого круга",
 			"4": "Cleric of the Broken Circle",
-			"5": "Kleriker des Gebrochenen Zirkels",
+			"5": "Kleriker des Zerbrochenen Kreises",
 			"6": "Clerc du Cercle brisé",
 			"7": "Sacerdote del Círculo roto",
 			"8": "끊어진 원의 성직자",
@@ -219870,7 +221830,7 @@
 			"2": "Fanático do Círculo Quebrado",
 			"3": "Фанатик Разомкнутого круга",
 			"4": "Fanatic of the Broken Circle",
-			"5": "Fanatiker des Gebrochenen Zirkels",
+			"5": "Fanatiker des Zerbrochenen Kreises",
 			"6": "Fanatique du Cercle brisé",
 			"7": "Fanático del Círculo roto",
 			"8": "끊어진 원의 광신도",
@@ -219886,7 +221846,7 @@
 			"2": "Arqui-Druida do Círculo Quebrado",
 			"3": "Архидруид Разомкнутого круга",
 			"4": "Arch-Druid of the Broken Circle",
-			"5": "Erzdruide des Gebrochenen Zirkels",
+			"5": "Erzdruide des Zerbrochenen Kreises",
 			"6": "Archidruide du Cercle brisé",
 			"7": "Archidruida del Círculo roto",
 			"8": "끊어진 원의 대드루이드",
@@ -220922,13 +222882,13 @@
 	},
 	"HellscapeDemonBoss": {
 		"names": {
-			"1": "K'tash, the Hate Shepherd",
-			"2": "K'tash, o Pator do Ódio",
-			"3": "К'таш, Пастух ненависти",
+			"1": "K'Tash, the Hate Shepherd",
+			"2": "K'tash, o Pastor do Ódio",
+			"3": "К'Таш, Пастух ненависти",
 			"4": "เค'แทช ผู้ธำรงความชัง",
-			"5": "K'tash, Hüter des Hasses",
-			"6": "K'tash, le Pâtre de la haine",
-			"7": "K'tash, Pastor del odio",
+			"5": "K'Tash, Hüter des Hasses",
+			"6": "K'Tash, le Pâtre de la haine",
+			"7": "K'tash, el pastor del odio",
 			"8": "증오의 목자 크타쉬",
 			"11": "憎悪の羊飼い、カタッシュ"
 		},
@@ -220938,13 +222898,13 @@
 	},
 	"HellscapeDemonBossMemoryLine": {
 		"names": {
-			"1": "K'tash, the Hate Shepherd",
+			"1": "K'Tash, the Hate Shepherd",
 			"2": "K'tash, o Pastor do Ódio",
-			"3": "К'таш, Пастух ненависти",
+			"3": "К'Таш, Пастух ненависти",
 			"4": "เค'แทช ผู้ธำรงความชัง",
-			"5": "K'tash, Hüter des Hasses",
-			"6": "K'tash, le Pâtre de la haine",
-			"7": "K'tash, Pastor del odio",
+			"5": "K'Tash, Hüter des Hasses",
+			"6": "K'Tash, le Pâtre de la haine",
+			"7": "K'tash, el pastor del odio",
 			"8": "증오의 목자 크타쉬",
 			"11": "憎悪の羊飼い、カタッシュ"
 		},
@@ -220954,13 +222914,13 @@
 	},
 	"HellscapeDemonBossAliraGauntlet": {
 		"names": {
-			"1": "K'tash, the Hate Shepherd",
+			"1": "K'Tash, the Hate Shepherd",
 			"2": "K'tash, o Pastor do Ódio",
-			"3": "К'таш, Пастух ненависти",
+			"3": "К'Таш, Пастух ненависти",
 			"4": "เค'แทช ผู้ธำรงความชัง",
-			"5": "K'tash, Hüter des Hasses",
-			"6": "K'tash, le Pâtre de la haine",
-			"7": "K'tash, Pastor del odio",
+			"5": "K'Tash, Hüter des Hasses",
+			"6": "K'Tash, le Pâtre de la haine",
+			"7": "K'tash, el pastor del odio",
 			"8": "증오의 목자 크타쉬",
 			"11": "憎悪の羊飼い、カタッシュ"
 		},
@@ -223968,7 +225928,7 @@
 			"4": "Consuming Thrall",
 			"5": "Verzehrender Leibeigener",
 			"6": "Esclave dévoreur",
-			"7": "Fantasma devorador",
+			"7": "Esclavo devorador",
 			"8": "소모하는 예속자",
 			"11": "喰い尽くすスロール"
 		},
@@ -223984,7 +225944,7 @@
 			"4": "Consuming Thrall",
 			"5": "Verzehrender Leibeigener",
 			"6": "Esclave dévoreur",
-			"7": "Fantasma devorador",
+			"7": "Esclavo devorador",
 			"8": "소모하는 예속자",
 			"11": "喰い尽くすスロール"
 		},
@@ -224019,6 +225979,22 @@
 			"7": "Demonio",
 			"8": "다이몬",
 			"11": "デーモン"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"ConsumePhantasmDeepwater": {
+		"names": {
+			"1": "Consuming Phantasm",
+			"2": "Fantasma Devorador",
+			"3": "Пожирающий фантом",
+			"4": "Consuming Phantasm",
+			"5": "Verzehrendes Phantasma",
+			"6": "Apparition dévoreuse",
+			"7": "Fantasma devorador",
+			"8": "소모하는 환영",
+			"11": "喰い尽くすファンタズム"
 		},
 		"category": "monster.beast",
 		"width": 1,
@@ -224226,7 +226202,7 @@
 			"6": "L'Astre noir",
 			"7": "La Estrella negra",
 			"8": "검은 별",
-			"11": "黒き星"
+			"11": "ブラック・スター"
 		},
 		"category": "monster.beast",
 		"width": 1,
@@ -224274,7 +226250,7 @@
 			"6": "L'Exarque ardent",
 			"7": "El Exarca abrasador",
 			"8": "작열의 총주교",
-			"11": "灼熱の代行者"
+			"11": "シアリング・エグザーク"
 		},
 		"category": "monster.beast",
 		"width": 1,
@@ -224290,7 +226266,7 @@
 			"6": "L'Exarque ardent",
 			"7": "El Exarca abrasador",
 			"8": "작열의 총주교",
-			"11": "灼熱の代行者"
+			"11": "シアリング・エグザーク"
 		},
 		"category": "monster.beast",
 		"width": 1,
@@ -224306,7 +226282,7 @@
 			"6": "Le Mangeur de mondes",
 			"7": "El Devorador de mundos",
 			"8": "세계 포식자",
-			"11": "世界を喰らうもの"
+			"11": "イーター・オブ・ワールズ"
 		},
 		"category": "monster.beast",
 		"width": 1,
@@ -224322,7 +226298,7 @@
 			"6": "Le Mangeur de mondes",
 			"7": "El Devorador de mundos",
 			"8": "세계 포식자",
-			"11": "世界を喰らうもの"
+			"11": "イーター・オブ・ワールズ"
 		},
 		"category": "monster.beast",
 		"width": 1,
@@ -224434,7 +226410,7 @@
 			"6": "La Faim infinie",
 			"7": "El Hambre infinita",
 			"8": "무한한 허기",
-			"11": "果てなき渇望"
+			"11": "インフィニット・ハンガー"
 		},
 		"category": "monster.beast",
 		"width": 1,
@@ -226126,7 +228102,7 @@
 			"2": "Druída do Círculo Quebrado",
 			"3": "Друид Разомкнутого круга",
 			"4": "Druid of the Broken Circle",
-			"5": "Druide des Gebrochenen Zirkels",
+			"5": "Druide des Zerbrochenen Kreises",
 			"6": "Druide du Cercle brisé",
 			"7": "Druida del Círculo roto",
 			"8": "끊어진 원의 드루이드",
@@ -226224,7 +228200,7 @@
 			"4": "Great Maw",
 			"5": "Großschlund",
 			"6": "Mâchoire gigantesque",
-			"7": "Gran Fauces",
+			"7": "Fauces monstruosas",
 			"8": "거대 큰턱개구리",
 			"11": "大きな口"
 		},
@@ -227052,7 +229028,7 @@
 		"names": {
 			"1": "Reinforced Lithomancer",
 			"2": "Litomante Reforçado",
-			"3": "Усиленный литомант",
+			"3": "Усиленный камнемант",
 			"4": "Reinforced Lithomancer",
 			"5": "Verstärkter Lithomagier",
 			"6": "Lithomancien renforcé",
@@ -230408,6 +232384,22 @@
 		"width": 1,
 		"height": 1
 	},
+	"AncestralKiloavaDeepwater": {
+		"names": {
+			"1": "Spirit of Kiloava",
+			"2": "Espírito de Kiloava",
+			"3": "Дух Килоавы",
+			"4": "วิญญาณคีโลอาวา",
+			"5": "Geist von Kiloava",
+			"6": "Esprit de Kiloava",
+			"7": "Espíritu de Kiloava",
+			"8": "킬로아바의 혼백",
+			"11": "キロアヴァの霊魂"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
 	"AncestralKiloavaMinion__": {
 		"names": {
 			"1": "Spirit of Kiloava",
@@ -230451,6 +232443,22 @@
 			"7": "Ahuana",
 			"8": "아후아나",
 			"11": "アフアナ"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"AncestralAhuanaDeepwater": {
+		"names": {
+			"1": "Spirit of Ahuana",
+			"2": "Espírito de Ahuana",
+			"3": "Дух Ахваны",
+			"4": "วิญญาณอะฮัวนา",
+			"5": "Geist von Ahuana",
+			"6": "Esprit d'Ahuana",
+			"7": "Espíritu de Ahuana",
+			"8": "아후아나의 혼백",
+			"11": "アフアナの霊魂"
 		},
 		"category": "monster.beast",
 		"width": 1,
@@ -230504,6 +232512,22 @@
 		"width": 1,
 		"height": 1
 	},
+	"AncestralAkoyaDeepwater": {
+		"names": {
+			"1": "Spirit of Akoya",
+			"2": "Espírito de Akoya",
+			"3": "Дух Акойи",
+			"4": "วิญญาณอะโคยา",
+			"5": "Geist von Akoya",
+			"6": "Esprit d'Akoya",
+			"7": "Espíritu de Akoya",
+			"8": "아코야의 혼백",
+			"11": "アコヤの霊魂"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
 	"AncestralAkoyaMinion": {
 		"names": {
 			"1": "Spirit of Akoya",
@@ -230547,6 +232571,22 @@
 			"7": "Maata",
 			"8": "마아타",
 			"11": "マアタ"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"AncestralMaataDeepwater": {
+		"names": {
+			"1": "Spirit of Maata",
+			"2": "Espírito de Maata",
+			"3": "Дух Мааты",
+			"4": "วิญญาณมาอ์ตา",
+			"5": "Geist von Maata",
+			"6": "Esprit de Maata",
+			"7": "Espíritu de Maata",
+			"8": "마아타의 혼백",
+			"11": "マアタの霊魂"
 		},
 		"category": "monster.beast",
 		"width": 1,
@@ -230600,6 +232640,22 @@
 		"width": 1,
 		"height": 1
 	},
+	"AncestralRakiataDeepwater": {
+		"names": {
+			"1": "Spirit of Rakiata",
+			"2": "Espírito de Rakiata",
+			"3": "Дух Ракиаты",
+			"4": "วิญญาณราคียาตา",
+			"5": "Geist von Rakiata",
+			"6": "Esprit de Rakiata",
+			"7": "Espíritu de Rakiata",
+			"8": "라키아타의 혼백",
+			"11": "ラキアタの霊魂"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
 	"AncestralRakiataMinion": {
 		"names": {
 			"1": "Spirit of Rakiata",
@@ -230643,6 +232699,22 @@
 			"7": "Utula",
 			"8": "우툴라",
 			"11": "ウトゥーラ"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"AncestralUtulaDeepwater": {
+		"names": {
+			"1": "Spirit of Utula",
+			"2": "Espírito de Utula",
+			"3": "Дух Утулы",
+			"4": "วิญญาณอูทูล่า",
+			"5": "Geist von Utula",
+			"6": "Esprit d'Utula",
+			"7": "Espíritu de Utula",
+			"8": "우툴라의 혼백",
+			"11": "ウトゥーラの霊魂"
 		},
 		"category": "monster.beast",
 		"width": 1,
@@ -230990,7 +233062,7 @@
 			"2": "Rouba-dorsal",
 			"3": "Хребтохват",
 			"4": "Spinesnatcher",
-			"5": "Rückgratschnapper",
+			"5": "Wirbelsäulenschnapper",
 			"6": "Happéchine",
 			"7": "Arrancamédulas",
 			"8": "척추강탈꾼",
@@ -231006,7 +233078,7 @@
 			"2": "Rouba-dorsal",
 			"3": "Хребтохват",
 			"4": "Spinesnatcher",
-			"5": "Rückgratschnapper",
+			"5": "Wirbelsäulenschnapper",
 			"6": "Happéchine",
 			"7": "Arrancamédulas",
 			"8": "척추강탈꾼",
@@ -231022,7 +233094,7 @@
 			"2": "Rouba-dorsal",
 			"3": "Хребтохват",
 			"4": "Spinesnatcher",
-			"5": "Rückgratschnapper",
+			"5": "Wirbelsäulenschnapper",
 			"6": "Happéchine",
 			"7": "Arrancamédulas",
 			"8": "척추강탈꾼",
@@ -231042,7 +233114,7 @@
 			"6": "Loup-garou de la Sylve",
 			"7": "Hombre lobo del bosque",
 			"8": "야생림 늑대인간",
-			"11": "原生林の狼男"
+			"11": "ワイルドウッドの狼男"
 		},
 		"category": "monster.beast",
 		"width": 1,
@@ -231058,7 +233130,7 @@
 			"6": "Loup-garou de la Sylve",
 			"7": "Hombre lobo del bosque",
 			"8": "야생림 늑대인간",
-			"11": "原生林の狼男"
+			"11": "ワイルドウッドの狼男"
 		},
 		"category": "monster.beast",
 		"width": 1,
@@ -231074,7 +233146,7 @@
 			"6": "Loup-garou de la Sylve",
 			"7": "Hombre lobo del bosque",
 			"8": "야생림 늑대인간",
-			"11": "原生林の狼男"
+			"11": "ワイルドウッドの狼男"
 		},
 		"category": "monster.beast",
 		"width": 1,
@@ -231090,7 +233162,7 @@
 			"6": "Loup-garou de la Sylve",
 			"7": "Hombre lobo del bosque",
 			"8": "야생림 늑대인간",
-			"11": "原生林の狼男"
+			"11": "ワイルドウッドの狼男"
 		},
 		"category": "monster.beast",
 		"width": 1,
@@ -231106,7 +233178,7 @@
 			"6": "Loup de la Sylve",
 			"7": "Lobo del bosque",
 			"8": "야생림 늑대",
-			"11": "原生林の狼"
+			"11": "ワイルドウッドの狼"
 		},
 		"category": "monster.beast",
 		"width": 1,
@@ -231122,7 +233194,7 @@
 			"6": "Loup de la Sylve",
 			"7": "Lobo del bosque",
 			"8": "야생림 늑대",
-			"11": "原生林の狼"
+			"11": "ワイルドウッドの狼"
 		},
 		"category": "monster.beast",
 		"width": 1,
@@ -231138,7 +233210,7 @@
 			"6": "Loup de la Sylve",
 			"7": "Lobo del bosque",
 			"8": "야생림 늑대",
-			"11": "原生林の狼"
+			"11": "ワイルドウッドの狼"
 		},
 		"category": "monster.beast",
 		"width": 1,
@@ -231586,7 +233658,7 @@
 			"6": "Abomination de la Sylve",
 			"7": "Abominación del bosque",
 			"8": "야생림 흉물",
-			"11": "原生林の醜態"
+			"11": "ワイルドウッドの醜態"
 		},
 		"category": "monster.beast",
 		"width": 1,
@@ -232402,7 +234474,7 @@
 			"6": "Guêpe de la Sylve",
 			"7": "Avispa del bosque",
 			"8": "야생림 말벌",
-			"11": "原生林のワスプ"
+			"11": "ワイルドウッドのワスプ"
 		},
 		"category": "monster.beast",
 		"width": 1,
@@ -232418,7 +234490,7 @@
 			"6": "Guêpe de la Sylve",
 			"7": "Avispa del bosque",
 			"8": "야생림 말벌",
-			"11": "原生林のワスプ"
+			"11": "ワイルドウッドのワスプ"
 		},
 		"category": "monster.beast",
 		"width": 1,
@@ -233784,6 +235856,22 @@
 		"width": 1,
 		"height": 1
 	},
+	"TankyZombieDeepwater": {
+		"names": {
+			"1": "Bloated Meatsack",
+			"2": "Saco de Carne Inchado",
+			"3": "Раздувшийся кусок мяса",
+			"4": "Bloated Meatsack",
+			"5": "Aufgedunsener Fleischsack",
+			"6": "Sac à viande boursouflé",
+			"7": "Saco de carne hinchado",
+			"8": "불어 터진 고깃자루",
+			"11": "膨れ上がったミートサック"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
 	"SulphiteEnrageDaemon": {
 		"names": {
 			"1": "Daemon",
@@ -234986,15 +237074,15 @@
 	},
 	"KalguurAdmiralWaveGauntlet": {
 		"names": {
-			"1": "Volatile Core",
-			"2": "Núcleo Volátil",
-			"3": "Нестабильная основа",
-			"4": "แก่นปะทุ",
-			"5": "Explosiver Kern",
-			"6": "Noyau instable",
-			"7": "Núcleo volátil",
-			"8": "폭발성 중심부",
-			"11": "ヴォラタイルコア"
+			"1": "Tidal Wave",
+			"2": "Maremoto",
+			"3": "Приливная волна",
+			"4": "คลื่นทะเล",
+			"5": "Gezeitenwelle",
+			"6": "Raz-de-marée",
+			"7": "El Maremoto",
+			"8": "해일",
+			"11": "タイダルウェーブ"
 		},
 		"category": "monster.beast",
 		"width": 1,
@@ -235113,6 +237201,22 @@
 		"height": 1
 	},
 	"BenevolenceBossGAUNTLET": {
+		"names": {
+			"1": "Incarnation of Dread",
+			"2": "Encarnação do Pavor",
+			"3": "Воплощение ужаса",
+			"4": "รูปธรรมแห่งความหวั่นเกรง",
+			"5": "Inkarnation des Schreckens",
+			"6": "Incarnation de la Terreur",
+			"7": "Encarnación del temor",
+			"8": "불안의 화신",
+			"11": "畏怖の化身"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"BenevolenceBossGAUNTLETUBER": {
 		"names": {
 			"1": "Incarnation of Dread",
 			"2": "Encarnação do Pavor",
@@ -235304,6 +237408,22 @@
 		"width": 1,
 		"height": 1
 	},
+	"AngerBossUBERGAUNTLET_": {
+		"names": {
+			"1": "Incarnation of Fear",
+			"2": "Encarnação do Medo",
+			"3": "Воплощение страха",
+			"4": "รูปธรรมแห่งความหวาดกลัว",
+			"5": "Inkarnation der Furcht",
+			"6": "Incarnation de la Peur",
+			"7": "Encarnación del miedo",
+			"8": "두려움의 화신",
+			"11": "恐怖の化身"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
 	"AngerBossOrbDaemon": {
 		"names": {
 			"1": "Daemon",
@@ -235385,6 +237505,22 @@
 		"height": 1
 	},
 	"IgnoranceBossGAUNTLET_": {
+		"names": {
+			"1": "Incarnation of Neglect",
+			"2": "Encarnação do Abandono",
+			"3": "Воплощение забвения",
+			"4": "รูปธรรมแห่งการทอดทิ้ง",
+			"5": "Inkarnation der Vernachlässigung",
+			"6": "Incarnation de la Négligence",
+			"7": "Encarnación del abandono",
+			"8": "방치의 화신",
+			"11": "無視の化身"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"IgnoranceBossUBERGAUNTLET": {
 		"names": {
 			"1": "Incarnation of Neglect",
 			"2": "Encarnação do Abandono",
@@ -237784,6 +239920,1686 @@
 		"width": 1,
 		"height": 1
 	},
+	"DrownedSkeletonElite_": {
+		"names": {
+			"1": "Reefclaimed Skeleton",
+			"2": "Esqueleto Tomado pelo Recife",
+			"3": "Сгинувший на рифе скелет",
+			"4": "Reefclaimed Skeleton",
+			"5": "Vom Riff beanspruchtes Skelett",
+			"6": "Squelette réciquestré",
+			"7": "Esqueleto del arrecife",
+			"8": "암초가 거둔 해골",
+			"11": "岩礁に取り込まれたスケルトン"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"DrownedSkeletonEliteSpectre_": {
+		"names": {
+			"1": "Reefclaimed Skeleton",
+			"2": "Esqueleto Tomado pelo Recife",
+			"3": "Сгинувший на рифе скелет",
+			"4": "Reefclaimed Skeleton",
+			"5": "Vom Riff beanspruchtes Skelett",
+			"6": "Squelette réciquestré",
+			"7": "Esqueleto del arrecife",
+			"8": "암초가 거둔 해골",
+			"11": "岩礁に取り込まれたスケルトン"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"DrownedSkeletonMelee": {
+		"names": {
+			"1": "Reefclaimed Skeleton",
+			"2": "Esqueleto Tomado pelo Recife",
+			"3": "Сгинувший на рифе скелет",
+			"4": "Reefclaimed Skeleton",
+			"5": "Vom Riff beanspruchtes Skelett",
+			"6": "Squelette réciquestré",
+			"7": "Esqueleto del arrecife",
+			"8": "암초가 거둔 해골",
+			"11": "岩礁に取り込まれたスケルトン"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"DrownedSkeletonMeleeSpectre": {
+		"names": {
+			"1": "Reefclaimed Skeleton",
+			"2": "Esqueleto Tomado pelo Recife",
+			"3": "Сгинувший на рифе скелет",
+			"4": "Reefclaimed Skeleton",
+			"5": "Vom Riff beanspruchtes Skelett",
+			"6": "Squelette réciquestré",
+			"7": "Esqueleto del arrecife",
+			"8": "암초가 거둔 해골",
+			"11": "岩礁に取り込まれたスケルトン"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"MantaRayParasite": {
+		"names": {
+			"1": "Infested Horror",
+			"2": "Horror Infestado",
+			"3": "Заражённый ужас",
+			"4": "Infested Horror",
+			"5": "Infizierter Schrecken",
+			"6": "Horreur infestée",
+			"7": "Horror infestado",
+			"8": "감염된 공포",
+			"11": "寄生された恐怖"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"MantaRayParasiteSpectre": {
+		"names": {
+			"1": "Infested Horror",
+			"2": "Horror Infestado",
+			"3": "Заражённый ужас",
+			"4": "Infested Horror",
+			"5": "Infizierter Schrecken",
+			"6": "Horreur infestée",
+			"7": "Horror infestado",
+			"8": "감염된 공포",
+			"11": "寄生された恐怖"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"JellyfishParasite": {
+		"names": {
+			"1": "Flesh Louse",
+			"2": "Piolho-da-carne",
+			"3": "Плотская вошь",
+			"4": "Flesh Louse",
+			"5": "Körperlaus",
+			"6": "Pou charnu",
+			"7": "Piojo carnoso",
+			"8": "살점 이",
+			"11": "肉ダニ"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"JellyfishParasiteSpectre": {
+		"names": {
+			"1": "Flesh Louse",
+			"2": "Piolho-da-carne",
+			"3": "Плотская вошь",
+			"4": "Flesh Louse",
+			"5": "Körperlaus",
+			"6": "Pou charnu",
+			"7": "Piojo carnoso",
+			"8": "살점 이",
+			"11": "肉ダニ"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"PaleFishman": {
+		"names": {
+			"1": "Angler Maw",
+			"2": "Bocarra Pescadora",
+			"3": "Удильщик",
+			"4": "Angler Maw",
+			"5": "Gefräßiger Fischer",
+			"6": "Mâchoire-baudroie",
+			"7": "Fauces pescadoras",
+			"8": "낚시꾼 큰턱",
+			"11": "アングラ―・モー"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"PaleFishmanSpectre_": {
+		"names": {
+			"1": "Angler Maw",
+			"2": "Bocarra Pescadora",
+			"3": "Удильщик",
+			"4": "Angler Maw",
+			"5": "Gefräßiger Fischer",
+			"6": "Mâchoire-baudroie",
+			"7": "Fauces pescadoras",
+			"8": "낚시꾼 큰턱",
+			"11": "アングラ―・モー"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"EelBoss": {
+		"names": {
+			"1": "Cressie, Tamed Behemoth",
+			"2": "Cressie, Gigante Domada",
+			"3": "Кресси, прирученная громадина",
+			"4": "เครสซี่ เบฮีมอธเชื่อง",
+			"5": "Cressie, Gezähmter Behemoth",
+			"6": "Cressie, le Béhémoth dompté",
+			"7": "Cressie, monstruosidad domada",
+			"8": "길들여진 거대괴수 크레시",
+			"11": "飼いならされたベヒモス、クレッシー"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"EelBossRider": {
+		"names": {
+			"1": "Velka, the Tide Witch",
+			"2": "Velka, a Bruxa das Marés",
+			"3": "Велка, Морская Ведьма",
+			"4": "เวลก้า แม่มดอุทกธาร",
+			"5": "Velka, die Gezeitenhexe",
+			"6": "Velka, la Sorcière des marées",
+			"7": "Velka, la bruja de la marea",
+			"8": "파도 마녀 벨카",
+			"11": "潮の魔女、ヴェルカ"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"EelBossRiderFake": {
+		"names": {
+			"1": "Velka, the Tide Witch",
+			"2": "Velka, a Bruxa das Marés",
+			"3": "Велка, Морская Ведьма",
+			"4": "เวลก้า แม่มดอุทกธาร",
+			"5": "Velka, die Gezeitenhexe",
+			"6": "Velka, la Sorcière des marées",
+			"7": "Velka, la bruja de la marea",
+			"8": "파도 마녀 벨카",
+			"11": "潮の魔女、ヴェルカ"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"KelpDregHelmet": {
+		"names": {
+			"1": "Seaclaimed Skeleton",
+			"2": "Esqueleto do Mar",
+			"3": "Утопший скелет",
+			"4": "Seaclaimed Skeleton",
+			"5": "Vom Meer verschlungenes Skelett",
+			"6": "Squelette maréquestré",
+			"7": "Esqueleto ahogado",
+			"8": "바다노예 해골",
+			"11": "海に呑まれたスケルトン"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"KelpDregHelmetSpectre_": {
+		"names": {
+			"1": "Seaclaimed Skeleton",
+			"2": "Esqueleto do Mar",
+			"3": "Утопший скелет",
+			"4": "Seaclaimed Skeleton",
+			"5": "Vom Meer verschlungenes Skelett",
+			"6": "Squelette maréquestré",
+			"7": "Esqueleto ahogado",
+			"8": "바다노예 해골",
+			"11": "海に呑まれたスケルトン"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"KelpDreg": {
+		"names": {
+			"1": "Seaclaimed Sniper",
+			"2": "Atirador do Mar",
+			"3": "Утопший стрелок",
+			"4": "Seaclaimed Sniper",
+			"5": "Vom Meer verschlungener Scharfschütze",
+			"6": "Tireur maréquestré",
+			"7": "Tirador ahogado",
+			"8": "바다노예 저격수",
+			"11": "海に呑まれたスナイパー"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"KelpDregSpectre": {
+		"names": {
+			"1": "Seaclaimed Sniper",
+			"2": "Atirador do Mar",
+			"3": "Утопший стрелок",
+			"4": "Seaclaimed Sniper",
+			"5": "Vom Meer verschlungener Scharfschütze",
+			"6": "Tireur maréquestré",
+			"7": "Tirador ahogado",
+			"8": "바다노예 저격수",
+			"11": "海に呑まれたスナイパー"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"DeepwaterCrabMiniboss": {
+		"names": {
+			"1": "Captainsbane",
+			"2": "Ruína do Capitão",
+			"3": "Погибель капитанов",
+			"4": "ปูเขมือบกัปตัน",
+			"5": "Kapitänsfluch",
+			"6": "Fléau des capitaines",
+			"7": "Matacapitanes",
+			"8": "지휘관의 파멸",
+			"11": "キャプテンズベイン"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"CoconutCrab": {
+		"names": {
+			"1": "Coconut Crab",
+			"2": "Caranguejo-coco",
+			"3": "Кокосовый краб",
+			"4": "Coconut Crab",
+			"5": "Palmendieb",
+			"6": "Crabe de cocotier",
+			"7": "Cangrejo cocotero",
+			"8": "야자게",
+			"11": "ヤシガニ"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"CoconutCrabSpectre": {
+		"names": {
+			"1": "Coconut Crab",
+			"2": "Caranguejo-coco",
+			"3": "Кокосовый краб",
+			"4": "Coconut Crab",
+			"5": "Palmendieb",
+			"6": "Crabe de cocotier",
+			"7": "Cangrejo cocotero",
+			"8": "야자게",
+			"11": "ヤシガニ"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"CoconutCrabEncounter": {
+		"names": {
+			"1": "Coconut Crab",
+			"2": "Caranguejo-coco",
+			"3": "Кокосовый краб",
+			"4": "Coconut Crab",
+			"5": "Palmendieb",
+			"6": "Crabe de cocotier",
+			"7": "Cangrejo cocotero",
+			"8": "야자게",
+			"11": "ヤシガニ"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"NimbleCrab": {
+		"names": {
+			"1": "Scuttler",
+			"2": "Caranguejo Arisco",
+			"3": "Топитель",
+			"4": "Scuttler",
+			"5": "Krabbler",
+			"6": "Carapateur",
+			"7": "Crustáceo",
+			"8": "종종발",
+			"11": "スカットラー"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"NimbleCrabSpectre": {
+		"names": {
+			"1": "Scuttler",
+			"2": "Caranguejo Arisco",
+			"3": "Топитель",
+			"4": "Scuttler",
+			"5": "Krabbler",
+			"6": "Carapateur",
+			"7": "Crustáceo",
+			"8": "종종발",
+			"11": "スカットラー"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"NimbleCrabEncounter": {
+		"names": {
+			"1": "Scuttler",
+			"2": "Caranguejo Arisco",
+			"3": "Топитель",
+			"4": "Scuttler",
+			"5": "Krabbler",
+			"6": "Carapateur",
+			"7": "Crustáceo",
+			"8": "종종발",
+			"11": "スカットラー"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"QuillCrab": {
+		"names": {
+			"1": "Quillshell",
+			"2": "Caranguejo Cascudo",
+			"3": "Иглопанцирь",
+			"4": "Quillshell",
+			"5": "Stachelkrebs",
+			"6": "Carapointe",
+			"7": "Cangrejo tropical",
+			"8": "화살딱지",
+			"11": "クイルシェル"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"QuillCrabSpectre": {
+		"names": {
+			"1": "Quillshell",
+			"2": "Caranguejo Cascudo",
+			"3": "Иглопанцирь",
+			"4": "Quillshell",
+			"5": "Stachelkrebs",
+			"6": "Carapointe",
+			"7": "Cangrejo tropical",
+			"8": "화살딱지",
+			"11": "クイルシェル"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"QuillCrabEncounter": {
+		"names": {
+			"1": "Quillshell",
+			"2": "Caranguejo Cascudo",
+			"3": "Иглопанцирь",
+			"4": "Quillshell",
+			"5": "Stachelkrebs",
+			"6": "Carapointe",
+			"7": "Cangrejo tropical",
+			"8": "화살딱지",
+			"11": "クイルシェル"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"DrownedCrawler": {
+		"names": {
+			"1": "Drowned Crawler",
+			"2": "Rastejante Afogado",
+			"3": "Утонувший ползун",
+			"4": "Drowned Crawler",
+			"5": "Ertrunkener Kriecher",
+			"6": "Rampant noyé",
+			"7": "Rastrero ahogado",
+			"8": "익사한 포복자",
+			"11": "溺れたクローラー"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"DrownedCrawlerSpectre": {
+		"names": {
+			"1": "Drowned Crawler",
+			"2": "Rastejante Afogado",
+			"3": "Утонувший ползун",
+			"4": "Drowned Crawler",
+			"5": "Ertrunkener Kriecher",
+			"6": "Rampant noyé",
+			"7": "Rastrero ahogado",
+			"8": "익사한 포복자",
+			"11": "溺れたクローラー"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"DrownedCrawlerEncounter": {
+		"names": {
+			"1": "Drowned Crawler",
+			"2": "Rastejante Afogado",
+			"3": "Утонувший ползун",
+			"4": "Drowned Crawler",
+			"5": "Ertrunkener Kriecher",
+			"6": "Rampant noyé",
+			"7": "Rastrero ahogado",
+			"8": "익사한 포복자",
+			"11": "溺れたクローラー"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"SeaHag_": {
+		"names": {
+			"1": "Sea Hag",
+			"2": "Bruxa do Mar",
+			"3": "Морская ведьма",
+			"4": "Sea Hag",
+			"5": "Seehexe",
+			"6": "Charogne des mers",
+			"7": "Saga marina",
+			"8": "바다 마녀",
+			"11": "海のハグ"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"SeaHagSpectre": {
+		"names": {
+			"1": "Sea Hag",
+			"2": "Bruxa do Mar",
+			"3": "Морская ведьма",
+			"4": "Sea Hag",
+			"5": "Seehexe",
+			"6": "Charogne des mers",
+			"7": "Saga marina",
+			"8": "바다 마녀",
+			"11": "海のハグ"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"SeaOtter": {
+		"names": {
+			"1": "Ferocious Otter",
+			"2": "Lontra Feroz",
+			"3": "Свирепая выдра",
+			"4": "Ferocious Otter",
+			"5": "Wilder Otter",
+			"6": "Loutre féroce",
+			"7": "Nutria feroz",
+			"8": "사나운 수달",
+			"11": "獰猛なカワウソ"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"SeaOtterSpectre": {
+		"names": {
+			"1": "Ferocious Otter",
+			"2": "Lontra Feroz",
+			"3": "Свирепая выдра",
+			"4": "Ferocious Otter",
+			"5": "Wilder Otter",
+			"6": "Loutre féroce",
+			"7": "Nutria feroz",
+			"8": "사나운 수달",
+			"11": "獰猛なカワウソ"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"OctopusParasite": {
+		"names": {
+			"1": "Wriggling Horror",
+			"2": "Horror Cambaleante",
+			"3": "Извивающийся ужас",
+			"4": "Wriggling Horror",
+			"5": "Sich windender Schrecken",
+			"6": "Horreur frétillante",
+			"7": "Horror retorcido",
+			"8": "꿈틀거리는 공포",
+			"11": "蠢くホラー"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"OctopusParasiteSpectre___": {
+		"names": {
+			"1": "Wriggling Horror",
+			"2": "Horror Cambaleante",
+			"3": "Извивающийся ужас",
+			"4": "Wriggling Horror",
+			"5": "Sich windender Schrecken",
+			"6": "Horreur frétillante",
+			"7": "Horror retorcido",
+			"8": "꿈틀거리는 공포",
+			"11": "蠢くホラー"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"OctopusParasiteBathysphere": {
+		"names": {
+			"1": "Wriggling Horror",
+			"2": "Horror Cambaleante",
+			"3": "Извивающийся ужас",
+			"4": "Wriggling Horror",
+			"5": "Sich windender Schrecken",
+			"6": "Horreur frétillante",
+			"7": "Horror retorcido",
+			"8": "꿈틀거리는 공포",
+			"11": "蠢くホラー"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"OctopusParasiteGiant": {
+		"names": {
+			"1": "Filthscrabble",
+			"2": "Fuçador Imundo",
+			"3": "Отвратный скребун",
+			"4": "หมึกยักษ์โสโครก",
+			"5": "Schmutzwühler",
+			"6": "Grouillefange",
+			"7": "Hurgabasura",
+			"8": "오물더듬이",
+			"11": "フィルススクラブル"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"GiantStarfish": {
+		"names": {
+			"1": "Hungry Maw",
+			"2": "Bocarra Faminta",
+			"3": "Голодная пасть",
+			"4": "Hungry Maw",
+			"5": "Hungriger Schlund",
+			"6": "Mâchoire affamée",
+			"7": "Fauces hambrientas",
+			"8": "허기진 큰턱",
+			"11": "飢えたモー"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"GiantStarfishPillarShort": {
+		"names": {
+			"1": "Hungry Maw",
+			"2": "Bocarra Faminta",
+			"3": "Голодная пасть",
+			"4": "Hungry Maw",
+			"5": "Hungriger Schlund",
+			"6": "Mâchoire affamée",
+			"7": "Fauces hambrientas",
+			"8": "허기진 큰턱",
+			"11": "飢えたモー"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"GiantStarfishPillarTall_": {
+		"names": {
+			"1": "Hungry Maw",
+			"2": "Bocarra Faminta",
+			"3": "Голодная пасть",
+			"4": "Hungry Maw",
+			"5": "Hungriger Schlund",
+			"6": "Mâchoire affamée",
+			"7": "Fauces hambrientas",
+			"8": "허기진 큰턱",
+			"11": "飢えたモー"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"GiantStarfishSpectre": {
+		"names": {
+			"1": "Hungry Maw",
+			"2": "Bocarra Faminta",
+			"3": "Голодная пасть",
+			"4": "Hungry Maw",
+			"5": "Hungriger Schlund",
+			"6": "Mâchoire affamée",
+			"7": "Fauces hambrientas",
+			"8": "허기진 큰턱",
+			"11": "飢えたモー"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"GiantStarfishStatPack": {
+		"names": {
+			"1": "Hungry Maw",
+			"2": "Bocarra Faminta",
+			"3": "Голодная пасть",
+			"4": "Hungry Maw",
+			"5": "Hungriger Schlund",
+			"6": "Mâchoire affamée",
+			"7": "Fauces hambrientas",
+			"8": "허기진 큰턱",
+			"11": "飢えたモー"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"DrownedCrewUnarmed_": {
+		"names": {
+			"1": "Lost Crewman",
+			"2": "Tripulante Perdido",
+			"3": "Пропавший матрос",
+			"4": "Lost Crewman",
+			"5": "Verlorenes Besatzungsmitglied",
+			"6": "Homme d'équipage perdu",
+			"7": "Tripulante perdido",
+			"8": "사라진 노잡이",
+			"11": "行方知れずの船員"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"DrownedCrewUnarmedBarrelEncounter": {
+		"names": {
+			"1": "Drowned Crewman",
+			"2": "Tripulante Afogado",
+			"3": "Утонувший матрос",
+			"4": "Drowned Crewman",
+			"5": "Ertrunkenes Besatzungsmitglied",
+			"6": "Homme d'équipage noyé",
+			"7": "Tripulante ahogado",
+			"8": "익사자 노잡이",
+			"11": "溺死した船員"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"DrownedCrewUnarmedGraveEncounter": {
+		"names": {
+			"1": "Bloated Crewman",
+			"2": "Tripulante Inchado",
+			"3": "Раздувшийся матрос",
+			"4": "Bloated Crewman",
+			"5": "Aufgedunsenes Besatzungsmitglied",
+			"6": "Homme d'équipage boursouflé",
+			"7": "Tripulante hinchado",
+			"8": "불어 터진 노잡이",
+			"11": "膨れ上がった船員"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"DrownedCrewAxe": {
+		"names": {
+			"1": "Lost Crewman",
+			"2": "Tripulante Perdido",
+			"3": "Пропавший матрос",
+			"4": "Lost Crewman",
+			"5": "Verlorenes Besatzungsmitglied",
+			"6": "Homme d'équipage perdu",
+			"7": "Tripulante perdido",
+			"8": "사라진 노잡이",
+			"11": "行方知れずの船員"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"DrownedCrewAxeBarrelEncounter": {
+		"names": {
+			"1": "Drowned Crewman",
+			"2": "Tripulante Afogado",
+			"3": "Утонувший матрос",
+			"4": "Drowned Crewman",
+			"5": "Ertrunkenes Besatzungsmitglied",
+			"6": "Homme d'équipage noyé",
+			"7": "Tripulante ahogado",
+			"8": "익사자 노잡이",
+			"11": "溺死した船員"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"DrownedCrewHarpoon": {
+		"names": {
+			"1": "Lost Crewman",
+			"2": "Tripulante Perdido",
+			"3": "Пропавший матрос",
+			"4": "Lost Crewman",
+			"5": "Verlorenes Besatzungsmitglied",
+			"6": "Homme d'équipage perdu",
+			"7": "Tripulante perdido",
+			"8": "사라진 노잡이",
+			"11": "行方知れずの船員"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"DrownedCrewHarpoonBarrelEncounter": {
+		"names": {
+			"1": "Drowned Crewman",
+			"2": "Tripulante Afogado",
+			"3": "Утонувший матрос",
+			"4": "Drowned Crewman",
+			"5": "Ertrunkenes Besatzungsmitglied",
+			"6": "Homme d'équipage noyé",
+			"7": "Tripulante ahogado",
+			"8": "익사자 노잡이",
+			"11": "溺死した船員"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"DrownedCrewSlam": {
+		"names": {
+			"1": "Lost Boatswain",
+			"2": "Contramestre Perdido",
+			"3": "Пропавший боцман",
+			"4": "Lost Boatswain",
+			"5": "Verlorener Bootsmann",
+			"6": "Maître d'équipage perdu",
+			"7": "Contramaestre perdido",
+			"8": "사라진 갑판장",
+			"11": "行方知れずの甲板長"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"DrownedCrewUnarmedSpectre": {
+		"names": {
+			"1": "Lost Crewman",
+			"2": "Tripulante Perdido",
+			"3": "Пропавший матрос",
+			"4": "Lost Crewman",
+			"5": "Verlorenes Besatzungsmitglied",
+			"6": "Homme d'équipage perdu",
+			"7": "Tripulante perdido",
+			"8": "사라진 노잡이",
+			"11": "行方知れずの船員"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"DrownedCrewAxeSpectre": {
+		"names": {
+			"1": "Lost Crewman",
+			"2": "Tripulante Perdido",
+			"3": "Пропавший матрос",
+			"4": "Lost Crewman",
+			"5": "Verlorenes Besatzungsmitglied",
+			"6": "Homme d'équipage perdu",
+			"7": "Tripulante perdido",
+			"8": "사라진 노잡이",
+			"11": "行方知れずの船員"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"DrownedCrewHarpoonSpectre": {
+		"names": {
+			"1": "Lost Crewman",
+			"2": "Tripulante Perdido",
+			"3": "Пропавший матрос",
+			"4": "Lost Crewman",
+			"5": "Verlorenes Besatzungsmitglied",
+			"6": "Homme d'équipage perdu",
+			"7": "Tripulante perdido",
+			"8": "사라진 노잡이",
+			"11": "行方知れずの船員"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"DrownedCrewSlamSpectre": {
+		"names": {
+			"1": "Lost Boatswain",
+			"2": "Contramestre Perdido",
+			"3": "Пропавший боцман",
+			"4": "Lost Boatswain",
+			"5": "Verlorener Bootsmann",
+			"6": "Maître d'équipage perdu",
+			"7": "Contramaestre perdido",
+			"8": "사라진 갑판장",
+			"11": "行方知れずの甲板長"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"CoralGolem": {
+		"names": {
+			"1": "Living Coral",
+			"2": "Coral Vivo",
+			"3": "Живой коралл",
+			"4": "Living Coral",
+			"5": "Lebendige Koralle",
+			"6": "Corail vivant",
+			"7": "Coral viviente",
+			"8": "살아있는 산호",
+			"11": "命を持ったサンゴ"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"CoralGolemSpectre": {
+		"names": {
+			"1": "Living Coral",
+			"2": "Coral Vivo",
+			"3": "Живой коралл",
+			"4": "Living Coral",
+			"5": "Lebendige Koralle",
+			"6": "Corail vivant",
+			"7": "Coral viviente",
+			"8": "살아있는 산호",
+			"11": "命を持ったサンゴ"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"CoralGolemEncounter": {
+		"names": {
+			"1": "Living Coral",
+			"2": "Coral Vivo",
+			"3": "Живой коралл",
+			"4": "Living Coral",
+			"5": "Lebendige Koralle",
+			"6": "Corail vivant",
+			"7": "Coral viviente",
+			"8": "살아있는 산호",
+			"11": "命を持ったサンゴ"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"EncounterAtlasDaemon": {
+		"names": {
+			"1": "Daemon",
+			"2": "Daímôn",
+			"3": "Демон",
+			"4": "ปีศาจ",
+			"5": "Dämon",
+			"6": "Démon",
+			"7": "Demonio",
+			"8": "다이몬",
+			"11": "デーモン"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"BrinerotSpearman": {
+		"names": {
+			"1": "Brinerot Whaler",
+			"2": "Baleeiro da Salmoura Podre",
+			"3": "Китобой из Морской гнили",
+			"4": "Brinerot Whaler",
+			"5": "Gischtfäulnis-Walfänger",
+			"6": "Baleinier selrance",
+			"7": "Ballenero salmuera",
+			"8": "부패한 염수단 고래잡이",
+			"11": "ブラインロットの捕鯨者"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"BrinerotSpearmanEncounter": {
+		"names": {
+			"1": "Brinerot Whaler",
+			"2": "Baleeiro da Salmoura Podre",
+			"3": "Китобой из Морской гнили",
+			"4": "Brinerot Whaler",
+			"5": "Gischtfäulnis-Walfänger",
+			"6": "Baleinier selrance",
+			"7": "Ballenero salmuera",
+			"8": "부패한 염수단 고래잡이",
+			"11": "ブラインロットの捕鯨者"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"BrinerotSpearmanEncounterBarrel": {
+		"names": {
+			"1": "Brinerot Whaler",
+			"2": "Baleeiro da Salmoura Podre",
+			"3": "Китобой из Морской гнили",
+			"4": "Brinerot Whaler",
+			"5": "Gischtfäulnis-Walfänger",
+			"6": "Baleinier selrance",
+			"7": "Ballenero salmuera",
+			"8": "부패한 염수단 고래잡이",
+			"11": "ブラインロットの捕鯨者"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"BrinerotSpearmanSpectre": {
+		"names": {
+			"1": "Brinerot Whaler",
+			"2": "Baleeiro da Salmoura Podre",
+			"3": "Китобой из Морской гнили",
+			"4": "Brinerot Whaler",
+			"5": "Gischtfäulnis-Walfänger",
+			"6": "Baleinier selrance",
+			"7": "Ballenero salmuera",
+			"8": "부패한 염수단 고래잡이",
+			"11": "ブラインロットの捕鯨者"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"BrinerotJavelineer": {
+		"names": {
+			"1": "Brinerot Harpooner",
+			"2": "Arpoeiro da Salmoura Podre",
+			"3": "Гарпунщик из Морской гнили",
+			"4": "Brinerot Harpooner",
+			"5": "Gischtfäulnis-Harpunierer",
+			"6": "Harponneur selrance",
+			"7": "Arponero salmuera",
+			"8": "부패한 염수단 작살꾼",
+			"11": "ブラインロット・ハープナー"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"BrinerotJavelineerEncounter": {
+		"names": {
+			"1": "Brinerot Harpooner",
+			"2": "Arpoeiro da Salmoura Podre",
+			"3": "Гарпунщик из Морской гнили",
+			"4": "Brinerot Harpooner",
+			"5": "Gischtfäulnis-Harpunierer",
+			"6": "Harponneur selrance",
+			"7": "Arponero salmuera",
+			"8": "부패한 염수단 작살꾼",
+			"11": "ブラインロット・ハープナー"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"BrinerotJavelineerEncounterBarrel": {
+		"names": {
+			"1": "Brinerot Harpooner",
+			"2": "Arpoeiro da Salmoura Podre",
+			"3": "Гарпунщик из Морской гнили",
+			"4": "Brinerot Harpooner",
+			"5": "Gischtfäulnis-Harpunierer",
+			"6": "Harponneur selrance",
+			"7": "Arponero salmuera",
+			"8": "부패한 염수단 작살꾼",
+			"11": "ブラインロット・ハープナー"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"BrinerotJavelineerSpectre": {
+		"names": {
+			"1": "Brinerot Harpooner",
+			"2": "Arpoeiro da Salmoura Podre",
+			"3": "Гарпунщик из Морской гнили",
+			"4": "Brinerot Harpooner",
+			"5": "Gischtfäulnis-Harpunierer",
+			"6": "Harponneur selrance",
+			"7": "Arponero salmuera",
+			"8": "부패한 염수단 작살꾼",
+			"11": "ブラインロット・ハープナー"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"BrinerotSwordsman": {
+		"names": {
+			"1": "Brinerot Corsair",
+			"2": "Corsário da Salmoura Podre",
+			"3": "Корсар из Морской гнили",
+			"4": "Brinerot Corsair",
+			"5": "Gischtfäulnis-Seeräuber",
+			"6": "Corsaire selrance",
+			"7": "Corsario salmuera",
+			"8": "부패한 염수단 해적",
+			"11": "ブラインロットの海賊"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"BrinerotSwordsmanEncounter": {
+		"names": {
+			"1": "Brinerot Corsair",
+			"2": "Corsário da Salmoura Podre",
+			"3": "Корсар из Морской гнили",
+			"4": "Brinerot Corsair",
+			"5": "Gischtfäulnis-Seeräuber",
+			"6": "Corsaire selrance",
+			"7": "Corsario salmuera",
+			"8": "부패한 염수단 해적",
+			"11": "ブラインロットの海賊"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"BrinerotSwordsmanEncounterBarrel_": {
+		"names": {
+			"1": "Brinerot Corsair",
+			"2": "Corsário da Salmoura Podre",
+			"3": "Корсар из Морской гнили",
+			"4": "Brinerot Corsair",
+			"5": "Gischtfäulnis-Seeräuber",
+			"6": "Corsaire selrance",
+			"7": "Corsario salmuera",
+			"8": "부패한 염수단 해적",
+			"11": "ブラインロットの海賊"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"BrinerotSwordsmanSpectre": {
+		"names": {
+			"1": "Brinerot Corsair",
+			"2": "Corsário da Salmoura Podre",
+			"3": "Корсар из Морской гнили",
+			"4": "Brinerot Corsair",
+			"5": "Gischtfäulnis-Seeräuber",
+			"6": "Corsaire selrance",
+			"7": "Corsario salmuera",
+			"8": "부패한 염수단 해적",
+			"11": "ブラインロットの海賊"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"FriendlyJellyfish": {
+		"names": {
+			"1": "Friendly Jellyfish",
+			"2": "Água-viva Camarada",
+			"3": "Дружелюбная медуза",
+			"4": "Friendly Jellyfish",
+			"5": "Freundliche Qualle",
+			"6": "Méduse amicale",
+			"7": "Medusa amigable",
+			"8": "살가운 해파리",
+			"11": "友好的なクラゲ"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"FriendlyJellyfishSpectre": {
+		"names": {
+			"1": "Friendly Jellyfish",
+			"2": "Água-viva Camarada",
+			"3": "Дружелюбная медуза",
+			"4": "Friendly Jellyfish",
+			"5": "Freundliche Qualle",
+			"6": "Méduse amicale",
+			"7": "Medusa amigable",
+			"8": "살가운 해파리",
+			"11": "友好的なクラゲ"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"AbyssPinnacleBoss": {
+		"names": {
+			"1": "Zorath, Vile Assembled",
+			"2": "Zorath, Amálgama Perversa",
+			"3": "Зорат, Нечистый собранный",
+			"4": "โซแรธ ส่วนประกอบสามานย์",
+			"5": "Zorath, die Versammlung des Bösen",
+			"6": "Zorath, l'Assemblage abominable",
+			"7": "Zorath, Amalgama de vileza",
+			"8": "끔찍한 조립물, 조라스",
+			"11": "邪悪な集合体、ゾラス"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"AbyssPinnacleBossTotem": {
+		"names": {
+			"1": "Crystal Phylactery",
+			"2": "Filactério de Cristal",
+			"3": "Кристальный филактерий",
+			"4": "คริสตัลกักวิญญาณ",
+			"5": "Kristalline Phylakterie",
+			"6": "Phylactère de cristal",
+			"7": "Filacteria de cristal",
+			"8": "수정 성구함",
+			"11": "クリスタル・フィラクタリー"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"AbyssLichBossTotem": {
+		"names": {
+			"1": "Crystal Phylactery",
+			"2": "Filactério de Cristal",
+			"3": "Кристальный филактерий",
+			"4": "คริสตัลกักวิญญาณ",
+			"5": "Kristalline Phylakterie",
+			"6": "Phylactère de cristal",
+			"7": "Filacteria de cristal",
+			"8": "수정 성구함",
+			"11": "クリスタル・フィラクタリー"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"AbyssPinnacleHalfSkeleton": {
+		"names": {
+			"1": "Volatile Skeleton",
+			"2": "Esqueleto Volátil",
+			"3": "Нестабильный скелет",
+			"4": "Volatile Skeleton",
+			"5": "Instabiles Skelett",
+			"6": "Squelette instable",
+			"7": "Esqueleto volátil",
+			"8": "폭발성 해골",
+			"11": "ボラタイルスケルトン"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"AbyssalSpire": {
+		"names": {
+			"1": "Crystal Spire",
+			"2": "Torre de Cristal",
+			"3": "Кристальный шпиль",
+			"4": "ยอดแหลมคริสตัล",
+			"5": "Kristallspitze",
+			"6": "Cime de cristal",
+			"7": "Aguja de cristal",
+			"8": "수정 첨탑",
+			"11": "クリスタル・スパイア"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"AbyssalSpireDepths": {
+		"names": {
+			"1": "Crystal Spire",
+			"2": "Torre de Cristal",
+			"3": "Кристальный шпиль",
+			"4": "ยอดแหลมคริสตัล",
+			"5": "Kristallspitze",
+			"6": "Cime de cristal",
+			"7": "Aguja de cristal",
+			"8": "수정 첨탑",
+			"11": "クリスタル・スパイア"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"Cretin": {
+		"names": {
+			"1": "Blackblooded Cretin",
+			"2": "Idiota Sangue-negro",
+			"3": "Чернокровный слабоумный",
+			"4": "Blackblooded Cretin",
+			"5": "Schwarzblütiger Kretin",
+			"6": "Crétin au sang noir",
+			"7": "Cretino sangrenegra",
+			"8": "검은 피의 백치",
+			"11": "ブラックブラッドクレティン"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"Cocoon": {
+		"names": {
+			"1": "Lightless Abomination",
+			"2": "Abominação Obscurecida",
+			"3": "Бессветное отродье",
+			"4": "Lightless Abomination",
+			"5": "Lichtlose Abscheulichkeit",
+			"6": "Abomionation sans-lumière",
+			"7": "Abominación oscura",
+			"8": "무광의 흉물",
+			"11": "光なきアボミネーション"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"CocoonDeepwater": {
+		"names": {
+			"1": "Lightless Abomination",
+			"2": "Abominação Obscurecida",
+			"3": "Бессветное отродье",
+			"4": "Lightless Abomination",
+			"5": "Lichtlose Abscheulichkeit",
+			"6": "Abomionation sans-lumière",
+			"7": "Abominación oscura",
+			"8": "무광의 흉물",
+			"11": "光なきアボミネーション"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"HuHuGrubLarvae": {
+		"names": {
+			"1": "Flesh Larva",
+			"2": "Larva da Carne",
+			"3": "Плотоядная личинка",
+			"4": "Flesh Larva",
+			"5": "Fleischlarve",
+			"6": "Larve charnue",
+			"7": "Larva carnosa",
+			"8": "살점 유생",
+			"11": "肉の幼虫"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"HuHuGrubLarvaeDeepwater": {
+		"names": {
+			"1": "Flesh Larva",
+			"2": "Larva da Carne",
+			"3": "Плотоядная личинка",
+			"4": "Flesh Larva",
+			"5": "Fleischlarve",
+			"6": "Larve charnue",
+			"7": "Larva carnosa",
+			"8": "살점 유생",
+			"11": "肉の幼虫"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"HuHuGrubLarvaeLarge": {
+		"names": {
+			"1": "Flesh Larva",
+			"2": "Larva da Carne",
+			"3": "Плотоядная личинка",
+			"4": "Flesh Larva",
+			"5": "Fleischlarve",
+			"6": "Larve charnue",
+			"7": "Larva carnosa",
+			"8": "살점 유생",
+			"11": "肉の幼虫"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"HuHuGrubLarvaeLargeDeepwater": {
+		"names": {
+			"1": "Flesh Larva",
+			"2": "Larva da Carne",
+			"3": "Плотоядная личинка",
+			"4": "Flesh Larva",
+			"5": "Fleischlarve",
+			"6": "Larve charnue",
+			"7": "Larva carnosa",
+			"8": "살점 유생",
+			"11": "肉の幼虫"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"PaleWalker01": {
+		"names": {
+			"1": "Abyssal Walker",
+			"2": "Caminhante Abissal",
+			"3": "Глубинный ходок",
+			"4": "Abyssal Walker",
+			"5": "Abgründiger Wanderer",
+			"6": "Marcheur abyssal",
+			"7": "Caminante abisal",
+			"8": "심연의 보행자",
+			"11": "アビサルウォーカー"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"PaleWalker01Deepwater": {
+		"names": {
+			"1": "Abyssal Walker",
+			"2": "Caminhante Abissal",
+			"3": "Глубинный ходок",
+			"4": "Abyssal Walker",
+			"5": "Abgründiger Wanderer",
+			"6": "Marcheur abyssal",
+			"7": "Caminante abisal",
+			"8": "심연의 보행자",
+			"11": "アビサルウォーカー"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"PaleWalker03": {
+		"names": {
+			"1": "Abyssal Strangler",
+			"2": "Estrangulador Abissal",
+			"3": "Глубинный душитель",
+			"4": "Abyssal Strangler",
+			"5": "Abgründiger Würger",
+			"6": "Étrangleur abyssal",
+			"7": "Estrangulador abisal",
+			"8": "심연의 교살자",
+			"11": "アビサルストラングラー"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"PaleWalker03Deepwater_": {
+		"names": {
+			"1": "Abyssal Strangler",
+			"2": "Estrangulador Abissal",
+			"3": "Глубинный душитель",
+			"4": "Abyssal Strangler",
+			"5": "Abgründiger Würger",
+			"6": "Étrangleur abyssal",
+			"7": "Estrangulador abisal",
+			"8": "심연의 교살자",
+			"11": "アビサルストラングラー"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"Collector": {
+		"names": {
+			"1": "Blackblooded Proboscite",
+			"2": "Probóscide Sangue-negro",
+			"3": "Чернокровный язычник",
+			"4": "Blackblooded Proboscite",
+			"5": "Schwarzblütiger Rüsselsauger",
+			"6": "Proboscide au sang noir",
+			"7": "Proboscidio sangrenegra",
+			"8": "검은 피의 주둥이충",
+			"11": "ブラックブラッドプロブサイト"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"SerpentClanCaster": {
+		"names": {
+			"1": "Lightless Serpent",
+			"2": "Serpente Obscurecida",
+			"3": "Бессветная змея",
+			"4": "Lightless Serpent",
+			"5": "Lichtlose Schlange",
+			"6": "Serpent sans-lumière",
+			"7": "Serpiente oscura",
+			"8": "무광의 독사",
+			"11": "ライフレス・サーペント"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"SerpentClanCasterDeepwater": {
+		"names": {
+			"1": "Lightless Serpent",
+			"2": "Serpente Obscurecida",
+			"3": "Бессветная змея",
+			"4": "Lightless Serpent",
+			"5": "Lichtlose Schlange",
+			"6": "Serpent sans-lumière",
+			"7": "Serpiente oscura",
+			"8": "무광의 독사",
+			"11": "ライフレス・サーペント"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"FungalArtillery_": {
+		"names": {
+			"1": "Fungoid of the Pit",
+			"2": "Fungoide do Fosso",
+			"3": "Ямный фунгоид",
+			"4": "Fungoid of the Pit",
+			"5": "Pilz der Grube",
+			"6": "Fongueux de la Fosse",
+			"7": "Seta del foso",
+			"8": "구덩이의 진균종",
+			"11": "奈落の菌類"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"FungalArtilleryDeepwater": {
+		"names": {
+			"1": "Fungoid of the Pit",
+			"2": "Fungoide do Fosso",
+			"3": "Ямный фунгоид",
+			"4": "Fungoid of the Pit",
+			"5": "Pilz der Grube",
+			"6": "Fongueux de la Fosse",
+			"7": "Seta del foso",
+			"8": "구덩이의 진균종",
+			"11": "奈落の菌類"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"CorpseStrider": {
+		"names": {
+			"1": "Strider of the Pit",
+			"2": "Andarilho do Fosso",
+			"3": "Ямная бродяжница",
+			"4": "Strider of the Pit",
+			"5": "Läufer der Grube",
+			"6": "Arpenteur de la Fosse",
+			"7": "Caminante del foso",
+			"8": "구덩이의 질주자",
+			"11": "奈落のストライダー"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"CorpseStriderDeepwater": {
+		"names": {
+			"1": "Strider of the Pit",
+			"2": "Andarilho do Fosso",
+			"3": "Ямная бродяжница",
+			"4": "Strider of the Pit",
+			"5": "Läufer der Grube",
+			"6": "Arpenteur de la Fosse",
+			"7": "Caminante del foso",
+			"8": "구덩이의 질주자",
+			"11": "奈落のストライダー"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"AbyssTwoRumCarrier": {
+		"names": {
+			"1": "Blackblooded Blisterboil",
+			"2": "Ferida Bolhosa Sangue-negro",
+			"3": "Чернокровный волдырник",
+			"4": "Blackblooded Blisterboil",
+			"5": "Schwarzblütige Blasenbeule",
+			"6": "Furoncle au sang noir",
+			"7": "Pustuloso sangrenegra",
+			"8": "검은 피의 고름물집",
+			"11": "ブラックブラッドブリスターボイル"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"MonolithicSlug": {
+		"names": {
+			"1": "Consort of the Depths",
+			"2": "Consorte das Profundezas",
+			"3": "Спутница глубин",
+			"4": "คู่ครองเบื้องลึก",
+			"5": "Gemahlin der Tiefen",
+			"6": "Consort des Profondeurs",
+			"7": "La consorte de las profundidades",
+			"8": "지하의 배우자",
+			"11": "深淵のコンソート"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"MonolithicSlugDepths": {
+		"names": {
+			"1": "Consort of the Depths",
+			"2": "Consorte das Profundezas",
+			"3": "Спутница глубин",
+			"4": "คู่ครองเบื้องลึก",
+			"5": "Gemahlin der Tiefen",
+			"6": "Consort des Profondeurs",
+			"7": "La consorte de las profundidades",
+			"8": "지하의 배우자",
+			"11": "深淵のコンソート"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"Tarhulk": {
+		"names": {
+			"1": "Blackblooded Tarhulk",
+			"2": "Colosso de Piche Sangue-negro",
+			"3": "Чернокровный смоляной гигант",
+			"4": "Blackblooded Tarhulk",
+			"5": "Schwarzblütiger Teerhaufen",
+			"6": "Mastogoudron au sang noir",
+			"7": "Coloso alquitranado sangrenegra",
+			"8": "검은 피의 타르거한",
+			"11": "ブラックブラッドターハルク"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"TarhulkDeepwater": {
+		"names": {
+			"1": "Blackblooded Tarhulk",
+			"2": "Colosso de Piche Sangue-negro",
+			"3": "Чернокровный смоляной гигант",
+			"4": "Blackblooded Tarhulk",
+			"5": "Schwarzblütiger Teerhaufen",
+			"6": "Mastogoudron au sang noir",
+			"7": "Coloso alquitranado sangrenegra",
+			"8": "검은 피의 타르거한",
+			"11": "ブラックブラッドターハルク"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"PrimordialMonster02": {
+		"names": {
+			"1": "Hound of the Pit",
+			"2": "Cão do Fosso",
+			"3": "Ямная гончая",
+			"4": "Hound of the Pit",
+			"5": "Hund der Grube",
+			"6": "Molosse de la Fosse",
+			"7": "Sabueso del foso",
+			"8": "구덩이의 사냥개",
+			"11": "奈落の猟犬"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"PrimordialMonster03": {
+		"names": {
+			"1": "Primordium of the Pit",
+			"2": "Primórdio do Fosso",
+			"3": "Ямный первородный",
+			"4": "Primordium of the Pit",
+			"5": "Primordium der Grube",
+			"6": "Primordium de la Fosse",
+			"7": "Primordio del foso",
+			"8": "구덩이의 원시세포",
+			"11": "奈落のプリモーディアム"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
+	"CrystalDaemon_": {
+		"names": {
+			"1": "Abyssal Crystal",
+			"2": "Cristal Abissal",
+			"3": "Кристалл Бездны",
+			"4": "คริสตัลอะบิส",
+			"5": "Abgründiger Kristall",
+			"6": "Cristal abyssal",
+			"7": "Cristal abisal",
+			"8": "심연 수정",
+			"11": "アビサルクリスタル"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
 	"ChayulaFirestormDaemon_": {
 		"names": {
 			"1": "Daemon",
@@ -237992,6 +241808,22 @@
 		"width": 1,
 		"height": 1
 	},
+	"SummonVentorsDelayDaemon": {
+		"names": {
+			"1": "Daemon",
+			"2": "Daímôn",
+			"3": "Демон",
+			"4": "ปีศาจ",
+			"5": "Dämon",
+			"6": "Démon",
+			"7": "Demonio",
+			"8": "다이몬",
+			"11": "デーモン"
+		},
+		"category": "monster.beast",
+		"width": 1,
+		"height": 1
+	},
 	"UniqueMap1": {
 		"names": {
 			"1": "Vaults of Atziri",
@@ -238004,7 +241836,6 @@
 			"8": "앗지리의 금고실",
 			"11": "アッツィリの宝物庫"
 		},
-		"image": "/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9VbmlxdWVNYXAxIiwidyI6MSwiaCI6MSwic2NhbGUiOjEsIm1uIjoyNCwibXQiOjB9XQ/d042ce3df2/UniqueMap1.png",
 		"category": "map",
 		"width": 1,
 		"height": 1
@@ -238021,7 +241852,6 @@
 			"8": "혼돈의 마엘스트롬",
 			"11": "混沌の渦"
 		},
-		"image": "/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9NYWVsc3Ryb21vZkNoYW9zIiwidyI6MSwiaCI6MSwic2NhbGUiOjEsIm1uIjoyNCwibXQiOjB9XQ/5f59e895c9/MaelstromofChaos.png",
 		"category": "map",
 		"width": 1,
 		"height": 1
@@ -238038,7 +241868,6 @@
 			"8": "겁쟁이의 시험",
 			"11": "臆病者の試練"
 		},
-		"image": "/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9VbmRlYWRTaWVnZSIsInciOjEsImgiOjEsInNjYWxlIjoxLCJtbiI6MjQsIm10IjowfV0/b2817756b4/UndeadSiege.png",
 		"category": "map",
 		"width": 1,
 		"height": 1
@@ -238055,7 +241884,6 @@
 			"8": "액턴의 악몽",
 			"11": "アクトンの悪夢"
 		},
-		"image": "/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9tdXNpY2JveCIsInciOjEsImgiOjEsInNjYWxlIjoxLCJtbiI6MjQsIm10IjowfV0/2eb6b89311/musicbox.png",
 		"category": "map",
 		"width": 1,
 		"height": 1
@@ -238072,7 +241900,6 @@
 			"8": "푸어조이의 은신처",
 			"11": "プアジョイの収容所"
 		},
-		"image": "/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9Qb29yam95c0FzeWx1bSIsInciOjEsImgiOjEsInNjYWxlIjoxLCJtbiI6MjQsIm10IjowfV0/87575db134/PoorjoysAsylum.png",
 		"category": "map",
 		"width": 1,
 		"height": 1
@@ -238089,7 +241916,6 @@
 			"8": "마오 쿤",
 			"11": "マオ・クン"
 		},
-		"image": "/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9GYWlyZ3JhdmVzTWFwMDEiLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MSwibW4iOjI0LCJtdCI6MH1d/e4060f2188/FairgravesMap01.png",
 		"category": "map",
 		"width": 1,
 		"height": 1
@@ -238106,7 +241932,6 @@
 			"8": "오바의 저주받은 전리품",
 			"11": "オバの呪われた財宝"
 		},
-		"image": "/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9vYmEiLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MSwibW4iOjI0LCJtdCI6MH1d/78a07b14c6/oba.png",
 		"category": "map",
 		"width": 1,
 		"height": 1
@@ -238123,7 +241948,6 @@
 			"8": "올멕의 지성소",
 			"11": "オルメカの聖所"
 		},
-		"image": "/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9vbG1lYyIsInciOjEsImgiOjEsInNjYWxlIjoxLCJtbiI6MjQsIm10IjowfV0/061791da75/olmec.png",
 		"category": "map",
 		"width": 1,
 		"height": 1
@@ -238140,7 +241964,6 @@
 			"8": "때묻지 않은 낙원",
 			"11": "汚れなき楽園"
 		},
-		"image": "/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9VbmlxdWVNYXAyIiwidyI6MSwiaCI6MSwic2NhbGUiOjEsIm1uIjoyNCwibXQiOjB9XQ/f5f6ab5f4e/UniqueMap2.png",
 		"category": "map",
 		"width": 1,
 		"height": 1
@@ -238157,7 +241980,6 @@
 			"8": "죽음과 의무",
 			"11": "死と税金"
 		},
-		"image": "/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9EZWF0aGFuZFRheGVzIiwidyI6MSwiaCI6MSwic2NhbGUiOjEsIm1uIjoyNCwibXQiOjB9XQ/2d20eafe4c/DeathandTaxes.png",
 		"category": "map",
 		"width": 1,
 		"height": 1
@@ -238174,7 +241996,6 @@
 			"8": "와카와 투아후",
 			"11": "ファカワイルア・トゥアーフ"
 		},
-		"image": "/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9VbmlxdWVNYXBFeWUiLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MSwibW4iOjI0LCJtdCI6MH1d/4c106d0ed6/UniqueMapEye.png",
 		"category": "map",
 		"width": 1,
 		"height": 1
@@ -238191,7 +242012,6 @@
 			"8": "명인의 전당",
 			"11": "グランドマスターの殿堂"
 		},
-		"image": "/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9IYWxsT2ZHcmFuZG1hc3RlcnMiLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MSwibW4iOjI0LCJtdCI6MH1d/84d3aa60be/HallOfGrandmasters.png",
 		"category": "map",
 		"width": 1,
 		"height": 1
@@ -238208,7 +242028,6 @@
 			"8": "빙타 광장",
 			"11": "ヴィンクターの広場"
 		},
-		"image": "/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9UaGVWaW5rdGFyU3F1YXJlIiwidyI6MSwiaCI6MSwic2NhbGUiOjEsIm1uIjoyNCwibXQiOjB9XQ/95b91cc554/TheVinktarSquare.png",
 		"category": "map",
 		"width": 1,
 		"height": 1
@@ -238225,7 +242044,6 @@
 			"8": "캐어블레이드 늑대의 소굴",
 			"11": "カーイルブライズ・群狼の巣"
 		},
-		"image": "/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9Xb2xmTWFwIiwidyI6MSwiaCI6MSwic2NhbGUiOjEsIm1uIjoyNCwibXQiOjB9XQ/294b8c909d/WolfMap.png",
 		"category": "map",
 		"width": 1,
 		"height": 1
@@ -238242,7 +242060,6 @@
 			"8": "페란두스 저택",
 			"11": "ペランダスの邸宅"
 		},
-		"image": "/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9QZXJhbmR1c01hbm9yIiwidyI6MSwiaCI6MSwic2NhbGUiOjEsIm1uIjoyMiwibXQiOjB9XQ/b9c363365f/PerandusManor.png",
 		"category": "map",
 		"width": 1,
 		"height": 1
@@ -238259,7 +242076,6 @@
 			"8": "악취 나는 수도원",
 			"11": "邪悪な学園"
 		},
-		"image": "/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9QdXRyaWRDbG9pc3RlciIsInciOjEsImgiOjEsInNjYWxlIjoxLCJtbiI6MjQsIm10IjowfV0/51f3f79997/PutridCloister.png",
 		"category": "map",
 		"width": 1,
 		"height": 1
@@ -238276,7 +242092,6 @@
 			"8": "거룩한 대지",
 			"11": "聖地"
 		},
-		"image": "/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9IYWxsb3dlZEdyb3VuZCIsInciOjEsImgiOjEsInNjYWxlIjoxLCJtbiI6MjQsIm10IjowfV0/439c2d202f/HallowedGround.png",
 		"category": "map",
 		"width": 1,
 		"height": 1
@@ -238293,7 +242108,6 @@
 			"8": "교두보",
 			"11": "侵攻拠点"
 		},
-		"image": "/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9IYXJiaW5nZXJZZWxsb3ciLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MSwibW4iOjIzLCJtdCI6MH1d/886c4226ae/HarbingerYellow.png",
 		"category": "map",
 		"width": 1,
 		"height": 1
@@ -238310,7 +242124,6 @@
 			"8": "교두보",
 			"11": "侵攻拠点"
 		},
-		"image": "/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9IYXJiaW5nZXJZZWxsb3ciLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MSwibW4iOjIzLCJtdCI6MH1d/886c4226ae/HarbingerYellow.png",
 		"category": "map",
 		"width": 1,
 		"height": 1
@@ -238327,7 +242140,6 @@
 			"8": "교두보",
 			"11": "侵攻拠点"
 		},
-		"image": "/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9IYXJiaW5nZXJZZWxsb3ciLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MSwibW4iOjIzLCJtdCI6MH1d/886c4226ae/HarbingerYellow.png",
 		"category": "map",
 		"width": 1,
 		"height": 1
@@ -238344,7 +242156,6 @@
 			"8": "황혼의 사원",
 			"11": "黄昏の寺院"
 		},
-		"image": "/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9DZWxlc3RpYWwiLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MSwibW4iOjI0LCJtdCI6MH1d/f5166d981e/Celestial.png",
 		"category": "map",
 		"width": 1,
 		"height": 1
@@ -238361,7 +242172,6 @@
 			"8": "도리아니의 기계실",
 			"11": "ドリヤニのマシナリウム"
 		},
-		"image": "/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9Eb3J5YW5pcyIsInciOjEsImgiOjEsInNjYWxlIjoxLCJtbiI6MjQsIm10IjowfV0/ba4df2e497/Doryanis.png",
 		"category": "map",
 		"width": 1,
 		"height": 1
@@ -238378,7 +242188,6 @@
 			"8": "아룬의 기둥",
 			"11": "アルンの柱"
 		},
-		"image": "/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9QaWxsYXJzT2ZWYXN0aXJpIiwidyI6MSwiaCI6MSwic2NhbGUiOjEsIm1uIjoyNCwibXQiOjB9XQ/70c5f7ccce/PillarsOfVastiri.png",
 		"category": "map",
 		"width": 1,
 		"height": 1
@@ -238395,7 +242204,6 @@
 			"8": "뒤바뀐 희미한 기억",
 			"11": "改変された遠い記憶"
 		},
-		"image": "/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9TeW50aGVzaXNDb2xkR3VhcmRpYW5NYXAiLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MSwibW4iOjI0LCJtdCI6MH1d/605ef3f51c/SynthesisColdGuardianMap.png",
 		"category": "map",
 		"width": 1,
 		"height": 1
@@ -238412,7 +242220,6 @@
 			"8": "강화된 희미한 기억",
 			"11": "増幅された遠い記憶"
 		},
-		"image": "/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9TeW50aGVzaXNGaXJlR3VhcmRpYW5NYXAiLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MSwibW4iOjI0LCJtdCI6MH1d/543f8db0de/SynthesisFireGuardianMap.png",
 		"category": "map",
 		"width": 1,
 		"height": 1
@@ -238429,7 +242236,6 @@
 			"8": "뒤틀린 희미한 기억",
 			"11": "歪められた遠い記憶"
 		},
-		"image": "/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9TeW50aGVzaXNMaWdodG5pbmdHdWFyZGlhbk1hcCIsInciOjEsImgiOjEsInNjYWxlIjoxLCJtbiI6MjQsIm10IjowfV0/6c70284cc4/SynthesisLightningGuardianMap.png",
 		"category": "map",
 		"width": 1,
 		"height": 1
@@ -238446,7 +242252,6 @@
 			"8": "다시 쓰인 희미한 기억",
 			"11": "書き換えられた遠い記憶"
 		},
-		"image": "/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9TeW50aGVzaXNHb2xlbUd1YXJkaWFuTWFwIiwidyI6MSwiaCI6MSwic2NhbGUiOjEsIm1uIjoyNCwibXQiOjB9XQ/f31a999e79/SynthesisGolemGuardianMap.png",
 		"category": "map",
 		"width": 1,
 		"height": 1
@@ -238463,7 +242268,6 @@
 			"8": "코텍스",
 			"11": "コーテクス"
 		},
-		"image": "/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9TeW50aGVzaXNCb3NzR3VhcmRpYW5NYXAiLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MSwibW4iOjI0LCJtdCI6MH1d/bbd69e73c8/SynthesisBossGuardianMap.png",
 		"category": "map",
 		"width": 1,
 		"height": 1
@@ -238480,7 +242284,6 @@
 			"8": "주입된 교두보",
 			"11": "強化された侵攻拠点"
 		},
-		"image": "/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9IYXJiaW5nZXJVYmVyIiwidyI6MSwiaCI6MSwic2NhbGUiOjEsIm1uIjoxNCwibXQiOjB9XQ/089a65c7f4/HarbingerUber.png",
 		"category": "map",
 		"width": 1,
 		"height": 1
@@ -238497,7 +242300,6 @@
 			"8": "코텍스 모조품",
 			"11": "コーテクス（レプリカ）"
 		},
-		"image": "/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9TeW50aGVzaXNCb3NzR3VhcmRpYW5NYXAiLCJ3IjoxLCJoIjoxLCJzY2FsZSI6MSwibW4iOjI0LCJtdCI6MH1d/bbd69e73c8/SynthesisBossGuardianMap.png",
 		"category": "map",
 		"width": 1,
 		"height": 1
@@ -238514,7 +242316,6 @@
 			"8": "아룬의 기둥 모조품",
 			"11": "アルンの柱（レプリカ）"
 		},
-		"image": "/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9QaWxsYXJzT2ZWYXN0aXJpIiwidyI6MSwiaCI6MSwic2NhbGUiOjEsIm1uIjoyNCwibXQiOjB9XQ/70c5f7ccce/PillarsOfVastiri.png",
 		"category": "map",
 		"width": 1,
 		"height": 1
@@ -238531,7 +242332,6 @@
 			"8": "푸어조이의 은신처 모조품",
 			"11": "プアジョイの収容所（レプリカ）"
 		},
-		"image": "/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9Qb29yam95c0FzeWx1bSIsInciOjEsImgiOjEsInNjYWxlIjoxLCJtbiI6MjQsIm10IjowfV0/87575db134/PoorjoysAsylum.png",
 		"category": "map",
 		"width": 1,
 		"height": 1
@@ -238548,8 +242348,23 @@
 			"8": "시련의 탑",
 			"11": "試練の塔"
 		},
-		"image": "/gen/image/WzI4LDE0LHsiZiI6IjJESXRlbXMvTWFwcy9UcmlhbG1hc3Rlck1hcCIsInciOjEsImgiOjEsInNjYWxlIjoxLCJtbiI6MjAsIm10IjowfV0/3c4d7b191b/TrialmasterMap.png",
 		"category": "map",
+		"width": 1,
+		"height": 1
+	},
+	"TransfiguredGem_sweep_alt_x": {
+		"names": {
+			"1": "Holy Sweep of Hammerfalls",
+			"2": "Varrida Sagrada dos Martelos Cadentes",
+			"3": "Священный взмах падающих молотов",
+			"4": "ควงศักดิ์ศิทธิ์แห่งค้อนหล่น \\(Holy Sweep of Hammerfalls\\)",
+			"5": "Heiliger Rundumschlag der Hammereinschläge",
+			"6": "Balayage sacré de la Chute de marteaux",
+			"7": "Barrido sagrado de caídas de martillos",
+			"8": "망치 낙하의 신성한 휩쓸기",
+			"11": "ハンマー落下のホーリースウィープ"
+		},
+		"category": "gem.activegem",
 		"width": 1,
 		"height": 1
 	},
@@ -239246,7 +243061,7 @@
 			"1": "Shockwave Totem of Authority",
 			"2": "Totem Sísmico da Autoridade",
 			"3": "Сотрясающий тотем власти",
-			"4": "โทเทมคลื่นสะท้อนแห่งอำนาจ \\(Shockwave Totem of Authority\\)",
+			"4": "โทเทมคลื่นกระแทกแห่งอำนาจ \\(Shockwave Totem of Authority\\)",
 			"5": "Schockwellen-Totem der Autorität",
 			"6": "Totem sismique de l'Autorité",
 			"7": "Tótem de onda sísmica de autoridad",
@@ -239443,7 +243258,7 @@
 			"6": "Lien ardent de la Détonation",
 			"7": "Atadura abrasadora de detonación",
 			"8": "기폭의 불타는 굴레",
-			"11": "起爆のシーリングボンド"
+			"11": "起爆のシアリングボンド"
 		},
 		"category": "gem.activegem",
 		"width": 1,
@@ -240459,15 +244274,15 @@
 	},
 	"TransfiguredGem_dark_pact_alt_x": {
 		"names": {
-			"1": "Dark Pact of Trarthus",
-			"2": "Pacto Sombrio de Trarthus",
-			"3": "Тёмный договор Тератны",
-			"4": "สัญญามืดแห่งทาร์ทัส \\(Dark Pact of Trarthus\\)",
-			"5": "Finsterer Pakt von Trarthus",
-			"6": "Sombre pacte de Trarthus",
-			"7": "Pacto oscuro de Trarthus",
-			"8": "트라투스의 어둠의 서약",
-			"11": "トラーサスのダークパクト"
+			"1": "Dark Bargain of Trarthus",
+			"2": "Barganha Sombria de Trarthus",
+			"3": "Тёмная сделка Тератны",
+			"4": "คำมั่นมืดแห่งทาร์ทัส \\(Dark Bargain of Trarthus\\)",
+			"5": "Finstere Übereinkunft von Trarthus",
+			"6": "Sombre marché de Trarthus",
+			"7": "Trato oscuro de Trarthus",
+			"8": "트라투스의 어둠의 협상",
+			"11": "トラーサスのダークバーゲン"
 		},
 		"category": "gem.activegem",
 		"width": 1,
@@ -241129,6 +244944,22 @@
 		"width": 1,
 		"height": 1
 	},
+	"TransfiguredGem_chain_hook_alt_x": {
+		"names": {
+			"1": "Chain Hook of Angling",
+			"2": "Corrente de Anzol para Pesca",
+			"3": "Цепной крюк выуживания",
+			"4": "โซ่ล่ามตะขอแห่งการประมง \\(Chain Hook of Anglng\\)",
+			"5": "Kettenhaken des Angelns",
+			"6": "Grappin de la Pêche",
+			"7": "Gancho de cadena de pesca",
+			"8": "낚시의 사슬 갈고리",
+			"11": "釣りのチェーンフック"
+		},
+		"category": "gem.activegem",
+		"width": 1,
+		"height": 1
+	},
 	"TransfiguredGem_chain_hook_alt_y": {
 		"names": {
 			"1": "Chain Hook of Trarthus",
@@ -241369,6 +245200,38 @@
 		"width": 1,
 		"height": 1
 	},
+	"TransfiguredGem_holy_hammers_alt_x": {
+		"names": {
+			"1": "Holy Hammers of Spirals",
+			"2": "Martelos Sagrados das Espirais",
+			"3": "Священные молоты спиралей",
+			"4": "ค้อนศักดิ์สิทธิ์แห่งเกลียว \\(Holy Hammers of Spirals\\)",
+			"5": "Heilige Hämmer der Spirale",
+			"6": "Marteaux sacrés des Spirales",
+			"7": "Martillos sagrados de espirales",
+			"8": "나선의 신성한 망치",
+			"11": "螺旋のホーリーハンマー"
+		},
+		"category": "gem.activegem",
+		"width": 1,
+		"height": 1
+	},
+	"TransfiguredGem_discus_slam_alt_x": {
+		"names": {
+			"1": "Divine Blast of Radiance",
+			"2": "Rajada Divina do Esplendor",
+			"3": "Божественный взрыв света",
+			"4": "ระเบิดเทวาแห่งการเปล่งแสง \\(Divine Blast of Radiance\\)",
+			"5": "Göttliche Explosion der Herrlichkeit",
+			"6": "Déflagration divine de la Radiance",
+			"7": "Explosión divina de resplandor",
+			"8": "광휘의 신성한 폭발",
+			"11": "光輝のディバインブラスト"
+		},
+		"category": "gem.activegem",
+		"width": 1,
+		"height": 1
+	},
 	"TransfiguredGem_penance_brand_alt_x": {
 		"names": {
 			"1": "Penance Brand of Dissipation",
@@ -241572,6 +245435,22 @@
 			"7": "Desangrar de transmisión",
 			"8": "전송의 방혈",
 			"11": "伝染のイグザングイネイト"
+		},
+		"category": "gem.activegem",
+		"width": 1,
+		"height": 1
+	},
+	"TransfiguredGem_reap_alt_x": {
+		"names": {
+			"1": "Reap of Butchery",
+			"2": "Colheita da Carnificina",
+			"3": "Кровавая жатва разделывания",
+			"4": "เคียวเก็บเกี่ยวแห่งการชำแหละ \\(Reap of Butchery\\)",
+			"5": "Sense des Gemetzels",
+			"6": "Fauchage du Massacre",
+			"7": "Siega de carnicería",
+			"8": "도살의 낫질",
+			"11": "屠殺のリープ"
 		},
 		"category": "gem.activegem",
 		"width": 1,

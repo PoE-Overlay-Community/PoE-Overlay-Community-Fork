@@ -1,6 +1,6 @@
 import { ApiStashItem } from '@data/poe'
 import { Observable } from 'rxjs'
-import { Rectangle } from '../../../../core/type/structure.type'
+import { Rectangle } from '../../../../core/type/electron-api.type'
 import { ItemRarity } from './item.type'
 import { StashGridType, TradeItemLocation } from './stash-grid.type'
 

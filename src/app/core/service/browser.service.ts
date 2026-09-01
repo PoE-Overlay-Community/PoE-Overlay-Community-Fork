@@ -1,46 +1,53 @@
 import { Injectable } from '@angular/core'
 import { ElectronProvider } from '@app/provider'
-import { environment } from '@env/environment'
-import { BrowserWindow, Remote } from 'electron'
+import { ElectronService } from '@app/service'
+import { ElectronAPI } from '@app/type/electron-api.type'
 import { Observable, Subject } from 'rxjs'
 import { Dialog, DialogRefService, DialogType } from './dialog/dialog-ref.service'
+
+const BW_TAG = 'browserWindow'
 
 @Injectable({
   providedIn: 'root',
 })
 export class BrowserService {
-  private readonly electron: Remote
+  private readonly electronAPI: ElectronAPI
 
-  constructor(private readonly dialogRef: DialogRefService, electronProvider: ElectronProvider) {
-    this.electron = electronProvider.provideRemote()
+  constructor(
+    private readonly electronService: ElectronService,
+    private readonly dialogRef: DialogRefService,
+    electronProvider: ElectronProvider
+  ) {
+    this.electronAPI = electronProvider.provideElectronAPI()
   }
 
   public retrieve(url: string): Observable<void> {
-    const BrowserWindow = this.electron.BrowserWindow
-    const parent = this.electron.getCurrentWindow()
     const subject = new Subject<void>()
-    const win = new BrowserWindow({
-      parent,
+
+    const windowId = this.electronAPI.createBrowserWindow({
       show: false,
+      useParent: true,
     })
-    this.setupCookieSharing(win)
-    win.webContents.once('did-finish-load', () => {
-      subject.next()
-      subject.complete()
-      win.close()
+
+    this.electronService.once(BW_TAG, 'browser-window-did-finish-load', (_, id) => {
+      if (id === windowId) {
+        subject.next()
+        subject.complete()
+        this.electronAPI.closeBrowserWindow(windowId)
+      }
     })
-    win.loadURL(url)
+
+    this.electronAPI.loadUrlInBrowserWindow(windowId, url)
     return subject
   }
 
   public openAndWait(url: string, smallerWindow: boolean = false): Observable<void> {
     const subject = new Subject<void>()
-    const BrowserWindow = this.electron.BrowserWindow
-    const parent = this.electron.getCurrentWindow()
-    const [width, height] = parent.getSize()
-    const win = new BrowserWindow({
+    const [width, height] = this.electronAPI.windowGetSize()
+
+    const windowId = this.electronAPI.createBrowserWindow({
       center: true,
-      parent,
+      useParent: true,
       autoHideMenuBar: true,
       width: smallerWindow ? Math.round(Math.min(height * 1.3, width * 0.7)) : width,
       height: smallerWindow ? Math.round(height * 0.7) : height,
@@ -48,61 +55,38 @@ export class BrowserService {
       show: false,
     })
 
-    this.setupCookieSharing(win)
+    this.electronAPI.windowSetEnabled(false)
 
-    const domReadyFunc = () => {
-      win.webContents.executeJavaScript(`
-document.addEventListener("DOMContentLoaded",applyPolyfill);
-function applyPolyfill() {
-  if (!String.prototype.replaceAll) {
-    Object.assign(String.prototype, {
-      replaceAll(str, newStr) {
-		    // If a regex pattern
-		    if (Object.prototype.toString.call(str).toLowerCase() === '[object regexp]') {
-			    return this.replace(str, newStr);
-		    }
-
-		    // If a string
-		    return this.replace(new RegExp(str, 'g'), newStr);
+    this.electronService.once(BW_TAG, 'browser-window-closed', (_, id) => {
+      if (id === windowId) {
+        this.electronAPI.windowSetEnabled(true)
+        this.electronAPI.windowMoveTop()
+        subject.next()
+        subject.complete()
       }
-    });
-  }
-  console.log('Polyfilled!');
-}
-applyPolyfill();
-      `);
-    }
+    })
 
-    parent.setEnabled(false)
-    win.once('close', () => {
-      win.webContents.removeListener('dom-ready', domReadyFunc)
+    this.electronService.once(BW_TAG, 'browser-window-ready', (_, id) => {
+      if (id === windowId) {
+        const zoomFactor = this.electronAPI.getZoomFactor()
+        this.electronService.send(BW_TAG, 'set-browser-window-zoom', windowId, zoomFactor)
+        this.electronService.send(BW_TAG, 'show-browser-window', windowId)
+      }
     })
-    win.once('closed', () => {
-      parent.setEnabled(true)
-      parent.moveTop()
-      subject.next()
-      subject.complete()
-    })
-    win.webContents.addListener('dom-ready', domReadyFunc)
-    win.once('ready-to-show', () => {
-      win.webContents.zoomFactor = parent.webContents.zoomFactor
-      win.show()
-    })
-    win.loadURL(url)
+
+    this.electronAPI.loadUrlInBrowserWindow(windowId, url)
     return subject
   }
 
   public open(url: string, external: boolean = false): void {
     if (external) {
-      this.electron.shell.openExternal(url)
+      this.electronAPI.shellOpenExternal(url)
     } else {
-      const parent = this.electron.getCurrentWindow()
-      const [width, height] = parent.getSize()
+      const [width, height] = this.electronAPI.windowGetSize()
 
-      const BrowserWindow = this.electron.BrowserWindow
-      const win = new BrowserWindow({
+      const windowId = this.electronAPI.createBrowserWindow({
         center: true,
-        parent,
+        useParent: true,
         autoHideMenuBar: true,
         width: Math.round(Math.min(height * 1.3, width * 0.7)),
         height: Math.round(height * 0.7),
@@ -110,59 +94,34 @@ applyPolyfill();
         show: false,
       })
 
-      this.setupCookieSharing(win)
-
       const dialog: Dialog = {
-        close: win.close.bind(win),
+        close: () => this.electronAPI.closeBrowserWindow(windowId),
         type: DialogType.Browser,
       }
 
-      parent.setEnabled(false)
+      this.electronAPI.windowSetEnabled(false)
       this.dialogRef.add(dialog)
-      win.on('minimize', () => {
-        parent.setEnabled(true)
-        this.dialogRef.remove(dialog)
+
+      // Note: minimize, restore, maximize events are handled in the main process
+      // For simplicity, we just handle the closed event here
+
+      this.electronService.once(BW_TAG, 'browser-window-closed', (_, id) => {
+        if (id === windowId) {
+          this.electronAPI.windowSetEnabled(true)
+          this.dialogRef.remove(dialog)
+          this.electronAPI.windowMoveTop()
+        }
       })
-      const restore = () => {
-        parent.setEnabled(false)
-        this.dialogRef.remove(dialog)
-        this.dialogRef.add(dialog)
-      }
-      win.on('restore', () => restore())
-      win.on('maximize', () => restore())
-      win.once('closed', () => {
-        parent.setEnabled(true)
-        this.dialogRef.remove(dialog)
-        parent.moveTop()
+
+      this.electronService.once(BW_TAG, 'browser-window-ready', (_, id) => {
+        if (id === windowId) {
+          const zoomFactor = this.electronAPI.getZoomFactor()
+          this.electronService.send(BW_TAG, 'set-browser-window-zoom', windowId, zoomFactor)
+          this.electronService.send(BW_TAG, 'show-browser-window', windowId)
+        }
       })
-      win.once('ready-to-show', () => {
-        win.webContents.zoomFactor = parent.webContents.zoomFactor
-        win.show()
-      })
-      win.loadURL(url)
+
+      this.electronAPI.loadUrlInBrowserWindow(windowId, url)
     }
-  }
-
-  private setupCookieSharing(browserWindow: BrowserWindow) {
-    browserWindow.webContents.session.webRequest.onHeadersReceived({
-      urls: environment.cookieSharingUrls
-    }, (details, next) => {
-      const cookies = details.responseHeaders?.['set-cookie']
-      if (cookies) {
-        details.responseHeaders['set-cookie'] = cookies.map(cookie => {
-          cookie = cookie
-            .split(';')
-            .map(x => x.trim())
-            .filter(x =>
-              !x.toLowerCase().startsWith('samesite') &&
-              !x.toLowerCase().startsWith('secure'))
-            .join('; ')
-
-          return `${cookie}; SameSite=None; Secure`
-        })
-      }
-
-      next({ responseHeaders: details.responseHeaders })
-    })
   }
 }

@@ -96,7 +96,7 @@ export class EvaluateSettingsComponent implements UserSettingsComponent {
   public displayWithTime = (value: number) =>
     value === this.debounceTimeMax ? '∞' : `${Math.round(value * 10) / 100}s`
   public displayWithCount = (value: number) => `${value} items`
-  public displayWithStat = (value: number) => (value === 50 ? '#' : value)
+  public displayWithStat = (value: number) => (value === 50 ? '#' : `${value}`)
 
   constructor(
     private readonly currencyService: CurrencyService,

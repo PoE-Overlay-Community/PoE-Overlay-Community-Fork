@@ -17,11 +17,12 @@ import { StashTabLayoutProvider } from '@shared/module/poe/provider/stash-tab-la
 import { ItemExchangeRateService } from '@shared/module/poe/service'
 import { CurrencyService } from '@shared/module/poe/service/currency/currency.service'
 import { StashGridService } from '@shared/module/poe/service/stash-grid/stash-grid.service'
-import { Currency, ItemCategory } from '@shared/module/poe/type'
+import { Currency } from '@shared/module/poe/type'
 import {
-    StashGridMode, StashGridOptions, StashGridType, StashGridUserSettings, STASH_GRID_TYPE_TO_ITEM_CATEGORY_MAP, STASH_TAB_CELL_COUNT_MAP
+    STASH_GRID_TYPE_TO_ITEM_CATEGORY_MAP, STASH_TAB_CELL_COUNT_MAP,
+    StashGridMode, StashGridOptions, StashGridType, StashGridUserSettings
 } from '@shared/module/poe/type/stash-grid.type'
-import { BehaviorSubject, forkJoin, of, Subscription } from 'rxjs'
+import { BehaviorSubject, Subscription, forkJoin, of } from 'rxjs'
 import { delay, map, switchMap, tap } from 'rxjs/operators'
 import { EvaluateUserSettings } from '../../../evaluate/component/evaluate-settings/evaluate-settings.component'
 
@@ -56,7 +57,7 @@ interface StaticCellData {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class StashGridComponent implements OnInit, OnDestroy, OnChanges {
-  // tslint:disable-next-line:no-input-rename
+  // eslint-disable-next-line @angular-eslint/no-input-rename
   @Input('settings')
   public globalSettings: StashGridUserSettings
 
@@ -316,71 +317,76 @@ export class StashGridComponent implements OnInit, OnDestroy, OnChanges {
       switch (stashGridOptions.gridType) {
         case StashGridType.Normal:
         case StashGridType.Quad:
-          const cellCount = STASH_TAB_CELL_COUNT_MAP[stashGridOptions.gridType]
-          this.cellArray = this.createArray(cellCount)
-          this.updateCellData(stashGridOptions, true, true)
-          this.fontRatio = STASH_TAB_CELL_COUNT_MAP[StashGridType.Quad] / cellCount
-          this.cellScale = 1
-          this.gridBounds = stashGridOptions.gridBounds ||
-            (stashGridOptions.settings || this.globalSettings).stashGridBounds[stashGridOptions.gridType] || {
-            x: 16,
-            y: 134,
-            width: 624,
-            height: 624,
+          {
+            const cellCount = STASH_TAB_CELL_COUNT_MAP[stashGridOptions.gridType]
+            this.cellArray = this.createArray(cellCount)
+            this.updateCellData(stashGridOptions, true, true)
+            this.fontRatio = STASH_TAB_CELL_COUNT_MAP[StashGridType.Quad] / cellCount
+            this.cellScale = 1
+            this.gridBounds = stashGridOptions.gridBounds ||
+              (stashGridOptions.settings || this.globalSettings).stashGridBounds[stashGridOptions.gridType] || {
+              x: 16,
+              y: 134,
+              width: 624,
+              height: 624,
+            }
           }
           break
 
         default:
-          const stashTabLayoutMap = this.stashGridLayoutProvider.provide(stashGridOptions.gridType)
-          if (!stashTabLayoutMap) {
-            return
-          }
-          const baseItemTypeIds = Object.getOwnPropertyNames(stashTabLayoutMap).filter(x => stashTabLayoutMap[x].showIfEmpty)
-          this.cellArray = this.createArray(baseItemTypeIds.length)
-          this.cellData = []
-          this.cellData.push(baseItemTypeIds.map(baseItemTypeId => {
-            const layout = stashTabLayoutMap[baseItemTypeId]
-            let cellData: CellData = {
-              static: {
-                xOffset: layout.xOffset * 2 / 3,
-                yOffset: layout.yOffset * 2 / 3,
-                width: layout.width * 52,
-                height: layout.height * 52,
-              }
+          {
+            const stashTabLayoutMap = this.stashGridLayoutProvider.provide(stashGridOptions.gridType)
+            if (!stashTabLayoutMap) {
+              console.warn(`Couldn't find stashTabLayout for gridType ${stashGridOptions.gridType}`)
+              return
             }
-            const evaluateSettings = (((stashGridOptions.settings || this.globalSettings) as UserSettings) as EvaluateUserSettings)
-            forkJoin(evaluateSettings.evaluateCurrencyIds.map((id) =>
-              this.currencyService.searchById(id)
-            )).pipe(switchMap(currencies => {
-              return this.itemExchangeRateService.get({
-                typeId: baseItemTypeId,
-                category: STASH_GRID_TYPE_TO_ITEM_CATEGORY_MAP[stashGridOptions.gridType],
-              }, currencies, evaluateSettings.evaluateUseCurrencyExchangeData, (stashGridOptions.settings || this.globalSettings).leagueId)
-            })).subscribe(exchangeRateResult => {
-              if (exchangeRateResult && exchangeRateResult.currency && exchangeRateResult.amount) {
-                cellData.static.priceCurrency = exchangeRateResult.currency
-                cellData.static.priceValue = exchangeRateResult.amount
-                this.ref.detectChanges()
+            const baseItemTypeIds = Object.getOwnPropertyNames(stashTabLayoutMap).filter(x => stashTabLayoutMap[x].showIfEmpty)
+            this.cellArray = this.createArray(baseItemTypeIds.length)
+            this.cellData = []
+            this.cellData.push(baseItemTypeIds.map(baseItemTypeId => {
+              const layout = stashTabLayoutMap[baseItemTypeId]
+              const cellData: CellData = {
+                static: {
+                  xOffset: layout.xOffset * 2 / 3,
+                  yOffset: layout.yOffset * 2 / 3,
+                  width: layout.width * 52,
+                  height: layout.height * 52,
+                }
               }
-            })
-            return cellData
-          }))
-          switch (stashGridOptions.gridType) {
-            case StashGridType.FragmentScarab:
-              this.cellScale = 0.7
-              break
+              const evaluateSettings = (((stashGridOptions.settings || this.globalSettings) as UserSettings) as EvaluateUserSettings)
+              forkJoin(evaluateSettings.evaluateCurrencyIds.map((id) =>
+                this.currencyService.searchById(id)
+              )).pipe(switchMap(currencies => {
+                return this.itemExchangeRateService.get({
+                  typeId: baseItemTypeId,
+                  category: STASH_GRID_TYPE_TO_ITEM_CATEGORY_MAP[stashGridOptions.gridType],
+                }, currencies, evaluateSettings.evaluateUseCurrencyExchangeData, (stashGridOptions.settings || this.globalSettings).leagueId)
+              })).subscribe(exchangeRateResult => {
+                if (exchangeRateResult && exchangeRateResult.currency && exchangeRateResult.amount) {
+                  cellData.static.priceCurrency = exchangeRateResult.currency
+                  cellData.static.priceValue = exchangeRateResult.amount
+                  this.ref.detectChanges()
+                }
+              })
+              return cellData
+            }))
+            switch (stashGridOptions.gridType) {
+              case StashGridType.FragmentScarab:
+                this.cellScale = 0.7
+                break
 
-            default:
-              this.cellScale = 1
-              break
-          }
-          this.fontRatio = 1
-          this.gridBounds = stashGridOptions.gridBounds ||
-            (stashGridOptions.settings || this.globalSettings).stashGridBounds[stashGridOptions.gridType] || {
-            x: 16,
-            y: 134,
-            width: 624,
-            height: 624,
+              default:
+                this.cellScale = 1
+                break
+            }
+            this.fontRatio = 1
+            this.gridBounds = stashGridOptions.gridBounds ||
+              (stashGridOptions.settings || this.globalSettings).stashGridBounds[stashGridOptions.gridType] || {
+              x: 16,
+              y: 134,
+              width: 624,
+              height: 624,
+            }
           }
           break
       }
@@ -400,7 +406,7 @@ export class StashGridComponent implements OnInit, OnDestroy, OnChanges {
       }
 
       this.escapeSubscription = this.shortcutService
-        .add('escape', stashGridCompRef, false, VisibleFlag.Game, VisibleFlag.Overlay)
+        .add('escape', stashGridCompRef, VisibleFlag.Game, VisibleFlag.Overlay)
         .subscribe(() => this.cancelChanges(), clearShortcut, clearShortcut)
     }
 

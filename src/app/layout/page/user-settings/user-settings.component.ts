@@ -7,8 +7,10 @@ import {
   QueryList,
   ViewChildren,
 } from '@angular/core'
+import { ElectronProvider } from '@app/provider'
 import { AppTranslateService, WindowService } from '@app/service'
 import { FEATURE_MODULES } from '@app/token'
+import { ElectronAPI } from '@app/type/electron-api.type'
 import { FeatureModule } from '@app/type'
 import { ContextService } from '@shared/module/poe/service'
 import { BehaviorSubject, Observable, of } from 'rxjs'
@@ -33,6 +35,8 @@ export class UserSettingsComponent implements OnInit, OnDestroy {
   @ViewChildren(UserSettingsFeatureContainerComponent)
   public containers: QueryList<UserSettingsFeatureContainerComponent>
 
+  private readonly electronAPI: ElectronAPI
+
   constructor(
     @Inject(FEATURE_MODULES)
     private readonly modules: FeatureModule[],
@@ -41,7 +45,9 @@ export class UserSettingsComponent implements OnInit, OnDestroy {
     private readonly context: ContextService,
     private readonly translate: AppTranslateService,
     private readonly accountService: PoEAccountService,
+    electronProvider: ElectronProvider,
   ) {
+    this.electronAPI = electronProvider.provideElectronAPI()
   }
 
   @HostListener('window:beforeunload', [])
@@ -50,7 +56,6 @@ export class UserSettingsComponent implements OnInit, OnDestroy {
   }
 
   public ngOnInit(): void {
-    this.createTitlebar()
     this.init()
   }
 
@@ -66,25 +71,16 @@ export class UserSettingsComponent implements OnInit, OnDestroy {
     }
   }
 
+  public onClose(): void {
+    this.save().subscribe(() => {
+      this.electronAPI.windowClose()
+    })
+  }
+
   public onSave(): void {
     this.save().subscribe(() => {
       this.window.close()
     })
-  }
-
-  private createTitlebar(): void {
-    const { Titlebar, Color } = window.require('custom-electron-titlebar')
-    const titlebar = new Titlebar({
-      backgroundColor: Color.fromHex('#7f7f7f'),
-      menu: null,
-    })
-
-    titlebar.on(
-      'before-close',
-      () => new Promise((resolve, reject) => this.save().subscribe(resolve, reject))
-    )
-
-    titlebar.updateTitle('PoE Overlay - Settings')
   }
 
   private init(): void {

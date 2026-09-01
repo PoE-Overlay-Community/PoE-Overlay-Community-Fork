@@ -1,34 +1,20 @@
 import { Injectable } from '@angular/core'
 import { ElectronProvider } from '@app/provider/electron.provider'
+import { ElectronAPI } from '@app/type/electron-api.type'
 import { environment } from '@env/environment'
-import { IpcRenderer } from 'electron'
-
-interface LogTags {
-  cacheService?: boolean
-  rateLimiter?: boolean
-  poeHttp?: boolean
-  electronService?: boolean
-}
 
 @Injectable({
   providedIn: 'root',
 })
 export class LoggerService {
-  private readonly enabledLogTags: LogTags = {
-    poeHttp: true,
-    cacheService: false,
-    rateLimiter: false,
-    electronService: true,
-  }
-
-  private readonly ipcRenderer: IpcRenderer
+  private readonly electronAPI: ElectronAPI
 
   constructor(electronProvider: ElectronProvider) {
-    this.ipcRenderer = electronProvider.provideIpcRenderer()
+    this.electronAPI = electronProvider.provideElectronAPI()
   }
 
   public isLogTagEnabled(tag: string): boolean {
-    return tag.length === 0 || this.enabledLogTags[tag]
+    return tag.length === 0 || this.electronAPI.isLogTagEnabled(tag)
   }
 
   public debug(tag: string, message: string, ...args: any[]): void {
@@ -52,17 +38,39 @@ export class LoggerService {
   }
 
   private sendLog(level: string, tag: string, message: string, ...args: any[]): void {
-    if (tag.length > 0) {
-      if (!this.enabledLogTags[tag]) {
-        return
-      }
-      message = `[${tag}] ${message}`
-    }
     if (environment.production) {
-      this.ipcRenderer?.sendSync('log', level, message, ...args)
-    } else {
-      console.log(message)
-      args.forEach(arg => console.log(arg))
+      if (this.electronAPI) {
+        this.electronAPI.log(level, tag, message, ...args)
+      } else {
+        console.warn(`[LoggerService] Failed to forward the log below to the ElectronAPI!`)
+        console.log(message)
+        args.forEach(arg => console.log(arg))
+      }
+    } else if (this.isLogTagEnabled(tag)) {
+      if (tag.length > 0) {
+        message = `[${tag}] ${message}`
+      }
+      message = `[PoE Overlay - CF] ${message}`
+      this.printLog(level, message)
+      args.forEach(arg => this.printLog(level, arg))
+    }
+  }
+
+  private printLog(level: string, message: string): void {
+    switch (level) {
+      case 'log':
+      default:
+        console.log(message)
+        break
+      case 'warn':
+        console.warn(message)
+        break
+      case 'error':
+        console.error(message)
+        break
+      case 'info':
+        console.info(message)
+        break
     }
   }
 }
