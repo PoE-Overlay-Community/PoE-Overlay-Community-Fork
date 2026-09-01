@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.9.0 (2026-09-01)
+- Updated the PoE Assets using PoE Asset Updater (commit 0a1ea4e) and PoE Client v3.29.3
+
 ## 0.9.0-alpha.2
 
 - Removed arbitrary length check when attempting to detect vaal gems (this fixes 'Vaal Domination' not being detected as vaal gem)
