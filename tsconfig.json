@@ -16,7 +16,6 @@
     "importHelpers": true,
     "useDefineForClassFields": false,
     "typeRoots": ["node_modules/@types"],
-    "lib": ["ES2022", "dom"],
     "paths": {
       "@app/*": ["src/app/core/*"],
       "@app/testing": ["src/app/core/testing"],
