@@ -96,6 +96,7 @@ export function createMockElectronAPI(overrides: MockElectronAPIOverrides = {}):
 
     // Logger
     log: jasmine.createSpy('log'),
+    isLogTagEnabled: jasmine.createSpy('isLogTagEnabled').and.returnValue(false),
 
     // Keyboard
     setKeyboardDelay: jasmine.createSpy('setKeyboardDelay'),
