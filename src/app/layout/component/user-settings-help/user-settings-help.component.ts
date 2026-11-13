@@ -5,6 +5,7 @@ import { BrowserService } from '@app/service'
   selector: 'app-user-settings-help',
   templateUrl: './user-settings-help.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class UserSettingsHelpComponent {
   constructor(private readonly browser: BrowserService) {}

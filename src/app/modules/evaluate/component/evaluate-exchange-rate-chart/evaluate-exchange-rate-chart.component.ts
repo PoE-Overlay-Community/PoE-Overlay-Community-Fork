@@ -8,6 +8,7 @@ import * as shape from 'd3-shape'
   templateUrl: './evaluate-exchange-rate-chart.component.html',
   styleUrls: ['./evaluate-exchange-rate-chart.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class EvaluateExchangeRateChartComponent {
   private _result: ItemExchangeRateResult

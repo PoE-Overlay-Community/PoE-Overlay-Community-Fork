@@ -6,6 +6,7 @@ import { Item } from '../../type'
   templateUrl: './item-frame-separator.component.html',
   styleUrls: ['./item-frame-separator.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class ItemFrameSeparatorComponent {
   @Input()

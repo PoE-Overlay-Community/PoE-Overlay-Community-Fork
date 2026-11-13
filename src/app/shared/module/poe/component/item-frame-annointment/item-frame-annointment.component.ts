@@ -7,6 +7,7 @@ import { Item, ItemStat, Language } from '../../type'
   templateUrl: './item-frame-annointment.component.html',
   styleUrls: ['./item-frame-annointment.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class ItemFrameAnnointmentComponent {
   @Input()

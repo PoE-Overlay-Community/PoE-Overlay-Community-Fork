@@ -7,6 +7,7 @@ import { Color, Colors, ColorUtils } from '@app/class'
   templateUrl: './color-picker-settings.component.html',
   styleUrls: ['./color-picker-settings.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class ColorPickerSettingsComponent implements OnInit {
   @Input()

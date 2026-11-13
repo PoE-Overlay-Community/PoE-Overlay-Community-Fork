@@ -15,6 +15,7 @@ import { Item, Language, ItemRarity, ItemCategory } from '../../type'
   templateUrl: './item-frame.component.html',
   styleUrls: ['./item-frame.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class ItemFrameComponent implements OnInit {
   @Input()

@@ -15,6 +15,7 @@ import {
   styleUrls: ['./item-frame-value-input.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [DecimalPipe],
+  standalone: false,
 })
 export class ItemFrameValueInputComponent {
   private _value: number

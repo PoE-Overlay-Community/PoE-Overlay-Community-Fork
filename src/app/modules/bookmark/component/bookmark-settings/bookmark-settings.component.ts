@@ -16,6 +16,7 @@ export interface BookmarkUserBookmark {
   templateUrl: './bookmark-settings.component.html',
   styleUrls: ['./bookmark-settings.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class BookmarkSettingsComponent implements UserSettingsComponent {
   @Input()

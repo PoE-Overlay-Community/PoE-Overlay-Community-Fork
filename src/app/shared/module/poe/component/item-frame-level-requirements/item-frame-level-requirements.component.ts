@@ -7,6 +7,7 @@ import { CharacterClass, Item, Language } from '../../type'
   templateUrl: './item-frame-level-requirements.component.html',
   styleUrls: ['./item-frame-level-requirements.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class ItemFrameLevelRequirementsComponent {
   @Input()

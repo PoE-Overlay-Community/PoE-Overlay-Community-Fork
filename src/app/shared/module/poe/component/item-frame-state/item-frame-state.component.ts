@@ -6,6 +6,7 @@ import { Item, Language } from '../../type'
   templateUrl: './item-frame-state.component.html',
   styleUrls: ['./item-frame-state.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class ItemFrameStateComponent {
   @Input()

@@ -3,6 +3,7 @@ import { ItemStat } from '../type'
 
 @Pipe({
   name: 'statGroup',
+  standalone: false,
 })
 export class StatGroupPipe implements PipeTransform {
   public transform(stats: ItemStat[]): any {

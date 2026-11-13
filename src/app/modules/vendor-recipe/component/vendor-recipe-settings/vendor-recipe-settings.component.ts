@@ -13,6 +13,7 @@ import { VendorRecipeUtils } from '../../class/vendor-recipe-utils.class'
   templateUrl: './vendor-recipe-settings.component.html',
   styleUrls: ['./vendor-recipe-settings.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class VendorRecipeSettingsComponent implements OnInit {
   @Input()

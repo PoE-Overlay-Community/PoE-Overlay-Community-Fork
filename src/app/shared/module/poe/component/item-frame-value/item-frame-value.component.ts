@@ -18,6 +18,7 @@ import { ItemFrameComponent } from '../item-frame/item-frame.component'
   templateUrl: './item-frame-value.component.html',
   styleUrls: ['./item-frame-value.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class ItemFrameValueComponent implements OnInit {
   public default: ItemValue

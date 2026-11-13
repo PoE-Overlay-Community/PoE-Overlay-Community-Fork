@@ -27,7 +27,7 @@ export async function getActiveWindow(): Promise<Window> {
     let bounds: () => Rectangle
     let title: () => string
     let bringToTop: any
-    const isLinux = process.platform !== ('win32' || 'darwin')
+    const isLinux = process.platform !== 'win32'
 
     if (!platformLogged) {
       console.log(`[Window] platform=${process.platform}, isLinux=${isLinux}`)

@@ -6,6 +6,7 @@ import { Item, ItemCategory, Language } from '../../type'
   templateUrl: './item-frame-properties.component.html',
   styleUrls: ['./item-frame-properties.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class ItemFramePropertiesComponent implements OnInit {
   @Input()

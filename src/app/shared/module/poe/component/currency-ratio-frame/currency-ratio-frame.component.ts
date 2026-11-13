@@ -7,6 +7,7 @@ import { Currency } from '../../type'
   templateUrl: './currency-ratio-frame.component.html',
   styleUrls: ['./currency-ratio-frame.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class CurrencyRatioFrameComponent {
   @Input()

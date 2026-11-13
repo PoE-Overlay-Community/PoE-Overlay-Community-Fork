@@ -15,6 +15,7 @@ export interface MapDialogData {
   templateUrl: './map-dialog.component.html',
   styleUrls: ['./map-dialog.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class MapDialogComponent implements OnInit {
   public properties = ['mapTier', 'areaLevel']

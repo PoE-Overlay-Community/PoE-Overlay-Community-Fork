@@ -4,6 +4,7 @@ import { Language } from '../type'
 
 @Pipe({
   name: 'baseItemType',
+  standalone: false,
 })
 export class BaseItemTypePipe implements PipeTransform {
   constructor(private readonly baseItemTypesService: BaseItemTypesService) {}

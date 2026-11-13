@@ -15,6 +15,7 @@ export interface CommandUserCommand {
   templateUrl: './command-settings.component.html',
   styleUrls: ['./command-settings.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class CommandSettingsComponent implements UserSettingsComponent {
   @Input()

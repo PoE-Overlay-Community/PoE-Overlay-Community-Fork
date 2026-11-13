@@ -76,18 +76,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "poe-overlay:build"
+            "buildTarget": "poe-overlay:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "poe-overlay:build:production"
+              "buildTarget": "poe-overlay:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "poe-overlay:build"
+            "buildTarget": "poe-overlay:build"
           }
         },
         "test": {

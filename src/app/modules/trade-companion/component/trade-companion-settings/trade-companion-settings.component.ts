@@ -16,6 +16,7 @@ import {
   templateUrl: './trade-companion-settings.component.html',
   styleUrls: ['./trade-companion-settings.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class TradeCompanionSettingsComponent implements UserSettingsComponent {
   @Input()

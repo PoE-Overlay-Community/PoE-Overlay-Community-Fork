@@ -75,6 +75,7 @@ interface StatSelectListItem extends SelectListItem {
   templateUrl: './evaluate-settings.component.html',
   styleUrls: ['./evaluate-settings.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class EvaluateSettingsComponent implements UserSettingsComponent {
   public languages = new EnumValues(Language)

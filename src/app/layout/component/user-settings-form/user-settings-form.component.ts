@@ -19,6 +19,7 @@ interface UpdateInterval {
   templateUrl: './user-settings-form.component.html',
   styleUrls: ['./user-settings-form.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class UserSettingsFormComponent implements OnInit, OnDestroy {
   public languages = new EnumValues(Language)

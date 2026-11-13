@@ -12,6 +12,7 @@ import {
   templateUrl: './stash-grid-settings.component.html',
   styleUrls: ['./stash-grid-settings.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class StashGridSettingsComponent implements UserSettingsComponent {
   @Input()

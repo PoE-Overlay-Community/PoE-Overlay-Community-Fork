@@ -25,6 +25,7 @@ import { UserSettings, UserSettingsFeature } from '../../type'
   styleUrls: ['./user-settings.component.scss'],
   templateUrl: './user-settings.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class UserSettingsComponent implements OnInit, OnDestroy {
   public init$ = new BehaviorSubject<boolean>(false)

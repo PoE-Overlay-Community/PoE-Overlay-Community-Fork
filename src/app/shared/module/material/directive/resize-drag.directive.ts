@@ -36,6 +36,7 @@ interface AppliedBounds {
 
 @Directive({
   selector: '[appResizeDrag]',
+  standalone: false,
 })
 export class ResizeDragDirective implements OnInit, OnChanges, OnDestroy {
   private element: HTMLElement

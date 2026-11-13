@@ -8,6 +8,7 @@ import { HeistJob, Item, Language } from '../../type'
   templateUrl: './item-frame-properties-heist.component.html',
   styleUrls: ['./item-frame-properties-heist.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class ItemFramePropertiesHeistComponent {
   @Input()

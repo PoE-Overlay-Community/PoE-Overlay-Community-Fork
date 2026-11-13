@@ -12,6 +12,7 @@ import { ItemFrameValueComponent } from '../item-frame-value/item-frame-value.co
   templateUrl: './item-frame-value-group.component.html',
   styleUrls: ['./item-frame-value-group.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class ItemFrameValueGroupComponent implements AfterViewInit {
   private children: ItemFrameValueComponent[]

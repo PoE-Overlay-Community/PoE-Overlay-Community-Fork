@@ -28,6 +28,7 @@ type LeagueMap = {
   templateUrl: './evaluate-options.component.html',
   styleUrls: ['./evaluate-options.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class EvaluateOptionsComponent implements OnInit {
   @Input()

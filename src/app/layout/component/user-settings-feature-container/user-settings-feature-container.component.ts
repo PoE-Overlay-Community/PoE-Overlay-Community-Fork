@@ -15,6 +15,7 @@ import { UserSettings, UserSettingsComponent } from '../../type'
   selector: 'app-user-settings-feature-container',
   template: '',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class UserSettingsFeatureContainerComponent implements OnInit, OnDestroy {
   private componentRef: ComponentRef<UserSettingsComponent>

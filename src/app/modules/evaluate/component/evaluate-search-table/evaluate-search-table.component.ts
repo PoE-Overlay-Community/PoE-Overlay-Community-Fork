@@ -24,6 +24,7 @@ interface SelectEvent {
   templateUrl: './evaluate-search-table.component.html',
   styleUrls: ['./evaluate-search-table.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class EvaluateSearchTableComponent {
   public rows: Row[] = []

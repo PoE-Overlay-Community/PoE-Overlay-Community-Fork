@@ -6,6 +6,7 @@ import { Item, Language } from '../../type'
   templateUrl: './item-frame-influences.component.html',
   styleUrls: ['./item-frame-influences.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class ItemFrameInfluencesComponent {
   @Input()

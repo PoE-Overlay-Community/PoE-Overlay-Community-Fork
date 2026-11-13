@@ -36,6 +36,7 @@ import {
   templateUrl: './evaluate-search.component.html',
   styleUrls: ['./evaluate-search.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class EvaluateSearchComponent implements OnInit, OnDestroy {
   private searchSubscription: Subscription

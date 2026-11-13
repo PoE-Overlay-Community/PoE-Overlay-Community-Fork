@@ -3,6 +3,7 @@ import { Color, ColorUtils } from '@app/class'
 
 @Directive({
   selector: '[appAlphaColor]',
+  standalone: false,
 })
 export class AlphaColorDirective implements OnInit, OnChanges {
   private element: HTMLElement

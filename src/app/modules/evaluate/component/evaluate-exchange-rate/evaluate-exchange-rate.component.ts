@@ -25,6 +25,7 @@ interface Result {
   templateUrl: './evaluate-exchange-rate.component.html',
   styleUrls: ['./evaluate-exchange-rate.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class EvaluateExchangeRateComponent implements OnInit {
   private _currencies: Currency[]

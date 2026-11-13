@@ -12,6 +12,7 @@ import { BehaviorSubject } from 'rxjs'
   templateUrl: './quality-recipe-settings.component.html',
   styleUrls: ['./quality-recipe-settings.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class VendorRecipeQualitySettingsComponent {
   @Input()

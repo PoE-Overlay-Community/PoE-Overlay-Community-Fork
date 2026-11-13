@@ -15,6 +15,7 @@ import { EvaluateOptions } from '../evaluate-options/evaluate-options.component'
   templateUrl: './evaluate-price-prediction.component.html',
   styleUrls: ['./evaluate-price-prediction.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class EvaluatePricePredictionComponent implements OnInit {
   private _currencies: Currency[]

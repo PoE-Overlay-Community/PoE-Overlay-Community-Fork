@@ -32,6 +32,7 @@ const OverlayCompRef = 'overlay-component'
   templateUrl: './overlay.component.html',
   styleUrls: ['./overlay.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class OverlayComponent implements OnInit, OnDestroy {
   private userSettingsOpen: Observable<void>

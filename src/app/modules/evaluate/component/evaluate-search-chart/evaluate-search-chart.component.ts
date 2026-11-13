@@ -14,6 +14,7 @@ import { colorSets } from '@swimlane/ngx-charts'
   templateUrl: './evaluate-search-chart.component.html',
   styleUrls: ['./evaluate-search-chart.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class EvaluateSearchChartComponent {
   public items: any[]

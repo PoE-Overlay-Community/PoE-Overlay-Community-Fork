@@ -8,6 +8,7 @@ import { Item, ItemStat, Language, Stat } from '../../type'
   templateUrl: './item-frame-stats.component.html',
   styleUrls: ['./item-frame-stats.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class ItemFrameStatsComponent {
   @Input()

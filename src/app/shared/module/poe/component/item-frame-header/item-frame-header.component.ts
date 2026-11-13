@@ -6,6 +6,7 @@ import { Item, Language, ItemCategory, ItemRarity, ItemGemQualityType } from '..
   templateUrl: './item-frame-header.component.html',
   styleUrls: ['./item-frame-header.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class ItemFrameHeaderComponent {
   @Input()

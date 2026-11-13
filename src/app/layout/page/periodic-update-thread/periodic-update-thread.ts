@@ -24,6 +24,7 @@ export const SETTINGS_CHANGED = 'settings-changed'
   selector: 'app-periodic-update-thread',
   template: '',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class PeriodicUpdateThreadComponent implements OnInit, OnDestroy {
 

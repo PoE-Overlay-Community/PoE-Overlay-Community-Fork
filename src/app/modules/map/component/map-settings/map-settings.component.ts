@@ -19,6 +19,7 @@ export interface MapUserSettings extends UserSettings {
   templateUrl: './map-settings.component.html',
   styleUrls: ['./map-settings.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class MapSettingsComponent implements UserSettingsComponent {
   @Input()

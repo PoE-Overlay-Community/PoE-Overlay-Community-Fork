@@ -11,6 +11,7 @@ import { VendorRecipeSettingsComponent } from '../vendor-recipe-settings/vendor-
   templateUrl: './vendor-recipes-settings.component.html',
   styleUrls: ['./vendor-recipes-settings.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class VendorRecipesSettingsComponent implements UserSettingsComponent, OnDestroy {
   @Input()

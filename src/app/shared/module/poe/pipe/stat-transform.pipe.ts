@@ -4,6 +4,7 @@ import { ItemStat, Language } from '../type'
 
 @Pipe({
   name: 'statTransform',
+  standalone: false,
 })
 export class StatTransformPipe implements PipeTransform {
   constructor(private readonly statsService: StatsService) {}

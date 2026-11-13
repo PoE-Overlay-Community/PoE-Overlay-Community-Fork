@@ -55,6 +55,7 @@ interface StaticCellData {
   templateUrl: './stash-grid.component.html',
   styleUrls: ['./stash-grid.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class StashGridComponent implements OnInit, OnDestroy, OnChanges {
   // eslint-disable-next-line @angular-eslint/no-input-rename

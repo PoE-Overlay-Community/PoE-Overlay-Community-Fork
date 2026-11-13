@@ -4,6 +4,7 @@ import { Language } from '../type'
 
 @Pipe({
   name: 'word',
+  standalone: false,
 })
 export class WordPipe implements PipeTransform {
   constructor(private readonly wordService: WordService) {}

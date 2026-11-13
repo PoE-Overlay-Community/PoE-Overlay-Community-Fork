@@ -10,6 +10,7 @@ const PRESERVERED_ACCELERATORS = ['CmdOrCtrl + C', 'CmdOrCtrl + V', 'Alt + F4']
   selector: 'app-accelerator',
   templateUrl: './accelerator.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class AcceleratorComponent {
   @Input()

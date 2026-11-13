@@ -4,6 +4,7 @@ import { DirectiveUtils } from './directive-utils.directive'
 
 @Directive({
   selector: '[appDrag]',
+  standalone: false,
 })
 export class DragDirective implements OnInit, OnDestroy {
   private element: HTMLElement

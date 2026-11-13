@@ -7,6 +7,7 @@ import { Item, ItemPropertiesIncursionRoom, Language } from '../../type'
   templateUrl: './item-frame-properties-incursion.component.html',
   styleUrls: ['./item-frame-properties-incursion.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class ItemFramePropertiesIncursionComponent {
   @Input()

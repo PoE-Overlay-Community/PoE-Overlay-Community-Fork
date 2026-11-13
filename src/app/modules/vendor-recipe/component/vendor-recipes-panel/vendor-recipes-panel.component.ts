@@ -20,6 +20,7 @@ import { debounceTime, map } from 'rxjs/operators'
   templateUrl: './vendor-recipes-panel.component.html',
   styleUrls: ['./vendor-recipes-panel.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class VendorRecipesPanelComponent implements OnInit, OnChanges, OnDestroy {
   @Input()

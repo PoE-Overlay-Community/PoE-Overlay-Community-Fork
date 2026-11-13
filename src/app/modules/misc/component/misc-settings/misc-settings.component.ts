@@ -23,6 +23,7 @@ export interface MiscUserSettings extends UserSettings {
   templateUrl: './misc-settings.component.html',
   styleUrls: ['./misc-settings.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class MiscSettingsComponent implements UserSettingsComponent {
   public navigations = new EnumValues(MiscStashNavigation)

@@ -6,6 +6,7 @@ import { Currency, CurrencyRange } from '../../type'
   templateUrl: './currency-frame.component.html',
   styleUrls: ['./currency-frame.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class CurrencyFrameComponent {
   @Input()

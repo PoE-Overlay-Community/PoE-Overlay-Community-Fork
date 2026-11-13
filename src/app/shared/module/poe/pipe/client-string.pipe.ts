@@ -4,6 +4,7 @@ import { Language } from '../type'
 
 @Pipe({
   name: 'clientString',
+  standalone: false,
 })
 export class ClientStringPipe implements PipeTransform {
   constructor(private readonly clientString: ClientStringService) {}

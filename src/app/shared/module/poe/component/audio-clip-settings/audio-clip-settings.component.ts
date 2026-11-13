@@ -14,6 +14,7 @@ interface AudioData {
   templateUrl: './audio-clip-settings.component.html',
   styleUrls: ['./audio-clip-settings.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class AudioClipSettingsComponent implements OnDestroy {
   @Input()

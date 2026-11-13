@@ -25,6 +25,7 @@ export interface SelectListItem {
   templateUrl: './select-list.component.html',
   styleUrls: ['./select-list.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class SelectListComponent implements OnInit {
   private items$ = new BehaviorSubject<SelectListItem[]>([])

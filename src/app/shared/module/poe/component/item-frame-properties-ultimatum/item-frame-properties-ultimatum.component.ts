@@ -8,6 +8,7 @@ import { Item, Language, UltimatumRewardType } from '../../type'
   templateUrl: './item-frame-properties-ultimatum.component.html',
   styleUrls: ['./item-frame-properties-ultimatum.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class ItemFramePropertiesUltimatumComponent {
   @Input()

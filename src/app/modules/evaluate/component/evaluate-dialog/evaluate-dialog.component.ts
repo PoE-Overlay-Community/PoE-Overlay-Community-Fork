@@ -30,6 +30,7 @@ export interface EvaluateDialogData {
   selector: 'app-evaluate-dialog',
   templateUrl: './evaluate-dialog.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class EvaluateDialogComponent implements OnInit, AfterViewInit, OnDestroy {
   private resultChange = new Subject<EvaluateResult>()

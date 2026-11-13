@@ -7,6 +7,7 @@ import { ItemLevelBasedItemSetRecipeUserSettings, ItemSetRecipeUserSettings, Ite
   templateUrl: './item-set-recipe-settings.component.html',
   styleUrls: ['./item-set-recipe-settings.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class VendorRecipeItemSetSettingsComponent {
   @Input()

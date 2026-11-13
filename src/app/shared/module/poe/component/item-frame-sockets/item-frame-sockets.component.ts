@@ -7,6 +7,7 @@ import { ItemFrameComponent } from '../item-frame/item-frame.component'
   templateUrl: './item-frame-sockets.component.html',
   styleUrls: ['./item-frame-sockets.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class ItemFrameSocketsComponent {
   @Input()

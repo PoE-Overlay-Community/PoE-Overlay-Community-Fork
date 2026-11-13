@@ -40,6 +40,7 @@ const tooltipDefaultOptions: MatTooltipDefaultOptions = {
   styleUrls: ['./trade-notification.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [{ provide: MAT_TOOLTIP_DEFAULT_OPTIONS, useValue: tooltipDefaultOptions }],
+  standalone: false,
 })
 export class TradeNotificationComponent implements OnInit, OnDestroy, OnChanges {
   @Input()

@@ -27,6 +27,7 @@ enum RecipeQueueItemType {
   templateUrl: './vendor-recipe-panel.component.html',
   styleUrls: ['./vendor-recipe-panel.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class VendorRecipePanelComponent implements OnInit, OnDestroy, OnChanges {
   @Input()

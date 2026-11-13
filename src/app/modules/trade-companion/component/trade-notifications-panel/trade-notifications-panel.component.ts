@@ -38,6 +38,7 @@ import { TradeNotificationComponent } from '../trade-notification/trade-notifica
   templateUrl: './trade-notifications-panel.component.html',
   styleUrls: ['./trade-notifications-panel.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class TradeNotificationPanelComponent implements OnInit, AfterViewInit, OnDestroy, OnChanges {
   @Input()

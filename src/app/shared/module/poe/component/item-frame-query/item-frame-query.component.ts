@@ -14,6 +14,7 @@ import { ItemFrameComponent } from '../item-frame/item-frame.component'
   templateUrl: './item-frame-query.component.html',
   styleUrls: ['./item-frame-query.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class ItemFrameQueryComponent implements OnInit {
   private _value: any

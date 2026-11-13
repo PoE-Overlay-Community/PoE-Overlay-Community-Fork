@@ -3,6 +3,7 @@ import { WindowService } from '@app/service'
 
 @Directive({
   selector: '[appResize]',
+  standalone: false,
 })
 export class ResizeDirective implements OnInit, OnDestroy {
   private readonly observer: ResizeObserver
