@@ -41,7 +41,7 @@ const electronAPI = {
 
   // Clipboard
   clipboardReadText: (): string => ipcRenderer.sendSync('clipboard-read-text'),
-  clipboardWriteText: (text: string): void => ipcRenderer.send('clipboard-write-text', text),
+  clipboardWriteText: (text: string): void => ipcRenderer.sendSync('clipboard-write-text', text),
 
   // Shell
   shellOpenExternal: (url: string): void => ipcRenderer.send('shell-open-external', url),

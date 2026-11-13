@@ -248,12 +248,25 @@ ipcMain.on('app-relaunch-now', () => {
 
 /* Clipboard operations */
 
-ipcMain.on('clipboard-read-text', (event) => {
-  event.returnValue = clipboard.readText()
+// The clipboard API is async since Electron 44. Both handlers answer a sendSync so the
+// renderer keeps its synchronous contract, e.g. a write completes before a paste keystroke.
+// returnValue is always set, even on failure, so the renderer is never left blocked.
+ipcMain.on('clipboard-read-text', async (event) => {
+  try {
+    event.returnValue = await clipboard.readText()
+  } catch (err) {
+    logger.warn('Failed to read clipboard text:', err?.message || err)
+    event.returnValue = ''
+  }
 })
 
-ipcMain.on('clipboard-write-text', (_, text: string) => {
-  clipboard.writeText(text)
+ipcMain.on('clipboard-write-text', async (event, text: string) => {
+  try {
+    await clipboard.writeText(text)
+  } catch (err) {
+    logger.warn('Failed to write clipboard text:', err?.message || err)
+  }
+  event.returnValue = undefined
 })
 
 /* Shell operations */
