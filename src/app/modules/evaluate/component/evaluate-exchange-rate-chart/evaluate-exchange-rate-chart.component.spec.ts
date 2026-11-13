@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing'
+import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing'
 import { SharedModule } from '@shared/shared.module'
 import { EvaluateExchangeRateChartComponent } from './evaluate-exchange-rate-chart.component'
 
@@ -6,7 +6,7 @@ describe('EvaluateExchangeRateChartComponent', () => {
   let component: EvaluateExchangeRateChartComponent
   let fixture: ComponentFixture<EvaluateExchangeRateChartComponent>
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [SharedModule],
       declarations: [EvaluateExchangeRateChartComponent],

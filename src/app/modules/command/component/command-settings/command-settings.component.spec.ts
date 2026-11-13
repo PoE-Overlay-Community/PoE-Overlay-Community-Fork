@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing'
+import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing'
 import { TranslateFakeLoader, TranslateLoader, TranslateModule } from '@ngx-translate/core'
 import { SharedModule } from '@shared/shared.module'
 import { CommandSettingsComponent } from './command-settings.component'
@@ -7,7 +7,7 @@ describe('CommandSettingsComponent', () => {
   let component: CommandSettingsComponent
   let fixture: ComponentFixture<CommandSettingsComponent>
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [
         SharedModule,

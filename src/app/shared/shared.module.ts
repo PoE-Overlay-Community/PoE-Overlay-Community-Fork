@@ -1,6 +1,6 @@
 import { DragDropModule } from '@angular/cdk/drag-drop'
 import { CommonModule } from '@angular/common'
-import { HttpClientModule } from '@angular/common/http'
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http'
 import { NgModule } from '@angular/core'
 import { FormsModule } from '@angular/forms'
 import { BrowserModule } from '@angular/platform-browser'
@@ -16,7 +16,6 @@ import { PoeModule } from './module/poe/poe.module'
     // default
     CommonModule,
     RouterModule,
-    HttpClientModule,
     BrowserModule,
     BrowserAnimationsModule,
     DragDropModule,
@@ -30,5 +29,6 @@ import { PoeModule } from './module/poe/poe.module'
     MaterialModule,
     PoeModule,
   ],
+  providers: [provideHttpClient(withInterceptorsFromDi())],
 })
 export class SharedModule {}

@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing'
+import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing'
 import { ElectronProvider } from '@app/provider'
 import { TranslateFakeLoader, TranslateLoader, TranslateModule } from '@ngx-translate/core'
 import { SharedModule } from '@shared/shared.module'
@@ -14,7 +14,7 @@ describe('EvaluateSettingsComponent', () => {
   let component: EvaluateSettingsComponent
   let fixture: ComponentFixture<EvaluateSettingsComponent>
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [EvaluateSettingsComponent],
       imports: [

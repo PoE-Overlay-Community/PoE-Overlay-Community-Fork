@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing'
+import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing'
 import { SharedModule } from '@shared/shared.module'
 import { EvaluateSearchChartComponent } from './evaluate-search-chart.component'
 
@@ -6,7 +6,7 @@ describe('EvaluateSearchChartComponent', () => {
   let component: EvaluateSearchChartComponent
   let fixture: ComponentFixture<EvaluateSearchChartComponent>
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [SharedModule],
       declarations: [EvaluateSearchChartComponent],

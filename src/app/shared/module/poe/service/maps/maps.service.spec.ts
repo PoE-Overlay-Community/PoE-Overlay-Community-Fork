@@ -1,10 +1,10 @@
-import { async, TestBed } from '@angular/core/testing'
+import { waitForAsync, TestBed } from '@angular/core/testing'
 import { SharedModule } from '@shared/shared.module'
 import { MapsService } from './maps.service'
 
 describe('MapsService', () => {
   let sut: MapsService
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [SharedModule],
     }).compileComponents()

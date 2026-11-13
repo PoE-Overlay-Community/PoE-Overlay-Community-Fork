@@ -1,10 +1,10 @@
-import { async, TestBed } from '@angular/core/testing'
+import { waitForAsync, TestBed } from '@angular/core/testing'
 import { SharedModule } from '@shared/shared.module'
 import { ModsService } from './mods.service'
 
 // describe('ModsService', () => {
 //     let sut: ModsService;
-//     beforeEach(async(() => {
+//     beforeEach(waitForAsync(() => {
 //         TestBed.configureTestingModule({
 //             imports: [
 //                 SharedModule

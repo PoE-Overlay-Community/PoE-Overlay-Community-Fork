@@ -1,11 +1,11 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing'
+import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing'
 import { ItemFrameValueGroupComponent } from './item-frame-value-group.component'
 
 describe('ItemFrameValueGroupComponent', () => {
   let component: ItemFrameValueGroupComponent
   let fixture: ComponentFixture<ItemFrameValueGroupComponent>
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ItemFrameValueGroupComponent],
     }).compileComponents()

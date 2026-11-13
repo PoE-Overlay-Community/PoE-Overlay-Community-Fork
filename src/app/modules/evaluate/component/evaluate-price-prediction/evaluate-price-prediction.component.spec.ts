@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing'
+import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing'
 import { TranslateFakeLoader, TranslateLoader, TranslateModule } from '@ngx-translate/core'
 import { SharedModule } from '@shared/shared.module'
 import { Subject } from 'rxjs'
@@ -8,7 +8,7 @@ describe('EvaluatePricePredictionComponent', () => {
   let component: EvaluatePricePredictionComponent
   let fixture: ComponentFixture<EvaluatePricePredictionComponent>
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [
         SharedModule,

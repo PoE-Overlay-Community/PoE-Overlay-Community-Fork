@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing'
+import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing'
 import { ContextService } from '@shared/module/poe/service'
 import { Language } from '@shared/module/poe/type'
 import { SharedModule } from '@shared/shared.module'

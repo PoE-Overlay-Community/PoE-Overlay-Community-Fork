@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing'
+import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing'
 import { MAT_DIALOG_DATA } from '@angular/material/dialog'
 import { ElectronProvider } from '@app/provider'
 import { TranslateFakeLoader, TranslateLoader, TranslateModule } from '@ngx-translate/core'
@@ -15,7 +15,7 @@ describe('MapDialogComponent', () => {
   let component: MapDialogComponent
   let fixture: ComponentFixture<MapDialogComponent>
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [MapDialogComponent],
       imports: [

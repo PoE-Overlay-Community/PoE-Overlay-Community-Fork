@@ -10,19 +10,19 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500');
 
 // Custom typography config
-$fontConfig: mat.define-typography-config(
-  $headline-1: mat.define-typography-level(112px, 112px, 300, 'Roboto', -0.0134em),
-  $headline-2: mat.define-typography-level(56px, 56px, 400, 'Roboto', -0.0089em),
-  $headline-3: mat.define-typography-level(45px, 48px, 400, 'Roboto', 0em),
-  $headline-4: mat.define-typography-level(34px, 40px, 400, 'Roboto', 0.0074em),
-  $headline-5: mat.define-typography-level(24px, 32px, 400, 'Roboto', 0em),
-  $headline-6: mat.define-typography-level(20px, 32px, 500, 'Roboto', 0.0075em),
-  $subtitle-1: mat.define-typography-level(16px, 28px, 400, 'Roboto', 0.0094em),
-  $subtitle-2: mat.define-typography-level(15px, 24px, 500, 'Roboto', 0.0067em),
-  $body-1: mat.define-typography-level(14px, 24px, 500, 'Roboto', 0.0179em),
-  $body-2: mat.define-typography-level(14px, 20px, 400, 'Roboto', 0.0179em),
-  $button: mat.define-typography-level(14px, 14px, 500, 'Roboto', 0.0893em),
-  $caption: mat.define-typography-level(12px, 20px, 400, 'Roboto', 0.0333em),
+$fontConfig: mat.m2-define-typography-config(
+  $headline-1: mat.m2-define-typography-level(112px, 112px, 300, 'Roboto', -0.0134em),
+  $headline-2: mat.m2-define-typography-level(56px, 56px, 400, 'Roboto', -0.0089em),
+  $headline-3: mat.m2-define-typography-level(45px, 48px, 400, 'Roboto', 0em),
+  $headline-4: mat.m2-define-typography-level(34px, 40px, 400, 'Roboto', 0.0074em),
+  $headline-5: mat.m2-define-typography-level(24px, 32px, 400, 'Roboto', 0em),
+  $headline-6: mat.m2-define-typography-level(20px, 32px, 500, 'Roboto', 0.0075em),
+  $subtitle-1: mat.m2-define-typography-level(16px, 28px, 400, 'Roboto', 0.0094em),
+  $subtitle-2: mat.m2-define-typography-level(15px, 24px, 500, 'Roboto', 0.0067em),
+  $body-1: mat.m2-define-typography-level(14px, 24px, 500, 'Roboto', 0.0179em),
+  $body-2: mat.m2-define-typography-level(14px, 20px, 400, 'Roboto', 0.0179em),
+  $button: mat.m2-define-typography-level(14px, 14px, 500, 'Roboto', 0.0893em),
+  $caption: mat.m2-define-typography-level(12px, 20px, 400, 'Roboto', 0.0333em),
 );
 
 // Include the common styles for Angular Material
@@ -66,7 +66,7 @@ $mat-primary: (
     A200: white,
     A400: white,
     A700: white,
-  )
+  ),
 );
 
 $mat-warn: (
@@ -99,23 +99,25 @@ $mat-warn: (
     A200: white,
     A400: white,
     A700: white,
-  )
+  ),
 );
 
-$theme-primary: mat.define-palette($mat-primary, 500, 200, 700);
-$theme-accent: mat.define-palette($mat-primary, 500, 200, 700);
-$theme-warn: mat.define-palette($mat-warn, 500, 200, 700);
+$theme-primary: mat.m2-define-palette($mat-primary, 500, 200, 700);
+$theme-accent: mat.m2-define-palette($mat-primary, 500, 200, 700);
+$theme-warn: mat.m2-define-palette($mat-warn, 500, 200, 700);
 
 // Define the dark theme
-$theme: mat.define-dark-theme((
-  color: (
-    primary: $theme-primary,
-    accent: $theme-accent,
-    warn: $theme-warn,
-  ),
-  typography: $fontConfig,
-  density: 0,
-));
+$theme: mat.m2-define-dark-theme(
+  (
+    color: (
+      primary: $theme-primary,
+      accent: $theme-accent,
+      warn: $theme-warn,
+    ),
+    typography: $fontConfig,
+    density: 0,
+  )
+);
 
 // Include theme styles
 @include mat.all-component-themes($theme);

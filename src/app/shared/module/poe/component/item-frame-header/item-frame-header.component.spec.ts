@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing'
+import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing'
 import { SharedModule } from '@shared/shared.module'
 import { Language } from '../../type'
 import { ItemFrameHeaderComponent } from './item-frame-header.component'
@@ -7,7 +7,7 @@ describe('ItemFrameHeaderComponent', () => {
   let component: ItemFrameHeaderComponent
   let fixture: ComponentFixture<ItemFrameHeaderComponent>
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [SharedModule],
     }).compileComponents()

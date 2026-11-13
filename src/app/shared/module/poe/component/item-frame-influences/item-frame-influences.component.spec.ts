@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing'
+import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing'
 import { SharedModule } from '@shared/shared.module'
 import { Language } from '../../type'
 import { ItemFrameInfluencesComponent } from './item-frame-influences.component'
@@ -7,7 +7,7 @@ describe('ItemFrameInfluencesComponent', () => {
   let component: ItemFrameInfluencesComponent
   let fixture: ComponentFixture<ItemFrameInfluencesComponent>
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [SharedModule],
     }).compileComponents()

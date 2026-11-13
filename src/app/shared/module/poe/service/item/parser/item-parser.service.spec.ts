@@ -1,4 +1,4 @@
-import { async, TestBed } from '@angular/core/testing'
+import { waitForAsync, TestBed } from '@angular/core/testing'
 import { Language } from '@shared/module/poe/type'
 import { SharedModule } from '@shared/shared.module'
 import { ContextService } from '../../context.service'

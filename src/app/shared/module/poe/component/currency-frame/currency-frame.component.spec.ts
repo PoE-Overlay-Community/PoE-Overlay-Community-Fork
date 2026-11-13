@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing'
+import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing'
 
 import { CurrencyFrameComponent } from './currency-frame.component'
 
@@ -6,7 +6,7 @@ describe('CurrencyFrameComponent', () => {
   let component: CurrencyFrameComponent
   let fixture: ComponentFixture<CurrencyFrameComponent>
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [CurrencyFrameComponent],
     }).compileComponents()

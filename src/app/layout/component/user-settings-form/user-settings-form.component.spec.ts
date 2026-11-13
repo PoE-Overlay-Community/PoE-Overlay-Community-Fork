@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing'
+import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing'
 import { ElectronProvider } from '@app/provider'
 import { MockElectronProvider } from '@app/testing'
 import { TranslateFakeLoader, TranslateLoader, TranslateModule } from '@ngx-translate/core'
@@ -9,7 +9,7 @@ describe('UserSettingsFormComponent', () => {
   let component: UserSettingsFormComponent
   let fixture: ComponentFixture<UserSettingsFormComponent>
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       imports: [
         SharedModule,
