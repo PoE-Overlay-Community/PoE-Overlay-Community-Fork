@@ -19,8 +19,8 @@ describe('ItemSearchService', () => {
   let baseItemTypesService: BaseItemTypesService
   let tradeServiceSpy: jasmine.SpyObj<PoEHttpService>
 
-  const mockLeagues: any = require('doc/poe/api_trade_data_leagues.json')
-  const mockStatic: any = require('doc/poe/api_trade_data_static.json')
+  const mockLeagues: any = require('../../../../../../../doc/poe/api_trade_data_leagues.json')
+  const mockStatic: any = require('../../../../../../../doc/poe/api_trade_data_static.json')
   const mockSearchResult: TradeSearchResponse = {
     searchType: TradeSearchType.NormalTrade,
     id: 'y35jtR',

@@ -23,7 +23,7 @@
     "ng:lint": "ng lint --fix",
     "ng:serve": "ng serve",
     "ng:test": "cross-env NODE_OPTIONS=--max-old-space-size=16384 ng test",
-    "ng:test:ci": "cross-env NODE_OPTIONS=--max-old-space-size=16384 ng test --karma-config=karma-ci.conf.js",
+    "ng:test:ci": "cross-env NODE_OPTIONS=--max-old-space-size=16384 ng test --karma-config=karma-ci.conf.js --watch=false",
     "postinstall": "npm run electron:deps",
     "start": "cross-env NODE_OPTIONS=--max-old-space-size=16384 npm-run-all -p ng:serve electron:serve"
   },
@@ -40,7 +40,7 @@
   },
   "homepage": "https://github.com/PoE-Overlay-Community/PoE-Overlay-Community-Fork",
   "devDependencies": {
-    "@angular-devkit/build-angular": "~22.2.7",
+    "@angular/build": "~22.2.7",
     "@angular/cli": "~22.2.7",
     "@angular/compiler-cli": "~22.2.6",
     "@angular/language-service": "~22.2.6",

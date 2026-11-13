@@ -5,10 +5,10 @@ import { forkJoin } from 'rxjs'
 
 let cache: CacheService
 
-const mockLeagues: any = require('doc/poe/api_trade_data_leagues.json')
-const mockStaticCurrencyData: any = require('doc/poe/mockCurrenciesCache.json')
-const mockExchangeRates: any = require('doc/poe-ninja/currencyoverviewcache.json')
-const mockItemCategoryDivinationCard: any = require('doc/poe-ninja/itemcategory_card.json')
+const mockLeagues: any = require('../doc/poe/api_trade_data_leagues.json')
+const mockStaticCurrencyData: any = require('../doc/poe/mockCurrenciesCache.json')
+const mockExchangeRates: any = require('../doc/poe-ninja/currencyoverviewcache.json')
+const mockItemCategoryDivinationCard: any = require('../doc/poe-ninja/itemcategory_card.json')
 
 // After the beforeAll above instantiates the TestBed, Angular's own afterEach won't
 // have fired yet before the first test. Reset here so each spec's configureTestingModule works.
