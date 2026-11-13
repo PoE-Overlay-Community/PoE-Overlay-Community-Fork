@@ -25,9 +25,11 @@
             "nsis",
             "portable"
         ],
-        "publisherName": [
-            "SignPath Foundation"
-        ],
+        "signtoolOptions": {
+            "publisherName": [
+                "SignPath Foundation"
+            ]
+        },
         "signAndEditExecutable": true
     },
     "linux": {
