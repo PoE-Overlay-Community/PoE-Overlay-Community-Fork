@@ -11,7 +11,6 @@ import {
   screen,
   session,
   shell,
-  systemPreferences,
   Tray,
   Rectangle,
 } from 'electron'
@@ -26,14 +25,6 @@ import * as robot from './electron/robot'
 import { State } from './electron/state'
 
 if (!app.requestSingleInstanceLock()) {
-  app.exit()
-}
-
-if (process.platform === 'win32' && !systemPreferences.isAeroGlassEnabled()) {
-  dialog.showErrorBox(
-    'Aero is required to run PoE Overlay',
-    'Aero is currently disabled. Please enable Aero and try again.'
-  )
   app.exit()
 }
 
