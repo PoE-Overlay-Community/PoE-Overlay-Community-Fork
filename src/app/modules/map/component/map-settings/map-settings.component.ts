@@ -6,7 +6,7 @@ import { StatsProvider } from '@shared/module/poe/provider/stats.provider'
 import { StatsService } from '@shared/module/poe/service'
 import { StatType } from '@shared/module/poe/type'
 import { BehaviorSubject } from 'rxjs'
-import { UserSettings, UserSettingsComponent } from 'src/app/layout/type'
+import { UserSettings, UserSettingsComponent } from '@layout/type'
 
 export interface MapUserSettings extends UserSettings {
   mapInfoKeybinding: string

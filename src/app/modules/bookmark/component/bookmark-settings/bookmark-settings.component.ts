@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, ElementRef, Input, ViewChild } from '@angular/core'
-import { UserSettings, UserSettingsComponent } from 'src/app/layout/type'
+import { UserSettings, UserSettingsComponent } from '@layout/type'
 
 export interface BookmarkUserSettings extends UserSettings {
   bookmarks: BookmarkUserBookmark[]

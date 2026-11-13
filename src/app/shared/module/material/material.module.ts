@@ -17,7 +17,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar'
 import { MatTabsModule } from '@angular/material/tabs'
 import { MatTooltipModule } from '@angular/material/tooltip'
 import { TranslateModule } from '@ngx-translate/core'
-import { ColorPickerModule } from 'ngx-color-picker'
+import { ColorPickerDirective } from 'ngx-color-picker'
 import { AcceleratorComponent } from './component/accelerator/accelerator.component'
 import { CardComponent } from './component/card/card.component'
 import { SelectListComponent } from './component/select-list/select-list.component'
@@ -47,7 +47,7 @@ import { ResizeDragDirective } from './directive/resize-drag.directive'
 
     // third party
     TranslateModule,
-    ColorPickerModule,
+    ColorPickerDirective,
   ],
   exports: [
     CommonModule,
@@ -68,7 +68,7 @@ import { ResizeDragDirective } from './directive/resize-drag.directive'
     MatProgressBarModule,
     MatTooltipModule,
     // thirt party
-    ColorPickerModule,
+    ColorPickerDirective,
     // custom
     AcceleratorComponent,
     SelectListComponent,

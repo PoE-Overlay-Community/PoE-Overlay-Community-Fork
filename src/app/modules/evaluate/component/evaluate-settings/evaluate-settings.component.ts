@@ -10,7 +10,7 @@ import { CurrencyService } from '@shared/module/poe/service/currency/currency.se
 import { Currency, Language, StatType } from '@shared/module/poe/type'
 import { ItemSearchIndexed, ItemSearchStatus } from '@shared/module/poe/type/search.type'
 import { BehaviorSubject } from 'rxjs'
-import { UserSettings, UserSettingsComponent } from 'src/app/layout/type'
+import { UserSettings, UserSettingsComponent } from '@layout/type'
 
 export enum EvaluateResultView {
   Graph = 1,

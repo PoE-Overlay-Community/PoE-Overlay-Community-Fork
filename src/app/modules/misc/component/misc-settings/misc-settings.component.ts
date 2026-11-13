@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core'
-import { UserSettings, UserSettingsComponent } from 'src/app/layout/type'
+import { UserSettings, UserSettingsComponent } from '@layout/type'
 import { EnumValues } from '@app/class'
 
 export enum MiscStashNavigation {

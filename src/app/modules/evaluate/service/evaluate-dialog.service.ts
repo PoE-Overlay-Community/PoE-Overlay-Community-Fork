@@ -4,7 +4,7 @@ import { Point } from '@app/type'
 import { StatsService } from '@shared/module/poe/service'
 import { Item, ItemCategory, Language, StatType } from '@shared/module/poe/type'
 import { Observable } from 'rxjs'
-import { DialogSpawnPosition } from 'src/app/layout/type'
+import { DialogSpawnPosition } from '@layout/type'
 import {
   EvaluateDialogComponent,
   EvaluateDialogData,

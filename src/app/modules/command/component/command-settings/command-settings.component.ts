@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core'
-import { UserSettings, UserSettingsComponent } from 'src/app/layout/type'
+import { UserSettings, UserSettingsComponent } from '@layout/type'
 
 export interface CommandUserSettings extends UserSettings {
   commands: CommandUserCommand[]

@@ -1,4 +1,4 @@
-import { UserSettings, UserSettingsFeature } from 'src/app/layout/type'
+import { UserSettings, UserSettingsFeature } from '@layout/type'
 
 export interface Feature {
   name: string

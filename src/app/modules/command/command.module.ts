@@ -2,7 +2,7 @@ import { NgModule, Injectable } from '@angular/core'
 import { FEATURE_MODULES } from '@app/token'
 import { Feature, FeatureModule } from '@app/type'
 import { SharedModule } from '@shared/shared.module'
-import { UserSettings, UserSettingsFeature } from 'src/app/layout/type'
+import { UserSettings, UserSettingsFeature } from '@layout/type'
 import { CommandSettingsComponent, CommandUserSettings } from './component'
 import { CommandService } from './service/command.service'
 

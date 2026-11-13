@@ -1,7 +1,6 @@
 import {
   ChangeDetectionStrategy,
   Component,
-  ComponentFactoryResolver,
   ComponentRef,
   Input,
   OnDestroy,
@@ -33,19 +32,15 @@ export class UserSettingsFeatureContainerComponent implements OnInit, OnDestroy 
     return this.componentRef ? this.componentRef.instance : null
   }
 
-  constructor(
-    private readonly viewContainerRef: ViewContainerRef,
-    private readonly componentFactoryResolver: ComponentFactoryResolver
-  ) {}
+  constructor(private readonly viewContainerRef: ViewContainerRef) {}
 
   public ngOnInit(): void {
     if (!this.component) {
       return
     }
 
-    const factory = this.componentFactoryResolver.resolveComponentFactory(this.component)
     this.viewContainerRef.clear()
-    this.componentRef = this.viewContainerRef.createComponent(factory)
+    this.componentRef = this.viewContainerRef.createComponent(this.component)
     this.instance.settings = this.settings
     this.instance.defaultSettings = this.defaultSettings
     this.instance.load()

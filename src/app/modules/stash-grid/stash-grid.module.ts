@@ -4,7 +4,7 @@ import { FEATURE_MODULES } from '@app/token'
 import { Feature, FeatureModule } from '@app/type'
 import { StashGridUserSettings } from '@shared/module/poe/type/stash-grid.type'
 import { SharedModule } from '@shared/shared.module'
-import { UserSettingsFeature } from 'src/app/layout/type'
+import { UserSettingsFeature } from '@layout/type'
 import { StashGridSettingsComponent } from './component/stash-grid-settings/stash-grid-settings.component'
 import { StashGridComponent } from './component/stash-grid/stash-grid.component'
 

@@ -3,7 +3,7 @@ import { DialogService } from '@app/service/dialog'
 import { Point } from '@app/type'
 import { Item } from '@shared/module/poe/type'
 import { Observable } from 'rxjs'
-import { DialogSpawnPosition } from 'src/app/layout/type'
+import { DialogSpawnPosition } from '@layout/type'
 import { MapDialogComponent, MapDialogData } from '../component/map-dialog/map-dialog.component'
 import { MapUserSettings } from '../component/map-settings/map-settings.component'
 
