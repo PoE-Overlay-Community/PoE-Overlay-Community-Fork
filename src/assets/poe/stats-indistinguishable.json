@@ -12,7 +12,14 @@
 		"implicit": {},
 		"imbued": {},
 		"fractured": {},
-		"enchant": {},
+		"enchant": {
+			"delirium_reward_scarabs": [
+				"delirium_reward_fragments"
+			],
+			"delirium_reward_fragments": [
+				"delirium_reward_scarabs"
+			]
+		},
 		"scourge": {},
 		"crafted": {},
 		"mercenary": {},
@@ -30,12 +37,6 @@
 			"mod_19393": [
 				"mod_24366",
 				"mod_47557"
-			],
-			"mod_36288": [
-				"mod_28083"
-			],
-			"mod_28083": [
-				"mod_36288"
 			]
 		}
 	}

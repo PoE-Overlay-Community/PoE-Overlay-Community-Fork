@@ -9,14 +9,14 @@
 				"showIfEmpty": true
 			},
 			"CurrencyIdentification": {
-				"xOffset": 113,
+				"xOffset": 155,
 				"yOffset": 79,
 				"width": 1,
 				"height": 1,
 				"showIfEmpty": true
 			},
 			"CurrencyRerollRare": {
-				"xOffset": 760,
+				"xOffset": 676,
 				"yOffset": 179,
 				"width": 1,
 				"height": 1,
@@ -31,76 +31,76 @@
 			},
 			"CurrencyDuplicate": {
 				"xOffset": 478,
-				"yOffset": 179,
+				"yOffset": 95,
 				"width": 1,
 				"height": 1,
 				"showIfEmpty": true
 			},
 			"CurrencyUpgradeToRare": {
-				"xOffset": 676,
+				"xOffset": 591,
 				"yOffset": 179,
 				"width": 1,
 				"height": 1,
 				"showIfEmpty": true
 			},
 			"CurrencyUpgradeRandomly": {
-				"xOffset": 282,
-				"yOffset": 179,
-				"width": 1,
-				"height": 1,
-				"showIfEmpty": true
-			},
-			"CurrencyPassiveRefund": {
-				"xOffset": 591,
+				"xOffset": 240,
 				"yOffset": 450,
 				"width": 1,
 				"height": 1,
 				"showIfEmpty": true
 			},
+			"CurrencyPassiveRefund": {
+				"xOffset": 713,
+				"yOffset": 366,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
 			"CurrencyUpgradeToMagic": {
-				"xOffset": 27,
+				"xOffset": 70,
 				"yOffset": 179,
 				"width": 1,
 				"height": 1,
 				"showIfEmpty": true
 			},
 			"CurrencyRerollMagic": {
-				"xOffset": 112,
+				"xOffset": 155,
 				"yOffset": 179,
 				"width": 1,
 				"height": 1,
 				"showIfEmpty": true
 			},
 			"CurrencyConvertToNormal": {
-				"xOffset": 591,
+				"xOffset": 628,
 				"yOffset": 366,
 				"width": 1,
 				"height": 1,
 				"showIfEmpty": true
 			},
 			"CurrencyAddModToRare": {
-				"xOffset": 393,
-				"yOffset": 180,
-				"width": 1,
-				"height": 1,
-				"showIfEmpty": true
-			},
-			"CurrencyUpgradeMagicToRare": {
-				"xOffset": 591,
-				"yOffset": 179,
-				"width": 1,
-				"height": 1,
-				"showIfEmpty": true
-			},
-			"CurrencyAddModToMagic": {
-				"xOffset": 282,
+				"xOffset": 478,
 				"yOffset": 265,
 				"width": 1,
 				"height": 1,
 				"showIfEmpty": true
 			},
+			"CurrencyUpgradeMagicToRare": {
+				"xOffset": 240,
+				"yOffset": 265,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyAddModToMagic": {
+				"xOffset": 240,
+				"yOffset": 179,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
 			"CurrencyPortal": {
-				"xOffset": 197,
+				"xOffset": 240,
 				"yOffset": 78,
 				"width": 1,
 				"height": 1,
@@ -121,71 +121,71 @@
 				"showIfEmpty": true
 			},
 			"CurrencyRerollSocketColours": {
-				"xOffset": 281,
-				"yOffset": 366,
-				"width": 1,
-				"height": 1,
-				"showIfEmpty": true
-			},
-			"CurrencyRerollSocketLinks": {
-				"xOffset": 196,
-				"yOffset": 366,
-				"width": 1,
-				"height": 1,
-				"showIfEmpty": true
-			},
-			"CurrencyRerollSocketNumbers": {
-				"xOffset": 113,
-				"yOffset": 366,
-				"width": 1,
-				"height": 1,
-				"showIfEmpty": true
-			},
-			"CurrencyModValues": {
 				"xOffset": 845,
 				"yOffset": 265,
 				"width": 1,
 				"height": 1,
 				"showIfEmpty": true
 			},
+			"CurrencyRerollSocketLinks": {
+				"xOffset": 760,
+				"yOffset": 265,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyRerollSocketNumbers": {
+				"xOffset": 676,
+				"yOffset": 265,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyModValues": {
+				"xOffset": 393,
+				"yOffset": 180,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
 			"CurrencyRerollImplicit": {
-				"xOffset": 845,
+				"xOffset": 760,
 				"yOffset": 179,
 				"width": 1,
 				"height": 1,
 				"showIfEmpty": true
 			},
 			"CurrencyIdentificationShard": {
-				"xOffset": 28,
+				"xOffset": 70,
 				"yOffset": 78,
 				"width": 1,
 				"height": 1,
 				"showIfEmpty": true
 			},
 			"CurrencyUpgradeToMagicShard": {
-				"xOffset": 28,
+				"xOffset": 70,
 				"yOffset": 265,
 				"width": 1,
 				"height": 1,
 				"showIfEmpty": true
 			},
 			"CurrencyRerollMagicShard": {
-				"xOffset": 113,
+				"xOffset": 155,
 				"yOffset": 265,
 				"width": 1,
 				"height": 1,
 				"showIfEmpty": true
 			},
 			"CurrencyUpgradeToRareShard": {
-				"xOffset": 675,
+				"xOffset": 591,
 				"yOffset": 265,
 				"width": 1,
 				"height": 1,
 				"showIfEmpty": true
 			},
 			"CurrencyCorrupt": {
-				"xOffset": 845,
-				"yOffset": 366,
+				"xOffset": 713,
+				"yOffset": 451,
 				"width": 1,
 				"height": 1,
 				"showIfEmpty": true
@@ -212,60 +212,60 @@
 				"showIfEmpty": false
 			},
 			"CurrencyRerollRareShard": {
-				"xOffset": 760,
-				"yOffset": 265,
+				"xOffset": 761,
+				"yOffset": 860,
 				"width": 1,
 				"height": 1,
-				"showIfEmpty": true
+				"showIfEmpty": false
 			},
 			"CurrencyDuplicateShard": {
 				"xOffset": 478,
-				"yOffset": 265,
+				"yOffset": 179,
 				"width": 1,
 				"height": 1,
 				"showIfEmpty": true
 			},
 			"CurrencyAddModToRareShard": {
-				"xOffset": 393,
-				"yOffset": 264,
+				"xOffset": 676,
+				"yOffset": 860,
 				"width": 1,
 				"height": 1,
-				"showIfEmpty": true
+				"showIfEmpty": false
 			},
 			"CurrencyUpgradeMagicToRareShard": {
-				"xOffset": 591,
-				"yOffset": 265,
+				"xOffset": 846,
+				"yOffset": 860,
 				"width": 1,
 				"height": 1,
-				"showIfEmpty": true
+				"showIfEmpty": false
 			},
 			"CurrencyRemoveModShard": {
-				"xOffset": 196,
-				"yOffset": 265,
+				"xOffset": 181,
+				"yOffset": 860,
 				"width": 1,
 				"height": 1,
-				"showIfEmpty": true
+				"showIfEmpty": false
 			},
 			"CurrencyRemoveMod": {
-				"xOffset": 197,
-				"yOffset": 180,
+				"xOffset": 393,
+				"yOffset": 265,
 				"width": 1,
 				"height": 1,
 				"showIfEmpty": true
 			},
 			"CurrencyRerollUnique": {
-				"xOffset": 111,
+				"xOffset": 155,
 				"yOffset": 450,
 				"width": 1,
 				"height": 1,
 				"showIfEmpty": true
 			},
 			"CurrencyUpgradeToRareAndSetSockets": {
-				"xOffset": 196,
-				"yOffset": 450,
+				"xOffset": 96,
+				"yOffset": 860,
 				"width": 1,
 				"height": 1,
-				"showIfEmpty": true
+				"showIfEmpty": false
 			},
 			"CurrencyRerollUniqueShard": {
 				"xOffset": 0,
@@ -282,8 +282,8 @@
 				"showIfEmpty": false
 			},
 			"CurrencyAtlasPassiveRefund": {
-				"xOffset": 676,
-				"yOffset": 450,
+				"xOffset": 797,
+				"yOffset": 366,
 				"width": 1,
 				"height": 1,
 				"showIfEmpty": true
@@ -296,64 +296,50 @@
 				"showIfEmpty": false
 			},
 			"CurrencyEnkindlingOrb": {
-				"xOffset": 393,
-				"yOffset": 78,
-				"width": 1,
-				"height": 1,
-				"showIfEmpty": true
-			},
-			"CurrencyInstillingOrb": {
-				"xOffset": 478,
-				"yOffset": 78,
-				"width": 1,
-				"height": 1,
-				"showIfEmpty": true
-			},
-			"CurrencyRerollRareVeiled": {
-				"xOffset": 760,
-				"yOffset": 450,
-				"width": 1,
-				"height": 1,
-				"showIfEmpty": true
-			},
-			"CurrencyRerollDefences": {
-				"xOffset": 676,
+				"xOffset": 240,
 				"yOffset": 366,
 				"width": 1,
 				"height": 1,
 				"showIfEmpty": true
 			},
+			"CurrencyInstillingOrb": {
+				"xOffset": 155,
+				"yOffset": 366,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyRerollDefences": {
+				"xOffset": 845,
+				"yOffset": 179,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
 			"CurrencyFractureRare": {
-				"xOffset": 27,
+				"xOffset": 70,
 				"yOffset": 366,
 				"width": 1,
 				"height": 1,
 				"showIfEmpty": true
 			},
 			"CurrencyFractureRareShard": {
-				"xOffset": 27,
+				"xOffset": 70,
 				"yOffset": 450,
 				"width": 1,
 				"height": 1,
 				"showIfEmpty": true
 			},
 			"CurrencyHinekorasLock": {
-				"xOffset": 281,
-				"yOffset": 450,
+				"xOffset": 393,
+				"yOffset": 95,
 				"width": 1,
 				"height": 1,
 				"showIfEmpty": true
 			},
 			"DivinationCardDeck": {
-				"xOffset": 761,
-				"yOffset": 366,
-				"width": 1,
-				"height": 1,
-				"showIfEmpty": true
-			},
-			"CurrencyRerollRareVeiledChaos": {
-				"xOffset": 845,
-				"yOffset": 450,
+				"xOffset": 628,
+				"yOffset": 451,
 				"width": 1,
 				"height": 1,
 				"showIfEmpty": true
@@ -364,6 +350,13 @@
 				"width": 1,
 				"height": 1,
 				"showIfEmpty": false
+			},
+			"ReflectiveMist": {
+				"xOffset": 797,
+				"yOffset": 451,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
 			}
 		},
 		"currency-exotic": {
@@ -375,7 +368,7 @@
 				"showIfEmpty": false
 			},
 			"CurrencyRerollMapType": {
-				"xOffset": 266,
+				"xOffset": 522,
 				"yOffset": 860,
 				"width": 1,
 				"height": 1,
@@ -564,7 +557,7 @@
 				"showIfEmpty": true
 			},
 			"CurrencyMapQualityCurrency": {
-				"xOffset": 436,
+				"xOffset": 478,
 				"yOffset": 248,
 				"width": 1,
 				"height": 1,
@@ -634,71 +627,99 @@
 				"showIfEmpty": true
 			},
 			"AstrolabeGeneric": {
-				"xOffset": 146,
-				"yOffset": 248,
+				"xOffset": 181,
+				"yOffset": 860,
 				"width": 1,
 				"height": 1,
-				"showIfEmpty": true
+				"showIfEmpty": false
 			},
 			"AstrolabeHarvest": {
-				"xOffset": 239,
-				"yOffset": 418,
+				"xOffset": 96,
+				"yOffset": 860,
 				"width": 1,
 				"height": 1,
-				"showIfEmpty": true
+				"showIfEmpty": false
 			},
 			"AstrolabeAbyss": {
-				"xOffset": 146,
+				"xOffset": 28,
 				"yOffset": 333,
 				"width": 1,
 				"height": 1,
 				"showIfEmpty": true
 			},
 			"AstrolabeBreach": {
-				"xOffset": 53,
+				"xOffset": 113,
 				"yOffset": 333,
 				"width": 1,
 				"height": 1,
 				"showIfEmpty": true
 			},
 			"AstrolabeRitual": {
-				"xOffset": 53,
-				"yOffset": 503,
-				"width": 1,
-				"height": 1,
-				"showIfEmpty": true
-			},
-			"AstrolabeBlight": {
-				"xOffset": 53,
-				"yOffset": 418,
-				"width": 1,
-				"height": 1,
-				"showIfEmpty": true
-			},
-			"AstrolabeUltimatum": {
-				"xOffset": 146,
-				"yOffset": 503,
-				"width": 1,
-				"height": 1,
-				"showIfEmpty": true
-			},
-			"AstrolabeDelirium": {
-				"xOffset": 146,
-				"yOffset": 418,
-				"width": 1,
-				"height": 1,
-				"showIfEmpty": true
-			},
-			"AstrolabeLegion": {
-				"xOffset": 239,
+				"xOffset": 198,
 				"yOffset": 333,
 				"width": 1,
 				"height": 1,
 				"showIfEmpty": true
 			},
+			"AstrolabeBlight": {
+				"xOffset": 283,
+				"yOffset": 333,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"AstrolabeUltimatum": {
+				"xOffset": 28,
+				"yOffset": 418,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"AstrolabeDelirium": {
+				"xOffset": 266,
+				"yOffset": 860,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"AstrolabeLegion": {
+				"xOffset": 113,
+				"yOffset": 418,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
 			"AstrolabeExpedition": {
-				"xOffset": 239,
+				"xOffset": 198,
+				"yOffset": 418,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"AstrolabeBetrayal": {
+				"xOffset": 283,
+				"yOffset": 418,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"AstrolabeBestiary": {
+				"xOffset": 113,
 				"yOffset": 503,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"AstrolabeIncursion": {
+				"xOffset": 198,
+				"yOffset": 503,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyFragmentPantheonFlask": {
+				"xOffset": 393,
+				"yOffset": 248,
 				"width": 1,
 				"height": 1,
 				"showIfEmpty": true
@@ -1432,6 +1453,20 @@
 				"width": 1,
 				"height": 1,
 				"showIfEmpty": true
+			},
+			"CurrencyEssenceFaridun1": {
+				"xOffset": 760,
+				"yOffset": 693,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyEssenceUber1": {
+				"xOffset": 760,
+				"yOffset": 765,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
 			}
 		},
 		"fragment-general": {
@@ -1914,6 +1949,13 @@
 			"CurrencyBrequelBossKey": {
 				"xOffset": 725,
 				"yOffset": 456,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyFaridunBossKey": {
+				"xOffset": 147,
+				"yOffset": 553,
 				"width": 1,
 				"height": 1,
 				"showIfEmpty": true
@@ -3943,6 +3985,20 @@
 				"width": 1,
 				"height": 1,
 				"showIfEmpty": true
+			},
+			"CurrencyJewelleryQualityPrefix": {
+				"xOffset": 334,
+				"yOffset": 52,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
+			},
+			"CurrencyJewelleryQualitySuffix": {
+				"xOffset": 532,
+				"yOffset": 52,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": true
 			}
 		},
 		"delirium": {
@@ -4045,15 +4101,15 @@
 				"showIfEmpty": true
 			},
 			"CurrencyAfflictionOrbFragments": {
-				"xOffset": 806,
-				"yOffset": 246,
-				"width": 1,
-				"height": 1,
-				"showIfEmpty": true
-			},
-			"CurrencyAfflictionOrbScarabs": {
 				"xOffset": 705,
 				"yOffset": 143,
+				"width": 1,
+				"height": 1,
+				"showIfEmpty": false
+			},
+			"CurrencyAfflictionOrbScarabs": {
+				"xOffset": 806,
+				"yOffset": 246,
 				"width": 1,
 				"height": 1,
 				"showIfEmpty": true
