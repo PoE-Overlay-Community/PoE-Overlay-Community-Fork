@@ -125,7 +125,11 @@ export enum ItemCategory {
   Graft = "graft",
   Wombgift = "wombgift",
   Enshrouded = "enshrouded",
-  Chart = "chart",
+  Viscera = "viscera",
+  VisceraHead = "viscera.head",
+  VisceraArm = "viscera.arm",
+  VisceraBody = "viscera.body",
+  VisceraLeg = "viscera.leg",
   Currency = 'currency',
   CurrencyPiece = 'currency.piece',
   CurrencyResonator = 'currency.resonator',
@@ -146,6 +150,7 @@ export enum ItemCategory {
   CurrencySeedBooster = 'currency.seedbooster',
   Watchstone = 'watchstone',
   Prophecy = 'prophecy',
+  Chart = "chart",
 }
 
 // aka 'Mod Generation Type'

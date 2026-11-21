@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.9.1 (2026-11-21)-
+- Added support for Viscera item types (3.30 Covens League)
+
 ## 0.9.0 (2026-09-01)
 - Updated the PoE Assets using PoE Asset Updater (commit 0a1ea4e) and PoE Client v3.29.3
 
