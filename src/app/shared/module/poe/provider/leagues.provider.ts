@@ -21,7 +21,20 @@ export class LeaguesProvider {
   }
 
   private fetch(language: Language): Observable<League[]> {
-    return forkJoin([
+    return this.poeHttpService.getLeagues(language).pipe(map((response) => {
+      const leagues = response.result
+      return leagues.filter(league => league.realm === "pc").map(league => {
+        const result: League = {
+          id: league.id,
+          text: league.text,
+          privateLeague: leagues.findIndex((l) => l.id === league.id) === -1
+        }
+        return result
+      })
+    }))
+
+    // Disabled private leagues retrieval since cloudflare blocks the tradepage lookup.
+    /*return forkJoin([
       this.poeHttpService.getLeagues(language),
       this.poeHttpService.getTradePageLeagues(language).pipe(
         catchError(error => {
@@ -44,6 +57,6 @@ export class LeaguesProvider {
         }
         return result
       })
-    }))
+    }))*/
   }
 }
