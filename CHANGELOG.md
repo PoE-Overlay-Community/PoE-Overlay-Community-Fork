@@ -1,6 +1,9 @@
 # Changelog
 
-## 0.9.1 (2026-11-21)-
+## 0.9.2 (2026-11-27)
+- Removed private league ID retrieval due to Cloudflare blocking access to the trade page
+
+## 0.9.1 (2026-11-21)
 - Added support for Viscera item types (3.30 Covens League)
 - Updated the PoE Assets using PoE Asset Updater (commit 6e719b6) and PoE Client v3.30.0d
 
